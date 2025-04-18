@@ -203,3 +203,42 @@ document.addEventListener('DOMContentLoaded', function() {
     // Para asegurar que los elementos que ya están en vista se animen
     setTimeout(checkVisibility, 100);
 });
+
+// JavaScript para la funcionalidad del FAQ
+document.addEventListener('DOMContentLoaded', function() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Cerrar otros items que estén abiertos
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle el item actual
+            item.classList.toggle('active');
+        });
+    });
+    
+    // Añadir el efecto fade-in para los elementos
+    const observerOptions = {
+        threshold: 0.25
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    document.querySelectorAll('.fade-in').forEach(item => {
+        observer.observe(item);
+    });
+});
