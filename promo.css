@@ -1,0 +1,158 @@
+/* Estilos para la barra de navegación promocional */
+:root {
+    --primary-dark: #121212;
+    --secondary-dark: #1e1e1e;
+    --accent: #8a5cf7;
+    --text-primary: #fff;
+    --text-secondary: #aaa;
+    --accent-highlight: #9d75f8;
+    --accent-transparent: rgba(138, 92, 247, 0.1);
+}
+
+.promo-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--secondary-dark);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease-in-out;
+}
+
+.promo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    position: relative;
+}
+
+.promo-message {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+}
+
+.promo-message p {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.discount-badge {
+    background: var(--accent);
+    color: var(--text-primary);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.85rem;
+    display: inline-block;
+    animation: pulse 2s infinite;
+}
+
+.promo-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.promo-btn {
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.primary-btn {
+    background-color: var(--accent);
+    color: var(--text-primary);
+}
+
+.primary-btn:hover {
+    background-color: var(--accent-highlight);
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--accent);
+}
+
+.secondary-btn:hover {
+    background-color: var(--accent-transparent);
+    transform: translateY(-2px);
+}
+
+.close-promo {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 0 0 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s;
+}
+
+.close-promo:hover {
+    color: var(--text-primary);
+}
+
+.promo-hidden {
+    transform: translateY(-100%);
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(138, 92, 247, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(138, 92, 247, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(138, 92, 247, 0);
+    }
+}
+
+/* Responsividad */
+@media (max-width: 992px) {
+    .promo-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 15px;
+    }
+    
+    .promo-message {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+    
+    .close-promo {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 576px) {
+    .promo-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .promo-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
