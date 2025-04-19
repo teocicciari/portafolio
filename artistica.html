@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveller's Haven Hostel</title>
+    <style>
+        :root {
+            /* Variables Globales de Color */
+            --color-primary: #4D7C8A;
+            --color-secondary: #F28F3B;
+            --color-accent: #C8553D;
+            --color-light: #F9F5F0;
+            --color-dark: #2D3047;
+            
+            /* Variables Globales de Tipografía */
+            --font-heading: 'Montserrat', sans-serif;
+            --font-body: 'Raleway', sans-serif;
+            --font-accent: 'Caveat', cursive;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(rgba(45, 48, 71, 0.8), rgba(45, 48, 71, 0.8)), url('/api/placeholder/1600/800') no-repeat center center;
+            background-size: cover;
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+        
+        .nav-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: var(--font-accent);
+            font-size: 2rem;
+            color: var(--color-light);
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 2rem;
+        }
+        
+        nav ul li a {
+            color: var(--color-light);
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 0.25rem;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--color-secondary);
+            transition: all 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        .hero-content h1 {
+            font-family: var(--font-heading);
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+        
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .hero-content .tagline {
+            font-family: var(--font-accent);
+            font-size: 2rem;
+            color: var(--color-secondary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--color-secondary);
+            color: white;
+            text-decoration: none;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: 2px solid var(--color-secondary);
+        }
+        
+        .btn:hover {
+            background-color: transparent;
+            color: var(--color-secondary);
+        }
+        
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) translateX(-50%);
+            }
+            40% {
+                transform: translateY(-20px) translateX(-50%);
+            }
+            60% {
+                transform: translateY(-10px) translateX(-50%);
+            }
+        }
+        
+        .scroll-down svg {
+            width: 2rem;
+            height: 2rem;
+            fill: var(--color-light);
+        }
+        
+        .features {
+            padding: 5rem 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card svg {
+            width: 4rem;
+            height: 4rem;
+            fill: var(--color-accent);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card h3 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+        
+        .feature-card p {
+            color: #666;
+        }
+        
+        .rooms {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 3px;
+            background-color: var(--color-secondary);
+            bottom: -10px;
+            left: 25%;
+        }
+        
+        .rooms-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .room-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .room-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .room-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .room-content {
+            padding: 1.5rem;
+        }
+        
+        .room-content h3 {
+            font-family: var(--font-heading);
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+        
+        .room-price {
+            font-family: var(--font-accent);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .testimonials {
+            padding: 5rem 2rem;
+            text-align: center;
+            background-color: var(--color-light);
+        }
+        
+        .testimonial-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .testimonial {
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .testimonial:after {
+            content: '\201D';
+            position: absolute;
+            top: -20px;
+            right: 20px;
+            font-size: 4rem;
+            color: var(--color-secondary);
+            font-family: serif;
+            opacity: 0.5;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--color-primary);
+        }
+        
+        .cta {
+            background: linear-gradient(rgba(77, 124, 138, 0.9), rgba(77, 124, 138, 0.9)), url('/api/placeholder/1600/800') no-repeat center center;
+            background-size: cover;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: var(--color-light);
+        }
+        
+        .cta h2 {
+            font-family: var(--font-heading);
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+        }
+        
+        .btn-light {
+            background-color: var(--color-light);
+            color: var(--color-primary);
+            border-color: var(--color-light);
+        }
+        
+        .btn-light:hover {
+            background-color: transparent;
+            color: var(--color-light);
+        }
+        
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            text-align: left;
+        }
+        
+        .footer-section h3 {
+            font-family: var(--font-heading);
+            margin-bottom: 1rem;
+            color: var(--color-secondary);
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 0.5rem;
+            display: block;
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-section a:hover {
+            color: var(--color-secondary);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-icons a {
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--color-secondary);
+            color: white;
+        }
+        
+        .copyright {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Tema alternativo - solo cambia las variables! */
+        .theme-tropical {
+            --color-primary: #118AB2;
+            --color-secondary: #FFD166;
+            --color-accent: #EF476F;
+            --color-light: #F8F9FA;
+            --color-dark: #073B4C;
+        }
+        
+        .theme-forest {
+            --color-primary: #3A7D44;
+            --color-secondary: #F8D046;
+            --color-accent: #A13D2D;
+            --color-light: #F0F7EE;
+            --color-dark: #2C302E;
+        }
+        
+        .theme-urban {
+            --color-primary: #5C6F82;
+            --color-secondary: #F26430;
+            --color-accent: #946FB7;
+            --color-light: #F9F9F9;
+            --color-dark: #231F20;
+        }
+        
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+            }
+            
+            nav ul li {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Montserrat:wght@400;500;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">Traveller's Haven</a>
+            <nav>
+                <ul>
+                    <li><a href="#features">Amenities</a></li>
+                    <li><a href="#rooms">Rooms</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+        <div class="hero-content">
+            <p class="tagline">Explore. Connect. Remember.</p>
+            <h1>TRAVELLER'S HAVEN</h1>
+            <p>A unique hostel experience in the heart of the city, designed for adventurers and storytellers.</p>
+            <a href="#rooms" class="btn">Book Your Stay</a>
+        </div>
+        
+        <div class="scroll-down">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+            </svg>
+        </div>
+    </header>
+    
+    <section id="features" class="features">
+        <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12,6A3,3 0 0,0 9,9A3,3 0 0,0 12,12A3,3 0 0,0 15,9A3,3 0 0,0 12,6M6,8.17A2.5,2.5 0 0,0 3.5,10.67A2.5,2.5 0 0,0 6,13.17C6.88,13.17 7.65,12.71 8.09,12.03C7.42,11.18 7,10.15 7,9C7,8.8 7,8.6 7.04,8.4C6.72,8.25 6.37,8.17 6,8.17M18,8.17C17.63,8.17 17.28,8.25 16.96,8.4C17,8.6 17,8.8 17,9C17,10.15 16.58,11.18 15.91,12.03C16.35,12.71 17.12,13.17 18,13.17A2.5,2.5 0 0,0 20.5,10.67A2.5,2.5 0 0,0 18,8.17M12,14C10,14 6,15 6,17V19H18V17C18,15 14,14 12,14M4.67,14.97C3,15.26 1,16.04 1,17.33V19H4V17C4,16.22 4.29,15.53 4.67,14.97M19.33,14.97C19.71,15.53 20,16.22 20,17V19H23V17.33C23,16.04 21,15.26 19.33,14.97Z" />
+            </svg>
+            <h3>Community Spaces</h3>
+            <p>Connect with fellow travelers in our cozy common areas designed for sharing stories and making memories.</p>
+        </div>
+        
+        <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12,3L2,12H5V20H19V12H22L12,3M12,8.5C14.34,8.5 16.46,9.43 18,10.94L16.8,12.12C15.58,10.91 13.88,10.17 12,10.17C10.12,10.17 8.42,10.91 7.2,12.12L6,10.94C7.54,9.43 9.66,8.5 12,8.5M12,11.83C13.4,11.83 14.67,12.39 15.6,13.3L14.4,14.47C13.79,13.87 12.94,13.5 12,13.5C11.06,13.5 10.21,13.87 9.6,14.47L8.4,13.3C9.33,12.39 10.6,11.83 12,11.83M12,15.17C12.94,15.17 13.7,15.91 13.7,16.83C13.7,17.75 12.94,18.5 12,18.5C11.06,18.5 10.3,17.75 10.3,16.83C10.3,15.91 11.06,15.17 12,15.17Z" />
+            </svg>
+            <h3>Free High-Speed WiFi</h3>
+            <p>Stay connected with our reliable high-speed internet available throughout the property.</p>
+        </div>
+        
+        <div class="feature-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M18,18H6V6H18M18,4H6A2,2 0 0,0 4,6V18A2,2 0 0,0 6,20H18A2,2 0 0,0 20,18V6A2,2 0 0,0 18,4M14,9H9V11H14V9M14,12H9V14H14V12Z" />
+            </svg>
+            <h3>24/7 Security</h3>
+            <p>Feel safe with our round-the-clock security, digital key cards, and individual lockers.</p>
+        </div>
+    </section>
+    
+    <section id="rooms" class="rooms">
+        <h2 class="section-title">Our Rooms</h2>
+        
+        <div class="rooms-container">
+            <div class="room-card">
+                <img class="room-image" src="img/test/room5.jpg" alt="">
+                <div class="room-content">
+                    <h3>Mixed Dorm</h3>
+                    <p>Comfortable 6-bed dorm with individual power outlets, reading lights, and privacy curtains.</p>
+                    <div class="room-price">from $22/night</div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <img class="room-image" src="img/test/room1.jpg" alt="">
+                <div class="room-content">
+                    <h3>Female Dorm</h3>
+                    <p>Specially designed 4-bed female-only dorm with enhanced privacy and amenities.</p>
+                    <div class="room-price">from $25/night</div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+            
+            <div class="room-card">
+                <img class="room-image" src="img/test/room3.jpg" alt="">
+                <div class="room-content">
+                    <h3>Private Room</h3>
+                    <p>Cozy private rooms for 1-2 people with en-suite bathroom and workspace.</p>
+                    <div class="room-price">from $55/night</div>
+                    <a href="#" class="btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials">
+        <h2 class="section-title">What Travellers Say</h2>
+        
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p>"This hostel completely changed my solo travel experience. The community vibe is amazing, and I met people I'm still friends with today!"</p>
+                <div class="testimonial-author">- Maria from Brazil</div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"Incredibly clean facilities, super helpful staff, and the location couldn't be better. Will definitely stay here again on my next visit."</p>
+                <div class="testimonial-author">- James from Australia</div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <h2>Ready for Your Next Adventure?</h2>
+        <p>Book directly with us for the best rates and exclusive perks for your stay!</p>
+        <a href="#" class="btn btn-light">Book Now</a>
+    </section>
+    
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Traveller's Haven</h3>
+                <p>123 Adventure Street</p>
+                <p>Downtown, City 10001</p>
+                <p>contact@travellershaven.com</p>
+                <p>+1 (555) 123-4567</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">Home</a>
+                <a href="#features">Amenities</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#testimonials">Reviews</a>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>Stay updated with our latest offers and events!</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2025 Traveller's Haven Hostel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script para cambiar temas
+        document.addEventListener('DOMContentLoaded', function() {
+            // Esta función se podría activar con botones o selectores para cambiar el tema
+            function changeTheme(themeName) {
+                document.body.className = themeName;
+            }
+            
+            // Para demostración, podemos activar diferentes temas con intervalos
+            // Esto normalmente se activaría con botones o controles de usuario
+            const themes = ['', 'theme-tropical', 'theme-forest', 'theme-urban'];
+            let currentTheme = 0;
+            
+            // Comentado para que no se cambie automáticamente
+            // Pero podrías descomentar esto para ver una demostración
+            /*
+            setInterval(() => {
+                currentTheme = (currentTheme + 1) % themes.length;
+                changeTheme(themes[currentTheme]);
+            }, 5000);
+            */
+        });
+    </script>
+</body>
+</html>

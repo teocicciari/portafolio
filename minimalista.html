@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serenity Hostel - Tu hogar lejos de casa</title>
+    <style>
+        :root {
+            /* Variables globales para colores */
+            --color-primary: #3a7bd5;
+            --color-secondary: #00d2ff;
+            --color-accent: #ff7e5f;
+            --color-text: #333333;
+            --color-light: #f8f9fa;
+            --color-dark: #212529;
+            --color-muted: #6c757d;
+            
+            /* Variables globales para tipografías */
+            --font-primary: 'Montserrat', sans-serif;
+            --font-secondary: 'Raleway', sans-serif;
+            --font-size-small: 0.875rem;
+            --font-size-normal: 1rem;
+            --font-size-medium: 1.25rem;
+            --font-size-large: 1.75rem;
+            --font-size-xlarge: 2.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            color: var(--color-text);
+            line-height: 1.6;
+            background-color: var(--color-light);
+        }
+
+        header {
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-medium);
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: var(--font-size-small);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .hero {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        h1 {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-xlarge);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .tagline {
+            font-size: var(--font-size-medium);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: var(--font-size-normal);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 1rem;
+        }
+
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-large);
+            margin-bottom: 3rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-medium);
+            margin-bottom: 1rem;
+        }
+
+        .feature p {
+            color: var(--color-muted);
+            font-size: var(--font-size-small);
+        }
+
+        .rooms {
+            background-color: var(--color-dark);
+            color: white;
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .room {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+        }
+
+        .room img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .room-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .room:hover .room-info {
+            background: linear-gradient(to top, var(--color-primary), transparent);
+        }
+
+        .room-info h3 {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .room-info p {
+            font-size: var(--font-size-small);
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-weight: 700;
+            font-size: var(--font-size-medium);
+            color: var(--color-accent);
+        }
+
+        .testimonials {
+            background-color: var(--color-light);
+        }
+
+        .testimonial {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: var(--font-size-medium);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+        }
+
+        .testimonial-location {
+            color: var(--color-muted);
+            font-size: var(--font-size-small);
+        }
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(to right, var(--color-primary), var(--color-secondary));
+            color: white;
+            padding: 5rem 2rem;
+        }
+
+        .cta-title {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-large);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-text {
+            font-size: var(--font-size-medium);
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        footer {
+            background-color: var(--color-dark);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .footer-column h3 {
+            font-family: var(--font-secondary);
+            font-size: var(--font-size-normal);
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background-color: var(--color-accent);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: var(--color-muted);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: var(--font-size-small);
+        }
+
+        .footer-links a:hover {
+            color: var(--color-accent);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            color: var(--color-muted);
+            font-size: var(--font-size-small);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Serenity Hostel</a>
+            <ul class="nav-links">
+                <li><a href="#rooms">Habitaciones</a></li>
+                <li><a href="#features">Servicios</a></li>
+                <li><a href="#testimonials">Opiniones</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1>Descubre un nuevo concepto de hospedaje</h1>
+            <p class="tagline">Conecta con viajeros de todo el mundo en un ambiente acogedor y moderno</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">Reservar ahora</a>
+                <a href="#" class="btn btn-secondary">Ver habitaciones</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="section">
+        <h2 class="section-title">Por qué elegirnos</h2>
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-wifi feature-icon"></i>
+                <h3>WiFi Gratuito</h3>
+                <p>Conexión de alta velocidad en todas las áreas del hostel para mantener tu vida digital activa.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-coffee feature-icon"></i>
+                <h3>Desayuno Incluido</h3>
+                <p>Comienza tu día con un delicioso desayuno continental incluido en tu estancia.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-map-marked-alt feature-icon"></i>
+                <h3>Ubicación Céntrica</h3>
+                <p>Situados en el corazón de la ciudad, a pocos minutos de las principales atracciones.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="rooms" class="section rooms">
+        <h2 class="section-title">Nuestras Habitaciones</h2>
+        <div class="room-grid">
+            <div class="room">
+                <img src="img/test/room1.jpg" alt="Habitación compartida">
+                <div class="room-info">
+                    <h3>Dormitorio Compartido</h3>
+                    <span class="price">Desde $20/noche</span>
+                </div>
+            </div>
+            <div class="room">
+                <img src="img/test/room2.jpg" alt="Habitación privada">
+                <div class="room-info">
+                    <h3>Habitación Privada</h3>
+                    <span class="price">Desde $50/noche</span>
+                </div>
+            </div>
+            <div class="room">
+                <img src="img/test/room3.jpg" alt="Suite privada">
+                <div class="room-info">
+                    <h3>Suite Privada</h3>
+                    <span class="price">Desde $80/noche</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials">
+        <h2 class="section-title">Lo que dicen nuestros huéspedes</h2>
+        <div class="testimonial">
+            <p class="testimonial-text">"Uno de los mejores hostels en los que me he hospedado. El ambiente es increíble, el personal super amable y las instalaciones impecables. ¡Volveré sin duda!"</p>
+            <p class="testimonial-author">María García</p>
+            <p class="testimonial-location">Madrid, España</p>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2 class="cta-title">¿Listo para vivir una experiencia única?</h2>
+        <p class="cta-text">Reserva tu estancia con nosotros y disfruta de un 15% de descuento en tu primera visita.</p>
+        <a href="#" class="btn btn-primary">Reservar ahora</a>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Serenity Hostel</h3>
+                <p>Un espacio diseñado para viajeros que buscan comodidad, conexión y experiencias auténticas.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Enlaces rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#rooms">Habitaciones</a></li>
+                    <li><a href="#features">Servicios</a></li>
+                    <li><a href="#testimonials">Opiniones</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contáctanos</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Calle Principal 123, Ciudad</li>
+                    <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                    <li><i class="fas fa-envelope"></i> info@serenityhostel.com</li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Síguenos</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Serenity Hostel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
