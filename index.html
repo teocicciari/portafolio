@@ -6,6 +6,7 @@
     <title>Teo Cicciari | Diseñador Web</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="promo.css">
+    <link rel="stylesheet" href="descuento.css">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PCN6P8ESD"></script>
@@ -34,7 +35,7 @@
     <div class="promo-nav">
         <div class="promo-container">
             <div class="promo-message">
-                <span class="discount-badge">80% OFF</span>
+                <span class="discount-button">80% OFF</span>
                 <p>Diseño web profesional para tu hospedaje con <strong>80% de descuento</strong> - ¡Oferta por tiempo limitado!</p>
             </div>
             <div class="promo-actions">
@@ -52,6 +53,57 @@
                 <h1 class="fade-in">Diseño Web <br>Enfocado en Hospedajes</h1>
                 <p class="fade-in">Transformo ideas en experiencias digitales excepcionales. Especializado en diseño UI/UX con un enfoque meticuloso y estratégico, donde cada detalle importa para crear un impacto visual duradero.</p>
                 <a href="#projects" class="contact-btn fade-in">Ver mis proyectos</a>
+            </div>
+        </section>
+
+        <section id="discount" class="discount-section">
+            <div class="discount-container">
+                <div class="discount-content fade-in">
+                    <div class="discount-badge">
+                        <span class="discount-percentage">80%</span>
+                        <span class="discount-label">DESCUENTO</span>
+                    </div>
+                    <div class="discount-info">
+                        <h2 class="section-title">Oferta Exclusiva para Hospedajes</h2>
+                        <p class="discount-description">Estoy lanzando una promoción especial para mis proximos 5 nuevos clientes. Obtén un <strong>80% de descuento</strong> en el diseño completo de tu sitio web durante tiempo limitado.</p>
+                        <div class="discount-features">
+                            <div class="discount-feature">
+                                <div class="feature-icon">✓</div>
+                                <p>Diseño web responsivo y moderno</p>
+                            </div>
+                            <div class="discount-feature">
+                                <div class="feature-icon">✓</div>
+                                <p>Optimización para motores de búsqueda</p>
+                            </div>
+                            <div class="discount-feature">
+                                <div class="feature-icon">✓</div>
+                                <p>Soporte técnico por 1 mes</p>
+                            </div>
+                        </div>
+                        <div class="discount-timer">
+                            <p class="timer-label">La oferta termina en:</p>
+                            <div class="timer-container">
+                                <div class="timer-box">
+                                    <span class="timer-value" id="timer-days">14</span>
+                                    <span class="timer-unit">Días</span>
+                                </div>
+                                <div class="timer-box">
+                                    <span class="timer-value" id="timer-hours">23</span>
+                                    <span class="timer-unit">Horas</span>
+                                </div>
+                                <div class="timer-box">
+                                    <span class="timer-value" id="timer-minutes">59</span>
+                                    <span class="timer-unit">Min</span>
+                                </div>
+                                <div class="timer-box">
+                                    <span class="timer-value" id="timer-seconds">59</span>
+                                    <span class="timer-unit">Seg</span>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#contact" class="discount-cta">¡Quiero mi descuento!</a>
+                    </div>
+                </div>
             </div>
         </section>
         
@@ -228,5 +280,6 @@
     </footer>
 
     <script src="main.js"></script>
+    <script src="descuento.js"></script>
 </body>
 </html>

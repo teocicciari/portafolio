@@ -43,7 +43,7 @@
     margin: 0;
 }
 
-.discount-badge {
+.discount-button {
     background: var(--accent);
     color: var(--text-primary);
     padding: 4px 10px;
