@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Establecer la fecha de finalización (15 días a partir de hoy)
     const today = new Date();
     const endDate = new Date();
-    endDate.setDate(today.getDate() + 14); // 15 días desde hoy
+    endDate.setDate(today.getDate() + 10); // 15 días desde hoy
     endDate.setHours(23, 59, 59); // Final del día
     
     // Elementos del timer
