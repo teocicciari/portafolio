@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="promo.css">
     <link rel="stylesheet" href="descuento.css">
+    <link rel="stylesheet" href="theme-switcher.css">
 
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PCN6P8ESD"></script>
@@ -30,6 +31,40 @@
         </div>
         <a href="#contact" class="contact-btn">Contáctame</a>
     </nav>
+
+    <div class="theme-switcher">
+        <div class="theme-switcher-label">Tema:</div>
+        <div class="theme-options">
+            <button class="theme-btn theme-default active" data-theme="default">
+                <div class="color-preview">
+                    <div class="color-square bg-primary-default"></div>
+                    <div class="color-square bg-accent-default"></div>
+                </div>
+                <span>Morado</span>
+            </button>
+            <button class="theme-btn theme-ocean" data-theme="ocean">
+                <div class="color-preview">
+                    <div class="color-square bg-primary-ocean"></div>
+                    <div class="color-square bg-accent-ocean"></div>
+                </div>
+                <span>Océano</span>
+            </button>
+            <button class="theme-btn theme-sunset" data-theme="sunset">
+                <div class="color-preview">
+                    <div class="color-square bg-primary-sunset"></div>
+                    <div class="color-square bg-accent-sunset"></div>
+                </div>
+                <span>Atardecer</span>
+            </button>
+            <button class="theme-btn theme-forest" data-theme="forest">
+                <div class="color-preview">
+                    <div class="color-square bg-primary-forest"></div>
+                    <div class="color-square bg-accent-forest"></div>
+                </div>
+                <span>Bosque</span>
+            </button>
+        </div>
+    </div>
     
     <!-- Barra de navegación promocional
     <div class="promo-nav">
@@ -340,5 +375,6 @@
 
     <script src="main.js"></script>
     <script src="descuento.js"></script>
+    <script src="theme-switcher.js"></script>
 </body>
 </html>

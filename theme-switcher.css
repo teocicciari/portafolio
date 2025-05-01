@@ -1,0 +1,130 @@
+/* Crear un nuevo archivo theme-switcher.css y añadir estos estilos */
+
+/* Variables para los temas de colores */
+:root {
+    /* Tema por defecto (Morado) */
+    --primary-dark: #121212;
+    --secondary-dark: #1e1e1e;
+    --accent: #8a5cf7;
+    --text-primary: #fff;
+    --text-secondary: #aaa;
+}
+
+/* Tema Océano */
+.theme-ocean {
+    --primary-dark: #0a192f;
+    --secondary-dark: #172a45;
+    --accent: #64ffda;
+    --text-primary: #e6f1ff;
+    --text-secondary: #8892b0;
+}
+
+/* Tema Atardecer */
+.theme-sunset {
+    --primary-dark: #2d1b2d;
+    --secondary-dark: #492b49;
+    --accent: #ff7e5f;
+    --text-primary: #fff6e9;
+    --text-secondary: #cbbfbb;
+}
+
+/* Tema Bosque */
+.theme-forest {
+    --primary-dark: #1a2f1a;
+    --secondary-dark: #2d422d;
+    --accent: #7ac142;
+    --text-primary: #f1f7eb;
+    --text-secondary: #b8c5b8;
+}
+
+/* Estilos para el selector de temas */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1rem;
+    padding: 0.5rem var(--padding-border);
+    background-color: var(--primary-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.theme-switcher-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.theme-options {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.theme-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.theme-btn:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-btn.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.color-preview {
+    display: flex;
+    gap: 2px;
+}
+
+.color-square {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+}
+
+/* Colores de muestra para los botones */
+.bg-primary-default { background-color: #121212; }
+.bg-accent-default { background-color: #8a5cf7; }
+
+.bg-primary-ocean { background-color: #0a192f; }
+.bg-accent-ocean { background-color: #64ffda; }
+
+.bg-primary-sunset { background-color: #2d1b2d; }
+.bg-accent-sunset { background-color: #ff7e5f; }
+
+.bg-primary-forest { background-color: #1a2f1a; }
+.bg-accent-forest { background-color: #7ac142; }
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .theme-switcher {
+        padding: 0.5rem 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .theme-options {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 470px) {
+    .theme-btn span {
+        display: none;
+    }
+    
+    .theme-btn {
+        padding: 0.4rem;
+    }
+}
