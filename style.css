@@ -169,7 +169,7 @@ h1 {
 
 .skill:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(138, 92, 247, 0.2);
+    box-shadow: 0 5px 15px var(--accent);
 }
 
 .projects-grid {
@@ -456,7 +456,7 @@ footer {
 }
 
 .contact-action:hover {
-    background-color: #7645e9;
+    background-color: var(--accent);
     transform: translateY(-2px);
 }
 
@@ -535,7 +535,7 @@ footer {
 }
 
 .faq-question:hover {
-    background-color: rgba(138, 92, 247, 0.1);
+    background-color: var(--secondary-dark);
 }
 
 .faq-question h3 {
