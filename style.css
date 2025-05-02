@@ -704,3 +704,47 @@ footer {
         text-align: center;
     }
 }
+
+.f11-hint {
+    position: fixed;
+    top: 150px; /* Posicionado justo debajo del theme-switcher */
+    right: 60px;
+    z-index: 99;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeOut 0.5s ease-in-out forwards;
+    animation-delay: 2s; /* Permanece visible por 6 segundos */
+}
+
+.f11-hint-content {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background-color: rgba(30, 30, 30, 0.85); /* Usando secondary-dark con transparencia */
+    color: var(--text-secondary);
+    font-size: 13px;
+    padding: 8px 12px;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-left: 2px solid var(--accent);
+}
+
+.f11-icon {
+    color: var(--accent);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (max-width: 768px) {
+    .f11-hint {
+        display: none; /* Ocultamos en móviles donde F11 no es relevante */
+    }
+}

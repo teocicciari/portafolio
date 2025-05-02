@@ -1,5 +1,7 @@
 # Lista TODO para mi portafolio
 
+- Sección About Me
+
 - subsección NEOBRUTALISMO, MINIMALISMO, ...
 
 - agregar página de ajedrez
