@@ -119,6 +119,45 @@ h1 {
     box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+
+.hero-subtext {
+    margin-top: 1rem;
+    max-width: 650px;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+.hero-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    margin-bottom: 3rem;
+}
+
+.hero-feature {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-feature:before {
+    content: "✓";
+    color: var(--accent);
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .hero-features {
+        flex-direction: column;
+        gap: 0.8rem;
+        margin: 1rem 0 1.5rem;
+    }
+}
+
+
 .skills {
     padding: var(--padding-border) var(--padding-border);
     background-color: var(--secondary-dark);
