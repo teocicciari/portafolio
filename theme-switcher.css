@@ -46,6 +46,7 @@
     padding: 0.5rem var(--padding-border);
     background-color: var(--primary-dark);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 100px;
 }
 
 .theme-switcher-label {
@@ -108,7 +109,6 @@
 /* Estilos responsivos */
 @media (max-width: 768px) {
     .theme-switcher {
-        padding: 0.5rem 1rem;
         flex-wrap: wrap;
         justify-content: center;
     }

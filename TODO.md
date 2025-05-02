@@ -4,6 +4,8 @@
 
 - agregar página de ajedrez
 
+- chatbot
+
 - formula de una buena pagina de hospedaje
     1. cambio de idioma
     2. formulario de reserva
@@ -11,3 +13,5 @@
 
 - IA como herramienta
 - Herramientas que uso
+
+- Mensaje: apretar F11 para experiencia completa
