@@ -2,12 +2,12 @@
 
 /* Variables para los temas de colores */
 :root {
-    /* Tema por defecto (Morado) */
-    --primary-dark: #121212;
-    --secondary-dark: #1e1e1e;
-    --accent: #8a5cf7;
-    --text-primary: #fff;
-    --text-secondary: #aaa;
+    /* Tema por defecto */
+    --primary-dark: #1a2f1a;
+    --secondary-dark: #2d422d;
+    --accent: #7ac142;
+    --text-primary: #f1f7eb;
+    --text-secondary: #b8c5b8;
 }
 
 /* Tema Océano */
@@ -30,11 +30,11 @@
 
 /* Tema Bosque */
 .theme-forest {
-    --primary-dark: #1a2f1a;
-    --secondary-dark: #2d422d;
-    --accent: #7ac142;
-    --text-primary: #f1f7eb;
-    --text-secondary: #b8c5b8;
+    --primary-dark: #121212;
+    --secondary-dark: #1e1e1e;
+    --accent: #8a5cf7;
+    --text-primary: #fff;
+    --text-secondary: #aaa;
 }
 
 /* Estilos para el selector de temas */
@@ -93,8 +93,8 @@
 }
 
 /* Colores de muestra para los botones */
-.bg-primary-default { background-color: #121212; }
-.bg-accent-default { background-color: #8a5cf7; }
+.bg-primary-default { background-color: #1a2f1a; }
+.bg-accent-default { background-color: #7ac142; }
 
 .bg-primary-ocean { background-color: #0a192f; }
 .bg-accent-ocean { background-color: #64ffda; }
@@ -102,8 +102,8 @@
 .bg-primary-sunset { background-color: #2d1b2d; }
 .bg-accent-sunset { background-color: #ff7e5f; }
 
-.bg-primary-forest { background-color: #1a2f1a; }
-.bg-accent-forest { background-color: #7ac142; }
+.bg-primary-forest { background-color: #121212; }
+.bg-accent-forest {  background-color: #8a5cf7;}
 
 /* Estilos responsivos */
 @media (max-width: 768px) {

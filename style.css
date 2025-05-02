@@ -86,7 +86,7 @@ nav {
 }
 
 .contact-btn:hover {
-    background-color: #7645e9;
+    background-color: var(--secondary-dark);
     transform: translateY(-2px);
 }
 
@@ -237,7 +237,7 @@ h1 {
 }
 
 .project-link:hover {
-    color: #7645e9;
+    color: var(--accent);
     text-decoration: underline;
 }
 
