@@ -271,3 +271,71 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 6500); // 6s de visibilidad + 0.5s de animación
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Seleccionar elementos
+    const profileName = document.querySelector('.profile-name');
+    const modal = document.getElementById('aboutModal');
+    const closeBtn = document.querySelector('.close-modal');
+    const modalContactBtn = document.querySelector('.modal-contact-btn');
+    
+    // Abrir modal al hacer clic en el nombre
+    profileName.addEventListener('click', function() {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevenir scroll
+    });
+    
+    // Cerrar modal con el botón X
+    closeBtn.addEventListener('click', function() {
+      closeModal();
+    });
+    
+    // Cerrar modal haciendo clic fuera del contenido
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+    
+    // Cerrar modal con la tecla ESC
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape' && modal.classList.contains('show')) {
+        closeModal();
+      }
+    });
+    
+    // Función para cerrar el modal
+    function closeModal() {
+      modal.classList.remove('show');
+      setTimeout(() => {
+        document.body.style.overflow = ''; // Restaurar scroll
+      }, 300);
+    }
+    
+    // Si se hace clic en "Trabajemos juntos" dentro del modal
+    modalContactBtn.addEventListener('click', function() {
+      closeModal();
+      // Dar tiempo para que se cierre el modal antes de desplazarse
+      setTimeout(() => {
+        document.querySelector('#contact').scrollIntoView();
+      }, 400);
+    });
+    
+    // Funcionalidad para el botón "Más sobre mí"
+    const moreAboutBtn = document.getElementById('moreAboutBtn');
+    const personalInterests = document.getElementById('personalInterests');
+    
+    moreAboutBtn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      personalInterests.classList.toggle('show');
+      
+      // Cambiar el texto del botón según el estado
+      const btnText = this.querySelector('span');
+      if (personalInterests.classList.contains('show')) {
+        btnText.textContent = 'Mostrar menos';
+      } else {
+        btnText.textContent = 'Más sobre mí';
+      }
+    });
+  });
