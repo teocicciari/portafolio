@@ -923,26 +923,50 @@ footer {
     .profile-name {
     cursor: pointer;
     position: relative;
-    transition: color 0.2s;
+    transition: color 0.5s;
+    }
+
+    /* Efecto de subrayado animado */
+    .profile-name:after {
+    content: "";
+    position: absolute;
+    width: 30%;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: var(--accent);
+    /* Animación continua del subrayado */
+    animation: underline-slide 2s infinite;
+    }
+
+    /* Al hacer hover, se detiene la animación y se muestra completamente el subrayado */
+    .profile-name:hover:after {
+    animation: none;
+    width: 100%;
     }
 
     .profile-name:hover {
     color: var(--accent);
     }
 
-    .profile-name:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--accent);
-    transition: width 0.3s ease;
+    /* Definimos la animación del subrayado */
+    @keyframes underline-slide {
+    0% {
+        left: 0;
+        width: 0;
     }
-
-    .profile-name:hover:after {
-    width: 100%;
+    50% {
+        left: 0;
+        width: 30%;
+    }
+    75% {
+        left: 70%;
+        width: 30%;
+    }
+    100% {
+        left: 100%;
+        width: 0;
+    }
     }
 
     /* Responsive */
@@ -974,7 +998,7 @@ footer {
     }
 
     
-.more-about-section {
+  .more-about-section {
     text-align: center;
     margin: 2rem 0 1rem;
   }
