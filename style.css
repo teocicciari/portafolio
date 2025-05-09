@@ -1046,8 +1046,6 @@ footer {
   }
   
   .interest-card {
-    background-color: rgba(138, 92, 247, 0.05);
-    border-radius: 12px;
     padding: 1.5rem;
     border-left: 3px solid var(--accent);
   }
