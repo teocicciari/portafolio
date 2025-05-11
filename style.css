@@ -160,7 +160,7 @@ h1 {
 
 .skills {
     padding: var(--padding-border) var(--padding-border);
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
 }
 
 .section-title {
@@ -191,7 +191,7 @@ h1 {
 }
 
 .skill {
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
     padding: 1.5rem;
     border-radius: 8px;
     width: calc(25% - 1rem);
@@ -215,6 +215,10 @@ h1 {
     box-shadow: 0 5px 15px var(--accent);
 }
 
+.projects {
+    background-color: var(--secondary-dark);
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -224,7 +228,7 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     border-radius: 8px;
     overflow: hidden;
     transition: all 0.3s ease;
