@@ -63,6 +63,12 @@ nav {
     border: 2px solid var(--accent);
 }
 
+.profile-img:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
 .verified {
     background-color: var(--accent);
     color: var(--primary-dark);
@@ -930,24 +936,6 @@ footer {
     transition: color 0.5s;
     }
 
-    /* Efecto de subrayado animado */
-    .profile-name:after {
-    content: "";
-    position: absolute;
-    width: 30%;
-    height: 2px;
-    bottom: -3px;
-    left: 0;
-    background-color: var(--accent);
-    /* Animación continua del subrayado */
-    animation: underline-slide 2s infinite;
-    }
-
-    /* Al hacer hover, se detiene la animación y se muestra completamente el subrayado */
-    .profile-name:hover:after {
-    animation: none;
-    width: 100%;
-    }
 
     .profile-name:hover {
     color: var(--accent);

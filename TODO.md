@@ -2,13 +2,15 @@
 
 - Redes sociales en la barra de la paleta de colores
 
+- Interactividad: preguntar si les gusta la barra movediza, preguntar si quieren saber mas de mi, juguemos una partida.
+
 - subsección NEOBRUTALISMO, MINIMALISMO, ...
 
 - agregar página de ajedrez
 
 - chatbot
 
-- 
+- Imagenes o videos moviles de los proyectos
 
 - formula de una buena pagina de hospedaje
     1. cambio de idioma

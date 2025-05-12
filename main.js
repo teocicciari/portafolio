@@ -276,12 +276,19 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     // Seleccionar elementos
     const profileName = document.querySelector('.profile-name');
+    const profileImg = document.querySelector('.profile-img');
     const modal = document.getElementById('aboutModal');
     const closeBtn = document.querySelector('.close-modal');
     const modalContactBtn = document.querySelector('.modal-contact-btn');
     
     // Abrir modal al hacer clic en el nombre
     profileName.addEventListener('click', function() {
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden'; // Prevenir scroll
+    });
+    
+    // Abrir modal al hacer clic en la imagen de perfil
+    profileImg.addEventListener('click', function() {
       modal.classList.add('show');
       document.body.style.overflow = 'hidden'; // Prevenir scroll
     });
