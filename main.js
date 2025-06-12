@@ -1,6 +1,7 @@
 
 document.addEventListener('DOMContentLoaded', function() {
     const chessDetail = document.querySelector('.chess-detail');
+    if (!chessDetail) return; // Asegurarse de que el elemento existe
     
     // Crear el tablero de ajedrez dinámicamente
     const createChessBoard = () => {
@@ -347,31 +348,8 @@ moreAboutBtn.addEventListener('click', function() {
 });
 });
 
-// Simulador de contador de lugares disponibles
-let remainingSpots = 5;
-const spotsElement = document.getElementById('remaining-spots');
-
-// Simular que alguien toma un lugar cada cierto tiempo
-const updateSpots = () => {
-    if (remainingSpots > 1 && Math.random() < 0.3) {
-        remainingSpots--;
-        spotsElement.textContent = `${remainingSpots} lugares disponibles`;
-        
-        // Efecto visual cuando se reduce el contador
-        spotsElement.style.transform = 'scale(1.1)';
-        spotsElement.style.color = '#ffeb3b';
-        setTimeout(() => {
-            spotsElement.style.transform = 'scale(1)';
-            spotsElement.style.color = 'white';
-        }, 300);
-    }
-};
-
-// Actualizar contador cada 30-60 segundos
-setInterval(updateSpots, Math.random() * 30000 + 30000);
-
 // Animación de entrada para las tarjetas
-const observerOptions = {
+const observerOptionsb = {
     threshold: 0.1,
     rootMargin: '0px 0px -50px 0px'
 };
@@ -385,7 +363,7 @@ const observer = new IntersectionObserver((entries) => {
             }, index * 200);
         }
     });
-}, observerOptions);
+}, observerOptionsb);
 
 // Aplicar animación a las tarjetas
 document.addEventListener('DOMContentLoaded', () => {
