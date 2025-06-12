@@ -274,75 +274,137 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Seleccionar elementos
-    const profileName = document.querySelector('.profile-name');
-    const profileImg = document.querySelector('.profile-img');
-    const modal = document.getElementById('aboutModal');
-    const closeBtn = document.querySelector('.close-modal');
-    const modalContactBtn = document.querySelector('.modal-contact-btn');
-    
-    // Abrir modal al hacer clic en el nombre
-    profileName.addEventListener('click', function() {
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Prevenir scroll
-    });
-    
-    // Abrir modal al hacer clic en la imagen de perfil
-    profileImg.addEventListener('click', function() {
-      modal.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Prevenir scroll
-    });
-    
-    // Cerrar modal con el botón X
-    closeBtn.addEventListener('click', function() {
-      closeModal();
-    });
-    
-    // Cerrar modal haciendo clic fuera del contenido
-    window.addEventListener('click', function(event) {
-      if (event.target === modal) {
-        closeModal();
-      }
-    });
-    
-    // Cerrar modal con la tecla ESC
-    document.addEventListener('keydown', function(event) {
-      if (event.key === 'Escape' && modal.classList.contains('show')) {
-        closeModal();
-      }
-    });
-    
-    // Función para cerrar el modal
-    function closeModal() {
-      modal.classList.remove('show');
-      setTimeout(() => {
-        document.body.style.overflow = ''; // Restaurar scroll
-      }, 300);
+// Seleccionar elementos
+const profileName = document.querySelector('.profile-name');
+const profileImg = document.querySelector('.profile-img');
+const modal = document.getElementById('aboutModal');
+const closeBtn = document.querySelector('.close-modal');
+const modalContactBtn = document.querySelector('.modal-contact-btn');
+
+// Abrir modal al hacer clic en el nombre
+profileName.addEventListener('click', function() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevenir scroll
+});
+
+// Abrir modal al hacer clic en la imagen de perfil
+profileImg.addEventListener('click', function() {
+    modal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevenir scroll
+});
+
+// Cerrar modal con el botón X
+closeBtn.addEventListener('click', function() {
+    closeModal();
+});
+
+// Cerrar modal haciendo clic fuera del contenido
+window.addEventListener('click', function(event) {
+    if (event.target === modal) {
+    closeModal();
     }
+});
+
+// Cerrar modal con la tecla ESC
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' && modal.classList.contains('show')) {
+    closeModal();
+    }
+});
+
+// Función para cerrar el modal
+function closeModal() {
+    modal.classList.remove('show');
+    setTimeout(() => {
+    document.body.style.overflow = ''; // Restaurar scroll
+    }, 300);
+}
+
+// Si se hace clic en "Trabajemos juntos" dentro del modal
+modalContactBtn.addEventListener('click', function() {
+    closeModal();
+    // Dar tiempo para que se cierre el modal antes de desplazarse
+    setTimeout(() => {
+    document.querySelector('#contact').scrollIntoView();
+    }, 400);
+});
+
+// Funcionalidad para el botón "Más sobre mí"
+const moreAboutBtn = document.getElementById('moreAboutBtn');
+const personalInterests = document.getElementById('personalInterests');
+
+moreAboutBtn.addEventListener('click', function() {
+    this.classList.toggle('active');
+    personalInterests.classList.toggle('show');
     
-    // Si se hace clic en "Trabajemos juntos" dentro del modal
-    modalContactBtn.addEventListener('click', function() {
-      closeModal();
-      // Dar tiempo para que se cierre el modal antes de desplazarse
-      setTimeout(() => {
-        document.querySelector('#contact').scrollIntoView();
-      }, 400);
+    // Cambiar el texto del botón según el estado
+    const btnText = this.querySelector('span');
+    if (personalInterests.classList.contains('show')) {
+    btnText.textContent = 'Mostrar menos';
+    } else {
+    btnText.textContent = 'Más sobre mí';
+    }
+});
+});
+
+// Simulador de contador de lugares disponibles
+let remainingSpots = 5;
+const spotsElement = document.getElementById('remaining-spots');
+
+// Simular que alguien toma un lugar cada cierto tiempo
+const updateSpots = () => {
+    if (remainingSpots > 1 && Math.random() < 0.3) {
+        remainingSpots--;
+        spotsElement.textContent = `${remainingSpots} lugares disponibles`;
+        
+        // Efecto visual cuando se reduce el contador
+        spotsElement.style.transform = 'scale(1.1)';
+        spotsElement.style.color = '#ffeb3b';
+        setTimeout(() => {
+            spotsElement.style.transform = 'scale(1)';
+            spotsElement.style.color = 'white';
+        }, 300);
+    }
+};
+
+// Actualizar contador cada 30-60 segundos
+setInterval(updateSpots, Math.random() * 30000 + 30000);
+
+// Animación de entrada para las tarjetas
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }, index * 200);
+        }
+    });
+}, observerOptions);
+
+// Aplicar animación a las tarjetas
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.pricing-card');
+    cards.forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(30px)';
+        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+// Efecto hover mejorado
+document.querySelectorAll('.pricing-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.querySelector('.pricing-btn').style.transform = 'translateY(-3px)';
     });
     
-    // Funcionalidad para el botón "Más sobre mí"
-    const moreAboutBtn = document.getElementById('moreAboutBtn');
-    const personalInterests = document.getElementById('personalInterests');
-    
-    moreAboutBtn.addEventListener('click', function() {
-      this.classList.toggle('active');
-      personalInterests.classList.toggle('show');
-      
-      // Cambiar el texto del botón según el estado
-      const btnText = this.querySelector('span');
-      if (personalInterests.classList.contains('show')) {
-        btnText.textContent = 'Mostrar menos';
-      } else {
-        btnText.textContent = 'Más sobre mí';
-      }
+    card.addEventListener('mouseleave', () => {
+        card.querySelector('.pricing-btn').style.transform = 'translateY(0)';
     });
-  });
+});
