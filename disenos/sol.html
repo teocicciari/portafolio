@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hostel Sol - Tu destino bajo el sol</title>
+  <title>Cabañas Rincón del Sol</title>
   <style>
     * {
       margin: 0;
@@ -244,6 +244,9 @@
     
     .rooms {
       margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     .section-title {
@@ -272,7 +275,7 @@
     
     .room-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 30px;
     }
     
@@ -377,6 +380,11 @@
       margin-top: 20px;
     }
 
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
     
     /* Sección de reservas */
     .booking {
@@ -560,7 +568,7 @@
     <div class="container">
       <div class="logo-container">
         <div class="logo-sun"></div>
-        <div class="logo-text">SOL</div>
+        <div class="logo-text">Rincón del Sol</div>
       </div>
       
       <nav>
@@ -579,7 +587,7 @@
   <main class="container">
     <section class="hero">
       <div class="hero-content">
-        <h1>HOSTAL DEL SOL</h1>
+        <h1>Cabañas Rincón del Sol</h1>
         <p class="hero-subtitle">Donde cada día brilla con nuevas aventuras y amistades bajo el mismo sol.</p>
         <a href="#book" class="cta-button">¡Reserva Ya!</a>
       </div>
@@ -595,7 +603,7 @@
       <div class="feature-box">
         <div class="feature-sun"></div>
         <h2 class="feature-title">Ubicación Ideal</h2>
-        <p>Situado a 20 minutos a pie del centro de Ciudad Autónoma de Buenos Aires.</p>
+        <p>Situado a 20 minutos a pie del centro de Potrerillos.</p>
       </div>
       
       <div class="feature-box">
@@ -616,20 +624,20 @@
       
       <div class="room-grid">
         <div class="room-card">
-            <img class="room-img" src="img/test/room5-L.jpg" alt="">
+            <img class="room-img" src="hab.png" alt="">
           <div class="room-content">
-            <h3 class="room-title">Dormitorio Amanecer</h3>
-            <p class="room-price"><span class="price-sun"></span>Desde $15/noche</p>
+            <h3 class="room-title">Cabaña matrimonial</h3>
+            <p class="room-price"><span class="price-sun"></span>$15/noche</p>
             <p>Espacios compartidos con grandes ventanales que dejan entrar la luz natural todo el día.</p>
             <a href="#book" class="cta-button">Reservar</a>
           </div>
         </div>
         
         <div class="room-card">
-          <img class="room-img" src="img/test/room3-L.jpg" alt="">
+          <img class="room-img" src="hab3.png" alt="">
           <div class="room-content">
-            <h3 class="room-title">Suite Sol</h3>
-            <p class="room-price"><span class="price-sun"></span>Desde $40/noche</p>
+            <h3 class="room-title">Cabaña familiar</h3>
+            <p class="room-price"><span class="price-sun"></span>$40/noche</p>
             <p>Habitación privada con balcón orientado al este para disfrutar de los primeros rayos del día.</p>
             <a href="#book" class="cta-button">Reservar</a>
           </div>
@@ -643,7 +651,7 @@
         <h2 class="section-title">Ubicación</h2>
         <p>Muy cerca de los principales lugares de interés de Buenos Aires!.</p>
         <div class="map-container">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3283.3039623969!2d-58.3816922!3d-34.621758199999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bccb28c88cfcfd%3A0x41c0797472fb9fd9!2sHostel%20Sol!5e0!3m2!1ses-419!2scl!4v1743876622465!5m2!1ses-419!2scl" width="1200" height="390" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d107184.62836919539!2d-69.27580465568782!3d-32.91086660904103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x967df39e0716d4f7%3A0x77685f172ec43405!2sCaba%C3%B1a%20Rinc%C3%B3n%20del%20Sol!5e0!3m2!1ses-419!2sar!4v1749761320868!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
       </div>
     </section>
