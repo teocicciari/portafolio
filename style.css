@@ -170,7 +170,7 @@ h1 {
 @media (max-width: 768px) {
     .hero-features {
         flex-direction: column;
-        gap: 0.8rem;
+        gap: 1rem;
         margin: 1rem 0 1.5rem;
     }
 }
