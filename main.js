@@ -386,3 +386,7 @@ document.querySelectorAll('.pricing-card').forEach(card => {
         card.querySelector('.pricing-btn').style.transform = 'translateY(0)';
     });
 });
+
+function openProject(url) {
+    window.open(url, '_blank');
+}
