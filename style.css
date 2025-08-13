@@ -123,6 +123,67 @@ h1 {
     margin-bottom: 2rem;
     position: relative;
 }
+/* Efecto Typewriter con cursor separado */
+.typewriter-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+}
+
+.typewriter-text {
+    display: inline-block;
+    white-space: nowrap;
+    position: relative;
+    opacity: 0; /* Oculto inicialmente */
+}
+
+/* Cuando está activo, se muestra */
+.typewriter-text.typing {
+    opacity: 1;
+}
+
+/* Cursor con brillo */
+.typewriter-text::after {
+    content: '';
+    position: absolute;
+    right: -3px;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    animation: blink-cursor-2 1.2s ease-in-out infinite;
+}
+
+/* Animación del cursor con brillo (ESTA FALTABA) */
+@keyframes blink-cursor-2 {
+    0%, 40% { 
+        opacity: 1; 
+        box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    }
+    50%, 90% { 
+        opacity: 0.3; 
+        box-shadow: 0 0 5px var(--accent);
+    }
+    100% { 
+        opacity: 1; 
+        box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .typewriter-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .typewriter-title {
+        font-size: 2rem;
+    }
+}
 
 .hero p {
     color: var(--text-secondary);

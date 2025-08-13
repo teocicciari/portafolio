@@ -390,3 +390,36 @@ document.querySelectorAll('.pricing-card').forEach(card => {
 function openProject(url) {
     window.open(url, '_blank');
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const typewriterElement = document.getElementById('typewriter');
+    const text = 'Diseño Web Profesional';
+    let i = 0;
+    
+    // Limpiar el contenido inicial y mostrar el elemento
+    typewriterElement.innerHTML = '';
+    typewriterElement.classList.add('typing');
+    
+    function typeWriter() {
+        if (i < text.length) {
+            const char = text.charAt(i);
+            typewriterElement.innerHTML += char;
+            i++;
+            
+            // Delay diferente según el carácter
+            let delay;
+            if (char === ' ') {
+                delay = 300; // Pausa más larga en espacios (entre palabras)
+            } else if (char === ',' || char === '.' || char === ';') {
+                delay = 200; // Pausa media en puntuación
+            } else {
+                delay = 100; // Velocidad normal para letras
+            }
+            
+            setTimeout(typeWriter, delay);
+        }
+    }
+    
+    // Iniciar después de 500ms
+    setTimeout(typeWriter, 500);
+});
