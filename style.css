@@ -260,6 +260,16 @@ h1 {
     background-color: var(--accent);
 }
 
+.section-subtitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin: 3rem 0 2rem 0;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+}
+
 .skills-container {
     display: flex;
     justify-content: center;
