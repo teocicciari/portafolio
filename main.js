@@ -423,3 +423,105 @@ document.addEventListener('DOMContentLoaded', function() {
     // Iniciar después de 500ms
     setTimeout(typeWriter, 500);
 });
+
+// Función para dar like
+function toggleLike(button) {
+    const card = button.closest('.project-card');
+    const likeCount = button.querySelector('.like-count');
+    const currentLikes = parseInt(card.getAttribute('data-likes')) || 0;
+    const isLiked = button.classList.contains('liked');
+
+    if (isLiked) {
+        // Quitar like
+        card.setAttribute('data-likes', Math.max(0, currentLikes - 1));
+        likeCount.textContent = Math.max(0, currentLikes - 1);
+        button.classList.remove('liked');
+    } else {
+        // Dar like
+        card.setAttribute('data-likes', currentLikes + 1);
+        likeCount.textContent = currentLikes + 1;
+        button.classList.add('liked');
+    }
+}
+
+// Función para alternar destacados
+function toggleFeatured(button) {
+    const card = button.closest('.project-card');
+    const isFeatured = card.getAttribute('data-featured') === 'true';
+
+    // Cambiar el estado
+    card.setAttribute('data-featured', !isFeatured);
+    button.classList.toggle('active');
+
+    // Actualizar contadores
+    updateFilterCounts();
+
+    // Si el filtro actual es "destacados", actualizar la vista
+    const activeFilter = document.querySelector('.filter-btn.active');
+    if (activeFilter && activeFilter.getAttribute('data-filter') === 'destacados') {
+        filterProjects('destacados');
+    }
+}
+
+// Función para filtrar proyectos
+function filterProjects(filter) {
+    const projectCards = document.querySelectorAll('.project-card');
+
+    projectCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const isFeatured = card.getAttribute('data-featured') === 'true';
+
+        if (filter === 'all') {
+            card.style.display = 'block';
+        } else if (filter === 'destacados') {
+            card.style.display = isFeatured ? 'block' : 'none';
+        } else {
+            card.style.display = category === filter ? 'block' : 'none';
+        }
+    });
+}
+
+// Función para actualizar contadores
+function updateFilterCounts() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+        const filter = btn.getAttribute('data-filter');
+        const countSpan = btn.querySelector('.filter-count');
+        let count = 0;
+
+        if (filter === 'all') {
+            count = projectCards.length;
+        } else if (filter === 'destacados') {
+            count = document.querySelectorAll('.project-card[data-featured="true"]').length;
+        } else {
+            count = document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
+        }
+
+        if (countSpan) {
+            countSpan.textContent = count;
+        }
+    });
+}
+
+// Filtro de proyectos
+document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+
+    // Actualizar contadores al cargar
+    updateFilterCounts();
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const filter = this.getAttribute('data-filter');
+
+            // Actualizar botón activo
+            filterBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+
+            // Filtrar proyectos
+            filterProjects(filter);
+        });
+    });
+});

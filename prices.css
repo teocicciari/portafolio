@@ -201,7 +201,7 @@
 
 .pricing-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px var(--accent);
+    box-shadow: 0 0 25px var(--accent);
 }
 
 .pricing-btn.secondary {
