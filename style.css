@@ -896,6 +896,10 @@ footer {
     overflow: hidden;
     transition: all 0.3s ease;
 }
+.faq-item:hover {
+    box-shadow: 0 5px 15px var(--accent);
+    transform: translateY(-3px);
+}
 
 .faq-question {
     display: flex;
@@ -908,7 +912,6 @@ footer {
 
 .faq-question:hover {
     background-color: var(--primary-dark);
-    transform: translateY(5px);
 }
 
 .faq-question h3 {
