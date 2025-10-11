@@ -512,6 +512,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Actualizar contadores al cargar
     updateFilterCounts();
 
+    // Aplicar filtro inicial de destacados
+    filterProjects('destacados');
+
     filterBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             const filter = this.getAttribute('data-filter');

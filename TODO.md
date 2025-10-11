@@ -1,5 +1,7 @@
 # Lista TODO para mi portafolio
 
+- testimonios
+
 - Redes sociales en la barra de la paleta de colores
 
 - Interactividad: preguntar si les gusta la barra movediza, preguntar si quieren saber mas de mi, juguemos una partida.
