@@ -391,38 +391,27 @@ function openProject(url) {
     window.open(url, '_blank');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+// Optimización: Usar requestAnimationFrame para no bloquear el renderizado
+function initTypewriter() {
     const typewriterElement = document.getElementById('typewriter');
+    if (!typewriterElement) return;
+
     const text = 'Diseño Web Profesional';
-    let i = 0;
-    
-    // Limpiar el contenido inicial y mostrar el elemento
-    typewriterElement.innerHTML = '';
+
+    // Mostrar el texto completo inmediatamente para SEO y accesibilidad
+    typewriterElement.textContent = text;
     typewriterElement.classList.add('typing');
-    
-    function typeWriter() {
-        if (i < text.length) {
-            const char = text.charAt(i);
-            typewriterElement.innerHTML += char;
-            i++;
-            
-            // Delay diferente según el carácter
-            let delay;
-            if (char === ' ') {
-                delay = 300; // Pausa más larga en espacios (entre palabras)
-            } else if (char === ',' || char === '.' || char === ';') {
-                delay = 200; // Pausa media en puntuación
-            } else {
-                delay = 100; // Velocidad normal para letras
-            }
-            
-            setTimeout(typeWriter, delay);
-        }
-    }
-    
-    // Iniciar después de 500ms
-    setTimeout(typeWriter, 500);
-});
+
+    // La animación se puede hacer con CSS si se desea, o simplemente mostrar el texto
+    // Esto elimina el bloqueo del renderizado causado por setTimeout recursivo
+}
+
+// Ejecutar después del primer renderizado
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTypewriter);
+} else {
+    initTypewriter();
+}
 
 // Función para dar like
 function toggleLike(button) {
