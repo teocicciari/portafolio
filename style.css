@@ -341,7 +341,7 @@ h1 {
 
 .skills {
     padding: var(--padding-border) var(--padding-border);
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
 }
 
 .section-title {
@@ -743,7 +743,7 @@ footer {
 
 /* Estilos específicos para la sección de contacto */
 .contact-section {
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
     min-height: 50vh;
     display: flex;
     flex-direction: column;
@@ -774,7 +774,7 @@ footer {
 }
 
 .contact-card {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     border-radius: 1rem;
     padding: 2rem;
     width: 400px;
@@ -973,6 +973,12 @@ footer {
     .contact-section {
         padding: 2rem 1rem 2rem;
     }
+
+    /* Tarjetas de habilidades más anchas en dispositivos móviles */
+    .skill {
+        width: calc(50% - 0.5rem);
+        min-width: 250px;
+    }
 }
 
 @media (max-width: 1100px) {
@@ -983,7 +989,7 @@ footer {
 
 /* Estilos para la sección FAQ */
 .faq-section {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
 }
 
 .faq-container {
@@ -994,7 +1000,7 @@ footer {
 }
 
 .faq-item {
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
@@ -1011,10 +1017,6 @@ footer {
     padding: 1.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
-}
-
-.faq-question:hover {
-    background-color: var(--primary-dark);
 }
 
 .faq-question h3 {
@@ -1064,7 +1066,7 @@ footer {
 }
 
 .footer {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     color: var(--text-secondary);
     padding: 4rem 2rem 2rem;
 }
