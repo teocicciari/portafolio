@@ -522,7 +522,7 @@ h1 {
 }
 
 .skill {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     padding: 1.5rem;
     border-radius: 8px;
     width: calc(25% - 1rem);
