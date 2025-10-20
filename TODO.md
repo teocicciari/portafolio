@@ -2,8 +2,6 @@
 
 - mejorar estadisticas de [page](https://pagespeed.web.dev/analysis/https-teocicciari-com-ar/qr6zt84qzs?form_factor=mobile)
 
-- arreglar imagenes de fotos de las habitaciones
-
 - testimonios
 
 - Redes sociales en la barra de la paleta de colores
@@ -30,3 +28,4 @@ DONE:
 - Mensaje: apretar F11 para experiencia completa
 - Sección About Me
 - barra transparente para paleta de colores
+- arreglar imagenes de fotos de las habitaciones
