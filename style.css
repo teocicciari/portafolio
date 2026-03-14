@@ -119,15 +119,38 @@ nav {
     transform: translateY(-2px);
 }
 
+/* Hero Section - Index Page */
 .hero {
-    padding: var(--padding-border) var(--padding-border);
-    height: 76vh;
+    text-align: center;
+    padding: 0px 20px 60px;
+    min-height: 50vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+/* Hero icon styles - Shared across pages */
+.hero-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    color: var(--accent);
+    display: inline-block;
+}
+
+.hero-icon svg {
+    display: inline-block;
+    filter: drop-shadow(0 10px 20px rgba(138, 92, 247, 0.3));
+}
+
+.hero-icon i {
+    display: inline-block;
+    filter: drop-shadow(0 10px 20px rgba(138, 92, 247, 0.3));
 }
 
 h1 {
-    font-size: 3.5rem;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
     position: relative;
 }
 
@@ -207,22 +230,22 @@ h1 {
 }
 
 
-.hero-subtext {
-    margin-top: 1rem;
-    max-width: 650px;
-    font-size: 1.1rem;
+.hero .hero-subtext {
+    font-size: 1.25rem;
     color: var(--text-secondary);
+    max-width: 700px;
+    margin: 0 auto 2rem;
 }
 
-.hero-features {
+.hero .hero-features {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
-    margin: 1.5rem 0;
-    margin-bottom: 3rem;
+    justify-content: center;
+    margin: 2rem 0 3rem;
 }
 
-.hero-feature {
+.hero .hero-feature {
     font-size: 0.95rem;
     color: var(--text-primary);
     display: flex;
@@ -230,14 +253,14 @@ h1 {
     gap: 0.5rem;
 }
 
-.hero-feature:before {
+.hero .hero-feature:before {
     content: "✓";
     color: var(--accent);
     font-weight: bold;
 }
 
 @media (max-width: 768px) {
-    .hero-features {
+    .hero .hero-features {
         flex-direction: column;
         gap: 1rem;
     }
@@ -740,6 +763,89 @@ footer {
     background-color: #b58863;
 }
 
+
+/* CTA Boceto Gratuito Section */
+.cta-boceto-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--accent), #b967db);
+    text-align: center;
+    color: white;
+}
+
+.cta-boceto-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-boceto-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.cta-boceto-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+}
+
+.cta-boceto-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 40px;
+    background: white;
+    color: var(--primary-dark);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-boceto-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(138, 92, 247, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-boceto-btn:hover::before {
+    left: 100%;
+}
+
+.cta-boceto-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.cta-boceto-btn svg {
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cta-boceto-section h2 {
+        font-size: 2rem;
+    }
+
+    .cta-boceto-section p {
+        font-size: 1rem;
+    }
+
+    .cta-boceto-btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+}
 
 /* Estilos específicos para la sección de contacto */
 .contact-section {

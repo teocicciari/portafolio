@@ -1,5 +1,9 @@
 # Lista TODO para mi portafolio
 
+- agregar página de ajedrez
+
+- traducción!
+
 - mejorar estadisticas de [page](https://pagespeed.web.dev/analysis/https-teocicciari-com-ar/qr6zt84qzs?form_factor=mobile)
 
 - testimonios
@@ -9,8 +13,6 @@
 - Interactividad: preguntar si les gusta la barra movediza, preguntar si quieren saber mas de mi, juguemos una partida.
 
 - subsección NEOBRUTALISMO, MINIMALISMO, ...
-
-- agregar página de ajedrez
 
 - chatbot
 

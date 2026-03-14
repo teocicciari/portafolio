@@ -3,45 +3,40 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Obtener todos los botones de tema
     const themeButtons = document.querySelectorAll('.theme-btn');
-    
-    // Comprobar si hay un tema guardado en localStorage
-    const savedTheme = localStorage.getItem('selectedTheme');
-    if (savedTheme) {
-        document.body.className = savedTheme;
-        
-        // Actualizar el botón activo
-        themeButtons.forEach(button => {
-            if (button.dataset.theme === savedTheme.replace('theme-', '')) {
-                button.classList.add('active');
-            } else {
-                button.classList.remove('active');
-            }
-        });
+
+    // Detectar la página actual y asignar el tema correspondiente
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    let pageTheme;
+
+    // Asignar tema según la página
+    if (currentPage.includes('feriantes.html')) {
+        pageTheme = 'ocean';
+    } else if (currentPage.includes('ajedrez.html')) {
+        pageTheme = 'forest';
+    } else {
+        pageTheme = 'default';
     }
-    
-    // Añadir evento de clic a cada botón
+
+    // Aplicar el tema de la página automáticamente
+    document.body.classList.remove('theme-default', 'theme-ocean', 'theme-sunset', 'theme-forest');
+    if (pageTheme !== 'default') {
+        document.body.classList.add('theme-' + pageTheme);
+    }
+
+    // Actualizar el botón activo según el tema de la página
     themeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Eliminar la clase 'active' de todos los botones
-            themeButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Añadir la clase 'active' al botón clicado
-            this.classList.add('active');
-            
-            // Obtener el tema seleccionado
-            const selectedTheme = this.dataset.theme;
-            
-            // Eliminar todas las clases de tema del body
-            document.body.classList.remove('theme-default', 'theme-ocean', 'theme-sunset', 'theme-forest');
-            
-            // Si no es el tema por defecto, añadir la clase correspondiente
-            if (selectedTheme !== 'default') {
-                document.body.classList.add('theme-' + selectedTheme);
-                localStorage.setItem('selectedTheme', 'theme-' + selectedTheme);
-            } else {
-                // Si es el tema por defecto, solo guardar en localStorage
-                localStorage.setItem('selectedTheme', '');
-            }
+        if (button.dataset.theme === pageTheme) {
+            button.classList.add('active');
+        } else {
+            button.classList.remove('active');
+        }
+    });
+
+    // Añadir evento de clic a cada botón (ahora navega a la página correspondiente)
+    themeButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            // El botón ya tiene un href, por lo que navegará automáticamente
+            // No es necesario prevenir el comportamiento por defecto
         });
     });
 });
