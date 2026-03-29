@@ -1,33 +1,42 @@
-# Lista TODO para mi portafolio
+# TODO — teocicciari.com.ar
 
-- agregar página de ajedrez
+## v2.0
 
-- traducción!
+### Performance & técnico
+- [ ] Cambiar Font Awesome CDN por un subset local (solo los íconos usados)
+- [ ] Minificar CSS y JS para producción
+- [ ] Lazy loading con IntersectionObserver para imágenes de proyectos
 
-- mejorar estadisticas de [page](https://pagespeed.web.dev/analysis/https-teocicciari-com-ar/qr6zt84qzs?form_factor=mobile)
+### UX / Interacción
+- [ ] Animación de transición entre vistas (design ↔ chess)
+- [ ] Menú hamburguesa para mobile (los nav-links se ocultan sin reemplazo)
+- [ ] Modo claro / oscuro independiente de la vista
 
-- testimonios
+### Contenido
+- [ ] Sección de testimonios de clientes
+- [ ] Videos o screenshots animados de los proyectos (en lugar de imágenes estáticas)
+- [ ] Subsecciones de estilos de diseño (Minimalismo, Neobrutalismo, etc.)
+- [ ] Sección "Herramientas que uso" (VS Code, Figma, IA, etc.)
+- [ ] Traducción al inglés
 
-- Redes sociales en la barra de la paleta de colores
+### Ajedrez
+- [ ] Integración con Lichess o Chess.com para mostrar partidas recientes
+- [ ] Mini juego o puzzle de ajedrez interactivo
 
-- Interactividad: preguntar si les gusta la barra movediza, preguntar si quieren saber mas de mi, juguemos una partida.
+---
 
-- subsección NEOBRUTALISMO, MINIMALISMO, ...
+## Backlog (ideas sin prioridad)
+- [ ] Chatbot
+- [ ] Fórmula de una buena página de hospedaje (cambio de idioma, formulario de reserva, etc.)
+- [ ] Interactividad: preguntar si les gusta la página, si quieren saber más, jugar una partida
 
-- chatbot
+---
 
-- Imagenes o videos moviles de los proyectos
-
-- formula de una buena pagina de hospedaje
-    1. cambio de idioma
-    2. formulario de reserva
-    3. sonrisas
-
-- IA como herramienta
-- Herramientas que uso
-
-DONE:
-- Mensaje: apretar F11 para experiencia completa
-- Sección About Me
-- barra transparente para paleta de colores
-- arreglar imagenes de fotos de las habitaciones
+## Hecho ✓
+- [x] Mensaje: presionar F11 para experiencia completa (luego eliminado)
+- [x] Sección About Me
+- [x] Barra transparente para paleta de colores
+- [x] Arreglar imágenes de fotos de las habitaciones
+- [x] Propuesta para feriantes / artesanos
+- [x] Fusionar index.html y ajedrez.html en una sola página con vistas
+- [x] SEO: meta tags y datos estructurados con ambos roles
