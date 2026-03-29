@@ -172,3 +172,189 @@
         font-size: 0.7rem;
     }
 }
+
+/* ─── Home split-screen ─────────────────────────────── */
+#view-home {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-split {
+    display: flex;
+    height: 100vh;
+    position: relative;
+}
+
+/* Panels */
+.home-split-panel {
+    flex: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: flex 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: hidden;
+}
+
+.home-split-panel:hover { flex: 1.55; }
+
+.home-split-design { background: #152615; }
+.home-split-chess  { background: #0e0e14; }
+
+/* Subtle gradient overlay on hover */
+.home-split-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.home-split-design .home-split-bg {
+    background: radial-gradient(ellipse at 30% 50%, rgba(122, 193, 66, 0.12) 0%, transparent 70%);
+}
+
+.home-split-chess .home-split-bg {
+    background: radial-gradient(ellipse at 70% 50%, rgba(138, 92, 247, 0.14) 0%, transparent 70%);
+}
+
+.home-split-panel:hover .home-split-bg { opacity: 1; }
+
+/* SVG illustration */
+.home-split-illus {
+    position: absolute;
+    width: 52%;
+    max-width: 340px;
+    opacity: 0.07;
+    pointer-events: none;
+    transition: opacity 0.45s ease;
+    z-index: 1;
+}
+
+.home-split-design .home-split-illus {
+    left: 4%;
+    bottom: 8%;
+}
+
+.home-split-chess .home-split-illus {
+    right: 4%;
+    bottom: 8%;
+}
+
+.home-split-panel:hover .home-split-illus { opacity: 0.18; }
+
+/* Content inside each panel */
+.home-split-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    text-align: center;
+    padding: 2rem;
+    opacity: 0.55;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: translateY(6px);
+    /* keep away from center avatar */
+    max-width: 240px;
+}
+
+.home-split-design .home-split-content { margin-right: 60px; }
+.home-split-chess  .home-split-content { margin-left: 60px; }
+
+.home-split-panel:hover .home-split-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.home-split-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.25rem;
+}
+
+.home-split-design .home-split-icon { color: #7ac142; }
+.home-split-chess  .home-split-icon { color: #8a5cf7; }
+
+.home-split-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.home-split-desc {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.55);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.home-split-cta {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    opacity: 0;
+    transition: opacity 0.3s ease 0.1s;
+}
+
+.home-split-design .home-split-cta { color: #7ac142; }
+.home-split-chess  .home-split-cta { color: #8a5cf7; }
+
+.home-split-panel:hover .home-split-cta { opacity: 1; }
+
+/* Center avatar */
+.home-split-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+    pointer-events: none;
+}
+
+.home-split-avatar {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2.5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.04);
+}
+
+.home-split-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.65);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+}
+
+/* Mobile: stack vertically */
+@media (max-width: 600px) {
+    .home-split { flex-direction: column; }
+
+    .home-split-panel:hover { flex: 1.4; }
+
+    .home-split-design .home-split-content,
+    .home-split-chess  .home-split-content {
+        margin: 0;
+    }
+
+    .home-split::after {
+        left: 0;
+        right: 0;
+        top: 50%;
+        bottom: auto;
+        width: auto;
+        height: 1px;
+    }
+
+    .home-split-content { opacity: 0.75; transform: none; }
+    .home-split-panel:hover .home-split-content { transform: none; }
+}

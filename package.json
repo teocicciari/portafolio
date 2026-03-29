@@ -1,5 +1,6 @@
 {
   "devDependencies": {
+    "html-validate": "^10.9.0",
     "ttf2woff2": "^8.0.0"
   }
 }

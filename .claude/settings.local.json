@@ -10,9 +10,24 @@
       "Bash(rm disenos/artistica.html disenos/minimalista.html)",
       "Bash(python3 -c \":*)",
       "Bash(node -e \":*)",
-      "Bash(node _add_i18n.js)"
+      "Bash(node _add_i18n.js)",
+      "Bash(node:*)",
+      "Bash(npx html-validate:*)"
     ],
     "deny": [],
     "ask": []
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx html-validate index.html && echo '✅ HTML válido'"
+          }
+        ]
+      }
+    ]
   }
 }

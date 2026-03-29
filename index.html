@@ -40,7 +40,7 @@
 <body>
     <header>
         <nav>
-            <div class="profile-container">
+            <div class="profile-container" role="button" tabindex="0" id="go-home" title="Inicio" style="cursor:pointer">
                 <img src="img/profile.webp" alt="Foto de perfil de Teo Cicciari, diseñador web" class="profile-img">
                 <div class="profile-name">Teo Cicciari</div>
                 <div class="verified">✓</div>
@@ -67,24 +67,108 @@
         <div class="theme-options">
             <button type="button" class="theme-btn theme-default active" data-theme="default">
                 <i class="fa-solid fa-code theme-btn-icon"></i>
-                <div class="theme-btn-text">
+                <span class="theme-btn-text">
                     <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
                     <span class="theme-btn-sub" data-i18n="theme.design.subtitle">Portfolio · Proyectos · Precios</span>
-                </div>
+                </span>
             </button>
             <button type="button" class="theme-btn theme-forest" data-theme="forest">
                 <i class="fa-solid fa-chess theme-btn-icon"></i>
-                <div class="theme-btn-text">
+                <span class="theme-btn-text">
                     <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
                     <span class="theme-btn-sub" data-i18n="theme.chess.subtitle">Clases · Experiencia · FIDE 1946</span>
-                </div>
+                </span>
             </button>
             <button type="button" id="lang-toggle" class="lang-btn">EN</button>
         </div>
     </div>
 
     <main>
-        <div id="view-design" class="view active">
+        <div id="view-home" class="view active">
+        <div class="home-split">
+            <div class="home-split-panel home-split-design" data-goto="design" role="button" tabindex="0">
+                <div class="home-split-bg"></div>
+                <svg class="home-split-illus" viewBox="0 0 300 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="2" y="2" width="296" height="196" rx="12" stroke="white" stroke-width="1.5"/>
+                  <rect x="2" y="2" width="296" height="30" rx="12" fill="white" opacity="0.07"/>
+                  <line x1="2" y1="32" x2="298" y2="32" stroke="white" stroke-width="1"/>
+                  <circle cx="20" cy="17" r="5" fill="white" opacity="0.5"/>
+                  <circle cx="36" cy="17" r="5" fill="white" opacity="0.5"/>
+                  <circle cx="52" cy="17" r="5" fill="white" opacity="0.5"/>
+                  <rect x="66" y="9" width="150" height="16" rx="8" stroke="white" stroke-width="1" opacity="0.3"/>
+                  <rect x="16" y="44" width="268" height="52" rx="4" fill="white" opacity="0.05"/>
+                  <line x1="75" y1="58" x2="225" y2="58" stroke="white" stroke-width="3" opacity="0.4"/>
+                  <line x1="100" y1="72" x2="200" y2="72" stroke="white" stroke-width="2" opacity="0.22"/>
+                  <rect x="16" y="108" width="80" height="74" rx="6" stroke="white" stroke-width="1" opacity="0.28"/>
+                  <rect x="110" y="108" width="80" height="74" rx="6" stroke="white" stroke-width="1" opacity="0.28"/>
+                  <rect x="204" y="108" width="80" height="74" rx="6" stroke="white" stroke-width="1" opacity="0.28"/>
+                  <line x1="28" y1="132" x2="84" y2="132" stroke="white" stroke-width="1.5" opacity="0.3"/>
+                  <line x1="28" y1="146" x2="76" y2="146" stroke="white" stroke-width="1" opacity="0.2"/>
+                  <line x1="122" y1="132" x2="178" y2="132" stroke="white" stroke-width="1.5" opacity="0.3"/>
+                  <line x1="122" y1="146" x2="170" y2="146" stroke="white" stroke-width="1" opacity="0.2"/>
+                  <line x1="216" y1="132" x2="272" y2="132" stroke="white" stroke-width="1.5" opacity="0.3"/>
+                  <line x1="216" y1="146" x2="264" y2="146" stroke="white" stroke-width="1" opacity="0.2"/>
+                  <line x1="150" y1="198" x2="150" y2="218" stroke="white" stroke-width="2" opacity="0.2"/>
+                  <line x1="112" y1="218" x2="188" y2="218" stroke="white" stroke-width="2.5" opacity="0.2"/>
+                </svg>
+                <div class="home-split-content">
+                    <i class="fa-solid fa-code home-split-icon"></i>
+                    <h2 class="home-split-title" data-i18n="home.design.title">Diseñador Web</h2>
+                    <p class="home-split-desc" data-i18n="home.design.desc">Portfolio de proyectos, precios y contacto</p>
+                    <span class="home-split-cta" data-i18n="home.design.cta">Ver portfolio →</span>
+                </div>
+            </div>
+            <div class="home-split-center">
+                <img src="img/profile.webp" alt="Teo Cicciari" class="home-split-avatar">
+                <span class="home-split-name">Teo Cicciari</span>
+            </div>
+            <div class="home-split-panel home-split-chess" data-goto="chess" role="button" tabindex="0">
+                <div class="home-split-bg"></div>
+                <svg class="home-split-illus" viewBox="0 0 224 224" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <rect x="0"   y="0"   width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="56"  y="0"   width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="112" y="0"   width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="168" y="0"   width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="28"  y="28"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="84"  y="28"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="140" y="28"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="196" y="28"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="0"   y="56"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="56"  y="56"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="112" y="56"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="168" y="56"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="28"  y="84"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="84"  y="84"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="140" y="84"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="196" y="84"  width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="0"   y="112" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="56"  y="112" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="112" y="112" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="168" y="112" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="28"  y="140" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="84"  y="140" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="140" y="140" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="196" y="140" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="0"   y="168" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="56"  y="168" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="112" y="168" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="168" y="168" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="28"  y="196" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="84"  y="196" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="140" y="196" width="28" height="28" fill="white" opacity="0.08"/>
+                  <rect x="196" y="196" width="28" height="28" fill="white" opacity="0.08"/>
+                </svg>
+                <div class="home-split-content">
+                    <i class="fa-solid fa-chess home-split-icon"></i>
+                    <h2 class="home-split-title" data-i18n="home.chess.title">Profesor de Ajedrez</h2>
+                    <p class="home-split-desc" data-i18n="home.chess.desc">Clases para todos los niveles, FIDE 1946</p>
+                    <span class="home-split-cta" data-i18n="home.chess.cta">Ver clases →</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="view-design" class="view">
         <section class="hero" id="inicio">
             <div class="hero-content">
                 <div class="hero-icon fade-in">
@@ -353,7 +437,7 @@
                                 <button class="featured-star" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
                             </div>
                         </div>
-                        <h3 class="project-title">Irezumi - Tatuajes & Piercing</h3>
+                        <h3 class="project-title">Irezumi - Tatuajes &amp; Piercing</h3>
                         <p class="project-description" data-i18n="projects.irezumi.desc">Página para estudio de tattoo de Arte Japonés</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
@@ -381,7 +465,7 @@
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
-                            <span class="project-tag">Black&White</span>
+                            <span class="project-tag">Black &amp; White</span>
                             <span class="project-tag">Minimalismo</span>
                         </div>
                         <a href="http://teocicciari.com.ar/woner/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
@@ -446,12 +530,12 @@
                         </div>
                         
                         <ul class="pricing-features">
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f1">Diseño personalizado</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f2">1 página con hasta 4 secciones</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f3">Botón de WhatsApp y redes sociales</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f4">Formulario de contacto</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f5">SEO básico y carga optimizada</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f6">2 revisiones incluidas</li>
+                            <li><span class="feature-icon">✓</span>Diseño personalizado</li>
+                            <li><span class="feature-icon">✓</span>1 página con hasta 4 secciones</li>
+                            <li><span class="feature-icon">✓</span>Botón de WhatsApp y redes sociales</li>
+                            <li><span class="feature-icon">✓</span>Formulario de contacto</li>
+                            <li><span class="feature-icon">✓</span>SEO básico y carga optimizada</li>
+                            <li><span class="feature-icon">✓</span>2 revisiones incluidas</li>
                         </ul>
                         
                         <div class="pricing-cta">
@@ -475,11 +559,11 @@
                         </div>
                         
                         <ul class="pricing-features">
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.redesign.f1">Rediseño visual completo</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.redesign.f2">Mejora para celulares y navegación</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.redesign.f3">Mantiene contenido actual</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.redesign.f4">Optimización de velocidad</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.basic.f6">2 revisiones incluidas</li>
+                            <li><span class="feature-icon">✓</span>Rediseño visual completo</li>
+                            <li><span class="feature-icon">✓</span>Mejora para celulares y navegación</li>
+                            <li><span class="feature-icon">✓</span>Mantiene contenido actual</li>
+                            <li><span class="feature-icon">✓</span>Optimización de velocidad</li>
+                            <li><span class="feature-icon">✓</span>2 revisiones incluidas</li>
                         </ul>
                         
                         <div class="pricing-cta">
@@ -503,12 +587,12 @@
                         </div>
                         
                         <ul class="pricing-features">
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f1">Hasta 3 páginas internas</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f2">Galería de imágenes o catálogo</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f3">Mapa de ubicación</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f4">Formulario de contacto o reservas</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f5">Diseño personalizado y SEO básico</li>
-                            <li><span class="feature-icon">✓</span data-i18n="pricing.professional.f6">3 revisiones incluidas</li>
+                            <li><span class="feature-icon">✓</span>Hasta 3 páginas internas</li>
+                            <li><span class="feature-icon">✓</span>Galería de imágenes o catálogo</li>
+                            <li><span class="feature-icon">✓</span>Mapa de ubicación</li>
+                            <li><span class="feature-icon">✓</span>Formulario de contacto o reservas</li>
+                            <li><span class="feature-icon">✓</span>Diseño personalizado y SEO básico</li>
+                            <li><span class="feature-icon">✓</span>3 revisiones incluidas</li>
                         </ul>
                         
                         <div class="pricing-cta">
@@ -648,7 +732,7 @@
                     </div>
                 </div>
                 <div class="contact-map-container">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d370.8437114210705!2d-71.53901517391208!3d-41.9627111966953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961bbf06efcf1f93%3A0xcb40721dd970ee11!2sTeo%20Cicciari%20%7C%20Dise%C3%B1o%20Web%20Profesional!5e0!3m2!1ses-419!2sar!4v1759542840353!5m2!1ses-419!2sar" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe title="Ubicación de Teo Cicciari en Google Maps" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d370.8437114210705!2d-71.53901517391208!3d-41.9627111966953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961bbf06efcf1f93%3A0xcb40721dd970ee11!2sTeo%20Cicciari%20%7C%20Dise%C3%B1o%20Web%20Profesional!5e0!3m2!1ses-419!2sar!4v1759542840353!5m2!1ses-419!2sar" width="600" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
             </div>
         </section>
@@ -899,7 +983,7 @@
     })();
     </script>
 
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NKDXKGFM"
+    <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-NKDXKGFM"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>
