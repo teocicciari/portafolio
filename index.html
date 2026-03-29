@@ -32,6 +32,7 @@
     <link rel="stylesheet" href="promo.css">
     <link rel="stylesheet" href="theme-switcher.css">
     <link rel="stylesheet" href="prices.css">
+    <link rel="stylesheet" href="ajedrez.css">
 
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
 
@@ -44,7 +45,7 @@
                 <div class="profile-name">Teo Cicciari</div>
                 <div class="verified">✓</div>
             </div>
-            <div class="nav-links">
+            <div class="nav-links active" data-view="design">
                 <a href="#inicio" class="nav-link">Inicio</a>
                 <a href="#projects" class="nav-link">Proyectos</a>
                 <a href="#prices" class="nav-link">Precios</a>
@@ -52,27 +53,32 @@
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">Contacto</a>
             </div>
-            <a href="#contact" class="contact-btn">Contáctame</a>
+            <div class="nav-links" data-view="chess">
+                <a href="#chess-hero" class="nav-link">Inicio</a>
+                <a href="#chess-experience" class="nav-link">Experiencia</a>
+                <a href="#chess-topics" class="nav-link">Qué Aprenderás</a>
+                <a href="#chess-contact" class="nav-link">Contacto</a>
+            </div>
+            <a href="#contact" class="contact-btn" id="main-contact-btn">Contáctame</a>
         </nav>
     </header>
 
     <div class="theme-switcher">
-        <div class="theme-switcher-label"><i class="fa-solid fa-palette theme-icon"></i></div>
         <div class="theme-options">
-            <a href="index.html" class="theme-btn theme-default active" data-theme="default" title="Diseñador Web">
-                <i class="fa-solid fa-code"></i>
-                <div class="color-preview">
-                    <div class="color-square bg-primary-default"></div>
-                    <div class="color-square bg-accent-default"></div>
+            <button type="button" class="theme-btn theme-default active" data-theme="default">
+                <i class="fa-solid fa-code theme-btn-icon"></i>
+                <div class="theme-btn-text">
+                    <span class="theme-btn-title">Diseñador Web</span>
+                    <span class="theme-btn-sub">Portfolio · Proyectos · Precios</span>
                 </div>
-            </a>
-            <a href="ajedrez.html" class="theme-btn theme-forest" data-theme="forest" title="Ajedrez">
-                <i class="fa-solid fa-chess"></i>
-                <div class="color-preview">
-                    <div class="color-square bg-primary-forest"></div>
-                    <div class="color-square bg-accent-forest"></div>
+            </button>
+            <button type="button" class="theme-btn theme-forest" data-theme="forest">
+                <i class="fa-solid fa-chess theme-btn-icon"></i>
+                <div class="theme-btn-text">
+                    <span class="theme-btn-title">Profesor de Ajedrez</span>
+                    <span class="theme-btn-sub">Clases · Experiencia · FIDE 1946</span>
                 </div>
-            </a>
+            </button>
         </div>
     </div>
 
@@ -89,6 +95,7 @@
     </div>
     
     <main>
+        <div id="view-design" class="view active">
         <section class="hero" id="inicio">
             <div class="hero-content">
                 <div class="hero-icon fade-in">
@@ -705,16 +712,150 @@
                 </div>
             </div>
         </section>
+        </div><!-- /view-design -->
+
+        <div id="view-chess" class="view">
+            <section class="hero chess-hero" id="chess-hero">
+                <div class="hero-content">
+                    <div class="hero-icon fade-in">
+                        <i class="fa-solid fa-chess"></i>
+                    </div>
+                    <h1 class="fade-in">Clases de Ajedrez</h1>
+                    <p class="hero-subtext fade-in">Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.</p>
+                    <div class="hero-stats fade-in">
+                        <div class="stat-item">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>ELO FIDE 1946</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fa-solid fa-clock"></i>
+                            <span>10 años enseñando</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="about-section" id="chess-about">
+                <div class="about-container fade-in">
+                    <h2 class="section-title">Mi Pasión por el Ajedrez</h2>
+                    <div class="about-content-wrapper">
+                        <div class="about-image-container">
+                            <div class="about-image">
+                                <img src="img/chess.webp" alt="Teo Cicciari jugando ajedrez en torneo">
+                            </div>
+                            <div class="fide-link">
+                                <a href="https://ratings.fide.com/profile/140821/chart" target="_blank" class="fide-btn">
+                                    <i class="fa-solid fa-external-link-alt"></i>
+                                    Ver mi perfil FIDE
+                                </a>
+                            </div>
+                        </div>
+                        <div class="about-content">
+                            <p>Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1946 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.</p>
+                            <p>Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.</p>
+                            <p>A lo largo de mi carrera, he tenido el privilegio de enseñar a estudiantes de todas las edades y niveles, desde principiantes hasta jugadores avanzados. Mi enfoque se centra en crear un <strong>ambiente de aprendizaje divertido y desafiante</strong>, adaptándome a las necesidades individuales de cada estudiante.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="experience-section" id="chess-experience">
+                <div class="experience-container">
+                    <h2 class="section-title fade-in">Experiencia Docente</h2>
+                    <div class="timeline fade-in">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2014 - 2017</div>
+                            <div class="timeline-content">
+                                <h3>Biblioteca Popular Lago Puelo</h3>
+                                <p>Clases grupales para niños y jóvenes</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017 - 2020</div>
+                            <div class="timeline-content">
+                                <h3>Facultad de Matemática, Astronomía y Física - UNC</h3>
+                                <p>Instructor de ajedrez en la Universidad Nacional de Córdoba</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2020 - Actualidad</div>
+                            <div class="timeline-content">
+                                <h3>Clases Particulares Online y Presencial</h3>
+                                <p>Enseñanza personalizada para estudiantes de todos los niveles</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 - 2023</div>
+                            <div class="timeline-content">
+                                <h3>Casa de la Cultura de Lago Puelo</h3>
+                                <p>Talleres de ajedrez para la comunidad</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2024 - 2025</div>
+                            <div class="timeline-content">
+                                <h3>Biblioteca Popular Lago Puelo</h3>
+                                <p>Clases grupales para niños y jóvenes</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item current">
+                            <div class="timeline-date">Actual</div>
+                            <div class="timeline-content">
+                                <h3><a href="https://reyesypeones.com/" target="_blank" rel="noopener noreferrer">Academia Reyes y Peones</a></h3>
+                                <p>Clases online de ajedrez</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="topics-section" id="chess-topics">
+                <div class="topics-container">
+                    <h2 class="section-title fade-in">Qué Aprenderás</h2>
+                    <p class="section-description fade-in">Mis clases cubren una variedad de temas adaptados a tu nivel</p>
+                    <div class="topics-grid fade-in">
+                        <div class="topic-card">
+                            <div class="topic-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                            <h3>Tácticas y Estrategias</h3>
+                            <p>Aprende los conceptos básicos y avanzados para mejorar tu juego posicional y táctico</p>
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon"><i class="fa-solid fa-chess-board"></i></div>
+                            <h3>Aperturas y Finales</h3>
+                            <p>Domina las aperturas principales y los finales fundamentales para tener ventaja desde el inicio</p>
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                            <h3>Análisis de Partidas</h3>
+                            <p>Revisa tus partidas para identificar errores y oportunidades de mejora</p>
+                        </div>
+                        <div class="topic-card">
+                            <div class="topic-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <h3>Preparación para Torneos</h3>
+                            <p>Preparación específica para competencias y desarrollo de habilidades competitivas</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="cta-section fade-in" id="chess-contact">
+                <h2>¿Listo para mejorar tu ajedrez?</h2>
+                <p>Contáctame para programar tu primera clase y comenzar tu camino hacia la maestría</p>
+                <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez." class="cta-btn" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    Consultar por Clases
+                </a>
+            </section>
+        </div><!-- /view-chess -->
     </main>
-    
-    <!-- Solo un pequeño elemento sutil de ajedrez 
-    <div class="chess-detail">♞</div>-->
 
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section about">
                 <h3>Teo Cicciari</h3>
-                <p>Diseñador Web especializado en crear experiencias digitales únicas y funcionales.</p>
+                <p>Diseñador Web y Profesor de Ajedrez especializado en crear experiencias digitales únicas y funcionales.</p>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/teo-cicciari" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/teocicciari" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -724,12 +865,18 @@
             
             <div class="footer-section links">
                 <h3>Enlaces rápidos</h3>
-                <ul>
+                <ul class="footer-links active" data-view="design">
                     <li><a href="#">Inicio</a></li>
                     <li><a href="#skills">Mis habilidades</a></li>
                     <li><a href="#projects">Mis proyectos</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contacto</a></li>
+                </ul>
+                <ul class="footer-links" data-view="chess">
+                    <li><a href="#chess-hero">Inicio</a></li>
+                    <li><a href="#chess-experience">Experiencia</a></li>
+                    <li><a href="#chess-topics">Qué Aprenderás</a></li>
+                    <li><a href="#chess-contact">Contacto</a></li>
                 </ul>
             </div>
             

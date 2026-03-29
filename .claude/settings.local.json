@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(where:*)",
-      "Bash(npx ttf2woff2:*)"
+      "Bash(npx ttf2woff2:*)",
+      "Bash(rm ajedrez.html chess.html chess.css chess.js feriantes.html feriantes.css)",
+      "Bash(rm img/frame.png img/profile.jpg img/qr-feriantes.svg)",
+      "Bash(rm -rf img/test)",
+      "Bash(rm img/proyectos/arcano.webp img/proyectos/serenity.webp img/proyectos/travellers.webp img/proyectos/terminalsuites.png)",
+      "Bash(rm disenos/artistica.html disenos/minimalista.html)"
     ],
     "deny": [],
     "ask": []

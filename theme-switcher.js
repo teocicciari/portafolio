@@ -1,42 +1,60 @@
-// Crear un archivo theme-switcher.js y añadir este código
-
 document.addEventListener('DOMContentLoaded', function() {
-    // Obtener todos los botones de tema
     const themeButtons = document.querySelectorAll('.theme-btn');
 
-    // Detectar la página actual y asignar el tema correspondiente
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    let pageTheme;
+    // Determinar vista inicial desde el hash de la URL
+    const initialView = window.location.hash === '#chess' ? 'chess' : 'design';
+    activateView(initialView);
 
-    // Asignar tema según la página
-    if (currentPage.includes('feriantes.html')) {
-        pageTheme = 'ocean';
-    } else if (currentPage.includes('ajedrez.html')) {
-        pageTheme = 'forest';
-    } else {
-        pageTheme = 'default';
-    }
-
-    // Aplicar el tema de la página automáticamente
-    document.body.classList.remove('theme-default', 'theme-ocean', 'theme-sunset', 'theme-forest');
-    if (pageTheme !== 'default') {
-        document.body.classList.add('theme-' + pageTheme);
-    }
-
-    // Actualizar el botón activo según el tema de la página
     themeButtons.forEach(button => {
-        if (button.dataset.theme === pageTheme) {
-            button.classList.add('active');
-        } else {
-            button.classList.remove('active');
-        }
-    });
-
-    // Añadir evento de clic a cada botón (ahora navega a la página correspondiente)
-    themeButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            // El botón ya tiene un href, por lo que navegará automáticamente
-            // No es necesario prevenir el comportamiento por defecto
+        button.addEventListener('click', function() {
+            const view = this.dataset.theme === 'forest' ? 'chess' : 'design';
+            activateView(view);
+            history.replaceState(null, '', view === 'chess' ? '#chess' : location.pathname);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
+
+    function activateView(view) {
+        const isChess = view === 'chess';
+        const theme = isChess ? 'forest' : 'default';
+
+        // Aplicar tema al body
+        document.body.classList.remove('theme-default', 'theme-ocean', 'theme-forest');
+        if (theme !== 'default') {
+            document.body.classList.add('theme-' + theme);
+        }
+
+        // Alternar vistas
+        document.querySelectorAll('.view').forEach(v => {
+            v.classList.toggle('active', v.id === (isChess ? 'view-chess' : 'view-design'));
+        });
+
+        // Alternar nav-links
+        document.querySelectorAll('.nav-links[data-view]').forEach(nl => {
+            nl.classList.toggle('active', nl.dataset.view === view);
+        });
+
+        // Alternar footer links
+        document.querySelectorAll('.footer-links[data-view]').forEach(fl => {
+            fl.classList.toggle('active', fl.dataset.view === view);
+        });
+
+        // Actualizar href del botón de contacto
+        const contactBtn = document.getElementById('main-contact-btn');
+        if (contactBtn) {
+            contactBtn.href = isChess
+                ? 'https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez.'
+                : '#contact';
+        }
+
+        // Actualizar botón activo del theme switcher
+        themeButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.theme === theme);
+        });
+
+        // Actualizar título de la página
+        document.title = isChess
+            ? 'Clases de Ajedrez | Teo Cicciari'
+            : 'Teo Cicciari | Diseñador Web';
+    }
 });
