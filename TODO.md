@@ -8,7 +8,6 @@
 - [ ] Lazy loading con IntersectionObserver para imágenes de proyectos
 
 ### UX / Interacción
-- [ ] Animación de transición entre vistas (design ↔ chess)
 - [ ] Menú hamburguesa para mobile (los nav-links se ocultan sin reemplazo)
 - [ ] Modo claro / oscuro independiente de la vista
 
@@ -17,7 +16,7 @@
 - [ ] Videos o screenshots animados de los proyectos (en lugar de imágenes estáticas)
 - [ ] Subsecciones de estilos de diseño (Minimalismo, Neobrutalismo, etc.)
 - [ ] Sección "Herramientas que uso" (VS Code, Figma, IA, etc.)
-- [ ] Traducción al inglés
+- [ ] fecha atualizada dinamicamente en footer (año)
 
 ### Ajedrez
 - [ ] Integración con Lichess o Chess.com para mostrar partidas recientes
@@ -40,3 +39,5 @@
 - [x] Propuesta para feriantes / artesanos
 - [x] Fusionar index.html y ajedrez.html en una sola página con vistas
 - [x] SEO: meta tags y datos estructurados con ambos roles
+- [x] Animación de transición entre vistas (design ↔ chess)
+- [x] Traducción al inglés
