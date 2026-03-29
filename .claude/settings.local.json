@@ -7,7 +7,9 @@
       "Bash(rm img/frame.png img/profile.jpg img/qr-feriantes.svg)",
       "Bash(rm -rf img/test)",
       "Bash(rm img/proyectos/arcano.webp img/proyectos/serenity.webp img/proyectos/travellers.webp img/proyectos/terminalsuites.png)",
-      "Bash(rm disenos/artistica.html disenos/minimalista.html)"
+      "Bash(rm disenos/artistica.html disenos/minimalista.html)",
+      "Bash(python3 -c \":*)",
+      "Bash(node -e \":*)"
     ],
     "deny": [],
     "ask": []
