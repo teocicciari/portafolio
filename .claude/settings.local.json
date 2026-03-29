@@ -9,7 +9,8 @@
       "Bash(rm img/proyectos/arcano.webp img/proyectos/serenity.webp img/proyectos/travellers.webp img/proyectos/terminalsuites.png)",
       "Bash(rm disenos/artistica.html disenos/minimalista.html)",
       "Bash(python3 -c \":*)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(node _add_i18n.js)"
     ],
     "deny": [],
     "ask": []

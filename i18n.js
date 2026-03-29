@@ -1,0 +1,398 @@
+(function () {
+    const translations = {
+        es: {
+            // Nav - design
+            'nav.design.inicio': 'Inicio',
+            'nav.design.proyectos': 'Proyectos',
+            'nav.design.precios': 'Precios',
+            'nav.design.habilidades': 'Habilidades',
+            'nav.design.faq': 'FAQ',
+            'nav.design.contacto': 'Contacto',
+            // Nav - chess
+            'nav.chess.inicio': 'Inicio',
+            'nav.chess.experiencia': 'Experiencia',
+            'nav.chess.topicos': 'Qué Aprenderás',
+            'nav.chess.contacto': 'Contacto',
+            // Header
+            'header.contact_btn': 'Contáctame',
+            // Theme switcher
+            'theme.design.title': 'Diseñador Web',
+            'theme.design.subtitle': 'Portfolio · Proyectos · Precios',
+            'theme.chess.title': 'Profesor de Ajedrez',
+            'theme.chess.subtitle': 'Clases · Experiencia · FIDE 1946',
+            // Hero
+            'hero.title': 'Diseño Web Profesional',
+            'hero.subtitle': 'Creando experiencias web que potencian tu presencia online y te destacan frente a la competencia.',
+            'hero.feature_1': '100% Personalizadas',
+            'hero.feature_2': 'Adaptadas a distintos tamaños de pantalla',
+            'hero.feature_3': 'Optimizadas para motores de busqueda',
+            // About modal
+            'about.subtitle': 'Diseñador Web',
+            'about.p1': 'Soy un diseñador web apasionado con una sólida formación académica en la Facultad de Matemática, Astronomía, Física y Computación de la Universidad Nacional de Córdoba, donde cursé durante dos años. Esta base científica-técnica complementa perfectamente mi obsesión actual con el diseño y el marketing digital.',
+            'about.p2': 'Mi enfoque se centra en desarrollar plataformas que no solo cautiven visualmente, sino que también generen resultados tangibles: más reservas directas, mejor posicionamiento en buscadores y una experiencia de usuario excepcional.',
+            'about.more_btn': 'Más sobre mí',
+            'about.chess_title': 'Mi pasión por el ajedrez',
+            'about.chess_p1': 'Además de mi carrera profesional, soy un apasionado jugador de ajedrez. Este juego milenario ha influido profundamente en mi enfoque del diseño web: estrategia, anticipación y atención al detalle.',
+            'about.chess_p2': 'La planificación estratégica que requiere el ajedrez se refleja en cómo estructuro mis proyectos de diseño, pensando siempre varios movimientos por delante para crear sitios web que no solo sean estéticamente atractivos, sino también funcionales y efectivos.',
+            'about.fide_btn': 'Ver mi perfil FIDE',
+            'about.cta_btn': 'Trabajemos juntos',
+            // Projects
+            'projects.title': 'Mis Proyectos',
+            'projects.description': 'Diseños 100% personalizados, hechos a mano con código y potenciados con IA. Sin plantillas de WordPress ni constructores genéricos. Cada proyecto es único y adaptado a las necesidades específicas de cada cliente.',
+            'projects.filter_all': 'Todos',
+            'projects.filter_featured': 'Destacados',
+            'projects.filter_hospedajes': 'Hospedajes',
+            'projects.filter_portafolios': 'Portafolios',
+            'projects.filter_organizaciones': 'Organizaciones',
+            'projects.filter_tattoos': 'Estudios de Tattoo',
+            'projects.visit_link': 'Visitar página →',
+            'projects.tia_ursula.desc': 'Diseño para Hotel de categoría ubicado en Exaltación de la Cruz',
+            'projects.terminal_suites.desc': 'Diseño para departamentos en el calafate, Santa Cruz.',
+            'projects.samsara.desc': 'Diseño para hostel, enfocado en conseguir nuevas reservas.',
+            'projects.isla_santiago.desc': 'Landing page para cabaña en La Plata.',
+            'projects.croma.desc': 'Página para un Hostel ficticio utilizando un estilo neobrutalista.',
+            'projects.sol.desc': 'Página para un Hostel ficticio utilizando un estilo neobrutalista.',
+            'projects.danilo.desc': 'Portafolio para Dani, especialista en publicidad digital.',
+            'projects.clara.desc': 'Portafolio de Community Manager',
+            'projects.fach.desc': 'Web para la Federación Chubutense, con subpáginas para los clubes.',
+            'projects.lago_puelo.desc': 'Página para el Club de Ajedrez Lago Puelo, con sponsors y un listado de jugadores.',
+            'projects.irt.desc': 'Web con la información del evento',
+            'projects.irezumi.desc': 'Página para estudio de tattoo de Arte Japonés',
+            'projects.wolf_ink.desc': 'Página para un Estudio ficticio de Tattoo en blanco y negro.',
+            'projects.karus.desc': 'Página para Estudio de Tattoo.',
+            // CTA sketch
+            'cta_sketch.title': '¿Tenés un proyecto en mente?',
+            'cta_sketch.subtitle': 'Te ofrezco un boceto gratuito para visualizar cómo podría verse tu sitio web',
+            'cta_sketch.btn': 'Solicitar Boceto Gratuito',
+            // Pricing
+            'pricing.title': 'Planes y Precios',
+            'pricing.intro': 'Elige la solución perfecta para tu proyecto. Todos los planes incluyen diseño responsive, optimización SEO básica y soporte técnico.',
+            'pricing.basic.title': 'Landing Page Básica',
+            'pricing.basic.subtitle': 'Ideal para emprendedores y pequeños negocios',
+            'pricing.basic.f1': 'Diseño personalizado',
+            'pricing.basic.f2': '1 página con hasta 4 secciones',
+            'pricing.basic.f3': 'Botón de WhatsApp y redes sociales',
+            'pricing.basic.f4': 'Formulario de contacto',
+            'pricing.basic.f5': 'SEO básico y carga optimizada',
+            'pricing.basic.f6': '2 revisiones incluidas',
+            'pricing.cta_btn': 'Comenzar Proyecto',
+            'pricing.basic.delivery': 'Entrega: 7-14 días',
+            'pricing.redesign.title': 'Rediseño Web',
+            'pricing.redesign.subtitle': 'Ideal para modernizar una web existente, mejorar su diseño, velocidad y experiencia en celulares sin empezar desde cero.',
+            'pricing.redesign.f1': 'Rediseño visual completo',
+            'pricing.redesign.f2': 'Mejora para celulares y navegación',
+            'pricing.redesign.f3': 'Mantiene contenido actual',
+            'pricing.redesign.f4': 'Optimización de velocidad',
+            'pricing.redesign.f5': '2 revisiones incluidas',
+            'pricing.redesign.delivery': 'Entrega: 5-7 días',
+            'pricing.professional.title': 'Sitio Web Profesional',
+            'pricing.professional.subtitle': 'Para negocios con más contenido o servicios',
+            'pricing.professional.f1': 'Hasta 3 páginas internas',
+            'pricing.professional.f2': 'Galería de imágenes o catálogo',
+            'pricing.professional.f3': 'Mapa de ubicación',
+            'pricing.professional.f4': 'Formulario de contacto o reservas',
+            'pricing.professional.f5': 'Diseño personalizado y SEO básico',
+            'pricing.professional.f6': '3 revisiones incluidas',
+            'pricing.professional.delivery': 'Entrega: 14-18 días',
+            // Skills
+            'skills.title': 'Mis Habilidades',
+            'skills.uiux': 'Experiencias de usuario intuitivas y atractivas',
+            'skills.ai': 'Implementación y optimización de soluciones con IA',
+            'skills.frontend': 'HTML5, CSS3, JavaScript',
+            'skills.strategy': 'SEO, optimización y arquitectura web',
+            // FAQ
+            'faq.title': 'Preguntas Frecuentes',
+            'faq.q1': '¿Cuánto tiempo lleva diseñar un sitio web?',
+            'faq.a1': 'El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web estándar para hospedajes suele estar listo en 2 semanas. Proyectos más complejos con sistemas de reserva personalizados pueden tomar 4-5 semanas. Siempre establecemos un cronograma claro al inicio del proyecto.',
+            'faq.q2': '¿Qué información necesito proporcionar para iniciar mi proyecto?',
+            'faq.a2': 'Para comenzar necesitaremos: fotos de alta calidad de tu producto, servicio o espacio; textos descriptivos sobre lo que ofrecés; información de contacto y ubicación (si aplica); y cualquier elemento distintivo que quieras destacar. También es útil compartir ejemplos de sitios web que te gusten para entender mejor tu estilo preferido.',
+            'faq.q3': '¿Ofreces mantenimiento web después de finalizar el proyecto?',
+            'faq.a3': 'Sí, ofrezco planes de mantenimiento mensual que incluyen actualizaciones de contenido, sugerencias y soporte técnico. También puedo capacitar a tu equipo para que realicen actualizaciones básicas si lo prefieres. El objetivo es asegurar que tu sitio se mantenga actualizado y funcionando correctamente.',
+            'faq.q4': '¿Los diseños se adaptan a distintos tamaños de pantalla?',
+            'faq.a4': 'Absolutamente. Todos mis diseños son 100% responsivos y optimizados para verse perfectamente en cualquier dispositivo. Esto es especialmente importante en el sector de hospedajes, ya que más del 60% de las reservas se realizan desde dispositivos móviles actualmente.',
+            'faq.q5': '¿Cuáles son tus métodos de pago y condiciones?',
+            'faq.a5': 'Trabajo con un modelo de 50% de anticipo al iniciar el proyecto y 50% al finalizar. Acepto transferencias bancarias, Mercado Pago y PayPal. Para proyectos mayores, podemos establecer un plan de pagos por etapas. Todos los detalles de pago se especifican claramente en el contrato antes de comenzar.',
+            // Contact
+            'contact.title': '¿Listo para trabajar juntos?',
+            'contact.subtitle': 'Estoy aquí para ayudarte a crear una presencia digital excepcional para tu hospedaje. Contáctame y conversemos sobre cómo puedo transformar tu idea en realidad.',
+            'contact.whatsapp.label': 'WhatsApp',
+            'contact.whatsapp.desc': 'Respuesta rápida para consultas y cotizaciones. Disponible de 9:00 a 18:00.',
+            'contact.whatsapp.btn': 'Enviar mensaje',
+            'contact.email.label': 'Email',
+            'contact.email.desc': 'Para propuestas detalladas y documentación. Respuesta garantizada en 24 horas.',
+            'contact.email.btn': 'Enviar email',
+            'contact.location.label': 'Ubicación',
+            'contact.location.desc': '¿Estás por la zona? Pasá a tomar unos mates y conversemos sobre tu proyecto.',
+            // Chess hero
+            'chess_hero.title': 'Clases de Ajedrez',
+            'chess_hero.subtitle': 'Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.',
+            'chess_hero.elo': 'ELO FIDE 1946',
+            'chess_hero.experience': '10 años enseñando',
+            // Chess about
+            'chess_about.title': 'Mi Pasión por el Ajedrez',
+            'chess_about.fide_btn': 'Ver mi perfil FIDE',
+            'chess_about.p1': 'Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1946 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.',
+            'chess_about.p2': 'Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.',
+            'chess_about.p3': 'A lo largo de mi carrera, he tenido el privilegio de enseñar a estudiantes de todas las edades y niveles, desde principiantes hasta jugadores avanzados. Mi enfoque se centra en crear un <strong>ambiente de aprendizaje divertido y desafiante</strong>, adaptándome a las necesidades individuales de cada estudiante.',
+            // Chess experience
+            'chess_exp.title': 'Experiencia Docente',
+            'chess_exp.t1.title': 'Biblioteca Popular Lago Puelo',
+            'chess_exp.t1.desc': 'Clases grupales para niños y jóvenes',
+            'chess_exp.t2.title': 'Facultad de Matemática, Astronomía y Física - UNC',
+            'chess_exp.t2.desc': 'Instructor de ajedrez en la Universidad Nacional de Córdoba',
+            'chess_exp.t3.title': 'Clases Particulares Online y Presencial',
+            'chess_exp.t3.desc': 'Enseñanza personalizada para estudiantes de todos los niveles',
+            'chess_exp.t4.title': 'Casa de la Cultura de Lago Puelo',
+            'chess_exp.t4.desc': 'Talleres de ajedrez para la comunidad',
+            'chess_exp.t6.desc': 'Clases online de ajedrez',
+            // Chess topics
+            'chess_topics.title': 'Qué Aprenderás',
+            'chess_topics.subtitle': 'Mis clases cubren una variedad de temas adaptados a tu nivel',
+            'chess_topics.card1.title': 'Tácticas y Estrategias',
+            'chess_topics.card1.desc': 'Aprende los conceptos básicos y avanzados para mejorar tu juego posicional y táctico',
+            'chess_topics.card2.title': 'Aperturas y Finales',
+            'chess_topics.card2.desc': 'Domina las aperturas principales y los finales fundamentales para tener ventaja desde el inicio',
+            'chess_topics.card3.title': 'Análisis de Partidas',
+            'chess_topics.card3.desc': 'Revisa tus partidas para identificar errores y oportunidades de mejora',
+            'chess_topics.card4.title': 'Preparación para Torneos',
+            'chess_topics.card4.desc': 'Preparación específica para competencias y desarrollo de habilidades competitivas',
+            // Chess CTA
+            'chess_cta.title': '¿Listo para mejorar tu ajedrez?',
+            'chess_cta.subtitle': 'Contáctame para programar tu primera clase y comenzar tu camino hacia la maestría',
+            'chess_cta.btn': 'Consultar por Clases',
+            // Footer
+            'footer.about_desc': 'Diseñador Web y Profesor de Ajedrez especializado en crear experiencias digitales únicas y funcionales.',
+            'footer.links.title': 'Enlaces rápidos',
+            'footer.links.inicio': 'Inicio',
+            'footer.links.skills': 'Mis habilidades',
+            'footer.links.projects': 'Mis proyectos',
+            'footer.links.faq': 'FAQ',
+            'footer.links.contact': 'Contacto',
+            'footer.chess.inicio': 'Inicio',
+            'footer.chess.experience': 'Experiencia',
+            'footer.chess.topics': 'Qué Aprenderás',
+            'footer.chess.contact': 'Contacto',
+            'footer.contact.title': 'Contacto',
+            'footer.copyright': '© 2025 · Teo Cicciari · Diseñador Web & Profesor de Ajedrez · Todos los derechos reservados',
+            'footer.privacy': 'Política de Privacidad',
+            'footer.terms': 'Términos y Condiciones',
+            // Page titles
+            'page.title.design': 'Teo Cicciari | Diseñador Web & Profesor de Ajedrez',
+            'page.title.chess': 'Clases de Ajedrez | Teo Cicciari',
+        },
+        en: {
+            // Nav - design
+            'nav.design.inicio': 'Home',
+            'nav.design.proyectos': 'Projects',
+            'nav.design.precios': 'Pricing',
+            'nav.design.habilidades': 'Skills',
+            'nav.design.faq': 'FAQ',
+            'nav.design.contacto': 'Contact',
+            // Nav - chess
+            'nav.chess.inicio': 'Home',
+            'nav.chess.experiencia': 'Experience',
+            'nav.chess.topicos': "What You'll Learn",
+            'nav.chess.contacto': 'Contact',
+            // Header
+            'header.contact_btn': 'Contact Me',
+            // Theme switcher
+            'theme.design.title': 'Web Designer',
+            'theme.design.subtitle': 'Portfolio · Projects · Pricing',
+            'theme.chess.title': 'Chess Teacher',
+            'theme.chess.subtitle': 'Lessons · Experience · FIDE 1946',
+            // Hero
+            'hero.title': 'Professional Web Design',
+            'hero.subtitle': 'Building web experiences that boost your online presence and set you apart from the competition.',
+            'hero.feature_1': '100% Custom',
+            'hero.feature_2': 'Responsive on all screen sizes',
+            'hero.feature_3': 'Optimized for search engines',
+            // About modal
+            'about.subtitle': 'Web Designer',
+            'about.p1': "I'm a passionate web designer with a strong academic background from the Faculty of Mathematics, Astronomy, Physics and Computing at the National University of Córdoba, where I studied for two years. This scientific-technical foundation perfectly complements my current obsession with design and digital marketing.",
+            'about.p2': 'My focus is on developing platforms that not only captivate visually, but also generate tangible results: more direct bookings, better search engine rankings and an exceptional user experience.',
+            'about.more_btn': 'More about me',
+            'about.chess_title': 'My passion for chess',
+            'about.chess_p1': "Besides my professional career, I'm a passionate chess player. This ancient game has deeply influenced my approach to web design: strategy, anticipation and attention to detail.",
+            'about.chess_p2': 'The strategic planning that chess requires is reflected in how I structure my design projects, always thinking several moves ahead to create websites that are not only aesthetically attractive, but also functional and effective.',
+            'about.fide_btn': 'View my FIDE profile',
+            'about.cta_btn': "Let's work together",
+            // Projects
+            'projects.title': 'My Projects',
+            'projects.description': "100% custom designs, handcrafted with code and enhanced with AI. No WordPress templates or generic builders. Every project is unique and tailored to each client's specific needs.",
+            'projects.filter_all': 'All',
+            'projects.filter_featured': 'Featured',
+            'projects.filter_hospedajes': 'Accommodations',
+            'projects.filter_portafolios': 'Portfolios',
+            'projects.filter_organizaciones': 'Organizations',
+            'projects.filter_tattoos': 'Tattoo Studios',
+            'projects.visit_link': 'Visit site →',
+            'projects.tia_ursula.desc': 'Design for an upscale hotel located in Exaltación de la Cruz',
+            'projects.terminal_suites.desc': 'Design for apartments in El Calafate, Santa Cruz.',
+            'projects.samsara.desc': 'Design for a hostel, focused on getting new bookings.',
+            'projects.isla_santiago.desc': 'Landing page for a cabin in La Plata.',
+            'projects.croma.desc': 'Page for a fictional Hostel using a neobrutalist style.',
+            'projects.sol.desc': 'Page for a fictional Hostel using a neobrutalist style.',
+            'projects.danilo.desc': 'Portfolio for Dani, digital advertising specialist.',
+            'projects.clara.desc': 'Community Manager Portfolio',
+            'projects.fach.desc': 'Website for the Chubut Federation, with sub-pages for each club.',
+            'projects.lago_puelo.desc': 'Page for the Lago Puelo Chess Club, with sponsors and a player list.',
+            'projects.irt.desc': 'Website with event information',
+            'projects.irezumi.desc': 'Page for a Japanese Art tattoo studio',
+            'projects.wolf_ink.desc': 'Page for a fictional black and white Tattoo Studio.',
+            'projects.karus.desc': 'Page for a Tattoo Studio.',
+            // CTA sketch
+            'cta_sketch.title': 'Got a project in mind?',
+            'cta_sketch.subtitle': 'I offer a free sketch so you can visualize what your website could look like',
+            'cta_sketch.btn': 'Request Free Sketch',
+            // Pricing
+            'pricing.title': 'Plans & Pricing',
+            'pricing.intro': 'Choose the perfect solution for your project. All plans include responsive design, basic SEO optimization and technical support.',
+            'pricing.basic.title': 'Basic Landing Page',
+            'pricing.basic.subtitle': 'Ideal for entrepreneurs and small businesses',
+            'pricing.basic.f1': 'Custom design',
+            'pricing.basic.f2': '1 page with up to 4 sections',
+            'pricing.basic.f3': 'WhatsApp button and social media',
+            'pricing.basic.f4': 'Contact form',
+            'pricing.basic.f5': 'Basic SEO and optimized loading',
+            'pricing.basic.f6': '2 revisions included',
+            'pricing.cta_btn': 'Start Project',
+            'pricing.basic.delivery': 'Delivery: 7-14 days',
+            'pricing.redesign.title': 'Web Redesign',
+            'pricing.redesign.subtitle': 'Ideal for modernizing an existing website, improving its design, speed and mobile experience without starting from scratch.',
+            'pricing.redesign.f1': 'Full visual redesign',
+            'pricing.redesign.f2': 'Mobile and navigation improvements',
+            'pricing.redesign.f3': 'Keeps existing content',
+            'pricing.redesign.f4': 'Speed optimization',
+            'pricing.redesign.f5': '2 revisions included',
+            'pricing.redesign.delivery': 'Delivery: 5-7 days',
+            'pricing.professional.title': 'Professional Website',
+            'pricing.professional.subtitle': 'For businesses with more content or services',
+            'pricing.professional.f1': 'Up to 3 internal pages',
+            'pricing.professional.f2': 'Image gallery or catalog',
+            'pricing.professional.f3': 'Location map',
+            'pricing.professional.f4': 'Contact or booking form',
+            'pricing.professional.f5': 'Custom design and basic SEO',
+            'pricing.professional.f6': '3 revisions included',
+            'pricing.professional.delivery': 'Delivery: 14-18 days',
+            // Skills
+            'skills.title': 'My Skills',
+            'skills.uiux': 'Intuitive and attractive user experiences',
+            'skills.ai': 'Implementation and optimization of AI solutions',
+            'skills.frontend': 'HTML5, CSS3, JavaScript',
+            'skills.strategy': 'SEO, optimization and web architecture',
+            // FAQ
+            'faq.title': 'Frequently Asked Questions',
+            'faq.q1': 'How long does it take to design a website?',
+            'faq.a1': 'Development time varies depending on the complexity of the project. A standard website for accommodations is usually ready in 2 weeks. More complex projects with custom booking systems can take 4-5 weeks. We always establish a clear timeline at the start of the project.',
+            'faq.q2': 'What information do I need to provide to start my project?',
+            'faq.a2': "To get started we'll need: high-quality photos of your product, service or space; descriptive text about what you offer; contact and location information (if applicable); and any distinctive elements you want to highlight. It's also helpful to share examples of websites you like to better understand your preferred style.",
+            'faq.q3': 'Do you offer web maintenance after the project is finished?',
+            'faq.a3': "Yes, I offer monthly maintenance plans that include content updates, suggestions and technical support. I can also train your team to make basic updates if you prefer. The goal is to ensure your site stays up-to-date and working correctly.",
+            'faq.q4': 'Are the designs responsive to different screen sizes?',
+            'faq.a4': 'Absolutely. All my designs are 100% responsive and optimized to look perfect on any device. This is especially important in the accommodations sector, as more than 60% of bookings are currently made from mobile devices.',
+            'faq.q5': 'What are your payment methods and conditions?',
+            'faq.a5': 'I work with a 50% deposit to start the project and 50% upon completion. I accept bank transfers, Mercado Pago and PayPal. For larger projects, we can set up a phased payment plan. All payment details are clearly specified in the contract before we begin.',
+            // Contact
+            'contact.title': 'Ready to work together?',
+            'contact.subtitle': "I'm here to help you create an exceptional digital presence. Contact me and let's talk about how I can turn your idea into reality.",
+            'contact.whatsapp.label': 'WhatsApp',
+            'contact.whatsapp.desc': 'Quick response for inquiries and quotes. Available 9:00 to 18:00.',
+            'contact.whatsapp.btn': 'Send message',
+            'contact.email.label': 'Email',
+            'contact.email.desc': 'For detailed proposals and documentation. Response guaranteed within 24 hours.',
+            'contact.email.btn': 'Send email',
+            'contact.location.label': 'Location',
+            'contact.location.desc': "In the area? Come have some mates and let's talk about your project.",
+            // Chess hero
+            'chess_hero.title': 'Chess Lessons',
+            'chess_hero.subtitle': 'Learn and improve your game with an experienced instructor. From beginner level to FIDE 1700 Elo.',
+            'chess_hero.elo': 'FIDE ELO 1946',
+            'chess_hero.experience': '10 years teaching',
+            // Chess about
+            'chess_about.title': 'My Passion for Chess',
+            'chess_about.fide_btn': 'View my FIDE profile',
+            'chess_about.p1': "I've been playing chess since I was 6 or 7 years old and started competing around the age of 12. I developed a great passion for this game/science: I love competing, teaching and organizing tournaments. I currently have <strong>FIDE Elo 1946</strong> and I'm constantly working to improve.",
+            'chess_about.p2': 'I believe chess, besides being a super fun game, teaches many skills and tools that we can develop through practice and study, which serve us in our personal development.',
+            'chess_about.p3': "Throughout my career, I've had the privilege of teaching students of all ages and levels, from beginners to advanced players. My approach focuses on creating a <strong>fun and challenging learning environment</strong>, adapting to each student's individual needs.",
+            // Chess experience
+            'chess_exp.title': 'Teaching Experience',
+            'chess_exp.t1.title': 'Biblioteca Popular Lago Puelo',
+            'chess_exp.t1.desc': 'Group classes for children and youth',
+            'chess_exp.t2.title': 'Faculty of Mathematics, Astronomy and Physics - UNC',
+            'chess_exp.t2.desc': 'Chess instructor at the National University of Córdoba',
+            'chess_exp.t3.title': 'Private Online and In-Person Lessons',
+            'chess_exp.t3.desc': 'Personalized teaching for students of all levels',
+            'chess_exp.t4.title': 'Casa de la Cultura de Lago Puelo',
+            'chess_exp.t4.desc': 'Chess workshops for the community',
+            'chess_exp.t6.desc': 'Online chess lessons',
+            // Chess topics
+            'chess_topics.title': "What You'll Learn",
+            'chess_topics.subtitle': 'My lessons cover a variety of topics adapted to your level',
+            'chess_topics.card1.title': 'Tactics & Strategies',
+            'chess_topics.card1.desc': 'Learn basic and advanced concepts to improve your positional and tactical game',
+            'chess_topics.card2.title': 'Openings & Endgames',
+            'chess_topics.card2.desc': 'Master the main openings and fundamental endgames to gain an advantage from the start',
+            'chess_topics.card3.title': 'Game Analysis',
+            'chess_topics.card3.desc': 'Review your games to identify mistakes and opportunities for improvement',
+            'chess_topics.card4.title': 'Tournament Preparation',
+            'chess_topics.card4.desc': 'Specific preparation for competitions and development of competitive skills',
+            // Chess CTA
+            'chess_cta.title': 'Ready to improve your chess?',
+            'chess_cta.subtitle': 'Contact me to schedule your first lesson and start your journey to mastery',
+            'chess_cta.btn': 'Inquire About Lessons',
+            // Footer
+            'footer.about_desc': 'Web Designer and Chess Teacher specialized in creating unique and functional digital experiences.',
+            'footer.links.title': 'Quick links',
+            'footer.links.inicio': 'Home',
+            'footer.links.skills': 'My skills',
+            'footer.links.projects': 'My projects',
+            'footer.links.faq': 'FAQ',
+            'footer.links.contact': 'Contact',
+            'footer.chess.inicio': 'Home',
+            'footer.chess.experience': 'Experience',
+            'footer.chess.topics': "What You'll Learn",
+            'footer.chess.contact': 'Contact',
+            'footer.contact.title': 'Contact',
+            'footer.copyright': '© 2025 · Teo Cicciari · Web Designer & Chess Teacher · All rights reserved',
+            'footer.privacy': 'Privacy Policy',
+            'footer.terms': 'Terms and Conditions',
+            // Page titles
+            'page.title.design': 'Teo Cicciari | Web Designer & Chess Teacher',
+            'page.title.chess': 'Chess Lessons | Teo Cicciari',
+        }
+    };
+
+    let currentLang = localStorage.getItem('lang') || 'es';
+
+    function applyTranslations(lang) {
+        const t = translations[lang];
+        if (!t) return;
+        currentLang = lang;
+        localStorage.setItem('lang', lang);
+        document.documentElement.lang = lang === 'es' ? 'es' : 'en';
+
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.dataset.i18n;
+            if (t[key] !== undefined) el.textContent = t[key];
+        });
+
+        document.querySelectorAll('[data-i18n-html]').forEach(el => {
+            const key = el.dataset.i18nHtml;
+            if (t[key] !== undefined) el.innerHTML = t[key];
+        });
+
+        const langBtn = document.getElementById('lang-toggle');
+        if (langBtn) langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+
+        const isChess = document.getElementById('view-chess')?.classList.contains('active');
+        document.title = isChess ? t['page.title.chess'] : t['page.title.design'];
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        applyTranslations(currentLang);
+        const btn = document.getElementById('lang-toggle');
+        if (btn) btn.addEventListener('click', () => applyTranslations(currentLang === 'es' ? 'en' : 'es'));
+    });
+
+    window.i18n = { apply: () => applyTranslations(currentLang) };
+})();

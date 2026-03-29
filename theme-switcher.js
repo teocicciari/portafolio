@@ -52,9 +52,13 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.toggle('active', btn.dataset.theme === theme);
         });
 
-        // Actualizar título de la página
-        document.title = isChess
-            ? 'Clases de Ajedrez | Teo Cicciari'
-            : 'Teo Cicciari | Diseñador Web';
+        // Actualizar título de la página (delegado a i18n si está disponible)
+        if (window.i18n) {
+            window.i18n.apply();
+        } else {
+            document.title = isChess
+                ? 'Clases de Ajedrez | Teo Cicciari'
+                : 'Teo Cicciari | Diseñador Web';
+        }
     }
 });
