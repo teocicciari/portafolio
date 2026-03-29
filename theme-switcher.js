@@ -8,9 +8,11 @@ document.addEventListener('DOMContentLoaded', function() {
     themeButtons.forEach(button => {
         button.addEventListener('click', function() {
             const view = this.dataset.theme === 'forest' ? 'chess' : 'design';
-            activateView(view);
+            const currentView = document.querySelector('.view.active')?.id;
+            if (currentView === 'view-' + view) return;
+            window.scrollTo({ top: 0 });
             history.replaceState(null, '', view === 'chess' ? '#chess' : location.pathname);
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            activateView(view);
         });
     });
 
