@@ -173,6 +173,13 @@
     }
 }
 
+/* Ocultar nav/footer/switcher cuando home está activo — sin esperar JS */
+body:has(#view-home.active) header,
+body:has(#view-home.active) footer,
+body:has(#view-home.active) .theme-switcher {
+    display: none;
+}
+
 /* ─── Home split-screen ─────────────────────────────── */
 #view-home {
     height: 100vh;
