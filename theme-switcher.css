@@ -246,7 +246,7 @@ body:has(#view-home.active) .theme-switcher {
 
 .home-split-chess .home-split-illus {
     right: 4%;
-    bottom: 8%;
+    top: 8%;
 }
 
 .home-split-panel:hover .home-split-illus { opacity: 0.18; }

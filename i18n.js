@@ -19,13 +19,16 @@
             'theme.design.title': 'Diseñador Web',
             'theme.design.subtitle': 'Portfolio · Proyectos · Precios',
             'theme.chess.title': 'Profesor de Ajedrez',
-            'theme.chess.subtitle': 'Clases · Experiencia · FIDE 1946',
+            'theme.chess.subtitle': 'Clases · Experiencia · FIDE 1979',
             // Hero
             'hero.title': 'Diseño Web Profesional',
             'hero.subtitle': 'Creando experiencias web que potencian tu presencia online y te destacan frente a la competencia.',
             'hero.feature_1': '100% Personalizadas',
-            'hero.feature_2': 'Adaptadas a distintos tamaños de pantalla',
-            'hero.feature_3': 'Optimizadas para motores de busqueda',
+            'hero.feature_2': 'Distintos tamaños de pantalla',
+            'hero.feature_3': 'Optimizadas',
+            'hero.badge': '✦ Diseño web a medida',
+            'hero.cta_primary': 'Quiero mi web',
+            'hero.cta_secondary': 'Ver proyectos',
             // About modal
             'about.subtitle': 'Diseñador Web',
             'about.p1': 'Soy un diseñador web apasionado con una sólida formación académica en la Facultad de Matemática, Astronomía, Física y Computación de la Universidad Nacional de Córdoba, donde cursé durante dos años. Esta base científica-técnica complementa perfectamente mi obsesión actual con el diseño y el marketing digital.',
@@ -96,6 +99,7 @@
             'pricing.professional.delivery': 'Entrega: 14-18 días',
             // Skills
             'skills.title': 'Mis Habilidades',
+            'skills.subtitle': 'Tecnologías y enfoques que aplico en cada proyecto',
             'skills.uiux': 'Experiencias de usuario intuitivas y atractivas',
             'skills.ai': 'Implementación y optimización de soluciones con IA',
             'skills.frontend': 'HTML5, CSS3, JavaScript',
@@ -126,12 +130,15 @@
             // Chess hero
             'chess_hero.title': 'Clases de Ajedrez',
             'chess_hero.subtitle': 'Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.',
-            'chess_hero.elo': 'ELO FIDE 1946',
+            'chess_hero.elo': 'ELO FIDE 1979',
             'chess_hero.experience': '10 años enseñando',
+            'chess_hero.badge': '✦ Clases personalizadas',
+            'chess_hero.cta_primary': 'Reservar clase',
+            'chess_hero.cta_secondary': 'Ver experiencia',
             // Chess about
             'chess_about.title': 'Mi Pasión por el Ajedrez',
             'chess_about.fide_btn': 'Ver mi perfil FIDE',
-            'chess_about.p1': 'Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1946 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.',
+            'chess_about.p1': 'Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1979 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.',
             'chess_about.p2': 'Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.',
             'chess_about.p3': 'A lo largo de mi carrera, he tenido el privilegio de enseñar a estudiantes de todas las edades y niveles, desde principiantes hasta jugadores avanzados. Mi enfoque se centra en crear un <strong>ambiente de aprendizaje divertido y desafiante</strong>, adaptándome a las necesidades individuales de cada estudiante.',
             // Chess experience
@@ -182,7 +189,7 @@
             'home.design.desc': 'Portfolio de proyectos, precios y contacto',
             'home.design.cta': 'Ver portfolio →',
             'home.chess.title': 'Profesor de Ajedrez',
-            'home.chess.desc': 'Clases para todos los niveles, FIDE 1946',
+            'home.chess.desc': 'Clases para todos los niveles, FIDE 1979',
             'home.chess.cta': 'Ver clases →',
             // Page titles
             'page.title.home': 'Teo Cicciari | Diseñador Web & Profesor de Ajedrez',
@@ -208,13 +215,16 @@
             'theme.design.title': 'Web Designer',
             'theme.design.subtitle': 'Portfolio · Projects · Pricing',
             'theme.chess.title': 'Chess Teacher',
-            'theme.chess.subtitle': 'Lessons · Experience · FIDE 1946',
+            'theme.chess.subtitle': 'Lessons · Experience · FIDE 1979',
             // Hero
             'hero.title': 'Professional Web Design',
             'hero.subtitle': 'Building web experiences that boost your online presence and set you apart from the competition.',
             'hero.feature_1': '100% Custom',
             'hero.feature_2': 'Responsive on all screen sizes',
             'hero.feature_3': 'Optimized for search engines',
+            'hero.badge': '✦ Custom web design',
+            'hero.cta_primary': 'Get my website',
+            'hero.cta_secondary': 'View projects',
             // About modal
             'about.subtitle': 'Web Designer',
             'about.p1': "I'm a passionate web designer with a strong academic background from the Faculty of Mathematics, Astronomy, Physics and Computing at the National University of Córdoba, where I studied for two years. This scientific-technical foundation perfectly complements my current obsession with design and digital marketing.",
@@ -285,6 +295,7 @@
             'pricing.professional.delivery': 'Delivery: 14-18 days',
             // Skills
             'skills.title': 'My Skills',
+            'skills.subtitle': 'Technologies and approaches I apply in every project',
             'skills.uiux': 'Intuitive and attractive user experiences',
             'skills.ai': 'Implementation and optimization of AI solutions',
             'skills.frontend': 'HTML5, CSS3, JavaScript',
@@ -315,12 +326,15 @@
             // Chess hero
             'chess_hero.title': 'Chess Lessons',
             'chess_hero.subtitle': 'Learn and improve your game with an experienced instructor. From beginner level to FIDE 1700 Elo.',
-            'chess_hero.elo': 'FIDE ELO 1946',
+            'chess_hero.elo': 'FIDE ELO 1979',
             'chess_hero.experience': '10 years teaching',
+            'chess_hero.badge': '✦ Personalized lessons',
+            'chess_hero.cta_primary': 'Book a class',
+            'chess_hero.cta_secondary': 'View experience',
             // Chess about
             'chess_about.title': 'My Passion for Chess',
             'chess_about.fide_btn': 'View my FIDE profile',
-            'chess_about.p1': "I've been playing chess since I was 6 or 7 years old and started competing around the age of 12. I developed a great passion for this game/science: I love competing, teaching and organizing tournaments. I currently have <strong>FIDE Elo 1946</strong> and I'm constantly working to improve.",
+            'chess_about.p1': "I've been playing chess since I was 6 or 7 years old and started competing around the age of 12. I developed a great passion for this game/science: I love competing, teaching and organizing tournaments. I currently have <strong>FIDE Elo 1979</strong> and I'm constantly working to improve.",
             'chess_about.p2': 'I believe chess, besides being a super fun game, teaches many skills and tools that we can develop through practice and study, which serve us in our personal development.',
             'chess_about.p3': "Throughout my career, I've had the privilege of teaching students of all ages and levels, from beginners to advanced players. My approach focuses on creating a <strong>fun and challenging learning environment</strong>, adapting to each student's individual needs.",
             // Chess experience
@@ -371,7 +385,7 @@
             'home.design.desc': 'Portfolio of projects, pricing and contact',
             'home.design.cta': 'View portfolio →',
             'home.chess.title': 'Chess Teacher',
-            'home.chess.desc': 'Lessons for all levels, FIDE 1946',
+            'home.chess.desc': 'Lessons for all levels, FIDE 1979',
             'home.chess.cta': 'View lessons →',
             // Page titles
             'page.title.home': 'Teo Cicciari | Web Designer & Chess Teacher',

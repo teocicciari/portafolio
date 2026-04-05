@@ -1,46 +1,5 @@
 /* Chess Page Styles */
 
-.chess-hero {
-    text-align: center;
-    padding: 0px 20px 60px;
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.chess-hero .hero-icon {
-    font-size: 5rem;
-    margin-bottom: 1.5rem;
-    color: var(--accent);
-    display: inline-block;
-}
-
-.chess-hero .hero-icon svg {
-    width: 5rem;
-    height: 5rem;
-    display: block;
-    filter: drop-shadow(0 10px 20px rgba(138, 92, 247, 0.3));
-}
-
-.chess-hero .hero-icon i {
-    display: inline-block;
-    filter: drop-shadow(0 10px 20px rgba(138, 92, 247, 0.3));
-}
-
-.chess-hero h1 {
-    font-size: 3rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    background-clip: text;
-}
-
-.chess-hero .hero-subtext {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto 2rem;
-}
 
 .hero-stats {
     display: flex;
@@ -66,7 +25,7 @@
 /* About Section */
 .about-section {
     padding: 80px 20px;
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
 }
 
 .about-container {
