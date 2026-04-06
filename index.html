@@ -26,7 +26,7 @@
     <meta name="twitter:image" content="https://teocicciari.com.ar/img/overview.png">
 
     <!-- Precargar fuente local -->
-    <link rel="preload" href="fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="fonts/Space_Grotesk/SpaceGrotesk[wght].woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="promo.css">
@@ -46,20 +46,20 @@
                 <div class="verified">✓</div>
             </div>
             <div class="nav-links active" data-view="design">
-                <a href="#inicio" class="nav-link" data-i18n="nav.design.inicio">Inicio</a>
-                <a href="#projects" class="nav-link" data-i18n="nav.design.proyectos">Proyectos</a>
-                <a href="#prices" class="nav-link" data-i18n="nav.design.precios">Precios</a>
-                <a href="#skills" class="nav-link" data-i18n="nav.design.habilidades">Habilidades</a>
-                <a href="#faq" class="nav-link" data-i18n="nav.design.faq">FAQ</a>
-                <a href="#contact" class="nav-link" data-i18n="nav.design.contacto">Contacto</a>
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#projects" class="nav-link">Proyectos</a>
+                <a href="#prices" class="nav-link">Precios</a>
+                <a href="#skills" class="nav-link">Habilidades</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contacto</a>
             </div>
             <div class="nav-links" data-view="chess">
-                <a href="#chess-hero" class="nav-link" data-i18n="nav.chess.inicio">Inicio</a>
-                <a href="#chess-experience" class="nav-link" data-i18n="nav.chess.experiencia">Experiencia</a>
-                <a href="#chess-topics" class="nav-link" data-i18n="nav.chess.topicos">Qué Aprenderás</a>
-                <a href="#chess-contact" class="nav-link" data-i18n="nav.chess.contacto">Contacto</a>
+                <a href="#chess-hero" class="nav-link">Inicio</a>
+                <a href="#chess-experience" class="nav-link">Experiencia</a>
+                <a href="#chess-topics" class="nav-link">Qué Aprenderás</a>
+                <a href="#chess-contact" class="nav-link">Contacto</a>
             </div>
-            <a href="#contact" class="contact-btn" id="main-contact-btn" data-i18n="header.contact_btn">Contáctame</a>
+            <a href="#contact" class="contact-btn" id="main-contact-btn">Contáctame</a>
         </nav>
     </header>
 
@@ -68,15 +68,15 @@
             <button type="button" class="theme-btn theme-default active" data-theme="default">
                 <i class="fa-solid fa-code theme-btn-icon"></i>
                 <span class="theme-btn-text">
-                    <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
-                    <span class="theme-btn-sub" data-i18n="theme.design.subtitle">Portfolio · Proyectos · Precios</span>
+                    <span class="theme-btn-title">Diseñador Web</span>
+                    <span class="theme-btn-sub">Portfolio · Proyectos · Precios</span>
                 </span>
             </button>
             <button type="button" class="theme-btn theme-forest" data-theme="forest">
                 <i class="fa-solid fa-chess theme-btn-icon"></i>
                 <span class="theme-btn-text">
-                    <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
-                    <span class="theme-btn-sub" data-i18n="theme.chess.subtitle">Clases · Experiencia · FIDE 1979</span>
+                    <span class="theme-btn-title">Profesor de Ajedrez</span>
+                    <span class="theme-btn-sub">Clases · Experiencia · FIDE 1979</span>
                 </span>
             </button>
             <button type="button" id="lang-toggle" class="lang-btn">EN</button>
@@ -113,9 +113,9 @@
                 </svg>
                 <div class="home-split-content">
                     <i class="fa-solid fa-code home-split-icon"></i>
-                    <h2 class="home-split-title" data-i18n="home.design.title">Diseñador Web</h2>
-                    <p class="home-split-desc" data-i18n="home.design.desc">Portfolio de proyectos, precios y contacto</p>
-                    <span class="home-split-cta" data-i18n="home.design.cta">Ver portfolio →</span>
+                    <h2 class="home-split-title">Diseñador Web</h2>
+                    <p class="home-split-desc">Portfolio de proyectos, precios y contacto</p>
+                    <span class="home-split-cta">Ver portfolio →</span>
                 </div>
             </div>
             <div class="home-split-center">
@@ -160,9 +160,9 @@
                 </svg>
                 <div class="home-split-content">
                     <i class="fa-solid fa-chess home-split-icon"></i>
-                    <h2 class="home-split-title" data-i18n="home.chess.title">Profesor de Ajedrez</h2>
-                    <p class="home-split-desc" data-i18n="home.chess.desc">Clases para todos los niveles, FIDE 1946</p>
-                    <span class="home-split-cta" data-i18n="home.chess.cta">Ver clases →</span>
+                    <h2 class="home-split-title">Profesor de Ajedrez</h2>
+                    <p class="home-split-desc">Clases para todos los niveles, FIDE 1946</p>
+                    <span class="home-split-cta">Ver clases →</span>
                 </div>
             </div>
         </div>
@@ -174,20 +174,20 @@
                 <div class="hero-icon fade-in">
                     <i class="fa-solid fa-code"></i>
                 </div>
-                <span class="hero-badge fade-in" data-i18n="hero.badge">✦ Diseño web a medida</span>
-                <h1 class="fade-in" data-i18n="hero.title">Diseño Web Profesional</h1>
-                <p class="hero-subtext fade-in" data-i18n="hero.subtitle">Creando experiencias web que potencian tu presencia online y te destacan frente a la competencia.</p>
+                <span class="hero-badge fade-in">✦ Diseño web a medida</span>
+                <h1 class="fade-in">Diseño Web Profesional</h1>
+                <p class="hero-subtext fade-in">Creando experiencias web que potencian tu presencia online y te destacan frente a la competencia.</p>
                 <div class="hero-features fade-in">
-                    <span class="hero-feature" data-i18n="hero.feature_1">100% Personalizadas</span>
-                    <span class="hero-feature" data-i18n="hero.feature_2">Adaptadas a distintos tamaños de pantalla</span>
-                    <span class="hero-feature" data-i18n="hero.feature_3">Optimizadas para motores de busqueda</span>
+                    <span class="hero-feature">100% Personalizadas</span>
+                    <span class="hero-feature">Adaptadas a distintos tamaños de pantalla</span>
+                    <span class="hero-feature">Optimizadas para motores de busqueda</span>
                 </div>
                 <div class="hero-cta-buttons fade-in">
-                    <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20un%20sitio%20web." class="cta-primary" target="_blank" data-i18n="hero.cta_primary">
+                    <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20un%20sitio%20web." class="cta-primary" target="_blank">
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                         Quiero mi web
                     </a>
-                    <a href="#projects" class="cta-secondary" data-i18n="hero.cta_secondary">
+                    <a href="#projects" class="cta-secondary">
                         <i class="fa-solid fa-eye"></i> Ver proyectos
                     </a>
                 </div>
@@ -197,23 +197,23 @@
 
         
         <section id="projects" class="projects">
-            <h2 class="section-title fade-in" data-i18n="projects.title">Mis Proyectos</h2>
-            <p class="section-description fade-in" data-i18n="projects.description">Diseños 100% personalizados, hechos a mano con código y potenciados con IA. Sin plantillas de WordPress ni constructores genéricos. Cada proyecto es único y adaptado a las necesidades específicas de cada cliente.</p>
+            <h2 class="section-title fade-in">Mis Proyectos</h2>
+            <p class="section-description fade-in">Diseños 100% personalizados, hechos a mano con código y potenciados con IA. Sin plantillas de WordPress ni constructores genéricos. Cada proyecto es único y adaptado a las necesidades específicas de cada cliente.</p>
 
             <!-- Filtro de categorías -->
             <div class="project-filters fade-in">
-                <button class="filter-btn" data-filter="all" data-i18n="projects.filter_all">Todos <span class="filter-count"></span></button>
-                <button class="filter-btn active" data-filter="destacados" data-i18n="projects.filter_featured">Destacados <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="hospedajes" data-i18n="projects.filter_hospedajes">Hospedajes <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="portafolios" data-i18n="projects.filter_portafolios">Portafolios <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="organizaciones" data-i18n="projects.filter_organizaciones">Organizaciones <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="tattoos" data-i18n="projects.filter_tattoos">Estudios de Tattoo <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="all">Todos <span class="filter-count"></span></button>
+                <button class="filter-btn active" data-filter="destacados">Destacados <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="hospedajes">Hospedajes <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="portafolios">Portafolios <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="organizaciones">Organizaciones <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="tattoos">Estudios de Tattoo <span class="filter-count"></span></button>
             </div>
 
             <!-- Grid único de proyectos -->
             <div class="projects-grid fade-in">
                 <!-- Hospedajes -->
-                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" onclick="openProject('https://tiaursula.com.ar')">
+                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://tiaursula.com.ar" tabindex="0" role="button">
                     <img src="img/proyectos/tiaursula.webp" loading="lazy" alt="Proyecto de Hostel Samsara" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -223,17 +223,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Tia Úrsula Apart Hotel</h3>
-                        <p class="project-description" data-i18n="projects.tia_ursula.desc">Diseño para Hotel de categoría ubicado en Exaltación de la Cruz</p>
+                        <p class="project-description">Diseño para Hotel de categoría ubicado en Exaltación de la Cruz</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://tiaursula.com.ar/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://tiaursula.com.ar/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" onclick="openProject('https://terminalsuites.com.ar/')">
+                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://terminalsuites.com.ar/" tabindex="0" role="button">
                     <img src="img/proyectos/terminalsuites.webp" loading="lazy" alt="Proyecto: Depto en calafate" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -243,17 +243,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Terminal Suites</h3>
-                        <p class="project-description" data-i18n="projects.terminal_suites.desc">Diseño para departamentos en el calafate, Santa Cruz.</p>
+                        <p class="project-description">Diseño para departamentos en el calafate, Santa Cruz.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://terminalsuites.com.ar/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://terminalsuites.com.ar/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" onclick="openProject('https://teocicciari.com.ar/SAMSARA/')">
+                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://teocicciari.com.ar/SAMSARA/" tabindex="0" role="button">
                     <img src="img/proyectos/samsara.webp" loading="lazy" alt="Proyecto de Hostel Samsara" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -263,17 +263,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Hostel Samsara</h3>
-                        <p class="project-description" data-i18n="projects.samsara.desc">Diseño para hostel, enfocado en conseguir nuevas reservas.</p>
+                        <p class="project-description">Diseño para hostel, enfocado en conseguir nuevas reservas.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://teocicciari.com.ar/SAMSARA/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://teocicciari.com.ar/SAMSARA/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" onclick="openProject('https://cabañaislasantiago.com/')">
+                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" data-url="https://cabañaislasantiago.com/" tabindex="0" role="button">
                     <img src="img/proyectos/Isla-Santiago.webp" loading="lazy" alt="Landing page de Cabaña Isla Santiago" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -283,17 +283,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Cabaña Isla Santiago</h3>
-                        <p class="project-description" data-i18n="projects.isla_santiago.desc">Landing page para cabaña en La Plata.</p>
+                        <p class="project-description">Landing page para cabaña en La Plata.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://cabañaislasantiago.com/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://cabañaislasantiago.com/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" onclick="openProject('disenos/elefante.html')">
+                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" data-url="disenos/elefante.html" tabindex="0" role="button">
                     <img src="img/proyectos/Croma Hostel.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -303,18 +303,18 @@
                             </div>
                         </div>
                         <h3 class="project-title">Croma Hostel</h3>
-                        <p class="project-description" data-i18n="projects.croma.desc">Página para un Hostel ficticio utilizando un estilo neobrutalista.</p>
+                        <p class="project-description">Página para un Hostel ficticio utilizando un estilo neobrutalista.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                             <span class="project-tag">Neobrutalismo</span>
                         </div>
-                        <a href="disenos/elefante.html" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="disenos/elefante.html" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" onclick="openProject('disenos/sol.html')">
+                <div class="project-card" data-category="hospedajes" data-featured="false" data-likes="0" data-url="disenos/sol.html" tabindex="0" role="button">
                     <img src="img/proyectos/sol.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -324,19 +324,19 @@
                             </div>
                         </div>
                         <h3 class="project-title">Hostel Sol</h3>
-                        <p class="project-description" data-i18n="projects.croma.desc">Página para un Hostel ficticio utilizando un estilo neobrutalista.</p>
+                        <p class="project-description">Página para un Hostel ficticio utilizando un estilo neobrutalista.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                             <span class="project-tag">Neobrutalismo</span>
                         </div>
-                        <a href="disenos/sol.html" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="disenos/sol.html" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
                 <!-- Portafolios -->
-                <div class="project-card" data-category="portafolios" data-featured="true" data-likes="0" onclick="openProject('https://danilomolina.cl/')">
+                <div class="project-card" data-category="portafolios" data-featured="true" data-likes="0" data-url="https://danilomolina.cl/" tabindex="0" role="button">
                     <img src="img/proyectos/danilo.webp" loading="lazy" alt="Portafolio de Danilo Molina" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -346,17 +346,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Portafolio de Danilo Molina</h3>
-                        <p class="project-description" data-i18n="projects.danilo.desc">Portafolio para Dani, especialista en publicidad digital.</p>
+                        <p class="project-description">Portafolio para Dani, especialista en publicidad digital.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://danilomolina.cl/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://danilomolina.cl/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="portafolios" data-featured="true" data-likes="0" onclick="openProject('https://clararocca.com.ar')">
+                <div class="project-card" data-category="portafolios" data-featured="true" data-likes="0" data-url="https://clararocca.com.ar" tabindex="0" role="button">
                     <img src="img/proyectos/clara.webp" loading="lazy" alt="Portafolio de Clara Rocca" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -366,18 +366,18 @@
                             </div>
                         </div>
                         <h3 class="project-title">Portafolio de Clara Rocca</h3>
-                        <p class="project-description" data-i18n="projects.clara.desc">Portafolio de Community Manager</p>
+                        <p class="project-description">Portafolio de Community Manager</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://clararocca.com.ar" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://clararocca.com.ar" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
                 <!-- Organizaciones -->
-                <div class="project-card" data-category="organizaciones" data-featured="false" data-likes="0" onclick="openProject('https://fachajedrez.com.ar')">
+                <div class="project-card" data-category="organizaciones" data-featured="false" data-likes="0" data-url="https://fachajedrez.com.ar" tabindex="0" role="button">
                     <img src="img/proyectos/FACH.webp" loading="lazy" alt="Proyecto de la Federación de ajedrez Chubutense" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -387,17 +387,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Federación de Ajedrez</h3>
-                        <p class="project-description" data-i18n="projects.fach.desc">Web para la Federación Chubutense, con subpáginas para los clubes.</p>
+                        <p class="project-description">Web para la Federación Chubutense, con subpáginas para los clubes.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://fachajedrez.com.ar" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://fachajedrez.com.ar" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="organizaciones" data-featured="false" data-likes="0" onclick="openProject('https://fachajedrez.com.ar/puelo/index.html')">
+                <div class="project-card" data-category="organizaciones" data-featured="false" data-likes="0" data-url="https://fachajedrez.com.ar/puelo/index.html" tabindex="0" role="button">
                     <img src="img/proyectos/ajedrezlp.webp" loading="lazy" alt="Proyecto del Club de Ajedrez Lago Puelo" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -407,17 +407,17 @@
                             </div>
                         </div>
                         <h3 class="project-title">Club Lago Puelo</h3>
-                        <p class="project-description" data-i18n="projects.lago_puelo.desc">Página para el Club de Ajedrez Lago Puelo, con sponsors y un listado de jugadores.</p>
+                        <p class="project-description">Página para el Club de Ajedrez Lago Puelo, con sponsors y un listado de jugadores.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://fachajedrez.com.ar/puelo/index.html" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://fachajedrez.com.ar/puelo/index.html" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="organizaciones" data-featured="true" data-likes="0" onclick="openProject('https://fachajedrez.com.ar/puelo/IRT/')">
+                <div class="project-card" data-category="organizaciones" data-featured="true" data-likes="0" data-url="https://fachajedrez.com.ar/puelo/IRT/" tabindex="0" role="button">
                     <img src="img/proyectos/IRT.webp" loading="lazy" alt="Pagina web para evento de ajedrez: 4° Abierto Internacional Lago Puelo" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -427,18 +427,18 @@
                             </div>
                         </div>
                         <h3 class="project-title">4° Abierto Internacional de Ajedrez Lago Puelo</h3>
-                        <p class="project-description" data-i18n="projects.irt.desc">Web con la información del evento</p>
+                        <p class="project-description">Web con la información del evento</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
                         </div>
-                        <a href="https://fachajedrez.com.ar/puelo/IRT/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://fachajedrez.com.ar/puelo/IRT/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
                 <!-- Tattoos -->
-                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" onclick="openProject('https://teocicciari.com.ar/irezumi/')">
+                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="https://teocicciari.com.ar/irezumi/" tabindex="0" role="button">
                     <img src="img/proyectos/irezumi.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -448,7 +448,7 @@
                             </div>
                         </div>
                         <h3 class="project-title">Irezumi - Tatuajes &amp; Piercing</h3>
-                        <p class="project-description" data-i18n="projects.irezumi.desc">Página para estudio de tattoo de Arte Japonés</p>
+                        <p class="project-description">Página para estudio de tattoo de Arte Japonés</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
@@ -456,11 +456,11 @@
                             <span class="project-tag">Minimalismo</span>
                             <span class="project-tag">Arte Japonés</span>
                         </div>
-                        <a href="https://teocicciari.com.ar/irezumi/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="https://teocicciari.com.ar/irezumi/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="tattoos" data-featured="true" data-likes="0" onclick="openProject('http://teocicciari.com.ar/woner/')">
+                <div class="project-card" data-category="tattoos" data-featured="true" data-likes="0" data-url="http://teocicciari.com.ar/woner/" tabindex="0" role="button">
                     <img src="img/proyectos/wolfink.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -470,7 +470,7 @@
                             </div>
                         </div>
                         <h3 class="project-title">Wolf Ink Tattoo Studio</h3>
-                        <p class="project-description" data-i18n="projects.wolf_ink.desc">Página para un Estudio ficticio de Tattoo en blanco y negro.</p>
+                        <p class="project-description">Página para un Estudio ficticio de Tattoo en blanco y negro.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
@@ -478,11 +478,11 @@
                             <span class="project-tag">Black &amp; White</span>
                             <span class="project-tag">Minimalismo</span>
                         </div>
-                        <a href="http://teocicciari.com.ar/woner/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="http://teocicciari.com.ar/woner/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
 
-                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" onclick="openProject('http://teocicciari.com.ar/karus/')">
+                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="http://teocicciari.com.ar/karus/" tabindex="0" role="button">
                     <img src="img/proyectos/karus.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
@@ -492,7 +492,7 @@
                             </div>
                         </div>
                         <h3 class="project-title">Karus Tattoo</h3>
-                        <p class="project-description" data-i18n="projects.karus.desc">Página para Estudio de Tattoo.</p>
+                        <p class="project-description">Página para Estudio de Tattoo.</p>
                         <div class="project-tags">
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
@@ -500,7 +500,7 @@
                             <span class="project-tag">Minimalismo</span>
                             <span class="project-tag">Tema Oscuro</span>
                         </div>
-                        <a href="http://teocicciari.com.ar/karus/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                        <a href="http://teocicciari.com.ar/karus/" target="_blank" class="project-link">Visitar página →</a>
                     </div>
                 </div>
             </div>
@@ -509,8 +509,8 @@
         <!-- CTA Boceto Gratuito -->
         <section class="cta-boceto-section fade-in">
             <div class="cta-boceto-container">
-                <h2 data-i18n="cta_sketch.title">¿Tenés un proyecto en mente?</h2>
-                <p data-i18n="cta_sketch.subtitle">Te ofrezco un boceto gratuito para visualizar cómo podría verse tu sitio web</p>
+                <h2>¿Tenés un proyecto en mente?</h2>
+                <p>Te ofrezco un boceto gratuito para visualizar cómo podría verse tu sitio web</p>
                 <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20solicitar%20un%20boceto%20gratuito%20para%20mi%20proyecto%20web.%20" class="cta-boceto-btn" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -523,16 +523,16 @@
         <section id="prices" class="pricing-section">
             <div class="pricing-container">
                 <div class="pricing-intro">
-                    <h2 class="section-title" data-i18n="pricing.title">Planes y Precios</h2>
-                    <p data-i18n="pricing.intro">Elige la solución perfecta para tu proyecto. Todos los planes incluyen diseño responsive, optimización SEO básica y soporte técnico.</p>
+                    <h2 class="section-title">Planes y Precios</h2>
+                    <p>Elige la solución perfecta para tu proyecto. Todos los planes incluyen diseño responsive, optimización SEO básica y soporte técnico.</p>
                 </div>
                 
                 <div class="pricing-grid">
                     <!-- Plan Básico -->
                     <div class="pricing-card">
                         <div class="pricing-header">
-                            <h3 class="pricing-title" data-i18n="pricing.basic.title">Landing Page Básica</h3>
-                            <p class="pricing-subtitle" data-i18n="pricing.basic.subtitle">Ideal para emprendedores y pequeños negocios</p>
+                            <h3 class="pricing-title">Landing Page Básica</h3>
+                            <p class="pricing-subtitle">Ideal para emprendedores y pequeños negocios</p>
                             <div class="pricing-price">
                                 <span class="price-currency">USD $</span>
                                 <span class="price-amount">150</span>
@@ -549,10 +549,10 @@
                         </ul>
                         
                         <div class="pricing-cta">
-                            <a href="#contact" class="pricing-btn secondary" data-i18n="pricing.cta_btn">Comenzar Proyecto</a>
+                            <a href="#contact" class="pricing-btn secondary">Comenzar Proyecto</a>
                             <div class="delivery-time">
                                 <i class="fa-solid fa-clock"></i>
-                                <span data-i18n="pricing.basic.delivery">Entrega: 7-14 días</span>
+                                <span>Entrega: 7-14 días</span>
                             </div>
                         </div>
                     </div>
@@ -560,8 +560,8 @@
                     <!-- Plan Rediseño -->
                     <div class="pricing-card featured">
                         <div class="pricing-header">
-                            <h3 class="pricing-title" data-i18n="pricing.redesign.title">Rediseño Web</h3>
-                            <p class="pricing-subtitle" data-i18n="pricing.redesign.subtitle">Ideal para modernizar una web existente, mejorar su diseño, velocidad y experiencia en celulares sin empezar desde cero.</p>
+                            <h3 class="pricing-title">Rediseño Web</h3>
+                            <p class="pricing-subtitle">Ideal para modernizar una web existente, mejorar su diseño, velocidad y experiencia en celulares sin empezar desde cero.</p>
                             <div class="pricing-price">
                                 <span class="price-currency">USD $</span>
                                 <span class="price-amount">100</span>
@@ -577,10 +577,10 @@
                         </ul>
                         
                         <div class="pricing-cta">
-                            <a href="#contact" class="pricing-btn" data-i18n="pricing.cta_btn">Comenzar Proyecto</a>
+                            <a href="#contact" class="pricing-btn">Comenzar Proyecto</a>
                             <div class="delivery-time">
                                 <i class="fa-solid fa-clock"></i>
-                                <span data-i18n="pricing.redesign.delivery">Entrega: 5-7 días</span>
+                                <span>Entrega: 5-7 días</span>
                             </div>
                         </div>
                     </div>
@@ -588,8 +588,8 @@
                     <!-- Plan Estándar -->
                     <div class="pricing-card">
                         <div class="pricing-header">
-                            <h3 class="pricing-title" data-i18n="pricing.professional.title">Sitio Web Profesional</h3>
-                            <p class="pricing-subtitle" data-i18n="pricing.professional.subtitle">Para negocios con más contenido o servicios</p>
+                            <h3 class="pricing-title">Sitio Web Profesional</h3>
+                            <p class="pricing-subtitle">Para negocios con más contenido o servicios</p>
                             <div class="pricing-price">
                                 <span class="price-currency">USD $</span>
                                 <span class="price-amount">300</span>
@@ -606,10 +606,10 @@
                         </ul>
                         
                         <div class="pricing-cta">
-                            <a href="#contact" class="pricing-btn secondary" data-i18n="pricing.cta_btn">Comenzar Proyecto</a>
+                            <a href="#contact" class="pricing-btn secondary">Comenzar Proyecto</a>
                             <div class="delivery-time">
                                 <i class="fa-solid fa-clock"></i>
-                                <span data-i18n="pricing.professional.delivery">Entrega: 14-18 días</span>
+                                <span>Entrega: 14-18 días</span>
                             </div>
                         </div>
                     </div>
@@ -620,28 +620,28 @@
 
         <section id="skills" class="skills-section">
             <div class="skills-wrapper">
-                <h2 class="section-title fade-in" data-i18n="skills.title">Mis Habilidades</h2>
-                <p class="section-description fade-in" data-i18n="skills.subtitle">Tecnologías y enfoques que aplico en cada proyecto</p>
+                <h2 class="section-title fade-in">Mis Habilidades</h2>
+                <p class="section-description fade-in">Tecnologías y enfoques que aplico en cada proyecto</p>
                 <div class="skills-grid fade-in">
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fa-solid fa-pen-nib"></i></div>
                         <h3>UI/UX Design</h3>
-                        <p data-i18n="skills.uiux">Experiencias de usuario intuitivas y atractivas</p>
+                        <p>Experiencias de usuario intuitivas y atractivas</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fa-solid fa-brain"></i></div>
                         <h3>Inteligencia Artificial</h3>
-                        <p data-i18n="skills.ai">Implementación y optimización de soluciones con IA</p>
+                        <p>Implementación y optimización de soluciones con IA</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fa-solid fa-code"></i></div>
                         <h3>Frontend</h3>
-                        <p data-i18n="skills.frontend">HTML5, CSS3, JavaScript</p>
+                        <p>HTML5, CSS3, JavaScript</p>
                     </div>
                     <div class="skill-card">
                         <div class="skill-icon"><i class="fa-solid fa-chart-line"></i></div>
                         <h3>Estrategia Web</h3>
-                        <p data-i18n="skills.strategy">SEO, optimización y arquitectura web</p>
+                        <p>SEO, optimización y arquitectura web</p>
                     </div>
                 </div>
             </div>
@@ -649,56 +649,56 @@
         
 
         <section id="faq" class="faq-section">
-            <h2 class="section-title fade-in" data-i18n="faq.title">Preguntas Frecuentes</h2>
+            <h2 class="section-title fade-in">Preguntas Frecuentes</h2>
             
             <div class="faq-container fade-in">
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3 data-i18n="faq.q1">¿Cuánto tiempo lleva diseñar un sitio web?</h3>
+                        <h3>¿Cuánto tiempo lleva diseñar un sitio web?</h3>
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.a1">El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web estándar para hospedajes suele estar listo en 2 semanas. Proyectos más complejos con sistemas de reserva personalizados pueden tomar 4-5 semanas. Siempre establecemos un cronograma claro al inicio del proyecto.</p>
+                        <p>El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web estándar para hospedajes suele estar listo en 2 semanas. Proyectos más complejos con sistemas de reserva personalizados pueden tomar 4-5 semanas. Siempre establecemos un cronograma claro al inicio del proyecto.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3 data-i18n="faq.q2">¿Qué información necesito proporcionar para iniciar mi proyecto?</h3>
+                        <h3>¿Qué información necesito proporcionar para iniciar mi proyecto?</h3>
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.a2">Para comenzar necesitaremos: fotos de alta calidad de tu producto, servicio o espacio; textos descriptivos sobre lo que ofrecés; información de contacto y ubicación (si aplica); y cualquier elemento distintivo que quieras destacar. También es útil compartir ejemplos de sitios web que te gusten para entender mejor tu estilo preferido.</p>
+                        <p>Para comenzar necesitaremos: fotos de alta calidad de tu producto, servicio o espacio; textos descriptivos sobre lo que ofrecés; información de contacto y ubicación (si aplica); y cualquier elemento distintivo que quieras destacar. También es útil compartir ejemplos de sitios web que te gusten para entender mejor tu estilo preferido.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3 data-i18n="faq.q3">¿Ofreces mantenimiento web después de finalizar el proyecto?</h3>
+                        <h3>¿Ofreces mantenimiento web después de finalizar el proyecto?</h3>
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.a3">Sí, ofrezco planes de mantenimiento mensual que incluyen actualizaciones de contenido, sugerencias y soporte técnico. También puedo capacitar a tu equipo para que realicen actualizaciones básicas si lo prefieres. El objetivo es asegurar que tu sitio se mantenga actualizado y funcionando correctamente.</p>
+                        <p>Sí, ofrezco planes de mantenimiento mensual que incluyen actualizaciones de contenido, sugerencias y soporte técnico. También puedo capacitar a tu equipo para que realicen actualizaciones básicas si lo prefieres. El objetivo es asegurar que tu sitio se mantenga actualizado y funcionando correctamente.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3 data-i18n="faq.q4">¿Los diseños se adaptan a distintos tamaños de pantalla?</h3>
+                        <h3>¿Los diseños se adaptan a distintos tamaños de pantalla?</h3>
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.a4">Absolutamente. Todos mis diseños son 100% responsivos y optimizados para verse perfectamente en cualquier dispositivo. Esto es especialmente importante en el sector de hospedajes, ya que más del 60% de las reservas se realizan desde dispositivos móviles actualmente.</p>
+                        <p>Absolutamente. Todos mis diseños son 100% responsivos y optimizados para verse perfectamente en cualquier dispositivo. Esto es especialmente importante en el sector de hospedajes, ya que más del 60% de las reservas se realizan desde dispositivos móviles actualmente.</p>
                     </div>
                 </div>
                 
                 <div class="faq-item">
                     <div class="faq-question">
-                        <h3 data-i18n="faq.q5">¿Cuáles son tus métodos de pago y condiciones?</h3>
+                        <h3>¿Cuáles son tus métodos de pago y condiciones?</h3>
                         <div class="faq-icon">+</div>
                     </div>
                     <div class="faq-answer">
-                        <p data-i18n="faq.a5">Trabajo con un modelo de 50% de anticipo al iniciar el proyecto y 50% al finalizar. Acepto transferencias bancarias, Mercado Pago y PayPal. Para proyectos mayores, podemos establecer un plan de pagos por etapas. Todos los detalles de pago se especifican claramente en el contrato antes de comenzar.</p>
+                        <p>Trabajo con un modelo de 50% de anticipo al iniciar el proyecto y 50% al finalizar. Acepto transferencias bancarias, Mercado Pago y PayPal. Para proyectos mayores, podemos establecer un plan de pagos por etapas. Todos los detalles de pago se especifican claramente en el contrato antes de comenzar.</p>
                     </div>
                 </div>
             </div>
@@ -706,8 +706,8 @@
         
         <!-- La sección de contacto se añadiría al final de tu página principal -->
         <section id="contact" class="contact-section">
-            <h2 class="fade-in" data-i18n="contact.title">¿Listo para trabajar juntos?</h2>
-            <p class="fade-in" data-i18n="contact.subtitle">Estoy aquí para ayudarte a crear una presencia digital excepcional para tu hospedaje. Contáctame y conversemos sobre cómo puedo transformar tu idea en realidad.</p>
+            <h2 class="fade-in">¿Listo para trabajar juntos?</h2>
+            <p class="fade-in">Estoy aquí para ayudarte a crear una presencia digital excepcional para tu hospedaje. Contáctame y conversemos sobre cómo puedo transformar tu idea en realidad.</p>
             
             <div class="contact-options">
                 <div class="contact-card fade-in">
@@ -716,10 +716,10 @@
                             <path d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h352a48 48 0 0 0 48-48V80a48 48 0 0 0 -48-48zm-16.4 307.4l-15 65A15 15 0 0 1 354 416C194 416 64 286.3 64 126a15.7 15.7 0 0 1 11.6-14.6l65-15A18.2 18.2 0 0 1 144 96a16.3 16.3 0 0 1 13.8 9.1l30 70A17.9 17.9 0 0 1 189 181a17 17 0 0 1 -5.5 11.6l-37.9 31a231.9 231.9 0 0 0 110.8 110.8l31-37.9A17 17 0 0 1 299 291a17.9 17.9 0 0 1 5.9 1.2l70 30A16.3 16.3 0 0 1 384 336a17.4 17.4 0 0 1 -.4 3.4z"/>
                         </svg>
                     </div>
-                    <h3 class="contact-title" data-i18n="contact.whatsapp.label">WhatsApp</h3>
+                    <h3 class="contact-title">WhatsApp</h3>
                     <h3 class="contact-title">+54 9 2944 81-2580</h3>
-                    <p class="contact-description" data-i18n="contact.whatsapp.desc">Respuesta rápida para consultas y cotizaciones. Disponible de 9:00 a 18:00.</p>
-                    <a href="https://wa.me/5492944812580" class="contact-action" target="_blank" data-i18n="contact.whatsapp.btn">Enviar mensaje</a>
+                    <p class="contact-description">Respuesta rápida para consultas y cotizaciones. Disponible de 9:00 a 18:00.</p>
+                    <a href="https://wa.me/5492944812580" class="contact-action" target="_blank">Enviar mensaje</a>
                 </div>
 
                 <div class="contact-card fade-in">
@@ -728,10 +728,10 @@
                             <path d="M464 64H48C21.5 64 0 85.5 0 112v288c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V112c0-26.5-21.5-48-48-48zm0 48v40.8c-22.4 18.3-58.2 46.7-134.6 106.5-16.8 13.2-50.2 45.1-73.4 44.7-23.2 .4-56.6-31.5-73.4-44.7C106.2 199.5 70.4 171.1 48 152.8V112h416zM48 400V214.4c22.9 18.3 55.4 43.9 104.9 82.6 21.9 17.2 60.1 55.2 103.1 55 42.7 .2 80.5-37.2 103.1-54.9 49.5-38.8 82-64.4 104.9-82.7V400H48z"/>
                         </svg>
                     </div>
-                    <h3 class="contact-title" data-i18n="contact.email.label">Email</h3>
+                    <h3 class="contact-title">Email</h3>
                     <h3 class="contact-title">teocicciari@gmail.com</h3>
-                    <p class="contact-description" data-i18n="contact.email.desc">Para propuestas detalladas y documentación. Respuesta garantizada en 24 horas.</p>
-                    <a href="mailto:teocicciari@gmail.com" class="contact-action" data-i18n="contact.email.btn">Enviar email</a>
+                    <p class="contact-description">Para propuestas detalladas y documentación. Respuesta garantizada en 24 horas.</p>
+                    <a href="mailto:teocicciari@gmail.com" class="contact-action">Enviar email</a>
                 </div>
             </div>
 
@@ -743,9 +743,9 @@
                         </svg>
                     </div>
                     <div class="contact-map-text">
-                        <h3 class="contact-title" data-i18n="contact.location.label">Ubicación</h3>
+                        <h3 class="contact-title">Ubicación</h3>
                         <h3 class="contact-title">Dorrego 182, R8430 El Bolsón, Río Negro</h3>
-                        <p class="contact-description" data-i18n="contact.location.desc">¿Estás por la zona? Pasá a tomar unos mates y conversemos sobre tu proyecto.</p>
+                        <p class="contact-description">¿Estás por la zona? Pasá a tomar unos mates y conversemos sobre tu proyecto.</p>
                     </div>
                 </div>
                 <div class="contact-map-container">
@@ -761,25 +761,25 @@
                     <div class="hero-icon fade-in">
                         <i class="fa-solid fa-chess"></i>
                     </div>
-                    <span class="hero-badge fade-in" data-i18n="chess_hero.badge">✦ Clases personalizadas</span>
-                    <h1 class="fade-in" data-i18n="chess_hero.title">Clases de Ajedrez</h1>
-                    <p class="hero-subtext fade-in" data-i18n="chess_hero.subtitle">Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.</p>
+                    <span class="hero-badge fade-in">✦ Clases personalizadas</span>
+                    <h1 class="fade-in">Clases de Ajedrez</h1>
+                    <p class="hero-subtext fade-in">Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.</p>
                     <div class="hero-stats fade-in">
                         <div class="stat-item">
                             <i class="fa-solid fa-trophy"></i>
-                            <span data-i18n="chess_hero.elo">ELO FIDE 1979</span>
+                            <span>ELO FIDE 1979</span>
                         </div>
                         <div class="stat-item">
                             <i class="fa-solid fa-clock"></i>
-                            <span data-i18n="chess_hero.experience">10 años enseñando</span>
+                            <span>10 años enseñando</span>
                         </div>
                     </div>
                     <div class="hero-cta-buttons fade-in">
-                        <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez." class="cta-primary" target="_blank" data-i18n="chess_hero.cta_primary">
+                        <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez." class="cta-primary" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
                             Reservar clase
                         </a>
-                        <a href="#chess-about" class="cta-secondary" data-i18n="chess_hero.cta_secondary">
+                        <a href="#chess-about" class="cta-secondary">
                             <i class="fa-solid fa-chess-knight"></i> Ver experiencia
                         </a>
                     </div>
@@ -788,14 +788,14 @@
 
             <section class="about-section" id="chess-about">
                 <div class="about-container fade-in">
-                    <h2 class="section-title" data-i18n="chess_about.title">Mi Pasión por el Ajedrez</h2>
+                    <h2 class="section-title">Mi Pasión por el Ajedrez</h2>
                     <div class="about-content-wrapper">
                         <div class="about-image-container">
                             <div class="about-image">
                                 <img src="img/chess.webp" alt="Teo Cicciari jugando ajedrez en torneo">
                             </div>
                             <div class="fide-link">
-                                <a href="https://ratings.fide.com/profile/140821/chart" target="_blank" class="fide-btn" data-i18n="chess_about.fide_btn">
+                                <a href="https://ratings.fide.com/profile/140821/chart" target="_blank" class="fide-btn">
                                     <i class="fa-solid fa-external-link-alt"></i>
                                     Ver mi perfil FIDE
                                 </a>
@@ -803,7 +803,7 @@
                         </div>
                         <div class="about-content">
                             <p data-i18n-html="chess_about.p1">Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1979 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.</p>
-                            <p data-i18n="chess_about.p2">Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.</p>
+                            <p>Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.</p>
                             <p data-i18n-html="chess_about.p3">A lo largo de mi carrera, he tenido el privilegio de enseñar a estudiantes de todas las edades y niveles, desde principiantes hasta jugadores avanzados. Mi enfoque se centra en crear un <strong>ambiente de aprendizaje divertido y desafiante</strong>, adaptándome a las necesidades individuales de cada estudiante.</p>
                         </div>
                     </div>
@@ -812,48 +812,48 @@
 
             <section class="experience-section" id="chess-experience">
                 <div class="experience-container">
-                    <h2 class="section-title fade-in" data-i18n="chess_exp.title">Experiencia Docente</h2>
+                    <h2 class="section-title fade-in">Experiencia Docente</h2>
                     <div class="timeline fade-in">
                         <div class="timeline-item">
                             <div class="timeline-date">2014 - 2017</div>
                             <div class="timeline-content">
-                                <h3 data-i18n="chess_exp.t1.title">Biblioteca Popular Lago Puelo</h3>
-                                <p data-i18n="chess_exp.t1.desc">Clases grupales para niños y jóvenes</p>
+                                <h3>Biblioteca Popular Lago Puelo</h3>
+                                <p>Clases grupales para niños y jóvenes</p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">2017 - 2020</div>
                             <div class="timeline-content">
-                                <h3 data-i18n="chess_exp.t2.title">Facultad de Matemática, Astronomía y Física - UNC</h3>
-                                <p data-i18n="chess_exp.t2.desc">Instructor de ajedrez en la Universidad Nacional de Córdoba</p>
+                                <h3>Facultad de Matemática, Astronomía y Física - UNC</h3>
+                                <p>Instructor de ajedrez en la Universidad Nacional de Córdoba</p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">2020 - Actualidad</div>
                             <div class="timeline-content">
-                                <h3 data-i18n="chess_exp.t3.title">Clases Particulares Online y Presencial</h3>
-                                <p data-i18n="chess_exp.t3.desc">Enseñanza personalizada para estudiantes de todos los niveles</p>
+                                <h3>Clases Particulares Online y Presencial</h3>
+                                <p>Enseñanza personalizada para estudiantes de todos los niveles</p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">2021 - 2023</div>
                             <div class="timeline-content">
-                                <h3 data-i18n="chess_exp.t4.title">Casa de la Cultura de Lago Puelo</h3>
-                                <p data-i18n="chess_exp.t4.desc">Talleres de ajedrez para la comunidad</p>
+                                <h3>Casa de la Cultura de Lago Puelo</h3>
+                                <p>Talleres de ajedrez para la comunidad</p>
                             </div>
                         </div>
                         <div class="timeline-item">
                             <div class="timeline-date">2024 - 2025</div>
                             <div class="timeline-content">
-                                <h3 data-i18n="chess_exp.t1.title">Biblioteca Popular Lago Puelo</h3>
-                                <p data-i18n="chess_exp.t1.desc">Clases grupales para niños y jóvenes</p>
+                                <h3>Biblioteca Popular Lago Puelo</h3>
+                                <p>Clases grupales para niños y jóvenes</p>
                             </div>
                         </div>
                         <div class="timeline-item current">
                             <div class="timeline-date">Actual</div>
                             <div class="timeline-content">
                                 <h3><a href="https://reyesypeones.com/" target="_blank" rel="noopener noreferrer">Academia Reyes y Peones</a></h3>
-                                <p data-i18n="chess_exp.t6.desc">Clases online de ajedrez</p>
+                                <p>Clases online de ajedrez</p>
                             </div>
                         </div>
                     </div>
@@ -862,36 +862,36 @@
 
             <section class="topics-section" id="chess-topics">
                 <div class="topics-container">
-                    <h2 class="section-title fade-in" data-i18n="chess_topics.title">Qué Aprenderás</h2>
-                    <p class="section-description fade-in" data-i18n="chess_topics.subtitle">Mis clases cubren una variedad de temas adaptados a tu nivel</p>
+                    <h2 class="section-title fade-in">Qué Aprenderás</h2>
+                    <p class="section-description fade-in">Mis clases cubren una variedad de temas adaptados a tu nivel</p>
                     <div class="topics-grid fade-in">
                         <div class="topic-card">
                             <div class="topic-icon"><i class="fa-solid fa-lightbulb"></i></div>
-                            <h3 data-i18n="chess_topics.card1.title">Tácticas y Estrategias</h3>
-                            <p data-i18n="chess_topics.card1.desc">Aprende los conceptos básicos y avanzados para mejorar tu juego posicional y táctico</p>
+                            <h3>Tácticas y Estrategias</h3>
+                            <p>Aprende los conceptos básicos y avanzados para mejorar tu juego posicional y táctico</p>
                         </div>
                         <div class="topic-card">
                             <div class="topic-icon"><i class="fa-solid fa-chess-board"></i></div>
-                            <h3 data-i18n="chess_topics.card2.title">Aperturas y Finales</h3>
-                            <p data-i18n="chess_topics.card2.desc">Domina las aperturas principales y los finales fundamentales para tener ventaja desde el inicio</p>
+                            <h3>Aperturas y Finales</h3>
+                            <p>Domina las aperturas principales y los finales fundamentales para tener ventaja desde el inicio</p>
                         </div>
                         <div class="topic-card">
                             <div class="topic-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                            <h3 data-i18n="chess_topics.card3.title">Análisis de Partidas</h3>
-                            <p data-i18n="chess_topics.card3.desc">Revisa tus partidas para identificar errores y oportunidades de mejora</p>
+                            <h3>Análisis de Partidas</h3>
+                            <p>Revisa tus partidas para identificar errores y oportunidades de mejora</p>
                         </div>
                         <div class="topic-card">
                             <div class="topic-icon"><i class="fa-solid fa-trophy"></i></div>
-                            <h3 data-i18n="chess_topics.card4.title">Preparación para Torneos</h3>
-                            <p data-i18n="chess_topics.card4.desc">Preparación específica para competencias y desarrollo de habilidades competitivas</p>
+                            <h3>Preparación para Torneos</h3>
+                            <p>Preparación específica para competencias y desarrollo de habilidades competitivas</p>
                         </div>
                     </div>
                 </div>
             </section>
 
             <section class="cta-section fade-in" id="chess-contact">
-                <h2 data-i18n="chess_cta.title">¿Listo para mejorar tu ajedrez?</h2>
-                <p data-i18n="chess_cta.subtitle">Contáctame para programar tu primera clase y comenzar tu camino hacia la maestría</p>
+                <h2>¿Listo para mejorar tu ajedrez?</h2>
+                <p>Contáctame para programar tu primera clase y comenzar tu camino hacia la maestría</p>
                 <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez." class="cta-btn" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
@@ -906,7 +906,7 @@
         <div class="footer-container">
             <div class="footer-section about">
                 <h3>Teo Cicciari</h3>
-                <p data-i18n="footer.about_desc">Diseñador Web y Profesor de Ajedrez especializado en crear experiencias digitales únicas y funcionales.</p>
+                <p>Diseñador Web y Profesor de Ajedrez especializado en crear experiencias digitales únicas y funcionales.</p>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/teo-cicciari" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
                     <a href="https://github.com/teocicciari" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -915,24 +915,24 @@
             </div>
             
             <div class="footer-section links">
-                <h3 data-i18n="footer.links.title">Enlaces rápidos</h3>
+                <h3>Enlaces rápidos</h3>
                 <ul class="footer-links active" data-view="design">
-                    <li><a href="#" data-i18n="footer.links.inicio">Inicio</a></li>
-                    <li><a href="#skills" data-i18n="footer.links.skills">Mis habilidades</a></li>
-                    <li><a href="#projects" data-i18n="footer.links.projects">Mis proyectos</a></li>
-                    <li><a href="#faq" data-i18n="footer.links.faq">FAQ</a></li>
-                    <li><a href="#contact" data-i18n="footer.links.contact">Contacto</a></li>
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#skills">Mis habilidades</a></li>
+                    <li><a href="#projects">Mis proyectos</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                 </ul>
                 <ul class="footer-links" data-view="chess">
-                    <li><a href="#chess-hero" data-i18n="footer.chess.inicio">Inicio</a></li>
-                    <li><a href="#chess-experience" data-i18n="footer.chess.experience">Experiencia</a></li>
-                    <li><a href="#chess-topics" data-i18n="footer.chess.topics">Qué Aprenderás</a></li>
-                    <li><a href="#chess-contact" data-i18n="footer.chess.contact">Contacto</a></li>
+                    <li><a href="#chess-hero">Inicio</a></li>
+                    <li><a href="#chess-experience">Experiencia</a></li>
+                    <li><a href="#chess-topics">Qué Aprenderás</a></li>
+                    <li><a href="#chess-contact">Contacto</a></li>
                 </ul>
             </div>
             
             <div class="footer-section contact">
-                <h3 data-i18n="footer.contact.title">Contacto</h3>
+                <h3>Contacto</h3>
                 <p><i class="fa-solid fa-envelope"></i> teocicciari@gmail.com</p>
                 <p><i class="fa-solid fa-phone"></i> +54 9 2944 81-2580</p>
                 <p><i class="fa-solid fa-location-dot" style="margin-left: 2px;"></i>  <span  style="margin-left: 2px;">El Bolsón, Rio Negro, ARG</span></p>
@@ -942,14 +942,13 @@
         <div class="footer-bottom">
             <p>© 2026 · Teo Cicciari · Diseñador Web · Todos los derechos reservados</p>
             <p class="footer-legal">
-                <a href="#" data-i18n="footer.privacy">Política de Privacidad</a> | 
-                <a href="#" data-i18n="footer.terms">Términos y Condiciones</a>
+                <a href="#">Política de Privacidad</a> | 
+                <a href="#">Términos y Condiciones</a>
             </p>
         </div>
     </footer>
 
     <!-- Scripts optimizados con defer para no bloquear renderizado -->
-    <script defer src="i18n.js"></script>
     <script defer src="main.js"></script>
     <script defer src="theme-switcher.js"></script>
     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>

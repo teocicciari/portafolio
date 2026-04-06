@@ -1,7 +1,8 @@
 /* Space Grotesk - Fuente variable local (optimizada) */
 @font-face {
     font-family: 'Space Grotesk';
-    src: url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations');
+    src: url('fonts/Space_Grotesk/SpaceGrotesk[wght].woff2') format('woff2-variations'),
+         url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations');
     font-weight: 300 700;
     font-style: normal;
     font-display: swap; /* Evita bloqueo de renderizado */
@@ -1143,6 +1144,10 @@ footer {
 .fade-in.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+.hidden {
+    display: none !important;
 }
 
 /* Estilos responsivos */
