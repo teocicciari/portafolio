@@ -1206,7 +1206,22 @@ footer {
         padding: 1rem 1rem;
     }
     .hero {
-        padding: 6rem 1rem 5rem;
+        padding: 5rem 1rem 3rem;
+        min-height: auto;
+        justify-content: flex-start;
+    }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+    .hero .hero-subtext {
+        font-size: 1rem;
+        margin-bottom: 1.25rem;
+    }
+    .hero .hero-features {
+        margin: 1.25rem 0 1.5rem;
+    }
+    .hero-cta-buttons {
+        margin-top: 1.5rem;
     }
     .hero-scroll-indicator {
         display: none;
