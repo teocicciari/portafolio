@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política de Privacidad · Teo Cicciari</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preload" href="fonts/Space_Grotesk/SpaceGrotesk[wght].woff2" as="font" type="font/woff2" crossorigin>
+    <style>
+        @font-face {
+            font-family: 'Space Grotesk';
+            src: url('fonts/Space_Grotesk/SpaceGrotesk[wght].woff2') format('woff2-variations'),
+                 url('fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations');
+            font-weight: 300 700;
+            font-display: swap;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary-dark: #121212;
+            --secondary-dark: #1e1e1e;
+            --accent: #8a5cf7;
+            --text-primary: #fff;
+            --text-secondary: #aaa;
+        }
+
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: var(--primary-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        header {
+            background-color: var(--secondary-dark);
+            padding: 1.2rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        header a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: opacity 0.2s;
+        }
+        header a:hover { opacity: 0.75; }
+
+        header span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        main {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .updated {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+        }
+
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin: 2.5rem 0 0.75rem;
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.97rem;
+        }
+
+        ul {
+            color: var(--text-secondary);
+            font-size: 0.97rem;
+            padding-left: 1.4rem;
+            margin-bottom: 1rem;
+        }
+
+        ul li { margin-bottom: 0.4rem; }
+
+        a { color: var(--accent); }
+
+        .tools-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .tool-item {
+            background-color: var(--secondary-dark);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            border-left: 3px solid var(--accent);
+        }
+
+        .tool-item strong {
+            display: block;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+
+        .tool-item p {
+            margin: 0;
+            font-size: 0.88rem;
+        }
+
+        .contact-box {
+            background-color: var(--secondary-dark);
+            border-radius: 12px;
+            padding: 1.5rem 1.75rem;
+            margin-top: 1rem;
+        }
+
+        .contact-box p { margin: 0.25rem 0; }
+
+        hr {
+            border: none;
+            border-top: 1px solid rgba(255,255,255,0.07);
+            margin: 3rem 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html">← Volver al inicio</a>
+        <span>Teo Cicciari · Diseñador Web</span>
+    </header>
+
+    <main>
+        <h1>Política de Privacidad</h1>
+        <p class="updated">Última actualización: abril de 2026</p>
+
+        <h2>1. Responsable del tratamiento</h2>
+        <p>
+            Teo Cicciari, diseñador web independiente, con domicilio en El Bolsón, Río Negro, Argentina.
+            Correo de contacto: <a href="mailto:teocicciari@gmail.com">teocicciari@gmail.com</a>.
+        </p>
+
+        <h2>2. Datos que se recopilan</h2>
+        <p>
+            Este sitio no recopila datos personales de forma directa (nombre, email, contraseña, etc.).
+            Sin embargo, utiliza herramientas de análisis de terceros que recopilan información de forma
+            automática cuando visitás la página:
+        </p>
+        <div class="tools-list">
+            <div class="tool-item">
+                <strong>Google Analytics & Google Tag Manager</strong>
+                <p>Recopila datos de navegación: páginas visitadas, tiempo de sesión, país de origen, tipo de dispositivo y fuente de tráfico. Los datos son anonimizados y no permiten identificar a una persona concreta.</p>
+            </div>
+            <div class="tool-item">
+                <strong>Microsoft Clarity</strong>
+                <p>Registra mapas de calor y grabaciones de sesión para entender cómo los visitantes interactúan con el sitio. No vincula esta información con datos personales identificables.</p>
+            </div>
+        </div>
+
+        <h2>3. Finalidad del tratamiento</h2>
+        <ul>
+            <li>Analizar el rendimiento y la usabilidad del sitio</li>
+            <li>Mejorar el contenido y la experiencia de navegación</li>
+            <li>Comprender el origen del tráfico para orientar mejor la oferta de servicios</li>
+        </ul>
+
+        <h2>4. Cookies</h2>
+        <p>
+            El sitio utiliza cookies propias de las herramientas de analítica mencionadas. Estas cookies son
+            de tipo analítico y no publicitario. Podés configurar tu navegador para bloquearlas o eliminarlas
+            en cualquier momento sin que ello afecte el funcionamiento del sitio.
+        </p>
+        <p>
+            Para más información sobre cómo gestionar cookies, visitá la sección de ayuda de tu navegador
+            (Chrome, Firefox, Safari, Edge).
+        </p>
+
+        <h2>5. Transferencia internacional de datos</h2>
+        <p>
+            Las herramientas de analítica utilizadas (Google, Microsoft) pueden procesar datos en servidores
+            ubicados fuera de Argentina, incluyendo Estados Unidos y la Unión Europea. Ambas empresas cuentan
+            con mecanismos de protección adecuados conforme a sus propias políticas de privacidad.
+        </p>
+
+        <h2>6. Tus derechos</h2>
+        <p>
+            De acuerdo con la <strong>Ley 25.326 de Protección de Datos Personales</strong> de Argentina, tenés derecho a:
+        </p>
+        <ul>
+            <li>Acceder a los datos que se hayan recopilado sobre vos</li>
+            <li>Solicitar su rectificación o eliminación</li>
+            <li>Oponerte al tratamiento de tus datos</li>
+        </ul>
+        <p>
+            Para ejercer estos derechos, podés contactarme directamente. El organismo de control competente
+            es la <strong>Agencia de Acceso a la Información Pública (AAIP)</strong>:
+            <a href="https://www.argentina.gob.ar/aaip" target="_blank" rel="noopener">argentina.gob.ar/aaip</a>.
+        </p>
+
+        <h2>7. Contacto</h2>
+        <div class="contact-box">
+            <p><strong>Teo Cicciari</strong></p>
+            <p>Email: <a href="mailto:teocicciari@gmail.com">teocicciari@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/5492944812580" target="_blank" rel="noopener">+54 9 2944 81-2580</a></p>
+            <p>El Bolsón, Río Negro, Argentina</p>
+        </div>
+
+        <hr>
+
+        <p style="font-size:0.85rem;">
+            Esta política puede actualizarse ocasionalmente. Los cambios se publicarán en esta misma página
+            con la fecha de última actualización.
+        </p>
+    </main>
+
+    <footer>
+        <p>© <script>document.write(new Date().getFullYear())</script> · Teo Cicciari · Diseñador Web</p>
+    </footer>
+
+</body>
+</html>
