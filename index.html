@@ -975,12 +975,22 @@
         </div>
         
         <div class="footer-bottom">
-            <p>© <span id="footer-year"></span> · Teo Cicciari · Diseñador Web · Todos los derechos reservados</p>
+            <p>© <span id="footer-year"></span> · Teo Cicciari · Diseñador Web · Todos los derechos reservados <span id="yoda-trigger" aria-hidden="true" title="Hmm..."><i class="fa-solid fa-jedi"></i></span></p>
             <p class="footer-legal">
-                <a href="#" data-i18n="footer.privacy">Política de Privacidad</a> | 
+                <a href="#" data-i18n="footer.privacy">Política de Privacidad</a> |
                 <a href="#" data-i18n="footer.terms">Términos y Condiciones</a>
             </p>
         </div>
+
+    <!-- Easter egg: Yoda dialog -->
+    <div id="yoda-dialog" aria-modal="true" role="dialog" aria-label="Yoda dice">
+        <div id="yoda-dialog-inner">
+            <div id="yoda-stars"></div>
+            <p id="yoda-quote">"Do or do not.<br>There is no try."</p>
+            <p id="yoda-attribution">— Yoda</p>
+            <button id="yoda-close">May the Force be with you</button>
+        </div>
+    </div>
     </footer>
 
     <!-- Scripts optimizados con defer para no bloquear renderizado -->

@@ -217,6 +217,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const footerYear = document.getElementById('footer-year');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
 
+    // ── Easter egg: Yoda dialog ───────────────────────────────────────────────
+    const yodaTrigger = document.getElementById('yoda-trigger');
+    const yodaDialog  = document.getElementById('yoda-dialog');
+    const yodaClose   = document.getElementById('yoda-close');
+
+    if (yodaTrigger && yodaDialog) {
+        const openYoda = () => yodaDialog.classList.add('active');
+        const closeYoda = () => yodaDialog.classList.remove('active');
+
+        yodaTrigger.addEventListener('click', openYoda);
+        yodaClose.addEventListener('click', closeYoda);
+        yodaDialog.addEventListener('click', (e) => {
+            if (e.target === yodaDialog) closeYoda();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeYoda();
+        });
+    }
+
     // ── Event delegation para tarjetas de proyectos ───────────────────────────
     const projectsGrid = document.querySelector('.projects-grid');
     if (projectsGrid) {
