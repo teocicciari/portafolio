@@ -710,7 +710,7 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
     border-radius: 8px;
     overflow: hidden;
     cursor: pointer;
@@ -1131,7 +1131,7 @@ footer {
 }
 
 .contact-card {
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
     border-radius: 1rem;
     padding: 2rem;
     width: 400px;
@@ -1374,7 +1374,7 @@ footer {
 }
 
 .faq-item {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     border-radius: 12px;
     overflow: hidden;
     transition: all 0.3s ease;
