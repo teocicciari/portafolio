@@ -863,6 +863,13 @@ footer {
         radial-gradient(1px 1px at 90% 85%, rgba(255,255,255,0.4) 0%, transparent 100%);
     pointer-events: none;
 }
+#yoda-img {
+    width: 120px;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 12px rgba(100, 220, 100, 0.5));
+}
 #yoda-quote {
     font-size: 1.6rem;
     font-weight: 700;
