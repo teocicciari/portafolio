@@ -88,8 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (footer) footer.style.display = isHome ? 'none' : '';
 
         // Switcher: ocultar en home, mostrar en design/chess
-        const switcher = document.querySelector('.theme-switcher');
-        if (switcher) switcher.style.display = isHome ? 'none' : '';
+        document.querySelectorAll('.theme-switcher').forEach(s => {
+            s.style.display = isHome ? 'none' : '';
+        });
 
         // Actualizar botón activo del theme switcher
         themeButtons.forEach(btn => {

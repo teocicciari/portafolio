@@ -41,52 +41,64 @@
 .theme-switcher {
     display: flex;
     justify-content: center;
-    padding: 0.5rem var(--padding-border) 0.75rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 0.5rem var(--padding-border) 0.6rem;
+}
+
+nav .theme-switcher {
+    margin-top: -20px;
+}
+
+/* Mobile: ocultar switcher dentro del nav */
+@media (max-width: 768px) {
+    nav .theme-switcher {
+        display: none;
+    }
+    .theme-switcher-mobile {
+        display: flex;
+        background-color: var(--primary-dark);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        padding: 0.5rem 1rem 0.6rem;
+    }
+}
+
+/* Desktop: ocultar el switcher mobile externo */
+@media (min-width: 769px) {
+    .theme-switcher-mobile {
+        display: none;
+    }
 }
 
 .theme-options {
     display: flex;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    align-items: center;
 }
 
 .theme-btn {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 0.75rem 1.25rem;
+    border-radius: 10px;
+    padding: 0.5rem 0.9rem;
     cursor: pointer;
     color: var(--text-secondary);
     transition: all 0.2s ease;
-    text-align: left;
+    white-space: nowrap;
 }
 
 .theme-btn-icon {
-    font-size: 1.25rem;
+    font-size: 1rem;
     opacity: 0.7;
     transition: opacity 0.2s ease;
     flex-shrink: 0;
 }
 
-.theme-btn-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-}
-
 .theme-btn-title {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: var(--text-primary);
-    line-height: 1;
-}
-
-.theme-btn-sub {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
     line-height: 1;
 }
 
@@ -102,6 +114,18 @@
 .theme-btn.active {
     border-color: var(--accent);
     background-color: rgba(255, 255, 255, 0.03);
+}
+
+.theme-btn.theme-default.active {
+    background-color: rgba(26, 47, 26, 0.55);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-color: rgba(122, 193, 66, 0.4);
+}
+
+.theme-btn.theme-default.active .theme-btn-icon,
+.theme-btn.theme-default.active .theme-btn-title {
+    color: #7ac142;
 }
 
 .theme-btn.active .theme-btn-icon {

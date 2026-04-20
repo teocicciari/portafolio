@@ -445,8 +445,9 @@
             if (t[key] !== undefined) el.innerHTML = t[key];
         });
 
-        const langBtn = document.getElementById('lang-toggle');
-        if (langBtn) langBtn.textContent = lang === 'es' ? 'EN' : 'ES';
+        document.querySelectorAll('#lang-toggle, .lang-btn-mobile').forEach(btn => {
+            btn.textContent = lang === 'es' ? 'EN' : 'ES';
+        });
 
         const isChess = document.getElementById('view-chess')?.classList.contains('active');
         const isHome = document.getElementById('view-home')?.classList.contains('active');
@@ -455,8 +456,9 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         applyTranslations(currentLang);
-        const btn = document.getElementById('lang-toggle');
-        if (btn) btn.addEventListener('click', () => applyTranslations(currentLang === 'es' ? 'en' : 'es'));
+        document.querySelectorAll('#lang-toggle, .lang-btn-mobile').forEach(btn => {
+            btn.addEventListener('click', () => applyTranslations(currentLang === 'es' ? 'en' : 'es'));
+        });
     });
 
     window.i18n = { apply: () => applyTranslations(currentLang) };

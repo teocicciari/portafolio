@@ -40,7 +40,7 @@
 <body>
     <header>
         <nav>
-            <div class="nav-top">
+            <div class="nav-row-top">
                 <div class="profile-container" role="button" tabindex="0" id="go-home" title="Inicio" style="cursor:pointer">
                     <img src="img/profile.webp" alt="Foto de perfil de Teo Cicciari, diseñador web" class="profile-img">
                     <div class="profile-name">Teo Cicciari</div>
@@ -66,23 +66,32 @@
                 <div class="theme-options">
                     <button type="button" class="theme-btn theme-default active" data-theme="default">
                         <i class="fa-solid fa-code theme-btn-icon"></i>
-                        <span class="theme-btn-text">
-                            <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
-                            <span class="theme-btn-sub" data-i18n="theme.design.subtitle">Portfolio · Proyectos · Precios</span>
-                        </span>
+                        <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
                     </button>
                     <button type="button" class="theme-btn theme-forest" data-theme="forest">
                         <i class="fa-solid fa-chess theme-btn-icon"></i>
-                        <span class="theme-btn-text">
-                            <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
-                            <span class="theme-btn-sub" data-i18n="theme.chess.subtitle">Clases · Experiencia · FIDE 1979</span>
-                        </span>
+                        <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
                     </button>
                     <button type="button" id="lang-toggle" class="lang-btn">EN</button>
                 </div>
             </div>
         </nav>
     </header>
+
+    <!-- Theme switcher mobile (fuera del nav, visible solo en mobile) -->
+    <div class="theme-switcher theme-switcher-mobile">
+        <div class="theme-options">
+            <button type="button" class="theme-btn theme-default active" data-theme="default">
+                <i class="fa-solid fa-code theme-btn-icon"></i>
+                <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
+            </button>
+            <button type="button" class="theme-btn theme-forest" data-theme="forest">
+                <i class="fa-solid fa-chess theme-btn-icon"></i>
+                <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
+            </button>
+            <button type="button" class="lang-btn lang-btn-mobile">EN</button>
+        </div>
+    </div>
 
     <main>
         <div id="view-home" class="view active">

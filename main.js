@@ -213,6 +213,19 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // ── Ocultar nav al bajar, mostrar al subir ────────────────────────────────
+    let lastScroll = 0;
+    const navHeader = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        const current = window.scrollY;
+        if (current > lastScroll && current > 80) {
+            navHeader.classList.add('nav-hidden');
+        } else {
+            navHeader.classList.remove('nav-hidden');
+        }
+        lastScroll = current;
+    }, { passive: true });
+
     // ── Año dinámico en footer ────────────────────────────────────────────────
     const footerYear = document.getElementById('footer-year');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
