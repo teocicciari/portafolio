@@ -40,48 +40,49 @@
 <body>
     <header>
         <nav>
-            <div class="profile-container" role="button" tabindex="0" id="go-home" title="Inicio" style="cursor:pointer">
-                <img src="img/profile.webp" alt="Foto de perfil de Teo Cicciari, diseñador web" class="profile-img">
-                <div class="profile-name">Teo Cicciari</div>
-                <div class="verified">✓</div>
+            <div class="nav-top">
+                <div class="profile-container" role="button" tabindex="0" id="go-home" title="Inicio" style="cursor:pointer">
+                    <img src="img/profile.webp" alt="Foto de perfil de Teo Cicciari, diseñador web" class="profile-img">
+                    <div class="profile-name">Teo Cicciari</div>
+                    <div class="verified">✓</div>
+                </div>
+                <div class="nav-links active" data-view="design">
+                    <a href="#inicio" class="nav-link" data-i18n="nav.design.inicio">Inicio</a>
+                    <a href="#projects" class="nav-link" data-i18n="nav.design.proyectos">Proyectos</a>
+                    <a href="#prices" class="nav-link" data-i18n="nav.design.precios">Precios</a>
+                    <a href="#skills" class="nav-link" data-i18n="nav.design.habilidades">Habilidades</a>
+                    <a href="#faq" class="nav-link" data-i18n="nav.design.faq">FAQ</a>
+                    <a href="#contact" class="nav-link" data-i18n="nav.design.contacto">Contacto</a>
+                </div>
+                <div class="nav-links" data-view="chess">
+                    <a href="#chess-hero" class="nav-link" data-i18n="nav.chess.inicio">Inicio</a>
+                    <a href="#chess-experience" class="nav-link" data-i18n="nav.chess.experiencia">Experiencia</a>
+                    <a href="#chess-topics" class="nav-link" data-i18n="nav.chess.topicos">Qué Aprenderás</a>
+                    <a href="#chess-contact" class="nav-link" data-i18n="nav.chess.contacto">Contacto</a>
+                </div>
+                <a href="#contact" class="contact-btn" id="main-contact-btn" data-i18n="header.contact_btn">Contáctame</a>
             </div>
-            <div class="nav-links active" data-view="design">
-                <a href="#inicio" class="nav-link" data-i18n="nav.design.inicio">Inicio</a>
-                <a href="#projects" class="nav-link" data-i18n="nav.design.proyectos">Proyectos</a>
-                <a href="#prices" class="nav-link" data-i18n="nav.design.precios">Precios</a>
-                <a href="#skills" class="nav-link" data-i18n="nav.design.habilidades">Habilidades</a>
-                <a href="#faq" class="nav-link" data-i18n="nav.design.faq">FAQ</a>
-                <a href="#contact" class="nav-link" data-i18n="nav.design.contacto">Contacto</a>
+            <div class="theme-switcher">
+                <div class="theme-options">
+                    <button type="button" class="theme-btn theme-default active" data-theme="default">
+                        <i class="fa-solid fa-code theme-btn-icon"></i>
+                        <span class="theme-btn-text">
+                            <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
+                            <span class="theme-btn-sub" data-i18n="theme.design.subtitle">Portfolio · Proyectos · Precios</span>
+                        </span>
+                    </button>
+                    <button type="button" class="theme-btn theme-forest" data-theme="forest">
+                        <i class="fa-solid fa-chess theme-btn-icon"></i>
+                        <span class="theme-btn-text">
+                            <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
+                            <span class="theme-btn-sub" data-i18n="theme.chess.subtitle">Clases · Experiencia · FIDE 1979</span>
+                        </span>
+                    </button>
+                    <button type="button" id="lang-toggle" class="lang-btn">EN</button>
+                </div>
             </div>
-            <div class="nav-links" data-view="chess">
-                <a href="#chess-hero" class="nav-link" data-i18n="nav.chess.inicio">Inicio</a>
-                <a href="#chess-experience" class="nav-link" data-i18n="nav.chess.experiencia">Experiencia</a>
-                <a href="#chess-topics" class="nav-link" data-i18n="nav.chess.topicos">Qué Aprenderás</a>
-                <a href="#chess-contact" class="nav-link" data-i18n="nav.chess.contacto">Contacto</a>
-            </div>
-            <a href="#contact" class="contact-btn" id="main-contact-btn" data-i18n="header.contact_btn">Contáctame</a>
         </nav>
     </header>
-
-    <div class="theme-switcher">
-        <div class="theme-options">
-            <button type="button" class="theme-btn theme-default active" data-theme="default">
-                <i class="fa-solid fa-code theme-btn-icon"></i>
-                <span class="theme-btn-text">
-                    <span class="theme-btn-title" data-i18n="theme.design.title">Diseñador Web</span>
-                    <span class="theme-btn-sub" data-i18n="theme.design.subtitle">Portfolio · Proyectos · Precios</span>
-                </span>
-            </button>
-            <button type="button" class="theme-btn theme-forest" data-theme="forest">
-                <i class="fa-solid fa-chess theme-btn-icon"></i>
-                <span class="theme-btn-text">
-                    <span class="theme-btn-title" data-i18n="theme.chess.title">Profesor de Ajedrez</span>
-                    <span class="theme-btn-sub" data-i18n="theme.chess.subtitle">Clases · Experiencia · FIDE 1979</span>
-                </span>
-            </button>
-            <button type="button" id="lang-toggle" class="lang-btn">EN</button>
-        </div>
-    </div>
 
     <main>
         <div id="view-home" class="view active">
