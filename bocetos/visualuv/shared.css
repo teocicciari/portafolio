@@ -281,7 +281,7 @@ nav {
 .sobre-foto::after {
   content: '';
   position: absolute; top: 16px; left: 16px; right: -16px; bottom: -16px;
-  border: 1px solid rgba(58,107,90,0.2);
+  border: 1px solid rgba(196,84,122,0.2);
   pointer-events: none; z-index: -1;
 }
 .sobre-foto-placeholder {
@@ -335,7 +335,7 @@ nav {
 #contacto::before {
   content: '';
   position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(58,107,90,0.04) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(196,84,122,0.04) 1px, transparent 1px);
   background-size: 32px 32px;
   pointer-events: none;
 }

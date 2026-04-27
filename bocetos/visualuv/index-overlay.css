@@ -27,7 +27,7 @@ body.index-open { overflow: hidden; }
 .panel-eventos:hover { background: var(--tierra-dark); }
 .panel-eventos::before {
   content: ''; position: absolute; inset: 0;
-  background-image: radial-gradient(circle, rgba(58,107,90,0.06) 1px, transparent 1px);
+  background-image: radial-gradient(circle, rgba(196,84,122,0.06) 1px, transparent 1px);
   background-size: 32px 32px; pointer-events: none;
 }
 .panel-producto {

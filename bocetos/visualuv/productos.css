@@ -96,7 +96,7 @@
 .studio-obj-sec {
   position: absolute; top: 32px; right: 24px;
   width: 80px; height: 80px;
-  background: rgba(58,107,90,0.08); border: 1px solid rgba(58,107,90,0.2); border-radius: 50%;
+  background: rgba(196,84,122,0.08); border: 1px solid rgba(196,84,122,0.2); border-radius: 50%;
 }
 .studio-obj-ter {
   position: absolute; bottom: 40px; left: 20px;
@@ -269,17 +269,45 @@
 .prod-icon { opacity: 0.18; }
 
 /* ─── CÓMO FUNCIONA ─── */
-#view-productos #como { padding: 110px 56px; background: var(--studio); border-top: 1px solid rgba(28,26,23,0.07); }
-.como-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; margin-top: 60px; }
-.como-left { position: sticky; top: 80px; }
-.como-quote { font-family: var(--font-body); font-size: 25px; font-weight: 300; font-style: italic; color: var(--tierra); line-height: 1.6; margin-bottom: 24px; }
-.como-firma { font-family: var(--font-display); font-size: 8px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--bosque); }
-.como-steps { display: flex; flex-direction: column; gap: 0; }
-.como-step { display: grid; grid-template-columns: 60px 1fr; gap: 24px; padding: 32px 0; border-bottom: 1px solid rgba(28,26,23,0.07); position: relative; }
-.como-step:last-child { border-bottom: none; }
-.cs-num { font-family: var(--font-display); font-size: 40px; font-weight: 700; color: rgba(28,26,23,0.08); line-height: 1; }
-.cs-title { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--tierra); margin-bottom: 8px; letter-spacing: -0.01em; }
-.cs-desc { font-size: 15px; font-weight: 300; color: var(--gris); line-height: 1.65; }
+#view-productos #como {
+  padding: 120px 56px;
+  background: var(--tierra);
+  position: relative; overflow: hidden;
+}
+#view-productos #como::after {
+  content: 'LUV';
+  position: absolute; right: -40px; top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: 320px; font-weight: 700;
+  color: rgba(240,237,230,0.02);
+  letter-spacing: -15px; user-select: none;
+}
+#view-productos #como .section-eyebrow { color: var(--bosque); }
+#view-productos #como .section-eyebrow::before { background: var(--bosque); }
+#view-productos #como .section-title { color: var(--arena); -webkit-text-stroke: 0; }
+#view-productos #como .section-title em { -webkit-text-stroke: 1.2px var(--arena); color: transparent; }
+.como-steps {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 0; margin-top: 60px; position: relative; z-index: 1;
+}
+.como-step {
+  padding: 32px 28px 32px 0;
+  border-right: 1px solid rgba(240,237,230,0.06);
+  position: relative;
+}
+.como-step:last-child { border-right: none; padding-right: 0; }
+.cs-num {
+  font-family: var(--font-display);
+  font-size: 44px; font-weight: 700;
+  color: rgba(240,237,230,0.08); line-height: 1; margin-bottom: 16px;
+}
+.cs-title {
+  font-family: var(--font-display);
+  font-size: 15px; font-weight: 700;
+  color: var(--arena); letter-spacing: -0.01em; margin-bottom: 10px;
+}
+.cs-desc { font-size: 14px; font-weight: 300; color: var(--gris2); line-height: 1.6; }
 .cs-detail { font-family: var(--font-display); font-size: 8px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bosque); margin-top: 10px; }
 
 /* ─── CONTACTO PRODUCTOS ─── */
@@ -321,8 +349,8 @@
   #view-productos .paq-extras-grid { grid-template-columns: 1fr 1fr; }
   #view-productos .prod-galeria-grid { grid-template-columns: 1fr 1fr; }
   #view-productos .g-item:nth-child(1) { grid-row: span 1; aspect-ratio: 1/1; }
-  #view-productos .como-grid { grid-template-columns: 1fr; }
-  #view-productos .como-left { position: static; }
+  #view-productos .como-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
+  #view-productos .como-step { border-right: none; padding-right: 0; }
   #view-productos .contacto-grid { grid-template-columns: 1fr; gap: 48px; }
   #view-productos footer { flex-direction: column; align-items: flex-start; }
   #view-productos .form-row-2 { grid-template-columns: 1fr; }
