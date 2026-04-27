@@ -16,7 +16,7 @@
 }
 #view-eventos .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(56px, 7vw, 96px);
+  font-size: clamp(46px, 6vw, 80px);
   font-weight: 700; line-height: 0.95;
   letter-spacing: -0.03em; color: var(--tierra);
   margin-bottom: 12px;
@@ -335,6 +335,7 @@
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
 /* ─── FOOTER EVENTOS ─── */
+#view-eventos .footer-place { color: var(--bosque); }
 #view-eventos .footer-copy {
   font-family: var(--font-display);
   font-size: 8px; letter-spacing: 0.14em; color: var(--gris); text-transform: uppercase;

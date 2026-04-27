@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="typo.css">
 <link rel="stylesheet" href="colores.css">
 </head>
-<body>
+<body data-typo="clasica">
 
 <!-- INDEX OVERLAY -->
 <div id="view-index">
@@ -67,30 +67,13 @@
     <a href="#productos" class="nav-tab" id="tabProductos" data-view="productos">Producto</a>
   </div>
 
-  <div class="nav-controls">
-    <div class="nav-colors" role="group" aria-label="Color">
-      <button class="nav-color-btn active" data-color="default" aria-label="Default"></button>
-      <button class="nav-color-btn" data-color="violeta" aria-label="Violeta"></button>
-      <button class="nav-color-btn" data-color="rosa"    aria-label="Rosa"></button>
-      <button class="nav-color-btn" data-color="bordo"   aria-label="Bordo"></button>
-      <button class="nav-color-btn" data-color="naranja" aria-label="Naranja"></button>
-    </div>
-    <div class="nav-ctrl-sep"></div>
-    <div class="nav-typo" role="group" aria-label="Tipografía">
-      <button class="nav-typo-btn active" data-typo="mono">Aa</button>
-      <button class="nav-typo-btn" data-typo="clasica">Sp</button>
-      <button class="nav-typo-btn" data-typo="geo">Jo</button>
-      <button class="nav-typo-btn" data-typo="suave">Fr</button>
-    </div>
-  </div>
-
   <a href="#contacto" class="nav-cta" id="navCta">Contacto</a>
 </nav>
 
 <!-- ═══════════════════════════════════
      VIEW: EVENTOS
      ═══════════════════════════════════ -->
-<div id="view-eventos" class="view">
+<div id="view-eventos" class="view" data-color="rosa">
 
 <!-- HERO -->
 <section id="hero">
@@ -157,7 +140,6 @@
 
 <!-- SERVICIOS -->
 <section id="servicios">
-  <h2 class="section-title reveal">LO QUE<br>HACEMOS <em>bien.</em></h2>
   <div class="servicios-grid">
 
     <div class="servicio-card reveal">
@@ -168,14 +150,14 @@
         <circle cx="20" cy="22" r="2" fill="currentColor"/>
       </svg>
       <div class="serv-name">CASAMIENTOS</div>
-      <p class="serv-desc">El día más importante merece ser recordado sin poses ni artificios. Documentamos la emoción real, desde los preparativos hasta el último baile.</p>    </div>
+      <p class="serv-desc">El día más importante merece ser recordado. Documentamos la emoción real, desde los preparativos hasta el último baile.</p>    </div>
 
     <div class="servicio-card reveal">
       <svg class="serv-icon" viewBox="0 0 40 40" fill="none">
         <path d="M20 6L22.4 13.6H30.3L23.9 18.2L26.3 25.8L20 21.2L13.7 25.8L16.1 18.2L9.7 13.6H17.6L20 6Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
       </svg>
       <div class="serv-name">FESTIVALES<br>Y EVENTOS</div>
-      <p class="serv-desc">La energía de un festival, la magia de un evento cultural. Capturamos el espíritu del Bolsón y su comarca en cada celebración.</p>    </div>
+      <p class="serv-desc">La energía de un festival, la magia de un evento cultural.</p>    </div>
 
     <div class="servicio-card reveal">
       <svg class="serv-icon" viewBox="0 0 40 40" fill="none">
@@ -185,7 +167,7 @@
         <path d="M30 10l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
       <div class="serv-name">SESIÓN DE<br>RETRATO</div>
-      <p class="serv-desc">Book personal, artístico o profesional. Sesiones de retrato, pareja, familia o grupo. Los paisajes únicos de la Patagonia como telón de fondo.</p>    </div>
+      <p class="serv-desc">Sesión personal, artística o profesional. Sesiones de retrato, pareja, familia o grupo. Los paisajes únicos de la Patagonia como telón de fondo.</p>    </div>
 
     <div class="servicio-card reveal">
       <svg class="serv-icon" viewBox="0 0 40 40" fill="none">
@@ -194,7 +176,7 @@
         <rect x="12" y="12" width="7" height="7" fill="currentColor" opacity="0.3"/>
       </svg>
       <div class="serv-name">CUMPLEAÑOS<br>Y FIESTAS</div>
-      <p class="serv-desc">Desde un cumpleaños íntimo en el bosque hasta una fiesta grande. Guardamos la alegría con la misma dedicación de siempre.</p>    </div>
+      <p class="serv-desc">Desde un cumpleaños íntimo hasta una fiesta grande. Guardamos la alegría con la misma dedicación de siempre.</p>    </div>
 
   </div>
 </section>
@@ -261,7 +243,6 @@
 
 <!-- PROCESO -->
 <section id="proceso">
-  <h2 class="section-title reveal">EL PROCESO<br><em>sin vueltas.</em></h2>
   <div class="proceso-steps">
     <div class="proceso-step reveal">
       <div class="paso-num">01</div>
@@ -276,7 +257,7 @@
     <div class="proceso-step reveal" style="transition-delay:0.2s">
       <div class="paso-num">03</div>
       <div class="paso-name">EL DÍA</div>
-      <p class="paso-desc">Llego antes, me instalo, me quedo invisible. La cámara trabaja sola mientras vos disfrutás.</p>
+      <p class="paso-desc">Llego antes, me acomodo, me encargo de registrar el momento mientras vos disfrutás.</p>
     </div>
     <div class="proceso-step reveal" style="transition-delay:0.3s">
       <div class="paso-num">04</div>
@@ -331,11 +312,13 @@
     <img src="img/profile.jpg" alt="Lucía Rocca — VISUALUV" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
   </div>
   <div class="reveal">
-    <p class="sobre-texto">Soy fotógrafa de eventos radicada en El Bolsón. Trabajo con luz natural, momentos reales y <em>muy pocas poses</em>.</p>
-    <div class="sobre-stats">
-      <div class="sobre-stat"><span class="sobre-stat-num">200+</span></div>
-      <div class="sobre-stat"><span class="sobre-stat-num">5 años</span></div>
-      <div class="sobre-stat"><span class="sobre-stat-num">∞</span></div>
+    <p class="sobre-texto">Soy Lucía, fotógrafa y artista audiovisual radicada en El Bolsón.</p>
+    <p class="sobre-texto" style="margin-top:16px">Creo imágenes que combinan sensibilidad, estética y narrativa visual, tanto para proyectos personales como para emprendimientos.</p>
+    <p class="sobre-texto" style="margin-top:16px">Trabajo en retratos, fotografía/video de producto y cobertura de eventos, creando contenido visual y audiovisual para redes, marcas y proyectos personales. Adapto cada propuesta a la identidad de quien está delante de la cámara.</p>
+    <div class="sobre-firma">
+      <span>@visualuv_</span>
+      <span>·</span>
+      <span>visualuv44@gmail.com</span>
     </div>
   </div>
 </section>
@@ -345,13 +328,13 @@
   <div class="contacto-inner">
     <div class="contacto-left">
       <h2 class="contacto-title">¿TENÉS<br>UNA FECHA?</h2>
-      <p class="contacto-sub">Escribime, te respondo en menos de 24 horas. Las fechas se agotan rápido, especialmente en verano.</p>
+      <p class="contacto-sub">Escribime, te respondo en menos de 24 horas.</p>
 
       <div class="contacto-links">
-        <div class="contacto-link" onclick="window.location='mailto:hola@visualuv.com'"><span class="cl-value">hola@visualuv.com</span>
+        <div class="contacto-link" onclick="window.location='mailto:visualuv44@gmail.com'"><span class="cl-value">visualuv44@gmail.com</span>
           <span class="cl-arrow">→</span>
         </div>
-        <div class="contacto-link" onclick="window.location='https://instagram.com/visualuv'"><span class="cl-value">@visualuv.foto</span>
+        <div class="contacto-link" onclick="window.location='https://instagram.com/visualuv_'"><span class="cl-value">@visualuv_</span>
           <span class="cl-arrow">→</span>
         </div>
         <div class="contacto-link"><span class="cl-value">El Bolsón · RN</span>
@@ -374,7 +357,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span>UV</span> VISUAL</div>
+  <div class="footer-logo">VISUALUV</div>
   <div class="footer-place">El Bolsón · Patagonia</div>
 </footer>
 
@@ -384,7 +367,7 @@
 <!-- ═══════════════════════════════════
      VIEW: PRODUCTOS
      ═══════════════════════════════════ -->
-<div id="view-productos" class="view">
+<div id="view-productos" class="view" data-color="bordo">
 
 <!-- HERO -->
 <section id="hero">
@@ -438,7 +421,6 @@
 
 <!-- PARA QUIÉN -->
 <section id="para-quien">
-  <h2 class="section-title reveal">MARCAS QUE<br>HACEN COSAS <em>reales.</em></h2>
   <div class="clientes-grid">
 
     <div class="cliente-card reveal">
@@ -529,8 +511,8 @@
   <div class="paq-extras reveal">
     <div class="paq-extras-title">Extras</div>
     <div class="paq-extras-grid">
-      <div class="paq-extra-item"><span>Foto adicional</span><span>$2.500 c/u</span></div>
-      <div class="paq-extra-item"><span>Fondo personalizado / escenografía</span><span>+$10.000</span></div>
+      <div class="paq-extra-item"><span>Foto adicional</span><span>$4.000 c/u</span></div>
+      <div class="paq-extra-item"><span>Fondo personalizado / escenografía</span><span>+$20.000</span></div>
       <div class="paq-extra-item"><span>Entrega express (48 hs)</span><span>+20%</span></div>
       <div class="paq-extra-item"><span>Video corto para redes (reel)</span><span>Consultar</span></div>
     </div>
@@ -669,11 +651,7 @@
 
 <!-- CÓMO FUNCIONA -->
 <section id="como">
-  <h2 class="section-title reveal">SIN VUELTAS,<br>SIN <em>sorpresas.</em></h2>
   <div class="como-grid">
-    <div class="como-left reveal">
-      <p class="como-quote">"Trabajo con marcas que creen en lo que hacen. El producto ya es bueno — yo solo lo hago ver como merece."</p>
-    </div>
     <div class="como-steps">
       <div class="como-step reveal">
         <div class="cs-num">01</div>
@@ -710,11 +688,13 @@
     <img src="img/profile.jpg" alt="Lucía Rocca — VISUALUV" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;">
   </div>
   <div class="reveal">
-    <p class="sobre-texto">Soy fotógrafa radicada en El Bolsón. Trabajo con luz natural y <em>cada producto tiene su propia luz</em>.</p>
-    <div class="sobre-stats">
-      <div class="sobre-stat"><span class="sobre-stat-num">80+</span></div>
-      <div class="sobre-stat"><span class="sobre-stat-num">5 años</span></div>
-      <div class="sobre-stat"><span class="sobre-stat-num">∞</span></div>
+    <p class="sobre-texto">Soy Lucía, fotógrafa y artista audiovisual radicada en El Bolsón.</p>
+    <p class="sobre-texto" style="margin-top:16px">Creo imágenes que combinan sensibilidad, estética y narrativa visual, tanto para proyectos personales como para emprendimientos.</p>
+    <p class="sobre-texto" style="margin-top:16px">Trabajo en retratos, fotografía/video de producto y cobertura de eventos, creando contenido visual y audiovisual para redes, marcas y proyectos personales. Adapto cada propuesta a la identidad de quien está delante de la cámara.</p>
+    <div class="sobre-firma">
+      <span>@visualuv_</span>
+      <span>·</span>
+      <span>visualuv44@gmail.com</span>
     </div>
   </div>
 </section>
@@ -726,10 +706,10 @@
       <h2 class="contacto-title">¿QUERÉS<br>COTIZAR?</h2>
       <p class="contacto-sub">Contame qué producto tenés y para qué lo necesitás. Te respondo con presupuesto en menos de 24 horas.</p>
       <div class="contacto-data">
-        <div class="cd-row" onclick="window.location='mailto:hola@visualuv.com'"><span class="cd-value">hola@visualuv.com</span>
+        <div class="cd-row" onclick="window.location='mailto:visualuv44@gmail.com'"><span class="cd-value">visualuv44@gmail.com</span>
           <span class="cd-arrow">→</span>
         </div>
-        <div class="cd-row" onclick="window.location='https://instagram.com/visualuv'"><span class="cd-value">@visualuv.foto</span>
+        <div class="cd-row" onclick="window.location='https://instagram.com/visualuv_'"><span class="cd-value">@visualuv_</span>
           <span class="cd-arrow">→</span>
         </div>
         <div class="cd-row"><span class="cd-value">El Bolsón · RN</span>
@@ -759,7 +739,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo"><span>UV</span> VISUAL</div>
+  <div class="footer-logo">VISUALUV</div>
   <div class="footer-links">
     <a href="#eventos" data-view="eventos">← Eventos</a>
     <a href="#contacto">Contacto</a>
