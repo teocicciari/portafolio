@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro Seguros - Tu Protección, Nuestra Prioridad</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Centro Seguros">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button class="cta-button">Cotizar Ahora</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Te aseguramos <span class="highlight">todo!</span></h1>
+                <p class="hero-tagline">Lo que es más importante para vos, nosotros te lo cuidamos</p>
+                <p class="hero-description">No te quedes pensando en lo que podría pasar. Protegé a tu familia con una cobertura que te da algo más que una póliza: la tranquilidad de saber que, ante cualquier imprevisto, van a estar cuidados.</p>
+                <div class="hero-buttons">
+                    <button class="btn-primary">Solicitar Cotización</button>
+                    <button class="btn-secondary">Conocer Más</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-shape"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services">
+        <div class="container">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="section-subtitle">Soluciones de seguros adaptadas a tus necesidades</p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-car"></i></div>
+                    <h3>Seguros de Vehículos</h3>
+                    <p>Un seguro completo es una inversión en tranquilidad. Te permite conducir con la confianza de saber que, ante cualquier imprevisto, desde un pequeño golpe hasta una situación más grave, nosotros nos hacemos cargo.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Auto y Moto</li>
+                        <li><i class="fas fa-check-circle"></i> Embarcaciones</li>
+                        <li><i class="fas fa-check-circle"></i> Bicicletas y Remolques</li>
+                    </ul>
+                    <a href="#" class="service-link">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Seguros de Accidentes Personales</h3>
+                    <p>Con un pequeño costo mensual, puede tener la seguridad de que los gastos inesperados estarán cubiertos. Protección para ti y tu familia ante cualquier eventualidad.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Seguro de Vida</li>
+                        <li><i class="fas fa-check-circle"></i> Seguro de Trabajo</li>
+                    </ul>
+                    <a href="#" class="service-link">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3>Seguros Patrimoniales</h3>
+                    <p>Protección integral para tu hogar, negocio y pertenencias. Asegura lo que has construido con tanto esfuerzo.</p>
+                    <ul class="service-list">
+                        <li><i class="fas fa-check-circle"></i> Casa y Contenido</li>
+                        <li><i class="fas fa-check-circle"></i> Negocios y Comercios</li>
+                        <li><i class="fas fa-check-circle"></i> Celulares y Equipos</li>
+                    </ul>
+                    <a href="#" class="service-link">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+                    <h3>Asistencia al Viajero</h3>
+                    <p>Disfruta de tu viaje sin preocuparte por nada. Imagina no tener que estresarte por si una maleta no llega, o por si surge un imprevisto médico. Nuestra asistencia es tu red de seguridad personal para que solo te enfoques en crear recuerdos inolvidables.</p>
+                    <a href="#" class="service-link">Más información <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section id="cotizar" class="quote-section">
+        <div class="container">
+            <div class="quote-content">
+                <div class="quote-text">
+                    <h2>Cotizá tu Seguro</h2>
+                    <p>Completá el formulario y te responderemos por WhatsApp para brindarte la mejor cotización personalizada.</p>
+                </div>
+                <div class="quote-form">
+                    <form id="quoteForm">
+                        <div class="form-row">
+                            <input type="text" id="quoteName" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-row">
+                            <select id="quoteType" required>
+                                <option value="">¿Qué querés cotizar?</option>
+                                <option value="Auto">Seguro de Auto</option>
+                                <option value="Moto">Seguro de Moto</option>
+                                <option value="Embarcación">Seguro de Embarcación</option>
+                                <option value="Asistencia al Viajero">Asistencia al Viajero</option>
+                                <option value="Seguro de Vida">Seguro de Vida</option>
+                                <option value="Accidentes Personales">Accidentes Personales</option>
+                                <option value="Casa/Hogar">Seguro de Casa/Hogar</option>
+                                <option value="Negocio/Comercio">Seguro de Negocio/Comercio</option>
+                                <option value="Celular">Seguro de Celular</option>
+                                <option value="Otro">Otro</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section id="nosotros" class="why-us">
+        <div class="container">
+            <div class="why-us-content">
+                <div class="why-us-text">
+                    <h2>¿Por qué elegir Centro Seguros?</h2>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Experiencia Comprobada</h4>
+                            <p>30 años protegiendo lo que más importa desde 1998.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Atención Personalizada</h4>
+                            <p>Un equipo dedicado que entiende tus necesidades específicas.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Respuesta Rápida</h4>
+                            <p>Gestión ágil de siniestros y soporte disponible siempre.</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature-icon"><i class="fas fa-check"></i></div>
+                        <div>
+                            <h4>Mejores Tarifas</h4>
+                            <p>Trabajamos con las principales aseguradoras para ofrecerte las mejores opciones.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="why-us-stats">
+                    <div class="stat">
+                        <div class="stat-number">10,000+</div>
+                        <div class="stat-label">Clientes Satisfechos</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">30+</div>
+                        <div class="stat-label">Años de Experiencia</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Nuestras Oficinas</h2>
+            <p class="section-subtitle">Visitanos en cualquiera de nuestras dos ubicaciones</p>
+
+            <!-- Oficina Virreyes -->
+            <div class="office-location">
+                <div class="office-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Oficina Virreyes</h3>
+                    <div class="office-details">
+                        <p><strong>Dirección:</strong> Avellaneda 2098, Virreyes</p>
+                        <p><strong>Teléfono:</strong> <a href="tel:47469672">47469672</a></p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/541165780740" target="_blank"><i class="fab fa-whatsapp"></i> 11-6578-0740</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:seguroscentro2@gmail.com">seguroscentro2@gmail.com</a></p>
+                        <div class="office-hours">
+                            <p><strong>Horarios de atención:</strong></p>
+                            <p>Lunes a Viernes: 8:30 - 12:30</p>
+                            <p>Sábados: 8:30 - 13:00</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="office-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3289.9770600779484!2d-58.555961999999994!3d-34.4527302!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca55f351e1b9b%3A0xda2c67b2b7390406!2sAv.%20Avellaneda%202098%2C%20B1645COR%20San%20Fernando%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1765458580873!5m2!1sen!2sar" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+
+            <!-- Oficina Pacheco -->
+            <div class="office-location office-location-reverse">
+                <div class="office-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16581.34465578262!2d-58.60880547920846!3d-34.44819594506877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca4fbf203dfeb%3A0xe57a2de57debe8eb!2sLisandro%20de%20la%20Torre%201602%2C%20B1617%20Troncos%20del%20Talar%2C%20Provincia%20de%20Buenos%20Aires!5e0!3m2!1sen!2sar!4v1765458566618!5m2!1sen!2sar" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                <div class="office-info">
+                    <h3><i class="fas fa-map-marker-alt"></i> Oficina Pacheco</h3>
+                    <div class="office-details">
+                        <p><strong>Dirección:</strong> Lisandro de la Torre 1602, Los Troncos del Talar</p>
+                        <p><strong>Teléfono:</strong> <a href="tel:21123819">21123819</a></p>
+                        <p><strong>WhatsApp:</strong> <a href="https://wa.me/541165780739" target="_blank"><i class="fab fa-whatsapp"></i> 11-6578-0739</a></p>
+                        <p><strong>Email:</strong> <a href="mailto:seguroscentro2@gmail.com">seguroscentro2@gmail.com</a></p>
+                        <div class="office-hours">
+                            <p><strong>Horarios de atención:</strong></p>
+                            <p>Lunes a Viernes: 9:00 - 12:30 y 14:00 - 17:30</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="logo.png" alt="Centro Seguros" class="footer-logo">
+                    <p>30 años protegiendo lo que más importa desde 1998</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Enlaces Rápidos</h4>
+                    <ul>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#">Seguros de Vehículos</a></li>
+                        <li><a href="#">Asistencia al Viajero</a></li>
+                        <li><a href="#">Accidentes Personales</a></li>
+                        <li><a href="#">Seguros Patrimoniales</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="#"><i class="fab fa-instagram"></i> Instagram</a>
+                        <a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                        <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Centro Seguros. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
