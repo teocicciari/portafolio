@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spanish for Seniors — Learn at Your Own Pace</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --warm: #c8522a;
+      --warm-light: #f5ede7;
+      --text: #2b2b2b;
+      --muted: #5a5a5a;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--warm-light);
+      padding: 72px 24px 80px;
+      text-align: center;
+    }
+
+    .hero .eyebrow {
+      display: inline-block;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--warm);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 54px);
+      line-height: 1.25;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--warm);
+    }
+
+    .hero .subtitle {
+      font-size: clamp(18px, 2.5vw, 22px);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--warm);
+      color: var(--white);
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 6px;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      transition: background 0.2s;
+    }
+    .btn:hover { background: #a8431f; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 72px 24px; }
+    .container { max-width: 820px; margin: 0 auto; }
+
+    /* ── HOW IT FEELS ── */
+    .feel { background: var(--white); text-align: center; }
+
+    .feel h2 {
+      font-size: clamp(26px, 3.5vw, 38px);
+      margin-bottom: 16px;
+    }
+
+    .feel p {
+      font-size: clamp(17px, 2vw, 20px);
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    /* ── PILLARS ── */
+    .pillars { background: var(--warm-light); }
+
+    .pillars h2 {
+      font-size: clamp(24px, 3vw, 34px);
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .pillar-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 32px;
+    }
+
+    .pillar {
+      background: var(--white);
+      border-radius: 10px;
+      padding: 32px 28px;
+      text-align: center;
+    }
+
+    .pillar .icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      display: block;
+      color: var(--warm);
+    }
+
+    .pillar h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: var(--warm);
+    }
+
+    .pillar p {
+      font-size: 16px;
+      color: var(--muted);
+    }
+
+    /* ── FOR YOU ── */
+    .for-you { background: var(--white); text-align: center; }
+
+    .for-you h2 {
+      font-size: clamp(24px, 3vw, 36px);
+      margin-bottom: 32px;
+    }
+
+    .check-list {
+      list-style: none;
+      display: inline-block;
+      text-align: left;
+      font-size: clamp(16px, 1.8vw, 19px);
+      color: var(--muted);
+    }
+
+    .check-list li {
+      padding: 8px 0;
+    }
+
+    .check-list li i {
+      color: var(--warm);
+      margin-right: 10px;
+      width: 16px;
+    }
+
+    /* ── CTA BOTTOM ── */
+    .cta-bottom {
+      background: var(--warm);
+      padding: 72px 24px;
+      text-align: center;
+    }
+
+    .cta-bottom h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      color: var(--white);
+      margin-bottom: 14px;
+    }
+
+    .cta-bottom p {
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+      max-width: 540px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--warm);
+      font-family: Arial, sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      padding: 18px 44px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-white:hover { background: var(--warm-light); }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      color: #aaa;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 480px) {
+      .hero { padding: 56px 20px 64px; }
+      section { padding: 56px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">Spanish for Seniors</span>
+    <h1>Learn Spanish <em>calmly</em><br>and without pressure</h1>
+    <p class="subtitle">
+      No rushing. No overwhelm. Just patient, step-by-step guidance —
+      right there with you every step of the way.
+    </p>
+    <a href="#contact" class="btn">Let's Talk &nbsp;<i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+
+  <!-- HOW IT FEELS -->
+  <section class="feel">
+    <div class="container">
+      <h2>Learning Spanish doesn't have to feel hard</h2>
+      <p>
+        We know that starting something new later in life can feel daunting.
+        That's why we go at <em>your</em> pace — with patience, warmth, and
+        real human support every step of the way.
+      </p>
+    </div>
+  </section>
+
+  <!-- PILLARS -->
+  <section class="pillars">
+    <div class="container">
+      <h2>More than lessons — we walk with you</h2>
+      <div class="pillar-grid">
+        <div class="pillar">
+          <span class="icon"><i class="fa-solid fa-heart"></i></span>
+          <h3>No rush, ever</h3>
+          <p>We move at your pace. No pressure to keep up with anyone else.</p>
+        </div>
+        <div class="pillar">
+          <span class="icon"><i class="fa-solid fa-hands-holding"></i></span>
+          <h3>Real support</h3>
+          <p>We're mentors as much as teachers — here to guide and encourage you.</p>
+        </div>
+        <div class="pillar">
+          <span class="icon"><i class="fa-solid fa-shoe-prints"></i></span>
+          <h3>Step by step</h3>
+          <p>Small, clear steps that build your confidence from day one.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PERFECT FOR -->
+  <section class="for-you">
+    <div class="container">
+      <h2>This is for you if...</h2>
+      <ul class="check-list">
+        <li><i class="fa-solid fa-check"></i>You've always wanted to learn Spanish but never found the right moment</li>
+        <li><i class="fa-solid fa-check"></i>You learn better slowly, with patience and repetition</li>
+        <li><i class="fa-solid fa-check"></i>You want a real person to talk to — not just an app</li>
+        <li><i class="fa-solid fa-check"></i>You'd love to connect with Spanish-speaking family, friends, or neighbors</li>
+        <li><i class="fa-solid fa-check"></i>You want to feel supported, not tested</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CTA BOTTOM -->
+  <div class="cta-bottom" id="contact">
+    <h2>Ready to take the first step?</h2>
+    <p>
+      Send us a message and we'll get back to you personally.
+      No commitments — just a friendly conversation.
+    </p>
+    <!--
+      Replace the href below with your WhatsApp link, email, or form URL.
+      WhatsApp example: https://wa.me/1XXXXXXXXXX?text=Hi!+I'm+interested+in+Spanish+lessons
+      Email example: mailto:yourname@email.com
+    -->
+    <a href="mailto:PLACEHOLDER@email.com" class="btn-white">Talk to Us</a>
+  </div>
+
+  <footer>
+    © 2026 · Spanish for Seniors
+  </footer>
+
+</body>
+</html>
