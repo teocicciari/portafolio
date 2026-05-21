@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WOLF INK - Tattoo Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nova+Cut&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Butcherman&family=Chiller&family=Eater&family=Fontdiner+Swanky&family=Griffy&family=Jolly+Lodger&family=Kalam:wght@400;700&family=Lacquer&family=Overlock:wght@400;700;900&family=Rubik+Glitch&family=Rubik+Spray+Paint&family=Shrikhand&family=Sancreek&family=UnifrakturCook:wght@700&family=Orbitron:wght@400;700;900&family=Black+Ops+One&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Overlock', cursive;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, #000 0%, #111 50%, #000 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            text-align: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255,255,255,0.05) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-text {
+            font-family: "Nova Cut", system-ui;
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: bold;
+            text-shadow: 
+                3px 3px 0px #333,
+                6px 6px 0px #555,
+                9px 9px 0px #777,
+                12px 12px 20px rgba(0,0,0,0.8);
+            letter-spacing: 0.2em;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .img-logo {
+            width: 150px;
+            height: auto;
+            vertical-align: middle;
+            margin-right: 1rem;
+        }
+
+        .subtitle {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 0.3em;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button {
+            font-family: "Nova Cut", system-ui;
+            background: transparent;
+            border: 3px solid #fff;
+            color: #fff;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+            text-decoration: none;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .cta-button:hover {
+            background: #fff;
+            color: #000;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255,255,255,0.3);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: #111;
+            text-align: center;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+        }
+
+        .section-title {
+            font-family: "Nova Cut", system-ui;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 2rem;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            letter-spacing: 0.1em;
+        }
+
+        .about-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            letter-spacing: 0.05em;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 2rem;
+            background: #000;
+            text-align: center;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            background: #222;
+            border: 2px solid #333;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            font-family: "Nova Cut", system-ui;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding: 1rem;
+            z-index: 2;
+        }
+
+        .gallery-item span {
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            font-weight: bold;
+            z-index: 3;
+        }
+
+        .gallery-item::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            transition: all 0.6s ease;
+            opacity: 0;
+            z-index: 1;
+        }
+
+        .gallery-item:hover {
+            border-color: #fff;
+            transform: scale(1.05);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover::before {
+            opacity: 1;
+            transform: rotate(45deg) translate(50%, 50%);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: #111;
+            text-align: center;
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #fff, transparent);
+        }
+
+        .contact-info {
+            font-size: 1.3rem;
+            line-height: 2;
+            margin: 2rem 0;
+            letter-spacing: 0.1em;
+            font-family: 'Overlock', cursive;
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            display: block;
+            transition: all 0.3s ease;
+            font-family: 'Overlock', cursive;
+        }
+
+        .contact-item:hover {
+            color: #ccc;
+            transform: translateX(10px);
+        }
+
+        .contact-item span {
+            margin-left: 10px !important;
+            color: #fff;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem;
+            background: #000;
+            text-align: center;
+            border-top: 1px solid #333;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .about, .gallery, .contact {
+                padding: 3rem 1rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <h1 class="logo-text"><img class="img-logo" src="lobo.png" alt="">WOLF INK</h1>
+        <p class="subtitle">TATTOO STUDIO</p>
+        <a href="#contact" class="cta-button">RESERVAR CITA</a>
+        <a href="#gallery" class="cta-button">VER TRABAJOS</a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about fade-in">
+        <h2 class="section-title">NUESTRO ARTE</h2>
+        <p class="about-text">
+            En Wolf INK transformamos ideas en arte permanente. Con años de experiencia y pasión por el detalle, 
+            creamos tatuajes únicos que cuentan tu historia. Cada trazo es una obra maestra diseñada especialmente para ti.
+        </p>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery fade-in">
+        <h2 class="section-title">GALERÍA</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=400&h=400&fit=crop&crop=center" alt="Tatuaje Tradicional">
+                <div class="overlay">
+                    <span>TRADICIONAL</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=400&h=400&fit=crop&crop=center" alt="Tatuaje Realismo">
+                <div class="overlay">
+                    <span>REALISMO</span>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <img src="blackwork.jpg" alt="Tatuaje Blackwork">
+                <div class="overlay">
+                    <span>BLACKWORK</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact fade-in" id="contact">
+        <h2 class="section-title">CONTACTO</h2>
+        <div class="contact-info">
+            <div class="contact-item"> 
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Dirección del Studio</span></div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span></span>+54 222 123 456</div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span></span>info@wolfink.com</div>
+            <div class="contact-item">
+                <i class="fas fa-clock"></i>
+                <span></span>Lun - Sáb: 10:00 - 20:00</div>
+        </div>
+        <a href="#" class="cta-button">WHATSAPP</a>
+        <a href="#" class="cta-button">INSTAGRAM</a>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 WOLF INK TATTOO STUDIO. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+</body>
+</html>
