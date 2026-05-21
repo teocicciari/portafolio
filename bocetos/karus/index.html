@@ -1,0 +1,1124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karus Tattoo</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Aoboshi+One&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@300;400;500;600;700&display=swap');
+        
+        /* VARIABLES GLOBALES - COLORES DEL LOGO KARUS */
+        :root {
+            /* Colores principales del logo */
+            --color-primary: #cc1e1e;         /* Rojo intenso del logo */
+            --color-secondary: #8b0000;      /* Rojo oscuro/granate */
+            --color-accent: #ff4444;         /* Rojo brillante */
+            --color-dark: #0a0a0a;           /* Negro profundo */
+            --color-dark-alt: #1a1a1a;      /* Negro alternativo */
+            --color-darker: #000000;        /* Negro puro */
+            --color-light: #ffffff;         /* Blanco */
+            --color-gray: #cccccc;          /* Gris claro del logo */
+            --color-gray-dark: #666666;     /* Gris oscuro */
+            
+            /* Gradientes del logo */
+            --gradient-primary: linear-gradient(135deg, #cc1e1e, #8b0000);
+            --gradient-secondary: linear-gradient(135deg, #8b0000, #4a0000);
+            --gradient-accent: linear-gradient(135deg, #ff4444, #cc1e1e);
+            --gradient-dark: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            --gradient-overlay: linear-gradient(45deg, rgba(204, 30, 30, 0.9), rgba(139, 0, 0, 0.9));
+            
+            /* Transparencias */
+            --primary-alpha-10: rgba(204, 30, 30, 0.1);
+            --primary-alpha-15: rgba(204, 30, 30, 0.15);
+            --primary-alpha-20: rgba(204, 30, 30, 0.2);
+            --primary-alpha-30: rgba(204, 30, 30, 0.3);
+            --secondary-alpha-20: rgba(139, 0, 0, 0.2);
+            --secondary-alpha-30: rgba(139, 0, 0, 0.3);
+            --secondary-alpha-40: rgba(139, 0, 0, 0.4);
+            --accent-alpha-20: rgba(255, 68, 68, 0.2);
+            --dark-alpha-60: rgba(10, 10, 10, 0.6);
+            --dark-alpha-90: rgba(10, 10, 10, 0.9);
+            --dark-alpha-95: rgba(10, 10, 10, 0.95);
+            --dark-alpha-98: rgba(10, 10, 10, 0.98);
+            
+            /* Tipografía */
+            --font-primary: "Aoboshi One", serif;
+            --font-secondary: 'Oswald', sans-serif;
+            
+            /* Espaciado */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-xxl: 4rem;
+            --spacing-xxxl: 6rem;
+            
+            /* Bordes */
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            --border-radius-full: 50%;
+            
+            /* Sombras con colores del logo */
+            --shadow-sm: 0 8px 20px var(--secondary-alpha-30);
+            --shadow-md: 0 10px 30px var(--primary-alpha-20);
+            --shadow-lg: 0 15px 40px var(--secondary-alpha-30);
+            --shadow-xl: 0 20px 50px var(--primary-alpha-30);
+            --shadow-glow: 0 0 30px var(--accent-alpha-20);
+            
+            /* Transiciones */
+            --transition-fast: 0.3s ease;
+            --transition-normal: 0.4s ease;
+            --transition-slow: 0.6s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-secondary);
+            background-color: var(--color-dark);
+            color: var(--color-light);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 50%, var(--secondary-alpha-20) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, var(--primary-alpha-20) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, var(--accent-alpha-20) 0%, transparent 50%);
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: var(--dark-alpha-95);
+            backdrop-filter: blur(15px);
+            z-index: 1000;
+            padding: var(--spacing-sm) 0;
+            transition: all var(--transition-fast);
+            border-bottom: 1px solid var(--primary-alpha-20);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 var(--spacing-lg);
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-decoration: none;
+            letter-spacing: 2px;
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--color-light);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .logo-icon img {
+            width: 80%;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(204, 30, 30, 0.5));
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-menu a {
+            color: var(--color-light);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            transition: all var(--transition-fast);
+            position: relative;
+            font-family: var(--font-secondary);
+            font-weight: 500;
+        }
+
+        .nav-menu a:hover {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-primary);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .social-icons a {
+            color: var(--color-light);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-full);
+            background: var(--primary-alpha-10);
+            backdrop-filter: blur(5px);
+            border: 1px solid var(--primary-alpha-30);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px) scale(1.1);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .social-icons a.facebook:hover {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            border-color: #1877f2;
+        }
+
+        .social-icons a.instagram:hover {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+            border-color: #e1306c;
+        }
+
+        .social-icons a.tiktok:hover {
+            background: linear-gradient(135deg, #ff0050, #00f2ea);
+            border-color: #ff0050;
+        }
+
+        .social-icons a.pinterest:hover {
+            background: linear-gradient(135deg, #bd081c, #e60023);
+            border-color: #bd081c;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(var(--dark-alpha-90), var(--dark-alpha-90)),
+                        url("background.png");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            margin-top: 60px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, transparent 25%, var(--dark-alpha-60) 70%, var(--dark-alpha-90) 100%);
+        }
+
+        /* Animated background shapes */
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-primary);
+            border-radius: var(--border-radius-full);
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            33% { transform: translate(50%, -100%) scale(1.2); }
+            66% { transform: translate(-100%, 50%) scale(0.8); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 var(--spacing-lg);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-sm);
+            opacity: 0.8;
+            font-family: var(--font-secondary);
+            font-weight: 300;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-logo {
+            width: 220px;
+            height: 220px;
+            margin: 0 auto var(--spacing-lg);
+            border-radius: var(--border-radius-full);
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: var(--shadow-xl),
+                        0 0 60px var(--primary-alpha-30),
+                        inset 0 0 0 3px rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+            border-radius: var(--border-radius-full);
+        }
+
+        .hero-logo i {
+            font-size: 6rem;
+            color: var(--color-light);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 40px var(--primary-alpha-30);
+        }
+
+        .hero-description {
+            font-size: 1.3rem;
+            margin-bottom: var(--spacing-xl);
+            opacity: 0.9;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* CTA BUTTON */
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--gradient-primary);
+            color: var(--color-light);
+            padding: 1.2rem 2.5rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: var(--border-radius);
+            transition: all var(--transition-normal);
+            font-family: var(--font-secondary);
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left var(--transition-slow);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-xl), 0 0 30px var(--primary-alpha-30);
+        }
+
+        .cta-button i {
+            font-size: 1.2rem;
+            transition: transform var(--transition-fast);
+        }
+
+        .cta-button:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: var(--spacing-xxxl) 0;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gallery::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: var(--gradient-secondary);
+            border-radius: var(--border-radius-full);
+            filter: blur(150px);
+            opacity: 0.2;
+            transform: translate(-50%, -50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3.5rem;
+            margin-bottom: var(--spacing-sm);
+            font-family: var(--font-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-bottom: var(--spacing-xxl);
+            opacity: 0.8;
+            font-weight: 300;
+        }
+
+        /* Gallery Filter */
+        .gallery-filter {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin-bottom: var(--spacing-xl);
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-alpha-10);
+            backdrop-filter: blur(10px);
+            color: var(--color-light);
+            border: 2px solid var(--primary-alpha-30);
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            font-family: var(--font-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-primary);
+            transition: left var(--transition-slow);
+            z-index: -1;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            left: 0;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            color: var(--color-light);
+            border-color: var(--color-primary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md), 0 0 20px var(--primary-alpha-30);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-xl);
+        }
+
+        .gallery-item {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: var(--border-radius-lg);
+            overflow: hidden;
+            cursor: pointer;
+            transition: all var(--transition-normal);
+            background: var(--gradient-primary);
+            border: 2px solid var(--primary-alpha-30);
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-xl), 0 0 30px var(--primary-alpha-30);
+            border-color: var(--color-primary);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-dark);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform var(--transition-normal);
+        }
+
+        .gallery-item:hover .gallery-image img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--gradient-overlay);
+            opacity: 0;
+            transition: all var(--transition-normal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-title {
+            color: var(--color-light);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-xs);
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .gallery-category {
+            color: var(--color-light);
+            font-size: 0.9rem;
+            opacity: 0.9;
+            font-family: var(--font-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: var(--spacing-xxxl) 0;
+            background: var(--gradient-dark);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 10%;
+            width: 300px;
+            height: 300px;
+            background: var(--gradient-accent);
+            border-radius: var(--border-radius-full);
+            filter: blur(120px);
+            opacity: 0.2;
+        }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-lg);
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            grid-column: 1 / -1;
+            text-align: center;
+            font-family: var(--font-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: var(--spacing-lg);
+            background: var(--primary-alpha-10);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--primary-alpha-30);
+            transition: all var(--transition-fast);
+            text-align: center;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg), 0 0 20px var(--primary-alpha-30);
+            background: var(--gradient-primary);
+            border-color: var(--color-primary);
+        }
+
+        .contact-item:hover i,
+        .contact-item:hover span {
+            color: var(--color-light);
+        }
+
+        .contact-item i {
+            color: var(--color-light);
+            background-clip: text;
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+            transition: all var(--transition-fast);
+        }
+
+        .contact-item span {
+            font-size: 1.1rem;
+            color: var(--color-light);
+            transition: all var(--transition-fast);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-darker);
+            padding: var(--spacing-xl) 0 var(--spacing-sm);
+            text-align: center;
+            border-top: 1px solid var(--primary-alpha-20);
+        }
+
+        .footer-content {
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-social a {
+            color: var(--color-light);
+            font-size: 1.5rem;
+            transition: all var(--transition-fast);
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius-full);
+            background: var(--primary-alpha-10);
+            backdrop-filter: blur(5px);
+            border: 2px solid var(--primary-alpha-30);
+            text-decoration: none;
+        }
+
+        .footer-social a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg), 0 0 20px var(--primary-alpha-30);
+        }
+
+        .footer-social a.facebook:hover {
+            background: linear-gradient(135deg, #1877f2, #42a5f5);
+            border-color: #1877f2;
+        }
+
+        .footer-social a.instagram:hover {
+            background: linear-gradient(135deg, #e1306c, #fd1d1d, #fcb045);
+            border-color: #e1306c;
+        }
+
+        .footer-social a.tiktok:hover {
+            background: linear-gradient(135deg, #ff0050, #00f2ea);
+            border-color: #ff0050;
+        }
+
+        .footer-social a.pinterest:hover {
+            background: linear-gradient(135deg, #bd081c, #e60023);
+            border-color: #bd081c;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--primary-alpha-20);
+            padding-top: var(--spacing-lg);
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .social-icons {
+                gap: 0.8rem;
+            }
+
+            .social-icons a {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .hero-logo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero-description {
+                font-size: 1.1rem;
+            }
+
+            .cta-button {
+                padding: var(--spacing-sm) var(--spacing-lg);
+                font-size: 0.9rem;
+            }
+
+            .section-title {
+                font-size: 2.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: var(--spacing-sm);
+            }
+
+            .gallery-item {
+                height: 280px;
+            }
+
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-social {
+                gap: var(--spacing-md);
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery filter states */
+        .gallery-item.hidden {
+            display: none !important;
+        }
+
+        .gallery-item.filtering {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        .gallery-item.showing {
+            opacity: 1;
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">
+                <span>Karus</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="social-icons">
+                <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                <a href="#" class="pinterest" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="hero-logo">
+                <img src="logo.png" alt="">
+            </div>
+            <a href="#contacto" class="cta-button">
+                <span>RESERVA TU SESIÓN</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title fade-in">Galería</h2>
+            <p class="section-subtitle fade-in">Nuestra selección de trabajos más destacados</p>
+            
+            <div class="gallery-filter fade-in">
+                <button class="filter-btn active" data-filter="all">todos</button>
+                <button class="filter-btn" data-filter="tradicional">tradicional</button>
+                <button class="filter-btn" data-filter="realismo">realismo</button>
+                <button class="filter-btn" data-filter="blackgrey">black & grey</button>
+                <button class="filter-btn" data-filter="minimalista">minimalista</button>
+                <button class="filter-btn" data-filter="coverup">cover up</button>
+            </div>
+            
+            <div class="gallery-grid">
+                
+                <div class="gallery-item fade-in showing" data-category="blackgrey">
+                    <div class="gallery-image">
+                        <img src="2.png" alt="Tatuaje Black & Grey">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Geometría</div>
+                        <div class="gallery-category">black & grey</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in showing" data-category="realismo">
+                    <div class="gallery-image">
+                        <img src="3.png" alt="Tatuaje Realismo">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Naturaleza</div>
+                        <div class="gallery-category">realismo</div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in showing" data-category="minimalista">
+                    <div class="gallery-image">
+                        <img src="4.png" alt="Tatuaje Cover Up">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Cover Up Floral</div>
+                        <div class="gallery-category">cover up</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in showing" data-category="blackgrey">
+                    <div class="gallery-image">
+                        <img src="5.png" alt="Tatuaje Black & Grey">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Geometría</div>
+                        <div class="gallery-category">black & grey</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in showing" data-category="tradicional">
+                    <div class="gallery-image">
+                        <img src="6.png" alt="Tatuaje Realismo">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Naturaleza</div>
+                        <div class="gallery-category">realismo</div>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in showing" data-category="coverup">
+                    <div class="gallery-image">
+                        <img src="7.png" alt="Tatuaje Cover Up">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Cover Up Floral</div>
+                        <div class="gallery-category">cover up</div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item fade-in showing" data-category="blackgrey">
+                    <div class="gallery-image">
+                        <img src="8.png" alt="Tatuaje Black & Grey">
+                    </div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-title">Geometría</div>
+                        <div class="gallery-category">black & grey</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2 class="section-title fade-in">Contacto</h2>
+                <div class="contact-info fade-in">
+                    <h3>Visitanos</h3>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Corrientes 1234, Buenos Aires</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+54 11 1234-5678</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>info@karustattoo.com.ar</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <span>Lun - Sáb: 10:00 - 20:00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-social">
+                    <a href="#" class="facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" class="pinterest" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Karus Tattoo. Todos los derechos reservados.</p>
+                <p>Arte que perdura, historias que se quedan en la piel.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'var(--dark-alpha-98)';
+            } else {
+                header.style.background = 'var(--dark-alpha-95)';
+            }
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Gallery filter functionality - MEJORADO
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const filter = this.getAttribute('data-filter');
+                const items = document.querySelectorAll('.gallery-item');
+                
+                items.forEach(item => {
+                    // Primero aplicar la clase de filtrado
+                    item.classList.add('filtering');
+                    item.classList.remove('showing');
+                    
+                    setTimeout(() => {
+                        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                            item.classList.remove('hidden', 'filtering');
+                            item.classList.add('showing');
+                        } else {
+                            item.classList.add('hidden');
+                            item.classList.remove('filtering', 'showing');
+                        }
+                    }, 150);
+                });
+            });
+        });
+
+        // Gallery hover effects - MEJORADO
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('hidden')) {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                }
+            });
+            
+            item.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('hidden')) {
+                    this.style.transform = 'translateY(0) scale(1)';
+                }
+            });
+        });
+
+        // Inicializar todos los elementos como visibles
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.gallery-item').forEach(item => {
+                item.classList.add('showing');
+            });
+        });
+    </script>
+</body>
+</html>
