@@ -1,0 +1,23 @@
+.services {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 60px;
+    margin: 0;
+    background-color: #eaeaea;
+}
+
+.servicio {
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.servicio h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.servicio p {
+    font-size: 1em;
+    line-height: 1.5;
+}

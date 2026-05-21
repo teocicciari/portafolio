@@ -1,0 +1,600 @@
+@font-face {
+    font-family: Futura;
+    src: url("futura/futura\ light\ bt.ttf");
+}
+  
+body {
+    margin: 0;
+    font-family: Futura, sans-serif;
+    text-align: center;
+    position: relative;
+}
+/* Smooth scrolling para toda la página */
+html {
+    scroll-behavior: smooth;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+}
+
+section {
+    scroll-margin-top: 60px; /* Ajusta este valor según la altura del navbar */
+    padding: 50px 20px;
+}
+
+.hero {
+    margin-top: 60px;
+    padding: 40px 80px;
+    position: relative;
+    z-index: 1;
+    background-color: #004822;
+}
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+p {
+    font-size: 1.4em;
+    opacity: 0.8;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    position: relative;
+    z-index: 2;
+    flex-wrap: wrap;
+    margin-top: 60px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    backdrop-filter: blur(10px);
+    width: 300px;
+    height: 400px;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+}
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    transition: transform 0.5s ease;
+}
+.card:hover img {
+    transform: scale(1.1);
+}
+.card .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.card:hover .overlay {
+    opacity: 1;
+}
+.overlay span {
+    color: white;
+    font-size: 1.2em;
+}
+.cards .card:nth-child(2) {
+    width: 350px;
+    height: 450px;
+}
+@media (max-width: 768px) {
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .card {
+        width: 90%;
+        height: 180px;
+    }
+    .cards .card:nth-child(2) {
+        width: 95%;
+        height: 200px;
+    }
+}
+
+#our-spaces{
+    background-color: #004822;
+}
+
+.btn-yellow{
+    position: relative;
+    background-color: #b8942e;
+    border-radius: 4em;
+    font-size: 16px;
+    color: black !important;
+    box-shadow: 0 0 10px rgb(0, 0, 0);
+    font-weight: bold;
+    padding: 0.5em 1.2em !important;
+    margin-left: 15px;
+    user-select:none;
+    text-align: center;
+    text-decoration: none !important;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s; /* Safari */
+}
+
+.btn-yellow:hover {
+    transition-duration: 0.1s;
+    background-color: #b8932ee0;
+}
+
+.btn-yellow:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 5px 10px white;
+}
+
+.btn-yellow:active:after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 4em;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+}
+
+.btn-yellow:active {
+    top: 1px;
+}
+
+.bg-green {
+    background-color: #004822 !important; /* Light background for contrast */
+    color: #edffcc;
+}
+.bg-light {
+    color: #222222;
+}
+.bg-darker{
+    background-color: #0f1a17 !important; 
+}
+
+/* NAVBAR - Mejoras */
+.navbar {
+    background-color: #004822;
+    height: 62px;
+    z-index: 99 !important;
+    font-size: 16px;
+    transition: all 0.3s ease; /* Transición suave para efectos de scroll */
+}
+
+/* Efecto de navbar al hacer scroll */
+.navbar.scrolled {
+    background-color: rgba(0, 72, 34, 0.95); /* Fondo con transparencia */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.navbar-brand {
+    padding: 0; /* Elimina padding extra */
+}
+
+.navbar-brand img{
+    width: 150px;
+    margin-right: 10px;
+    transition: all 0.3s ease; /* Transición suave para el logo */
+}
+
+/* Reducir tamaño del logo al hacer scroll */
+.navbar.scrolled .navbar-brand img {
+    width: 130px; /* Logo más pequeño cuando se hace scroll */
+}
+
+/* BURGER */
+.navbar-toggler {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    padding: 0;
+}
+
+/* Estilo base del ícono */
+.navbar-toggler-icon {
+    position: relative;
+    display: inline-block;
+    box-shadow: none;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: background-color 0.3s ease;
+}
+
+/* Líneas adicionales para formar el ícono */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+    content: "";
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    transition: transform 0.6s ease, top 0.3s ease, background-color 0.3s ease;
+}
+
+/* Posición de la línea superior e inferior */
+.navbar-toggler-icon::before {
+    top: -8px;
+}
+.navbar-toggler-icon::after {
+    top: 8px;
+}
+
+/* Configuración cuando el menú está cerrado (estado hamburguesa) */
+.navbar-toggler.collapsed .navbar-toggler-icon {
+    background-color: white; /* Línea central visible */
+}
+.navbar-toggler.collapsed .navbar-toggler-icon::before {
+    transform: rotate(0);
+    top: -8px;
+}
+.navbar-toggler.collapsed .navbar-toggler-icon::after {
+    transform: rotate(0);
+    top: 8px;
+}
+
+/* Transformación a "X" al expandirse el menú */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-color: transparent; /* Oculta la línea central */
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+    transform: rotate(45deg);
+    top: 10px;
+    z-index: 1; /* Asegura que la línea superior esté encima */
+}
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+    transform: rotate(-45deg);
+    top: 10px;
+    z-index: 1; /* Asegura que la línea inferior esté encima */
+}
+
+/* Elimina bordes, sombras y efectos en todos los estados del botón de hamburguesa */
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:hover,
+.navbar-toggler:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background: none;
+}
+
+.navbar ul {
+    align-items: center;
+}
+
+.navbar-nav .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem; /* Padding uniforme */
+    margin: 0 0.2rem; /* Espacio entre elementos */
+    transition: color 0.3s ease; /* Transición del color */
+}
+
+/* Efecto hover en los enlaces */
+.navbar-nav .nav-link:hover {
+    color: #ffc107 !important; /* Color amarillo al pasar el mouse */
+}
+
+/* Pseudo-elemento para el subrayado, con transición */
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Ajustar la posición del subrayado */
+    width: 0%;
+    height: 2px;
+    background-color: #ffc107;
+    transition: width 0.3s ease; /* Aceleré la transición para mejor UX */
+}
+
+/* Cuando el enlace está activo o en hover, se extiende el subrayado */
+.navbar-nav .nav-link.active::after,
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+}
+
+/* Mejoras para el selector de idiomas */
+.language-selector {
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.language-selector-pill {
+    width: 85px; /* Ancho fijo como mencionaste */
+    justify-content: space-between; /* Distribuye el espacio entre elementos */
+}
+
+.language-selector a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+    margin: 0 2px;
+    transition: all 0.3s ease;
+}
+
+.language-selector a.active {
+    background-color: #ffc107;
+    color: #004822;
+    font-weight: bold;
+}
+
+.language-selector a:not(.active):hover {
+    background-color: rgba(255, 193, 7, 0.2);
+}
+
+/* Mejoras para dispositivos móviles */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: #004822;
+        padding: 20px;
+        border-radius: 0 0 10px 10px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        max-height: calc(100vh - 62px);
+        overflow-y: auto;
+    }
+    
+    .navbar-nav {
+        padding-bottom: 10px;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-nav .nav-link::after {
+        bottom: 8px;
+    }
+    
+    .language-selector {
+        margin: 15px auto 5px; /* Cambiado a 'auto' para centrar horizontalmente */
+        justify-content: center;
+    }
+    
+    /* Centrar específicamente el selector de idiomas cuando el menú está abierto */
+    .navbar-collapse.show .language-selector-pill {
+        margin-left: auto;
+        margin-right: auto;
+        justify-content: space-between;
+    }
+    
+    /* Animación de entrada para el menú móvil */
+    .navbar-collapse.show {
+        animation: slideDown 0.3s forwards;
+    }
+    
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+#map{
+    padding-bottom: 5px;
+}
+
+.map-container iframe {
+    width: 90%;
+    height: 400px;
+    border-radius: 10px;
+}
+
+.accordion-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px auto;
+    width: 90%;
+}
+
+ /* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eeeeee00;
+    color: #edffcc;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.accordion:hover {
+    background-color: #cccccc0e;
+}
+
+/* Style the accordion panel with transition */
+.panel {
+    padding: 0 18px;
+    background-color: rgba(250, 250, 250, 0);
+    max-height: 0; /* Initially collapsed */
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease; /* Smooth transition */
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.panel p {
+    margin: 0;
+    padding-bottom: 18px; /* Add padding to the paragraph inside the panel */
+    color: #edffcc;
+    font-size: 20px;
+}
+
+.panel a{
+    color: #edffcc;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* When the accordion is active, expand the panel */
+.accordion.active + .panel {
+    max-height: 200px; /* Adjust this value based on your content */
+    padding: 18px; /* Add padding when expanded */
+}
+
+.accordion:after {
+    content: '\002B'; /* Unicode character for "plus" sign (+) */
+    font-size: 20px;
+    color: #edffcc;
+    float: right;
+    margin-left: 5px;
+}
+  
+.accordion.active:after {
+    content: "\2013"; /* Unicode character for "minus" sign (-) */
+    font-size: 20px;
+}
+
+/* Footer Styles */
+.footer {
+    padding: 40px 20px 20px;
+    color: #edffcc;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+}
+
+.footer-logo {
+    width: 200px;
+    margin-bottom: 15px;
+}
+
+.footer h4 {
+    color: #b8942e;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    color: #edffcc;
+    font-size: 24px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #b8942e;
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(237, 255, 204, 0.1);
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-section {
+        margin-bottom: 30px;
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
+
+/* Estilo 5: Pill Selector */
+.language-selector-pill {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2px;
+    width: 85px;
+}
+
+.language-selector-pill a {
+    color: white;
+    text-decoration: none;
+    font-size: 0.9em;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 15px;
+    transition: background-color 0.3s;
+}
+
+.language-selector-pill a.active {
+    background-color: #FFC107;
+    color: #333;
+}

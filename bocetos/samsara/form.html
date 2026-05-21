@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Reserva</title>
+  <!-- Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.css">
+  <!-- Font Awesome para iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+    
+    body {
+      background-color: #f5f5f5;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    }
+    
+    .booking-container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 30px;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://via.placeholder.com/1200x300');
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .booking-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: -1;
+    }
+    
+    .booking-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 25px;
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 50px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .booking-form:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    }
+    
+    .date-picker, .guests-picker, .promo-code {
+      flex: 1;
+      min-width: 220px;
+      padding: 8px 15px;
+      position: relative;
+    }
+    
+    .form-group {
+      position: relative;
+    }
+    
+    .form-group i {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+      z-index: 2;
+    }
+    
+    .date-picker {
+      display: flex;
+      align-items: center;
+    }
+    
+    input, select, button {
+      width: 100%;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      background-color: white;
+      color: #333;
+      transition: all 0.3s ease;
+    }
+    
+    .icon-input {
+      padding-left: 45px;
+    }
+    
+    input:focus, select:focus {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(233, 233, 25, 0.5);
+    }
+    
+    input::placeholder {
+      color: #999;
+    }
+    
+    select, input {
+      cursor: pointer;
+      color: #333;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .arrow {
+      margin: 0 15px;
+      color: #333;
+      font-weight: bold;
+      font-size: 20px;
+    }
+    
+    .reserve-button {
+      flex: 0 0 auto;
+      padding: 10px 15px;
+    }
+    
+    .reserve-button button {
+      background: linear-gradient(145deg, #fcfca4, #e9e919);
+      color: #000;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      padding: 16px 30px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(233, 233, 25, 0.4);
+      border: none;
+      text-transform: uppercase;
+    }
+    
+    .reserve-button button:hover {
+      background: linear-gradient(145deg, #e9e919, #fcfca4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(233, 233, 25, 0.5);
+    }
+    
+    .reserve-button button:active {
+      transform: translateY(1px);
+      box-shadow: 0 2px 10px rgba(233, 233, 25, 0.4);
+    }
+    
+    .resident-option, .advantages {
+      margin-top: 25px;
+      display: flex;
+      align-items: center;
+      color: white;
+      transition: all 0.3s;
+    }
+    
+    .resident-option label, .advantages span {
+      margin-left: 12px;
+      cursor: pointer;
+      font-weight: 400;
+      font-size: 16px;
+      letter-spacing: 0.5px;
+    }
+    
+    .circle {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 2px solid white;
+      background-color: transparent;
+      display: inline-block;
+      margin-right: 10px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    
+    .circle:hover {
+      transform: scale(1.1);
+      border-color: #e9e919;
+    }
+    
+    .circle.checked {
+      background-color: #e9e919;
+      border-color: #e9e919;
+    }
+    
+    .circle.checked::after {
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: white;
+      border-radius: 50%;
+      top: 4px;
+      left: 4px;
+    }
+    
+    .star-icon {
+      color: #e9e919;
+      font-size: 22px;
+      margin-right: 12px;
+    }
+    
+    .advantages:hover .star-icon {
+      transform: rotate(360deg) scale(1.2);
+      transition: all 0.5s ease;
+    }
+    
+    .advantages:hover span {
+      text-decoration: underline;
+      color: #e9e919;
+    }
+    
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(5px);
+      transition: all 0.3s ease;
+    }
+    
+    .modal-content {
+      background-color: white;
+      padding: 40px;
+      border-radius: 15px;
+      width: 90%;
+      max-width: 550px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+      transform: scale(0.9);
+      opacity: 0;
+      transition: all 0.3s ease;
+    }
+    
+    .modal.show .modal-content {
+      transform: scale(1);
+      opacity: 1;
+    }
+    
+    .modal h2 {
+      margin-bottom: 25px;
+      color: #333;
+      font-weight: 600;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .modal h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background-color: #e9e919;
+    }
+    
+    .modal-close {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background: linear-gradient(145deg, #fcfca4, #e9e919);
+      color: #000;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+    }
+    
+    .modal-close:hover {
+      background: linear-gradient(145deg, #e9e919, #fcfca4);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(233, 233, 25, 0.3);
+    }
+    
+    .validation-message {
+      color: #e9e919;
+      font-size: 14px;
+      margin-top: 8px;
+      display: none;
+      position: absolute;
+      bottom: -25px;
+      left: 20px;
+      font-weight: 500;
+    }
+    
+    .benefit-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      text-align: left;
+      padding: 10px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    
+    .benefit-item:hover {
+      background-color: #f9f9f9;
+    }
+    
+    .benefit-icon {
+      margin-right: 15px;
+      color: #e9e919;
+      font-size: 20px;
+    }
+    
+    #reservation-details {
+      background-color: #f9f9f9;
+      padding: 25px;
+      border-radius: 10px;
+      margin: 20px 0;
+      text-align: left;
+      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+    
+    .reservation-title {
+      font-weight: 600;
+      color: #666;
+      width: 150px;
+      display: inline-block;
+    }
+    
+    .flatpickr-calendar {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+      border-radius: 10px !important;
+    }
+    
+    .flatpickr-day.selected {
+      background: #e9e919 !important;
+      border-color: #e9e919 !important;
+      color: black !important;
+    }
+    
+    .success-message {
+      color: #28a745;
+      font-weight: 600;
+      margin-top: 20px;
+      padding: 15px;
+      border-top: 1px solid #e9ecef;
+    }
+    
+    @media (max-width: 768px) {
+      .booking-form {
+        flex-direction: column;
+        border-radius: 20px;
+        padding: 20px;
+      }
+      
+      .date-picker, .guests-picker, .promo-code, .reserve-button {
+        width: 100%;
+        margin: 10px 0;
+      }
+      
+      .date-picker {
+        flex-direction: column;
+      }
+      
+      .arrow {
+        transform: rotate(90deg);
+        margin: 10px 0;
+      }
+      
+      .reserve-button button {
+        margin-top: 15px;
+      }
+      
+      .validation-message {
+        position: static;
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="booking-container">
+    <div class="booking-form">
+      <div class="date-picker">
+        <div class="form-group">
+          <i class="fas fa-calendar-alt"></i>
+          <input type="text" id="check-in" class="icon-input" placeholder="Entrada" readonly>
+        </div>
+        <span class="arrow">→</span>
+        <div class="form-group">
+          <i class="fas fa-calendar-alt"></i>
+          <input type="text" id="check-out" class="icon-input" placeholder="Salida" readonly>
+        </div>
+      </div>
+      <div class="validation-message" id="date-validation">
+        <i class="fas fa-exclamation-circle"></i> Por favor seleccione fechas válidas
+      </div>
+      
+      <div class="guests-picker">
+        <div class="form-group">
+          <i class="fas fa-user-friends"></i>
+          <select id="guests" class="icon-input">
+            <option value="1ap2ad">1 ap. 2 adultos</option>
+            <option value="1ap3ad">1 ap. 3 adultos</option>
+            <option value="1ap4ad">1 ap. 4 adultos</option>
+            <option value="2ap4ad">2 ap. 4 adultos</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="promo-code">
+        <div class="form-group">
+          <i class="fas fa-tag"></i>
+          <input type="text" id="promo" class="icon-input" placeholder="Código promocional">
+        </div>
+      </div>
+      
+      <div class="reserve-button">
+        <button id="reserve-btn">RESERVAR</button>
+      </div>
+    </div>
+    
+    <div class="resident-option">
+      <div class="circle" id="resident-circle"></div>
+      <label for="resident-circle">Soy residente canario</label>
+    </div>
+    
+    <div class="advantages" id="show-advantages">
+      <span class="star-icon"><i class="fas fa-star"></i></span>
+      <span>Ventajas de reservar en la web</span>
+    </div>
+  </div>
+  
+  <!-- Modal para ventajas -->
+  <div class="modal" id="advantages-modal">
+    <div class="modal-content">
+      <h2>Ventajas de reservar en la web</h2>
+      <div style="margin: 30px 0;">
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-percentage"></i></div>
+          <div>Mejores precios garantizados</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-calendar-check"></i></div>
+          <div>Cancelación gratuita hasta 48h antes</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-home"></i></div>
+          <div>Selección de habitación preferida</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-concierge-bell"></i></div>
+          <div>Check-in prioritario</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-gift"></i></div>
+          <div>10% descuento en servicios del hotel</div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon"><i class="fas fa-glass-cheers"></i></div>
+          <div>Ofertas exclusivas para miembros</div>
+        </div>
+      </div>
+      <button class="modal-close" id="close-modal">Cerrar</button>
+    </div>
+  </div>
+  
+  <!-- Modal para confirmación de reserva -->
+  <div class="modal" id="confirmation-modal">
+    <div class="modal-content">
+      <h2>Reserva Confirmada</h2>
+      <div id="reservation-details"></div>
+      <div class="success-message">
+        <i class="fas fa-check-circle"></i> Su reserva ha sido procesada correctamente. Recibirá un email de confirmación en breve.
+      </div>
+      <button class="modal-close" id="close-confirmation">Aceptar</button>
+    </div>
+  </div>
+  
+  <!-- Flatpickr JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/flatpickr.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/flatpickr/4.6.13/l10n/es.min.js"></script>
+  
+  <script src="form.js"></script>
+</body>
+</html>
