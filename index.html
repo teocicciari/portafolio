@@ -222,12 +222,13 @@
 
             <!-- Filtro de categorías -->
             <div class="project-filters fade-in">
-                <button class="filter-btn" data-filter="all" data-i18n="projects.filter_all">Todos <span class="filter-count"></span></button>
-                <button class="filter-btn active" data-filter="destacados" data-i18n="projects.filter_featured">Destacados <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="hospedajes" data-i18n="projects.filter_hospedajes">Hospedajes <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="portafolios" data-i18n="projects.filter_portafolios">Portafolios <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="organizaciones" data-i18n="projects.filter_organizaciones">Organizaciones <span class="filter-count"></span></button>
-                <button class="filter-btn" data-filter="tattoos" data-i18n="projects.filter_tattoos">Estudios de Tattoo <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="all"><span data-i18n="projects.filter_all">Todos</span> <span class="filter-count"></span></button>
+                <button class="filter-btn active" data-filter="destacados"><span data-i18n="projects.filter_featured">Destacados</span> <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="hospedajes"><span data-i18n="projects.filter_hospedajes">Hospedajes</span> <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="portafolios"><span data-i18n="projects.filter_portafolios">Portafolios</span> <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="organizaciones"><span data-i18n="projects.filter_organizaciones">Organizaciones</span> <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="tattoos"><span data-i18n="projects.filter_tattoos">Estudios de Tattoo</span> <span class="filter-count"></span></button>
+                <button class="filter-btn" data-filter="empresas"><span>Empresas</span> <span class="filter-count"></span></button>
             </div>
 
             <!-- Grid único de proyectos -->
@@ -253,6 +254,49 @@
                     </div>
                 </div>
 
+                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://ikeuken.com.ar/" tabindex="0" role="button">
+                    <img src="img/proyectos/ikeuken.webp" loading="lazy" alt="IKeuKen Hostel en El Calafate" class="project-img">
+                    <div class="project-content">
+                        <div class="project-badge-container">
+                            <span class="project-category-badge">Hospedajes</span>
+                            <div class="project-actions">
+                                <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">I Keu Ken Hostel</h3>
+                        <p class="project-description">Diseño para hostel en El Calafate, Patagonia Argentina.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Hostel</span>
+                            <span class="project-tag">Calafate</span>
+                            <span class="project-tag">Patagonia</span>
+                        </div>
+                        <a href="https://ikeuken.com.ar/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://teocicciari.com.ar/bocetos/samsara" tabindex="0" role="button">
+                    <img src="img/proyectos/samsara.webp" loading="lazy" alt="Proyecto de Hostel Samsara" class="project-img">
+                    <div class="project-content">
+                        <div class="project-badge-container">
+                            <div class="project-badges-left">
+                                <span class="project-category-badge">Hospedajes</span>
+                                <span class="project-available-badge">Diseño disponible</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Hostel Samsara</h3>
+                        <p class="project-description" data-i18n="projects.samsara.desc">Diseño para hostel, enfocado en conseguir nuevas reservas.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Hostel</span>
+                            <span class="project-tag">Conversión</span>
+                            <span class="project-tag">Reservas</span>
+                        </div>
+                        <a href="https://teocicciari.com.ar/SAMSARA/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                    </div>
+                </div>
+
                 <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://terminalsuites.com.ar/" tabindex="0" role="button">
                     <img src="img/proyectos/terminalsuites.webp" loading="lazy" alt="Proyecto: Depto en calafate" class="project-img">
                     <div class="project-content">
@@ -270,26 +314,6 @@
                             <span class="project-tag">Galería</span>
                         </div>
                         <a href="https://terminalsuites.com.ar/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
-                    </div>
-                </div>
-
-                <div class="project-card" data-category="hospedajes" data-featured="true" data-likes="0" data-url="https://teocicciari.com.ar/SAMSARA/" tabindex="0" role="button">
-                    <img src="img/proyectos/samsara.webp" loading="lazy" alt="Proyecto de Hostel Samsara" class="project-img">
-                    <div class="project-content">
-                        <div class="project-badge-container">
-                            <span class="project-category-badge">Hospedajes</span>
-                            <div class="project-actions">
-                                <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Hostel Samsara</h3>
-                        <p class="project-description" data-i18n="projects.samsara.desc">Diseño para hostel, enfocado en conseguir nuevas reservas.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Hostel</span>
-                            <span class="project-tag">Conversión</span>
-                            <span class="project-tag">Reservas</span>
-                        </div>
-                        <a href="https://teocicciari.com.ar/SAMSARA/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
                     </div>
                 </div>
 
@@ -390,6 +414,26 @@
                     </div>
                 </div>
 
+                <div class="project-card" data-category="portafolios" data-featured="true" data-likes="0" data-url="https://espiritutao.com.ar/" tabindex="0" role="button">
+                    <img src="img/proyectos/tao.webp" loading="lazy" alt="Portafolio de tatuadora Espíritu Tao" class="project-img">
+                    <div class="project-content">
+                        <div class="project-badge-container">
+                            <span class="project-category-badge">Portafolios</span>
+                            <div class="project-actions">
+                                <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Espíritu Tao</h3>
+                        <p class="project-description">Portafolio para tatuadora de la Comarca Andina.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Tatuadora</span>
+                            <span class="project-tag">Portafolio</span>
+                            <span class="project-tag">Comarca Andina</span>
+                        </div>
+                        <a href="https://espiritutao.com.ar/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                    </div>
+                </div>
+
                 <!-- Organizaciones -->
                 <div class="project-card" data-category="organizaciones" data-featured="false" data-likes="0" data-url="https://fachajedrez.com.ar" tabindex="0" role="button">
                     <img src="img/proyectos/FACH.webp" loading="lazy" alt="Proyecto de la Federación de ajedrez Chubutense" class="project-img">
@@ -452,11 +496,14 @@
                 </div>
 
                 <!-- Tattoos -->
-                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="https://teocicciari.com.ar/irezumi/" tabindex="0" role="button">
+                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="https://teocicciari.com.ar/bocetos/irezumi/" tabindex="0" role="button">
                     <img src="img/proyectos/irezumi.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
-                            <span class="project-category-badge">Tattoos</span>
+                            <div class="project-badges-left">
+                                <span class="project-category-badge">Tattoos</span>
+                                <span class="project-available-badge">Diseño disponible</span>
+                            </div>
                             <div class="project-actions">
                                 <button class="featured-star" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
                             </div>
@@ -476,7 +523,10 @@
                     <img src="img/proyectos/wolfink.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
-                            <span class="project-category-badge">Tattoos</span>
+                            <div class="project-badges-left">
+                                <span class="project-category-badge">Tattoos</span>
+                                <span class="project-available-badge">Diseño disponible</span>
+                            </div>
                             <div class="project-actions">
                                 <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Añadir a destacados">★</button>
                             </div>
@@ -492,11 +542,14 @@
                     </div>
                 </div>
 
-                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="http://teocicciari.com.ar/karus/" tabindex="0" role="button">
+                <div class="project-card" data-category="tattoos" data-featured="false" data-likes="0" data-url="http://teocicciari.com.ar/bocetos/karus/" tabindex="0" role="button">
                     <img src="img/proyectos/karus.webp" loading="lazy" alt="Diseño de página web disponible para hostel" class="project-img">
                     <div class="project-content">
                         <div class="project-badge-container">
-                            <span class="project-category-badge">Tattoos</span>
+                            <div class="project-badges-left">
+                                <span class="project-category-badge">Tattoos</span>
+                                <span class="project-available-badge">Diseño disponible</span>
+                            </div>
                             <div class="project-actions">
                                 <button class="featured-star" onclick="event.stopPropagation(); toggleFeatured(this)" title="Añadir a destacados">★</button>
                             </div>
@@ -508,6 +561,27 @@
                             <span class="project-tag">Tema Oscuro</span>
                         </div>
                         <a href="http://teocicciari.com.ar/karus/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
+                    </div>
+                </div>
+
+                <!-- Empresas -->
+                <div class="project-card" data-category="empresas" data-featured="true" data-likes="0" data-url="https://www.bignottihnos.cl/" tabindex="0" role="button">
+                    <img src="img/proyectos/bignotti.webp" loading="lazy" alt="Bignotti Hnos - Servicios Industriales Chile" class="project-img">
+                    <div class="project-content">
+                        <div class="project-badge-container">
+                            <span class="project-category-badge">Empresas</span>
+                            <div class="project-actions">
+                                <button class="featured-star active" onclick="event.stopPropagation(); toggleFeatured(this)" title="Destacado">★</button>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Bignotti Hnos.</h3>
+                        <p class="project-description">Sitio web para empresa chilena de servicios industriales.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Empresa</span>
+                            <span class="project-tag">Servicios Industriales</span>
+                            <span class="project-tag">Chile</span>
+                        </div>
+                        <a href="https://www.bignottihnos.cl/" target="_blank" class="project-link" data-i18n="projects.visit_link">Visitar página →</a>
                     </div>
                 </div>
             </div>

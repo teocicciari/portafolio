@@ -590,6 +590,23 @@ h1 {
     letter-spacing: 0.5px;
 }
 
+.project-badges-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-available-badge {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #121212;
+    background: #22c55e;
+    padding: 0.15rem 0.45rem;
+    border-radius: 4px;
+}
+
 .project-actions {
     display: flex;
     align-items: center;
