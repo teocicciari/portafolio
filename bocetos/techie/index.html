@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TECHIE // Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Background -->
+  <div class="bg-grid"></div>
+  <div class="scanline"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-bracket">[</span>
+      <span class="brand-text">TECHIE</span>
+      <span class="brand-bracket">]</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#inicio" class="nav-link" data-text="INICIO">INICIO</a></li>
+      <li><a href="#sobre-mi" class="nav-link" data-text="PERFIL">PERFIL</a></li>
+      <li><a href="#habilidades" class="nav-link" data-text="HABILIDADES">HABILIDADES</a></li>
+      <li><a href="#proyectos" class="nav-link" data-text="PROYECTOS">PROYECTOS</a></li>
+      <li><a href="#contacto" class="nav-link" data-text="CONTACTO">CONTACTO</a></li>
+    </ul>
+    <button class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        TECHIE // CLASE: ESPECIALISTA EN TECNOLOGÍA
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">MODIFICO</span>
+        <span class="title-line accent">EL FUTURO</span>
+        <span class="title-line">CON MIS MANOS</span>
+      </h1>
+      <p class="hero-desc">
+        Especialista en reparar, modificar y crear tecnología y ciberware.<br />
+        Desde armas caseras hasta drones de vigilancia — si tiene circuitos, lo domino.
+      </p>
+      <div class="hero-cta">
+        <a href="#proyectos" class="btn btn-primary"><i class="fa-solid fa-folder-open"></i> Ver Proyectos</a>
+        <a href="#contacto" class="btn btn-secondary"><i class="fa-solid fa-handshake"></i> Contratar</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-value" data-target="47">0</span>
+          <span class="stat-label">Implantes Instalados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value" data-target="120">0</span>
+          <span class="stat-label">Proyectos Completados</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-value" data-target="98">0</span>
+          <span class="stat-label">% Satisfacción</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="profile-ring outer"></div>
+      <div class="profile-ring mid"></div>
+      <div class="profile-ring inner"></div>
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+      <div class="orbit-node"></div>
+      <div class="profile-glow"></div>
+      <div class="profile-frame">
+        <div class="profile-frame-inner">
+          <img src="profile-old.webp" alt="Techie Profile" class="profile-img" />
+        </div>
+      </div>
+      <div class="profile-hud">
+        <div class="hud-item hud-top-left">
+          <span class="hud-label">ID</span>
+          <span class="hud-value">TC-7749</span>
+        </div>
+        <div class="hud-item hud-top-right">
+          <span class="hud-label">ESTADO</span>
+          <span class="hud-value online">ACTIVO</span>
+        </div>
+        <div class="hud-item hud-bot-left">
+          <span class="hud-label">REP</span>
+          <span class="hud-value">98.7</span>
+        </div>
+        <div class="hud-item hud-bot-right">
+          <span class="hud-label">NIVEL</span>
+          <span class="hud-value">EXPERTO</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE MÍ -->
+  <section id="sobre-mi" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 01</span>
+        <h2 class="section-title">PERFIL DEL TECHIE</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="glass-card about-card reveal" data-delay="1">
+          <div class="card-corner tl"></div>
+          <div class="card-corner tr"></div>
+          <div class="card-corner bl"></div>
+          <div class="card-corner br"></div>
+          <h3 class="card-title">QUIÉN SOY</h3>
+          <p class="card-text">
+            En las calles de la ciudad, soy conocido como el que puede arreglar cualquier cosa — o hacer que explote, según lo que necesites. Techie de primera línea con más de 8 años modificando ciberware ilegal y construyendo gadgets que la corporaciones no quieren que existan.
+          </p>
+          <p class="card-text">
+            Mi taller opera en el distrito bajo, donde cada noche alguien trae un implante quemado, un drone caído o un arma que "se trabó". Para mí, son oportunidades.
+          </p>
+        </div>
+        <div class="glass-card about-card reveal" data-delay="2">
+          <div class="card-corner tl"></div>
+          <div class="card-corner tr"></div>
+          <div class="card-corner bl"></div>
+          <div class="card-corner br"></div>
+          <h3 class="card-title">ESPECIALIDADES</h3>
+          <ul class="spec-list">
+            <li class="spec-item">
+              <span class="spec-icon"><i class="fa-solid fa-diamond"></i></span>
+              <div>
+                <strong>Ciberware Ilegal</strong>
+                <span>Instalación y modificación de implantes de alto riesgo</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="spec-icon"><i class="fa-solid fa-diamond"></i></span>
+              <div>
+                <strong>Drones de Vigilancia</strong>
+                <span>Diseño y hackeo de sistemas autónomos</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="spec-icon"><i class="fa-solid fa-diamond"></i></span>
+              <div>
+                <strong>Armas Caseras</strong>
+                <span>Fabricación custom con piezas recuperadas</span>
+              </div>
+            </li>
+            <li class="spec-item">
+              <span class="spec-icon"><i class="fa-solid fa-diamond"></i></span>
+              <div>
+                <strong>Ingeniería Inversa</strong>
+                <span>Descifrado y replicación de tech corporativa</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="glass-card about-card wide reveal" data-delay="3">
+          <div class="card-corner tl"></div>
+          <div class="card-corner tr"></div>
+          <div class="card-corner bl"></div>
+          <div class="card-corner br"></div>
+          <h3 class="card-title">ATRIBUTOS DEL PERSONAJE</h3>
+          <div class="attributes-grid">
+            <div class="attribute">
+              <span class="attr-name">TÉCNICA</span>
+              <div class="attr-bar"><div class="attr-fill" style="--w:95%"></div></div>
+              <span class="attr-val">95</span>
+            </div>
+            <div class="attribute">
+              <span class="attr-name">INTELIGENCIA</span>
+              <div class="attr-bar"><div class="attr-fill" style="--w:88%"></div></div>
+              <span class="attr-val">88</span>
+            </div>
+            <div class="attribute">
+              <span class="attr-name">INGENIO</span>
+              <div class="attr-bar"><div class="attr-fill cyan" style="--w:92%"></div></div>
+              <span class="attr-val">92</span>
+            </div>
+            <div class="attribute">
+              <span class="attr-name">SIGILO</span>
+              <div class="attr-bar"><div class="attr-fill pink" style="--w:70%"></div></div>
+              <span class="attr-val">70</span>
+            </div>
+            <div class="attribute">
+              <span class="attr-name">COMBATE</span>
+              <div class="attr-bar"><div class="attr-fill pink" style="--w:65%"></div></div>
+              <span class="attr-val">65</span>
+            </div>
+            <div class="attribute">
+              <span class="attr-name">REPUTACIÓN</span>
+              <div class="attr-bar"><div class="attr-fill" style="--w:98%"></div></div>
+              <span class="attr-val">98</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="habilidades" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 02</span>
+        <h2 class="section-title">ARSENAL TÉCNICO</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category glass-card reveal" data-delay="1">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-elec"><i class="fa-solid fa-bolt"></i></div>
+          <h3 class="skill-cat-title">ELECTRÓNICA</h3>
+          <div class="skill-tags">
+            <span class="tag">Microcontroladores</span>
+            <span class="tag">Soldadura SMD</span>
+            <span class="tag">Diseño PCB</span>
+            <span class="tag">Sensores</span>
+            <span class="tag">RF Hacking</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal" data-delay="2">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-cyber"><i class="fa-solid fa-robot"></i></div>
+          <h3 class="skill-cat-title">CIBERWARE</h3>
+          <div class="skill-tags">
+            <span class="tag">Implantes Neurales</span>
+            <span class="tag">Exo-esqueletos</span>
+            <span class="tag">Ojos Cibernéticos</span>
+            <span class="tag">Interfaces BCI</span>
+            <span class="tag">Biohacking</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal" data-delay="3">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-soft"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3 class="skill-cat-title">SOFTWARE</h3>
+          <div class="skill-tags">
+            <span class="tag">Firmware Custom</span>
+            <span class="tag">Reverse Engineering</span>
+            <span class="tag">Exploit Dev</span>
+            <span class="tag">IA Embebida</span>
+            <span class="tag">C / Assembly</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal" data-delay="4">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-drone"><i class="fa-solid fa-helicopter"></i></div>
+          <h3 class="skill-cat-title">DRONES</h3>
+          <div class="skill-tags">
+            <span class="tag">Vigilancia Autónoma</span>
+            <span class="tag">Swarm Control</span>
+            <span class="tag">Jamming EMP</span>
+            <span class="tag">Camuflaje Activo</span>
+            <span class="tag">Vuelo Furtivo</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal" data-delay="5">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-fab"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3 class="skill-cat-title">FABRICACIÓN</h3>
+          <div class="skill-tags">
+            <span class="tag">Impresión 3D Metal</span>
+            <span class="tag">Mecanizado CNC</span>
+            <span class="tag">Materiales Exóticos</span>
+            <span class="tag">Nanotecnología</span>
+            <span class="tag">Blindajes</span>
+          </div>
+        </div>
+        <div class="skill-category glass-card reveal" data-delay="6">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="skill-cat-icon ico-def"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3 class="skill-cat-title">DEFENSA</h3>
+          <div class="skill-tags">
+            <span class="tag">Anti-Rastreo</span>
+            <span class="tag">ICE Breaker</span>
+            <span class="tag">Encriptación</span>
+            <span class="tag">Contramedidas</span>
+            <span class="tag">Ghost Protocol</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proyectos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 03</span>
+        <h2 class="section-title">TRABAJOS RECIENTES</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card glass-card featured reveal" data-delay="1">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-badge">DESTACADO</div>
+          <div class="project-header">
+            <span class="project-id">PRJ-001</span>
+            <span class="project-status active">COMPLETADO</span>
+          </div>
+          <h3 class="project-title">Sistema de Vigilancia GHOST</h3>
+          <p class="project-desc">Red de 12 micro-drones autónomos con camuflaje activo para operaciones encubiertas. Alcance de 3km, duración de batería 18h, comunicación encriptada punto a punto.</p>
+          <div class="project-tags">
+            <span class="tag cyan">Drones</span>
+            <span class="tag">RF</span>
+            <span class="tag">IA</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-header">
+            <span class="project-id">PRJ-002</span>
+            <span class="project-status">COMPLETADO</span>
+          </div>
+          <h3 class="project-title">Neural Jack v3</h3>
+          <p class="project-desc">Interfaz cerebro-computadora de tercera generación. Compatible con 98% de los sistemas de red disponibles. Instalación en 45 min.</p>
+          <div class="project-tags">
+            <span class="tag">BCI</span>
+            <span class="tag">Ciberware</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-header">
+            <span class="project-id">PRJ-003</span>
+            <span class="project-status warning">EN PROGRESO</span>
+          </div>
+          <h3 class="project-title">EMP Pulse Cannon</h3>
+          <p class="project-desc">Cañón EMP portátil de fabricación casera. Radio de acción: 200m. Apaga cualquier sistema eléctrico no blindado. Compacto y desmontable.</p>
+          <div class="project-tags">
+            <span class="tag pink">Armas</span>
+            <span class="tag">EMP</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-header">
+            <span class="project-id">PRJ-004</span>
+            <span class="project-status">COMPLETADO</span>
+          </div>
+          <h3 class="project-title">Ojos Kiroshi Mod X</h3>
+          <p class="project-desc">Modificación ilegal de implantes oculares Kiroshi. Añade visión térmica, zoom 40x y cámara integrada con streaming encriptado.</p>
+          <div class="project-tags">
+            <span class="tag cyan">Ciberware</span>
+            <span class="tag">Visual</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-header">
+            <span class="project-id">PRJ-005</span>
+            <span class="project-status">COMPLETADO</span>
+          </div>
+          <h3 class="project-title">ICE Breaker Toolkit</h3>
+          <p class="project-desc">Suite de hardware para romper ICE (Intrusion Countermeasure Electronics) corporativo. Incluye 7 módulos especializados en formato maletín.</p>
+          <div class="project-tags">
+            <span class="tag">Hacking</span>
+            <span class="tag pink">ICE</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <div class="project-card glass-card">
+          <div class="card-corner tl"></div>
+          <div class="card-corner br"></div>
+          <div class="project-header">
+            <span class="project-id">PRJ-006</span>
+            <span class="project-status active">COMPLETADO</span>
+          </div>
+          <h3 class="project-title">Exo-Arm Strength Mod</h3>
+          <p class="project-desc">Exoesqueleto de brazo con aumento de fuerza 10x. Construcción con aleaciones de titanio recuperadas. Interfaz neural directa.</p>
+          <div class="project-tags">
+            <span class="tag">Exo</span>
+            <span class="tag cyan">Cyberware</span>
+          </div>
+          <a href="#" class="btn btn-sm">Ver Detalles <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">// 04</span>
+        <h2 class="section-title">ESTABLECER CONTACTO</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="glass-card contact-card">
+            <div class="card-corner tl"></div>
+            <div class="card-corner br"></div>
+            <p class="contact-intro">
+              ¿Tienes un trabajo? ¿Necesitas algo reparado, modificado o construido desde cero? Encuéntrame en el canal seguro. Sin nombres, sin rastros.
+            </p>
+            <div class="contact-channels">
+              <div class="channel">
+                <span class="channel-icon"><i class="fa-solid fa-lock"></i></span>
+                <div>
+                  <span class="channel-label">CANAL ENCRIPTADO</span>
+                  <span class="channel-value">darknet://techie.onion</span>
+                </div>
+              </div>
+              <div class="channel">
+                <span class="channel-icon"><i class="fa-solid fa-tower-broadcast"></i></span>
+                <div>
+                  <span class="channel-label">FRECUENCIA DE RADIO</span>
+                  <span class="channel-value">432.7 MHz (Encriptada)</span>
+                </div>
+              </div>
+              <div class="channel">
+                <span class="channel-icon"><i class="fa-solid fa-location-dot"></i></span>
+                <div>
+                  <span class="channel-label">UBICACIÓN</span>
+                  <span class="channel-value">Sector 7 // Distrito Bajo</span>
+                </div>
+              </div>
+              <div class="channel">
+                <span class="channel-icon"><i class="fa-solid fa-clock"></i></span>
+                <div>
+                  <span class="channel-label">HORARIO</span>
+                  <span class="channel-value">22:00 – 06:00 (Hora Ciudad)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="contact-form-wrap">
+          <form class="glass-card contact-form">
+            <div class="card-corner tl"></div>
+            <div class="card-corner br"></div>
+            <h3 class="form-title">TRANSMISIÓN SEGURA</h3>
+            <div class="form-group">
+              <label class="form-label">IDENTIFICADOR</label>
+              <input type="text" class="form-input" placeholder="Nombre o alias..." />
+            </div>
+            <div class="form-group">
+              <label class="form-label">CANAL DE RESPUESTA</label>
+              <input type="email" class="form-input" placeholder="tu@correo.enc" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">TIPO DE TRABAJO</label>
+              <select class="form-input form-select">
+                <option value="">Seleccionar categoría...</option>
+                <option>Reparación de Ciberware</option>
+                <option>Instalación de Implantes</option>
+                <option>Fabricación Custom</option>
+                <option>Drones y Vigilancia</option>
+                <option>Armas y Modificaciones</option>
+                <option>Hacking de Hardware</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">DESCRIPCIÓN DEL TRABAJO</label>
+              <textarea class="form-input form-textarea" placeholder="Describe el trabajo con el máximo detalle posible..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-full">
+              <span>ENVIAR TRANSMISIÓN</span>
+              <span class="btn-icon"><i class="fa-solid fa-paper-plane"></i></span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid"></div>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-bracket">[</span>
+        <span class="brand-text">TECHIE</span>
+        <span class="brand-bracket">]</span>
+      </div>
+      <div class="footer-social">
+        <a href="#" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="#" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="#" title="Discord"><i class="fa-brands fa-discord"></i></a>
+        <a href="#" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+      <p class="footer-quote">"Si tiene circuitos, lo puedo arreglar. Si no los tiene, se los pongo."</p>
+      <p class="footer-copy">© 2077 TECHIE. Todos los derechos reservados en el mundo que queda.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
