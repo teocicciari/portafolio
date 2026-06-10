@@ -1,14 +1,5 @@
-/* Estilos para la barra de navegación promocional */
-:root {
-    --primary-dark: #121212;
-    --secondary-dark: #1e1e1e;
-    --accent: #8a5cf7;
-    --text-primary: #fff;
-    --text-secondary: #aaa;
-    --accent-highlight: #9d75f8;
-    --accent-transparent: rgba(138, 92, 247, 0.1);
-}
-
+/* Estilos para la barra de navegación promocional
+   (las variables viven en el :root de style.css) */
 .promo-nav {
     position: fixed;
     bottom: 0;

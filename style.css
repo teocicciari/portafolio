@@ -8,13 +8,77 @@
     font-display: swap; /* Evita bloqueo de renderizado */
 }
 
+/* ───────────────────────────────────────────────────────────
+   Tokens v2 — fuente única de verdad de variables.
+   :root = vista diseño (verde bosque). La vista ajedrez se
+   activa con body.theme-forest, que redefine la paleta en
+   púrpura oscuro ("forest" es un nombre histórico).
+   ─────────────────────────────────────────────────────────── */
 :root {
+    /* Paleta — vista diseño (verde) */
+    --primary-dark: #1a2f1a;
+    --secondary-dark: #2d422d;
+    --accent: #7ac142;
+    --text-primary: #f1f7eb;
+    --text-secondary: #b8c5b8;
+    --accent-highlight: #92d45e;
+    --accent-transparent: rgba(122, 193, 66, 0.1);
+
+    /* Derivados de color */
+    --bg: var(--primary-dark);
+    --bg-elev: var(--secondary-dark);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(122, 193, 66, 0.45);
+    --accent-soft: rgba(122, 193, 66, 0.12);
+    --accent-strong: var(--accent-highlight);
+    --nav-bg: rgba(26, 47, 26, 0.55);
+    --shadow-glow: 0 0 40px rgba(122, 193, 66, 0.15);
+
+    /* Tipografía */
+    --fs-display: clamp(2.4rem, 5vw, 3.5rem);
+    --fs-h2: clamp(1.6rem, 3vw, 2.25rem);
+    --fs-h3: 1.2rem;
+    --fs-body: 1.0625rem;
+    --fs-small: 0.875rem;
+
+    /* Espaciado y layout */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 40px;
+    --space-7: 64px;
+    --space-8: 96px;
+    --section-pad: clamp(3rem, 8vw, 6rem);
+    --container-max: 1200px;
+    --padding-border: 4rem;
+
+    /* Forma y sombra */
+    --radius-sm: 8px;
+    --radius-md: 14px;
+    --radius-lg: 20px;
+    --shadow-1: 0 8px 30px rgba(0, 0, 0, 0.25);
+
+    /* Movimiento */
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+    --dur-fast: 0.15s;
+    --dur-base: 0.3s;
+}
+
+/* Paleta — vista ajedrez (púrpura oscuro) */
+.theme-forest {
     --primary-dark: #121212;
     --secondary-dark: #1e1e1e;
     --accent: #8a5cf7;
     --text-primary: #fff;
     --text-secondary: #aaa;
-    --padding-border: 4rem;
+    --accent-highlight: #9d75f8;
+    --accent-transparent: rgba(138, 92, 247, 0.1);
+    --border-hover: rgba(138, 92, 247, 0.45);
+    --accent-soft: rgba(138, 92, 247, 0.12);
+    --nav-bg: rgba(18, 18, 18, 0.75);
+    --shadow-glow: 0 0 40px rgba(138, 92, 247, 0.15);
 }
 
 * {
@@ -28,6 +92,12 @@ body {
     background-color: var(--primary-dark);
     color: var(--text-primary);
     min-height: 100vh;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4 {
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 
 html {
@@ -60,13 +130,7 @@ nav {
     position: sticky;
     top: 0;
     width: 100%;
-    /* Vista diseño: verde oscuro translúcido */
-    background-color: rgba(26, 47, 26, 0.55);
-}
-
-/* Vista ajedrez: negro translúcido */
-body.theme-forest nav {
-    background-color: rgba(18, 18, 18, 0.75);
+    background-color: var(--nav-bg);
 }
 
 .nav-row-top {
@@ -1711,10 +1775,43 @@ footer {
         grid-template-columns: 1fr;
         padding: 0;
     }
-    
+
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+}
+
+/* ───────────────────────────────────────────────────────────
+   Estados base v2
+   ─────────────────────────────────────────────────────────── */
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+::selection {
+    background-color: var(--accent);
+    color: var(--primary-dark);
+}
+
+/* Accesibilidad: sin animaciones para quien las desactiva.
+   El contenido con .fade-in debe verse de inmediato, sin
+   depender del IntersectionObserver. */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
     }
 }
 

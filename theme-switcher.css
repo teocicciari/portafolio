@@ -1,43 +1,5 @@
-/* Crear un nuevo archivo theme-switcher.css y añadir estos estilos */
-
-/* Variables para los temas de colores */
-:root {
-    /* Tema por defecto */
-    --primary-dark: #1a2f1a;
-    --secondary-dark: #2d422d;
-    --accent: #7ac142;
-    --text-primary: #f1f7eb;
-    --text-secondary: #b8c5b8;
-}
-
-/* Tema Océano */
-.theme-ocean {
-    --primary-dark: #0a192f;
-    --secondary-dark: #172a45;
-    --accent: #64ffda;
-    --text-primary: #e6f1ff;
-    --text-secondary: #8892b0;
-}
-
-/* Tema Atardecer */
-.theme-sunset {
-    --primary-dark: #2d1b2d;
-    --secondary-dark: #492b49;
-    --accent: #ff7e5f;
-    --text-primary: #fff6e9;
-    --text-secondary: #cbbfbb;
-}
-
-/* Tema Bosque */
-.theme-forest {
-    --primary-dark: #121212;
-    --secondary-dark: #1e1e1e;
-    --accent: #8a5cf7;
-    --text-primary: #fff;
-    --text-secondary: #aaa;
-}
-
-/* Estilos para el selector de vistas */
+/* Selector de vistas (diseño ↔ ajedrez).
+   Las variables de tema viven en el :root de style.css. */
 .theme-switcher {
     display: flex;
     justify-content: center;
@@ -112,20 +74,8 @@ nav .theme-switcher {
 }
 
 .theme-btn.active {
-    border-color: var(--accent);
-    background-color: rgba(255, 255, 255, 0.03);
-}
-
-.theme-btn.theme-default.active {
-    background-color: rgba(26, 47, 26, 0.55);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-color: rgba(122, 193, 66, 0.4);
-}
-
-.theme-btn.theme-default.active .theme-btn-icon,
-.theme-btn.theme-default.active .theme-btn-title {
-    color: #7ac142;
+    border-color: var(--border-hover);
+    background-color: var(--accent-soft);
 }
 
 .theme-btn.active .theme-btn-icon {
