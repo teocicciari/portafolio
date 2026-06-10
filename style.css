@@ -335,7 +335,7 @@ header.menu-open .nav-toggle-bar:nth-child(3) {
     transform: translate(-50%, -50%);
     width: 700px;
     height: 700px;
-    background: radial-gradient(circle, rgba(138, 92, 247, 0.1) 0%, transparent 65%);
+    background: radial-gradient(circle, var(--accent-transparent) 0%, transparent 65%);
     pointer-events: none;
     z-index: 0;
 }
@@ -375,8 +375,8 @@ header.menu-open .nav-toggle-bar:nth-child(3) {
 /* Hero Badge */
 .hero-badge {
     display: inline-block;
-    background: rgba(138, 92, 247, 0.12);
-    border: 1px solid rgba(138, 92, 247, 0.35);
+    background: var(--accent-soft);
+    border: 1px solid var(--border-hover);
     color: var(--accent);
     padding: 0.4rem 1.1rem;
     border-radius: 50px;
@@ -484,11 +484,19 @@ h1 {
 }
 
 .hero h1 {
+    font-size: var(--fs-display);
     background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
+
+/* Entrada escalonada del hero (el IntersectionObserver agrega .active) */
+.hero-content > .fade-in:nth-child(2) { transition-delay: 0.08s; }
+.hero-content > .fade-in:nth-child(3) { transition-delay: 0.16s; }
+.hero-content > .fade-in:nth-child(4) { transition-delay: 0.24s; }
+.hero-content > .fade-in:nth-child(5) { transition-delay: 0.32s; }
+.hero-content > .fade-in:nth-child(6) { transition-delay: 0.4s; }
 
 .hero p {
     color: var(--text-secondary);
@@ -561,7 +569,7 @@ h1 {
     font-weight: 600;
     font-size: 1.05rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--accent);
+    box-shadow: var(--shadow-glow);
     position: relative;
     overflow: hidden;
 }
@@ -586,7 +594,7 @@ h1 {
 
 .cta-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.5);
+    box-shadow: 0 6px 25px var(--border-hover);
 }
 
 .cta-primary svg {
@@ -1639,9 +1647,6 @@ footer {
         padding: 7rem 1rem 3rem;
         min-height: auto;
         justify-content: flex-start;
-    }
-    .hero h1 {
-        font-size: 2.2rem;
     }
     .hero .hero-subtext {
         font-size: 1rem;
