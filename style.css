@@ -692,20 +692,22 @@ h1 {
 }
 
 .filter-btn {
-    background-color: var(--secondary-dark);
-    color: var(--text-primary);
-    border: 2px solid var(--secondary-dark);
+    background-color: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-subtle);
     padding: 0.6rem 1.5rem;
     border-radius: 30px;
     cursor: pointer;
     font-weight: 500;
     font-size: 0.95rem;
-    transition: all 0.3s ease;
+    transition: all var(--dur-base) var(--ease-out);
     font-family: 'Space Grotesk', sans-serif;
 }
 
 .filter-btn:hover {
-    border-color: var(--accent);
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+    background-color: var(--accent-soft);
     transform: translateY(-2px);
 }
 
@@ -717,7 +719,7 @@ h1 {
 
 .filter-count {
     display: inline-block;
-    background-color: rgba(138, 92, 247, 0.2);
+    background-color: var(--accent-soft);
     color: var(--accent);
     padding: 0.2rem 0.5rem;
     border-radius: 12px;
@@ -911,23 +913,33 @@ h1 {
 
 .project-card {
     background-color: var(--secondary-dark);
-    border-radius: 8px;
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
     overflow: hidden;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out),
+                box-shadow var(--dur-base) var(--ease-out);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: translateY(-4px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-1);
 }
 
 .project-img {
     width: 100%;
     height: auto;
+    aspect-ratio: 21 / 9;
     object-fit: cover;
+    transition: transform var(--dur-base) var(--ease-out);
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.03);
 }
 
 .project-content {
@@ -954,7 +966,7 @@ h1 {
 }
 
 .project-tag {
-    background-color: rgba(138, 92, 247, 0.1);
+    background-color: var(--accent-soft);
     color: var(--accent);
     padding: 0.25rem 0.75rem;
     border-radius: 50px;
@@ -966,12 +978,12 @@ h1 {
     color: var(--accent);
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: transform var(--dur-base) var(--ease-out);
 }
 
 .project-link:hover {
-    color: var(--accent);
-    text-decoration: underline;
+    color: var(--accent-highlight);
+    transform: translateX(4px);
 }
 
 footer {

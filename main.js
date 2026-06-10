@@ -276,8 +276,13 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         projectsGrid.addEventListener('click', (e) => {
+            const star = e.target.closest('.featured-star');
+            if (star) {
+                toggleFeatured(star);
+                return;
+            }
             const card = e.target.closest('.project-card');
-            if (!card || e.target.closest('.featured-star')) return;
+            if (!card) return;
             openCard(card);
         });
 
@@ -289,76 +294,59 @@ document.addEventListener('DOMContentLoaded', function () {
             openCard(card);
         });
     }
-});
 
-// ── Funciones de filtrado y proyectos (globales para uso en HTML) ─────────────
+    // ── Funciones de filtrado y proyectos ─────────────────────────────────────
 
-function filterProjects(filter) {
-    document.querySelectorAll('.project-card').forEach(card => {
-        const category = card.getAttribute('data-category');
+    function filterProjects(filter) {
+        document.querySelectorAll('.project-card').forEach(card => {
+            const category = card.getAttribute('data-category');
+            const isFeatured = card.getAttribute('data-featured') === 'true';
+
+            let hide = false;
+            if (filter === 'all') {
+                hide = false;
+            } else if (filter === 'destacados') {
+                hide = !isFeatured;
+            } else {
+                hide = category !== filter;
+            }
+
+            card.classList.toggle('hidden', hide);
+        });
+    }
+
+    function updateFilterCounts() {
+        const projectCards = document.querySelectorAll('.project-card');
+
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            const filter = btn.getAttribute('data-filter');
+            const countSpan = btn.querySelector('.filter-count');
+            let count = 0;
+
+            if (filter === 'all') {
+                count = projectCards.length;
+            } else if (filter === 'destacados') {
+                count = document.querySelectorAll('.project-card[data-featured="true"]').length;
+            } else {
+                count = document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
+            }
+
+            if (countSpan) countSpan.textContent = count;
+        });
+    }
+
+    function toggleFeatured(button) {
+        const card = button.closest('.project-card');
         const isFeatured = card.getAttribute('data-featured') === 'true';
 
-        let hide = false;
-        if (filter === 'all') {
-            hide = false;
-        } else if (filter === 'destacados') {
-            hide = !isFeatured;
-        } else {
-            hide = category !== filter;
+        card.setAttribute('data-featured', !isFeatured);
+        button.classList.toggle('active');
+
+        updateFilterCounts();
+
+        const activeFilter = document.querySelector('.filter-btn.active');
+        if (activeFilter && activeFilter.getAttribute('data-filter') === 'destacados') {
+            filterProjects('destacados');
         }
-
-        card.classList.toggle('hidden', hide);
-    });
-}
-
-function updateFilterCounts() {
-    const projectCards = document.querySelectorAll('.project-card');
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        const filter = btn.getAttribute('data-filter');
-        const countSpan = btn.querySelector('.filter-count');
-        let count = 0;
-
-        if (filter === 'all') {
-            count = projectCards.length;
-        } else if (filter === 'destacados') {
-            count = document.querySelectorAll('.project-card[data-featured="true"]').length;
-        } else {
-            count = document.querySelectorAll(`.project-card[data-category="${filter}"]`).length;
-        }
-
-        if (countSpan) countSpan.textContent = count;
-    });
-}
-
-function toggleLike(button) {
-    const card = button.closest('.project-card');
-    const likeCount = button.querySelector('.like-count');
-    const currentLikes = parseInt(card.getAttribute('data-likes')) || 0;
-    const isLiked = button.classList.contains('liked');
-
-    if (isLiked) {
-        card.setAttribute('data-likes', Math.max(0, currentLikes - 1));
-        likeCount.textContent = Math.max(0, currentLikes - 1);
-        button.classList.remove('liked');
-    } else {
-        card.setAttribute('data-likes', currentLikes + 1);
-        likeCount.textContent = currentLikes + 1;
-        button.classList.add('liked');
     }
-}
-
-function toggleFeatured(button) {
-    const card = button.closest('.project-card');
-    const isFeatured = card.getAttribute('data-featured') === 'true';
-
-    card.setAttribute('data-featured', !isFeatured);
-    button.classList.toggle('active');
-
-    updateFilterCounts();
-
-    const activeFilter = document.querySelector('.filter-btn.active');
-    if (activeFilter && activeFilter.getAttribute('data-filter') === 'destacados') {
-        filterProjects('destacados');
-    }
-}
+});
