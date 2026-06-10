@@ -98,13 +98,13 @@
 
 .fide-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px var(--accent);
+    box-shadow: var(--shadow-glow);
 }
 
 /* Experience Section */
 .experience-section {
     padding: 80px 20px;
-    background-color: var(--bg-primary);
+    background-color: var(--primary-dark);
 }
 
 .experience-container {
@@ -124,7 +124,7 @@
     transform: translateX(-50%);
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, var(--accent), rgba(138, 92, 247, 0.2));
+    background: linear-gradient(180deg, var(--accent), var(--accent-transparent));
 }
 
 .timeline-item {
@@ -151,16 +151,16 @@
 
 .timeline-item.current::after {
     background-color: var(--accent);
-    box-shadow: 0 0 0 4px rgba(138, 92, 247, 0.3);
+    box-shadow: 0 0 0 4px var(--accent-soft);
     animation: pulse 2s ease-in-out infinite;
 }
 
 @keyframes pulse {
     0%, 100% {
-        box-shadow: 0 0 0 4px rgba(138, 92, 247, 0.3);
+        box-shadow: 0 0 0 4px var(--accent-soft);
     }
     50% {
-        box-shadow: 0 0 0 8px rgba(138, 92, 247, 0.1);
+        box-shadow: 0 0 0 8px var(--accent-transparent);
     }
 }
 
@@ -185,15 +185,15 @@
 .timeline-content {
     background-color: var(--secondary-dark);
     padding: 1.5rem;
-    border-radius: 12px;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--dur-base) var(--ease-out);
 }
 
 .timeline-content:hover {
-    border-color: var(--accent);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(138, 92, 247, 0.2);
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
 }
 
 .timeline-content h3 {
@@ -237,7 +237,7 @@
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: var(--fs-h2);
     font-weight: 700;
     margin-bottom: 1rem;
     background-clip: text;
@@ -259,10 +259,10 @@
 .topic-card {
     background-color: var(--secondary-dark);
     padding: 2.5rem;
-    border-radius: 16px;
+    border-radius: var(--radius-md);
     text-align: center;
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s var(--ease-out);
+    border: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
 }
@@ -274,10 +274,10 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background: linear-gradient(90deg, var(--accent), #b967db);
+    background: linear-gradient(90deg, var(--accent), var(--accent-highlight));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s var(--ease-out);
 }
 
 .topic-card:hover::before {
@@ -285,13 +285,20 @@
 }
 
 .topic-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px var(--accent);
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-1), var(--shadow-glow);
 }
 
 .topic-icon {
-    font-size: 3rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--accent-soft);
+    font-size: 2rem;
     color: var(--accent);
     margin-bottom: 1.5rem;
 }
@@ -311,13 +318,13 @@
 /* CTA Section */
 .cta-section {
     padding: 80px 20px;
-    background: linear-gradient(135deg, var(--accent), #b967db);
+    background: linear-gradient(135deg, var(--accent), var(--accent-highlight));
     text-align: center;
     color: white;
 }
 
 .cta-section h2 {
-    font-size: 2.5rem;
+    font-size: var(--fs-h2);
     font-weight: 700;
     margin-bottom: 1rem;
     text-shadow: 0 2px 4px rgba(0,0,0,0.2);
@@ -353,7 +360,7 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(138, 92, 247, 0.2), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-transparent), transparent);
     transition: left 0.5s ease;
 }
 
@@ -427,18 +434,6 @@
     }
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-}
+/* El fade-in por scroll vive en style.css (IntersectionObserver + .active).
+   Acá había una animación duplicada que lo pisaba y hacía visible todo
+   de inmediato; se eliminó en la v2. */
