@@ -1218,8 +1218,8 @@ footer {
     padding: 80px 20px;
     background-color: var(--secondary-dark);
     text-align: center;
-    border-top: 1px solid rgba(138, 92, 247, 0.15);
-    border-bottom: 1px solid rgba(138, 92, 247, 0.15);
+    border-top: 1px solid var(--accent-soft);
+    border-bottom: 1px solid var(--accent-soft);
 }
 
 .cta-boceto-container {
@@ -1241,7 +1241,7 @@ footer {
 }
 
 .cta-boceto-section h2 {
-    font-size: 2.2rem;
+    font-size: var(--fs-h2);
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: 0.75rem;
@@ -1265,7 +1265,7 @@ footer {
     border-radius: 50px;
     font-weight: 700;
     font-size: 1.05rem;
-    box-shadow: 0 8px 24px rgba(138, 92, 247, 0.35);
+    box-shadow: var(--shadow-glow);
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
@@ -1288,7 +1288,7 @@ footer {
 
 .cta-boceto-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 32px rgba(138, 92, 247, 0.5);
+    box-shadow: 0 12px 32px var(--border-hover);
 }
 
 .cta-boceto-btn svg {
@@ -1911,7 +1911,8 @@ footer {
         scroll-behavior: auto !important;
     }
 
-    .fade-in {
+    .fade-in,
+    .pricing-card {
         opacity: 1 !important;
         transform: none !important;
     }

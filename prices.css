@@ -16,7 +16,7 @@
 }
 
 .pricing-intro h2 {
-    font-size: 2.5rem;
+    font-size: var(--fs-h2);
     margin-bottom: 1rem;
     color: var(--text-primary);
 }
@@ -38,12 +38,20 @@
 
 .pricing-card {
     background-color: var(--secondary-dark);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     padding: 2.5rem;
     position: relative;
-    transition: all 0.4s ease;
-    border: 2px solid transparent;
+    transition: all 0.4s var(--ease-out);
+    border: 1px solid var(--border-subtle);
     overflow: hidden;
+    /* Entrada: main.js agrega .visible al entrar en viewport */
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.pricing-card.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .pricing-card::before {
@@ -53,44 +61,34 @@
     left: 0;
     width: 100%;
     height: 4px;
-    background: linear-gradient(90deg, var(--accent), #b967db);
+    background: linear-gradient(90deg, var(--accent), var(--accent-highlight));
     transform: scaleX(0);
     transform-origin: left;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s var(--ease-out);
 }
 
 .pricing-card:hover::before {
     transform: scaleX(1);
 }
 
-.pricing-card:hover {
-    transform: translateY(-10px);
-    border-color: var(--accent);
-    box-shadow: 0 20px 40px var(--accent);
+.pricing-card.visible:hover {
+    transform: translateY(-6px);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-1), var(--shadow-glow);
+}
+
+.pricing-card:hover .pricing-btn {
+    transform: translateY(-3px);
 }
 
 .pricing-card.featured {
-    border-color: var(--accent);
-    background: linear-gradient(135deg, var(--secondary-dark) 0%, rgba(138, 92, 247, 0.05) 100%);
+    border-color: var(--border-hover);
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--accent-transparent) 100%);
 }
 
 .pricing-card.featured::before {
     transform: scaleX(1);
     height: 6px;
-}
-
-.popular-badge {
-    position: absolute;
-    top: -12px;
-    right: 20px;
-    background: linear-gradient(45deg, var(--accent), #b967db);
-    color: var(--primary-dark);
-    padding: 0.5rem 1.5rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .pricing-header {
@@ -201,7 +199,7 @@
 
 .pricing-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 0 25px var(--accent);
+    box-shadow: var(--shadow-glow);
 }
 
 .pricing-btn.secondary {
@@ -219,7 +217,7 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: rgba(138, 92, 247, 0.1);
+    background-color: var(--accent-soft);
     color: var(--accent);
     padding: 0.4rem 1rem;
     border-radius: 20px;
@@ -229,98 +227,6 @@
 
 .time-icon {
     font-size: 0.9rem;
-}
-
-/* Estilos para la oferta especial */
-.special-offer {
-    background: linear-gradient(135deg, var(--accent), var(--accent));
-    color: var(--primary-dark);
-    text-align: center;
-    padding: 1.5rem;
-    margin-bottom: 3rem;
-    border-radius: 3px;
-    position: relative;
-    overflow: hidden;
-    animation: pulse-glow 3s ease-in-out infinite;
-}
-
-@keyframes pulse-glow {
-    0%, 100% {
-        box-shadow: 0 10px 30px var(--accent);
-    }
-    50% {
-        box-shadow: 0 15px 40px var(--accent);
-    }
-}
-
-.special-offer::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    animation: shine 4s ease-in-out infinite;
-}
-
-@keyframes shine {
-    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-    50% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-    100% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-}
-
-.offer-content {
-    position: relative;
-    z-index: 2;
-}
-
-.offer-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-}
-
-.offer-subtitle {
-    font-size: 1rem;
-    opacity: 0.9;
-    margin-bottom: 1rem;
-}
-
-.counter-icon {
-    font-size: 1rem;
-}
-
-/* Estilos para mostrar el precio original tachado */
-.price-original {
-    text-decoration: line-through;
-    opacity: 0.6;
-    font-size: 1.5rem;
-    color: var(--text-secondary);
-    margin-right: 0.5rem;
-}
-
-.price-discount {
-    background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
-    color: white;
-    padding: 0.2rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-left: 0.5rem;
-    animation: bounce 2s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {
-        transform: translateY(0);
-    }
-    40% {
-        transform: translateY(-8px);
-    }
-    60% {
-        transform: translateY(-4px);
-    }
 }
 
 /* Responsive */

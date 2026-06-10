@@ -168,38 +168,17 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // ── Animación escalonada de tarjetas de precios ───────────────────────────
+    // ── Entrada escalonada de tarjetas de precios (estilos en prices.css) ─────
     const pricingObserver = new IntersectionObserver((entries) => {
         entries.forEach((entry, index) => {
             if (entry.isIntersecting) {
-                setTimeout(() => {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }, index * 200);
+                setTimeout(() => entry.target.classList.add('visible'), index * 200);
+                pricingObserver.unobserve(entry.target);
             }
         });
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-    document.querySelectorAll('.pricing-card').forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        pricingObserver.observe(card);
-
-        card.addEventListener('mouseenter', () => {
-            card.querySelector('.pricing-btn').style.transform = 'translateY(-3px)';
-        });
-        card.addEventListener('mouseleave', () => {
-            card.querySelector('.pricing-btn').style.transform = 'translateY(0)';
-        });
-    });
-
-    // ── Typewriter ────────────────────────────────────────────────────────────
-    const typewriterElement = document.getElementById('typewriter');
-    if (typewriterElement) {
-        typewriterElement.textContent = 'Diseño Web Profesional';
-        typewriterElement.classList.add('typing');
-    }
+    document.querySelectorAll('.pricing-card').forEach(card => pricingObserver.observe(card));
 
     // ── Filtros de proyectos ──────────────────────────────────────────────────
     updateFilterCounts();
