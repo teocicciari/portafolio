@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const themeButtons = document.querySelectorAll('.theme-btn');
 
-    // Determinar vista inicial desde el hash de la URL
-    const hash = window.location.hash;
-    const initialView = hash === '#chess' ? 'chess' : hash === '#design' ? 'design' : 'home';
+    // Vista inicial: #chess abre ajedrez, cualquier otro hash cae en diseño
+    // (sin pisar el hash, para que el navegador scrollee a anclas como #projects)
+    const initialView = window.location.hash === '#chess' ? 'chess' : 'design';
     activateView(initialView);
 
     // Botones del switcher (design / chess)
@@ -18,28 +18,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Paneles de la vista home
-    document.querySelectorAll('[data-goto]').forEach(panel => {
-        panel.addEventListener('click', function() {
-            const view = this.dataset.goto;
-            window.scrollTo({ top: 0 });
-            history.replaceState(null, '', '#' + view);
-            activateView(view);
-        });
-        panel.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') this.click();
-        });
-    });
-
-    // Clic en logo/foto vuelve al home
+    // Clic en logo/foto vuelve al inicio del portfolio de diseño
     const goHome = document.getElementById('go-home');
     if (goHome) {
         goHome.addEventListener('click', function() {
-            const currentView = document.querySelector('.view.active')?.id;
-            if (currentView === 'view-home') return;
             window.scrollTo({ top: 0 });
-            history.replaceState(null, '', location.pathname);
-            activateView('home');
+            history.replaceState(null, '', '#design');
+            activateView('design');
         });
         goHome.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') this.click();
@@ -48,12 +33,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function activateView(view) {
         const isChess = view === 'chess';
-        const isHome = view === 'home';
         const theme = isChess ? 'forest' : 'default';
 
         // Aplicar tema al body
-        document.body.classList.remove('theme-default', 'theme-ocean', 'theme-forest');
-        if (!isHome && theme !== 'default') {
+        document.body.classList.remove('theme-default', 'theme-forest');
+        if (theme !== 'default') {
             document.body.classList.add('theme-' + theme);
         }
 
@@ -62,39 +46,27 @@ document.addEventListener('DOMContentLoaded', function() {
             v.classList.toggle('active', v.id === 'view-' + view);
         });
 
-        // Alternar nav-links (ocultar en home)
+        // Alternar nav-links
         document.querySelectorAll('.nav-links[data-view]').forEach(nl => {
-            nl.classList.toggle('active', !isHome && nl.dataset.view === view);
+            nl.classList.toggle('active', nl.dataset.view === view);
         });
 
         // Alternar footer links
         document.querySelectorAll('.footer-links[data-view]').forEach(fl => {
-            fl.classList.toggle('active', !isHome && fl.dataset.view === view);
+            fl.classList.toggle('active', fl.dataset.view === view);
         });
 
-        // Botón de contacto: ocultar en home
+        // Botón de contacto: WhatsApp en ajedrez, ancla en diseño
         const contactBtn = document.getElementById('main-contact-btn');
         if (contactBtn) {
-            contactBtn.style.display = isHome ? 'none' : '';
             contactBtn.href = isChess
                 ? 'https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez.'
                 : '#contact';
         }
 
-        // Header y footer: ocultar en home
-        const header = document.querySelector('header');
-        const footer = document.querySelector('footer');
-        if (header) header.style.display = isHome ? 'none' : '';
-        if (footer) footer.style.display = isHome ? 'none' : '';
-
-        // Switcher: ocultar en home, mostrar en design/chess
-        document.querySelectorAll('.theme-switcher').forEach(s => {
-            s.style.display = isHome ? 'none' : '';
-        });
-
         // Actualizar botón activo del theme switcher
         themeButtons.forEach(btn => {
-            btn.classList.toggle('active', !isHome && btn.dataset.theme === theme);
+            btn.classList.toggle('active', btn.dataset.theme === theme);
         });
 
         // Actualizar título de la página
@@ -103,8 +75,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             document.title = isChess
                 ? 'Clases de Ajedrez | Teo Cicciari'
-                : isHome
-                ? 'Teo Cicciari | Diseñador Web & Profesor de Ajedrez'
                 : 'Teo Cicciari | Diseñador Web';
         }
     }

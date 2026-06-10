@@ -199,16 +199,7 @@
             'footer.copyright': '© 2025 · Teo Cicciari · Diseñador Web & Profesor de Ajedrez · Todos los derechos reservados',
             'footer.privacy': 'Política de Privacidad',
             'footer.terms': 'Términos y Condiciones',
-            // Home landing
-            'home.tagline': '¿Qué te trae por acá?',
-            'home.design.title': 'Diseñador Web',
-            'home.design.desc': 'Portfolio de proyectos, precios y contacto',
-            'home.design.cta': 'Ver portfolio →',
-            'home.chess.title': 'Profesor de Ajedrez',
-            'home.chess.desc': 'Clases para todos los niveles, FIDE 1979',
-            'home.chess.cta': 'Ver clases →',
             // Page titles
-            'page.title.home': 'Teo Cicciari | Diseñador Web & Profesor de Ajedrez',
             'page.title.design': 'Teo Cicciari | Diseñador Web',
             'page.title.chess': 'Clases de Ajedrez | Teo Cicciari',
         },
@@ -411,16 +402,7 @@
             'footer.copyright': '© 2025 · Teo Cicciari · Web Designer & Chess Teacher · All rights reserved',
             'footer.privacy': 'Privacy Policy',
             'footer.terms': 'Terms and Conditions',
-            // Home landing
-            'home.tagline': "What brings you here?",
-            'home.design.title': 'Web Designer',
-            'home.design.desc': 'Portfolio of projects, pricing and contact',
-            'home.design.cta': 'View portfolio →',
-            'home.chess.title': 'Chess Teacher',
-            'home.chess.desc': 'Lessons for all levels, FIDE 1979',
-            'home.chess.cta': 'View lessons →',
             // Page titles
-            'page.title.home': 'Teo Cicciari | Web Designer & Chess Teacher',
             'page.title.design': 'Teo Cicciari | Web Designer',
             'page.title.chess': 'Chess Lessons | Teo Cicciari',
         }
@@ -450,8 +432,7 @@
         });
 
         const isChess = document.getElementById('view-chess')?.classList.contains('active');
-        const isHome = document.getElementById('view-home')?.classList.contains('active');
-        document.title = isChess ? t['page.title.chess'] : isHome ? t['page.title.home'] : t['page.title.design'];
+        document.title = isChess ? t['page.title.chess'] : t['page.title.design'];
     }
 
     document.addEventListener('DOMContentLoaded', function () {
