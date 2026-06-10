@@ -213,6 +213,22 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
+    // ── Menú hamburguesa (mobile/tablet) ──────────────────────────────────────
+    const navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+        const header = document.querySelector('header');
+        navToggle.addEventListener('click', () => {
+            const open = header.classList.toggle('menu-open');
+            navToggle.setAttribute('aria-expanded', open);
+        });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                header.classList.remove('menu-open');
+                navToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    }
+
     // ── Ocultar nav al bajar, mostrar al subir ────────────────────────────────
     let lastScroll = 0;
     const navHeader = document.querySelector('header');
@@ -220,6 +236,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const current = window.scrollY;
         if (current > lastScroll && current > 80) {
             navHeader.classList.add('nav-hidden');
+            navHeader.classList.remove('menu-open');
+            if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
         } else {
             navHeader.classList.remove('nav-hidden');
         }

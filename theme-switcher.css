@@ -20,6 +20,8 @@ nav .theme-switcher {
         background-color: var(--primary-dark);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding: 0.5rem 1rem 0.6rem;
+        /* Despegarla del header fijo: sin esto queda oculta detrás */
+        margin-top: 82px;
     }
 }
 
