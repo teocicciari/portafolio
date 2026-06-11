@@ -146,6 +146,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ── Animaciones fade-in con IntersectionObserver ─────────────────────────
+    // threshold 0 + rootMargin: dispara cuando el elemento asoma 60px en el
+    // viewport. Con threshold porcentual, los elementos más altos que la
+    // pantalla (ej. la grilla de proyectos en mobile) no se activaban nunca.
     const fadeObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -153,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 fadeObserver.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.25 });
+    }, { threshold: 0, rootMargin: '0px 0px -60px 0px' });
 
     document.querySelectorAll('.fade-in').forEach(el => {
         // Lo que ya está en viewport se muestra de inmediato (mejora LCP);
