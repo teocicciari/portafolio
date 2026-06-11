@@ -20,8 +20,9 @@ nav .theme-switcher {
         background-color: var(--primary-dark);
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding: 0.5rem 1rem 0.6rem;
-        /* Despegarla del header fijo: sin esto queda oculta detrás */
-        margin-top: 82px;
+        /* Despegarla del header fijo: sin esto queda oculta detrás.
+           Debe coincidir con la altura del header (~70px en mobile). */
+        margin-top: 72px;
     }
 }
 
@@ -150,6 +151,7 @@ nav .theme-switcher {
 /* Compactar la barra en pantallas chicas para que los tres botones
    entren en una sola fila y no haya reflow */
 @media (max-width: 470px) {
+
     .theme-btn {
         padding: 0.45rem 0.6rem;
         gap: 0.35rem;
