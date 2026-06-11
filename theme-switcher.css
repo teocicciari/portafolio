@@ -10,8 +10,9 @@ nav .theme-switcher {
     margin-top: -20px;
 }
 
-/* Mobile: ocultar switcher dentro del nav */
-@media (max-width: 768px) {
+/* Mobile y tablet (≤1024px, donde los nav-links se reemplazan por la
+   hamburguesa): el switcher sale del nav y va como barra bajo el header */
+@media (max-width: 1024px) {
     nav .theme-switcher {
         display: none;
     }
@@ -21,13 +22,13 @@ nav .theme-switcher {
         border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         padding: 0.5rem 1rem 0.6rem;
         /* Despegarla del header fijo: sin esto queda oculta detrás.
-           Debe coincidir con la altura del header (~70px en mobile). */
+           Debe coincidir con la altura del header (~70px ≤1024px). */
         margin-top: 72px;
     }
 }
 
 /* Desktop: ocultar el switcher mobile externo */
-@media (min-width: 769px) {
+@media (min-width: 1025px) {
     .theme-switcher-mobile {
         display: none;
     }
