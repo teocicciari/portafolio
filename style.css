@@ -491,12 +491,34 @@ h1 {
     background-clip: text;
 }
 
-/* Entrada escalonada del hero (el IntersectionObserver agrega .active) */
-.hero-content > .fade-in:nth-child(2) { transition-delay: 0.08s; }
-.hero-content > .fade-in:nth-child(3) { transition-delay: 0.16s; }
-.hero-content > .fade-in:nth-child(4) { transition-delay: 0.24s; }
-.hero-content > .fade-in:nth-child(5) { transition-delay: 0.32s; }
-.hero-content > .fade-in:nth-child(6) { transition-delay: 0.4s; }
+/* Entrada del hero: animación CSS pura, no espera al JS diferido.
+   fill both: visible al terminar aunque .js .fade-in lo oculte.
+   El h1 (elemento LCP) queda excluido: pinta de inmediato. */
+.hero .fade-in:not(h1) {
+    animation: heroIn 0.8s var(--ease-out) both;
+}
+
+.js .hero h1.fade-in {
+    opacity: 1;
+    transform: none;
+}
+
+@keyframes heroIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content > .fade-in:nth-child(2) { animation-delay: 0.08s; }
+.hero-content > .fade-in:nth-child(3) { animation-delay: 0.16s; }
+.hero-content > .fade-in:nth-child(4) { animation-delay: 0.24s; }
+.hero-content > .fade-in:nth-child(5) { animation-delay: 0.32s; }
+.hero-content > .fade-in:nth-child(6) { animation-delay: 0.4s; }
 
 .hero p {
     color: var(--text-secondary);
@@ -1596,14 +1618,19 @@ footer {
     filter: grayscale(0%) contrast(1);
 }
 
-/* Animación para entrada */
+/* Animación de entrada por scroll. El estado oculto solo aplica si hay
+   JS (html.js, seteado por el inline script del <head>) — sin JS todo
+   el contenido queda visible. */
 .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
     transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-.fade-in.active {
+.js .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.js .fade-in.active {
     opacity: 1;
     transform: translateY(0);
 }

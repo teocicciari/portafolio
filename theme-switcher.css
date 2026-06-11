@@ -57,6 +57,12 @@ nav .theme-switcher {
     opacity: 0.7;
     transition: opacity 0.2s ease;
     flex-shrink: 0;
+    /* Ancho reservado: el <i> vacío mide 0 hasta que Font Awesome lo
+       convierte en SVG; sin esto los botones crecen al cargar FA y
+       la barra se reacomoda (layout shift) */
+    display: inline-block;
+    width: 1.25em;
+    text-align: center;
 }
 
 .theme-btn-title {
@@ -95,11 +101,14 @@ nav .theme-switcher {
 }
 
 
-/* View switching */
+/* View switching. La animación solo corre al cambiar de vista
+   (.anim-in la agrega theme-switcher.js), no en la carga inicial —
+   animar la vista entera al cargar retrasa el LCP. */
 .view { display: none; }
-.view.active {
-    display: block;
-    animation: viewIn 0.4s ease forwards;
+.view.active { display: block; }
+
+.view.anim-in {
+    animation: viewIn 0.4s ease;
 }
 
 @keyframes viewIn {
@@ -138,13 +147,24 @@ nav .theme-switcher {
     }
 }
 
+/* Compactar la barra en pantallas chicas para que los tres botones
+   entren en una sola fila y no haya reflow */
 @media (max-width: 470px) {
     .theme-btn {
-        padding: 0.6rem 1rem;
+        padding: 0.45rem 0.6rem;
+        gap: 0.35rem;
     }
 
-    .theme-btn-sub {
-        font-size: 0.7rem;
+    .theme-btn-title {
+        font-size: 0.76rem;
+    }
+
+    .lang-btn {
+        padding: 0.55rem 0.8rem;
+    }
+
+    .theme-options {
+        gap: 0.35rem;
     }
 }
 

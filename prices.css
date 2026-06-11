@@ -44,12 +44,16 @@
     transition: all 0.4s var(--ease-out);
     border: 1px solid var(--border-subtle);
     overflow: hidden;
-    /* Entrada: main.js agrega .visible al entrar en viewport */
+}
+
+/* Entrada: main.js agrega .visible al entrar en viewport.
+   Solo se oculta si hay JS (html.js). */
+.js .pricing-card {
     opacity: 0;
     transform: translateY(30px);
 }
 
-.pricing-card.visible {
+.js .pricing-card.visible {
     opacity: 1;
     transform: translateY(0);
 }

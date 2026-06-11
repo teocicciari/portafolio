@@ -155,7 +155,15 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }, { threshold: 0.25 });
 
-    document.querySelectorAll('.fade-in').forEach(el => fadeObserver.observe(el));
+    document.querySelectorAll('.fade-in').forEach(el => {
+        // Lo que ya está en viewport se muestra de inmediato (mejora LCP);
+        // el resto anima al entrar en pantalla
+        if (el.getBoundingClientRect().top < window.innerHeight) {
+            el.classList.add('active');
+        } else {
+            fadeObserver.observe(el);
+        }
+    });
 
     // ── FAQ accordion ─────────────────────────────────────────────────────────
     document.querySelectorAll('.faq-item').forEach(item => {

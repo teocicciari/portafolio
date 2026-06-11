@@ -2,9 +2,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const themeButtons = document.querySelectorAll('.theme-btn');
 
     // Vista inicial: #chess abre ajedrez, cualquier otro hash cae en diseño
-    // (sin pisar el hash, para que el navegador scrollee a anclas como #projects)
+    // (sin pisar el hash, para que el navegador scrollee a anclas como #projects).
+    // Sin animación: animar la vista al cargar retrasa el primer pintado.
     const initialView = window.location.hash === '#chess' ? 'chess' : 'design';
-    activateView(initialView);
+    activateView(initialView, false);
 
     // Botones del switcher (design / chess)
     themeButtons.forEach(button => {
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (currentView === 'view-' + view) return;
             window.scrollTo({ top: 0 });
             history.replaceState(null, '', '#' + view);
-            activateView(view);
+            activateView(view, true);
         });
     });
 
@@ -24,14 +25,14 @@ document.addEventListener('DOMContentLoaded', function() {
         goHome.addEventListener('click', function() {
             window.scrollTo({ top: 0 });
             history.replaceState(null, '', '#design');
-            activateView('design');
+            activateView('design', false);
         });
         goHome.addEventListener('keydown', function(e) {
             if (e.key === 'Enter' || e.key === ' ') this.click();
         });
     }
 
-    function activateView(view) {
+    function activateView(view, animate) {
         const isChess = view === 'chess';
         const theme = isChess ? 'forest' : 'default';
 
@@ -41,9 +42,15 @@ document.addEventListener('DOMContentLoaded', function() {
             document.body.classList.add('theme-' + theme);
         }
 
-        // Alternar vistas
+        // Alternar vistas (con animación solo al cambiar, no al cargar)
         document.querySelectorAll('.view').forEach(v => {
-            v.classList.toggle('active', v.id === 'view-' + view);
+            const on = v.id === 'view-' + view;
+            v.classList.toggle('active', on);
+            v.classList.remove('anim-in');
+            if (on && animate) {
+                void v.offsetWidth; // reinicia la animación
+                v.classList.add('anim-in');
+            }
         });
 
         // Alternar nav-links

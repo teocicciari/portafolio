@@ -19,7 +19,7 @@
             'theme.design.title': 'Diseñador Web',
             'theme.design.subtitle': 'Portfolio · Proyectos · Precios',
             'theme.chess.title': 'Profesor de Ajedrez',
-            'theme.chess.subtitle': 'Clases · Experiencia · FIDE 1979',
+            'theme.chess.subtitle': 'Clases · Experiencia · FIDE 1987',
             // Hero
             'hero.title': 'Diseño Web Profesional',
             'hero.subtitle': 'Creando experiencias web que potencian tu presencia online y te destacan frente a la competencia.',
@@ -146,7 +146,7 @@
             // Chess hero
             'chess_hero.title': 'Clases de Ajedrez',
             'chess_hero.subtitle': 'Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.',
-            'chess_hero.elo': 'ELO FIDE 1979',
+            'chess_hero.elo': 'ELO FIDE 1987',
             'chess_hero.experience': '10 años enseñando',
             'chess_hero.badge': '✦ Clases personalizadas',
             'chess_hero.cta_primary': 'Reservar clase',
@@ -154,7 +154,7 @@
             // Chess about
             'chess_about.title': 'Mi Pasión por el Ajedrez',
             'chess_about.fide_btn': 'Ver mi perfil FIDE',
-            'chess_about.p1': 'Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1979 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.',
+            'chess_about.p1': 'Juego ajedrez desde los 6 o 7 años y empecé a competir a los 12 aproximadamente, desarrollé una gran pasión por el juego/ciencia: me gusta competir, enseñar y organizar torneos. Actualmente tengo <strong>1987 de Elo FIDE</strong> y estoy trabajando para superarme constantemente.',
             'chess_about.p2': 'Creo que el ajedrez, además de ser un juego súper divertido, tiene muchas habilidades y herramientas que podemos adquirir al practicarlo y estudiarlo, y que nos sirven para nuestro desarrollo.',
             'chess_about.p3': 'A lo largo de mi carrera, he tenido el privilegio de enseñar a estudiantes de todas las edades y niveles, desde principiantes hasta jugadores avanzados. Mi enfoque se centra en crear un <strong>ambiente de aprendizaje divertido y desafiante</strong>, adaptándome a las necesidades individuales de cada estudiante.',
             // Chess experience
@@ -222,7 +222,7 @@
             'theme.design.title': 'Web Designer',
             'theme.design.subtitle': 'Portfolio · Projects · Pricing',
             'theme.chess.title': 'Chess Teacher',
-            'theme.chess.subtitle': 'Lessons · Experience · FIDE 1979',
+            'theme.chess.subtitle': 'Lessons · Experience · FIDE 1987',
             // Hero
             'hero.title': 'Professional Web Design',
             'hero.subtitle': 'Building web experiences that boost your online presence and set you apart from the competition.',
@@ -349,7 +349,7 @@
             // Chess hero
             'chess_hero.title': 'Chess Lessons',
             'chess_hero.subtitle': 'Learn and improve your game with an experienced instructor. From beginner level to FIDE 1700 Elo.',
-            'chess_hero.elo': 'FIDE ELO 1979',
+            'chess_hero.elo': 'FIDE ELO 1987',
             'chess_hero.experience': '10 years teaching',
             'chess_hero.badge': '✦ Personalized lessons',
             'chess_hero.cta_primary': 'Book a class',
@@ -357,7 +357,7 @@
             // Chess about
             'chess_about.title': 'My Passion for Chess',
             'chess_about.fide_btn': 'View my FIDE profile',
-            'chess_about.p1': "I've been playing chess since I was 6 or 7 years old and started competing around the age of 12. I developed a great passion for this game/science: I love competing, teaching and organizing tournaments. I currently have <strong>FIDE Elo 1979</strong> and I'm constantly working to improve.",
+            'chess_about.p1': "I've been playing chess since I was 6 or 7 years old and started competing around the age of 12. I developed a great passion for this game/science: I love competing, teaching and organizing tournaments. I currently have <strong>FIDE Elo 1987</strong> and I'm constantly working to improve.",
             'chess_about.p2': 'I believe chess, besides being a super fun game, teaches many skills and tools that we can develop through practice and study, which serve us in our personal development.',
             'chess_about.p3': "Throughout my career, I've had the privilege of teaching students of all ages and levels, from beginners to advanced players. My approach focuses on creating a <strong>fun and challenging learning environment</strong>, adapting to each student's individual needs.",
             // Chess experience
@@ -419,12 +419,14 @@
 
         document.querySelectorAll('[data-i18n]').forEach(el => {
             const key = el.dataset.i18n;
-            if (t[key] !== undefined) el.textContent = t[key];
+            // No reescribir si no cambió: evita re-pintar todo el contenido
+            // al cargar (mejora LCP) cuando el idioma ya es el del HTML
+            if (t[key] !== undefined && el.textContent !== t[key]) el.textContent = t[key];
         });
 
         document.querySelectorAll('[data-i18n-html]').forEach(el => {
             const key = el.dataset.i18nHtml;
-            if (t[key] !== undefined) el.innerHTML = t[key];
+            if (t[key] !== undefined && el.innerHTML !== t[key]) el.innerHTML = t[key];
         });
 
         document.querySelectorAll('#lang-toggle, .lang-btn-mobile').forEach(btn => {
