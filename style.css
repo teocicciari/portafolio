@@ -145,6 +145,42 @@ nav {
 @media (max-width: 768px) {
     .nav-row-top {
         padding: 0.6rem 1rem;
+        gap: 0.5rem;
+    }
+}
+
+/* Header compacto en pantallas chicas: que avatar + nombre + botón +
+   hamburguesa entren en una sola fila sin que nada se envuelva */
+@media (max-width: 470px) {
+    .profile-img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .profile-name {
+        font-size: 0.9rem;
+    }
+
+    .contact-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .nav-toggle {
+        width: 38px;
+        height: 38px;
+        flex-shrink: 0;
+    }
+}
+
+@media (max-width: 390px) {
+    .contact-btn {
+        padding: 0.45rem 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    .profile-name {
+        font-size: 0.85rem;
     }
 }
 
@@ -188,6 +224,11 @@ nav {
     align-items: center;
     gap: 0.5rem;
     cursor: pointer;
+}
+
+.profile-name {
+    font-weight: 600;
+    white-space: nowrap;
 }
 
 .profile-img {
