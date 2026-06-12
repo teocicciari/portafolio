@@ -41,7 +41,7 @@
             'about.cta_btn': 'Trabajemos juntos',
             // Projects
             'projects.title': 'Mis Proyectos',
-            'projects.description': 'Diseños 100% personalizados, hechos a mano con código y potenciados con IA. Sin plantillas de WordPress ni constructores genéricos. Cada proyecto es único y adaptado a las necesidades específicas de cada cliente.',
+            'projects.description': 'Diseños 100% personalizados, labrados con código y estimulados con IA. Sin plantillas de WordPress ni constructores genéricos. Cada proyecto es único y adaptado a las necesidades específicas de cada cliente.',
             'projects.filter_all': 'Todos',
             'projects.filter_featured': 'Destacados',
             'projects.filter_hospedajes': 'Hospedajes',
@@ -244,7 +244,7 @@
             'about.cta_btn': "Let's work together",
             // Projects
             'projects.title': 'My Projects',
-            'projects.description': "100% custom designs, handcrafted with code and enhanced with AI. No WordPress templates or generic builders. Every project is unique and tailored to each client's specific needs.",
+            'projects.description': "100% custom designs, carved with code and stimulated by AI. No WordPress templates or generic builders. Every project is unique and tailored to each client's specific needs.",
             'projects.filter_all': 'All',
             'projects.filter_featured': 'Featured',
             'projects.filter_hospedajes': 'Accommodations',
