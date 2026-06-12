@@ -51,7 +51,7 @@
     --space-7: 64px;
     --space-8: 96px;
     --section-pad: clamp(3rem, 8vw, 6rem);
-    --container-max: 1200px;
+    --container-max: 1400px;
     --padding-border: 4rem;
 
     /* Forma y sombra */
@@ -67,18 +67,22 @@
 }
 
 /* Paleta — vista ajedrez (púrpura oscuro) */
+/* Tema ajedrez: paleta de las casillas del tablero (crema y marrón).
+   Es un tema claro: los nombres *-dark son históricos, acá guardan
+   los fondos crema y el texto pasa a marrón oscuro. */
 .theme-forest {
-    --primary-dark: #121212;
-    --secondary-dark: #1e1e1e;
-    --accent: #8a5cf7;
-    --text-primary: #fff;
-    --text-secondary: #aaa;
-    --accent-highlight: #9d75f8;
-    --accent-transparent: rgba(138, 92, 247, 0.1);
-    --border-hover: rgba(138, 92, 247, 0.45);
-    --accent-soft: rgba(138, 92, 247, 0.12);
-    --nav-bg: rgba(18, 18, 18, 0.75);
-    --shadow-glow: 0 0 40px rgba(138, 92, 247, 0.15);
+    --primary-dark: #f0d9b5;
+    --secondary-dark: #e7c998;
+    --accent: #b58863;
+    --text-primary: #2f2014;
+    --text-secondary: #6b4f38;
+    --accent-highlight: #9c6f4a;
+    --accent-transparent: rgba(181, 136, 99, 0.15);
+    --border-subtle: rgba(107, 79, 56, 0.25);
+    --border-hover: rgba(181, 136, 99, 0.65);
+    --accent-soft: rgba(181, 136, 99, 0.18);
+    --nav-bg: rgba(240, 217, 181, 0.8);
+    --shadow-glow: 0 0 40px rgba(181, 136, 99, 0.35);
 }
 
 * {
@@ -406,7 +410,7 @@ header.menu-open .nav-toggle-bar:nth-child(3) {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 28rem;
-    color: var(--secondary-dark);
+    color: var(--text-primary);
     opacity: 0.06;
     filter: none;
     pointer-events: none;
@@ -546,13 +550,20 @@ h1 {
 /* Entrada del hero: animación CSS pura, no espera al JS diferido.
    fill both: visible al terminar aunque .js .fade-in lo oculte.
    El h1 (elemento LCP) queda excluido: pinta de inmediato. */
-.hero .fade-in:not(h1) {
+.hero .fade-in:not(h1):not(.hero-icon) {
     animation: heroIn 0.8s var(--ease-out) both;
 }
 
 .js .hero h1.fade-in {
     opacity: 1;
     transform: none;
+}
+
+/* El watermark de piezas queda fuera del fade-in genérico: la animación
+   (fill both) le pisaba la opacidad 0.06 y el translate de centrado */
+.js .hero .hero-icon.fade-in {
+    opacity: 0.06;
+    transform: translate(-50%, -50%);
 }
 
 @keyframes heroIn {
@@ -725,7 +736,7 @@ h1 {
 }
 
 .skills-wrapper {
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto;
 }
 
@@ -761,7 +772,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     gap: 1rem;
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto 3rem;
 }
 
@@ -989,7 +1000,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto;
 }
 
@@ -1267,31 +1278,54 @@ footer {
     background-color: transparent;
 }
 
-/* Animación de transición de pantalla completa */
+/* Transición a la vista ajedrez: el tablerito del easter egg "se expande"
+   desde su esquina hasta cubrir la pantalla como un tablero gigante
+   (un solo elemento con el damero pintado por repeating-conic-gradient),
+   aparece el caballo, y un iris se cierra sobre él revelando la página. */
 .fullscreen-transition {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     z-index: 1000;
-    display: grid;
     pointer-events: none;
-    overflow: hidden;
-}
-
-.transition-cell {
+    background: repeating-conic-gradient(#b58863 0% 25%, #f0d9b5 25% 50%);
+    background-size: 25vmax 25vmax;
+    background-position: center;
+    transform: scale(0.02);
     opacity: 0;
-    transform: scale(0);
-    transition: all 0.5s ease;
+    clip-path: circle(75% at 50% 50%);
+    transition: transform 0.6s var(--ease-out), opacity 0.25s ease-out;
 }
 
-.light-cell {
-    background-color: #f0d9b5;
+.fullscreen-transition.cover {
+    transform: scale(1);
+    opacity: 1;
 }
 
-.dark-cell {
-    background-color: #b58863;
+.fullscreen-transition.reveal {
+    clip-path: circle(0% at 50% 50%);
+    transition: clip-path 0.65s cubic-bezier(0.55, 0, 0.3, 1);
+}
+
+/* Caballo protagonista: entra con un pequeño asentamiento de rotación
+   cuando el tablero terminó de cubrir la pantalla */
+.transition-knight {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(7rem, 24vw, 14rem);
+    line-height: 1;
+    color: #2f2014;
+    filter: drop-shadow(0 12px 30px rgba(47, 32, 20, 0.35));
+    opacity: 0;
+    transform: scale(0.6) rotate(-10deg);
+    transition: opacity 0.35s var(--ease-out), transform 0.5s var(--ease-out);
+}
+
+.transition-knight.visible {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
 }
 
 
@@ -1407,7 +1441,7 @@ footer {
 }
 
 .process-container {
-    max-width: 1100px;
+    max-width: var(--container-max);
     margin: 0 auto;
 }
 
@@ -1532,7 +1566,7 @@ footer {
     flex-wrap: wrap;
     justify-content: center;
     margin-bottom: 2.5rem;
-    max-width: 1200px;
+    max-width: var(--container-max);
     width: 100%;
 }
 
@@ -1612,7 +1646,7 @@ footer {
 }
 
 .contact-map-card {
-    max-width: 1200px;
+    max-width: var(--container-max);
     width: 100%;
     align-items: flex-start;
     padding: 2.5rem;
@@ -1782,7 +1816,7 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: var(--padding-border) auto 0;
 }
 
@@ -1886,7 +1920,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 4rem;
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto 3rem;
 }
 
@@ -1963,7 +1997,7 @@ footer {
 }
 
 .footer-bottom {
-    max-width: 1200px;
+    max-width: var(--container-max);
     margin: 0 auto;
     padding-top: 2rem;
     border-top: 1px solid rgba(255, 255, 255, 0.1);

@@ -44,69 +44,55 @@ document.addEventListener('DOMContentLoaded', function () {
         };
 
         const createFullscreenTransition = () => {
-            const transitionContainer = document.createElement('div');
-            transitionContainer.className = 'fullscreen-transition';
-
-            const cellSize = 50;
-            const columns = Math.ceil(window.innerWidth / cellSize);
-            const rows = Math.ceil(window.innerHeight / cellSize);
-
-            transitionContainer.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-            transitionContainer.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
-
-            const cells = [];
-            const totalCells = columns * rows;
-
-            for (let i = 0; i < totalCells; i++) {
-                const cell = document.createElement('div');
-                const isLight = (Math.floor(i / columns) + (i % columns)) % 2 === 0;
-                cell.className = `transition-cell ${isLight ? 'light-cell' : 'dark-cell'}`;
-                transitionContainer.appendChild(cell);
-                cells.push(cell);
+            // Con movimiento reducido no hay cortina: cambio de vista directo
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                window.location.hash = 'chess';
+                const board = document.querySelector('.chess-board');
+                if (board) board.remove();
+                chessDetail.style.color = 'var(--text-primary)';
+                chessDetail.style.opacity = '0.2';
+                chessDetail.style.transform = 'scale(1)';
+                return;
             }
 
-            document.body.appendChild(transitionContainer);
+            // El tablero gigante crece desde donde está el tablerito del
+            // easter egg (un solo elemento: damero por conic-gradient)
+            const overlay = document.createElement('div');
+            overlay.className = 'fullscreen-transition';
 
-            const centerCell = Math.floor(totalCells / 2);
-            const distances = cells.map((_, index) => {
-                const cellRow = Math.floor(index / columns);
-                const cellCol = index % columns;
-                const centerRow = Math.floor(centerCell / columns);
-                const centerCol = centerCell % columns;
-                return Math.abs(cellRow - centerRow) + Math.abs(cellCol - centerCol);
-            });
+            const origin = chessDetail.getBoundingClientRect();
+            const ox = ((origin.left + origin.width / 2) / window.innerWidth) * 100;
+            const oy = ((origin.top + origin.height / 2) / window.innerHeight) * 100;
+            overlay.style.transformOrigin = ox.toFixed(1) + '% ' + oy.toFixed(1) + '%';
 
-            const sortedIndices = [...Array(totalCells).keys()].sort((a, b) => distances[a] - distances[b]);
+            const knight = document.createElement('div');
+            knight.className = 'transition-knight';
+            knight.textContent = '♞';
+            overlay.appendChild(knight);
+            document.body.appendChild(overlay);
 
-            let delay = 0;
-            const delayIncrement = 5;
+            // Doble rAF: el estado inicial tiene que pintarse antes de animar
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                overlay.classList.add('cover');
+            }));
 
-            sortedIndices.forEach(index => {
-                setTimeout(() => {
-                    cells[index].style.opacity = '1';
-                    cells[index].style.transform = 'scale(1)';
-                }, delay);
-                delay += delayIncrement;
-            });
+            // El caballo se asienta cuando el tablero cubrió la pantalla
+            setTimeout(() => knight.classList.add('visible'), 500);
 
+            // Cambiar la vista debajo del tablero
             setTimeout(() => {
-                // Activar la vista ajedrez vía hash (theme-switcher.js escucha hashchange)
                 window.location.hash = 'chess';
 
-                setTimeout(() => {
-                    transitionContainer.remove();
+                const chessBoard = document.querySelector('.chess-board');
+                if (chessBoard) chessBoard.remove();
+                chessDetail.style.color = 'var(--text-primary)';
+                chessDetail.style.opacity = '0.2';
+                chessDetail.style.transform = 'scale(1)';
+            }, 1000);
 
-                    const chessBoard = document.querySelector('.chess-board');
-                    if (chessBoard) {
-                        chessBoard.classList.remove('active');
-                        setTimeout(() => chessBoard.remove(), 300);
-                    }
-
-                    chessDetail.style.color = 'var(--text-primary)';
-                    chessDetail.style.opacity = '0.2';
-                    chessDetail.style.transform = 'scale(1)';
-                }, 500);
-            }, delay + 500);
+            // Iris que se cierra sobre el caballo y revela la página
+            setTimeout(() => overlay.classList.add('reveal'), 1250);
+            setTimeout(() => overlay.remove(), 2100);
         };
 
         chessDetail.addEventListener('click', function (event) {
