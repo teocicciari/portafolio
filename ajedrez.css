@@ -1,5 +1,26 @@
 /* Chess Page Styles */
 
+/* Botón Profesor de Ajedrez: estilo propio en tema forest */
+.theme-forest .chess-btn {
+    background-color: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.theme-forest .chess-btn .theme-btn-title {
+    color: var(--accent);
+}
+
+.chess-btn:not(.active) {
+    border: 2px solid var(--accent);
+    padding: 0.5rem 0.9rem;
+    gap: 0.5rem;
+}
+
+.chess-btn:hover {
+    background-color: var(--accent-soft);
+    box-shadow: var(--shadow-glow);
+}
 
 .hero-stats {
     display: flex;
