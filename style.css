@@ -747,6 +747,10 @@ h1 {
     position: relative;
 }
 
+.projects > .section-title {
+    margin-bottom: 3rem;
+}
+
 .section-title::after {
     content: '';
     position: absolute;
