@@ -721,7 +721,7 @@ h1 {
 
 .skills-section {
     padding: var(--padding-border) var(--padding-border);
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
 }
 
 .skills-wrapper {
@@ -1298,7 +1298,7 @@ footer {
 /* CTA Boceto Gratuito Section */
 .cta-boceto-section {
     padding: 80px 20px;
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     text-align: center;
     border-top: 1px solid var(--accent-soft);
     border-bottom: 1px solid var(--accent-soft);
@@ -1403,7 +1403,7 @@ footer {
 /* Cómo trabajo Section */
 .process-section {
     padding: 80px 20px;
-    background-color: var(--primary-dark);
+    background-color: var(--secondary-dark);
 }
 
 .process-container {
@@ -1775,7 +1775,7 @@ footer {
 
 /* Estilos para la sección FAQ */
 .faq-section {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
 }
 
 .faq-container {
