@@ -162,6 +162,10 @@ nav {
     .nav-row-top {
         padding: 0.6rem 1rem;
     }
+
+    .contact-btn {
+        display: none;
+    }
 }
 
 /* Header compacto en pantallas chicas: que avatar + nombre + botón +
