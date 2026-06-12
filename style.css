@@ -994,7 +994,7 @@ h1 {
 }
 
 .project-card {
-    background-color: var(--secondary-dark);
+    background-color: var(--primary-dark);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md);
     overflow: hidden;
