@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             setTimeout(() => {
-                // Activar la vista ajedrez usando el mecanismo existente del theme-switcher
-                document.querySelector('.theme-btn[data-theme="forest"]').click();
+                // Activar la vista ajedrez vía hash (theme-switcher.js escucha hashchange)
+                window.location.hash = 'chess';
 
                 setTimeout(() => {
                     transitionContainer.remove();

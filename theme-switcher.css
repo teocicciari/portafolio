@@ -1,107 +1,5 @@
-/* Selector de vistas (diseño ↔ ajedrez).
+/* Cambio de vista (diseño ↔ ajedrez) por hash, sin botones dedicados.
    Las variables de tema viven en el :root de style.css. */
-.theme-switcher {
-    display: flex;
-    justify-content: center;
-    padding: 0.5rem var(--padding-border) 0.6rem;
-}
-
-nav .theme-switcher {
-    margin-top: -20px;
-}
-
-/* Mobile y tablet (≤1024px, donde los nav-links se reemplazan por la
-   hamburguesa): el switcher sale del nav y va como barra bajo el header */
-@media (max-width: 1024px) {
-    nav .theme-switcher {
-        display: none;
-    }
-    .theme-switcher-mobile {
-        display: flex;
-        background-color: var(--primary-dark);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 0.5rem 1rem 0.6rem;
-        /* Despegarla del header fijo: sin esto queda oculta detrás.
-           Debe coincidir con la altura del header (~70px ≤1024px). */
-        margin-top: 72px;
-    }
-}
-
-/* Desktop: ocultar el switcher mobile externo */
-@media (min-width: 1025px) {
-    .theme-switcher-mobile {
-        display: none;
-    }
-}
-
-.theme-options {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-}
-
-.theme-btn {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    padding: 0.5rem 0.9rem;
-    cursor: pointer;
-    color: var(--text-secondary);
-    transition: all 0.2s ease;
-    white-space: nowrap;
-}
-
-.theme-btn-icon {
-    font-size: 1rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    flex-shrink: 0;
-    /* Ancho reservado: el <i> vacío mide 0 hasta que Font Awesome lo
-       convierte en SVG; sin esto los botones crecen al cargar FA y
-       la barra se reacomoda (layout shift) */
-    display: inline-block;
-    width: 1.25em;
-    text-align: center;
-}
-
-.theme-btn-title {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    line-height: 1;
-}
-
-.theme-btn:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.2);
-}
-
-.theme-btn:hover .theme-btn-icon {
-    opacity: 1;
-}
-
-.theme-btn.active {
-    border-color: var(--border-hover);
-    background-color: var(--accent-soft);
-}
-
-.theme-btn.active .theme-btn-icon {
-    opacity: 1;
-    color: var(--accent);
-}
-
-.theme-btn.active .theme-btn-title {
-    color: var(--accent);
-}
-
-.theme-btn.active .theme-btn-sub {
-    color: var(--accent);
-    opacity: 0.7;
-}
-
 
 /* View switching. La animación solo corre al cambiar de vista
    (.anim-in la agrega theme-switcher.js), no en la carga inicial —
@@ -137,37 +35,10 @@ nav .theme-switcher {
     }
 }
 
-@media (max-width: 768px) {
-    .theme-switcher {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .theme-options {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-}
-
-/* Compactar la barra en pantallas chicas para que los tres botones
-   entren en una sola fila y no haya reflow */
+/* Botón de idioma compacto en pantallas chicas */
 @media (max-width: 470px) {
-
-    .theme-btn {
-        padding: 0.45rem 0.6rem;
-        gap: 0.35rem;
-    }
-
-    .theme-btn-title {
-        font-size: 0.76rem;
-    }
-
     .lang-btn {
         padding: 0.55rem 0.8rem;
-    }
-
-    .theme-options {
-        gap: 0.35rem;
     }
 }
 

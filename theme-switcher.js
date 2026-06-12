@@ -1,22 +1,20 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const themeButtons = document.querySelectorAll('.theme-btn');
-
     // Vista inicial: #chess abre ajedrez, cualquier otro hash cae en diseño
     // (sin pisar el hash, para que el navegador scrollee a anclas como #projects).
     // Sin animación: animar la vista al cargar retrasa el primer pintado.
     const initialView = window.location.hash === '#chess' ? 'chess' : 'design';
     activateView(initialView, false);
 
-    // Botones del switcher (design / chess)
-    themeButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const view = this.dataset.theme === 'forest' ? 'chess' : 'design';
-            const currentView = document.querySelector('.view.active')?.id;
-            if (currentView === 'view-' + view) return;
-            window.scrollTo({ top: 0 });
-            history.replaceState(null, '', '#' + view);
-            activateView(view, true);
-        });
+    // Cualquier link a #chess o #design cambia la vista (no hay botones
+    // dedicados: el switcher se eliminó). Otros hashes son anclas normales.
+    window.addEventListener('hashchange', function() {
+        const hash = window.location.hash;
+        if (hash !== '#chess' && hash !== '#design') return;
+        const view = hash === '#chess' ? 'chess' : 'design';
+        const currentView = document.querySelector('.view.active')?.id;
+        if (currentView === 'view-' + view) return;
+        window.scrollTo({ top: 0 });
+        activateView(view, true);
     });
 
     // Clic en logo/foto vuelve al inicio del portfolio de diseño
@@ -70,11 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? 'https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20consultar%20por%20clases%20de%20ajedrez.'
                 : '#contact';
         }
-
-        // Actualizar botón activo del theme switcher
-        themeButtons.forEach(btn => {
-            btn.classList.toggle('active', btn.dataset.theme === theme);
-        });
 
         // Actualizar título de la página
         if (window.i18n) {
