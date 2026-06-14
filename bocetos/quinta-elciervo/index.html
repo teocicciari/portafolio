@@ -138,6 +138,26 @@
     .contact-card h2 { font-size: clamp(1.9rem, 4vw, 2.6rem); color: var(--green); margin-bottom: 12px; }
     .contact-card p { color: var(--muted); margin-bottom: 28px; }
     .contact-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    /* FORM */
+    .res-form { text-align: left; margin: 0 auto 30px; max-width: 540px; }
+    .res-form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .res-form .field { margin-bottom: 16px; }
+    .res-form label { display: block; font-size: .82rem; font-weight: 600; color: var(--green); margin-bottom: 6px; }
+    .res-form input {
+      width: 100%; padding: 12px 14px; border: 1px solid var(--sand); border-radius: 10px;
+      font-family: inherit; font-size: .95rem; color: var(--ink); background: var(--cream);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .res-form input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(176,137,72,.18); }
+    .res-form .btn-submit {
+      width: 100%; justify-content: center; background: #25d366; color: #fff;
+      border: none; cursor: pointer; font-family: inherit; margin-top: 6px;
+    }
+    .res-form .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
+    .form-divider { display: flex; align-items: center; gap: 14px; color: var(--muted); font-size: .82rem; margin: 4px 0 26px; }
+    .form-divider::before, .form-divider::after { content: ""; flex: 1; height: 1px; background: var(--sand); }
+    @media (max-width: 520px) { .res-form .row { grid-template-columns: 1fr; } }
     .btn-wa { background: #25d366; color: #fff; }
     .btn-wa:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,.4); }
     .btn-call { background: var(--green); color: #fff; }
@@ -350,7 +370,32 @@
     <div class="wrap">
       <div class="contact-card">
         <h2>Reservá tu estadía</h2>
-        <p>Consultanos por disponibilidad y tarifas. Te atendemos personalmente.</p>
+        <p>Completá tus datos y te respondemos por WhatsApp a la brevedad.</p>
+
+        <form class="res-form" id="resForm">
+          <div class="field">
+            <label for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" name="nombre" placeholder="Ej. Juan Pérez" required />
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="checkin">Check-in</label>
+              <input type="date" id="checkin" name="checkin" required />
+            </div>
+            <div class="field">
+              <label for="checkout">Check-out</label>
+              <input type="date" id="checkout" name="checkout" required />
+            </div>
+          </div>
+          <div class="field">
+            <label for="personas">Cantidad de personas</label>
+            <input type="number" id="personas" name="personas" min="1" max="120" placeholder="Ej. 8" required />
+          </div>
+          <button type="submit" class="btn btn-submit"><i class="fa-brands fa-whatsapp"></i> Enviar consulta por WhatsApp</button>
+        </form>
+
+        <div class="form-divider">o contactanos directamente</div>
+
         <div class="contact-actions">
           <a class="btn btn-wa" href="https://wa.me/541167476166?text=Hola!%20Quisiera%20consultar%20por%20la%20Casa%20Quinta%20El%20Ciervo" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
           <a class="btn btn-call" href="tel:+541167476166"><i class="fa-solid fa-phone"></i> 11 6747-6166</a>
@@ -384,6 +429,38 @@
     document.getElementById('lbClose').addEventListener('click', closeLb);
     lb.addEventListener('click', e => { if (e.target === lb) closeLb(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+    // Reservation form -> WhatsApp
+    const form = document.getElementById('resForm');
+    const fmt = d => d ? new Date(d + 'T00:00').toLocaleDateString('es-AR', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '';
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const nombre = document.getElementById('nombre').value.trim();
+      const checkin = document.getElementById('checkin').value;
+      const checkout = document.getElementById('checkout').value;
+      const personas = document.getElementById('personas').value;
+
+      if (checkout <= checkin) {
+        alert('La fecha de check-out debe ser posterior a la de check-in.');
+        return;
+      }
+
+      const msg =
+        `Hola! Quiero consultar disponibilidad en Casa Quinta El Ciervo.%0A%0A` +
+        `*Nombre:* ${encodeURIComponent(nombre)}%0A` +
+        `*Check-in:* ${fmt(checkin)}%0A` +
+        `*Check-out:* ${fmt(checkout)}%0A` +
+        `*Personas:* ${personas}`;
+
+      window.open(`https://wa.me/541167476166?text=${msg}`, '_blank');
+    });
+
+    // Prevent past dates + keep checkout after checkin
+    const ci = document.getElementById('checkin');
+    const co = document.getElementById('checkout');
+    const today = new Date().toISOString().split('T')[0];
+    ci.min = today; co.min = today;
+    ci.addEventListener('change', () => { co.min = ci.value || today; });
   </script>
 
 </body>
