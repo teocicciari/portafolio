@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zorzal · Propuesta de Marca, Instagram y Web · v2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Montserrat:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --celeste:   #D29B2E;   /* Mostaza Pico */
+    --celeste-cl:#E6C77A;
+    --atardecer: #C0623A;   /* Rufo Pecho */
+    --atardecer-d:#9C4A29;
+    --pasto:     #4E4C46;   /* Pizarra Alas */
+    --pasto-cl:  #6E6B61;
+    --tierra:    #8A6A4F;   /* Pardo Lomo */
+    --tierra-d:  #5E4733;
+    --crema:     #F2E9D7;
+    --crema-d:   #EAE1CE;
+    --tinta:     #2C2620;
+    --tinta-suave:#5A5247;
+
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost','Segoe UI',sans-serif;
+    --hand:'Caveat',cursive;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--crema);line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+  .page{max-width:1120px;margin:0 auto;padding:32px}
+  section{padding:130px 0 100px}
+  .section-head{margin-bottom:40px}
+  .section-num{font-weight:500;letter-spacing:.35em;font-size:.72rem;color:var(--atardecer-d);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .section-num::before{content:"";width:34px;height:1px;background:var(--atardecer)}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,4.5vw,3.1rem);line-height:1.05;letter-spacing:-.01em}
+  h3{font-family:var(--sans);font-weight:500;letter-spacing:.04em;font-size:1.02rem;text-transform:uppercase;color:var(--tierra-d);margin-bottom:14px}
+  .lead{font-family:var(--serif);font-size:1.55rem;font-style:italic;color:var(--tinta-suave);max-width:700px;margin-top:14px}
+  p{max-width:680px;margin-bottom:14px;font-size:1.02rem}
+  p.small{font-size:.9rem;color:var(--tinta-suave)}
+  .center{text-align:center}.mx{margin-left:auto;margin-right:auto}
+
+  /* PROGRESS BAR */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--atardecer),var(--celeste));z-index:100;transition:width .1s linear}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:60;background:rgba(242,233,215,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(140,106,79,.18)}
+  nav .page{display:flex;align-items:center;justify-content:space-between;height:64px}
+  nav .brand{font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:.2em}
+  nav .brand small{font-family:var(--sans);font-size:.5rem;letter-spacing:.3em;vertical-align:super;color:var(--atardecer-d);font-weight:500}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave);transition:color .2s;position:relative}
+  nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--atardecer);transition:width .25s var(--ease)}
+  nav a:hover{color:var(--atardecer-d)}nav a:hover::after{width:100%}
+
+  .btn{background:var(--atardecer);color:#fff;border:none;cursor:pointer;padding:11px 22px;border-radius:30px;font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+  .btn:hover{background:var(--atardecer-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(192,98,58,.35)}
+  .btn-ghost{background:transparent;border:1px solid var(--tierra);color:var(--tierra-d)}
+  .btn-ghost:hover{background:var(--tierra);color:#fff;box-shadow:0 10px 24px rgba(138,106,79,.3)}
+  .btn-light{background:#fff;color:var(--atardecer-d)}
+  .btn-light:hover{background:var(--crema);color:var(--atardecer-d);box-shadow:0 12px 28px rgba(44,38,32,.22)}
+  .btn-outline-light{background:transparent;border:1px solid rgba(255,255,255,.6);color:#fff}
+  .btn-outline-light:hover{background:rgba(255,255,255,.12);color:#fff}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px 24px;overflow:hidden;background:radial-gradient(1100px 600px at 50% -10%,#fff,var(--crema) 55%,var(--crema-d))}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.4;z-index:0}
+  .hero .blob.a{width:420px;height:420px;background:var(--celeste-cl);top:-80px;left:-100px;animation:float 14s var(--ease) infinite alternate}
+  .hero .blob.b{width:380px;height:380px;background:#E3A77F;bottom:-120px;right:-80px;animation:float 17s var(--ease) infinite alternate-reverse}
+  @keyframes float{to{transform:translate(40px,30px) scale(1.1)}}
+  .hero>*{position:relative;z-index:1}
+  .hero .kicker{font-family:var(--hand);font-size:1.9rem;color:var(--atardecer);margin-bottom:16px}
+  .hero img.logo{width:280px;max-width:74vw;border-radius:20px;box-shadow:0 24px 60px rgba(44,38,32,.18);margin-bottom:34px;animation:rise 1.1s var(--ease) both}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.08;max-width:740px;color:var(--tinta)}
+  .hero h1 em{font-style:italic;color:var(--atardecer-d)}
+  .hero p{max-width:560px;margin:24px auto 0;font-family:var(--serif);font-style:italic;font-size:1.32rem;color:var(--tinta-suave)}
+  .hero .cta-row{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hero .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave);z-index:1}
+  .hero .scroll-hint i{display:block;margin-top:8px;animation:bounce 1.8s infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+  .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--crema-d);border-radius:30px;padding:7px 18px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tierra-d);box-shadow:0 6px 18px rgba(44,38,32,.06)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border-radius:16px;padding:28px 30px;box-shadow:0 10px 30px rgba(44,38,32,.07);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(44,38,32,.12)}
+
+  /* alt section bg */
+  /* fondo de banda full-bleed: el color llega a los bordes aunque el contenido quede en .page */
+  .band-cream{position:relative;z-index:0}
+  .band-cream::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:linear-gradient(180deg,#fff,var(--crema))}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--crema-d),transparent);max-width:1120px;margin:0 auto}
+
+  /* IDENTIDAD */
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+  .swatch .chip{height:96px;border-radius:14px;box-shadow:0 8px 22px rgba(44,38,32,.12);transition:transform .3s var(--ease)}
+  .swatch:hover .chip{transform:translateY(-5px) scale(1.02)}
+  .swatch .nm{font-size:.78rem;margin-top:10px;text-align:center;color:var(--tinta-suave)}
+  .swatch .hx{font-size:.68rem;text-align:center;color:var(--tierra);letter-spacing:.05em}
+  .type-mini{display:flex;gap:30px;flex-wrap:wrap;margin-top:10px}
+  .type-mini .t{flex:1;min-width:200px}
+
+  /* INSTAGRAM */
+  .ig-wrap{display:grid;grid-template-columns:300px 1fr;gap:52px;align-items:start;margin-top:8px}
+  @media(max-width:880px){.ig-wrap{grid-template-columns:1fr;justify-items:center}}
+  .phone{width:300px;background:#fff;border-radius:36px;padding:12px;box-shadow:0 30px 70px rgba(44,38,32,.28);border:1px solid var(--crema-d);position:sticky;top:90px}
+  .phone-notch{width:120px;height:22px;background:#1c1814;border-radius:0 0 16px 16px;margin:0 auto 4px}
+  .phone-screen{background:#fff;border-radius:26px;overflow:hidden}
+  .ig-prof{padding:16px 16px 10px}
+  .ig-prof-top{display:flex;align-items:center;gap:18px}
+  .ig-ava{width:76px;height:76px;border-radius:50%;background:var(--crema);padding:3px;border:2px solid var(--atardecer);flex-shrink:0;overflow:hidden}
+  .ig-ava img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  .ig-stats{display:flex;gap:16px;font-size:.78rem;text-align:center}
+  .ig-stats b{display:block;font-weight:600;font-size:1rem}
+  .ig-bio{padding:10px 0 4px;font-size:.8rem;line-height:1.55}
+  .ig-bio .h{font-weight:600}.ig-bio .link{color:#385898}
+  .ig-high{display:flex;gap:13px;padding:12px 2px 4px}
+  .ig-high .hi{text-align:center;font-size:.64rem;color:var(--tinta-suave)}
+  .ig-high .ci{width:50px;height:50px;border-radius:50%;border:1px solid var(--crema-d);background:var(--crema);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:4px;color:var(--tierra-d)}
+  .ig-tabs{display:flex;border-top:1px solid var(--crema-d);margin-top:8px}
+  .ig-tabs div{flex:1;text-align:center;padding:9px;font-size:.95rem;color:var(--tinta-suave)}
+  .ig-tabs div.on{color:var(--tinta);border-top:2px solid var(--tinta);margin-top:-1px}
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .ig-grid div{aspect-ratio:1;background-size:cover;background-position:center}
+
+  .feed-demo{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:8px}
+  .feed-demo .tile{aspect-ratio:1;border-radius:12px;background-size:cover;background-position:center;position:relative;overflow:hidden;box-shadow:0 10px 26px rgba(44,38,32,.1);transition:transform .35s var(--ease)}
+  .feed-demo .tile:hover{transform:scale(1.03)}
+  .feed-demo .tile .ov{position:absolute;inset:0}
+  .feed-demo .tile.txt{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:16px;background:var(--pasto)}
+  .feed-demo .tile.txt.rufo{background:var(--atardecer)}
+  .feed-demo .tile.txt.crema{background:var(--crema);color:var(--tinta)}
+  .feed-demo .tile.txt .k{font-family:var(--hand);font-size:1.35rem;line-height:1;opacity:.92}
+  .feed-demo .tile.txt .b{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1.1;margin-top:4px}
+  .grad{background:linear-gradient(180deg,transparent 42%,rgba(44,38,32,.6))}
+
+  .stories{display:flex;gap:16px;margin-top:8px;flex-wrap:wrap}
+  .story{width:152px;height:270px;border-radius:20px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:0 14px 36px rgba(44,38,32,.2);transition:transform .35s var(--ease)}
+  .story:hover{transform:translateY(-5px)}
+  .story .ov{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(44,38,32,.4),transparent 30%,transparent 60%,rgba(44,38,32,.55));color:#fff}
+  .story .bar{height:3px;background:rgba(255,255,255,.85);border-radius:3px}
+  .story .mid{font-family:var(--serif);font-size:1.5rem;font-weight:600;text-align:center;line-height:1.15}
+  .story .tagb{align-self:center;background:var(--atardecer);padding:6px 14px;border-radius:20px;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase}
+  .story.solid{display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--tierra),var(--tierra-d))}
+
+  /* WEB */
+  .browser{border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(44,38,32,.22);border:1px solid var(--crema-d);background:#fff;transition:transform .4s var(--ease)}
+  .browser:hover{transform:translateY(-4px)}
+  .browser-bar{background:#e8e0d0;padding:11px 16px;display:flex;align-items:center;gap:8px}
+  .browser-bar .dot{width:11px;height:11px;border-radius:50%}
+  .browser-bar .url{flex:1;background:#fff;border-radius:20px;padding:6px 14px;font-size:.74rem;color:var(--tinta-suave);margin-left:8px;display:flex;align-items:center;gap:8px}
+  .web-hero{position:relative;height:400px;background:linear-gradient(90deg,rgba(44,38,32,.66),rgba(44,38,32,.08)),url('img/1.webp') center/cover}
+  .web-nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:22px 38px;color:#fff}
+  .web-nav .logo{font-family:var(--serif);font-weight:600;letter-spacing:.2em;font-size:1.3rem}
+  .web-nav ul{display:flex;gap:24px;list-style:none;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+  .web-hero .copy{position:absolute;bottom:0;padding:48px 38px;color:#fff;max-width:560px}
+  .web-hero .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.7rem;color:var(--celeste-cl);margin-bottom:12px}
+  .web-hero h3{font-family:var(--serif);color:#fff;font-size:2.7rem;font-weight:500;text-transform:none;letter-spacing:0;line-height:1.05;margin-bottom:18px}
+  .web-hero .cta{background:var(--atardecer);color:#fff;padding:12px 26px;border-radius:30px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+  .web-strip{display:grid;grid-template-columns:repeat(4,1fr)}
+  .web-strip div{padding:28px 18px;text-align:center;border-right:1px solid var(--crema-d)}
+  .web-strip div:last-child{border-right:none}
+  .web-strip .ic{font-size:1.4rem;margin-bottom:8px}
+  .web-strip .t{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+  .web-strip .s{font-size:.76rem;color:var(--tinta-suave)}
+  .web-gal{display:grid;grid-template-columns:repeat(3,1fr)}
+  .web-gal div{height:154px;background-size:cover;background-position:center}
+  .web-band{background:var(--pasto);color:#fff;padding:44px 38px;text-align:center}
+  .web-band .q{font-family:var(--serif);font-style:italic;font-size:1.7rem;max-width:640px;margin:0 auto}
+
+  /* SERVICIOS */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+  .svc .s{background:#fff;border-radius:18px;padding:34px 30px;box-shadow:0 10px 30px rgba(44,38,32,.07);border-top:4px solid var(--atardecer);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .svc .s:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(44,38,32,.13)}
+  .svc .s:nth-child(2){border-top-color:var(--celeste)}
+  .svc .s:nth-child(3){border-top-color:var(--pasto)}
+  .svc .s .ico{font-size:1.9rem;margin-bottom:14px;color:var(--atardecer)}
+  .svc .s:nth-child(2) .ico{color:var(--celeste)}
+  .svc .s:nth-child(3) .ico{color:var(--pasto)}
+  .svc .s h4{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:10px}
+  .svc .s ul{list-style:none;margin-top:10px}
+  .svc .s li{padding:8px 0 8px 26px;position:relative;font-size:.92rem;border-bottom:1px solid var(--crema-d)}
+  .svc .s li:last-child{border-bottom:none}
+  .svc .s li i{position:absolute;left:0;top:11px;color:var(--atardecer);font-size:.8rem}
+
+  /* PAQUETES */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px;align-items:stretch}
+  .plan{background:#fff;border-radius:18px;padding:34px 28px;box-shadow:0 10px 30px rgba(44,38,32,.08);display:flex;flex-direction:column;position:relative;transition:transform .3s var(--ease)}
+  .plan:hover{transform:translateY(-5px)}
+  .plan.feat{background:linear-gradient(165deg,#332c24,var(--tinta));color:#F2E9D7;box-shadow:0 26px 56px rgba(44,38,32,.34);z-index:2}
+  @media(min-width:761px){.plan.feat{transform:scale(1.05)}.plan.feat:hover{transform:scale(1.05) translateY(-5px)}}
+  .plan.feat h4,.plan.feat .price{color:#fff}
+  .plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--atardecer);color:#fff;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;white-space:nowrap;display:inline-flex;gap:6px;align-items:center;box-shadow:0 8px 18px rgba(192,98,58,.4)}
+  .plan h4{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:4px}
+  .plan .sub{font-size:.82rem;color:var(--tinta-suave);margin-bottom:18px}
+  .plan.feat .sub{color:#cbbfa9}
+  .plan .price{font-family:var(--serif);font-size:2.4rem;font-weight:600;margin-bottom:2px}
+  .plan .price small{font-size:.9rem;font-weight:400;color:var(--tinta-suave)}
+  .plan.feat .price small{color:#cbbfa9}
+  .plan ul{list-style:none;margin:18px 0 24px;flex:1}
+  .plan li{padding:9px 0 9px 26px;position:relative;font-size:.9rem;border-bottom:1px solid rgba(140,120,90,.16)}
+  .plan li i{position:absolute;left:0;top:12px;color:var(--atardecer);font-size:.8rem}
+  .plan.feat li{border-bottom:1px solid rgba(255,255,255,.12)}
+  .plan.feat li i{color:var(--celeste)}
+  .plan .btn{justify-content:center;width:100%}
+
+  /* WHY ME */
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:8px}
+  .why .w{text-align:center;padding:14px}
+  .why .w .ic{width:58px;height:58px;border-radius:50%;background:var(--crema);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.3rem;color:var(--atardecer);box-shadow:0 8px 20px rgba(44,38,32,.08)}
+  .why .w h4{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:6px}
+  .why .w p{font-size:.86rem;color:var(--tinta-suave);margin:0}
+
+  /* PROCESO */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px;position:relative}
+  .step{text-align:center;padding:10px}
+  .step .n{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--atardecer),var(--tierra-d));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;font-weight:600;margin:0 auto 16px;box-shadow:0 10px 22px rgba(192,98,58,.3)}
+  .step h4{font-family:var(--sans);font-weight:600;font-size:1rem;margin-bottom:6px}
+  .step p{font-size:.84rem;color:var(--tinta-suave);margin:0}
+
+  /* CTA FINAL */
+  .cta-final{position:relative;background:linear-gradient(135deg,var(--atardecer),var(--tierra-d));color:#fff;text-align:center;overflow:hidden}
+  .cta-final .blob{position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.08);filter:blur(40px)}
+  .cta-final .blob.a{top:-120px;left:-80px}.cta-final .blob.b{bottom:-140px;right:-60px}
+  .cta-final>.page{position:relative;z-index:1}
+  .cta-final h2{color:#fff}
+  .cta-final p{color:rgba(255,255,255,.92);margin:0 auto 8px}
+  .contact-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:30px;max-width:520px;margin:32px auto 0;backdrop-filter:blur(6px)}
+  .contact-card .row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:.95rem}
+  .contact-card .row:last-child{border-bottom:none}
+  .contact-card .row span:first-child{opacity:.8;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;display:inline-flex;gap:8px;align-items:center}
+
+  footer{background:var(--tinta);color:#cbbfa9;text-align:center;padding:48px 24px;font-size:.82rem;letter-spacing:.1em}
+  footer a{color:#cbbfa9;text-decoration:none}footer a:hover{color:#fff}
+
+  @media(max-width:760px){
+    nav ul{display:none}
+    section{padding:90px 0 64px}
+    .two,.three,.svc,.plans,.steps,.why{grid-template-columns:1fr}
+    .swatches{grid-template-columns:repeat(3,1fr)}
+    .why{grid-template-columns:repeat(2,1fr)}
+    .phone{position:static}
+  }
+  /* ===== STYLE EXPLORER ===== */
+  .styler-controls{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:8px}
+  @media(max-width:760px){.styler-controls{grid-template-columns:1fr}}
+  .ctrl-group .ctrl-label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tierra-d);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .chips{display:flex;gap:12px;flex-wrap:wrap}
+  .chip-opt{cursor:pointer;border:1.5px solid var(--crema-d);background:#fff;border-radius:14px;padding:14px 18px;min-width:158px;text-align:left;transition:transform .25s var(--ease),border-color .2s,box-shadow .25s var(--ease);position:relative}
+  .chip-opt:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(44,38,32,.1)}
+  .chip-opt.active{border-color:var(--atardecer);box-shadow:0 0 0 3px rgba(192,98,58,.16),0 12px 28px rgba(44,38,32,.1)}
+  .chip-opt .check{position:absolute;top:10px;right:12px;color:var(--atardecer);opacity:0;transition:opacity .2s;font-size:.85rem}
+  .chip-opt.active .check{opacity:1}
+  .chip-opt .nm{font-weight:600;font-size:.95rem;color:var(--tinta)}
+  .chip-opt .ex{font-size:.78rem;color:var(--tinta-suave);margin-top:2px}
+  .chip-opt .ex .sf{font-size:1.15rem;line-height:1}
+  .chip-opt .dots{display:flex;gap:6px;margin-top:12px}
+  .chip-opt .dots span{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(44,38,32,.08)}
+
+  .preview{margin-top:40px;background:#fff;border-radius:20px;padding:46px 40px;box-shadow:0 16px 40px rgba(44,38,32,.1);text-align:center;border:1px solid var(--crema-d)}
+  .preview .pv-kicker{font-family:var(--hand);font-size:1.7rem;color:var(--atardecer)}
+  .preview .pv-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08;margin:6px 0 14px;color:var(--tinta)}
+  .preview .pv-text{font-family:var(--sans);max-width:520px;margin:0 auto 24px;color:var(--tinta-suave);font-size:1rem}
+  .preview .pv-sw{display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .preview .pv-sw span{width:46px;height:46px;border-radius:12px;box-shadow:0 6px 16px rgba(44,38,32,.12)}
+
+  @media print{
+    nav,#progress,.scroll-hint,.cta-row,.hero p,.hero .blob{display:none}
+    #estilos{display:none}
+    .reveal{opacity:1;transform:none}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    section{page-break-inside:avoid;padding:30px 0}
+    .card,.plan,.svc .s,.phone,.browser{box-shadow:none;border:1px solid #e5ddcb}
+    .plan.feat{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="page">
+    <div class="brand">ZORZAL</div>
+    <ul>
+      <li><a href="#marca">Marca</a></li>
+      <li><a href="#estilos">Estilos</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#web">Web</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn" href="#contacto">Quiero avanzar <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob a"></div><div class="blob b"></div>
+  <h1>Démosle a Zorzal la <em>presencia</em> que su lugar merece</h1>
+  <p>Identidad de marca, Instagram y página web — una imagen coherente y profesional para que cada huésped se enamore antes de llegar.</p>
+  <div class="cta-row">
+    <a class="btn" href="#instagram">Ver la propuesta <i class="fa-solid fa-arrow-down"></i></a>
+    <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+  </div>
+  <div class="scroll-hint">Desplazá<i class="fa-solid fa-chevron-down"></i></div>
+</header>
+
+<!-- INTRO -->
+<section class="page band-cream" id="intro">
+  <div class="section-head reveal">
+    <span class="pill"><i class="fa-solid fa-lightbulb"></i> La idea</span>
+    <h2 style="margin-top:18px">Zorzal ya es un lugar precioso.<br>Hagamos que se note <em style="font-style:italic;color:var(--atardecer-d)">online</em>.</h2>
+  </div>
+  <div class="two">
+    <div class="reveal">
+      <p>Tenés una casa de campo boutique con vista al río, atardeceres de película y la exclusividad de tener todo el lugar para un solo grupo. El desafío no es el lugar: es <strong>mostrarlo de forma que transmita ese valor</strong> en cada pantalla.</p>
+      <p>Mi propuesta es construir una presencia digital cuidada y coherente en tres piezas que trabajan juntas:</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card reveal d1" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--atardecer)"><i class="fa-solid fa-palette"></i></span><div><strong>Identidad de marca</strong><br><span class="small">Logo, colores, tipografías y voz.</span></div></div>
+      <div class="card reveal d2" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--celeste)"><i class="fa-brands fa-instagram"></i></span><div><strong>Instagram</strong><br><span class="small">Feed, plantillas, stories y bio.</span></div></div>
+      <div class="card reveal d3" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--pasto)"><i class="fa-solid fa-laptop"></i></span><div><strong>Página web</strong><br><span class="small">Sitio para mostrar y reservar.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 1 · IDENTIDAD -->
+<section class="page" id="marca">
+  <div class="section-head reveal">
+    <span class="section-num">01 · Tu marca, ya pensada</span>
+    <h2>La identidad visual</h2>
+    <p class="lead">Inspirada en el propio zorzal y en el lugar: cálida, natural y boutique.</p>
+  </div>
+
+  <div class="two">
+    <div class="card center reveal" style="background:var(--crema)">
+      <img src="logo.png" alt="Logotipo Zorzal" class="mx" style="width:300px;max-width:100%;background:#fff;padding:20px;border-radius:16px;border:3px solid var(--atardecer);box-shadow:0 14px 34px rgba(44,38,32,.16)">
+      <div style="font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--tierra-d);margin-top:16px">Casa de Campo Boutique</div>
+    </div>
+    <div class="reveal d1">
+      <h3>El logotipo</h3>
+      <p>Un zorzal posado sobre un wordmark serif elegante. El pájaro aporta calidez y arraigo al campo rioplatense; la tipografía, el aire boutique.</p>
+      <h3 style="margin-top:26px">Tipografías</h3>
+      <div class="type-mini">
+        <div class="t"><div style="font-family:var(--serif);font-size:2.6rem;line-height:1">Cormorant</div><span class="small">Títulos · serif elegante</span></div>
+        <div class="t"><div style="font-family:var(--sans);font-size:2rem;font-weight:300;line-height:1.2">Jost</div><span class="small">Textos · sans clara</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:50px" class="reveal">Paleta · los colores del zorzal</h3>
+  <div class="swatches reveal d1">
+    <div class="swatch"><div class="chip" style="background:#C0623A"></div><div class="nm">Rufo Pecho</div><div class="hx">#C0623A</div></div>
+    <div class="swatch"><div class="chip" style="background:#8A6A4F"></div><div class="nm">Pardo Lomo</div><div class="hx">#8A6A4F</div></div>
+    <div class="swatch"><div class="chip" style="background:#4E4C46"></div><div class="nm">Pizarra Alas</div><div class="hx">#4E4C46</div></div>
+    <div class="swatch"><div class="chip" style="background:#D29B2E"></div><div class="nm">Mostaza Pico</div><div class="hx">#D29B2E</div></div>
+    <div class="swatch"><div class="chip" style="background:#F2E9D7;border:1px solid #e5ddcb"></div><div class="nm">Crema Garganta</div><div class="hx">#F2E9D7</div></div>
+  </div>
+  <p class="small center mx reveal" style="margin-top:20px;max-width:640px">Toda esta identidad se entrega documentada en un <strong>manual de marca completo</strong>: logotipo y sus variantes, usos correctos e incorrectos, paleta con códigos exactos, tipografías, identidad verbal y ejemplos de aplicación. Es la guía para que todo lo que comunique Zorzal —redes, web, cartelería— se vea siempre coherente y profesional, lo hagas vos o cualquier proveedor.</p>
+</section>
+
+<!-- 1B · EXPLORADOR DE ESTILOS -->
+<section class="page band-cream" id="estilos">
+  <div class="section-head reveal">
+    <span class="section-num">Probá variantes</span>
+    <h2>Elegí el estilo que más te gusta</h2>
+    <p class="lead">No tenés que imaginarlo: tocá las opciones y mirá cómo cambia <em style="font-style:italic;color:var(--atardecer-d)">toda</em> la propuesta en vivo.</p>
+  </div>
+
+  <div class="styler-controls reveal d1">
+    <div class="ctrl-group">
+      <div class="ctrl-label"><i class="fa-solid fa-font"></i> Tipografía — 3 propuestas</div>
+      <div class="chips" id="fontChips">
+        <button class="chip-opt active" data-serif="'Cormorant Garamond',Georgia,serif" data-sans="'Jost',sans-serif">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Editorial cálido</div>
+          <div class="ex"><span class="sf" style="font-family:'Cormorant Garamond',serif">Zorzal</span> · Cormorant + Jost</div>
+        </button>
+        <button class="chip-opt" data-serif="'Playfair Display',Georgia,serif" data-sans="'Montserrat',sans-serif">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Clásico elegante</div>
+          <div class="ex"><span class="sf" style="font-family:'Playfair Display',serif">Zorzal</span> · Playfair + Montserrat</div>
+        </button>
+        <button class="chip-opt" data-serif="'Fraunces',Georgia,serif" data-sans="'Nunito Sans',sans-serif">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Boutique orgánico</div>
+          <div class="ex"><span class="sf" style="font-family:'Fraunces',serif">Zorzal</span> · Fraunces + Nunito</div>
+        </button>
+      </div>
+    </div>
+
+    <div class="ctrl-group">
+      <div class="ctrl-label"><i class="fa-solid fa-palette"></i> Esquema de color — misma paleta</div>
+      <div class="chips" id="colorChips">
+        <button class="chip-opt active" data-acc="#C0623A" data-accd="#9C4A29" data-sec="#D29B2E" data-secl="#E6C77A">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Atardecer</div>
+          <div class="ex">Rufo + mostaza</div>
+          <div class="dots"><span style="background:#C0623A"></span><span style="background:#D29B2E"></span><span style="background:#4E4C46"></span><span style="background:#F2E9D7"></span></div>
+        </button>
+        <button class="chip-opt" data-acc="#8A6A4F" data-accd="#5E4733" data-sec="#C0623A" data-secl="#E3A77F">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Tierra</div>
+          <div class="ex">Pardo + rufo</div>
+          <div class="dots"><span style="background:#8A6A4F"></span><span style="background:#C0623A"></span><span style="background:#4E4C46"></span><span style="background:#F2E9D7"></span></div>
+        </button>
+        <button class="chip-opt" data-acc="#B8881F" data-accd="#8C6510" data-sec="#8A6A4F" data-secl="#E6C77A">
+          <i class="fa-solid fa-check check"></i>
+          <div class="nm">Mostaza</div>
+          <div class="ex">Dorado + pardo</div>
+          <div class="dots"><span style="background:#B8881F"></span><span style="background:#8A6A4F"></span><span style="background:#4E4C46"></span><span style="background:#F2E9D7"></span></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Preview en vivo -->
+  <div class="preview reveal d2">
+    <div class="pv-kicker">tu refugio frente al río</div>
+    <div class="pv-title">Zorzal · Casa de Campo Boutique</div>
+    <div class="pv-text">Así se ven los títulos, los textos y los colores de la marca con la combinación elegida. Probá las opciones de arriba.</div>
+    <a class="btn" href="#contacto">Reservá tu estadía <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="pv-sw">
+      <span style="background:var(--atardecer)"></span>
+      <span style="background:var(--celeste)"></span>
+      <span style="background:var(--tierra)"></span>
+      <span style="background:var(--pasto)"></span>
+      <span style="background:var(--crema);box-shadow:inset 0 0 0 1px var(--crema-d)"></span>
+    </div>
+  </div>
+  <p class="small center mx reveal" style="margin-top:22px">Lo que elijas acá es solo un punto de partida — en la charla inicial lo afinamos juntos. <a href="#estilos" onclick="resetStyle();return false;" style="color:var(--atardecer-d);font-weight:500">Volver al estilo original</a></p>
+</section>
+
+<!-- 2 · INSTAGRAM -->
+<section class="page band-cream" id="instagram">
+  <div class="section-head reveal">
+    <span class="section-num">02 · Instagram</span>
+    <h2>Así se vería tu Instagram</h2>
+    <p class="lead">Un perfil que se siente como una revista de viajes: ordenado, cálido y con identidad propia.</p>
+  </div>
+
+  <div class="ig-wrap">
+    <div class="phone reveal">
+      <div class="phone-screen">
+        <div class="ig-prof">
+          <div class="ig-prof-top">
+            <div class="ig-ava"><img src="logo.png" alt="Avatar"></div>
+            <div class="ig-stats">
+              <div><b class="count" data-to="48">0</b>posts</div>
+              <div><b class="count" data-to="2140" data-sep="1">0</b>seguidores</div>
+              <div><b class="count" data-to="312">0</b>seguidos</div>
+            </div>
+          </div>
+          <div class="ig-bio">
+            <div class="h">Zorzal · Casa de Campo Boutique</div>
+            <i class="fa-solid fa-mountain-sun" style="color:var(--atardecer)"></i> Tu refugio frente al Río de la Plata<br>
+            <i class="fa-solid fa-location-dot" style="color:var(--atardecer)"></i> San Pedro · Colonia del Sacramento<br>
+            <i class="fa-solid fa-star" style="color:var(--celeste)"></i> Todo el lugar para tu grupo · 4/5 personas<br>
+            <span class="link"><i class="fa-solid fa-chevron-right"></i> Reservá tu estadía</span>
+          </div>
+          <div class="ig-high">
+            <div class="hi"><div class="ci"><i class="fa-solid fa-house-chimney"></i></div>La casa</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-person-swimming"></i></div>Pileta</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-mountain-sun"></i></div>Atardeceres</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-location-dot"></i></div>Colonia</div>
+          </div>
+          <div class="ig-tabs"><div class="on"><i class="fa-solid fa-table-cells"></i></div><div><i class="fa-solid fa-clapperboard"></i></div><div><i class="fa-regular fa-user"></i></div></div>
+          <div class="ig-grid">
+            <div style="background-image:url('img/1.webp')"></div>
+            <div style="background-image:url('img/31.webp')"></div>
+            <div style="background-image:url('img/8.webp')"></div>
+            <div style="background-image:url('img/4.webp')"></div>
+            <div style="background-image:url('img/30.webp')"></div>
+            <div style="background-image:url('img/2.webp')"></div>
+            <div style="background-image:url('img/11.webp')"></div>
+            <div style="background-image:url('img/29.webp')"></div>
+            <div style="background-image:url('img/28.webp')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="reveal d1">
+        <h3>El feed, pensado como un todo</h3>
+        <p class="small" style="margin-bottom:18px">Alterno fotos del lugar con placas de texto y citas, manteniendo un ritmo visual y la paleta de marca. Así el perfil se ve cuidado apenas alguien entra.</p>
+      </div>
+      <div class="feed-demo reveal d2">
+        <div class="tile" style="background-image:url('img/1.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt rufo"><div class="k">tardes así</div><div class="b">Pileta &amp; atardecer</div></div>
+        <div class="tile" style="background-image:url('img/11.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt crema"><div class="k">tu refugio</div><div class="b">frente al río</div></div>
+        <div class="tile" style="background-image:url('img/8.webp')"><div class="ov grad"></div></div>
+        <div class="tile" style="background-image:url('img/30.webp')"><div class="ov grad"></div></div>
+        <div class="tile" style="background-image:url('img/4.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt"><div class="k">en exclusiva</div><div class="b">Todo el lugar para tu grupo</div></div>
+        <div class="tile" style="background-image:url('img/31.webp')"><div class="ov grad"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:54px" class="reveal">Stories y destacados con identidad</h3>
+  <div class="stories reveal d1">
+    <div class="story" style="background-image:url('img/1.webp')"><div class="ov"><div class="bar"></div><div class="tagb">El atardecer de hoy <i class="fa-solid fa-mountain-sun"></i></div><div></div></div></div>
+    <div class="story" style="background-image:url('img/29.webp')"><div class="ov"><div class="bar"></div><div class="mid">Galería &amp;<br>parrillero</div><div class="tagb">Conocé la casa</div></div></div>
+    <div class="story solid"><div class="ov" style="background:none;justify-content:center;align-items:center;text-align:center"><div><div style="font-family:var(--hand);font-size:1.6rem;color:var(--celeste-cl)">escapate al campo</div><div class="mid" style="margin-top:8px">2 noches<br>mínimo</div></div></div></div>
+    <div class="story" style="background-image:url('img/31.webp')"><div class="ov"><div class="bar"></div><div></div><div class="tagb">Reservá tu finde <i class="fa-solid fa-arrow-right"></i></div></div></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3 · WEB -->
+<section class="page" id="web">
+  <div class="section-head reveal">
+    <span class="section-num">03 · Página web</span>
+    <h2>Y tu página web</h2>
+    <p class="lead">El lugar donde el huésped pasa de “me gusta” a “quiero reservar”.</p>
+  </div>
+
+  <div class="browser reveal">
+    <div class="browser-bar">
+      <span class="dot" style="background:#e0685e"></span>
+      <span class="dot" style="background:#e6c14a"></span>
+      <span class="dot" style="background:#7bbf6a"></span>
+      <span class="url"><i class="fa-solid fa-lock" style="font-size:.66rem"></i> www.zorzalcolonia.com</span>
+    </div>
+    <div class="web-hero">
+      <div class="web-nav">
+        <div class="logo">ZORZAL</div>
+        <ul><li>La casa</li><li>Galería</li><li>La zona</li><li>Reservas</li></ul>
+      </div>
+      <div class="copy">
+        <div class="eyebrow">San Pedro · Colonia del Sacramento</div>
+        <h3>Tu refugio frente al río</h3>
+        <span class="cta">Consultá disponibilidad <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div>
+    <div class="web-strip">
+      <div><div class="ic" style="color:var(--atardecer)"><i class="fa-solid fa-house-chimney"></i></div><div class="t">La casa</div><div class="s">2 dorm · 4/5 personas</div></div>
+      <div><div class="ic" style="color:var(--celeste)"><i class="fa-solid fa-person-swimming"></i></div><div class="t">Pileta</div><div class="s">Enorme, con vista al río</div></div>
+      <div><div class="ic" style="color:var(--atardecer)"><i class="fa-solid fa-fire"></i></div><div class="t">Parrillero</div><div class="s">Galería cubierta</div></div>
+      <div><div class="ic" style="color:var(--pasto)"><i class="fa-solid fa-tree"></i></div><div class="t">3 hectáreas</div><div class="s">Campo, paddle y ping pong</div></div>
+    </div>
+    <div class="web-gal">
+      <div style="background-image:url('img/4.webp')"></div>
+      <div style="background-image:url('img/2.webp')"></div>
+      <div style="background-image:url('img/28.webp')"></div>
+    </div>
+    <div class="web-band"><div class="q">“Todo el lugar para tu grupo: campo, río y atardeceres, sin compartir con nadie.”</div></div>
+  </div>
+
+  <div class="three" style="margin-top:34px">
+    <div class="card reveal d1"><h3 style="margin-bottom:8px"><i class="fa-brands fa-whatsapp" style="color:var(--pasto)"></i> Hecha para reservar</h3><p class="small" style="margin:0">Botón de consulta directa a WhatsApp y formulario de reserva siempre a mano.</p></div>
+    <div class="card reveal d2"><h3 style="margin-bottom:8px"><i class="fa-solid fa-mobile-screen" style="color:var(--celeste)"></i> Mobile primero</h3><p class="small" style="margin:0">Se ve impecable en el celular, que es donde la mayoría va a entrar desde Instagram.</p></div>
+    <div class="card reveal d3"><h3 style="margin-bottom:8px"><i class="fa-brands fa-google" style="color:var(--atardecer)"></i> Encontrable en Google</h3><p class="small" style="margin:0">Optimizada para que aparezca al buscar alquiler en Colonia.</p></div>
+  </div>
+</section>
+
+<!-- POR QUÉ YO -->
+<section class="page band-cream" id="porque">
+  <div class="section-head reveal center" style="max-width:720px;margin-left:auto;margin-right:auto">
+    <span class="section-num" style="justify-content:center">Por qué trabajar conmigo</span>
+    <h2>Una sola persona, todo coordinado</h2>
+    <p class="small mx">Marca, Instagram y web pensados juntos desde el día uno — sin que tengas que coordinar tres proveedores ni explicar lo mismo tres veces.</p>
+  </div>
+  <div class="why">
+    <div class="w reveal d1"><div class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h4>Coherencia total</h4><p>La misma identidad de punta a punta, sin parches.</p></div>
+    <div class="w reveal d2"><div class="ic"><i class="fa-solid fa-gauge-high"></i></div><h4>Rápido y claro</h4><p>Plazos definidos y comunicación directa, sin vueltas.</p></div>
+    <div class="w reveal d3"><div class="ic"><i class="fa-solid fa-hand-holding-heart"></i></div><h4>Pensado para vos</h4><p>Te dejo todo listo y te enseño a mantenerlo sola.</p></div>
+    <div class="w reveal d4"><div class="ic"><i class="fa-solid fa-mountain-sun"></i></div><h4>Entiendo el rubro</h4><p>Diseño orientado a llenar tu calendario de reservas.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICIOS -->
+<section class="page" id="servicios">
+  <div class="section-head reveal">
+    <span class="section-num">04 · Qué incluye</span>
+    <h2>Los tres servicios</h2>
+    <p class="lead">Podés tomar uno, dos o los tres. Juntos rinden más: una sola identidad coherente en todos lados.</p>
+  </div>
+
+  <div class="svc">
+    <div class="s reveal d1">
+      <div class="ico"><i class="fa-solid fa-palette"></i></div>
+      <h4>Identidad de marca</h4>
+      <p class="small">El alma visual de Zorzal, lista para usar en todos lados.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Logotipo + variantes</li>
+        <li><i class="fa-solid fa-check"></i>Paleta de color</li>
+        <li><i class="fa-solid fa-check"></i>Tipografías</li>
+        <li><i class="fa-solid fa-check"></i>Identidad verbal / tono</li>
+        <li><i class="fa-solid fa-check"></i>Manual de marca (PDF)</li>
+      </ul>
+    </div>
+    <div class="s reveal d2">
+      <div class="ico"><i class="fa-brands fa-instagram"></i></div>
+      <h4>Instagram</h4>
+      <p class="small">Un perfil que vende solo, fácil de mantener.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Diseño del feed</li>
+        <li><i class="fa-solid fa-check"></i>Foto de perfil + bio</li>
+        <li><i class="fa-solid fa-check"></i>Portadas de destacados</li>
+        <li><i class="fa-solid fa-check"></i>Plantillas editables (Canva)</li>
+        <li><i class="fa-solid fa-check"></i>Grilla de contenido 1er mes</li>
+      </ul>
+    </div>
+    <div class="s reveal d3">
+      <div class="ico"><i class="fa-solid fa-laptop"></i></div>
+      <h4>Página web</h4>
+      <p class="small">Tu casa, mostrada y lista para reservar.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Diseño y desarrollo</li>
+        <li><i class="fa-solid fa-check"></i>Galería de fotos</li>
+        <li><i class="fa-solid fa-check"></i>Sección de la zona + mapa</li>
+        <li><i class="fa-solid fa-check"></i>Reserva / consulta directa</li>
+        <li><i class="fa-solid fa-check"></i>Optimización para Google</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-head reveal center" style="margin-top:70px;margin-bottom:24px">
+    <h2 style="font-size:2.2rem">Paquetes</h2>
+    <p class="small center mx" style="max-width:520px;margin-top:8px">Precios de referencia — los ajustamos juntos según el alcance final.</p>
+  </div>
+  <div class="plans">
+    <div class="plan reveal d1">
+      <h4>Esencial</h4>
+      <div class="sub">La base de todo</div>
+      <div class="price">$150.000</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Identidad de marca completa</li>
+        <li><i class="fa-solid fa-check"></i>Manual de marca (PDF)</li>
+        <li><i class="fa-solid fa-check"></i>Logo en todos los formatos</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Esencial</a>
+    </div>
+    <div class="plan feat reveal d2">
+      <h4>Marca + Instagram</h4>
+      <div class="sub">Para empezar a publicar ya</div>
+      <div class="price">$250.000</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Todo lo del plan Esencial</li>
+        <li><i class="fa-solid fa-check"></i>Diseño completo de Instagram</li>
+        <li><i class="fa-solid fa-check"></i>Plantillas editables (Canva)</li>
+        <li><i class="fa-solid fa-check"></i>Grilla de contenido 1er mes</li>
+      </ul>
+      <a class="btn btn-light" href="#contacto">Elegir este plan</a>
+    </div>
+    <div class="plan reveal d3">
+      <h4>Plan Completo</h4>
+      <div class="sub">Presencia digital 360°</div>
+      <div class="price">$500.000</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Todo lo de Marca + Instagram</li>
+        <li><i class="fa-solid fa-check"></i>Página web a medida</li>
+        <li><i class="fa-solid fa-check"></i>Reservas / WhatsApp directo</li>
+        <li><i class="fa-solid fa-check"></i>Optimización para Google</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Completo</a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESO -->
+<section class="page" id="proceso">
+  <div class="section-head reveal">
+    <span class="section-num">05 · Cómo trabajamos</span>
+    <h2>El proceso, simple</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal d1"><div class="n">1</div><h4>Charla inicial</h4><p>Nos juntamos (o videollamada) y definimos objetivos, estilo y alcance.</p></div>
+    <div class="step reveal d2"><div class="n">2</div><h4>Diseño</h4><p>Te presento propuestas y ajustamos juntos hasta que te enamores.</p></div>
+    <div class="step reveal d3"><div class="n">3</div><h4>Producción</h4><p>Armo todo: marca, Instagram y/o web, con tus fotos y textos.</p></div>
+    <div class="step reveal d4"><div class="n">4</div><h4>Entrega</h4><p>Te dejo todo listo y te enseño a mantenerlo sin depender de nadie.</p></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contacto">
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="page">
+    <div class="reveal">
+      <span class="section-num" style="color:#F2E9D7;justify-content:center">06 · Hablemos</span>
+      <h2>¿Avanzamos con Zorzal?</h2>
+      <p class="mx" style="max-width:560px">Contame qué plan te interesa y coordinamos una charla sin compromiso. Me encantaría ayudarte a que Zorzal brille también en pantalla.</p>
+    </div>
+    <div class="contact-card reveal d1">
+      <div class="row"><span><i class="fa-solid fa-pen-nib"></i> Diseña</span><span>Teo Cicciari</span></div>
+      <div class="row"><span><i class="fa-solid fa-globe"></i> Web</span><span><a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">teocicciari.com.ar</a></span></div>
+    </div>
+    <div class="cta-row reveal d2" style="justify-content:center;margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn btn-light" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver mi portfolio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Propuesta preparada para Zorzal · Casa de Campo Boutique &nbsp;·&nbsp;
+  <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari — teocicciari.com.ar</a> &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; v2.0
+</footer>
+
+<script>
+  // Barra de progreso de lectura
+  const prog=document.getElementById('progress');
+  const onScroll=()=>{
+    const h=document.documentElement;
+    const sc=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    prog.style.width=(sc*100)+'%';
+  };
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Reveal al hacer scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Contadores animados (stats de Instagram)
+  const fmt=(n,sep)=>sep?n.toLocaleString('es-AR'):String(n);
+  const animate=(el)=>{
+    const to=+el.dataset.to, sep=el.dataset.sep, dur=1400, t0=performance.now();
+    const tick=(t)=>{
+      const p=Math.min((t-t0)/dur,1);
+      const val=Math.round(to*(1-Math.pow(1-p,3)));
+      el.textContent=fmt(val,sep);
+      if(p<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const co=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){animate(e.target);co.unobserve(e.target);}});
+  },{threshold:.5});
+  document.querySelectorAll('.count').forEach(el=>co.observe(el));
+
+  // ===== Explorador de estilos =====
+  const root=document.documentElement;
+  const fontChips=document.querySelectorAll('#fontChips .chip-opt');
+  const colorChips=document.querySelectorAll('#colorChips .chip-opt');
+
+  const setActive=(group,el)=>{group.forEach(c=>c.classList.remove('active'));el.classList.add('active');};
+
+  const applyFont=(el)=>{
+    root.style.setProperty('--serif',el.dataset.serif);
+    root.style.setProperty('--sans',el.dataset.sans);
+    setActive(fontChips,el);
+  };
+  const applyColor=(el)=>{
+    root.style.setProperty('--atardecer',el.dataset.acc);
+    root.style.setProperty('--atardecer-d',el.dataset.accd);
+    root.style.setProperty('--celeste',el.dataset.sec);
+    root.style.setProperty('--celeste-cl',el.dataset.secl);
+    setActive(colorChips,el);
+  };
+
+  fontChips.forEach(el=>el.addEventListener('click',()=>applyFont(el)));
+  colorChips.forEach(el=>el.addEventListener('click',()=>applyColor(el)));
+
+  // Volver al estilo original (primera opción de cada grupo)
+  window.resetStyle=()=>{applyFont(fontChips[0]);applyColor(colorChips[0]);};
+</script>
+</body>
+</html>

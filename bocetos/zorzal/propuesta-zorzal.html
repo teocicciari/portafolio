@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zorzal · Propuesta de Identidad, Instagram y Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --celeste:   #D29B2E;   /* Mostaza Pico */
+    --celeste-cl:#E6C77A;
+    --atardecer: #C0623A;   /* Rufo Pecho */
+    --atardecer-d:#9C4A29;
+    --pasto:     #4E4C46;   /* Pizarra Alas */
+    --pasto-cl:  #6E6B61;
+    --tierra:    #8A6A4F;   /* Pardo Lomo */
+    --tierra-d:  #5E4733;
+    --crema:     #F2E9D7;
+    --crema-d:   #EAE1CE;
+    --tinta:     #2C2620;
+    --tinta-suave:#5A5247;
+
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Jost', 'Segoe UI', sans-serif;
+    --hand:  'Caveat', cursive;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--crema);line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  .page{max-width:1100px;margin:0 auto;padding:0 32px}
+  section{padding:84px 0;border-bottom:1px solid var(--crema-d)}
+  .section-num{font-weight:500;letter-spacing:.35em;font-size:.72rem;color:var(--atardecer-d);text-transform:uppercase;margin-bottom:14px;display:block}
+  h2{font-family:var(--serif);font-weight:500;font-size:2.9rem;line-height:1.05;margin-bottom:10px}
+  h3{font-family:var(--sans);font-weight:500;letter-spacing:.04em;font-size:1.05rem;text-transform:uppercase;color:var(--tierra-d);margin-bottom:14px}
+  .lead{font-family:var(--serif);font-size:1.5rem;font-style:italic;color:var(--tinta-suave);max-width:680px;margin-bottom:8px}
+  p{max-width:680px;margin-bottom:14px;font-size:1.02rem}
+  p.small{font-size:.9rem;color:var(--tinta-suave)}
+  .center{text-align:center}
+  .mx{margin-left:auto;margin-right:auto}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:50;background:rgba(242,233,215,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--crema-d)}
+  nav .page{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-family:var(--serif);font-weight:600;font-size:1.3rem;letter-spacing:.18em}
+  nav ul{display:flex;gap:24px;list-style:none}
+  nav a{color:var(--tinta-suave);text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--atardecer-d)}
+  .btn{background:var(--atardecer);color:#fff;border:none;cursor:pointer;padding:10px 20px;border-radius:30px;font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;text-decoration:none;display:inline-block}
+  .btn:hover{background:var(--atardecer-d)}
+  .btn-ghost{background:transparent;border:1px solid var(--tierra);color:var(--tierra-d)}
+  .btn-ghost:hover{background:var(--tierra);color:#fff}
+
+  /* HERO */
+  .hero{min-height:88vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:linear-gradient(180deg,var(--crema),var(--crema-d));color:var(--tinta);border-bottom:1px solid var(--crema-d);padding:90px 24px}
+  .hero .kicker{font-family:var(--hand);font-size:1.8rem;color:var(--atardecer);margin-bottom:14px}
+  .hero img.logo{width:280px;max-width:74vw;border-radius:18px;box-shadow:0 18px 46px rgba(44,38,32,.16);margin-bottom:34px}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.08;max-width:720px;color:var(--tinta)}
+  .hero p{max-width:560px;margin:24px auto 0;font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--tinta-suave)}
+  .hero .cta-row{margin-top:38px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+
+  /* INTRO */
+  .pill{display:inline-block;background:var(--crema-d);border-radius:30px;padding:6px 16px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tierra-d);margin-bottom:18px}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border-radius:14px;padding:28px 30px;box-shadow:0 8px 26px rgba(44,38,32,.07)}
+
+  /* IDENTIDAD resumen */
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+  .swatch .chip{height:90px;border-radius:12px;box-shadow:0 6px 18px rgba(44,38,32,.1)}
+  .swatch .nm{font-size:.78rem;margin-top:8px;text-align:center;color:var(--tinta-suave)}
+  .type-mini{display:flex;gap:30px;flex-wrap:wrap;margin-top:10px}
+  .type-mini .t{flex:1;min-width:200px}
+
+  /* PHONE / INSTAGRAM */
+  .ig-wrap{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start;margin-top:36px}
+  @media(max-width:860px){.ig-wrap{grid-template-columns:1fr}}
+  .phone{width:300px;background:#fff;border-radius:34px;padding:12px;box-shadow:0 22px 60px rgba(44,38,32,.25);margin:0 auto;border:1px solid var(--crema-d)}
+  .phone-screen{background:#fff;border-radius:24px;overflow:hidden}
+  .ig-prof{padding:18px 16px 10px}
+  .ig-prof-top{display:flex;align-items:center;gap:18px}
+  .ig-ava{width:74px;height:74px;border-radius:50%;background:var(--crema);padding:3px;border:2px solid var(--atardecer);flex-shrink:0;display:flex;align-items:center;justify-content:center;overflow:hidden}
+  .ig-ava img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+  .ig-stats{display:flex;gap:18px;font-size:.78rem;text-align:center}
+  .ig-stats b{display:block;font-weight:600;font-size:.95rem}
+  .ig-bio{padding:10px 0 4px;font-size:.8rem;line-height:1.5}
+  .ig-bio .h{font-weight:600}
+  .ig-bio .link{color:#385898}
+  .ig-high{display:flex;gap:14px;padding:12px 4px 4px}
+  .ig-high .hi{text-align:center;font-size:.66rem;color:var(--tinta-suave)}
+  .ig-high .ci{width:52px;height:52px;border-radius:50%;border:1px solid var(--crema-d);background:var(--crema);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:4px}
+  .ig-tabs{display:flex;border-top:1px solid var(--crema-d);margin-top:8px}
+  .ig-tabs div{flex:1;text-align:center;padding:8px;font-size:1rem;color:var(--tinta-suave)}
+  .ig-tabs div.on{color:var(--tinta);border-top:2px solid var(--tinta);margin-top:-1px}
+  .ig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+  .ig-grid div{aspect-ratio:1;background-size:cover;background-position:center;position:relative}
+
+  /* Feed grande de muestra */
+  .feed-demo{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:8px}
+  .feed-demo .tile{aspect-ratio:1;border-radius:10px;background-size:cover;background-position:center;position:relative;overflow:hidden;box-shadow:0 8px 22px rgba(44,38,32,.1)}
+  .feed-demo .tile .ov{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:14px;color:#fff}
+  .feed-demo .tile.txt{background:var(--pasto);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#fff;padding:16px}
+  .feed-demo .tile.txt.rufo{background:var(--atardecer)}
+  .feed-demo .tile.txt.crema{background:var(--crema);color:var(--tinta)}
+  .feed-demo .tile.txt .k{font-family:var(--hand);font-size:1.3rem;line-height:1;opacity:.9}
+  .feed-demo .tile.txt .b{font-family:var(--serif);font-size:1.5rem;font-weight:600;line-height:1.1;margin-top:4px}
+  .grad{background:linear-gradient(180deg,transparent 40%,rgba(44,38,32,.65))}
+
+  /* Stories */
+  .stories{display:flex;gap:16px;margin-top:26px;flex-wrap:wrap}
+  .story{width:150px;height:266px;border-radius:18px;overflow:hidden;position:relative;background-size:cover;background-position:center;box-shadow:0 12px 32px rgba(44,38,32,.18);flex-shrink:0}
+  .story .ov{position:absolute;inset:0;padding:16px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(180deg,rgba(44,38,32,.45),transparent 30%,transparent 60%,rgba(44,38,32,.6));color:#fff}
+  .story .bar{height:3px;background:rgba(255,255,255,.85);border-radius:3px}
+  .story .mid{font-family:var(--serif);font-size:1.5rem;font-weight:600;text-align:center;line-height:1.15}
+  .story .tagb{align-self:center;background:var(--atardecer);padding:6px 14px;border-radius:20px;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase}
+  .story.solid{display:flex;align-items:center;justify-content:center;background:var(--tierra)}
+
+  /* WEB MOCKUP */
+  .browser{border-radius:14px;overflow:hidden;box-shadow:0 22px 60px rgba(44,38,32,.22);border:1px solid var(--crema-d);margin-top:34px;background:#fff}
+  .browser-bar{background:#e8e0d0;padding:10px 14px;display:flex;align-items:center;gap:8px}
+  .browser-bar .dot{width:11px;height:11px;border-radius:50%}
+  .browser-bar .url{flex:1;background:#fff;border-radius:20px;padding:5px 14px;font-size:.74rem;color:var(--tinta-suave);margin-left:8px}
+  .web-hero{position:relative;height:380px;background:linear-gradient(90deg,rgba(44,38,32,.66),rgba(44,38,32,.1)),url('img/1.webp') center/cover}
+  .web-nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:20px 36px;color:#fff}
+  .web-nav .logo{font-family:var(--serif);font-weight:600;letter-spacing:.2em;font-size:1.3rem}
+  .web-nav ul{display:flex;gap:24px;list-style:none;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+  .web-hero .copy{position:absolute;bottom:0;padding:46px 36px;color:#fff;max-width:560px}
+  .web-hero .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.7rem;color:var(--celeste-cl);margin-bottom:12px}
+  .web-hero h3{font-family:var(--serif);color:#fff;font-size:2.6rem;font-weight:500;text-transform:none;letter-spacing:0;line-height:1.05;margin-bottom:16px}
+  .web-hero .cta{background:var(--atardecer);color:#fff;padding:12px 26px;border-radius:30px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:inline-block}
+  .web-strip{display:grid;grid-template-columns:repeat(4,1fr)}
+  .web-strip div{padding:26px 18px;text-align:center;border-right:1px solid var(--crema-d)}
+  .web-strip div:last-child{border-right:none}
+  .web-strip .ic{font-size:1.5rem;margin-bottom:6px}
+  .web-strip .t{font-family:var(--serif);font-size:1.2rem;font-weight:600}
+  .web-strip .s{font-size:.76rem;color:var(--tinta-suave)}
+  .web-gal{display:grid;grid-template-columns:repeat(3,1fr);gap:0}
+  .web-gal div{height:150px;background-size:cover;background-position:center}
+  .web-band{background:var(--pasto);color:#fff;padding:40px 36px;text-align:center}
+  .web-band .q{font-family:var(--serif);font-style:italic;font-size:1.7rem;max-width:640px;margin:0 auto}
+
+  /* SERVICIOS */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px}
+  .svc .s{background:#fff;border-radius:16px;padding:32px 28px;box-shadow:0 8px 26px rgba(44,38,32,.07);border-top:4px solid var(--atardecer)}
+  .svc .s:nth-child(2){border-top-color:var(--celeste)}
+  .svc .s:nth-child(3){border-top-color:var(--pasto)}
+  .svc .s .ico{font-size:2rem;margin-bottom:12px}
+  .svc .s h4{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:10px}
+  .svc .s ul{list-style:none;margin-top:10px}
+  .svc .s li{padding:7px 0 7px 24px;position:relative;font-size:.92rem;border-bottom:1px solid var(--crema-d)}
+  .svc .s li:before{content:"✓";position:absolute;left:0;color:var(--atardecer);font-weight:700}
+
+  /* PAQUETES */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:36px;align-items:stretch}
+  .plan{background:#fff;border-radius:16px;padding:32px 26px;box-shadow:0 8px 26px rgba(44,38,32,.08);display:flex;flex-direction:column;position:relative}
+  .plan.feat{background:var(--tinta);color:#F2E9D7;transform:scale(1.04);box-shadow:0 22px 50px rgba(44,38,32,.3)}
+  .plan.feat h4,.plan.feat .price{color:#fff}
+  .plan .tag{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--atardecer);color:#fff;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;white-space:nowrap}
+  .plan h4{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:4px}
+  .plan .sub{font-size:.82rem;color:var(--tinta-suave);margin-bottom:18px}
+  .plan.feat .sub{color:#cbbfa9}
+  .plan .price{font-family:var(--serif);font-size:2.3rem;font-weight:600;margin-bottom:4px}
+  .plan .price small{font-size:.9rem;font-weight:400;color:var(--tinta-suave)}
+  .plan ul{list-style:none;margin:18px 0 24px;flex:1}
+  .plan li{padding:8px 0 8px 24px;position:relative;font-size:.9rem;border-bottom:1px solid rgba(140,120,90,.18)}
+  .plan li:before{content:"✓";position:absolute;left:0;color:var(--atardecer)}
+  .plan.feat li:before{color:var(--celeste)}
+  .plan.feat li{border-bottom:1px solid rgba(255,255,255,.12)}
+  .plan .btn{text-align:center;width:100%}
+
+  /* PROCESO */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+  .step{text-align:center;padding:10px}
+  .step .n{width:46px;height:46px;border-radius:50%;background:var(--atardecer);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.3rem;font-weight:600;margin:0 auto 14px}
+  .step h4{font-family:var(--sans);font-weight:600;font-size:1rem;margin-bottom:6px}
+  .step p{font-size:.84rem;color:var(--tinta-suave);margin:0}
+
+  /* CTA / FOOTER */
+  .cta-final{background:linear-gradient(135deg,var(--atardecer),var(--tierra-d));color:#fff;text-align:center;border:none}
+  .cta-final h2{color:#fff}
+  .cta-final p{color:rgba(255,255,255,.9);margin:0 auto 8px}
+  .contact-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:16px;padding:30px;max-width:520px;margin:30px auto 0;backdrop-filter:blur(4px)}
+  .contact-card .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:.95rem}
+  .contact-card .row:last-child{border-bottom:none}
+  .contact-card .row span:first-child{opacity:.75;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem}
+  footer{background:var(--tinta);color:#cbbfa9;text-align:center;padding:50px 24px;border:none;font-size:.82rem;letter-spacing:.1em}
+
+  @media(max-width:760px){
+    nav ul{display:none}
+    .two,.three,.svc,.plans,.steps,.swatches{grid-template-columns:1fr}
+    .swatches{grid-template-columns:repeat(3,1fr)}
+    .plan.feat{transform:none}
+    h2{font-size:2.2rem}
+  }
+  @media print{
+    nav,.cta-row,.hero p{display:none}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    section{page-break-inside:avoid;padding:30px 0}
+    .card,.plan,.svc .s,.phone,.browser{box-shadow:none;border:1px solid #e5ddcb}
+    .plan.feat{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="page">
+    <div class="brand">ZORZAL</div>
+    <ul>
+      <li><a href="#marca">Tu marca</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+      <li><a href="#web">Web</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn" href="#contacto">Quiero avanzar <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="kicker">una propuesta para</div>
+  <img class="logo" src="logo.png" alt="Logotipo Zorzal">
+  <h1>Démosle a Zorzal la presencia que su lugar merece</h1>
+  <p>Identidad de marca, Instagram y página web — una imagen coherente y profesional para que cada huésped se enamore antes de llegar.</p>
+  <div class="cta-row">
+    <a class="btn" href="#instagram">Ver la propuesta <i class="fa-solid fa-arrow-down"></i></a>
+    <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+  </div>
+</header>
+
+<!-- INTRO -->
+<section class="page" id="intro">
+  <span class="pill">La idea</span>
+  <h2>Zorzal ya es un lugar precioso.<br>Hagamos que se note online.</h2>
+  <div class="two" style="margin-top:30px">
+    <div>
+      <p>Tenés una casa de campo boutique con vista al río, atardeceres de película y la exclusividad de tener todo el lugar para un solo grupo. El desafío no es el lugar: es <strong>mostrarlo de forma que transmita ese valor</strong> en cada pantalla.</p>
+      <p>Mi propuesta es construir una presencia digital cuidada y coherente en tres piezas que trabajan juntas:</p>
+      <p class="small">Esta misma propuesta ya está diseñada con la identidad que armé para Zorzal — así podés ver, no imaginar, cómo se vería todo.</p>
+    </div>
+    <div class="three" style="grid-template-columns:1fr">
+      <div class="card" style="display:flex;gap:16px;align-items:center"><span style="font-size:1.6rem;color:var(--atardecer)"><i class="fa-solid fa-palette"></i></span><div><strong>Identidad de marca</strong><br><span class="small">Logo, colores, tipografías y voz.</span></div></div>
+      <div class="card" style="display:flex;gap:16px;align-items:center"><span style="font-size:1.6rem;color:var(--atardecer)"><i class="fa-brands fa-instagram"></i></span><div><strong>Instagram</strong><br><span class="small">Feed, plantillas, stories y bio.</span></div></div>
+      <div class="card" style="display:flex;gap:16px;align-items:center"><span style="font-size:1.6rem;color:var(--atardecer)"><i class="fa-solid fa-laptop"></i></span><div><strong>Página web</strong><br><span class="small">Sitio para mostrar y reservar.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 1 · IDENTIDAD -->
+<section class="page" id="marca">
+  <span class="section-num">01 · Tu marca, ya pensada</span>
+  <h2>La identidad visual</h2>
+  <p class="lead">Inspirada en el propio zorzal y en el lugar: cálida, natural y boutique.</p>
+
+  <div class="two" style="margin-top:34px">
+    <div class="card center" style="background:var(--crema)">
+      <img src="logo.png" alt="Logotipo Zorzal" class="mx" style="width:300px;max-width:100%">
+      <div style="font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--tierra-d);margin-top:6px">Casa de Campo Boutique</div>
+    </div>
+    <div>
+      <h3>El logotipo</h3>
+      <p>Un zorzal posado sobre un wordmark serif elegante. El pájaro aporta calidez y arraigo al campo rioplatense; la tipografía, el aire boutique.</p>
+      <h3 style="margin-top:24px">Tipografías</h3>
+      <div class="type-mini">
+        <div class="t"><div style="font-family:var(--serif);font-size:2.6rem;line-height:1">Cormorant</div><span class="small">Títulos · serif elegante</span></div>
+        <div class="t"><div style="font-family:var(--sans);font-size:2rem;font-weight:300;line-height:1.2">Jost</div><span class="small">Textos · sans clara</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:46px">Paleta · los colores del zorzal</h3>
+  <div class="swatches">
+    <div class="swatch"><div class="chip" style="background:#C0623A"></div><div class="nm">Rufo Pecho</div></div>
+    <div class="swatch"><div class="chip" style="background:#8A6A4F"></div><div class="nm">Pardo Lomo</div></div>
+    <div class="swatch"><div class="chip" style="background:#4E4C46"></div><div class="nm">Pizarra Alas</div></div>
+    <div class="swatch"><div class="chip" style="background:#D29B2E"></div><div class="nm">Mostaza Pico</div></div>
+    <div class="swatch"><div class="chip" style="background:#F2E9D7;border:1px solid #e5ddcb"></div><div class="nm">Crema Garganta</div></div>
+  </div>
+  <p class="small" style="margin-top:18px">¿Querés ver la identidad completa, con todos los usos y reglas? Está en el <a href="manual-de-marca.html" style="color:var(--atardecer-d)">manual de marca</a> que también te preparo.</p>
+</section>
+
+<!-- 2 · INSTAGRAM -->
+<section class="page" id="instagram">
+  <span class="section-num">02 · Instagram</span>
+  <h2>Así se vería tu Instagram</h2>
+  <p class="lead">Un perfil que se siente como una revista de viajes: ordenado, cálido y con identidad propia.</p>
+
+  <div class="ig-wrap">
+    <!-- Phone profile -->
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="ig-prof">
+          <div class="ig-prof-top">
+            <div class="ig-ava"><img src="logo.png" alt="Avatar"></div>
+            <div class="ig-stats">
+              <div><b>48</b>posts</div>
+              <div><b>2.140</b>seguidores</div>
+              <div><b>312</b>seguidos</div>
+            </div>
+          </div>
+          <div class="ig-bio">
+            <div class="h">Zorzal · Casa de Campo Boutique</div>
+            <i class="fa-solid fa-mountain-sun" style="color:var(--atardecer)"></i> Tu refugio frente al Río de la Plata<br>
+            <i class="fa-solid fa-location-dot" style="color:var(--atardecer)"></i> San Pedro · Colonia del Sacramento<br>
+            <i class="fa-solid fa-star" style="color:var(--celeste)"></i> Todo el lugar para tu grupo · 4/5 personas<br>
+            <span class="link"><i class="fa-solid fa-chevron-right"></i> Reservá tu estadía</span>
+          </div>
+          <div class="ig-high">
+            <div class="hi"><div class="ci"><i class="fa-solid fa-house-chimney"></i></div>La casa</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-person-swimming"></i></div>Pileta</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-mountain-sun"></i></div>Atardeceres</div>
+            <div class="hi"><div class="ci"><i class="fa-solid fa-location-dot"></i></div>Colonia</div>
+          </div>
+          <div class="ig-tabs"><div class="on"><i class="fa-solid fa-table-cells"></i></div><div><i class="fa-solid fa-clapperboard"></i></div><div><i class="fa-regular fa-user"></i></div></div>
+          <div class="ig-grid">
+            <div style="background-image:url('img/1.webp')"></div>
+            <div style="background-image:url('img/31.webp')"></div>
+            <div style="background-image:url('img/8.webp')"></div>
+            <div style="background-image:url('img/4.webp')"></div>
+            <div style="background-image:url('img/30.webp')"></div>
+            <div style="background-image:url('img/2.webp')"></div>
+            <div style="background-image:url('img/11.webp')"></div>
+            <div style="background-image:url('img/29.webp')"></div>
+            <div style="background-image:url('img/28.webp')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feed concept -->
+    <div>
+      <h3>El feed, pensado como un todo</h3>
+      <p class="small" style="margin-bottom:18px">Alterno fotos del lugar con placas de texto y citas, manteniendo un ritmo visual y la paleta de marca. Así el perfil se ve cuidado apenas alguien entra.</p>
+      <div class="feed-demo">
+        <div class="tile" style="background-image:url('img/1.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt rufo"><div class="k">tardes así</div><div class="b">Pileta &amp; atardecer</div></div>
+        <div class="tile" style="background-image:url('img/11.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt crema"><div class="k">tu refugio</div><div class="b">frente al río</div></div>
+        <div class="tile" style="background-image:url('img/8.webp')"><div class="ov grad"></div></div>
+        <div class="tile" style="background-image:url('img/30.webp')"><div class="ov grad"></div></div>
+        <div class="tile" style="background-image:url('img/4.webp')"><div class="ov grad"></div></div>
+        <div class="tile txt"><div class="k">en exclusiva</div><div class="b">Todo el lugar para tu grupo</div></div>
+        <div class="tile" style="background-image:url('img/31.webp')"><div class="ov grad"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stories -->
+  <h3 style="margin-top:50px">Stories y destacados con identidad</h3>
+  <div class="stories">
+    <div class="story" style="background-image:url('img/1.webp')">
+      <div class="ov"><div class="bar"></div><div class="tagb">El atardecer de hoy <i class="fa-solid fa-mountain-sun"></i></div><div></div></div>
+    </div>
+    <div class="story" style="background-image:url('img/29.webp')">
+      <div class="ov"><div class="bar"></div><div class="mid">Galería &amp;<br>parrillero</div><div class="tagb">Conocé la casa</div></div>
+    </div>
+    <div class="story solid">
+      <div class="ov" style="background:none;justify-content:center;align-items:center;text-align:center">
+        <div><div style="font-family:var(--hand);font-size:1.6rem;color:var(--celeste-cl)">escapate al campo</div><div class="mid" style="margin-top:8px">2 noches<br>mínimo</div></div>
+      </div>
+    </div>
+    <div class="story" style="background-image:url('img/31.webp')">
+      <div class="ov"><div class="bar"></div><div></div><div class="tagb">Reservá tu finde <i class="fa-solid fa-arrow-right"></i></div></div>
+    </div>
+  </div>
+  <p class="small" style="margin-top:20px">Incluye <strong>plantillas editables</strong> (Canva) para que puedas publicar sola manteniendo siempre la misma estética, + una grilla de contenido para el primer mes.</p>
+</section>
+
+<!-- 3 · WEB -->
+<section class="page" id="web">
+  <span class="section-num">03 · Página web</span>
+  <h2>Y tu página web</h2>
+  <p class="lead">El lugar donde el huésped pasa de “me gusta” a “quiero reservar”.</p>
+
+  <div class="browser">
+    <div class="browser-bar">
+      <span class="dot" style="background:#e0685e"></span>
+      <span class="dot" style="background:#e6c14a"></span>
+      <span class="dot" style="background:#7bbf6a"></span>
+      <span class="url">www.zorzalcolonia.com</span>
+    </div>
+    <!-- web hero -->
+    <div class="web-hero">
+      <div class="web-nav">
+        <div class="logo">ZORZAL</div>
+        <ul><li>La casa</li><li>Galería</li><li>La zona</li><li>Reservas</li></ul>
+      </div>
+      <div class="copy">
+        <div class="eyebrow">San Pedro · Colonia del Sacramento</div>
+        <h3>Tu refugio frente al río</h3>
+        <span class="cta">Consultá disponibilidad <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
+    </div>
+    <!-- strip -->
+    <div class="web-strip">
+      <div><div class="ic" style="color:var(--atardecer)"><i class="fa-solid fa-house-chimney"></i></div><div class="t">La casa</div><div class="s">2 dorm · 4/5 personas</div></div>
+      <div><div class="ic" style="color:var(--celeste)"><i class="fa-solid fa-person-swimming"></i></div><div class="t">Pileta</div><div class="s">Enorme, con vista al río</div></div>
+      <div><div class="ic" style="color:var(--atardecer)"><i class="fa-solid fa-fire"></i></div><div class="t">Parrillero</div><div class="s">Galería cubierta</div></div>
+      <div><div class="ic" style="color:var(--pasto)"><i class="fa-solid fa-tree"></i></div><div class="t">3 hectáreas</div><div class="s">Campo, paddle y ping pong</div></div>
+    </div>
+    <!-- galería -->
+    <div class="web-gal">
+      <div style="background-image:url('img/4.webp')"></div>
+      <div style="background-image:url('img/2.webp')"></div>
+      <div style="background-image:url('img/28.webp')"></div>
+    </div>
+    <!-- band -->
+    <div class="web-band">
+      <div class="q">“Todo el lugar para tu grupo: campo, río y atardeceres, sin compartir con nadie.”</div>
+    </div>
+  </div>
+
+  <div class="three" style="margin-top:34px">
+    <div class="card"><h3 style="margin-bottom:8px">Hecha para reservar</h3><p class="small" style="margin:0">Botón de consulta directa a WhatsApp y formulario de reserva siempre a mano.</p></div>
+    <div class="card"><h3 style="margin-bottom:8px">Mobile primero</h3><p class="small" style="margin:0">Se ve impecable en el celular, que es donde la mayoría va a entrar desde Instagram.</p></div>
+    <div class="card"><h3 style="margin-bottom:8px">Encontrable en Google</h3><p class="small" style="margin:0">Optimizada para que aparezca al buscar alquiler en Colonia.</p></div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="page" id="servicios">
+  <span class="section-num">04 · Qué incluye</span>
+  <h2>Los tres servicios</h2>
+  <p class="lead">Podés tomar uno, dos o los tres. Juntos rinden más: una sola identidad coherente en todos lados.</p>
+
+  <div class="svc">
+    <div class="s">
+      <div class="ico"><i class="fa-solid fa-palette"></i></div>
+      <h4>Identidad de marca</h4>
+      <p class="small">El alma visual de Zorzal, lista para usar en todos lados.</p>
+      <ul>
+        <li>Logotipo + variantes</li>
+        <li>Paleta de color</li>
+        <li>Tipografías</li>
+        <li>Identidad verbal / tono</li>
+        <li>Manual de marca (PDF)</li>
+      </ul>
+    </div>
+    <div class="s">
+      <div class="ico"><i class="fa-brands fa-instagram"></i></div>
+      <h4>Instagram</h4>
+      <p class="small">Un perfil que vende solo, fácil de mantener.</p>
+      <ul>
+        <li>Diseño del feed</li>
+        <li>Foto de perfil + bio</li>
+        <li>Portadas de destacados</li>
+        <li>Plantillas editables (Canva)</li>
+        <li>Grilla de contenido 1er mes</li>
+      </ul>
+    </div>
+    <div class="s">
+      <div class="ico"><i class="fa-solid fa-laptop"></i></div>
+      <h4>Página web</h4>
+      <p class="small">Tu casa, mostrada y lista para reservar.</p>
+      <ul>
+        <li>Diseño y desarrollo</li>
+        <li>Galería de fotos</li>
+        <li>Sección de la zona + mapa</li>
+        <li>Reserva / consulta directa</li>
+        <li>Optimización para Google</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- PAQUETES -->
+  <h3 style="margin-top:60px" class="center">Paquetes</h3>
+  <p class="small center mx" style="max-width:520px">Precios de referencia — los ajustamos juntas según el alcance final.</p>
+  <div class="plans">
+    <div class="plan">
+      <h4>Esencial</h4>
+      <div class="sub">La base de todo</div>
+      <div class="price">$ XX.XXX</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li>Identidad de marca completa</li>
+        <li>Manual de marca (PDF)</li>
+        <li>Logo en todos los formatos</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Esencial</a>
+    </div>
+    <div class="plan feat">
+      <div class="tag"><i class="fa-solid fa-star"></i> Más elegido</div>
+      <h4>Marca + Instagram</h4>
+      <div class="sub">Para empezar a publicar ya</div>
+      <div class="price">$ XX.XXX</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li>Todo lo del plan Esencial</li>
+        <li>Diseño completo de Instagram</li>
+        <li>Plantillas editables (Canva)</li>
+        <li>Grilla de contenido 1er mes</li>
+      </ul>
+      <a class="btn" href="#contacto">Elegir este plan</a>
+    </div>
+    <div class="plan">
+      <h4>Plan Completo</h4>
+      <div class="sub">Presencia digital 360°</div>
+      <div class="price">$ XX.XXX</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li>Todo lo de Marca + Instagram</li>
+        <li>Página web a medida</li>
+        <li>Reservas / WhatsApp directo</li>
+        <li>Optimización para Google</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Completo</a>
+    </div>
+  </div>
+  <p class="small center" style="margin-top:22px">¿Necesitás gestión mensual del Instagram (contenido + publicaciones)? Lo sumamos como abono aparte. Consultame.</p>
+</section>
+
+<!-- PROCESO -->
+<section class="page" id="proceso">
+  <span class="section-num">05 · Cómo trabajamos</span>
+  <h2>El proceso, simple</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Charla inicial</h4><p>Nos juntamos (o videollamada) y definimos objetivos, estilo y alcance.</p></div>
+    <div class="step"><div class="n">2</div><h4>Diseño</h4><p>Te presento propuestas y ajustamos juntas hasta que te enamores.</p></div>
+    <div class="step"><div class="n">3</div><h4>Producción</h4><p>Armo todo: marca, Instagram y/o web, con tus fotos y textos.</p></div>
+    <div class="step"><div class="n">4</div><h4>Entrega</h4><p>Te dejo todo listo y te enseño a mantenerlo sin depender de nadie.</p></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="page cta-final" id="contacto">
+  <span class="section-num" style="color:#F2E9D7">06 · Hablemos</span>
+  <h2>¿Avanzamos con Zorzal?</h2>
+  <p class="mx" style="max-width:560px">Contame qué plan te interesa y coordinamos una charla sin compromiso. Me encantaría ayudarte a que Zorzal brille también en pantalla.</p>
+  <div class="contact-card">
+    <div class="row"><span><i class="fa-solid fa-pen-nib"></i> Diseña</span><span>Teo Cicciari</span></div>
+    <div class="row"><span><i class="fa-solid fa-globe"></i> Web</span><span><a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">teocicciari.com.ar</a></span></div>
+  </div>
+  <div class="cta-row" style="justify-content:center;margin-top:30px">
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener" style="background:#fff;color:var(--atardecer-d)">Ver mi portfolio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    <a class="btn btn-ghost" href="#" style="border-color:#fff;color:#fff" onclick="window.print();return false;"><i class="fa-solid fa-file-pdf"></i> Descargar en PDF</a>
+  </div>
+</section>
+
+<footer>
+  Propuesta preparada para Zorzal · Casa de Campo Boutique &nbsp;·&nbsp; <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" style="color:#cbbfa9">Teo Cicciari — teocicciari.com.ar</a> &nbsp;·&nbsp; 2026
+</footer>
+
+</body>
+</html>

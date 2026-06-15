@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zorzal · Manual de Marca</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* === PALETA DE MARCA === */
+    /* Paleta del zorzal colorado (Turdus rufiventris) */
+    --celeste:   #D29B2E;   /* Mostaza Pico — amarillo del pico / anillo ocular */
+    --celeste-cl:#E6C77A;
+    --atardecer: #C0623A;   /* Rufo Pecho — naranja del pecho */
+    --atardecer-d:#9C4A29;
+    --pasto:     #4E4C46;   /* Pizarra Alas — gris de alas y cabeza */
+    --pasto-cl:  #6E6B61;
+    --tierra:    #8A6A4F;   /* Pardo Lomo — marrón del dorso */
+    --tierra-d:  #5E4733;
+    --crema:     #F2E9D7;   /* Crema Garganta — fondo cálido */
+    --crema-d:   #EAE1CE;
+    --tinta:     #2C2620;   /* Texto */
+    --tinta-suave:#5A5247;
+
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Jost', 'Segoe UI', sans-serif;
+    --hand:  'Caveat', cursive;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    color:var(--tinta);
+    background:var(--crema);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+
+  /* ===== LAYOUT ===== */
+  .page{
+    max-width:1100px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  section{padding:90px 0;border-bottom:1px solid var(--crema-d)}
+  .section-num{
+    font-family:var(--sans);
+    font-weight:500;
+    letter-spacing:.35em;
+    font-size:.72rem;
+    color:var(--atardecer-d);
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:block;
+  }
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:2.9rem;
+    line-height:1.05;
+    color:var(--tinta);
+    margin-bottom:10px;
+  }
+  h3{
+    font-family:var(--sans);
+    font-weight:500;
+    letter-spacing:.04em;
+    font-size:1.05rem;
+    text-transform:uppercase;
+    color:var(--tierra-d);
+    margin-bottom:14px;
+  }
+  .lead{
+    font-family:var(--serif);
+    font-size:1.5rem;
+    font-style:italic;
+    color:var(--tinta-suave);
+    max-width:640px;
+    margin-bottom:8px;
+  }
+  p{max-width:680px;margin-bottom:14px;font-size:1.02rem}
+  p.small{font-size:.9rem;color:var(--tinta-suave)}
+
+  /* ===== NAV ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(245,239,226,.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--crema-d);
+  }
+  nav .page{display:flex;align-items:center;justify-content:space-between;height:60px}
+  nav .brand{font-family:var(--serif);font-weight:600;font-size:1.3rem;letter-spacing:.18em}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{color:var(--tinta-suave);text-decoration:none;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+  nav a:hover{color:var(--atardecer-d)}
+  .btn-pdf{
+    background:var(--tierra);color:#fff;border:none;cursor:pointer;
+    padding:9px 18px;border-radius:30px;font-family:var(--sans);
+    font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;transition:background .2s;
+  }
+  .btn-pdf:hover{background:var(--tierra-d)}
+
+  /* ===== HERO ===== */
+  .hero{
+    min-height:92vh;
+    display:flex;flex-direction:column;justify-content:center;align-items:center;
+    text-align:center;
+    background:
+      linear-gradient(180deg, rgba(44,38,32,.15), rgba(44,38,32,.55)),
+      url('img/8.webp') center/cover no-repeat;
+    color:#fff;
+    border-bottom:none;
+    padding:60px 24px;
+  }
+  .hero .logo-hero{margin-bottom:28px}
+  .hero h1{
+    font-family:var(--serif);font-weight:500;
+    font-size:clamp(2.5rem,7vw,5rem);letter-spacing:.02em;line-height:1;
+  }
+  .hero .tag{
+    font-family:var(--sans);text-transform:uppercase;letter-spacing:.5em;
+    font-size:.8rem;margin-top:18px;opacity:.9;font-weight:400;
+  }
+  .hero .scroll{margin-top:54px;font-family:var(--hand);font-size:1.5rem;opacity:.95}
+
+  /* ===== LOGO LOCKUP (SVG reusable) ===== */
+  .logo-lockup{display:inline-flex;flex-direction:column;align-items:center;text-align:center;line-height:1}
+  .logo-lockup .bird{margin-bottom:6px}
+  .logo-lockup .word{
+    font-family:var(--serif);font-weight:600;
+    letter-spacing:.28em;text-indent:.28em;
+  }
+  .logo-lockup .sub{
+    font-family:var(--sans);font-weight:400;text-transform:uppercase;
+    margin-top:6px;
+  }
+
+  /* ===== COLORS ===== */
+  .swatches{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:36px}
+  .swatch{border-radius:14px;overflow:hidden;box-shadow:0 8px 26px rgba(44,38,32,.1);background:#fff}
+  .swatch .chip{height:150px}
+  .swatch .meta{padding:16px 18px}
+  .swatch .name{font-family:var(--serif);font-size:1.35rem;font-weight:600;margin-bottom:2px}
+  .swatch .role{font-size:.78rem;color:var(--tinta-suave);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .swatch .hex{font-family:var(--sans);font-size:.8rem;letter-spacing:.05em;color:var(--tinta)}
+  .swatch .hex span{display:block;color:var(--tinta-suave)}
+
+  .palette-bar{display:flex;height:14px;border-radius:8px;overflow:hidden;margin-top:30px}
+  .palette-bar div{flex:1}
+
+  /* ===== TYPOGRAPHY ===== */
+  .type-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:34px}
+  .type-card{background:#fff;border-radius:14px;padding:34px;box-shadow:0 8px 26px rgba(44,38,32,.07)}
+  .type-card .role{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--atardecer-d);margin-bottom:8px}
+  .type-card .fam{font-size:.95rem;color:var(--tinta-suave);margin-bottom:22px}
+  .type-card .sample-serif{font-family:var(--serif);font-size:3.4rem;line-height:1;margin-bottom:10px}
+  .type-card .sample-sans{font-family:var(--sans);font-size:2.1rem;font-weight:300;margin-bottom:10px}
+  .glyphs{font-size:1rem;color:var(--tinta-suave);letter-spacing:.02em;border-top:1px solid var(--crema-d);padding-top:18px;margin-top:18px}
+  .weights span{display:inline-block;margin-right:16px}
+
+  /* ===== GRID HELPERS ===== */
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:34px}
+  .gallery img{border-radius:12px;height:200px;width:100%;object-fit:cover;box-shadow:0 8px 22px rgba(44,38,32,.1)}
+
+  .card{background:#fff;border-radius:14px;padding:28px 30px;box-shadow:0 8px 26px rgba(44,38,32,.07)}
+  .do-dont{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:30px}
+  .do-dont .head{font-family:var(--sans);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.85rem;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .do .head{color:var(--pasto)}
+  .dont .head{color:var(--tierra)}
+  .do-dont ul{list-style:none}
+  .do-dont li{padding:7px 0 7px 26px;position:relative;font-size:.95rem;border-bottom:1px solid var(--crema-d)}
+  .do li:before{content:"✓";position:absolute;left:0;color:var(--pasto);font-weight:700}
+  .dont li:before{content:"✕";position:absolute;left:0;color:var(--tierra);font-weight:700}
+
+  /* ===== VERBAL ===== */
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:34px}
+  .pillar{background:#fff;border-radius:14px;padding:26px 22px;text-align:center;box-shadow:0 8px 26px rgba(44,38,32,.07)}
+  .pillar .ico{font-size:2rem;margin-bottom:10px}
+  .pillar h4{font-family:var(--serif);font-size:1.5rem;font-weight:600;margin-bottom:6px}
+  .pillar p{font-size:.88rem;color:var(--tinta-suave);margin:0}
+
+  .voice-table{width:100%;border-collapse:collapse;margin-top:30px;background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 8px 26px rgba(44,38,32,.07)}
+  .voice-table th{background:var(--pasto);color:#fff;text-align:left;padding:14px 20px;font-weight:500;letter-spacing:.05em;font-size:.85rem;text-transform:uppercase}
+  .voice-table td{padding:14px 20px;border-bottom:1px solid var(--crema-d);font-size:.95rem;vertical-align:top}
+  .voice-table td.yes{color:var(--pasto)}
+  .voice-table td.no{color:var(--tierra)}
+
+  .quote{
+    font-family:var(--serif);font-style:italic;font-size:1.9rem;line-height:1.4;
+    color:var(--tinta);text-align:center;max-width:760px;margin:10px auto 0;
+  }
+  .tagline-list{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}
+  .tagline-list span{
+    background:var(--crema-d);border-radius:30px;padding:10px 22px;
+    font-family:var(--serif);font-style:italic;font-size:1.15rem;
+  }
+
+  /* ===== MOCKUPS ===== */
+  .mockups{display:grid;grid-template-columns:340px 1fr;gap:40px;align-items:start;margin-top:40px}
+  @media(max-width:860px){.mockups{grid-template-columns:1fr}}
+
+  /* Instagram */
+  .ig{width:340px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(44,38,32,.18);margin:0 auto}
+  .ig-top{display:flex;align-items:center;gap:10px;padding:12px 14px}
+  .ig-av{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--atardecer),var(--tierra));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:.9rem}
+  .ig-name{font-size:.82rem;font-weight:600;font-family:var(--sans)}
+  .ig-name small{display:block;font-weight:300;color:var(--tinta-suave);font-size:.72rem}
+  .ig-img{position:relative;height:340px;background:url('img/1.webp') center/cover}
+  .ig-img .ov{
+    position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;
+    padding:22px;background:linear-gradient(180deg,transparent 45%,rgba(44,38,32,.65));color:#fff
+  }
+  .ig-img .ov .k{font-family:var(--hand);font-size:1.6rem;line-height:1}
+  .ig-img .ov .h{font-family:var(--serif);font-size:1.7rem;font-weight:600;letter-spacing:.04em}
+  .ig-actions{display:flex;gap:16px;padding:12px 14px 4px;font-size:1.2rem;color:var(--tinta)}
+  .ig-cap{padding:2px 14px 16px;font-size:.85rem}
+  .ig-cap b{font-weight:600}
+  .ig-cap .tags{color:var(--celeste);font-weight:400}
+
+  /* Banner web */
+  .banner{
+    position:relative;border-radius:16px;overflow:hidden;height:330px;
+    background:url('img/30.webp') center/cover;box-shadow:0 18px 50px rgba(44,38,32,.18)
+  }
+  .banner .ov{
+    position:absolute;inset:0;background:linear-gradient(90deg,rgba(44,38,32,.72),rgba(44,38,32,.15));
+    display:flex;flex-direction:column;justify-content:center;padding:50px;color:#fff;max-width:560px
+  }
+  .banner .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.72rem;margin-bottom:14px;color:var(--celeste-cl)}
+  .banner h3{font-family:var(--serif);color:#fff;font-size:2.6rem;font-weight:500;text-transform:none;letter-spacing:0;line-height:1.05;margin-bottom:14px}
+  .banner p{color:rgba(255,255,255,.9);font-size:1rem;margin-bottom:22px;max-width:380px}
+  .banner .cta{align-self:flex-start;background:var(--atardecer);color:#fff;padding:13px 28px;border-radius:30px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+
+  /* Folleto */
+  .flyer{
+    width:100%;max-width:430px;margin:40px auto 0;background:var(--crema);
+    border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(44,38,32,.18)
+  }
+  .flyer-top{height:230px;background:url('img/31.webp') center/cover;position:relative}
+  .flyer-top .badge{
+    position:absolute;top:18px;left:18px;background:var(--tierra);color:#fff;
+    font-family:var(--serif);letter-spacing:.2em;font-weight:600;padding:8px 16px;border-radius:6px;font-size:.9rem
+  }
+  .flyer-body{padding:30px 32px 36px;text-align:center}
+  .flyer-body .k{font-family:var(--hand);color:var(--atardecer-d);font-size:1.5rem}
+  .flyer-body h3{font-family:var(--serif);text-transform:none;letter-spacing:0;color:var(--tinta);font-size:2rem;font-weight:600;margin:4px 0 14px}
+  .flyer-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px 18px;text-align:left;margin:18px 0 24px;font-size:.86rem}
+  .flyer-feats div{padding-left:20px;position:relative}
+  .flyer-feats div:before{content:"";position:absolute;left:0;top:7px;width:9px;height:9px;border-radius:50%;background:var(--pasto)}
+  .flyer-cta{background:var(--pasto);color:#fff;display:inline-block;padding:13px 30px;border-radius:30px;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase}
+  .flyer-foot{background:var(--tinta);color:var(--crema-cl,#F5EFE2);padding:14px;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;text-align:center;color:#F5EFE2}
+
+  .mock-label{font-family:var(--sans);text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;color:var(--tinta-suave);margin-bottom:16px;text-align:center}
+
+  /* ===== FOOTER ===== */
+  footer{background:var(--tinta);color:#cbbfa9;text-align:center;padding:70px 24px;border:none}
+  footer .logo-lockup .word,footer .logo-lockup .sub{color:#F5EFE2}
+  footer p{margin:18px auto 0;color:#cbbfa9;font-size:.9rem}
+  footer .meta{margin-top:26px;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+
+  @media(max-width:760px){
+    nav ul{display:none}
+    .swatches{grid-template-columns:repeat(2,1fr)}
+    .type-grid,.two,.do-dont{grid-template-columns:1fr}
+    .pillars{grid-template-columns:repeat(2,1fr)}
+    .gallery{grid-template-columns:repeat(2,1fr)}
+    h2{font-size:2.2rem}
+  }
+
+  /* ===== PRINT / PDF ===== */
+  @media print{
+    nav,.btn-pdf,.hero .scroll{display:none}
+    body{background:#fff}
+    section{padding:30px 0;page-break-inside:avoid;border-bottom:1px solid #ddd}
+    .hero{min-height:auto;height:520px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    .swatch,.type-card,.card,.pillar,.ig,.banner,.flyer{box-shadow:none;border:1px solid #e5ddcb}
+    .mockups{grid-template-columns:1fr;gap:30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<nav>
+  <div class="page">
+    <div class="brand">ZORZAL</div>
+    <ul>
+      <li><a href="#logo">Logotipo</a></li>
+      <li><a href="#color">Color</a></li>
+      <li><a href="#tipo">Tipografía</a></li>
+      <li><a href="#verbal">Voz</a></li>
+      <li><a href="#aplicaciones">Aplicaciones</a></li>
+    </ul>
+    <button class="btn-pdf" onclick="window.print()">↓ Descargar PDF</button>
+  </div>
+</nav>
+
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="logo-hero">
+    <img src="logo.png" alt="Logotipo Zorzal" style="width:300px;max-width:72vw;border-radius:18px;box-shadow:0 18px 50px rgba(44,38,32,.35)">
+  </div>
+  <div class="tag" style="margin-top:24px">Casa de Campo Boutique</div>
+  <p style="max-width:520px;margin-top:26px;font-family:var(--serif);font-style:italic;font-size:1.35rem;color:rgba(255,255,255,.92)">
+    Manual de Marca — La guía del alma de Zorzal: cómo se ve, cómo suena y cómo se siente.
+  </p>
+  <div class="scroll">Donde el campo se encuentra con el río ↓</div>
+</header>
+
+<!-- ===================== INTRO / ESENCIA ===================== -->
+<section id="esencia" class="page">
+  <span class="section-num">01 · La Marca</span>
+  <h2>Una casa de campo con<br>vista al atardecer</h2>
+  <p class="lead">Zorzal es refugio, no hotel. Es el lugar entero para tu gente, rodeado de tres hectáreas de campo ondulado frente al Río de la Plata.</p>
+  <div class="two" style="margin-top:30px">
+    <div>
+      <p>En la zona de San Pedro, a 15 km del Barrio Histórico de Colonia del Sacramento, Zorzal ocupa un antiguo puesto de la Estancia Parque Anchorena, reciclado con cuidado y decorado con objetos y telas traídos de viajes.</p>
+      <p>Dos galerías —una mirando al atardecer y el río, otra con parrillero cubierto—, una pileta enorme y divina, quincho, paddle, ping pong y caminatas hasta la playa. Todo en exclusiva: nada se comparte.</p>
+      <p class="small">Nuestra marca traduce esa experiencia: cálida, auténtica, serena y generosa.</p>
+    </div>
+    <div class="card" style="background:linear-gradient(135deg,var(--pasto),var(--tierra-d));color:#F5EFE2">
+      <h3 style="color:#F5EFE2">El núcleo</h3>
+      <p style="color:#F5EFE2;font-family:var(--serif);font-style:italic;font-size:1.5rem;line-height:1.4;max-width:none;margin:0">
+        “Todo el lugar para tu grupo: campo, río y atardeceres, sin compartir con nadie.”
+      </p>
+      <p style="color:rgba(245,239,226,.8);margin-top:20px;margin-bottom:0;font-size:.9rem">
+        Promesa de marca · Exclusividad serena en plena naturaleza.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== LOGOTIPO ===================== -->
+<section id="logo" class="page">
+  <span class="section-num">02 · Logotipo</span>
+  <h2>El logotipo</h2>
+  <p class="lead">Un pájaro y una palabra. El zorzal —ave típica del campo rioplatense, de pecho rufo— se posa sobre un wordmark serif sobrio y elegante.</p>
+
+  <div class="two" style="margin-top:40px">
+    <div class="card" style="text-align:center;padding:40px 30px;background:var(--crema)">
+      <!-- LOGO PRINCIPAL -->
+      <img src="logo.png" alt="Logotipo principal Zorzal" style="width:300px;max-width:100%;margin:0 auto">
+      <div class="sub" style="font-size:.7rem;letter-spacing:.42em;color:var(--tierra-d);margin-top:4px">Casa de Campo Boutique</div>
+      <p class="small" style="margin:22px auto 0;text-align:center">Versión principal</p>
+    </div>
+
+    <div>
+      <h3>Construcción</h3>
+      <p>El isotipo del zorzal —posado sobre la palabra— aporta calidez y arraigo; el wordmark en serif de alto contraste aporta el aire boutique. La bajada <em>“Casa de Campo Boutique”</em> en sans mayúscula espaciada equilibra lo clásico con lo contemporáneo.</p>
+      <h3 style="margin-top:26px">Versión compacta</h3>
+      <div class="card" style="display:flex;align-items:center;gap:18px;padding:18px 24px;margin-top:6px;background:var(--crema)">
+        <img src="logo.png" alt="Logotipo Zorzal compacto" style="width:120px">
+        <div style="text-align:left">
+          <div class="sub" style="font-size:.62rem;letter-spacing:.3em;color:var(--tierra-d)">Casa de Campo Boutique</div>
+          <p class="small" style="margin:6px 0 0">Para espacios reducidos:<br>logo + bajada al costado.</p>
+        </div>
+      </div>
+      <h3 style="margin-top:26px">Isotipo</h3>
+      <p class="small">El pájaro puede recortarse y usarse solo como sello, ícono de perfil o marca de agua cuando el espacio es muy reducido.</p>
+    </div>
+  </div>
+
+  <!-- Versiones sobre fondo -->
+  <h3 style="margin-top:54px">Versiones de color</h3>
+  <p class="small">Sobre fondo claro se usa el logotipo completo a color. Sobre fondos de color u oscuros, el wordmark se aplica en una sola tinta (crema o pizarra) para garantizar contraste.</p>
+  <div class="swatches" style="grid-template-columns:repeat(3,1fr);margin-top:18px">
+    <div class="swatch" style="background:var(--crema)"><div class="chip" style="height:auto;padding:30px 0;display:flex;align-items:center;justify-content:center;background:var(--crema)">
+      <img src="logo.png" alt="Logotipo a color sobre crema" style="width:150px">
+    </div><div class="meta"><div class="role" style="margin:0">A color · sobre crema</div></div></div>
+
+    <div class="swatch"><div class="chip" style="height:auto;padding:40px 0;display:flex;align-items:center;justify-content:center;background:var(--pardo,#8A6A4F)">
+      <div class="logo-lockup"><div class="word" style="font-size:1.7rem;color:#F5EFE2">ZORZAL</div><div class="sub" style="font-size:.55rem;letter-spacing:.36em;color:#F5EFE2">Casa de Campo Boutique</div></div>
+    </div><div class="meta"><div class="role" style="margin:0">Monocromo · sobre pardo</div></div></div>
+
+    <div class="swatch"><div class="chip" style="height:auto;padding:40px 0;display:flex;align-items:center;justify-content:center;background:var(--tinta)">
+      <div class="logo-lockup"><div class="word" style="font-size:1.7rem;color:#F5EFE2">ZORZAL</div><div class="sub" style="font-size:.55rem;letter-spacing:.36em;color:var(--atardecer)">Casa de Campo Boutique</div></div>
+    </div><div class="meta"><div class="role" style="margin:0">Negativo · sobre tinta</div></div></div>
+  </div>
+
+  <!-- Usos correctos / incorrectos -->
+  <div class="do-dont">
+    <div class="card do">
+      <div class="head">✓ Usos correctos</div>
+      <ul>
+        <li>Respetar el área de protección: al menos la altura de la “Z” alrededor.</li>
+        <li>Usar siempre sobre fondos limpios o fotos con buen contraste.</li>
+        <li>Mantener las proporciones originales del lockup.</li>
+        <li>Preferir las versiones de la paleta oficial.</li>
+      </ul>
+    </div>
+    <div class="card dont">
+      <div class="head">✕ Usos incorrectos</div>
+      <ul>
+        <li>No deformar, rotar ni inclinar el logotipo.</li>
+        <li>No cambiar la tipografía ni el espaciado del wordmark.</li>
+        <li>No aplicar sombras, contornos ni degradados ajenos.</li>
+        <li>No colocarlo sobre zonas de foto sin contraste suficiente.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:30px;display:flex;gap:24px;align-items:center;background:var(--crema-d)">
+    <img src="img/logo.webp" alt="Cartel de referencia ZORZAL by Jacaranda" style="width:160px;border-radius:10px">
+    <div>
+      <h3 style="margin-bottom:8px">Sobre la referencia</h3>
+      <p class="small" style="margin:0">El cartel esmaltado original inspira el espíritu artesanal y la serif de alto contraste. El nuevo logotipo recupera ese carácter con una tipografía <strong>similar pero propia</strong> (Cormorant Garamond), suma el isotipo del zorzal y adopta la denominación de marca completa <em>“Casa de Campo Boutique”</em>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== COLOR ===================== -->
+<section id="color" class="page">
+  <span class="section-num">03 · Color</span>
+  <h2>La paleta</h2>
+  <p class="lead">Cuatro colores tomados del propio zorzal colorado, el ave que da nombre y alma a la marca: su pecho rufo, su lomo pardo, sus alas pizarra y su pico mostaza.</p>
+
+  <div class="swatches">
+    <div class="swatch">
+      <div class="chip" style="background:#C0623A"></div>
+      <div class="meta">
+        <div class="name">Rufo Pecho</div>
+        <div class="role">Acento · calidez</div>
+        <div class="hex">#C0623A<span>RGB 192 · 98 · 58</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#8A6A4F"></div>
+      <div class="meta">
+        <div class="name">Pardo Lomo</div>
+        <div class="role">Base · arraigo</div>
+        <div class="hex">#8A6A4F<span>RGB 138 · 106 · 79</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#4E4C46"></div>
+      <div class="meta">
+        <div class="name">Pizarra Alas</div>
+        <div class="role">Primario · sobriedad</div>
+        <div class="hex">#4E4C46<span>RGB 78 · 76 · 70</span></div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="chip" style="background:#D29B2E"></div>
+      <div class="meta">
+        <div class="name">Mostaza Pico</div>
+        <div class="role">Acento · vitalidad</div>
+        <div class="hex">#D29B2E<span>RGB 210 · 155 · 46</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two" style="margin-top:50px">
+    <div>
+      <h3>Neutros de apoyo</h3>
+      <p class="small">El crema —tono de la garganta del zorzal— actúa como lienzo cálido, y la tinta como texto. Aportan reposo y dejan respirar a los colores del plumaje.</p>
+      <div style="display:flex;gap:14px;margin-top:16px">
+        <div style="flex:1;text-align:center"><div style="height:70px;border-radius:10px;background:#F2E9D7;border:1px solid #e5ddcb"></div><div class="hex" style="margin-top:8px;font-size:.78rem">Crema Garganta · #F2E9D7</div></div>
+        <div style="flex:1;text-align:center"><div style="height:70px;border-radius:10px;background:#2C2620"></div><div class="hex" style="margin-top:8px;font-size:.78rem">Tinta · #2C2620</div></div>
+      </div>
+    </div>
+    <div>
+      <h3>Proporción de uso 60·30·10</h3>
+      <p class="small">Predominan el crema y los pardos; la pizarra estructura los textos; el rufo y la mostaza se reservan para acentos y llamados a la acción.</p>
+      <div class="palette-bar">
+        <div style="background:#F2E9D7;flex:3"></div>
+        <div style="background:#8A6A4F;flex:2.5"></div>
+        <div style="background:#4E4C46;flex:2"></div>
+        <div style="background:#C0623A;flex:1.5"></div>
+        <div style="background:#D29B2E;flex:1"></div>
+      </div>
+      <p class="small" style="margin-top:12px">Crema · Pardo · Pizarra · Rufo · Mostaza</p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <img src="img/8.webp" alt="Atardecer en el campo, tonos rufo y mostaza">
+    <img src="img/11.webp" alt="La casa de ladrillo entre árboles pardos">
+    <img src="img/30.webp" alt="Galería al atardecer en tonos cálidos">
+  </div>
+  <p class="small" style="text-align:center;margin-top:14px">La paleta es el plumaje del zorzal hecho marca: pecho rufo, lomo pardo, alas pizarra y pico mostaza, sobre el crema de su garganta.</p>
+</section>
+
+<!-- ===================== TIPOGRAFÍA ===================== -->
+<section id="tipo" class="page">
+  <span class="section-num">04 · Tipografía</span>
+  <h2>Tipografías</h2>
+  <p class="lead">Una serif con alma de cartel antiguo y una sans limpia y contemporánea. Juntas: cálido y boutique.</p>
+
+  <div class="type-grid">
+    <div class="type-card">
+      <div class="role">Tipografía principal · Títulos</div>
+      <div class="sample-serif">Zorzal</div>
+      <div class="fam"><strong>Cormorant Garamond</strong> — Regular / Medium / SemiBold · itálicas</div>
+      <p class="small">Serif de alto contraste, elegante y de raíz clásica. Hereda el carácter del cartel esmaltado original. Para logotipo, títulos y frases destacadas.</p>
+      <div class="glyphs">
+        <div style="font-family:var(--serif);font-size:1.6rem">Aa Bb Cc · 1234567890 · &amp; ¿? áéí</div>
+        <div class="weights" style="margin-top:14px;font-family:var(--serif)">
+          <span style="font-weight:400">Regular</span>
+          <span style="font-weight:500">Medium</span>
+          <span style="font-weight:600">SemiBold</span>
+          <span style="font-style:italic">Italic</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="type-card">
+      <div class="role">Tipografía secundaria · Texto</div>
+      <div class="sample-sans">Casa de campo</div>
+      <div class="fam"><strong>Jost</strong> — Light / Regular / Medium</div>
+      <p class="small">Sans geométrica, neutra y muy legible. Para cuerpos de texto, bajadas, etiquetas, botones y datos. En mayúsculas espaciadas funciona como detalle boutique.</p>
+      <div class="glyphs">
+        <div style="font-family:var(--sans);font-size:1.4rem;font-weight:300">Aa Bb Cc · 1234567890 · &amp; ¿? áéí</div>
+        <div class="weights" style="margin-top:14px;font-family:var(--sans)">
+          <span style="font-weight:300">Light</span>
+          <span style="font-weight:400">Regular</span>
+          <span style="font-weight:500">Medium</span>
+          <span style="font-weight:600">SemiBold</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:30px;display:flex;align-items:center;gap:30px;flex-wrap:wrap">
+    <div style="flex:1;min-width:220px">
+      <div class="role" style="font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--atardecer-d);margin-bottom:8px">Acento manuscrito · Caveat</div>
+      <p class="small" style="margin:0">Uso ocasional para guiños cálidos y cercanos en redes y folletos. Nunca en bloques largos.</p>
+    </div>
+    <div style="font-family:var(--hand);font-size:2.4rem;color:var(--tierra);flex:1;min-width:220px;text-align:center">¡Te esperamos en el campo!</div>
+  </div>
+
+  <!-- Jerarquía -->
+  <h3 style="margin-top:40px">Jerarquía tipográfica</h3>
+  <div class="card" style="margin-top:10px">
+    <div style="font-family:var(--serif);font-size:2.6rem;font-weight:500;line-height:1.1">Título · Cormorant 40/48</div>
+    <div style="font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--tinta-suave);margin-top:8px">Subtítulo · Cormorant Italic 22</div>
+    <div style="font-family:var(--sans);font-size:1rem;font-weight:300;margin-top:14px;max-width:620px">Cuerpo de texto · Jost Light 16/26. Pensado para descripciones de la casa, servicios y experiencias, con líneas cómodas de leer.</div>
+    <div style="font-family:var(--sans);font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tierra-d);margin-top:14px">Etiqueta · Jost Medium 12 · +180 tracking</div>
+  </div>
+</section>
+
+<!-- ===================== IDENTIDAD VERBAL ===================== -->
+<section id="verbal" class="page">
+  <span class="section-num">05 · Identidad Verbal</span>
+  <h2>Cómo suena Zorzal</h2>
+  <p class="lead">Hablamos como un anfitrión cálido que abre las puertas de su casa de campo: cercano, honesto y sin protocolo.</p>
+
+  <div class="pillars">
+    <div class="pillar"><div class="ico">🤍</div><h4>Cálida</h4><p>Recibimos como a la familia. Tuteo, amabilidad y cuidado real.</p></div>
+    <div class="pillar"><div class="ico">🌾</div><h4>Auténtica</h4><p>Sin pretensión. Lo decimos como es: campo, río y simpleza linda.</p></div>
+    <div class="pillar"><div class="ico">🌅</div><h4>Serena</h4><p>Invitamos a bajar un cambio. Tiempo, silencio y atardeceres.</p></div>
+    <div class="pillar"><div class="ico">🤝</div><h4>Generosa</h4><p>Todo el lugar para tu grupo. Damos detalles y confianza.</p></div>
+  </div>
+
+  <h3 style="margin-top:50px">Tono de voz</h3>
+  <table class="voice-table">
+    <tr><th>Atributo</th><th>Sí decimos</th><th>No decimos</th></tr>
+    <tr><td><strong>Cercano</strong></td><td class="yes">“Tenés todo el lugar para tu grupo.”</td><td class="no">“El establecimiento dispone de instalaciones.”</td></tr>
+    <tr><td><strong>Sensorial</strong></td><td class="yes">“La pileta es divina, con vista al río y al atardecer.”</td><td class="no">“Piscina de grandes dimensiones.”</td></tr>
+    <tr><td><strong>Honesto</strong></td><td class="yes">“No incluye leña. Estadía mínima de 2 noches.”</td><td class="no">Omitir condiciones o exagerar.</td></tr>
+    <tr><td><strong>Hospitalario</strong></td><td class="yes">“Cualquier duda, consultá, no molesta.”</td><td class="no">“Consulte nuestros términos y condiciones.”</td></tr>
+  </table>
+
+  <div class="two" style="margin-top:50px">
+    <div>
+      <h3>Mensajes clave</h3>
+      <ul class="do-dont do" style="list-style:none">
+        <li style="padding-left:26px;position:relative">Exclusividad: no se comparte con otros huéspedes.</li>
+        <li style="padding-left:26px;position:relative">Naturaleza: 3 hectáreas, campo ondulado y río.</li>
+        <li style="padding-left:26px;position:relative">Confort boutique: recientemente reciclada, telas de viajes.</li>
+        <li style="padding-left:26px;position:relative">Atardeceres frente al Río de la Plata.</li>
+        <li style="padding-left:26px;position:relative">A 10 minutos del Barrio Histórico de Colonia.</li>
+      </ul>
+    </div>
+    <div>
+      <h3>Léxico de marca</h3>
+      <p class="small">Palabras que nos representan y conviene repetir en las comunicaciones:</p>
+      <div class="tagline-list">
+        <span>refugio</span><span>campo</span><span>atardecer</span><span>río</span>
+        <span>exclusivo</span><span>fresco</span><span>boutique</span><span>en familia</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:50px;background:linear-gradient(135deg,var(--atardecer),var(--tierra));padding:50px 30px">
+    <p class="quote" style="color:#fff">“Donde el campo se encuentra con el río, y el día se despide en colores.”</p>
+  </div>
+
+  <h3 style="margin-top:50px">Tagline y firmas</h3>
+  <div class="tagline-list">
+    <span>Tu refugio frente al río</span>
+    <span>El campo, en exclusiva</span>
+    <span>Atardeceres que se quedan</span>
+    <span>Casa de Campo Boutique · Colonia</span>
+  </div>
+</section>
+
+<!-- ===================== APLICACIONES / MOCKUPS ===================== -->
+<section id="aplicaciones" class="page">
+  <span class="section-num">06 · Aplicaciones</span>
+  <h2>La marca en uso</h2>
+  <p class="lead">Cómo se ve la identidad aplicada en redes sociales, web y material impreso.</p>
+
+  <!-- Instagram + Folleto -->
+  <div class="mockups">
+    <div>
+      <div class="mock-label">Instagram · Post</div>
+      <div class="ig">
+        <div class="ig-top">
+          <div class="ig-av">Z</div>
+          <div class="ig-name">zorzal.colonia<small>San Pedro · Colonia</small></div>
+        </div>
+        <div class="ig-img">
+          <div class="ov">
+            <div class="k">tardes así</div>
+            <div class="h">Pileta &amp; atardecer</div>
+          </div>
+        </div>
+        <div class="ig-actions"><span>♡</span><span>💬</span><span>➤</span></div>
+        <div class="ig-cap">
+          <b>zorzal.colonia</b> Todo el lugar para tu grupo: campo, río y atardeceres frente al Río de la Plata. 🌅<br>
+          <span class="tags">#ColoniaDelSacramento #CasaDeCampo #Boutique #Atardecer</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="mock-label">Banner · Sitio web</div>
+      <div class="banner">
+        <div class="ov">
+          <div class="eyebrow">San Pedro · Colonia del Sacramento</div>
+          <h3>Tu refugio<br>frente al río</h3>
+          <p>Casa de campo boutique en exclusiva, con pileta, parrillero y tres hectáreas de paz.</p>
+          <span class="cta">Reservá tu estadía →</span>
+        </div>
+      </div>
+
+      <div class="flyer">
+        <div class="flyer-top"><div class="badge">ZORZAL</div></div>
+        <div class="flyer-body">
+          <div class="k">escapate al campo</div>
+          <h3>Casa de Campo Boutique</h3>
+          <p class="small" style="margin:0 auto">A 10 minutos del Barrio Histórico de Colonia, frente al Río de la Plata.</p>
+          <div class="flyer-feats">
+            <div>Pileta enorme con vista</div>
+            <div>Parrillero cubierto</div>
+            <div>2 dormitorios · 4/5 personas</div>
+            <div>Paddle, ping pong &amp; quincho</div>
+            <div>3 hectáreas de parque</div>
+            <div>WIFI · A/A · Directv</div>
+          </div>
+          <span class="flyer-cta">Consultá disponibilidad</span>
+        </div>
+        <div class="flyer-foot">Zorzal · Casa de Campo Boutique · Colonia, Uruguay</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="small" style="text-align:center;margin-top:40px">Los tres ejemplos comparten la misma lógica: foto cálida del lugar, serif para el corazón del mensaje, sans para los datos y el rufo del pecho reservado para el llamado a la acción.</p>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer>
+  <div class="logo-lockup">
+    <svg width="110" height="52" viewBox="0 0 120 56" style="margin:0 auto 10px">
+      <path d="M30 40c0-10 8-18 20-20 6-1 11-4 14-9 1 5-1 10-5 13 6 0 12 2 16 6-5 1-9 3-12 7-4 5-11 8-18 8-8 0-15-4-15-12z" fill="#C0623A"/>
+      <circle cx="58" cy="22" r="2" fill="#F2E9D7"/>
+      <path d="M64 22l9-3-9-1z" fill="#D29B2E"/>
+    </svg>
+    <div class="word" style="font-size:2rem">ZORZAL</div>
+    <div class="sub" style="font-size:.6rem;letter-spacing:.4em">Casa de Campo Boutique</div>
+  </div>
+  <p>Manual de Marca · Guía de identidad visual y verbal</p>
+  <div class="meta">San Pedro · Colonia del Sacramento · Uruguay · Horario de contacto 9:00 a 23:00</div>
+</footer>
+
+</body>
+</html>
