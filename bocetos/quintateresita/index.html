@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quinta La Teresita — El Taladro, a pasos de Capital | Descanso y naturaleza</title>
+<meta name="description" content="Quinta La Teresita en El Taladro, sobre Ruta 205 y a pocos km de Capital Federal. Pileta, parque, quincho y mucha tranquilidad. El lugar ideal para desconectar en familia o con amigos.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<style>
+  :root{
+    --verde:#3c5a40;
+    --verde-osc:#28402b;
+    --salvia:#7d9a72;
+    --terracota:#b5694a;
+    --terracota-osc:#8f4f37;
+    --crema:#f6f1e7;
+    --crema-2:#efe7d6;
+    --arena:#e3d6bd;
+    --tinta:#2a2a24;
+    --tinta-suave:#5a584f;
+    --radio:18px;
+    --sombra:0 18px 50px -20px rgba(40,40,30,.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Outfit',sans-serif;
+    color:var(--tinta);
+    background:var(--crema);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:600;line-height:1.12;letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+  .wrap{width:min(1140px,92vw);margin-inline:auto}
+  .eyebrow{
+    font-family:'Outfit',sans-serif;text-transform:uppercase;letter-spacing:.28em;
+    font-size:.72rem;font-weight:600;color:var(--terracota);
+  }
+
+  /* NAV */
+  header{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    transition:background .4s ease, box-shadow .4s ease, padding .4s ease;
+    padding:18px 0;
+  }
+  header.scrolled{background:rgba(246,241,231,.92);backdrop-filter:blur(10px);box-shadow:0 6px 30px -18px rgba(0,0,0,.4);padding:10px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:.6rem;font-family:'Fraunces',serif;font-size:1.4rem;font-weight:600;color:#fff;transition:color .4s}
+  .brand i{color:var(--salvia)}
+  header.scrolled .brand{color:var(--verde)}
+  .brand small{display:block;font-family:'Outfit',sans-serif;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:500;opacity:.85}
+  .menu{display:flex;gap:2rem;align-items:center}
+  .menu a{color:#fff;font-size:.92rem;font-weight:400;opacity:.92;transition:color .4s,opacity .25s}
+  .menu a:hover{opacity:1}
+  header.scrolled .menu a{color:var(--tinta)}
+  .btn{
+    display:inline-flex;align-items:center;gap:.55rem;cursor:pointer;
+    background:var(--terracota);color:#fff;border:0;
+    padding:.8rem 1.5rem;border-radius:100px;font-family:'Outfit',sans-serif;
+    font-size:.92rem;font-weight:500;transition:transform .25s,background .25s,box-shadow .25s;
+  }
+  .btn:hover{background:var(--terracota-osc);transform:translateY(-2px);box-shadow:0 12px 24px -10px rgba(143,79,55,.7)}
+  .btn.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.6);color:#fff}
+  .btn.ghost:hover{background:rgba(255,255,255,.12);border-color:#fff}
+  .menu-btn{display:none}
+  .nav-toggle{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+  header.scrolled .nav-toggle{color:var(--verde)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff}
+  .hero-bg{position:absolute;inset:0;z-index:-2;background:linear-gradient(135deg,var(--verde-osc) 0%,var(--verde) 55%,var(--salvia) 130%)}
+  .hero-bg::before{content:"\f4d8";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:-40px;bottom:-60px;font-size:24rem;color:rgba(255,255,255,.05)}
+  .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,rgba(28,40,28,.55) 0%,rgba(40,55,40,.2) 60%,transparent 100%)}
+  .hero-inner{padding-top:90px}
+  .hero h1{font-size:clamp(2.6rem,7vw,5rem);max-width:14ch;margin:.4rem 0 1.2rem;text-shadow:0 2px 30px rgba(0,0,0,.3)}
+  .hero .lead{font-size:clamp(1.05rem,2.3vw,1.3rem);max-width:46ch;font-weight:300;opacity:.95}
+  .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem}
+  .hero-meta{display:flex;gap:2rem;flex-wrap:wrap;margin-top:3rem;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.22)}
+  .hero-meta div{display:flex;align-items:center;gap:.6rem;font-size:.95rem;font-weight:300}
+  .hero-meta i{color:var(--salvia);font-size:1.1rem}
+
+  /* secciones */
+  section{padding:clamp(4rem,9vw,7.5rem) 0}
+  .sec-head{max-width:60ch;margin-bottom:3rem}
+  .sec-head h2{font-size:clamp(2rem,5vw,3rem);margin:.6rem 0 1rem;color:var(--verde)}
+  .sec-head p{color:var(--tinta-suave);font-size:1.08rem}
+
+  /* INTRO */
+  .intro{background:var(--crema)}
+  .intro-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .intro-text h2{font-size:clamp(2rem,4.6vw,2.9rem);color:var(--verde);margin:.6rem 0 1.2rem}
+  .intro-text p{color:var(--tinta-suave);margin-bottom:1.1rem;font-size:1.06rem}
+  .intro-media{position:relative}
+  .intro-media .frame{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/5}
+  .intro-media .stamp{
+    position:absolute;left:-22px;bottom:-22px;background:var(--terracota);color:#fff;
+    border-radius:var(--radio);padding:1.1rem 1.3rem;box-shadow:var(--sombra);max-width:200px;
+  }
+  .intro-media .stamp b{font-family:'Fraunces',serif;font-size:2rem;display:block;line-height:1}
+  .intro-media .stamp span{font-size:.82rem;opacity:.95}
+
+  /* COMODIDADES */
+  .amen{background:var(--verde);color:var(--crema);position:relative}
+  .amen .sec-head h2{color:#fff}
+  .amen .sec-head p{color:rgba(246,241,231,.8)}
+  .amen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem}
+  .amen-card{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:var(--radio);padding:1.8rem 1.6rem;transition:transform .3s,background .3s;
+  }
+  .amen-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.11)}
+  .amen-card i{font-size:1.7rem;color:var(--salvia);margin-bottom:.9rem;display:block}
+  .amen-card h3{font-size:1.2rem;margin-bottom:.4rem;color:#fff}
+  .amen-card p{font-size:.94rem;color:rgba(246,241,231,.78);font-weight:300}
+
+  /* GALERIA */
+  .gal{background:var(--crema-2)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px}
+  .gal-grid figure{overflow:hidden;border-radius:14px;position:relative}
+  .gal-grid img{transition:transform .7s ease}
+  .gal-grid figure:hover img{transform:scale(1.07)}
+  .gal-grid .big{grid-column:span 2;grid-row:span 2}
+  .gal-grid .tall{grid-row:span 2}
+
+  /* ZONA */
+  .zona-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .zona-text h2{color:var(--verde);font-size:clamp(2rem,4.6vw,2.9rem);margin:.6rem 0 1.2rem}
+  .zona-text p{color:var(--tinta-suave);margin-bottom:1.1rem;font-size:1.06rem}
+  .zona-list{list-style:none;display:grid;gap:.8rem;margin-top:1.4rem}
+  .zona-list li{display:flex;gap:.8rem;align-items:flex-start}
+  .zona-list i{color:var(--terracota);margin-top:.25rem}
+  .map-frame{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra);aspect-ratio:4/3;border:6px solid #fff}
+  .map-frame iframe{width:100%;height:100%;border:0;display:block}
+
+  /* RESERVA */
+  .reserva{background:linear-gradient(160deg,var(--verde-osc),var(--verde));color:var(--crema);position:relative;overflow:hidden}
+  .reserva::before{content:"\f4d8";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;right:-30px;top:-20px;font-size:16rem;opacity:.05}
+  .reserva-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center;position:relative}
+  .reserva .sec-head h2{color:#fff}
+  .reserva-info p{color:rgba(246,241,231,.85);font-size:1.08rem;margin-bottom:1.6rem;max-width:42ch}
+  .reserva-info .point{display:flex;gap:.8rem;align-items:center;margin-bottom:.9rem;font-size:1rem}
+  .reserva-info .point i{width:42px;height:42px;display:grid;place-items:center;background:rgba(255,255,255,.1);border-radius:50%;color:var(--salvia);flex-shrink:0}
+  form{background:var(--crema);color:var(--tinta);padding:clamp(1.6rem,4vw,2.6rem);border-radius:var(--radio);box-shadow:var(--sombra)}
+  form h3{color:var(--verde);font-size:1.5rem;margin-bottom:.3rem}
+  form .sub{color:var(--tinta-suave);font-size:.92rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1.1rem}
+  .field label{display:block;font-size:.85rem;font-weight:500;margin-bottom:.4rem;color:var(--verde)}
+  .field label i{color:var(--terracota);margin-right:.4rem}
+  .field input{
+    width:100%;padding:.85rem 1rem;border:1.5px solid var(--arena);border-radius:12px;
+    font-family:'Outfit',sans-serif;font-size:1rem;background:#fff;color:var(--tinta);transition:border-color .25s,box-shadow .25s;
+  }
+  .field input:focus{outline:none;border-color:var(--salvia);box-shadow:0 0 0 4px rgba(125,154,114,.18)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  form .btn{width:100%;justify-content:center;font-size:1.02rem;padding:1rem;margin-top:.4rem}
+  .form-msg{margin-top:1rem;padding:.9rem 1rem;border-radius:12px;font-size:.92rem;display:none}
+  .form-msg.ok{display:block;background:#e7f0e3;color:#33502f;border:1px solid #bcd3b3}
+  .form-msg.err{display:block;background:#f6e2db;color:#8f4f37;border:1px solid #e3bfae}
+
+  /* AUTOR (destacado) */
+  .autor{background:linear-gradient(135deg,var(--terracota) 0%,var(--terracota-osc) 100%);color:#fff;position:relative;overflow:hidden}
+  .autor::before{content:"\f1fc";font-family:"Font Awesome 6 Free";font-weight:900;position:absolute;left:-30px;bottom:-50px;font-size:18rem;opacity:.08}
+  .autor-grid{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;flex-wrap:wrap;position:relative}
+  .autor-text{max-width:54ch}
+  .autor-text .eyebrow{color:rgba(255,255,255,.85)}
+  .autor-text h2{color:#fff;font-size:clamp(1.7rem,4vw,2.6rem);margin:.6rem 0 .8rem}
+  .autor-text p{color:rgba(255,255,255,.9);font-size:1.08rem;font-weight:300}
+  .autor .btn{background:#fff;color:var(--terracota-osc);font-weight:600;font-size:1.05rem;padding:1.1rem 2rem;white-space:nowrap}
+  .autor .btn:hover{background:var(--crema);color:var(--terracota-osc);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+
+  /* FOOTER */
+  footer{background:var(--tinta);color:var(--crema-2);padding:4rem 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  .foot-brand .brand{color:#fff;font-size:1.6rem;margin-bottom:.8rem}
+  .foot-brand p{color:rgba(246,241,231,.6);font-size:.95rem;max-width:34ch;font-weight:300}
+  .foot-col h4{font-family:'Outfit',sans-serif;text-transform:uppercase;letter-spacing:.18em;font-size:.72rem;color:var(--salvia);margin-bottom:1rem}
+  .foot-col a,.foot-col p{display:block;color:rgba(246,241,231,.72);font-size:.95rem;margin-bottom:.6rem;font-weight:300;transition:color .25s}
+  .foot-col a:hover{color:#fff}
+  .foot-col i{width:20px;color:var(--terracota);margin-right:.3rem}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:1.8rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.85rem;color:rgba(246,241,231,.55)}
+  .credito{display:inline-flex;align-items:center;gap:.5rem;color:rgba(246,241,231,.72);transition:color .25s}
+  .credito:hover{color:var(--terracota)}
+  .credito i{color:var(--terracota)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:900px){
+    .intro-grid,.zona-grid,.reserva-grid{grid-template-columns:1fr}
+    .intro-media{order:-1}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .gal-grid .big{grid-column:span 2;grid-row:span 1}
+    .foot-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:640px){
+    .menu{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--verde);flex-direction:column;justify-content:center;gap:1.6rem;transform:translateX(100%);transition:transform .4s ease;box-shadow:-20px 0 60px rgba(0,0,0,.3);padding:2rem}
+    .menu.open{transform:none}
+    .menu a{color:#fff !important;font-size:1.15rem}
+    .nav-toggle{display:block;z-index:60}
+    .hero-meta{gap:1.2rem}
+    .two{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:130px}
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#top" class="brand">
+      <i class="fa-solid fa-leaf"></i>
+      <span>La Teresita<small>Quinta · El Taladro</small></span>
+    </a>
+    <nav class="menu" id="menu">
+      <a href="#la-casa">La quinta</a>
+      <a href="#comodidades">Comodidades</a>
+      <a href="#galeria">Galería</a>
+      <a href="#zona">La zona</a>
+      <a href="#reserva" class="btn"><i class="fa-solid fa-calendar-check"></i> Reservar</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-inner">
+    <span class="eyebrow" style="color:var(--salvia)">El Taladro · Ruta 205 · a pocos km de Capital</span>
+    <h1>Desconectá de la rutina, conectá con la calma</h1>
+    <p class="lead">Una quinta amplia, cuidada y luminosa para descansar en familia o con amigos. Pileta, parque y el silencio del campo, a pasos de la ciudad.</p>
+    <div class="hero-cta">
+      <a href="#reserva" class="btn"><i class="fa-solid fa-calendar-check"></i> Consultar disponibilidad</a>
+      <a href="#galeria" class="btn ghost"><i class="fa-solid fa-images"></i> Ver la quinta</a>
+    </div>
+    <div class="hero-meta">
+      <div><i class="fa-solid fa-person-swimming"></i> Pileta grande</div>
+      <div><i class="fa-solid fa-tree"></i> Parque y naturaleza</div>
+      <div><i class="fa-solid fa-fire-burner"></i> Quincho y galería</div>
+      <div><i class="fa-solid fa-road"></i> Acceso rápido</div>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO / LA CASA -->
+<section class="intro" id="la-casa">
+  <div class="wrap intro-grid">
+    <div class="intro-text reveal">
+      <span class="eyebrow">Bienvenidos a La Teresita</span>
+      <h2>La quinta de tus momentos de paz</h2>
+      <p>En el tranquilo paraje de El Taladro, La Teresita es ese lugar donde el tiempo afloja. Una casa cómoda y luminosa, rodeada de verde, pensada para que llegues y simplemente descanses.</p>
+      <p>Quienes la visitan vuelven por lo mismo: la calidez de Elida, su dueña, que hace hasta lo imposible para que te sientas como en casa, y un entorno impecable, seguro y prolijo. Tranquilidad, armonía y todo lo necesario para disfrutar sin apuro.</p>
+      <p>Ideal para reunirte en familia o con amigos, escaparte un fin de semana o desconectar unos días del ritmo de la ciudad.</p>
+      <a href="#comodidades" class="btn" style="margin-top:.6rem"><i class="fa-solid fa-arrow-down"></i> Qué incluye</a>
+    </div>
+    <div class="intro-media reveal">
+      <div class="frame"><img src="img/5.webp" alt="Mate frente a la pileta en la galería de la quinta"></div>
+      <div class="stamp"><b>★ 4,9</b><span>Reseñas reales en Google Maps</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMODIDADES -->
+<section class="amen" id="comodidades">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow" style="color:var(--salvia)">Comodidades</span>
+      <h2>Todo lo necesario para descansar</h2>
+      <p>Espacios amplios y cuidados, pensados para que no te falte nada durante tu estadía.</p>
+    </div>
+    <div class="amen-grid">
+      <div class="amen-card reveal"><i class="fa-solid fa-person-swimming"></i><h3>Pileta</h3><p>Una hermosa pileta rodeada de parque, el corazón de los días de calor.</p></div>
+      <div class="amen-card reveal"><i class="fa-solid fa-tree"></i><h3>Parque y naturaleza</h3><p>Amplio terreno verde, árboles y aire libre para disfrutar a pleno.</p></div>
+      <div class="amen-card reveal"><i class="fa-solid fa-fire-burner"></i><h3>Quincho y galería</h3><p>Galería techada con espacio para compartir comidas y tardes de mate.</p></div>
+      <div class="amen-card reveal"><i class="fa-solid fa-house-chimney"></i><h3>Casa cómoda</h3><p>Espacios amplios, limpios y ordenados, con todo lo necesario para tu estadía.</p></div>
+      <div class="amen-card reveal"><i class="fa-solid fa-shield-heart"></i><h3>Lugar seguro</h3><p>Un entorno tranquilo y resguardado, donde respirás paz desde que llegás.</p></div>
+      <div class="amen-card reveal"><i class="fa-solid fa-paw"></i><h3>Ambiente familiar</h3><p>Un rincón cálido, atendido con cariño por su dueña, ideal para todas las edades.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERIA -->
+<section class="gal" id="galeria">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Galería</span>
+      <h2>Conocé cada rincón</h2>
+      <p>Parque, pileta, galería y los pequeños detalles que hacen de La Teresita un lugar para volver.</p>
+    </div>
+    <div class="gal-grid reveal">
+      <figure class="big"><img src="img/1.webp" alt="Pileta y parque de la quinta a pleno sol"></figure>
+      <figure class="tall"><img src="img/3.webp" alt="Plantas, flores y un gato en el parque al atardecer"></figure>
+      <figure><img src="img/2.webp" alt="Galería techada con hamaca y guirnaldas de luces"></figure>
+      <figure><img src="img/6.webp" alt="Atardecer en el parque junto a la pileta"></figure>
+      <figure><img src="img/7.webp" alt="Vista de la pileta y la casa al atardecer"></figure>
+      <figure><img src="img/5.webp" alt="Mate y vista al parque desde la galería"></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ZONA -->
+<section class="zona" id="zona">
+  <div class="wrap zona-grid">
+    <div class="zona-text reveal">
+      <span class="eyebrow">La zona</span>
+      <h2>El Taladro, calma a un paso de Capital</h2>
+      <p>La Teresita se encuentra en el paraje El Taladro, de fácil acceso desde la Ruta 205 y a pocos kilómetros de Capital Federal. Llegás rápido, pero te sentís lejos del ruido.</p>
+      <p>Una zona tranquila, rodeada de naturaleza, perfecta para desconectar sin tener que viajar demasiado.</p>
+      <ul class="zona-list">
+        <li><i class="fa-solid fa-road"></i> Acceso directo y rápido desde la Ruta 205.</li>
+        <li><i class="fa-solid fa-city"></i> A pocos km de Capital Federal.</li>
+        <li><i class="fa-solid fa-seedling"></i> Entorno natural, silencioso y seguro.</li>
+        <li><i class="fa-solid fa-people-group"></i> Ideal para escapadas en familia o con amigos.</li>
+      </ul>
+    </div>
+    <div class="map-frame reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3265.4364772611075!2d-58.862517399999994!3d-35.0708255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bd1d823760e641%3A0x6f359f54dfd74ccd!2sQuinta%20La%20Teresita!5e0!3m2!1sen!2sar!4v1781583657498!5m2!1sen!2sar" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Ubicación de la Quinta La Teresita"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="reserva" id="reserva">
+  <div class="wrap reserva-grid">
+    <div class="reserva-info reveal">
+      <div class="sec-head" style="margin-bottom:1.6rem">
+        <span class="eyebrow" style="color:var(--salvia)">Reservá tu estadía</span>
+        <h2>Tu lugar de descanso te espera</h2>
+      </div>
+      <p>Contanos cuándo querés venir y cuántos van a ser. Dejá tus datos y nos ponemos en contacto para confirmar la disponibilidad.</p>
+      <div class="point"><i class="fa-solid fa-calendar-day"></i> Estadías por fin de semana o por días.</div>
+      <div class="point"><i class="fa-solid fa-users"></i> Ideal para familias y grupos de amigos.</div>
+      <div class="point"><i class="fa-solid fa-heart"></i> Atención cálida y personalizada de la dueña.</div>
+    </div>
+
+    <form id="reservaForm" novalidate>
+      <h3>Solicitá tu reserva</h3>
+      <p class="sub">Completá el formulario y preparamos todo para recibirte.</p>
+      <div class="field">
+        <label for="nombre"><i class="fa-solid fa-user"></i>Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+      </div>
+      <div class="field">
+        <label for="personas"><i class="fa-solid fa-users"></i>Cantidad de personas</label>
+        <input type="number" id="personas" name="personas" min="1" max="40" placeholder="¿Cuántos van a venir?" required>
+      </div>
+      <div class="two">
+        <div class="field">
+          <label for="checkin"><i class="fa-solid fa-calendar-check"></i>Check in</label>
+          <input type="date" id="checkin" name="checkin" required>
+        </div>
+        <div class="field">
+          <label for="checkout"><i class="fa-solid fa-calendar-xmark"></i>Check out</label>
+          <input type="date" id="checkout" name="checkout" required>
+        </div>
+      </div>
+      <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar solicitud</button>
+      <div class="form-msg" id="formMsg"></div>
+    </form>
+  </div>
+</section>
+
+<!-- AUTOR / DESTACADO -->
+<section class="autor">
+  <div class="wrap autor-grid reveal">
+    <div class="autor-text">
+      <span class="eyebrow">¿Te gustó este sitio?</span>
+      <h2>Este boceto lo diseñó Teo Cicciari</h2>
+      <p>Creo sitios web a medida para hospedajes, casas de campo y emprendimientos. Entrá a mi portafolio para ver más referencias, conocer mis precios y pedir el tuyo.</p>
+    </div>
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">
+      <i class="fa-solid fa-arrow-up-right-from-square"></i> Ver referencias y precios
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand"><i class="fa-solid fa-leaf"></i> La Teresita</a>
+        <p>Quinta de descanso en El Taladro, sobre Ruta 205, a pocos km de Capital Federal. Naturaleza, pileta y tranquilidad para volver a empezar.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Navegá</h4>
+        <a href="#la-casa">La quinta</a>
+        <a href="#comodidades">Comodidades</a>
+        <a href="#galeria">Galería</a>
+        <a href="#zona">La zona</a>
+        <a href="#reserva">Reservar</a>
+      </div>
+      <div class="foot-col">
+        <h4>Ubicación</h4>
+        <p><i class="fa-solid fa-location-dot"></i> Paraje El Taladro</p>
+        <p><i class="fa-solid fa-road"></i> Acceso por Ruta 205</p>
+        <a href="https://maps.google.com/?q=Quinta+La+Teresita" target="_blank" rel="noopener"><i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="anio"></span> Quinta La Teresita · El Taladro. Todos los derechos reservados.</span>
+      <a class="credito" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">
+        Boceto diseñado por Teo Cicciari — Mirá más referencias y precios
+        <i class="fa-solid fa-arrow-up-right-from-square"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Header scrolled
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  // Menú mobile
+  const menu = document.getElementById('menu');
+  const toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Reveal al hacer scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target); } });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Fechas mínimas = hoy
+  const hoy = new Date().toISOString().split('T')[0];
+  const checkin = document.getElementById('checkin');
+  const checkout = document.getElementById('checkout');
+  checkin.min = hoy; checkout.min = hoy;
+  checkin.addEventListener('change', () => { checkout.min = checkin.value || hoy; });
+
+  // Formulario de reserva
+  const form = document.getElementById('reservaForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const personas = document.getElementById('personas').value;
+    const ci = checkin.value, co = checkout.value;
+
+    if (!nombre || !personas || !ci || !co){
+      msg.className = 'form-msg err';
+      msg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Por favor completá todos los campos para enviar tu solicitud.';
+      return;
+    }
+    if (new Date(co) <= new Date(ci)){
+      msg.className = 'form-msg err';
+      msg.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> La fecha de check out debe ser posterior a la de check in.';
+      return;
+    }
+    const fmt = (d) => new Date(d + 'T00:00').toLocaleDateString('es-AR', { day:'2-digit', month:'long', year:'numeric' });
+    msg.className = 'form-msg ok';
+    msg.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Gracias, ' + nombre + '! Recibimos tu solicitud para ' + personas +
+      ' persona(s), del <b>' + fmt(ci) + '</b> al <b>' + fmt(co) + '</b>. Nos pondremos en contacto para confirmar la disponibilidad.';
+    form.reset();
+    checkin.min = hoy; checkout.min = hoy;
+  });
+</script>
+</body>
+</html>
