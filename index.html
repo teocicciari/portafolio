@@ -1008,6 +1008,23 @@
     (function() {
         let analyticsLoaded = false;
 
+        // gtag global + cola en dataLayer: los eventos disparados antes de que
+        // cargue analytics quedan encolados y se atribuyen al cargar.
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
+
+        // Medición de conversiones: clics a WhatsApp y email.
+        document.addEventListener('click', function(e) {
+            const a = e.target.closest && e.target.closest('a');
+            if (!a) return;
+            const href = a.getAttribute('href') || '';
+            if (href.includes('wa.me') || href.includes('api.whatsapp')) {
+                gtag('event', 'clic_whatsapp', { ubicacion: a.className || 'desconocida' });
+            } else if (href.indexOf('mailto:') === 0) {
+                gtag('event', 'clic_email', { ubicacion: a.className || 'desconocida' });
+            }
+        }, true);
+
         function loadAnalytics() {
             if (analyticsLoaded) return;
             analyticsLoaded = true;
@@ -1019,18 +1036,9 @@
             document.head.appendChild(gtagScript);
 
             gtagScript.onload = function() {
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
                 gtag('config', 'G-5PCN6P8ESD');
             };
-
-            // Google Tag Manager
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-NKDXKGFM');
 
             // Microsoft Clarity
             (function(c,l,a,r,i,t,y){
@@ -1057,8 +1065,5 @@
         setTimeout(loadAnalytics, 3000);
     })();
     </script>
-
-    <noscript><iframe title="Google Tag Manager" src="https://www.googletagmanager.com/ns.html?id=GTM-NKDXKGFM"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </body>
 </html>
