@@ -63,6 +63,11 @@
             'projects.irezumi.desc': 'Página para estudio de tattoo de Arte Japonés',
             'projects.wolf_ink.desc': 'Página para un Estudio ficticio de Tattoo en blanco y negro.',
             'projects.karus.desc': 'Página para Estudio de Tattoo.',
+            'projects.ikeuken.desc': 'Diseño para hostel en El Calafate, Patagonia Argentina.',
+            'projects.espiritutao.desc': 'Portafolio para tatuadora de la Comarca Andina.',
+            'projects.techie.desc': 'Portfolio de personaje cyberpunk con estilo glassmorphism oscuro, neon glow y animaciones de scroll.',
+            'projects.bignotti.desc': 'Sitio web para empresa chilena de servicios industriales.',
+            'projects.visualuv.desc': 'Portfolio profesional de fotografía con diseño elegante y navegación intuitiva.',
             // Sobre mí
             'sobre.title': 'Sobre mí',
             'sobre.p1': 'Soy diseñador web de El Bolsón, con intereses que van del ajedrez al fútbol, la programación y la tecnología. Esa curiosidad me llevó a desarrollar un sistema propio para crear sitios a medida en poco tiempo sin sacrificar calidad.',
@@ -266,6 +271,11 @@
             'projects.irezumi.desc': 'Page for a Japanese Art tattoo studio',
             'projects.wolf_ink.desc': 'Page for a fictional black and white Tattoo Studio.',
             'projects.karus.desc': 'Page for a Tattoo Studio.',
+            'projects.ikeuken.desc': 'Design for a hostel in El Calafate, Patagonia Argentina.',
+            'projects.espiritutao.desc': 'Portfolio for a tattoo artist from the Comarca Andina.',
+            'projects.techie.desc': 'Cyberpunk character portfolio with dark glassmorphism style, neon glow and scroll animations.',
+            'projects.bignotti.desc': 'Website for Chilean industrial services company.',
+            'projects.visualuv.desc': 'Professional photography portfolio with elegant design and intuitive navigation.',
             // Sobre mí (EN)
             'sobre.title': 'About me',
             'sobre.p1': 'I\'m a web designer from El Bolsón, with interests ranging from chess and football to programming and technology. That curiosity led me to develop my own system for building custom websites in a short time without sacrificing quality.',
