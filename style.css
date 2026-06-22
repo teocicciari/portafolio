@@ -1391,7 +1391,7 @@ footer {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), var(--shadow-glow);
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/14;
     background: var(--primary-dark);
     border: 1px solid var(--border-subtle);
 }
