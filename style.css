@@ -1336,6 +1336,210 @@ footer {
     transform: scale(1) rotate(0deg);
 }
 
+/* Premium Section */
+.premium-section {
+    padding: var(--section-pad) 20px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+    position: relative;
+}
+
+.premium-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.premium-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.premium-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    border-radius: 50px;
+    padding: 0.3rem 1rem;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+}
+
+.premium-header .section-title {
+    margin-bottom: 1rem;
+}
+
+.premium-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.premium-showcase {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+    margin-top: 3rem;
+}
+
+.premium-preview {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), var(--shadow-glow);
+    aspect-ratio: 16/10;
+    background: var(--primary-dark);
+    border: 1px solid var(--border-subtle);
+}
+
+.premium-preview iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.premium-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.premium-details h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.premium-details > p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.premium-features {
+    background: var(--bg-elev);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
+}
+
+.premium-features h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.premium-features ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.premium-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.premium-features li::before {
+    content: '✓';
+    color: var(--accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+}
+
+.premium-pricing {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.premium-price {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.premium-currency {
+    font-size: 1.5rem;
+    opacity: 0.8;
+}
+
+.premium-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.premium-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 28px;
+    background: var(--accent);
+    color: var(--primary-dark);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: var(--shadow-glow);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: fit-content;
+}
+
+.premium-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    transition: left 0.5s ease;
+}
+
+.premium-cta:hover::before {
+    left: 100%;
+}
+
+.premium-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px var(--border-hover);
+}
+
+.premium-cta svg {
+    flex-shrink: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .premium-showcase {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .premium-preview {
+        aspect-ratio: 16/12;
+    }
+
+    .premium-features {
+        padding: 1.5rem;
+    }
+
+    .premium-price {
+        font-size: 2rem;
+    }
+}
 
 /* CTA Boceto Gratuito Section */
 .cta-boceto-section {
