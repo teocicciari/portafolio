@@ -38,6 +38,87 @@
 
     <link rel="shortcut icon" href="img/fav.png" type="image/x-icon">
 
+    <!-- Datos estructurados (GEO): Person + ProfessionalService + FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "https://teocicciari.com.ar/#teo",
+          "name": "Teo Cicciari",
+          "jobTitle": "Diseñador Web y Profesor de Ajedrez",
+          "url": "https://teocicciari.com.ar",
+          "image": "https://teocicciari.com.ar/img/overview.png",
+          "email": "teocicciari@gmail.com",
+          "telephone": "+5492944812580",
+          "knowsAbout": ["Diseño web", "UI/UX", "Frontend", "Inteligencia Artificial", "Ajedrez"],
+          "sameAs": [
+            "https://github.com/teocicciari",
+            "https://www.linkedin.com/in/teo-cicciari",
+            "https://www.instagram.com/__.teo.____/",
+            "https://ratings.fide.com/profile/140821/chart"
+          ]
+        },
+        {
+          "@type": "ProfessionalService",
+          "@id": "https://teocicciari.com.ar/#servicio",
+          "name": "Teo Cicciari — Diseño Web",
+          "description": "Diseño y desarrollo de sitios web a medida, con foco en hospedajes y negocios locales. Bocetos sin costo, sitios responsivos y optimizados.",
+          "url": "https://teocicciari.com.ar",
+          "image": "https://teocicciari.com.ar/img/overview.png",
+          "telephone": "+5492944812580",
+          "email": "teocicciari@gmail.com",
+          "priceRange": "$$",
+          "serviceType": "Diseño y desarrollo web",
+          "areaServed": { "@type": "Country", "name": "Argentina" },
+          "availableLanguage": ["es", "en"],
+          "provider": { "@id": "https://teocicciari.com.ar/#teo" },
+          "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Planes de diseño web",
+            "itemListElement": [
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Landing Page Básica" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Rediseño Web" } },
+              { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Sitio Web Profesional" } }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://teocicciari.com.ar/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Cuánto tiempo lleva diseñar un sitio web?",
+              "acceptedAnswer": { "@type": "Answer", "text": "El tiempo de desarrollo varía según la complejidad del proyecto. Un sitio web estándar para hospedajes suele estar listo en 2 semanas. Proyectos más complejos con sistemas de reserva personalizados pueden tomar 4-5 semanas. Siempre establecemos un cronograma claro al inicio del proyecto." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Qué información necesito proporcionar para iniciar mi proyecto?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Para comenzar necesitaremos: fotos de alta calidad de tu producto, servicio o espacio; textos descriptivos sobre lo que ofrecés; información de contacto y ubicación (si aplica); y cualquier elemento distintivo que quieras destacar. También es útil compartir ejemplos de sitios web que te gusten para entender mejor tu estilo preferido." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Ofreces mantenimiento web después de finalizar el proyecto?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Sí, ofrezco planes de mantenimiento mensual que incluyen actualizaciones de contenido, sugerencias y soporte técnico. También puedo capacitar a tu equipo para que realicen actualizaciones básicas si lo prefieres. El objetivo es asegurar que tu sitio se mantenga actualizado y funcionando correctamente." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Los diseños se adaptan a distintos tamaños de pantalla?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Absolutamente. Todos mis diseños son 100% responsivos y optimizados para verse perfectamente en cualquier dispositivo. Esto es especialmente importante en el sector de hospedajes, ya que más del 60% de las reservas se realizan desde dispositivos móviles actualmente." }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuáles son tus métodos de pago y condiciones?",
+              "acceptedAnswer": { "@type": "Answer", "text": "Trabajo con un modelo de 50% de anticipo al iniciar el proyecto y 50% al finalizar. Acepto transferencias bancarias, Mercado Pago y PayPal. Para proyectos mayores, podemos establecer un plan de pagos por etapas. Todos los detalles de pago se especifican claramente en el contrato antes de comenzar." }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
+
 </head>
 <body>
     <header>

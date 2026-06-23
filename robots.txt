@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /diseños/
 Sitemap: https://teocicciari.com.ar/sitemap.xml
