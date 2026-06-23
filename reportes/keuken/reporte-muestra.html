@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporte Mensual (muestra) — I Keu Ken Hostel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --primary-dark:#1a2f1a; --secondary-dark:#2d422d;
+    --accent:#7ac142; --accent-highlight:#92d45e;
+    --text-primary:#f1f7eb; --text-secondary:#b8c5b8;
+    --accent-soft:rgba(122,193,66,.12);
+    --border-subtle:rgba(255,255,255,.08);
+    --border-hover:rgba(122,193,66,.45);
+    --shadow-glow:0 0 40px rgba(122,193,66,.15);
+    --radius-sm:8px; --radius-md:14px; --radius-lg:20px;
+    --up:#7ac142; --down:#e0685e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',system-ui,sans-serif}
+  body{background:#10210f;color:var(--text-primary);line-height:1.6;font-weight:300;-webkit-font-smoothing:antialiased}
+  .doc{max-width:820px;margin:28px auto;background:var(--primary-dark);box-shadow:0 24px 60px rgba(0,0,0,.5);border-radius:var(--radius-lg);overflow:hidden}
+  .pad{padding:40px 48px}
+  h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.15;font-weight:600}
+
+  .sample{background:repeating-linear-gradient(45deg,rgba(122,193,66,.10),rgba(122,193,66,.10) 12px,rgba(122,193,66,.04) 12px,rgba(122,193,66,.04) 24px);border-bottom:1px solid var(--border-hover);color:var(--accent-highlight);text-align:center;padding:10px;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+
+  .head{padding:36px 48px 30px;background:radial-gradient(800px 400px at 85% -30%,rgba(122,193,66,.16),transparent 60%),var(--secondary-dark);border-bottom:1px solid var(--border-subtle)}
+  .head .eyebrow{text-transform:uppercase;letter-spacing:.2em;font-size:.7rem;color:var(--accent);font-weight:500;margin-bottom:10px}
+  .head h1{font-size:2rem;color:var(--text-primary)}
+  .head .who{color:var(--text-secondary);margin-top:6px;font-size:1.02rem}
+
+  .section-t{text-transform:uppercase;letter-spacing:.16em;font-size:.72rem;color:var(--accent);font-weight:500;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .section-t::before{content:"";width:24px;height:1px;background:var(--accent)}
+  .divider{height:1px;background:var(--border-subtle)}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .kpi{background:var(--secondary-dark);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:20px}
+  .kpi .lab{font-size:.74rem;color:var(--text-secondary);text-transform:uppercase;letter-spacing:.08em}
+  .kpi .val{font-size:2rem;font-weight:700;color:var(--text-primary);margin-top:6px;letter-spacing:-.02em}
+  .kpi .delta{font-size:.8rem;margin-top:4px;display:inline-flex;align-items:center;gap:4px}
+  .kpi .delta.up{color:var(--up)} .kpi .delta.down{color:var(--down)}
+  .kpi.hl{border-color:var(--border-hover);box-shadow:var(--shadow-glow)}
+  .kpi.hl .val{color:var(--accent)}
+
+  .bars{display:flex;flex-direction:column;gap:14px}
+  .bar-row{display:grid;grid-template-columns:130px 1fr 54px;align-items:center;gap:14px;font-size:.92rem}
+  .bar-row .name{color:var(--text-primary);display:flex;align-items:center;gap:8px}
+  .bar-row .name i{color:var(--accent);width:18px;text-align:center}
+  .track{height:12px;background:var(--secondary-dark);border-radius:20px;overflow:hidden}
+  .fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-highlight));border-radius:20px}
+  .bar-row .pct{text-align:right;color:var(--text-secondary)}
+
+  .rows{list-style:none}
+  .rows li{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border-subtle);font-size:.94rem;color:var(--text-secondary)}
+  .rows li:last-child{border-bottom:none}
+  .rows li b{color:var(--text-primary);font-weight:500}
+
+  .reco{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:22px 26px}
+  .reco h3{color:var(--text-primary);font-size:1.15rem;margin-bottom:8px;display:flex;align-items:center;gap:10px}
+  .reco h3 i{color:var(--accent)}
+  .reco p{color:var(--text-secondary);font-size:.96rem;margin:0}
+
+  .foot{background:var(--secondary-dark);padding:28px 48px;border-top:1px solid var(--border-subtle);font-size:.85rem;color:var(--text-secondary);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .foot i{color:var(--accent)}
+
+  @media print{
+    body{background:#fff}
+    .doc{box-shadow:none;margin:0;max-width:none;border-radius:0}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    section{page-break-inside:avoid}
+  }
+  @media(max-width:680px){
+    .pad,.head,.foot{padding:28px 24px}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .bar-row{grid-template-columns:96px 1fr 44px}
+  }
+</style>
+</head>
+<body>
+<div class="doc">
+
+  <div class="sample"><i class="fa-solid fa-circle-info"></i> Reporte de muestra · los números son un ejemplo ilustrativo</div>
+
+  <header class="head">
+    <div class="eyebrow">Reporte mensual de tu sitio</div>
+    <h1>Mayo 2026</h1>
+    <div class="who">I Keu Ken Hostel · ikeuken.com</div>
+  </header>
+
+  <section class="pad">
+    <div class="section-t">El mes de un vistazo</div>
+    <div class="kpis">
+      <div class="kpi">
+        <div class="lab">Visitas</div>
+        <div class="val">2.180</div>
+        <div class="delta up"><i class="fa-solid fa-arrow-up"></i> 22% vs abril</div>
+      </div>
+      <div class="kpi">
+        <div class="lab">Personas distintas</div>
+        <div class="val">1.520</div>
+        <div class="delta up"><i class="fa-solid fa-arrow-up"></i> 19%</div>
+      </div>
+      <div class="kpi hl">
+        <div class="lab">Consultas por WhatsApp</div>
+        <div class="val">73</div>
+        <div class="delta up"><i class="fa-solid fa-arrow-up"></i> 16%</div>
+      </div>
+      <div class="kpi">
+        <div class="lab">Convierten en consulta</div>
+        <div class="val">3,4%</div>
+        <div class="delta up"><i class="fa-solid fa-arrow-up"></i> 0,3 pts</div>
+      </div>
+    </div>
+    <p style="color:var(--text-secondary);font-size:.92rem;margin-top:18px">De cada 100 personas que entraron al sitio, algo más de 3 te escribieron por WhatsApp para consultar. Buen arranque de temporada: subieron las visitas y también las consultas.</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="pad">
+    <div class="section-t">De dónde llegó la gente</div>
+    <div class="bars">
+      <div class="bar-row">
+        <div class="name"><i class="fa-brands fa-google"></i> Google</div>
+        <div class="track"><div class="fill" style="width:58%"></div></div>
+        <div class="pct">58%</div>
+      </div>
+      <div class="bar-row">
+        <div class="name"><i class="fa-brands fa-instagram"></i> Instagram</div>
+        <div class="track"><div class="fill" style="width:22%"></div></div>
+        <div class="pct">22%</div>
+      </div>
+      <div class="bar-row">
+        <div class="name"><i class="fa-solid fa-link"></i> Directo</div>
+        <div class="track"><div class="fill" style="width:12%"></div></div>
+        <div class="pct">12%</div>
+      </div>
+      <div class="bar-row">
+        <div class="name"><i class="fa-solid fa-ellipsis"></i> Otros</div>
+        <div class="track"><div class="fill" style="width:8%"></div></div>
+        <div class="pct">8%</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="pad">
+    <div class="section-t">Lo más visto del sitio</div>
+    <ul class="rows">
+      <li><b>Inicio</b><span>54% de las visitas</span></li>
+      <li><b>Habitaciones</b><span>22%</span></li>
+      <li><b>Excursiones</b><span>16%</span></li>
+      <li><b>Ubicación</b><span>8%</span></li>
+    </ul>
+  </section>
+
+  <div class="divider"></div>
+
+  <section class="pad">
+    <div class="section-t">Mi recomendación del mes</div>
+    <div class="reco">
+      <h3><i class="fa-solid fa-lightbulb"></i> Las excursiones generan mucho interés</h3>
+      <p>La sección de excursiones fue de las más visitadas: la gente que va a El Calafate llega buscando el glaciar y el Fitz Roy. Si destacás más arriba el botón de "consultar excursiones" y publicás disponibilidad en Instagram, es muy probable que las consultas suban el mes que viene sin gastar en publicidad.</p>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div><i class="fa-solid fa-user"></i> Preparado por Teo Cicciari · Desarrollo web</div>
+    <div><i class="fa-solid fa-rotate"></i> Próximo reporte: junio 2026</div>
+  </footer>
+
+</div>
+</body>
+</html>
