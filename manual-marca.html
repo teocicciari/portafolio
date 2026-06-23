@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manual de Marca — Teo Cicciari</title>
+<style>
+  /* ─── Tokens de marca · Teo Cicciari (fuente única de verdad) ───
+     Copiá este bloque :root en cualquier archivo nuevo para arrancar on-brand.
+     Tipografía: Space Grotesk (variable 300–700). Si no está local, cargar de
+     Google Fonts: https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700 */
+  :root{
+    /* Paleta — marca principal (dev / verde bosque) */
+    --primary-dark:#1a2f1a;     /* fondo base */
+    --secondary-dark:#2d422d;   /* fondo elevado (cards, nav) */
+    --accent:#7ac142;           /* acento lima — CTAs, links, detalles */
+    --accent-highlight:#92d45e; /* hover / acento fuerte */
+    --text-primary:#f1f7eb;     /* texto principal */
+    --text-secondary:#b8c5b8;   /* texto secundario */
+    --accent-soft:rgba(122,193,66,.12);
+    --accent-transparent:rgba(122,193,66,.1);
+    --border-subtle:rgba(255,255,255,.08);
+    --border-hover:rgba(122,193,66,.45);
+    --shadow-glow:0 0 40px rgba(122,193,66,.15);
+    --shadow-1:0 8px 30px rgba(0,0,0,.25);
+
+    /* Tipografía fluida */
+    --fs-display:clamp(2.4rem,5vw,3.5rem);
+    --fs-h2:clamp(1.6rem,3vw,2.25rem);
+    --fs-h3:1.2rem;
+    --fs-body:1.0625rem;
+    --fs-small:.875rem;
+
+    /* Espaciado */
+    --space-2:8px; --space-3:12px; --space-4:16px; --space-5:24px;
+    --space-6:40px; --space-7:64px; --space-8:96px;
+    --section-pad:clamp(3rem,8vw,6rem);
+    --container-max:1400px;
+
+    /* Forma y movimiento */
+    --radius-sm:8px; --radius-md:14px; --radius-lg:20px; --radius-pill:50px;
+    --ease-out:cubic-bezier(.22,1,.36,1);
+    --dur-fast:.15s; --dur-base:.3s;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;font-family:'Space Grotesk',system-ui,sans-serif}
+  body{background:var(--primary-dark);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,h4{letter-spacing:-.02em;line-height:1.2;font-weight:600}
+  a{color:var(--accent)}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:var(--section-pad) var(--space-6)}
+  .eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;color:var(--accent);font-weight:500;margin-bottom:14px}
+  section{padding:var(--space-8) 0;border-bottom:1px solid var(--border-subtle)}
+  section:last-child{border-bottom:none}
+  .lead{color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin-top:10px}
+
+  /* HERO */
+  .hero{padding:var(--space-8) 0 var(--space-7)}
+  .hero h1{font-size:var(--fs-display);font-weight:700}
+  .hero h1 span{color:var(--accent)}
+  .hero p{color:var(--text-secondary);font-size:1.15rem;margin-top:16px;max-width:560px}
+
+  h2{font-size:var(--fs-h2);margin-bottom:8px}
+
+  /* Colores */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:18px;margin-top:28px}
+  .sw{background:var(--secondary-dark);border-radius:var(--radius-md);overflow:hidden;border:1px solid var(--border-subtle)}
+  .sw .chip{height:90px}
+  .sw .info{padding:12px 14px}
+  .sw .nm{font-weight:600;font-size:.92rem}
+  .sw .hx{color:var(--text-secondary);font-size:.78rem;letter-spacing:.04em;text-transform:uppercase;margin-top:2px}
+  .sw .use{color:var(--text-secondary);font-size:.74rem;margin-top:6px;line-height:1.4}
+
+  /* Tipografía */
+  .type-row{display:flex;align-items:baseline;gap:18px;padding:16px 0;border-bottom:1px solid var(--border-subtle);flex-wrap:wrap}
+  .type-row:last-child{border-bottom:none}
+  .type-row .label{color:var(--text-secondary);font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;width:120px;flex-shrink:0}
+  .t-display{font-size:var(--fs-display);font-weight:700}
+  .t-h2{font-size:var(--fs-h2);font-weight:600}
+  .t-h3{font-size:var(--fs-h3);font-weight:600}
+  .t-body{font-size:var(--fs-body);font-weight:300}
+  .t-eyebrow{text-transform:uppercase;letter-spacing:.18em;font-size:.74rem;color:var(--accent);font-weight:500}
+
+  /* Botones */
+  .btns{display:flex;gap:16px;flex-wrap:wrap;margin-top:26px}
+  .cta-primary{background:var(--accent);color:var(--primary-dark);border:none;cursor:pointer;padding:14px 30px;border-radius:var(--radius-pill);font-weight:600;letter-spacing:.04em;font-size:.95rem;transition:transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out);box-shadow:var(--shadow-glow)}
+  .cta-primary:hover{transform:translateY(-2px);box-shadow:0 6px 25px var(--border-hover)}
+  .cta-secondary{background:transparent;color:var(--accent);border:1px solid var(--border-hover);padding:14px 30px;border-radius:var(--radius-pill);font-weight:600;letter-spacing:.04em;font-size:.95rem;cursor:pointer;transition:all var(--dur-base) var(--ease-out)}
+  .cta-secondary:hover{background:var(--accent-soft)}
+
+  /* Cards / superficies */
+  .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin-top:26px}
+  .card{background:var(--secondary-dark);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:24px;transition:border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}
+  .card:hover{border-color:var(--border-hover);box-shadow:var(--shadow-glow)}
+  .card h4{margin-bottom:8px}
+  .card p{color:var(--text-secondary);font-size:.9rem}
+
+  /* Tokens table */
+  .tokens{margin-top:24px;width:100%;border-collapse:collapse}
+  .tokens td{padding:10px 14px;border-bottom:1px solid var(--border-subtle);font-size:.9rem;vertical-align:top}
+  .tokens td:first-child{color:var(--accent);font-family:ui-monospace,monospace;white-space:nowrap;width:200px}
+  .tokens td:last-child{color:var(--text-secondary)}
+
+  .note{background:var(--accent-soft);border-left:3px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:16px 20px;margin-top:24px;color:var(--text-secondary);font-size:.9rem}
+  code{font-family:ui-monospace,monospace;background:var(--secondary-dark);padding:2px 7px;border-radius:5px;color:var(--accent-highlight);font-size:.85em}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="eyebrow">Manual de marca · v1</div>
+    <h1>Teo Cicciari<br><span>Desarrollo &amp; Diseño Web</span></h1>
+    <p>La identidad visual de la marca. Una sola fuente de verdad para que todo lo que produzca —propuestas, contratos, bocetos, documentos— se vea coherente y profesional, sin tener que revisar el portafolio cada vez.</p>
+  </header>
+
+  <!-- COLORES -->
+  <section>
+    <div class="eyebrow">01 · Color</div>
+    <h2>Paleta</h2>
+    <p class="lead">Base oscura verde bosque con un acento lima vibrante. El acento se usa con criterio: CTAs, links y detalles — no para grandes superficies.</p>
+    <div class="swatches">
+      <div class="sw"><div class="chip" style="background:#1a2f1a"></div><div class="info"><div class="nm">Verde Bosque</div><div class="hx">#1A2F1A</div><div class="use">Fondo base</div></div></div>
+      <div class="sw"><div class="chip" style="background:#2d422d"></div><div class="info"><div class="nm">Verde Elevado</div><div class="hx">#2D422D</div><div class="use">Cards, nav, superficies</div></div></div>
+      <div class="sw"><div class="chip" style="background:#7ac142"></div><div class="info"><div class="nm">Lima Acento</div><div class="hx">#7AC142</div><div class="use">CTAs, links, acentos</div></div></div>
+      <div class="sw"><div class="chip" style="background:#92d45e"></div><div class="info"><div class="nm">Lima Brillante</div><div class="hx">#92D45E</div><div class="use">Hover, acento fuerte</div></div></div>
+      <div class="sw"><div class="chip" style="background:#f1f7eb"></div><div class="info"><div class="nm">Crema Texto</div><div class="hx">#F1F7EB</div><div class="use">Texto principal</div></div></div>
+      <div class="sw"><div class="chip" style="background:#b8c5b8"></div><div class="info"><div class="nm">Verde Niebla</div><div class="hx">#B8C5B8</div><div class="use">Texto secundario</div></div></div>
+    </div>
+  </section>
+
+  <!-- TIPOGRAFIA -->
+  <section>
+    <div class="eyebrow">02 · Tipografía</div>
+    <h2>Space Grotesk</h2>
+    <p class="lead">Una sola familia para todo (variable, pesos 300–700). Títulos con tracking negativo (<code>-0.02em</code>); etiquetas en mayúsculas con tracking amplio.</p>
+    <div style="margin-top:24px">
+      <div class="type-row"><div class="label">Display · 700</div><div class="t-display">Trabajo que se nota</div></div>
+      <div class="type-row"><div class="label">H2 · 600</div><div class="t-h2">Títulos de sección</div></div>
+      <div class="type-row"><div class="label">H3 · 600</div><div class="t-h3">Subtítulos</div></div>
+      <div class="type-row"><div class="label">Body · 300</div><div class="t-body">Texto de párrafo, cómodo de leer en bloques largos con buena altura de línea.</div></div>
+      <div class="type-row"><div class="label">Eyebrow · 500</div><div class="t-eyebrow">Etiqueta superior</div></div>
+    </div>
+  </section>
+
+  <!-- BOTONES -->
+  <section>
+    <div class="eyebrow">03 · Botones</div>
+    <h2>Llamados a la acción</h2>
+    <p class="lead">Forma de píldora (<code>border-radius:50px</code>), peso 600, leve tracking. El primario es lima sólido con glow; el secundario es contorno.</p>
+    <div class="btns">
+      <button class="cta-primary">Quiero avanzar →</button>
+      <button class="cta-secondary">Ver más</button>
+    </div>
+  </section>
+
+  <!-- SUPERFICIES -->
+  <section>
+    <div class="eyebrow">04 · Superficies</div>
+    <h2>Cards</h2>
+    <p class="lead">Fondo elevado, borde sutil, radio medio. En hover: el borde se tiñe de lima y aparece el glow.</p>
+    <div class="cards">
+      <div class="card"><h4>Coherencia</h4><p>La misma identidad de punta a punta, sin parches.</p></div>
+      <div class="card"><h4>Rapidez</h4><p>Plazos definidos y comunicación directa.</p></div>
+      <div class="card"><h4>Hecho para vos</h4><p>Te dejo todo listo y te enseño a mantenerlo.</p></div>
+    </div>
+  </section>
+
+  <!-- TOKENS -->
+  <section>
+    <div class="eyebrow">05 · Tokens</div>
+    <h2>Forma y movimiento</h2>
+    <table class="tokens">
+      <tr><td>--radius-sm / md / lg / pill</td><td>8px · 14px · 20px · 50px (píldoras)</td></tr>
+      <tr><td>--shadow-1</td><td>0 8px 30px rgba(0,0,0,.25) — sombra base</td></tr>
+      <tr><td>--shadow-glow</td><td>0 0 40px rgba(122,193,66,.15) — glow lima</td></tr>
+      <tr><td>--ease-out</td><td>cubic-bezier(.22,1,.36,1) — la curva de todo</td></tr>
+      <tr><td>--dur-fast / base</td><td>.15s · .3s</td></tr>
+      <tr><td>espaciado</td><td>escala 8 · 12 · 16 · 24 · 40 · 64 · 96px</td></tr>
+      <tr><td>animación de entrada</td><td>clase <code>.fade-in</code> con IntersectionObserver; respetar <code>prefers-reduced-motion</code></td></tr>
+    </table>
+    <div class="note">
+      <strong>Cómo usarlo:</strong> copiá el bloque <code>:root</code> del <code>&lt;style&gt;</code> de este archivo al inicio de cualquier documento nuevo y usá las variables (<code>var(--accent)</code>, etc.) en vez de hardcodear colores. Cargá <strong>Space Grotesk</strong> desde Google Fonts si el archivo no tiene la fuente local del portafolio.
+    </div>
+  </section>
+
+  <!-- SUB-MARCA -->
+  <section>
+    <div class="eyebrow">06 · Sub-marca</div>
+    <h2>Tema ajedrez</h2>
+    <p class="lead">Para contextos de las clases de ajedrez existe un tema alternativo claro, con la paleta del tablero: crema <code>#F0D9B5</code> / marrón acento <code>#B58863</code>, texto <code>#2F2014</code>. Misma tipografía y tokens. Usar solo en material de ajedrez; el resto va con la marca principal.</p>
+  </section>
+
+</div>
+</body>
+</html>
