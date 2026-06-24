@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Delfina Island Resort — Hotel en el Delta de San Fernando</title>
+<meta name="description" content="Resort boutique en el corazón del Delta, Islas de San Fernando. Piscina al aire libre, habitaciones con hidromasaje y vista al lago, restaurante y naturaleza. Una estancia única e inolvidable." />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="La Delfina Island Resort — Hotel en el Delta" />
+<meta property="og:description" content="Resort boutique en las Islas de San Fernando. Piscina, habitaciones con hidromasaje y vista al lago, restaurante y naturaleza del Delta." />
+<meta property="og:image" content="img/background.webp" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="La Delfina Island Resort — Hotel en el Delta" />
+<meta name="twitter:description" content="Resort boutique en las Islas de San Fernando. Piscina, naturaleza y descanso premium en el Delta." />
+<meta name="twitter:image" content="img/background.webp" />
+
+<link rel="icon" href="img/logo.webp" />
+
+<!-- Preload hero -->
+<link rel="preload" as="image" href="img/background.webp" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+<!-- Datos estructurados (GEO) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Resort",
+  "name": "La Delfina Island Resort",
+  "description": "Resort boutique en el corazón del Delta, Islas de San Fernando. Piscina al aire libre, habitaciones con bañera de hidromasaje y vista al lago, restaurante, gimnasio y actividades en la naturaleza.",
+  "image": "img/background.webp",
+  "telephone": "",
+  "email": "reservas@ladelfina.club",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arroyo Sándor Mickler 1700",
+    "addressLocality": "San Fernando",
+    "addressRegion": "Buenos Aires",
+    "addressCountry": "AR"
+  },
+  "checkinTime": "12:00",
+  "checkoutTime": "10:00",
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Piscina al aire libre", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Restaurante y bar", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Gimnasio", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Pista de tenis", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Sala de juegos (billar y ping-pong)", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Bañera de hidromasaje", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Aire acondicionado", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Wi-Fi en zonas comunes", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Jardín y terraza", "value": true }
+  ]
+}
+</script>
+
+<style>
+  :root{
+    --ink:#191613;
+    --ink-soft:#3a352f;
+    --cream:#f6f2ea;
+    --cream-2:#efe9dd;
+    --gold:#b89154;
+    --gold-deep:#9a763f;
+    --line:#ddd4c4;
+    --shadow:0 24px 60px -28px rgba(25,22,19,.45);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Jost',sans-serif;
+    color:var(--ink);
+    background:var(--cream);
+    line-height:1.65;
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,92%);margin-inline:auto}
+  .eyebrow{
+    font-family:'Jost',sans-serif;font-weight:400;
+    text-transform:uppercase;letter-spacing:.32em;
+    font-size:.72rem;color:var(--gold-deep);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-family:'Jost',sans-serif;font-weight:400;
+    text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;
+    padding:1em 2em;border-radius:2px;cursor:pointer;border:none;
+    transition:.3s ease;
+  }
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{background:var(--gold-deep)}
+  .btn-ghost{border:1px solid rgba(255,255,255,.65);color:#fff;background:transparent}
+  .btn-ghost:hover{background:#fff;color:var(--ink)}
+  .btn-dark{background:var(--ink);color:var(--cream)}
+  .btn-dark:hover{background:var(--ink-soft)}
+
+  /* NAV */
+  header.nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.1rem 0;transition:.35s ease;
+  }
+  header.nav .wrap{display:flex;align-items:center;justify-content:space-between;width:min(1180px,92%)}
+  .brand{display:flex;align-items:center;gap:.7rem;color:#fff}
+  .brand img{width:42px;height:42px;border-radius:50%;object-fit:cover;background:#fff}
+  .brand .bn{font-family:'Cormorant Garamond',serif;font-size:1.4rem;letter-spacing:.02em;line-height:1}
+  .brand .bn small{display:block;font-family:'Jost',sans-serif;font-weight:300;font-size:.56rem;letter-spacing:.42em;text-transform:uppercase;opacity:.85}
+  nav.links{display:flex;align-items:center;gap:2.1rem}
+  nav.links a{color:#fff;font-size:.82rem;letter-spacing:.08em;opacity:.92;transition:.2s}
+  nav.links a:hover{opacity:1;color:#fff}
+  nav.links a.cta{
+    border:1px solid rgba(255,255,255,.6);padding:.6em 1.3em;border-radius:2px;
+    text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;
+  }
+  nav.links a.cta:hover{background:#fff;color:var(--ink)}
+  header.nav.scrolled{background:rgba(20,18,15,.92);backdrop-filter:blur(8px);box-shadow:0 10px 30px -20px rgba(0,0,0,.6)}
+  header.nav.scrolled{padding:.75rem 0}
+  .menu-btn{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer}
+
+  /* HERO */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:center;
+    background:linear-gradient(180deg,rgba(20,18,15,.55) 0%,rgba(20,18,15,.25) 40%,rgba(20,18,15,.72) 100%),url('img/background.webp') center/cover no-repeat;
+    color:#fff;text-align:center;
+  }
+  .hero .wrap{padding:7rem 0 4rem}
+  .hero .eyebrow{color:#e9dcc2}
+  .hero h1{font-size:clamp(3rem,9vw,6.6rem);font-weight:500;margin:.35rem 0 .2rem;letter-spacing:.01em}
+  .hero p.sub{font-size:clamp(1rem,2vw,1.25rem);font-weight:300;letter-spacing:.04em;max-width:33ch;margin:0 auto 2.4rem;opacity:.95}
+  .hero .actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+  .hero .scroll{position:absolute;bottom:1.8rem;left:50%;transform:translateX(-50%);color:#fff;font-size:1.1rem;opacity:.8;animation:bob 2.4s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* SECTION base */
+  section{padding:clamp(4.5rem,9vw,8rem) 0}
+  .section-head{max-width:62ch}
+  .section-head h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:.4rem 0 1rem}
+  .section-head p{color:var(--ink-soft);font-size:1.04rem}
+  .center{text-align:center;margin-inline:auto}
+
+  /* INTRO split */
+  .intro{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+  .intro .txt p{color:var(--ink-soft);margin-top:1.2rem}
+  .intro .media{position:relative}
+  .intro .media img{border-radius:3px;box-shadow:var(--shadow);width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  .intro .media .badge{
+    position:absolute;left:-1.4rem;bottom:-1.4rem;background:var(--cream);
+    border:1px solid var(--line);padding:1.3rem 1.6rem;border-radius:3px;box-shadow:var(--shadow);text-align:center;
+  }
+  .intro .media .badge .n{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold-deep);line-height:1}
+  .intro .media .badge small{display:block;text-transform:uppercase;letter-spacing:.18em;font-size:.6rem;color:var(--ink-soft)}
+
+  /* AMENITIES */
+  .amen{background:var(--ink);color:var(--cream)}
+  .amen .eyebrow{color:var(--gold)}
+  .amen .section-head h2{color:var(--cream)}
+  .amen .section-head p{color:#c8c0b2}
+  .amen-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);margin-top:3rem;border-radius:3px;overflow:hidden;
+  }
+  .amen-grid .cell{background:var(--ink);padding:2.2rem 1.4rem;text-align:center;transition:.3s}
+  .amen-grid .cell:hover{background:#211d18}
+  .amen-grid i{font-size:1.7rem;color:var(--gold);margin-bottom:.9rem;display:block}
+  .amen-grid h4{font-family:'Jost',sans-serif;font-weight:400;font-size:.92rem;letter-spacing:.03em}
+
+  /* ROOMS */
+  .rooms-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.2rem}
+  .room{background:#fff;border:1px solid var(--line);border-radius:3px;overflow:hidden;display:flex;flex-direction:column;transition:.35s ease}
+  .room:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .room .ph{position:relative;aspect-ratio:4/3;overflow:hidden}
+  .room .ph img{width:100%;height:100%;object-fit:cover;transition:.6s ease}
+  .room:hover .ph img{transform:scale(1.06)}
+  .room .ph .view{position:absolute;top:1rem;left:1rem;background:rgba(20,18,15,.78);color:#fff;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;padding:.4em .8em;border-radius:2px;backdrop-filter:blur(4px)}
+  .room .body{padding:1.6rem 1.5rem 1.8rem;display:flex;flex-direction:column;flex:1}
+  .room h3{font-size:1.7rem;margin-bottom:.3rem}
+  .room .meta{display:flex;gap:1.2rem;color:var(--gold-deep);font-size:.82rem;letter-spacing:.04em;margin-bottom:1rem}
+  .room .meta span{display:inline-flex;align-items:center;gap:.4em}
+  .room ul{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin-top:auto}
+  .room ul li{font-size:.74rem;color:var(--ink-soft);border:1px solid var(--line);padding:.35em .7em;border-radius:2px}
+
+  /* GALLERY */
+  .gallery{background:var(--cream-2)}
+  .grid-gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:14px;margin-top:3rem}
+  .grid-gal a{overflow:hidden;border-radius:3px;position:relative}
+  .grid-gal img{width:100%;height:100%;object-fit:cover;transition:.6s ease}
+  .grid-gal a:hover img{transform:scale(1.07)}
+  .grid-gal .tall{grid-row:span 2}
+  .grid-gal .wide{grid-column:span 2}
+
+  /* EXPERIENCE */
+  .exp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.8rem;margin-top:3.2rem}
+  .exp{position:relative;border-radius:3px;overflow:hidden;min-height:340px;display:flex;align-items:flex-end;color:#fff}
+  .exp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;transition:.6s}
+  .exp:hover img{transform:scale(1.06)}
+  .exp::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(20,18,15,.82));z-index:1}
+  .exp .c{position:relative;z-index:2;padding:1.8rem}
+  .exp i{color:var(--gold);font-size:1.3rem;margin-bottom:.5rem;display:block}
+  .exp h3{font-size:1.7rem}
+  .exp p{font-size:.9rem;opacity:.92;margin-top:.3rem}
+
+  /* RESERVA */
+  .reserva{background:var(--ink);color:var(--cream)}
+  .reserva .eyebrow{color:var(--gold)}
+  .reserva .grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+  .reserva h2{font-size:clamp(2.2rem,5vw,3.4rem);color:var(--cream);margin:.4rem 0 1rem}
+  .reserva .info p{color:#c8c0b2;margin-bottom:1.6rem}
+  .reserva .info ul{list-style:none;display:grid;gap:.9rem}
+  .reserva .info ul li{display:flex;gap:.9rem;align-items:flex-start;font-size:.94rem}
+  .reserva .info ul li i{color:var(--gold);width:20px;margin-top:.25rem}
+  form{background:var(--cream);color:var(--ink);padding:2.2rem;border-radius:4px;box-shadow:var(--shadow)}
+  form .field{margin-bottom:1.1rem}
+  form label{display:block;font-size:.74rem;text-transform:uppercase;letter-spacing:.14em;color:var(--ink-soft);margin-bottom:.45rem}
+  form input,form select{
+    width:100%;padding:.85em 1em;border:1px solid var(--line);border-radius:3px;
+    font-family:'Jost',sans-serif;font-size:.95rem;color:var(--ink);background:#fff;font-weight:300;
+  }
+  form input:focus,form select:focus{outline:none;border-color:var(--gold)}
+  form .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  form button{width:100%;justify-content:center;margin-top:.6rem}
+  form .note{font-size:.74rem;color:var(--ink-soft);text-align:center;margin-top:.9rem}
+  .form-msg{display:none;margin-top:1rem;padding:.9rem 1rem;border-radius:3px;background:#efe9dd;border:1px solid var(--line);font-size:.85rem;text-align:center}
+
+  /* AUTOR */
+  .autor{background:linear-gradient(135deg,var(--gold) 0%,var(--gold-deep) 100%);color:#fff;text-align:center}
+  .autor h2{font-size:clamp(2rem,5vw,3.2rem);color:#fff;margin-bottom:.6rem}
+  .autor p{max-width:54ch;margin:0 auto 2rem;opacity:.96}
+  .autor .btn{background:#fff;color:var(--gold-deep);font-weight:500}
+  .autor .btn:hover{background:var(--ink);color:#fff}
+
+  /* FOOTER */
+  footer{background:#14110d;color:#bdb4a4;padding:4rem 0 2.4rem;font-size:.9rem}
+  footer .top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer .brand{color:#fff;margin-bottom:1rem}
+  footer h5{color:#fff;font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:500;margin-bottom:1rem}
+  footer a{color:#bdb4a4;transition:.2s;display:inline-flex;align-items:center;gap:.5em}
+  footer a:hover{color:var(--gold)}
+  footer ul{list-style:none;display:grid;gap:.6rem}
+  footer .bottom{padding-top:1.8rem;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.8rem;color:#8a8175}
+  footer .bottom a{color:var(--gold)}
+
+  @media(max-width:900px){
+    nav.links{display:none}
+    .menu-btn{display:block}
+    .intro,.reserva .grid{grid-template-columns:1fr}
+    .intro .media{order:-1}
+    .amen-grid{grid-template-columns:repeat(2,1fr)}
+    .rooms-grid,.exp-grid{grid-template-columns:1fr}
+    .grid-gal{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .grid-gal .wide{grid-column:span 2}
+    footer .top{grid-template-columns:1fr}
+  }
+  @media(max-width:520px){
+    form .row{grid-template-columns:1fr}
+    .hero .actions .btn{width:100%;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#top" class="brand">
+      <img src="img/logo.webp" alt="Logo La Delfina Island Resort" />
+      <span class="bn">La Delfina<small>Island Resort</small></span>
+    </a>
+    <nav class="links">
+      <a href="#resort">El Resort</a>
+      <a href="#comodidades">Comodidades</a>
+      <a href="#habitaciones">Habitaciones</a>
+      <a href="#galeria">Galería</a>
+      <a href="#reserva" class="cta">Reservar</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="Menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Islas de San Fernando · Delta de Buenos Aires</span>
+    <h1>La Delfina Island Resort</h1>
+    <p class="sub">Un refugio entre el agua y el monte, donde el Delta se vuelve descanso premium.</p>
+    <div class="actions">
+      <a href="#reserva" class="btn btn-gold"><i class="fa-solid fa-calendar-check"></i> Reservar estadía</a>
+      <a href="#resort" class="btn btn-ghost">Descubrir el resort</a>
+    </div>
+  </div>
+  <a href="#resort" class="scroll" aria-label="Bajar"><i class="fa-solid fa-chevron-down"></i></a>
+</section>
+
+<!-- INTRO -->
+<section id="resort">
+  <div class="wrap intro">
+    <div class="txt">
+      <span class="eyebrow">El refugio</span>
+      <h2>El Delta, a la altura de lo que merecés</h2>
+      <p>En el corazón de las Islas de San Fernando, La Delfina Island Resort ofrece una estancia única e inolvidable junto a un apacible lago. Naturaleza, silencio y un confort cuidado al detalle, a un paso de Buenos Aires.</p>
+      <p>Piscina al aire libre rodeada de palmeras, habitaciones con bañera de hidromasaje y vista al lago, restaurante de cocina regional y un entorno de monte para desconectar de verdad. El lujo, acá, es el tiempo.</p>
+    </div>
+    <div class="media">
+      <img src="img/5.webp" alt="Vista aérea del resort rodeado de palmeras y piscina en el Delta" />
+      <div class="badge">
+        <span class="n">5★</span>
+        <small>Experiencia<br>de isla</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amen" id="comodidades">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Todo lo que necesitás</span>
+      <h2>Comodidades del resort</h2>
+      <p>Instalaciones pensadas para que no tengas que salir de la isla.</p>
+    </div>
+    <div class="amen-grid">
+      <div class="cell"><i class="fa-solid fa-water-ladder"></i><h4>Piscina al aire libre</h4></div>
+      <div class="cell"><i class="fa-solid fa-utensils"></i><h4>Restaurante & Bar</h4></div>
+      <div class="cell"><i class="fa-solid fa-hot-tub-person"></i><h4>Hidromasaje</h4></div>
+      <div class="cell"><i class="fa-solid fa-dumbbell"></i><h4>Gimnasio</h4></div>
+      <div class="cell"><i class="fa-solid fa-table-tennis-paddle-ball"></i><h4>Tenis & Ping-pong</h4></div>
+      <div class="cell"><i class="fa-solid fa-baseball"></i><h4>Sala de billar</h4></div>
+      <div class="cell"><i class="fa-solid fa-tree"></i><h4>Jardín & Terraza</h4></div>
+      <div class="cell"><i class="fa-solid fa-wifi"></i><h4>Wi-Fi en zonas comunes</h4></div>
+      <div class="cell"><i class="fa-solid fa-child-reaching"></i><h4>Parque infantil</h4></div>
+      <div class="cell"><i class="fa-solid fa-fish-fins"></i><h4>Pesca & Kayak</h4></div>
+      <div class="cell"><i class="fa-solid fa-snowflake"></i><h4>Aire acondicionado</h4></div>
+      <div class="cell"><i class="fa-solid fa-tv"></i><h4>Salón de TV</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="habitaciones">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Dónde descansar</span>
+      <h2>Habitaciones & Suite</h2>
+      <p>Tres opciones con aire acondicionado, TV de pantalla plana, minibar y baño con bañera de hidromasaje.</p>
+    </div>
+    <div class="rooms-grid">
+
+      <article class="room">
+        <div class="ph">
+          <span class="view">Vista al jardín</span>
+          <img src="img/1.webp" alt="Habitación Triple Estándar con balcón y vista al jardín" loading="lazy" />
+        </div>
+        <div class="body">
+          <h3>Triple Estándar</h3>
+          <div class="meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 36 m²</span>
+            <span><i class="fa-solid fa-user-group"></i> Hasta 4</span>
+          </div>
+          <ul>
+            <li>Hidromasaje</li><li>Cocina americana</li><li>Entrada privada</li><li>Minibar</li><li>TV plana</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="room">
+        <div class="ph">
+          <span class="view">Vista al lago</span>
+          <img src="img/8.webp" alt="Habitación Cuádruple Premium con pared de ladrillo y deck con vista al lago" loading="lazy" />
+        </div>
+        <div class="body">
+          <h3>Cuádruple Premium</h3>
+          <div class="meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 43 m²</span>
+            <span><i class="fa-solid fa-user-group"></i> Hasta 4</span>
+          </div>
+          <ul>
+            <li>Hidromasaje</li><li>Muebles de exterior</li><li>Zona de estar</li><li>Minibar</li><li>TV plana</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="room">
+        <div class="ph">
+          <span class="view">Vista al lago</span>
+          <img src="img/2.webp" alt="Suite Estándar con entrada privada y vista a la piscina y el lago" loading="lazy" />
+        </div>
+        <div class="body">
+          <h3>Suite Estándar</h3>
+          <div class="meta">
+            <span><i class="fa-solid fa-ruler-combined"></i> 36 m²</span>
+            <span><i class="fa-solid fa-user-group"></i> Hasta 4</span>
+          </div>
+          <ul>
+            <li>Hidromasaje</li><li>Dormitorio + estar</li><li>Entrada privada</li><li>Minibar</li><li>TV plana</li>
+          </ul>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery" id="galeria">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Postales</span>
+      <h2>La isla en imágenes</h2>
+    </div>
+    <div class="grid-gal">
+      <a href="img/background.webp" class="wide tall"><img src="img/background.webp" alt="Vista aérea de la piscina central del resort" loading="lazy" /></a>
+      <a href="img/9.webp"><img src="img/9.webp" alt="Reposeras y gazebos en la playa de arena" loading="lazy" /></a>
+      <a href="img/7.webp"><img src="img/7.webp" alt="Sala de juegos con mesa de pool y sillones" loading="lazy" /></a>
+      <a href="img/10.webp" class="wide"><img src="img/10.webp" alt="Piscina rodeada de palmeras" loading="lazy" /></a>
+      <a href="img/4.webp"><img src="img/4.webp" alt="Kayaks en la playa del resort" loading="lazy" /></a>
+      <a href="img/3.webp"><img src="img/3.webp" alt="Desayuno casero servido frente al ventanal" loading="lazy" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experiencias">
+  <div class="wrap">
+    <div class="section-head center">
+      <span class="eyebrow">Para vivir</span>
+      <h2>Experiencias en el Delta</h2>
+      <p>A 29 km del Parque de la Costa, entre senderos, agua y monte.</p>
+    </div>
+    <div class="exp-grid">
+      <article class="exp">
+        <img src="img/4.webp" alt="Kayaks listos en la arena" loading="lazy" />
+        <div class="c"><i class="fa-solid fa-person-swimming"></i><h3>Agua & Kayak</h3><p>Salí a remar por los arroyos o relajate en la pileta al sol.</p></div>
+      </article>
+      <article class="exp">
+        <img src="img/6.webp" alt="Plato de cocina regional del restaurante" loading="lazy" />
+        <div class="c"><i class="fa-solid fa-wine-glass"></i><h3>Cocina regional</h3><p>Restaurante y bar con platos de la tradición gastronómica de la zona.</p></div>
+      </article>
+      <article class="exp">
+        <img src="img/9.webp" alt="Reposeras bajo las palmeras" loading="lazy" />
+        <div class="c"><i class="fa-solid fa-spa"></i><h3>Descanso total</h3><p>Senderismo, pesca y tardes lentas bajo las palmeras del Delta.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="reserva" id="reserva">
+  <div class="wrap grid">
+    <div class="info">
+      <span class="eyebrow">Tu estadía</span>
+      <h2>Reservá tu lugar en la isla</h2>
+      <p>Completá tus datos y nos pondremos en contacto para confirmar disponibilidad y tarifas.</p>
+      <ul>
+        <li><i class="fa-solid fa-location-dot"></i> Arroyo Sándor Mickler 1700, San Fernando, Buenos Aires</li>
+        <li><i class="fa-solid fa-clock"></i> Check-in desde 12:00 · Check-out hasta 10:00</li>
+        <li><i class="fa-solid fa-envelope"></i> reservas@ladelfina.club</li>
+        <li><i class="fa-solid fa-leaf"></i> Wi-Fi, estacionamiento y naturaleza incluidos</li>
+      </ul>
+    </div>
+
+    <form id="reservaForm">
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required />
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="unidad">Unidad</label>
+          <select id="unidad" name="unidad" required>
+            <option value="" disabled selected>Elegí una</option>
+            <option>Triple Estándar</option>
+            <option>Cuádruple Premium</option>
+            <option>Suite Estándar</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="personas">Personas</label>
+          <input type="number" id="personas" name="personas" min="1" max="4" placeholder="2" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="field">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" name="checkin" required />
+        </div>
+        <div class="field">
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" name="checkout" required />
+        </div>
+      </div>
+      <button type="submit" class="btn btn-dark"><i class="fa-solid fa-paper-plane"></i> Enviar solicitud</button>
+      <p class="note">Te responderemos por email para confirmar tu reserva.</p>
+      <div class="form-msg" id="formMsg"></div>
+    </form>
+  </div>
+</section>
+
+<!-- AUTOR / PORTAFOLIO -->
+<section class="autor">
+  <div class="wrap">
+    <span class="eyebrow" style="color:#fff7e8">Diseño web</span>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>¿Tenés un hospedaje y querés un sitio así de cuidado? Mirá más referencias, estilos y precios, y pedí el tuyo.</p>
+    <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" class="btn">
+      Ver referencias y precios <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="top">
+      <div>
+        <div class="brand" style="display:flex;align-items:center;gap:.7rem">
+          <img src="img/logo.webp" alt="Logo La Delfina" style="width:46px;height:46px;border-radius:50%;object-fit:cover;background:#fff" />
+          <span class="bn" style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#fff;line-height:1">La Delfina<br><small style="font-size:.55rem;letter-spacing:.4em;text-transform:uppercase;opacity:.8">Island Resort</small></span>
+        </div>
+        <p style="margin-top:1rem;max-width:34ch">Hotel boutique en el corazón del Delta, Islas de San Fernando, Buenos Aires.</p>
+      </div>
+      <div>
+        <h5>Navegación</h5>
+        <ul>
+          <li><a href="#resort">El Resort</a></li>
+          <li><a href="#comodidades">Comodidades</a></li>
+          <li><a href="#habitaciones">Habitaciones</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#reserva">Reservar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contacto</h5>
+        <ul>
+          <li><a href="mailto:reservas@ladelfina.club"><i class="fa-solid fa-envelope"></i> reservas@ladelfina.club</a></li>
+          <li><span style="display:inline-flex;gap:.5em"><i class="fa-solid fa-location-dot"></i> Arroyo Sándor Mickler 1700</span></li>
+          <li><span style="display:inline-flex;gap:.5em"><i class="fa-solid fa-map"></i> San Fernando, Buenos Aires</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© <span id="anio"></span> La Delfina Island Resort. Todos los derechos reservados.</span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Nav scroll
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 60);
+  window.addEventListener('scroll', onScroll); onScroll();
+
+  // Menú mobile -> scroll a reserva
+  document.getElementById('menuBtn').addEventListener('click', () => {
+    document.getElementById('reserva').scrollIntoView({behavior:'smooth'});
+  });
+
+  // Fechas mínimas
+  const hoy = new Date().toISOString().split('T')[0];
+  const ci = document.getElementById('checkin');
+  const co = document.getElementById('checkout');
+  ci.min = hoy; co.min = hoy;
+  ci.addEventListener('change', () => { co.min = ci.value || hoy; });
+
+  // Formulario -> mailto con los datos
+  const form = document.getElementById('reservaForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const unidad = document.getElementById('unidad').value;
+    const personas = document.getElementById('personas').value;
+    const checkin = ci.value, checkout = co.value;
+
+    if (new Date(checkout) <= new Date(checkin)) {
+      msg.style.display = 'block';
+      msg.textContent = 'El check-out debe ser posterior al check-in.';
+      return;
+    }
+
+    const asunto = `Reserva — ${unidad} (${nombre})`;
+    const cuerpo =
+      `Hola, quiero reservar en La Delfina Island Resort.%0D%0A%0D%0A` +
+      `Nombre: ${nombre}%0D%0A` +
+      `Unidad: ${unidad}%0D%0A` +
+      `Personas: ${personas}%0D%0A` +
+      `Check-in: ${checkin}%0D%0A` +
+      `Check-out: ${checkout}%0D%0A%0D%0A` +
+      `¡Gracias!`;
+
+    window.location.href =
+      `mailto:reservas@ladelfina.club?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
+
+    msg.style.display = 'block';
+    msg.textContent = 'Abrimos tu correo con la solicitud lista para enviar. ¡Te esperamos!';
+  });
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(en => { if (en.isIntersecting){ en.target.style.opacity = 1; en.target.style.transform = 'none'; io.unobserve(en.target); }});
+  }, {threshold:.12});
+  document.querySelectorAll('section .section-head, .room, .exp, .intro .txt, .intro .media, form').forEach(el => {
+    el.style.opacity = 0; el.style.transform = 'translateY(24px)'; el.style.transition = 'opacity .7s ease, transform .7s ease';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
