@@ -1022,6 +1022,20 @@ h1 {
     font-size: 0.85rem;
 }
 
+.testimonio-destacado {
+    grid-column: 1 / -1;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 768px) {
+    .testimonio-destacado {
+        grid-column: auto;
+        max-width: 100%;
+    }
+}
+
 .projects {
     background-color: var(--secondary-dark);
 }
