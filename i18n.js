@@ -134,12 +134,11 @@
             'pricing.professional.f6': '3 revisiones incluidas',
             'pricing.professional.delivery': 'Entrega: 14-18 días',
             // Skills
-            'skills.title': 'Mis Habilidades',
-            'skills.subtitle': 'Tecnologías y enfoques que aplico en cada proyecto',
-            'skills.uiux': 'Experiencias de usuario intuitivas y atractivas',
-            'skills.ai': 'Implementación y optimización de soluciones con IA',
-            'skills.frontend': 'HTML5, CSS3, JavaScript',
-            'skills.strategy': 'SEO, optimización y arquitectura web',
+            'testimonios.title': 'Lo que dicen nuestros clientes',
+            'testimonios.subtitle': 'Experiencias reales de quienes ya trabajaron conmigo',
+            'testimonios.author1': 'Cliente Hospedaje',
+            'testimonios.author2': 'Cliente Proyecto Web',
+            'testimonios.author3': 'Cliente Diseño Web',
             // FAQ
             'faq.title': 'Preguntas Frecuentes',
             'faq.q1': '¿Cuánto tiempo lleva diseñar un sitio web?',
@@ -356,13 +355,12 @@
             'pricing.professional.f5': 'Custom design and basic SEO',
             'pricing.professional.f6': '3 revisions included',
             'pricing.professional.delivery': 'Delivery: 14-18 days',
-            // Skills
-            'skills.title': 'My Skills',
-            'skills.subtitle': 'Technologies and approaches I apply in every project',
-            'skills.uiux': 'Intuitive and attractive user experiences',
-            'skills.ai': 'Implementation and optimization of AI solutions',
-            'skills.frontend': 'HTML5, CSS3, JavaScript',
-            'skills.strategy': 'SEO, optimization and web architecture',
+            // Testimonials
+            'testimonios.title': 'What Our Clients Say',
+            'testimonios.subtitle': 'Real experiences from those who have already worked with me',
+            'testimonios.author1': 'Accommodation Client',
+            'testimonios.author2': 'Web Project Client',
+            'testimonios.author3': 'Web Design Client',
             // FAQ
             'faq.title': 'Frequently Asked Questions',
             'faq.q1': 'How long does it take to design a website?',

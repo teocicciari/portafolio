@@ -936,25 +936,36 @@ h1 {
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
 }
 
-.skills-grid {
+.testimonios-section {
+    padding: var(--padding-border) var(--padding-border);
+    background-color: var(--primary-dark);
+}
+
+.testimonios-wrapper {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.testimonios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
 }
 
-.skill-card {
-    background-color: var(--primary-dark);
-    padding: 2.5rem;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+.testimonio-card {
+    background-color: var(--secondary-dark);
+    padding: 2rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-subtle);
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, border-color 0.3s ease;
-    text-align: center;
+    transition: all var(--dur-base) var(--ease-out);
+    display: flex;
+    flex-direction: column;
 }
 
-.skill-card::before {
+.testimonio-card::before {
     content: '';
     position: absolute;
     top: 0;
@@ -963,41 +974,52 @@ h1 {
     height: 3px;
     background-color: var(--accent);
     transform: scaleX(0);
-    transition: transform 0.3s ease;
+    transition: transform var(--dur-base) var(--ease-out);
 }
 
-.skill-card:hover::before {
+.testimonio-card:hover::before {
     transform: scaleX(1);
 }
 
-.skill-card:hover {
-    transform: translateY(-6px);
+.testimonio-card:hover {
+    transform: translateY(-4px);
     border-color: var(--border-hover);
     box-shadow: var(--shadow-glow);
 }
 
-.skill-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 76px;
-    height: 76px;
-    border-radius: 50%;
-    background-color: var(--accent-soft);
-    font-size: 2rem;
-    color: var(--accent);
-    margin-bottom: 1.5rem;
-}
-
-.skill-card h3 {
-    font-size: 1.4rem;
-    color: var(--text-primary);
+.testimonio-stars {
+    display: flex;
+    gap: 0.3rem;
     margin-bottom: 1rem;
+    font-size: 1rem;
+    color: var(--accent);
 }
 
-.skill-card p {
+.testimonio-text {
+    color: var(--text-primary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+    font-style: italic;
+}
+
+.testimonio-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 0.9rem;
+}
+
+.testimonio-autor {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.testimonio-fecha {
     color: var(--text-secondary);
-    line-height: 1.6;
+    font-size: 0.85rem;
 }
 
 .projects {
