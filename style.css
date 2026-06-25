@@ -948,9 +948,12 @@ h1 {
 
 .testimonios-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .testimonio-card {
@@ -1024,12 +1027,15 @@ h1 {
 
 .testimonio-destacado {
     grid-column: 1 / -1;
-    max-width: 50%;
-    margin-left: auto;
-    margin-right: auto;
+    max-width: 480px;
+    margin: 0 auto;
 }
 
 @media (max-width: 768px) {
+    .testimonios-grid {
+        grid-template-columns: 1fr;
+    }
+
     .testimonio-destacado {
         grid-column: auto;
         max-width: 100%;
