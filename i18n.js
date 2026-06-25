@@ -134,8 +134,8 @@
             'pricing.professional.f6': '3 revisiones incluidas',
             'pricing.professional.delivery': 'Entrega: 14-18 días',
             // Skills
-            'testimonios.title': 'Lo que dicen nuestros clientes',
-            'testimonios.subtitle': 'Experiencias reales de quienes ya trabajaron conmigo',
+            'testimonios.title': 'Lo que dicen los clientes',
+            'testimonios.subtitle': 'Trabajo prolijo, rápido, profesional y efectivo. Diseños que toman vida, presupuestos claros y profesionalismo que se nota. Clientes que recomiendan y vuelven.',
             'testimonios.author1': 'Cliente Hospedaje',
             'testimonios.author2': 'Cliente Proyecto Web',
             'testimonios.author3': 'Cliente Diseño Web',
@@ -356,8 +356,8 @@
             'pricing.professional.f6': '3 revisions included',
             'pricing.professional.delivery': 'Delivery: 14-18 days',
             // Testimonials
-            'testimonios.title': 'What Our Clients Say',
-            'testimonios.subtitle': 'Real experiences from those who have already worked with me',
+            'testimonios.title': 'What Clients Say',
+            'testimonios.subtitle': 'Clean work, fast delivery, professional and effective. Designs that come to life, clear budgets and professionalism you can feel. Clients who recommend and return.',
             'testimonios.author1': 'Accommodation Client',
             'testimonios.author2': 'Web Project Client',
             'testimonios.author3': 'Web Design Client',
