@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Finca Las Acacias · Cabañas de campo en Marcos Paz, Buenos Aires</title>
+<meta name="description" content="Un refugio en el campo tradicional argentino. 5 cabañas equipadas con pileta, parque y naturaleza, sobre la Ruta 40 km 54, Marcos Paz, Provincia de Buenos Aires." />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Finca Las Acacias · Cabañas de campo en Marcos Paz" />
+<meta property="og:description" content="Un refugio en el campo tradicional argentino. Cabañas equipadas, pileta y naturaleza a un paso de Buenos Aires." />
+<meta property="og:image" content="img/hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Finca Las Acacias · Cabañas de campo en Marcos Paz" />
+<meta name="twitter:description" content="Un refugio en el campo tradicional argentino. Cabañas, pileta y naturaleza cerca de Buenos Aires." />
+<meta name="twitter:image" content="img/hero.jpg" />
+
+<link rel="icon" type="image/png" href="img/logo.png" />
+
+<!-- Preload hero -->
+<link rel="preload" as="image" href="img/hero.jpg" />
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Marck+Script&family=Mulish:wght@400;600;700&display=swap" rel="stylesheet" />
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+
+<style>
+  :root{
+    --verde:#5d6c47;          /* salvia de las hojas */
+    --verde-osc:#3c472f;      /* verde casi negro */
+    --verde-claro:#8a9970;
+    --crema:#f6f1e7;          /* marfil */
+    --arena:#e3dac8;          /* arena del logo */
+    --arena-osc:#cbbfa6;
+    --tinta:#2c3122;          /* texto */
+    --terra:#b56a45;          /* acento cálido / CTA secundaria */
+    --terra-osc:#9a5638;
+    --wa:#25d366;
+    --radio:14px;
+    --sombra:0 18px 40px -22px rgba(44,49,34,.55);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Mulish',system-ui,sans-serif;
+    color:var(--tinta);
+    background:var(--crema);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;line-height:1.12;font-weight:600;color:var(--verde-osc)}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  section{position:relative}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem)}
+  .eyebrow{
+    font-family:'Mulish';font-weight:700;text-transform:uppercase;
+    letter-spacing:.22em;font-size:.74rem;color:var(--verde);
+    display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1rem;
+  }
+  .eyebrow::before{content:"";width:30px;height:1px;background:var(--verde-claro)}
+  .script{font-family:'Marck Script',cursive;font-weight:400}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    transition:.35s ease;
+  }
+  header .bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:.7rem clamp(1.1rem,4vw,2.4rem);
+    transition:.35s ease;
+  }
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;box-shadow:0 4px 12px rgba(0,0,0,.2)}
+  .brand .name{display:flex;flex-direction:column;line-height:1}
+  .brand .name .fin{font-family:'Marck Script',cursive;font-size:1rem;color:var(--verde-claro);margin-bottom:-2px}
+  .brand .name .lac{font-family:'Fraunces',serif;font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:1.05rem;color:#fff}
+  header.scrolled .brand .name .lac{color:var(--verde-osc)}
+  header.scrolled .brand .name .fin{color:var(--verde)}
+  nav.links{display:flex;align-items:center;gap:2rem}
+  nav.links a{color:#fff;font-weight:600;font-size:.95rem;position:relative;transition:.2s}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--terra);transition:.25s}
+  nav.links a:hover::after{width:100%}
+  header.scrolled{background:var(--crema);box-shadow:0 6px 24px -16px rgba(0,0,0,.45)}
+  header.scrolled .bar{padding-top:.5rem;padding-bottom:.5rem}
+  header.scrolled nav.links a{color:var(--verde-osc)}
+  .nav-cta{
+    background:var(--wa);color:#fff!important;padding:.6rem 1.15rem;border-radius:50px;
+    font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:.5rem;
+    box-shadow:0 8px 18px -8px rgba(37,211,102,.7);transition:.2s;
+  }
+  .nav-cta:hover{transform:translateY(-2px)}
+  .nav-cta::after{display:none}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+  header.scrolled .burger{color:var(--verde-osc)}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100svh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(44,49,34,.35) 0%,rgba(44,49,34,.05) 40%,rgba(44,49,34,.78) 100%),url('img/hero.jpg') center/cover no-repeat;
+    color:#fff;padding-bottom:clamp(2.5rem,7vh,5rem);
+  }
+  .hero .wrap{width:100%}
+  .hero .script{font-size:clamp(1.6rem,5vw,2.6rem);color:#e8e0cf;display:block;margin-bottom:-.4rem}
+  .hero h1{
+    color:#fff;font-weight:900;font-size:clamp(2.6rem,9vw,5.6rem);
+    letter-spacing:.02em;text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.3);
+  }
+  .hero p.lead{
+    font-size:clamp(1.05rem,2.5vw,1.4rem);max-width:34ch;margin:1.1rem 0 1.8rem;
+    color:#f1ece0;font-weight:400;
+  }
+  .hero-meta{display:flex;flex-wrap:wrap;gap:1.3rem;margin-bottom:2rem;font-size:.95rem;color:#eee6d6}
+  .hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .hero-meta i{color:var(--verde-claro)}
+  .btn-row{display:flex;flex-wrap:wrap;gap:.9rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;
+    padding:.95rem 1.7rem;border-radius:50px;cursor:pointer;border:0;transition:.22s;
+  }
+  .btn-primary{background:var(--terra);color:#fff;box-shadow:0 12px 26px -12px rgba(181,106,69,.8)}
+  .btn-primary:hover{background:var(--terra-osc);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+  /* ---------- SECCIONES base ---------- */
+  .sec{padding:clamp(3.5rem,8vw,6.5rem) 0}
+  .sec-tinta{background:var(--verde-osc);color:#ece7da}
+  .sec-tinta h2,.sec-tinta h3{color:#fff}
+  .sec-arena{background:var(--arena)}
+  .reveal{opacity:0;transform:translateY(28px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- INTRO / LA FINCA ---------- */
+  .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .intro-grid h2{font-size:clamp(2rem,4.5vw,3.1rem);margin-bottom:1.2rem}
+  .intro-grid p{margin-bottom:1.1rem;font-size:1.05rem;color:#4a4f3d}
+  .intro-media{position:relative}
+  .intro-media img{border-radius:var(--radio);box-shadow:var(--sombra);width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+  .intro-media .badge{
+    position:absolute;bottom:-22px;left:-22px;background:var(--crema);border-radius:var(--radio);
+    padding:1rem 1.3rem;box-shadow:var(--sombra);display:flex;align-items:center;gap:.8rem;
+  }
+  .intro-media .badge .num{font-family:'Fraunces';font-weight:900;font-size:2.2rem;color:var(--verde);line-height:1}
+  .intro-media .badge small{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:#6b7155;font-weight:700}
+
+  /* ---------- COMODIDADES ---------- */
+  .amen-head{text-align:center;max-width:640px;margin:0 auto 3rem}
+  .amen-head h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.7rem}
+  .amen-head .eyebrow{justify-content:center}
+  .amen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:1.1rem}
+  .amen{
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+    border-radius:var(--radio);padding:1.6rem 1.4rem;transition:.25s;
+  }
+  .sec-arena .amen{background:#fff;border-color:#0000}
+  .amen:hover{transform:translateY(-4px)}
+  .amen i{font-size:1.2rem;color:var(--verde-claro);margin-right:.6rem;display:inline-block;vertical-align:-2px}
+  .sec-arena .amen i{color:var(--verde)}
+  .amen h4{display:inline;font-size:1.08rem;color:var(--verde-claro)}
+  .amen p{font-size:.92rem;opacity:.85;margin:.6rem 0 0}
+
+  /* ---------- CABAÑAS ---------- */
+  .cab-grid{display:block;max-width:760px;margin:0 auto}
+  .cab-feature{background:#fff;border-radius:var(--radio);padding:clamp(1.6rem,4vw,2.6rem);box-shadow:var(--sombra)}
+  .cab-feature h2{font-size:clamp(1.9rem,4vw,2.7rem);margin-bottom:.4rem}
+  .cab-feature .sub{color:var(--terra);font-weight:700;text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;margin-bottom:1.4rem}
+  .cab-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.4rem;margin-top:1.3rem}
+  .cab-list li{display:flex;align-items:center;gap:.6rem;font-size:.96rem}
+  .cab-list i{color:var(--verde);width:18px;text-align:center}
+  .cab-media{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:.7rem;height:100%}
+  .cab-media img{border-radius:10px;width:100%;height:100%;object-fit:cover;min-height:130px}
+  .cab-media img:first-child{grid-column:1/3}
+
+  /* ---------- GALERÍA ---------- */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:.8rem}
+  .gal-grid figure{overflow:hidden;border-radius:10px}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gal-grid figure:hover img{transform:scale(1.07)}
+  .gal-grid .big{grid-column:span 2;grid-row:span 2}
+  .gal-grid .tall{grid-row:span 2}
+
+  /* ---------- ZONA ---------- */
+  .zona-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .zona-grid img{border-radius:var(--radio);box-shadow:var(--sombra);width:100%;aspect-ratio:16/11;object-fit:cover}
+  .zona-grid h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.1rem}
+  .zona-grid p{font-size:1.05rem;color:#4a4f3d;margin-bottom:1.2rem}
+  .zona-facts{display:flex;flex-direction:column;gap:.7rem;margin:1.4rem 0}
+  .zona-facts li{list-style:none;display:flex;gap:.8rem;align-items:flex-start}
+  .zona-facts i{color:var(--terra);margin-top:.25rem}
+
+  /* ---------- RESERVAS ---------- */
+  #reservas{background:var(--verde-osc);color:#ece7da}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .res-intro h2{color:#fff;font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+  .res-intro p{color:#cdd0bf;margin-bottom:1.6rem}
+  .res-channels{display:flex;flex-direction:column;gap:.9rem;margin-top:1.6rem}
+  .chan{
+    display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.13);border-radius:var(--radio);padding:1rem 1.2rem;transition:.2s;
+  }
+  .chan:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+  .chan i{font-size:1.5rem;width:30px;text-align:center}
+  .chan .fa-whatsapp{color:var(--wa)}
+  .chan strong{display:block;font-size:1rem;color:#fff}
+  .chan span{font-size:.85rem;color:#b9bda9}
+  .chan .arrow{margin-left:auto;color:#9aa085}
+
+  form.reserva{background:var(--crema);border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.3rem);box-shadow:var(--sombra)}
+  form.reserva h3{color:var(--verde-osc);font-size:1.5rem;margin-bottom:.3rem}
+  form.reserva .formsub{color:#6b7155;font-size:.9rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1.05rem}
+  .field label{display:block;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.06em;color:#5a6147;margin-bottom:.4rem}
+  .field input,.field select{
+    width:100%;padding:.8rem .9rem;border:1.5px solid var(--arena-osc);border-radius:10px;
+    font-family:inherit;font-size:1rem;background:#fff;color:var(--tinta);transition:.2s;
+  }
+  .field input:focus,.field select:focus{outline:none;border-color:var(--verde);box-shadow:0 0 0 3px rgba(93,108,71,.15)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .btn-submit{
+    width:100%;background:var(--wa);color:#fff;border:0;padding:1rem;border-radius:50px;
+    font-family:inherit;font-weight:700;font-size:1.05rem;cursor:pointer;display:flex;
+    align-items:center;justify-content:center;gap:.6rem;transition:.2s;box-shadow:0 12px 24px -12px rgba(37,211,102,.8);
+  }
+  .btn-submit:hover{background:#1eb858;transform:translateY(-2px)}
+  .form-note{font-size:.78rem;color:#7c8265;text-align:center;margin-top:.9rem}
+
+  /* ---------- AUTOR ---------- */
+  .autor{background:linear-gradient(120deg,var(--terra) 0%,var(--terra-osc) 100%);color:#fff;text-align:center}
+  .autor .wrap{padding-top:clamp(3rem,7vw,4.5rem);padding-bottom:clamp(3rem,7vw,4.5rem)}
+  .autor .script{font-size:1.5rem;color:#ffe7d8;display:block;margin-bottom:.3rem}
+  .autor h2{color:#fff;font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:1rem}
+  .autor p{max-width:48ch;margin:0 auto 1.8rem;color:#ffeee5;font-size:1.05rem}
+  .autor .btn{background:#fff;color:var(--terra-osc);font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+  .autor .btn:hover{transform:translateY(-3px)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:#262b1d;color:#b9bda9;padding:clamp(2.6rem,6vw,3.8rem) 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  .foot-brand .name{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+  .foot-brand img{width:50px;height:50px;border-radius:50%}
+  .foot-brand .lac{font-family:'Fraunces';font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:#fff;font-size:1.1rem}
+  .foot-brand .fin{font-family:'Marck Script';color:var(--verde-claro);font-size:.95rem;display:block;line-height:1}
+  .foot-brand p{font-size:.92rem;max-width:34ch}
+  footer h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:1.1rem;font-family:'Mulish';font-weight:700}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+  footer ul a,footer ul li{font-size:.93rem;display:flex;align-items:center;gap:.6rem;transition:.2s}
+  footer ul a:hover{color:#fff}
+  footer i{color:var(--verde-claro);width:18px;text-align:center}
+  .foot-social{display:flex;gap:.7rem;margin-top:1.1rem}
+  .foot-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:.2s}
+  .foot-social a:hover{background:var(--verde);color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.85rem}
+  .foot-bottom a.autor-link{color:var(--verde-claro);font-weight:700}
+  .foot-bottom a.autor-link:hover{color:#fff}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    nav.links{
+      position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--crema);
+      flex-direction:column;justify-content:center;gap:1.8rem;padding:2rem;
+      transform:translateX(100%);transition:.35s ease;box-shadow:-10px 0 40px -20px rgba(0,0,0,.5);
+    }
+    nav.links.open{transform:none}
+    nav.links a{color:var(--verde-osc)!important;font-size:1.15rem}
+    .burger{display:block}
+    .intro-grid,.cab-grid,.zona-grid,.res-grid{grid-template-columns:1fr}
+    .intro-media .badge{left:auto;right:14px;bottom:-18px}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+    .gal-grid .big{grid-column:span 2;grid-row:span 1}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+  }
+  @media(max-width:480px){
+    .field-row,.cab-list{grid-template-columns:1fr}
+    .hero-meta{gap:.8rem}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="top">
+  <div class="bar">
+    <a href="#top" class="brand" aria-label="Finca Las Acacias - inicio">
+      <img src="img/logo.png" alt="Logo Finca Las Acacias" />
+      <span class="name"><span class="fin">Finca</span><span class="lac">Las Acacias</span></span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#finca">La finca</a>
+      <a href="#comodidades">Comodidades</a>
+      <a href="#cabanas">Las cabañas</a>
+      <a href="#zona">La zona</a>
+      <a href="#reservas">Reservas</a>
+      <a class="nav-cta" href="https://wa.me/5491132531864" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="script">Bienvenidos a</span>
+    <h1>Finca Las Acacias</h1>
+    <p class="lead">Un refugio en el campo tradicional argentino para descansar del ruido de la ciudad.</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-location-dot"></i> Marcos Paz, Buenos Aires</span>
+      <span><i class="fa-solid fa-house-chimney"></i> 5 cabañas equipadas</span>
+      <span><i class="fa-solid fa-person-swimming"></i> Pileta y parque</span>
+    </div>
+    <div class="btn-row">
+      <a href="#reservas" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Reservar mi estadía</a>
+      <a href="#cabanas" class="btn btn-ghost"><i class="fa-solid fa-images"></i> Ver las cabañas</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LA FINCA ===== -->
+<section class="sec" id="finca">
+  <div class="wrap intro-grid reveal">
+    <div>
+      <span class="eyebrow">La finca</span>
+      <h2>Naturaleza a un paso de Buenos Aires</h2>
+      <p>Finca Las Acacias es un refugio de campo pensado para desconectar. Quedate en una de nuestras cabañas para descansar del ruido de la ciudad y disfrutar de la tranquilidad, el verde y los atardeceres abiertos del campo bonaerense.</p>
+      <p>Estamos alejados del bullicio de la capital, pero cerca de los negocios locales y con la naturaleza a unos pasos. Un lugar para venir en familia, en pareja o con amigos y reconectar con lo simple.</p>
+      <div class="btn-row">
+        <a href="#reservas" class="btn btn-primary" style="font-size:.95rem;padding:.8rem 1.4rem"><i class="fa-solid fa-calendar-check"></i> Consultar disponibilidad</a>
+      </div>
+    </div>
+    <div class="intro-media">
+      <img src="img/entrada.jpg" alt="Pasillo de entrada a las cabañas de Finca Las Acacias con plantas" loading="lazy" />
+      <div class="badge"><span class="num">5</span><small>Cabañas<br>privadas</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMODIDADES ===== -->
+<section class="sec sec-tinta" id="comodidades">
+  <div class="wrap reveal">
+    <div class="amen-head">
+      <span class="eyebrow">Servicios</span>
+      <h2>Todo lo que incluye tu cabaña</h2>
+      <p style="color:#cdd0bf">Cada una de nuestras 5 cabañas está totalmente equipada para que solo te ocupes de descansar.</p>
+    </div>
+    <div class="amen-grid">
+      <div class="amen"><i class="fa-solid fa-bed"></i><h4>Cuarto privado</h4><p>Cama matrimonial en habitación privada.</p></div>
+      <div class="amen"><i class="fa-solid fa-couch"></i><h4>Living con cocina</h4><p>Sala con 3 sofá cama y cocina integrada.</p></div>
+      <div class="amen"><i class="fa-solid fa-bath"></i><h4>Baño privado</h4><p>Baño completo en cada cabaña.</p></div>
+      <div class="amen"><i class="fa-solid fa-wifi"></i><h4>Wi-Fi fibra óptica</h4><p>Internet libre con fibra óptica.</p></div>
+      <div class="amen"><i class="fa-solid fa-tv"></i><h4>TV LED</h4><p>Televisor LED en cada habitación.</p></div>
+      <div class="amen"><i class="fa-solid fa-temperature-half"></i><h4>Climatización</h4><p>Calefacción y aire acondicionado.</p></div>
+      <div class="amen"><i class="fa-solid fa-tree"></i><h4>Acceso al campo</h4><p>Acceso libre a todo el predio y el parque.</p></div>
+      <div class="amen"><i class="fa-solid fa-square-parking"></i><h4>Estacionamiento</h4><p>Lugar para tu vehículo dentro de la finca.</p></div>
+      <div class="amen"><i class="fa-solid fa-person-swimming"></i><h4>Pileta al aire libre</h4><p>Pileta para disfrutar los días de calor.</p></div>
+      <div class="amen"><i class="fa-solid fa-people-roof"></i><h4>Salón de usos múltiples</h4><p>Espacio común para encuentros y eventos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CABAÑAS ===== -->
+<section class="sec sec-arena" id="cabanas">
+  <div class="wrap cab-grid reveal">
+    <div class="cab-feature">
+      <span class="eyebrow">Las cabañas</span>
+      <h2>Nuestras 5 cabañas</h2>
+      <p class="sub">Hasta 5 personas · totalmente equipadas</p>
+      <p>Cabañas cómodas y luminosas, con vista al parque y la tranquilidad del campo en cada rincón. Todas comparten el mismo equipamiento completo para que elijas la que prefieras.</p>
+      <ul class="cab-list">
+        <li><i class="fa-solid fa-bed"></i> Dormitorio matrimonial</li>
+        <li><i class="fa-solid fa-couch"></i> 3 sofá cama</li>
+        <li><i class="fa-solid fa-kitchen-set"></i> Cocina integrada</li>
+        <li><i class="fa-solid fa-bath"></i> Baño privado</li>
+        <li><i class="fa-solid fa-snowflake"></i> Aire y calefacción</li>
+        <li><i class="fa-solid fa-wifi"></i> Wi-Fi fibra óptica</li>
+      </ul>
+      <div class="btn-row" style="margin-top:1.6rem">
+        <a href="#reservas" class="btn btn-primary" style="font-size:.95rem;padding:.8rem 1.4rem"><i class="fa-solid fa-calendar-check"></i> Reservar una cabaña</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERÍA ===== -->
+<section class="sec" id="galeria">
+  <div class="wrap reveal">
+    <div class="amen-head">
+      <span class="eyebrow">Galería</span>
+      <h2>Conocé la finca</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="big"><img src="img/aerea-pileta.jpg" alt="Vista aérea de Finca Las Acacias con la pileta y el parque" loading="lazy" /></figure>
+      <figure class="tall"><img src="img/entrada-noche.jpg" alt="Pasillo de entrada iluminado al atardecer" loading="lazy" /></figure>
+      <figure><img src="img/salon.jpg" alt="Salón de usos múltiples con pared de ladrillo y TV" loading="lazy" /></figure>
+      <figure><img src="img/cabanas-exterior.jpg" alt="Exterior de las cabañas iluminadas al anochecer" loading="lazy" /></figure>
+      <figure class="tall"><img src="img/camino.jpg" alt="Camino arbolado de acceso a la finca" loading="lazy" /></figure>
+      <figure><img src="img/jardin.jpg" alt="Parque y árboles añosos de la finca" loading="lazy" /></figure>
+      <figure><img src="img/campo-atardecer.jpg" alt="Atardecer sobre el campo de Marcos Paz" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ZONA ===== -->
+<section class="sec sec-arena" id="zona">
+  <div class="wrap zona-grid reveal">
+    <img src="img/campo-atardecer.jpg" alt="Atardecer en el campo de Marcos Paz, Buenos Aires" loading="lazy" />
+    <div>
+      <span class="eyebrow">La zona</span>
+      <h2>Marcos Paz, Provincia de Buenos Aires</h2>
+      <p>Estamos ubicados en Marcos Paz, alejados del ruido de la capital pero cerca de los negocios locales y con la naturaleza a unos pasos.</p>
+      <ul class="zona-facts">
+        <li><i class="fa-solid fa-road"></i> <span>Sobre la <strong>Ruta Provincial 40, kilómetro 54</strong>.</span></li>
+        <li><i class="fa-solid fa-city"></i> <span>A un paso de los comercios y servicios de Marcos Paz.</span></li>
+        <li><i class="fa-solid fa-seedling"></i> <span>Rodeada de campo abierto, arboledas y parque propio.</span></li>
+      </ul>
+      <a href="https://www.google.com/maps/search/?api=1&query=Finca+Las+Acacias+Ruta+40+Marcos+Paz" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.95rem;padding:.8rem 1.4rem"><i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVAS ===== -->
+<section class="sec" id="reservas">
+  <div class="wrap res-grid reveal">
+    <div class="res-intro">
+      <span class="eyebrow" style="color:var(--verde-claro)">Reservas</span>
+      <h2>Reservá tu estadía</h2>
+      <p>Completá el formulario y te respondemos por WhatsApp con disponibilidad y precios. También podés escribirnos directamente o reservar por las plataformas.</p>
+      <div class="res-channels">
+        <a class="chan" href="https://wa.me/5491132531864" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><strong>Escribinos al WhatsApp</strong><span>Respuesta directa y rápida</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+        <a class="chan" href="https://www.booking.com/Share-oFTuRN" target="_blank" rel="noopener">
+          <i class="fa-solid fa-bed" style="color:#3b6bd6"></i>
+          <div><strong>Booking.com</strong><span>Reservá con tu cuenta de Booking</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+        <a class="chan" href="https://www.airbnb.com.ar/rooms/1089802470945664183" target="_blank" rel="noopener">
+          <i class="fa-brands fa-airbnb" style="color:#ff5a5f"></i>
+          <div><strong>Airbnb</strong><span>Mirá la finca en Airbnb</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+        <a class="chan" href="mailto:las.acacias.fincaok@gmail.com">
+          <i class="fa-solid fa-envelope" style="color:var(--verde-claro)"></i>
+          <div><strong>las.acacias.fincaok@gmail.com</strong><span>Escribinos por mail</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <form class="reserva" id="formReserva" novalidate>
+      <h3>Pedí tu reserva</h3>
+      <p class="formsub">Te contactamos por WhatsApp para confirmar.</p>
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="personas">Cantidad de personas</label>
+          <select id="personas" name="personas" required>
+            <option value="" disabled selected>Elegir</option>
+            <option>1</option><option>2</option><option>3</option>
+            <option>4</option><option>5</option><option>6 o más</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="unidad">Cabaña</label>
+          <select id="unidad" name="unidad" required>
+            <option value="Cualquiera disponible" selected>Cualquiera disponible</option>
+            <option>Cabaña 1</option><option>Cabaña 2</option><option>Cabaña 3</option>
+            <option>Cabaña 4</option><option>Cabaña 5</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="checkin">Check in</label>
+          <input type="date" id="checkin" name="checkin" required />
+        </div>
+        <div class="field">
+          <label for="checkout">Check out</label>
+          <input type="date" id="checkout" name="checkout" required />
+        </div>
+      </div>
+      <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+      <p class="form-note" id="formNote">Al enviar se abre WhatsApp con tu consulta lista.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== AUTOR / PORTAFOLIO ===== -->
+<section class="autor">
+  <div class="wrap">
+    <span class="script">Este boceto lo diseñó</span>
+    <h2>Teo Cicciari</h2>
+    <p>¿Tenés un hospedaje y querés un sitio así de cuidado? Mirá más referencias, precios y pedí el tuyo.</p>
+    <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver referencias y precios</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">
+          <img src="img/logo.png" alt="Logo Finca Las Acacias" />
+          <span><span class="fin">Finca</span><span class="lac">Las Acacias</span></span>
+        </div>
+        <p>Un refugio en el campo tradicional argentino. Cabañas, pileta y naturaleza en Marcos Paz, Buenos Aires.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/finca.acacias" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5491132531864" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="mailto:las.acacias.fincaok@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#finca">La finca</a></li>
+          <li><a href="#comodidades">Comodidades</a></li>
+          <li><a href="#cabanas">Las cabañas</a></li>
+          <li><a href="#zona">La zona</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Ruta Prov. 40, km 54 · Marcos Paz, BA</li>
+          <li><a href="https://wa.me/5491132531864" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> +54 11 3253-1864</a></li>
+          <li><a href="mailto:las.acacias.fincaok@gmail.com"><i class="fa-solid fa-envelope"></i> las.acacias.fincaok@gmail.com</a></li>
+          <li><a href="https://instagram.com/finca.acacias" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @finca.acacias</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="anio"></span> Finca Las Acacias · Marcos Paz, Buenos Aires.</span>
+      <span>Boceto diseñado por <a class="autor-link" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari — Mirá más referencias y precios <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LodgingBusiness",
+  "name":"Finca Las Acacias",
+  "description":"Un refugio en el campo tradicional argentino. 5 cabañas equipadas con pileta, parque y naturaleza, en Marcos Paz, Provincia de Buenos Aires.",
+  "image":"img/hero.jpg",
+  "telephone":"+54-11-3253-1864",
+  "email":"las.acacias.fincaok@gmail.com",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Ruta Provincial 40, km 54",
+    "addressLocality":"Marcos Paz",
+    "addressRegion":"Buenos Aires",
+    "addressCountry":"AR"
+  },
+  "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Wi-Fi fibra óptica","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Pileta al aire libre","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Aire acondicionado","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Calefacción","value":true},
+    {"@type":"LocationFeatureSpecification","name":"TV LED","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Cocina integrada","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Estacionamiento","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Salón de usos múltiples","value":true}
+  ],
+  "sameAs":[
+    "https://instagram.com/finca.acacias",
+    "https://wa.me/5491132531864",
+    "https://www.booking.com/Share-oFTuRN",
+    "https://www.airbnb.com.ar/rooms/1089802470945664183"
+  ]
+}
+</script>
+
+<script>
+  // Año dinámico
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Nav scroll
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll);
+
+  // Menú móvil
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Fechas mínimas
+  const hoy = new Date().toISOString().split('T')[0];
+  const ci = document.getElementById('checkin');
+  const co = document.getElementById('checkout');
+  ci.min = hoy; co.min = hoy;
+  ci.addEventListener('change', () => { co.min = ci.value || hoy; if(co.value && co.value <= ci.value) co.value=''; });
+
+  // Envío del formulario -> WhatsApp
+  const form = document.getElementById('formReserva');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const personas = document.getElementById('personas').value;
+    const unidad = document.getElementById('unidad').value;
+    const cin = ci.value, cout = co.value;
+    if(!nombre || !personas || !cin || !cout){
+      note.textContent = 'Completá todos los campos para continuar.';
+      note.style.color = '#b56a45'; return;
+    }
+    if(cout <= cin){
+      note.textContent = 'La fecha de check out debe ser posterior al check in.';
+      note.style.color = '#b56a45'; return;
+    }
+    const fmt = (f) => new Date(f+'T00:00').toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric'});
+    const msg =
+      `¡Hola Finca Las Acacias! Quiero reservar:%0A`+
+      `• Nombre: ${nombre}%0A`+
+      `• Personas: ${personas}%0A`+
+      `• Cabaña: ${unidad}%0A`+
+      `• Check in: ${fmt(cin)}%0A`+
+      `• Check out: ${fmt(cout)}%0A`+
+      `¿Tienen disponibilidad?`;
+    window.open(`https://wa.me/5491132531864?text=${msg}`, '_blank');
+    note.textContent = '¡Listo! Te abrimos WhatsApp con tu consulta.';
+    note.style.color = '#5d6c47';
+  });
+</script>
+</body>
+</html>
