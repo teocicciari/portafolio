@@ -53,11 +53,19 @@
           "email": "teocicciari@gmail.com",
           "telephone": "+5492944812580",
           "knowsAbout": ["Diseño web", "UI/UX", "Frontend", "Inteligencia Artificial", "Ajedrez"],
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "El Bolsón",
+            "addressRegion": "Río Negro",
+            "addressCountry": "AR"
+          },
           "sameAs": [
             "https://github.com/teocicciari",
             "https://www.linkedin.com/in/teo-cicciari",
             "https://www.instagram.com/teocicciari.web/",
-            "https://ratings.fide.com/profile/140821/chart"
+            "https://ratings.fide.com/profile/140821/chart",
+            "https://lichess.org/@/Wubadubalublub",
+            "https://players.chessbase.com/en/player/cicciari_teo%20dante/365388"
           ]
         },
         {
@@ -74,6 +82,34 @@
           "areaServed": { "@type": "Country", "name": "Argentina" },
           "availableLanguage": ["es", "en"],
           "provider": { "@id": "https://teocicciari.com.ar/#teo" },
+          "hasMap": "https://www.google.com/maps?cid=14645831460736527889",
+          "sameAs": ["https://www.google.com/maps?cid=14645831460736527889"],
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "bestRating": "5",
+            "reviewCount": "3"
+          },
+          "review": [
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "Melina — Hostel I Keu Ken" },
+              "reviewBody": "Recomendable 100%. Trabajo prolijo, claro, atento a lo que necesites. Nos hizo la web y tomó vida enseguida. Agradecidos de encontrar profesionalismo en nuestro primer emprendimiento."
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "Daniel — Tía Úrsula Apart Hotel" },
+              "reviewBody": "Altamente recomendable para quienes empiezan un proyecto o, como nosotros, ya lo tienen empezado. Un crack Teo. Continuaremos trabajando juntos."
+            },
+            {
+              "@type": "Review",
+              "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+              "author": { "@type": "Person", "name": "Natalia — Luján Homes" },
+              "reviewBody": "En solo dos días me hizo un diseño súper moderno, efectivo y con todo lo que yo necesitaba. Un profesional rápido, con un talento increíble y un precio espectacular."
+            }
+          ],
           "hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Planes de diseño web",
@@ -87,6 +123,10 @@
         {
           "@type": "FAQPage",
           "@id": "https://teocicciari.com.ar/#faq",
+          "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".faq-question", ".faq-answer"]
+          },
           "mainEntity": [
             {
               "@type": "Question",
