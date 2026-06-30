@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Castaño Apart - Mendoza</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #889871;
+            --color-white: #fdfdfd;
+            --color-beige: #c5b4a4;
+            --color-blue: #457aae;
+            --color-dark-blue: #193f6a;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--color-dark-blue);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(25, 63, 106, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            height: 60px;
+            width: auto;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--color-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-beige);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('img/home.jpg') center/cover no-repeat;
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(25, 63, 106, 0.3), rgba(136, 152, 113, 0.4));
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--color-white);
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            animation: fadeInUp 1s ease 0.3s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: var(--color-blue);
+            color: var(--color-white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            animation: fadeInUp 1s ease 0.6s backwards;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            background: var(--color-dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--color-dark-blue);
+        }
+
+        /* Experience Section */
+        .experience {
+            background: linear-gradient(135deg, var(--color-white) 0%, #f5f5f5 100%);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .experience-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .experience-card h3 {
+            font-size: 1.5rem;
+            color: var(--color-blue);
+            margin-bottom: 1rem;
+        }
+
+        .experience-card h3 i {
+            margin-right: 0.5rem;
+        }
+
+        .experience-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: var(--color-primary);
+            color: var(--color-white);
+        }
+
+        .gallery .section-title {
+            color: var(--color-white);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Nature Section */
+        .nature {
+            background: linear-gradient(135deg, #f5f5f5 0%, var(--color-white) 100%);
+        }
+
+        .nature-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nature-text h2 {
+            font-size: 2.5rem;
+            color: var(--color-dark-blue);
+            margin-bottom: 1.5rem;
+        }
+
+        .nature-text h2 i {
+            margin-right: 0.5rem;
+            color: var(--color-primary);
+        }
+
+        .nature-text p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .nature-text p i {
+            color: var(--color-primary);
+            margin-right: 0.3rem;
+        }
+
+        .nature-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .nature-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Luxury Section */
+        .luxury {
+            background: var(--color-beige);
+            color: var(--color-dark-blue);
+        }
+
+        .luxury-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .luxury-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .luxury-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .luxury-content p i {
+            margin-right: 0.3rem;
+        }
+
+        .luxury-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .luxury-feature {
+            text-align: center;
+        }
+
+        .luxury-feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-dark-blue);
+        }
+
+        .luxury-feature p {
+            font-weight: 600;
+        }
+
+        /* Contact/CTA Section */
+        .contact-cta {
+            background: linear-gradient(135deg, var(--color-dark-blue) 0%, var(--color-blue) 100%);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-cta h2 i {
+            margin-right: 0.5rem;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-dark-blue);
+            color: var(--color-white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--color-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nature-content {
+                grid-template-columns: 1fr;
+            }
+
+            .luxury-features {
+                gap: 2rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .gallery-item {
+                height: 200px;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <img src="logo.jpg" alt="El Castaño Apart" class="logo">
+            <button class="mobile-menu-toggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#experiencia">Experiencia</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#naturaleza">Naturaleza</a></li>
+                <li><a href="#reservar">Reservar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Enamorate de Mendoza en El Castaño Apart</h1>
+            <p>El Castaño Apart te invita a desconectar y disfrutar de la serenidad</p>
+            <a href="#reservar" class="cta-button">Reservar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experiencia" class="experience">
+        <div class="container">
+            <h2 class="section-title">Disfrutá cada momento en El Castaño Apart</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <h3><i class="fas fa-swimming-pool"></i> Piscina</h3>
+                    <p>Disfrutá de la piscina bajo el sol y refrescate mientras te relajás en un entorno natural único.</p>
+                </div>
+                <div class="experience-card">
+                    <h3><i class="fas fa-mountain"></i> Paisajes</h3>
+                    <p>Contemplá paisajes que inspiran paz y conectan tu espíritu con la belleza de la montaña mendocina.</p>
+                </div>
+                <div class="experience-card">
+                    <h3><i class="fas fa-wine-glass-alt"></i> Momentos Especiales</h3>
+                    <p>Saboreá momentos especiales con la mejor compañía en un ambiente diseñado para crear recuerdos inolvidables.</p>
+                </div>
+            </div>
+            <p style="text-align: center; font-size: 1.2rem; color: #666; max-width: 800px; margin: 0 auto;">
+                <i class="fas fa-leaf"></i> Relajate, respirá y sumergite en una experiencia única donde el bienestar es el protagonista.
+                Aquí, todo está pensado para que te relajes y vivas experiencias inolvidables.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galeria" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Descubrí Nuestro Espacio</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item"><img src="img/1.png" alt="Vista 1"></div>
+                <div class="gallery-item"><img src="img/2.png" alt="Vista 2"></div>
+                <div class="gallery-item"><img src="img/3.png" alt="Vista 3"></div>
+                <div class="gallery-item"><img src="img/4.png" alt="Vista 4"></div>
+                <div class="gallery-item"><img src="img/5.png" alt="Vista 5"></div>
+                <div class="gallery-item"><img src="img/6.png" alt="Vista 6"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nature Section -->
+    <section id="naturaleza" class="nature">
+        <div class="container">
+            <div class="nature-content">
+                <div class="nature-text">
+                    <h2><i class="fas fa-tree"></i> Dejate envolver por los aromas de la montaña</h2>
+                    <p><i class="fas fa-mountain"></i> En El Castaño Apart, cada respiración es una invitación a conectar con la pureza del entorno.
+                    Rodeado de naturaleza, los aromas frescos de la montaña y el suave perfume de los árboles crean un
+                    ambiente único que revitaliza tus sentidos.</p>
+                    <p>Caminá entre senderos rodeados de vegetación, relajate mientras el aire fresco llena tus pulmones
+                    y dejate llevar por la tranquilidad que solo la montaña puede ofrecer.</p>
+                    <p><i class="fas fa-leaf"></i> Experimentá el encanto de disfrutar los auténticos aromas de la naturaleza en El Castaño Apart.</p>
+                </div>
+                <div class="nature-image">
+                    <img src="img/7.png" alt="Naturaleza en El Castaño">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Luxury Section -->
+    <section class="luxury">
+        <div class="container">
+            <div class="luxury-content">
+                <h2>Donde el lujo se combina con un entorno familiar y amigable</h2>
+                <p><i class="fas fa-users"></i> En El Castaño Apart, te ofrecemos la calidez de un ambiente familiar y amigable, combinado con los
+                detalles de lujo que merecés. Desde nuestras habitaciones elegantes y equipadas, hasta áreas comunes pensadas
+                para compartir momentos especiales, todo está diseñado para que tú y los tuyos se sientan como en casa, pero mejor.</p>
+                <p><i class="fas fa-star"></i> Relajate en espacios exclusivos, rodeado de la tranquilidad de la naturaleza, mientras disfrutás de servicios
+                que hacen de tu estancia una experiencia inigualable. Aquí, los pequeños detalles marcan la diferencia.</p>
+                <div class="luxury-features">
+                    <div class="luxury-feature">
+                        <div class="luxury-feature-icon"><i class="fas fa-home"></i></div>
+                        <p>Confort Familiar</p>
+                    </div>
+                    <div class="luxury-feature">
+                        <div class="luxury-feature-icon"><i class="fas fa-gem"></i></div>
+                        <p>Detalles de Lujo</p>
+                    </div>
+                    <div class="luxury-feature">
+                        <div class="luxury-feature-icon"><i class="fas fa-spa"></i></div>
+                        <p>Entorno Natural</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/CTA Section -->
+    <section id="reservar" class="contact-cta">
+        <div class="container">
+            <h2><i class="fas fa-sparkles"></i> Reservá hoy y permítete disfrutar como nunca</h2>
+            <p>Descubrí cómo El Castaño Apart transforma cada día en una combinación perfecta de cercanía, confort y lujo.</p>
+            <a href="#" class="cta-button"><i class="fas fa-calendar-check"></i> Contactar Ahora</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>El Castaño Apart</strong> - Mendoza, Argentina</p>
+        <p>&copy; 2025 El Castaño Apart. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'rgba(25, 63, 106, 0.98)';
+                navLinks.style.padding = '2rem';
+            }
+        });
+    </script>
+</body>
+</html>
