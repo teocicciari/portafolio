@@ -1,0 +1,21 @@
+var carousel2 = document.getElementById('carouselExample2');
+var carousel = new bootstrap.Carousel(carousel2);
+var boton = document.getElementById("mostrar-mas");
+var img = document.getElementsByClassName("h");
+var mostrarFotos = false;
+
+boton.addEventListener("click", function() {
+  if (!mostrarFotos) {
+    for (var i = 0; i < img.length; i++) {
+      img[i].classList.remove("hide","hide-cell");
+    }
+    boton.textContent = "Mostrar menos";
+    mostrarFotos = true;
+  } else {
+    for (var i = 0; i < img.length; i++) {
+      img[i].classList.add("hide","hide-cell");
+    }
+    boton.textContent = "Ver todas las fotos";
+    mostrarFotos = false;
+  }
+})
