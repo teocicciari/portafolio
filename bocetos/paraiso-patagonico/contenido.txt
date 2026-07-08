@@ -1,0 +1,112 @@
+Instrucciones: Crear una landing page con la informaciòn de este archivo, 
+utilizar fontawesome, 
+tener en cuenta que esta en español (tiene tildes y ñ),
+
+agregar un formulario de reserva que pida:
+- nombre completo
+- check in y check out
+- cantidad de personas
+Toda esa informacion que se envie por whatsapp (sin usar emojis) al: 
+5492966707154
+
+Color principal: #f09304
+
+Tipografia: Playfair Display para títulos, Inter para texto
+
+Fotos:
+/img/logo.png -> logo
+
+Alojamientos (imagenes numeradas en webp):
+Aparts -> /img/aparts
+Cabaña Casafue -> /img/Casafue
+Cabaña Vista al Lago -> /img/lago
+
+background -> /img/home.webp
+
+Información:
+
+Cabañas y Aparts Patagónicos
+Bienvenidos a Paraíso Patagonico
+
+Sentite como en casa
+Bienvenidos a Paraíso Patagónico
+
+Paraíso Patagónico es un emprendimiento familiar desarrollado con mucho amor y con el fin que nuestros huespedes se sientan como en su casa.
+Contamos con cabañas y aparts muy confortables pensadas para seguir disfrutando de la naturaleza y de El Calafate cuando nuestros huespedes vuelven o estan por ir a descubrir todo lo que la ciudad y el entorno natural tiene para ofrecer.
+También ofrecemos nuestro propio servicio de traslados, con nuestras modernas y confortables mini vans para irte a buscar o llevarte al aeropuerto, al Glaciar Perito Moreno, a El Chaltén y a otros destinos mas.
+En Paraíso Patagónico te esperamos con la calidez que una familia te puede ofrecer y las comodidades de un hogar que vas a encontrar en nuestras cabañas y aparts.
+¡Te esperamos!
+
++ Aparts
+Cómodos y modernos
+
+Descubrí nuestros aparts con vista a lo cerros y con toda la comodidad de un hogar. Están completamente equipados para que vivas Calafate como si estuvieras en tu casa.
+
+Servicios:
+-WiFi
+-Tv
+-Cocina Equipada
+-Baño privado
+-Secador de pelo
+-Toallas
+
++ Cabaña Casafue
+Calidez Patagónica:
+
+Disfruta de nuestro jardín desde la comodidad de tu habitación o de nuestro cálido living. Una cabaña pensada para despejar la mente y disfrutar de la naturaleza.
+Servicios:
+-WiFi
+-Tv
+-Cocina Equipada
+-Baño privado
+-Secador de pelo
+-Toallas
+
++ Cabañas Vista Lago
+Calidez Patagónica:
+
+Desde el frente puede apreciarse la belleza del Lago Argentino; y desde atrás, se podrá observar cómo el Cerro Calafate muestra todo su esplendor.
+Servicios:
+-WiFi
+-Tv
+-Cocina Equipada
+-Baño privado
+-Secador de pelo
+-Toallas
+
+Servicios:
+
++ Desayuno
+
+Disfruta de un rico desayuno en la comodidad de tu cabaña
+
+Solicitanos el servicio adicional de desayuno y disfrutá de un típico desayuno mientras contemplas la mañana en nuestras cálidas cabañas.
+
++ Parrilla
+
+Siempre es un buen momento para un asado.
+
+Nada como un buen asado después de un dia de recorrer los hermosos paisajes que tenemos en El Calafate. Para eso ponemos a tu disposición un asador para que lo disfrutes. Si el día esta lindo. También tenemos mesas en el jardín para que puedas comer al aire libre. 
+
++ Servicio de Traslados
+
+Contá con nosotros para ir a donde quieras.
+
+Contamos con una flota de modernos vehículos destinados a realizar servicios de traslados desde y hacia el aeropuerto, el Glaciar Perito Moreno y El Chaltén entre otros destinos.
+Contactanos y reservá tu servicio de traslado para vivir una experiencia inolvidable.
+
+Contactanos
+Reservas:
+info@paraisopatagonico.com
+
+Información general:
++54 2902 491-772
++54-9-2966-707154
+info@paraisopatagonico.com
+Contactanos por WhatsApp
+
+Dirección
+Paraíso Patagónico
+Calle 10015 N° 82 - Villa Parque Los Glaciares
+El Calafate (9405)
+Santa Cruz - Argentina

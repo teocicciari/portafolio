@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cabañas y Aparts Patagónicos en El Calafate - Paraíso Patagónico. Experiencia única con vista al Lago Argentino y los glaciares.">
+    <meta name="keywords" content="cabañas el calafate, alojamiento patagonia, apart calafate, turismo patagonia">
+    <title>Paraíso Patagónico - Cabañas y Aparts en El Calafate v2.0</title>
+
+    <!-- Preconnect para optimización -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Mejorado -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <img src="img/logo.png" alt="Paraíso Patagónico Logo">
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#inicio" class="nav-link">Inicio</a></li>
+                    <li><a href="#alojamientos" class="nav-link">Alojamientos</a></li>
+                    <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                    <li><a href="#testimonios" class="nav-link">Testimonios</a></li>
+                    <li><a href="#contacto" class="nav-link">Contacto</a></li>
+                    <li><a href="#reserva" class="btn-reserva-nav">Reservar</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section con Slider -->
+    <section id="inicio" class="hero-slider">
+        <div class="hero-slide active" style="background-image: url('img/home.webp');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="animate-fade-in">Cabañas y Aparts</h1>
+                <h2 class="animate-fade-in-delay">Bienvenidos a Paraíso Patagónico</h2>
+                <p class="animate-fade-in-delay-2">Tu hogar en El Calafate</p>
+                <a href="#reserva" class="btn-primary animate-fade-in-delay-3">Reservar Ahora</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('img/lago/1.webp');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="animate-fade-in">Vista al Lago Argentino</h1>
+                <h2 class="animate-fade-in-delay">Naturaleza en su máximo esplendor</h2>
+                <p class="animate-fade-in-delay-2">Despertá con las mejores vistas</p>
+                <a href="#alojamientos" class="btn-primary animate-fade-in-delay-3">Ver Alojamientos</a>
+            </div>
+        </div>
+        <div class="hero-slide" style="background-image: url('img/casafue/1.webp');">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+                <h1 class="animate-fade-in">Calidez Patagónica</h1>
+                <h2 class="animate-fade-in-delay">Confort y tranquilidad</h2>
+                <p class="animate-fade-in-delay-2">Espacios diseñados para tu descanso</p>
+                <a href="#servicios" class="btn-primary animate-fade-in-delay-3">Nuestros Servicios</a>
+            </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="hero-indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+        </div>
+    </section>
+
+    <!-- About Section Mejorada -->
+    <section class="about-v2">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bienvenidos a Paraíso Patagónico</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content-v2">
+                    <p class="lead-text">Paraíso Patagónico es un emprendimiento familiar desarrollado con mucho amor y con el fin que nuestros huespedes se sientan como en su casa.</p>
+                    <p>Contamos con cabañas y aparts muy confortables pensadas para seguir disfrutando de la naturaleza y de El Calafate cuando nuestros huespedes vuelven o están por ir a descubrir todo lo que la ciudad y el entorno natural tiene para ofrecer.</p>
+                    <p>También ofrecemos nuestro propio servicio de traslados, con nuestras modernas y confortables mini vans para irte a buscar o llevarte al aeropuerto, al Glaciar Perito Moreno, a El Chaltén y a otros destinos más.</p>
+                </div>
+                <div class="about-features">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-home"></i>
+                        </div>
+                        <h3>Confort</h3>
+                        <p>Alojamientos equipados con todo lo necesario</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <h3>Ubicación</h3>
+                        <p>Vista privilegiada al Lago Argentino</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Calidez</h3>
+                        <p>Atención personalizada y familiar</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alojamientos Section Mejorada -->
+    <section id="alojamientos" class="alojamientos-v2">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Alojamientos</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <!-- Aparts -->
+            <div class="alojamiento-card">
+                <div class="alojamiento-images">
+                    <div class="main-image">
+                        <img src="img/aparts/1.webp" alt="Aparts Paraíso Patagónico" loading="lazy">
+                        <button class="view-gallery-btn" data-gallery="aparts">
+                            <i class="fas fa-images"></i> Ver todas las fotos
+                        </button>
+                    </div>
+                </div>
+                <div class="alojamiento-details">
+                    <div class="alojamiento-header">
+                        <h3><i class="fas fa-building"></i> Aparts</h3>
+                        <span class="badge">Moderno</span>
+                    </div>
+                    <h4>Cómodos y modernos</h4>
+                    <p class="alojamiento-description">Descubrí nuestros aparts con vista a los cerros y con toda la comodidad de un hogar. Están completamente equipados para que vivas Calafate como si estuvieras en tu casa.</p>
+
+                    <div class="amenities-grid">
+                        <div class="amenity">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-tv"></i>
+                            <span>TV</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-utensils"></i>
+                            <span>Cocina</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-bath"></i>
+                            <span>Baño privado</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-wind"></i>
+                            <span>Secador</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-handshake"></i>
+                            <span>Toallas</span>
+                        </div>
+                    </div>
+
+                    <a href="#reserva" class="btn-secondary">Reservar</a>
+                </div>
+            </div>
+
+            <!-- Cabaña Casafue -->
+            <div class="alojamiento-card reverse">
+                <div class="alojamiento-images">
+                    <div class="main-image">
+                        <img src="img/casafue/1.webp" alt="Cabaña Casafue" loading="lazy">
+                        <button class="view-gallery-btn" data-gallery="casafue">
+                            <i class="fas fa-images"></i> Ver todas las fotos
+                        </button>
+                    </div>
+                </div>
+                <div class="alojamiento-details">
+                    <div class="alojamiento-header">
+                        <h3><i class="fas fa-home"></i> Cabaña Casafue</h3>
+                        <span class="badge">Popular</span>
+                    </div>
+                    <h4>Calidez Patagónica</h4>
+                    <p class="alojamiento-description">Disfruta de nuestro jardín desde la comodidad de tu habitación o de nuestro cálido living. Una cabaña pensada para despejar la mente y disfrutar de la naturaleza.</p>
+
+                    <div class="amenities-grid">
+                        <div class="amenity">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-tv"></i>
+                            <span>TV</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-utensils"></i>
+                            <span>Cocina</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-bath"></i>
+                            <span>Baño privado</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-wind"></i>
+                            <span>Secador</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-handshake"></i>
+                            <span>Toallas</span>
+                        </div>
+                    </div>
+
+                    <a href="#reserva" class="btn-secondary">Reservar</a>
+                </div>
+            </div>
+
+            <!-- Cabaña Vista Lago -->
+            <div class="alojamiento-card">
+                <div class="alojamiento-images">
+                    <div class="main-image">
+                        <img src="img/lago/1.webp" alt="Cabaña Vista al Lago" loading="lazy">
+                        <button class="view-gallery-btn" data-gallery="lago">
+                            <i class="fas fa-images"></i> Ver todas las fotos
+                        </button>
+                    </div>
+                </div>
+                <div class="alojamiento-details">
+                    <div class="alojamiento-header">
+                        <h3><i class="fas fa-water"></i> Cabañas Vista Lago</h3>
+                        <span class="badge">Premium</span>
+                    </div>
+                    <h4>Vista panorámica</h4>
+                    <p class="alojamiento-description">Desde el frente puede apreciarse la belleza del Lago Argentino; y desde atrás, se podrá observar cómo el Cerro Calafate muestra todo su esplendor.</p>
+
+                    <div class="amenities-grid">
+                        <div class="amenity">
+                            <i class="fas fa-wifi"></i>
+                            <span>WiFi</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-tv"></i>
+                            <span>TV</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-utensils"></i>
+                            <span>Cocina</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-bath"></i>
+                            <span>Baño privado</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-wind"></i>
+                            <span>Secador</span>
+                        </div>
+                        <div class="amenity">
+                            <i class="fas fa-handshake"></i>
+                            <span>Toallas</span>
+                        </div>
+                    </div>
+
+                    <a href="#reserva" class="btn-secondary">Reservar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Section Mejorada -->
+    <section id="servicios" class="servicios-v2">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="servicios-grid-v2">
+                <div class="servicio-card-v2">
+                    <div class="servicio-icon">
+                        <i class="fas fa-mug-hot"></i>
+                    </div>
+                    <h3>Desayuno</h3>
+                    <p class="servicio-subtitle">Comenzá el día con energía</p>
+                    <p>Solicitanos el servicio adicional de desayuno y disfrutá de un típico desayuno mientras contemplas la mañana en nuestras cálidas cabañas.</p>
+                </div>
+                <div class="servicio-card-v2">
+                    <div class="servicio-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Parrilla</h3>
+                    <p class="servicio-subtitle">Asado patagónico</p>
+                    <p>Nada como un buen asado después de un día de recorrer los hermosos paisajes. Ponemos a tu disposición un asador y mesas en el jardín.</p>
+                </div>
+                <div class="servicio-card-v2">
+                    <div class="servicio-icon">
+                        <i class="fas fa-van-shuttle"></i>
+                    </div>
+                    <h3>Traslados</h3>
+                    <p class="servicio-subtitle">Viajá con comodidad</p>
+                    <p>Contamos con modernos vehículos para traslados al aeropuerto, Glaciar Perito Moreno, El Chaltén y otros destinos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios Section Nueva -->
+    <section id="testimonios" class="testimonios">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Lo que dicen nuestros huéspedes</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="testimonios-carousel">
+                <div class="testimonio-card active">
+                    <div class="testimonio-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonio-text">"Excelente lugar, muy cómodo y con una vista increíble al lago. Los anfitriones muy atentos y amables. Sin dudas volveremos!"</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>María González</h4>
+                            <p>Buenos Aires, Argentina</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="testimonio-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonio-text">"Las cabañas son hermosas y muy cómodas. La ubicación es perfecta para visitar el glaciar. El servicio de traslado fue impecable."</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Carlos Rodríguez</h4>
+                            <p>Santiago, Chile</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonio-card">
+                    <div class="testimonio-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonio-text">"Una experiencia inolvidable. La calidez de la familia que atiende el lugar hace que te sientas como en casa. Súper recomendable!"</p>
+                    <div class="testimonio-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Ana Martínez</h4>
+                            <p>Madrid, España</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonios-controls">
+                <button class="testimonio-prev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="testimonio-next" aria-label="Siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserva Section Mejorada -->
+    <section id="reserva" class="reserva-v2">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Reservá tu estadía</h2>
+                <div class="title-underline"></div>
+                <p class="section-subtitle">Completá el formulario y nos contactaremos contigo por WhatsApp</p>
+            </div>
+            <div class="reserva-container">
+                <form id="reservaForm" class="reserva-form-v2">
+                    <div class="form-group-v2">
+                        <label for="nombre">
+                            <i class="fas fa-user"></i> Nombre Completo
+                        </label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre completo" required>
+                    </div>
+                    <div class="form-row-v2">
+                        <div class="form-group-v2">
+                            <label for="checkin">
+                                <i class="fas fa-calendar-check"></i> Check In
+                            </label>
+                            <input type="text" id="checkin" name="checkin" class="datepicker-input" placeholder="Seleccionar fecha" readonly required>
+                        </div>
+                        <div class="form-group-v2">
+                            <label for="checkout">
+                                <i class="fas fa-calendar-xmark"></i> Check Out
+                            </label>
+                            <input type="text" id="checkout" name="checkout" class="datepicker-input" placeholder="Seleccionar fecha" readonly required>
+                        </div>
+                    </div>
+                    <div class="form-group-v2">
+                        <label for="personas">
+                            <i class="fas fa-users"></i> Cantidad de Personas
+                        </label>
+                        <input type="number" id="personas" name="personas" min="1" placeholder="Número de personas" required>
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">
+                        <i class="fas fa-paper-plane"></i> Enviar Reserva por WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto Section Mejorada -->
+    <section id="contacto" class="contacto-v2">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contactanos</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contacto-grid-v2">
+                <div class="contacto-info-v2">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Reservas</h3>
+                        <p><a href="mailto:info@paraisopatagonico.com">info@paraisopatagonico.com</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Teléfonos</h3>
+                        <p><a href="tel:+542902491772">+54 2902 491-772</a></p>
+                        <p><a href="tel:+5492966707154">+54-9-2966-707154</a></p>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h3>Dirección</h3>
+                        <p>Calle 10015 N° 82</p>
+                        <p>Villa Parque Los Glaciares</p>
+                        <p>El Calafate (9405)</p>
+                        <p>Santa Cruz - Argentina</p>
+                    </div>
+                </div>
+                <div class="contacto-map-v2">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d20369.150925168593!2d-72.245925!3d-50.345222!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdbb0c9bac43a87d%3A0xa146cebb73083590!2sCaba%C3%B1as%20%26%20Apart%20Paraiso%20Patagonico!5e0!3m2!1ses!2sus!4v1764156783652!5m2!1ses!2sus"
+                        width="100%"
+                        height="100%"
+                        style="border:0; border-radius: 15px;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Mejorado -->
+    <footer class="footer-v2">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Paraíso Patagónico</h3>
+                    <p>Tu hogar en El Calafate. Cabañas y aparts con la mejor vista y atención personalizada.</p>
+                    <div class="social-links-v2">
+                        <a href="https://wa.me/5492966707154" target="_blank" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="mailto:info@paraisopatagonico.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" target="_blank" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#alojamientos">Alojamientos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone"></i> +54 2902 491-772</li>
+                        <li><i class="fas fa-envelope"></i> info@paraisopatagonico.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> El Calafate, Argentina</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Paraíso Patagónico - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox para Galerías -->
+    <div id="lightbox" class="lightbox">
+        <button class="lightbox-close" aria-label="Cerrar">
+            <i class="fas fa-times"></i>
+        </button>
+        <button class="lightbox-nav lightbox-prev" aria-label="Anterior">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="lightbox-nav lightbox-next" aria-label="Siguiente">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImage">
+            <div class="lightbox-counter">
+                <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">1</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Datepicker -->
+    <div id="datepickerModal" class="modal-datepicker">
+        <div class="modal-content-datepicker">
+            <div class="modal-header">
+                <h3 id="datepickerTitle">Seleccionar Fecha</h3>
+                <button class="modal-close" id="closeDatepicker">&times;</button>
+            </div>
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="calendar-nav" id="prevMonth">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="calendar-month-year" id="monthYear"></div>
+                    <button class="calendar-nav" id="nextMonth">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                <div class="calendar-weekdays">
+                    <div class="weekday">Dom</div>
+                    <div class="weekday">Lun</div>
+                    <div class="weekday">Mar</div>
+                    <div class="weekday">Mié</div>
+                    <div class="weekday">Jue</div>
+                    <div class="weekday">Vie</div>
+                    <div class="weekday">Sáb</div>
+                </div>
+                <div class="calendar-days" id="calendarDays"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/5492966707154" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
