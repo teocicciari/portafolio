@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Las cabañas de campo Hacia el Sur en El Hoyo, Patagonia Argentina, te reciben en familia con mucha calidez.">
+    <title>Hacia el Sur - Cabañas de Campo | El Hoyo, Patagonia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Work+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --patagonia-sky: #3a7ca5;
+            --earth: #8b7355;
+            --moss: #5a9e6f;
+            --stone-light: #e8e6e1;
+            --text-dark: #2f2e2e;
+            --text-light: #a0a09f;
+            --white: #ffffff;
+            --accent: #5a9e6f;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--patagonia-sky);
+            font-family: 'Merriweather', serif;
+            letter-spacing: 0.05em;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--patagonia-sky);
+        }
+
+        .cta-btn {
+            background: var(--patagonia-sky);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .cta-btn:hover {
+            background: var(--earth);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                        url('El Hoyo _ Hacia el Sur, cabañas de campo_files/019b2c_3823fc3324d646f78d51913cd4c7c667~mv2_d_5464_3070_s_4.avif') center/cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            padding: 0 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+            font-weight: 300;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--patagonia-sky);
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+
+        .section-divider {
+            width: 100%;
+            max-width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--patagonia-sky) 20%, var(--patagonia-sky) 80%, transparent);
+            margin: 0 auto 3rem;
+        }
+
+        /* Bienvenida */
+        .bienvenida {
+            background: var(--white);
+        }
+
+        .bienvenida-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .bienvenida p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-dark);
+            font-weight: 300;
+        }
+
+        /* Cabañas Grid */
+        .cabanas {
+            background: var(--stone-light);
+        }
+
+        .cabanas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .cabana-card {
+            background: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #d4d0cc;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+        }
+
+        .cabana-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 25px rgba(58, 124, 165, 0.12);
+            border-color: var(--patagonia-sky);
+        }
+
+        .cabana-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .cabana-info {
+            padding: 1.5rem;
+        }
+
+        .cabana-info h3 {
+            color: var(--patagonia-sky);
+            margin-bottom: 1rem;
+            font-family: 'Merriweather', serif;
+            font-size: 1.3rem;
+        }
+
+        .cabana-info p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .cabana-info ul {
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+
+        .cabana-info li {
+            padding: 0.3rem 0;
+            color: var(--text-dark);
+        }
+
+        .cabana-info li::before {
+            content: "✓ ";
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--white);
+            text-align: center;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.2);
+        }
+
+        .video-container iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+
+        /* Actividades */
+        .actividades {
+            background: var(--stone-light);
+        }
+
+        .actividades-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .actividad-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #d4d0cc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .actividad-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(90, 158, 111, 0.1);
+        }
+
+        .actividad-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .actividad-card h3 {
+            color: var(--patagonia-sky);
+            margin-bottom: 1rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+
+        /* Nosotros */
+        .nosotros {
+            background: var(--white);
+        }
+
+        .nosotros-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nosotros-text h3 {
+            color: var(--patagonia-sky);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-family: 'Merriweather', serif;
+            font-weight: 700;
+        }
+
+        .nosotros-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .nosotros-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+            border: 1px solid #d4d0cc;
+        }
+
+        .nosotros-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Retiros */
+        .retiros {
+            background: var(--stone-light);
+        }
+
+        .retiros-content {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .retiros-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .retiros-feature {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid #d4d0cc;
+        }
+
+        .retiros-feature h3 {
+            color: var(--patagonia-sky);
+            font-family: 'Merriweather', serif;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contacto */
+        .contacto {
+            background: var(--white);
+        }
+
+        .contacto-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contacto-form input,
+        .contacto-form textarea {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+        }
+
+        .contacto-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .contacto-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contacto-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contacto-item-icon {
+            font-size: 1.5rem;
+            color: var(--patagonia-sky);
+        }
+
+        .contacto-form h3 {
+            color: var(--patagonia-sky);
+            font-family: 'Merriweather', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        .contacto-info h3 {
+            color: var(--patagonia-sky);
+            font-family: 'Merriweather', serif;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Banner de autoría */
+        .author-banner {
+            background: var(--patagonia-sky);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            z-index: 999;
+            font-weight: 500;
+        }
+
+        .author-banner a {
+            color: var(--white);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,255,255,0.5);
+            transition: border-color 0.3s;
+        }
+
+        .author-banner a:hover {
+            border-bottom-color: var(--white);
+        }
+
+        body {
+            padding-bottom: 50px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--patagonia-sky);
+        }
+
+        /* Formulario de reserva */
+        .reserva-section {
+            background: linear-gradient(135deg, rgba(58, 124, 165, 0.03) 0%, rgba(90, 158, 111, 0.03) 100%);
+        }
+
+        .reserva-card {
+            background: var(--white);
+            border: 1px solid #e0dcd8;
+            border-radius: 15px;
+            padding: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 8px 40px rgba(58, 124, 165, 0.08);
+        }
+
+        .reserva-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .reserva-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .reserva-group label {
+            font-weight: 600;
+            margin-bottom: 0.7rem;
+            color: var(--patagonia-sky);
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        .reserva-group input {
+            padding: 0.95rem 1rem;
+            border: 2px solid #e8e6e1;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            background: var(--white);
+        }
+
+        .reserva-group input:focus {
+            outline: none;
+            border-color: var(--patagonia-sky);
+            box-shadow: 0 0 0 4px rgba(58, 124, 165, 0.08);
+        }
+
+        .reserva-group input::placeholder {
+            color: #b8b6b3;
+        }
+
+        .reserva-button-wrapper {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 1rem;
+            gap: 1rem;
+        }
+
+        .reserva-btn {
+            background: linear-gradient(135deg, var(--patagonia-sky) 0%, #2a5c7e 100%);
+            color: var(--white);
+            padding: 1.1rem 3rem;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Work Sans', sans-serif;
+            transition: all 0.3s;
+            letter-spacing: 0.01em;
+            box-shadow: 0 4px 15px rgba(58, 124, 165, 0.3);
+        }
+
+        .reserva-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(58, 124, 165, 0.4);
+        }
+
+        .reserva-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                flex-direction: column;
+                background: var(--white);
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+                transition: left 0.3s;
+            }
+
+            nav ul.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nosotros-content,
+            .contacto-content {
+                grid-template-columns: 1fr;
+            }
+
+            .video-container iframe {
+                height: 300px;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">HACIA EL SUR</div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul id="menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#cabanas">CABAÑAS</a></li>
+                <li><a href="#retiros">RETIROS</a></li>
+                <li><a href="#actividades">NUESTRA CHACRA</a></li>
+                <li><a href="#reserva">RESERVA</a></li>
+            </ul>
+            <a href="tel:+5492944603166"><button class="cta-btn">RESERVAR</button></a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1 style="font-family: 'Merriweather', serif;">HACIA EL SUR</h1>
+        <p>Te recibimos en familia con mucha calidez con ganas de que aprendas y compartas con nosotros nuestra experiencia de vida.</p>
+        <a href="#reserva"><button class="cta-btn">Reservar Ahora</button></a>
+    </section>
+
+    <!-- Bienvenida -->
+    <section id="bienvenida" class="bienvenida">
+        <div class="container">
+            <h2>BIENVENIDOS</h2>
+            <div class="section-divider"></div>
+            <div class="bienvenida-content">
+                <p>Una combinación de construcción natural, diseño y modernidad. Con una imponente vista y comodidad. Esperamos que nuestro espacio se convierta en tu opción preferida para disfrutar de un momento de descanso y conexión con el entorno natural.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <h2>DESCUBRE NUESTRA EXPERIENCIA</h2>
+            <div class="section-divider"></div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/IKicmGpfbm0" allowfullscreen></iframe>
+            </div>
+            <br><br>
+            <a href="_files/ugd/628c6d_34e34894d1d74f91ae8715a209fe6457.pdf" target="_blank">
+                <button class="cta-btn">DESCARGAR BROCHURE</button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Cabañas -->
+    <section id="cabanas" class="cabanas">
+        <div class="container">
+            <h2>NUESTRAS CABAÑAS</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Más que una cabaña, un espacio multiuso con el que podes contar para tus vacaciones y momentos especiales de relajación y disfrute.</p>
+
+            <div class="cabanas-grid">
+                <!-- Casa de Campo / Deluxe -->
+                <div class="cabana-card">
+                    <img src="Deluxe _ Hacia el Sur, cabañas de campo_files/_MG_9807.avif" alt="Casa de Campo Deluxe">
+                    <div class="cabana-info">
+                        <h3>CASA DE CAMPO DELUXE</h3>
+                        <p>La cabaña más espaciosa con todas las comodidades para una experiencia premium.</p>
+                        <ul>
+                            <li>Construcción natural</li>
+                            <li>Vista panorámica</li>
+                            <li>Equipamiento completo</li>
+                            <li>Diseño moderno</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Cabaña Clásica / Simple -->
+                <div class="cabana-card">
+                    <img src="El Hoyo _ Hacia el Sur, cabañas de campo_files/019b2c_26cbbf68d8f041018dcc993579e147fa~mv2_d_5616_3744_s_4.avif" alt="Cabaña Clásica">
+                    <div class="cabana-info">
+                        <h3>CABAÑA CLÁSICA</h3>
+                        <p>Acogedora y funcional, perfecta para disfrutar de la naturaleza con comodidad.</p>
+                        <ul>
+                            <li>Ambiente cálido</li>
+                            <li>Cocina equipada</li>
+                            <li>Rodeada de naturaleza</li>
+                            <li>Ideal para parejas o familias</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Loft -->
+                <div class="cabana-card">
+                    <img src="El Hoyo _ Hacia el Sur, cabañas de campo_files/019b2c_f4567aa815ca4b638fb42d5bdf10f847~mv2_d_4433_2955_s_4.avif" alt="Loft">
+                    <div class="cabana-info">
+                        <h3>LOFT</h3>
+                        <p>Espacio moderno con diseño contemporáneo en el corazón de la Patagonia.</p>
+                        <ul>
+                            <li>Diseño minimalista</li>
+                            <li>Iluminación natural</li>
+                            <li>Espacios amplios</li>
+                            <li>Perfecto para desconectar</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actividades -->
+    <section id="actividades" class="actividades">
+        <div class="container">
+            <h2>NUESTRA CHACRA</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 2rem;">Cabañas Hacia el Sur te ofrece un abanico de actividades dentro y fuera de la chacra en conjunto con el espacio Holístico Lumina.</p>
+
+            <div class="actividades-grid">
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-leaf"></i></div>
+                    <h3>Huerta Orgánica</h3>
+                    <p>Aprende y participa en el cultivo de vegetales y hierbas orgánicas.</p>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-jar"></i></div>
+                    <h3>Elaboración de Alimentos</h3>
+                    <p>Descubre cómo elaborar alimentos con frutos de la chacra.</p>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>Naturaleza</h3>
+                    <p>Conexión profunda con el entorno natural de la Patagonia.</p>
+                </div>
+                <div class="actividad-card">
+                    <div class="actividad-icon"><i class="fas fa-spa"></i></div>
+                    <h3>Espacio Holístico</h3>
+                    <p>Yoga, meditación y actividades de bienestar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Retiros -->
+    <section id="retiros" class="retiros">
+        <div class="container">
+            <h2>RETIROS Y EVENTOS</h2>
+            <div class="section-divider"></div>
+            <div class="retiros-content">
+                <p style="font-size: 1.1rem; margin-bottom: 2rem;">Utilizá nuestro espacio para retiros, talleres, eventos corporativos y encuentros especiales.</p>
+
+                <div class="retiros-features">
+                    <div class="retiros-feature">
+                        <h3>Nuestro Espacio</h3>
+                        <p>Áreas versátiles para grupos</p>
+                    </div>
+                    <div class="retiros-feature">
+                        <h3>Comedor</h3>
+                        <p>Espacio amplio para comidas grupales</p>
+                    </div>
+                    <div class="retiros-feature">
+                        <h3>Cuarto Staff</h3>
+                        <p>Alojamiento para organizadores</p>
+                    </div>
+                    <div class="retiros-feature">
+                        <h3>Agencias</h3>
+                        <p>Trabajamos con agencias especializadas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros" class="nosotros">
+        <div class="container">
+            <h2>NOSOTROS</h2>
+            <div class="section-divider"></div>
+            <div class="nosotros-content">
+                <div class="nosotros-text">
+                    <h3>Alumine y Diego</h3>
+                    <p>Nacimos en la comarca, ambos compartimos el arte y la cultura de lo que es cultivar la huerta, elaborar alimentos con frutos de la chacra.</p>
+                    <p>Nos apasiona recibir a viajeros de todo el mundo y compartir nuestra experiencia de vida en la Patagonia. Creemos en el turismo sustentable y en la conexión genuina con la naturaleza.</p>
+                    <p>Esperamos recibirte pronto en Hacia el Sur.</p>
+                </div>
+                <div class="nosotros-image">
+                    <img src="Nuestra Chacra _ Hacia el Sur, cabañas de campo_files/019b2c_f0e5674b0ba24c17b6961162d9685370~mv2_d_4925_3078_002.avif" alt="Hacia el Sur">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reserva -->
+    <section id="reserva" class="reserva-section">
+        <div class="container">
+            <h2>RESERVA TU EXPERIENCIA</h2>
+            <div class="section-divider"></div>
+            <p style="text-align: center; font-size: 1.1rem; margin-bottom: 3rem; color: var(--text-light); max-width: 700px; margin-left: auto; margin-right: auto;">Completa los detalles de tu estadía y nos contactaremos pronto para confirmar tu reserva</p>
+
+            <div class="reserva-card">
+                <form action="https://formspree.io/f/your-form-id" method="POST">
+                    <div class="reserva-grid">
+                        <div class="reserva-group">
+                            <label for="reserva-nombre">Nombre *</label>
+                            <input type="text" id="reserva-nombre" name="nombre" placeholder="Tu nombre completo" required>
+                        </div>
+                        <div class="reserva-group">
+                            <label for="reserva-personas">Personas *</label>
+                            <input type="number" id="reserva-personas" name="personas" min="1" max="20" placeholder="¿Cuántos son?" required>
+                        </div>
+                        <div class="reserva-group">
+                            <label for="reserva-checkin">Llegada *</label>
+                            <input type="date" id="reserva-checkin" name="checkin" required>
+                        </div>
+                        <div class="reserva-group">
+                            <label for="reserva-checkout">Partida *</label>
+                            <input type="date" id="reserva-checkout" name="checkout" required>
+                        </div>
+                        <div class="reserva-group">
+                            <label for="reserva-telefono">Teléfono *</label>
+                            <input type="tel" id="reserva-telefono" name="telefono" placeholder="+54 9 294 ..." required>
+                        </div>
+                        <div class="reserva-button-wrapper">
+                            <button type="submit" class="reserva-btn">Solicitar Reserva</button>
+                            <p style="font-size: 0.85rem; color: var(--text-light); margin-top: 1rem;">Nos contactaremos para confirmar tu disponibilidad</p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/5492944603166" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Hacia el Sur - Cabañas de Campo. Todos los derechos reservados.</p>
+            <p>El Hoyo, Chubut - Patagonia Argentina</p>
+        </div>
+    </footer>
+
+    <!-- Banner de autoría -->
+    <div class="author-banner">
+        Sitio diseñado por <a href="https://teocicciari.com" target="_blank">Teo Cicciari</a> 🌿
+    </div>
+
+    <script>
+        // Dynamic year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
+        }
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('nav ul a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('menu').classList.remove('active');
+            });
+        });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 2px 30px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
