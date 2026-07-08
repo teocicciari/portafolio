@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cielos Patagónicos - Hospedaje en El Calafate</title>
+    <meta name="description" content="Experiencia serena en El Calafate con vistas al lago Argentino. Apartamentos boutique en la Patagonia.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --azul-glacial: #1a3a52;
+            --turquesa: #4db8d4;
+            --hielo: #e8f4f8;
+            --gris-piedra: #7a8a9e;
+            --blanco-nieve: #f9fafb;
+            --terracota: #d4825c;
+            --text-primary: #1a1a1a;
+            --text-secondary: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-primary);
+            background: var(--blanco-nieve);
+            line-height: 1.6;
+        }
+
+        /* Header & Nav */
+        header {
+            position: sticky;
+            top: 0;
+            background: rgba(26, 58, 82, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.2rem 2rem;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 100%;
+            width: auto;
+            object-fit: contain;
+            filter: invert(1);
+        }
+
+        nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--turquesa);
+        }
+
+        .btn-reservar {
+            background: var(--turquesa);
+            color: var(--azul-glacial);
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .btn-reservar:hover {
+            background: var(--terracota);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, var(--azul-glacial) 0%, #2d5f7d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+            background-image: url('./Cielos patagónicos aparts, hospedaje en El Calafate Patagonia._files/glaciar1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(26, 58, 82, 0.7) 0%, rgba(45, 95, 125, 0.7) 100%);
+            opacity: 1;
+        }
+
+        @keyframes drift {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background: var(--turquesa);
+            color: var(--azul-glacial);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: var(--terracota);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 4px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--turquesa);
+            color: var(--turquesa);
+        }
+
+        /* Experiencias - Signature Element */
+        .experiencias {
+            background: var(--blanco-nieve);
+            padding: 6rem 2rem;
+        }
+
+        .experiencias-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .experiencias-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--azul-glacial);
+            letter-spacing: -0.02em;
+        }
+
+        .experiencias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 3rem;
+        }
+
+        .experiencia-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(26, 58, 82, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experiencia-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(26, 58, 82, 0.12);
+        }
+
+        .experiencia-image {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experiencia-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(26, 58, 82, 0.2) 0%, rgba(77, 184, 212, 0.1) 100%);
+        }
+
+        .experiencia-content {
+            padding: 2rem;
+        }
+
+        .experiencia-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+            color: var(--azul-glacial);
+            font-weight: 700;
+        }
+
+        .experiencia-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .experiencia-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--gris-piedra);
+        }
+
+        .feature-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--turquesa);
+            border-radius: 50%;
+        }
+
+        /* Sección Ubicación */
+        .ubicacion {
+            background: var(--azul-glacial);
+            color: white;
+            padding: 6rem 2rem;
+        }
+
+        .ubicacion-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .ubicacion-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .ubicacion-content p {
+            font-size: 1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .ubicacion-map {
+            width: 100%;
+            height: 400px;
+            border-radius: 8px;
+            background: var(--hielo);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        /* Formulario de Reserva Modal */
+        .modal-reserva {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal-reserva.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gris-piedra);
+        }
+
+        .modal-close:hover {
+            color: var(--azul-glacial);
+        }
+
+        .form-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: var(--azul-glacial);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--turquesa);
+            box-shadow: 0 0 0 3px rgba(77, 184, 212, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .btn-reservar-form {
+            width: 100%;
+            background: var(--turquesa);
+            color: var(--azul-glacial);
+            padding: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn-reservar-form:hover {
+            background: var(--terracota);
+            color: white;
+        }
+
+        /* Reseñas */
+        .resenas {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .resenas-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resenas-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--azul-glacial);
+            letter-spacing: -0.02em;
+        }
+
+        .resenas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resena-card {
+            background: var(--hielo);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--turquesa);
+        }
+
+        .resena-rating {
+            color: var(--terracota);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .resena-texto {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .resena-autor {
+            font-weight: 600;
+            color: var(--azul-glacial);
+            font-size: 0.95rem;
+        }
+
+        .resena-platform {
+            font-size: 0.8rem;
+            color: var(--gris-piedra);
+            margin-top: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--azul-glacial);
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--turquesa);
+        }
+
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+        }
+
+        .footer-section a:hover {
+            color: var(--turquesa);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* Galería */
+        .galeria {
+            background: white;
+            padding: 6rem 2rem;
+        }
+
+        .galeria-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .galeria-titulo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            color: var(--azul-glacial);
+            letter-spacing: -0.02em;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            grid-auto-rows: 280px;
+        }
+
+        .galeria-item {
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .galeria-item:hover {
+            transform: scale(1.02);
+        }
+
+        .galeria-item::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(26, 58, 82, 0) 0%, rgba(26, 58, 82, 0.2) 100%;
+            transition: background 0.3s;
+        }
+
+        .galeria-item:hover::after {
+            background: linear-gradient(180deg, rgba(26, 58, 82, 0.2) 0%, rgba(26, 58, 82, 0.4) 100%);
+        }
+
+        .galeria-item-featured {
+            grid-column: span 2;
+        }
+
+        @media (max-width: 768px) {
+            .galeria-item-featured {
+                grid-column: span 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+            }
+
+            .ubicacion-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 2rem;
+                max-width: 95%;
+            }
+
+            .resenas-titulo,
+            .experiencias-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Prefers reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="./Cielos patagónicos aparts, hospedaje en El Calafate Patagonia._files/logo.png" alt="Cielos Patagónicos Aparts">
+            </div>
+            <nav>
+                <a href="#experiencias">Apartamentos</a>
+                <a href="#ubicacion">Ubicación</a>
+                <a href="#resenas">Reseñas</a>
+                <button class="btn-reservar" onclick="abrirReserva()">Reservar</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Descubre la Patagonia</h1>
+            <p>Vistas inmejorables al lago Argentino desde tu apartamento boutique</p>
+            <div class="hero-cta">
+                <button class="btn-primary" onclick="abrirReserva()">Reservar ahora</button>
+                <button class="btn-secondary" onclick="document.getElementById('experiencias').scrollIntoView()">Conocer más</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiencias -->
+    <section class="experiencias" id="experiencias">
+        <div class="experiencias-container">
+            <h2 class="experiencias-title">Nuestros Apartamentos</h2>
+            <div class="experiencias-grid">
+                <div class="experiencia-card">
+                    <div class="experiencia-image" style="background-image: url('./Cielos patagónicos aparts, hospedaje en El Calafate Patagonia._files/5.jpg');"></div>
+                    <div class="experiencia-content">
+                        <h3 class="experiencia-titulo">Apartamento Atardecer</h3>
+                        <p class="experiencia-desc">Suites modernas con vistas panorámicas al lago Argentino. Ideal para parejas o pequeños grupos buscando serenidad y confort.</p>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Capacidad: 2-4 personas</span>
+                        </div>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Cocina equipada</span>
+                        </div>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Balcón privado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="experiencia-card">
+                    <div class="experiencia-image" style="background-image: url('./Cielos patagónicos aparts, hospedaje en El Calafate Patagonia._files/1.jpg');"></div>
+                    <div class="experiencia-content">
+                        <h3 class="experiencia-titulo">Apartamento Amanecer</h3>
+                        <p class="experiencia-desc">Espacios luminosos que capturan la magia del amanecer patagónico. Perfecta para familias o grupos que quieren compartir la experiencia.</p>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Capacidad: 4-6 personas</span>
+                        </div>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Cocina completa</span>
+                        </div>
+                        <div class="experiencia-feature">
+                            <div class="feature-dot"></div>
+                            <span>Terraza compartida</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section class="ubicacion" id="ubicacion">
+        <div class="ubicacion-container">
+            <div class="ubicacion-content">
+                <h2>Ubicación Estratégica</h2>
+                <p>En el corazón de El Calafate, con acceso directo a las principales atracciones del glaciar Perito Moreno, el lago Argentino y la isla Solitaria.</p>
+                <p>A solo 20 minutos del centro de El Calafate y con las mejores vistas de la región. Tu conexión perfecta con la naturaleza patagónica.</p>
+                <div style="margin-top: 2rem;">
+                    <p><strong>📍 Ubicación:</strong> El Calafate, Santa Cruz, Argentina</p>
+                    <p><strong>🌊 Vistas a:</strong> Lago Argentino e Isla Solitaria</p>
+                </div>
+            </div>
+            <div class="ubicacion-map" style="background-image: url('./Cielos patagónicos aparts, hospedaje en El Calafate Patagonia._files/hielo.jpg'); background-size: cover; background-position: center; display: flex; align-items: flex-end; justify-content: flex-start; padding: 2rem; color: white; font-size: 1rem; font-weight: 600;">
+                <span style="background: rgba(26, 58, 82, 0.8); padding: 1rem; border-radius: 4px;">📍 El Calafate, Patagonia</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section class="galeria">
+        <div class="galeria-container">
+            <h2 class="galeria-titulo">Galería de Imágenes</h2>
+            <div class="galeria-grid">
+                <div class="galeria-item galeria-item-featured" style="background-image: url('./img/10.jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/1(1).jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/4.jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/7(1).jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/10(1).jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/11.jpg');"></div>
+                <div class="galeria-item" style="background-image: url('./img/12(1).jpg');"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section class="resenas" id="resenas">
+        <div class="resenas-container">
+            <h2 class="resenas-titulo">Lo que dicen nuestros huéspedes</h2>
+            <div class="resenas-grid">
+                <div class="resena-card">
+                    <div class="resena-rating">★★★★★</div>
+                    <p class="resena-texto">"Una experiencia inolvidable. Las vistas son simplemente espectaculares y la atención fue impecable."</p>
+                    <div class="resena-autor">María González</div>
+                    <div class="resena-platform">Google Reviews</div>
+                </div>
+
+                <div class="resena-card">
+                    <div class="resena-rating">★★★★★</div>
+                    <p class="resena-texto">"El lugar perfecto para desconectarse. Muy cómodo y con todo lo necesario. Volveremos sin dudas."</p>
+                    <div class="resena-autor">Jorge Martínez</div>
+                    <div class="resena-platform">Booking</div>
+                </div>
+
+                <div class="resena-card">
+                    <div class="resena-rating">★★★★★</div>
+                    <p class="resena-texto">"Superó todas nuestras expectativas. La Patagonia desde una perspectiva privilegiada."</p>
+                    <div class="resena-autor">Sofia y Juan</div>
+                    <div class="resena-platform">Airbnb</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de Reserva -->
+    <div class="modal-reserva" id="modalReserva">
+        <div class="modal-content">
+            <button class="modal-close" onclick="cerrarReserva()">&times;</button>
+            <h2 class="form-titulo">Reservar Apartamento</h2>
+            <form id="formReserva" onsubmit="enviarReserva(event)">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="personas">Cantidad de personas</label>
+                        <select id="personas" name="personas" required>
+                            <option value="">Seleccionar</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                            <option value="6">6+ personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Fecha de Check-in</label>
+                        <input type="date" id="checkin" name="checkin" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="checkout">Fecha de Check-out</label>
+                        <input type="date" id="checkout" name="checkout" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="apartamento">Apartamento preferido</label>
+                    <select id="apartamento" name="apartamento" required>
+                        <option value="">Seleccionar</option>
+                        <option value="atardecer">Atardecer</option>
+                        <option value="amanecer">Amanecer</option>
+                        <option value="cualquiera">Sin preferencia</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-reservar-form">Enviar Reserva</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>Cielos Patagónicos</h3>
+                    <p>Hospedaje boutique en El Calafate con vistas incomparables al lago Argentino.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <p>📍 El Calafate, Santa Cruz, Argentina</p>
+                    <p>📞 +54 9 XXXX-XXXXX</p>
+                    <p>📧 info@cielospatagonicos.com</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces</h3>
+                    <p><a href="#experiencias">Apartamentos</a></p>
+                    <p><a href="#ubicacion">Ubicación</a></p>
+                    <p><a href="#resenas">Reseñas</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="year"></span> Cielos Patagónicos Aparts. Todos los derechos reservados. | Última actualización: <span id="fecha"></span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fecha dinámica
+        function actualizarFecha() {
+            const hoy = new Date();
+            document.getElementById('year').textContent = hoy.getFullYear();
+
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaFormato = hoy.toLocaleDateString('es-AR', options);
+            document.getElementById('fecha').textContent = fechaFormato;
+        }
+
+        // Modal de reserva
+        function abrirReserva() {
+            document.getElementById('modalReserva').classList.add('active');
+        }
+
+        function cerrarReserva() {
+            document.getElementById('modalReserva').classList.remove('active');
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('modalReserva');
+            if (e.target === modal) {
+                cerrarReserva();
+            }
+        });
+
+        // Enviar formulario
+        function enviarReserva(event) {
+            event.preventDefault();
+
+            const nombre = document.getElementById('nombre').value;
+            const personas = document.getElementById('personas').value;
+            const email = document.getElementById('email').value;
+            const checkin = document.getElementById('checkin').value;
+            const checkout = document.getElementById('checkout').value;
+            const apartamento = document.getElementById('apartamento').value;
+
+            // Crear mailto con los datos
+            const asunto = 'Nueva Reserva - Cielos Patagónicos';
+            const cuerpo = `Datos de la reserva:%0A%0A
+Nombre: ${nombre}%0A
+Email: ${email}%0A
+Cantidad de personas: ${personas}%0A
+Check-in: ${checkin}%0A
+Check-out: ${checkout}%0A
+Apartamento: ${apartamento}`;
+
+            window.location.href = `mailto:info@cielospatagonicos.com?subject=${asunto}&body=${cuerpo}`;
+
+            cerrarReserva();
+            document.getElementById('formReserva').reset();
+        }
+
+        // Inicializar fecha
+        actualizarFecha();
+    </script>
+</body>
+</html>
