@@ -1795,6 +1795,144 @@ footer {
     }
 }
 
+/* Gestión mensual Section */
+.retainer-section {
+    padding: 80px 20px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+}
+
+.retainer-container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.retainer-intro {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.retainer-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-transparent);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+.retainer-intro .section-description {
+    max-width: 640px;
+    margin: 0.75rem auto 0;
+}
+
+.retainer-panel {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    background-color: var(--secondary-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 2.5rem;
+    transition: all var(--dur-base) var(--ease-out);
+}
+
+.retainer-panel:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-glow);
+}
+
+.retainer-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding-right: 2.5rem;
+    border-right: 1px solid var(--border-subtle);
+}
+
+.retainer-price-amount {
+    font-size: 2.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1;
+}
+
+.retainer-price-period {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.retainer-price-note {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.retainer-features {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.retainer-feature {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.retainer-feature-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--accent-transparent);
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.retainer-feature h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.retainer-feature p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.retainer-footnote {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .retainer-panel {
+        grid-template-columns: 1fr;
+        padding: 2rem 1.5rem;
+    }
+
+    .retainer-price {
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+    }
+}
+
 /* Estilos específicos para la sección de contacto */
 .contact-section {
     background-color: var(--primary-dark);
