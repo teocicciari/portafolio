@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EH Aparts - El Calafate</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3e4251;
+            --secondary-color: #8b7d6b;
+            --accent-color: #f5cfab;
+            --light-bg: #f5f1ed;
+            --white: #ffffff;
+            --text-dark: #3e4251;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.539);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 70px;
+            width: auto;
+            border-radius: 50%;
+            border: #f5cfab 2px solid;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Language Switch */
+        .language-switch {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .language-switch button {
+            background: none;
+            border: none;
+            padding-bottom: 0.1rem !important;
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            transition: all 0.3s;
+            font-family: 'Josefin Sans', sans-serif;
+        }
+
+        .language-switch button.active {
+            background: var(--primary-color);
+            color: var(--white);
+        }
+
+        .language-switch button:hover:not(.active) {
+            color: var(--secondary-color);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(74, 69, 66, 0.8), rgba(139, 125, 107, 0.7)),
+                        url('img/altolabrador/2.webp') center/cover;
+            display: flex;
+            align-items: center;
+            padding-top: 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .hero-text {
+            color: var(--white);
+        }
+
+        .hero-text h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .reasons-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reason-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            color: var(--white);
+            text-align: center;
+        }
+
+        .reason-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: var(--white);
+        }
+
+        .reason-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 3rem;
+            padding: 1.2rem 3rem;
+            background: var(--white);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* Booking Form */
+        .booking-form {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .booking-form h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--primary-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 1rem;
+        }
+
+        .btn-submit:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Welcome Section */
+        .welcome-section {
+            padding: 6rem 2rem;
+            background: var(--light-bg);
+            text-align: center;
+        }
+
+        .welcome-section h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .welcome-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: var(--secondary-color);
+            line-height: 1.8;
+        }
+
+        /* Apartment Detail Section */
+        .apartment-detail {
+            padding: 6rem 2rem;
+            scroll-margin-top: 120px;
+        }
+
+        .apartment-detail:nth-child(even) {
+            background: var(--light-bg);
+        }
+
+        .apartment-detail:nth-child(odd) {
+            background: var(--white);
+        }
+
+        .apartment-detail-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .apartment-detail.reverse .apartment-detail-content {
+            direction: rtl;
+        }
+
+        .apartment-detail.reverse .apartment-detail-content > * {
+            direction: ltr;
+        }
+
+        .apartment-images {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .apartment-images img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .apartment-images img:first-child {
+            grid-column: 1 / -1;
+            height: 350px;
+        }
+
+        .apartment-detail-info h2 {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .apartment-detail-info h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .apartment-detail-info i {
+            padding-bottom: 7px;
+        }
+
+        .apartment-detail-info p,
+        .apartment-detail-info ul {
+            color: var(--text-dark);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .apartment-detail-info ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .apartment-detail-info ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .apartment-detail-info ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        .capacity {
+            display: inline-block;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        /* Booking Section */
+        .booking-section {
+            padding: 6rem 2rem;
+            padding-bottom: 0 !important;
+            background: var(--primary-color);
+            scroll-margin-top: 120px;
+        }
+
+        .booking-section h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 1rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            height: 80px;
+            margin-bottom: 1.5rem;
+            filter: brightness(0) invert(1);
+        }
+
+        .footer-content p {
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .nav-links {
+                display: none;
+            }
+
+            nav {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-container {
+                gap: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .reasons-list {
+                grid-template-columns: 1fr;
+            }
+
+            .apartment-detail-content {
+                grid-template-columns: 1fr;
+            }
+
+            .apartment-detail.reverse .apartment-detail-content {
+                direction: ltr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .reason-item i {
+                font-size: 2rem;
+            }
+
+            .booking-form {
+                padding: 1.5rem;
+            }
+
+            .apartment-detail-info h2,
+            .booking-section h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <img src="logo.jpg" alt="EH Aparts" class="logo">
+            <div class="nav-container">
+                <ul class="nav-links">
+                    <li><a href="#agassiz1">Agassiz 1</a></li>
+                    <li><a href="#agassiz2">Agassiz 2</a></li>
+                    <li><a href="#alto-labrador">Alto Labrador</a></li>
+                    <li><a href="#reserva" data-i18n="nav.booking">Reservá</a></li>
+                </ul>
+                <div class="language-switch">
+                    <button id="lang-es" class="active" onclick="changeLanguage('es')">ES</button>
+                    <button id="lang-en" onclick="changeLanguage('en')">EN</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>EH Aparts <i class="fa-solid fa-sparkles"></i></h1>
+                <p class="subtitle" data-i18n="hero.subtitle">Te invitamos a disfrutar de una estadía inigualable con la misma calidez de hogar. <i class="fa-solid fa-house"></i></p>
+
+                <a href="#reserva" class="cta-button" data-i18n="hero.cta">Hacé tu reserva <i class="fa-solid fa-mobile-screen-button"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agassiz 1 -->
+    <section id="agassiz1" class="apartment-detail">
+        <div class="apartment-detail-content">
+            <div class="apartment-images">
+                <img src="img/agassiz/1.webp" alt="Agassiz 1 - Principal">
+                <img src="img/agassiz/2.webp" alt="Agassiz 1 - Interior 1">
+                <img src="img/agassiz/6.webp" alt="Agassiz 1 - Interior 2">
+            </div>
+            <div class="apartment-detail-info">
+                <h2>Agassiz 1</h2>
+                <span class="capacity" data-i18n="agassiz1.capacity">Hasta 4 personas</span>
+
+                <h3><i class="fa-solid fa-star"></i> <span data-i18n="agassiz1.features">¿Qué ofrece este apart?</span></h3>
+                <ul>
+                    <li data-i18n="agassiz1.feature1">1 dormitorio</li>
+                    <li data-i18n="agassiz1.feature2">Baño completo</li>
+                    <li data-i18n="agassiz1.feature3">Cocina equipada</li>
+                    <li data-i18n="agassiz1.feature4">Zona de comedor</li>
+                    <li data-i18n="agassiz1.feature5">TV</li>
+                    <li data-i18n="agassiz1.feature6">Patio privado con vistas a la ciudad, ideal para disfrutar del aire libre</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-star"></i> <span data-i18n="agassiz1.extras">Extras para tu confort</span></h3>
+                <ul>
+                    <li data-i18n="agassiz1.extra1">Jardín con vistas a la montaña</li>
+                    <li data-i18n="agassiz1.extra2">WiFi gratis</li>
+                    <li data-i18n="agassiz1.extra3">Estacionamiento privado sin cargo</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="agassiz1.location">Ubicación ideal</span></h3>
+                <ul>
+                    <li data-i18n="agassiz1.location1">A solo 5 minutos a pie de la estación de autobuses</li>
+                    <li data-i18n="agassiz1.location2">A 15 minutos del Museo Regional</li>
+                    <li data-i18n="agassiz1.location3">A 3,2 km de Laguna Nimez</li>
+                </ul>
+
+                <p style="margin-top: 2rem; font-style: italic; color: var(--secondary-color);" data-i18n="agassiz1.description">
+                    Un espacio ideal para descansar y explorar lo mejor de El Calafate. <i class="fa-solid fa-leaf"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agassiz 2 -->
+    <section id="agassiz2" class="apartment-detail reverse">
+        <div class="apartment-detail-content">
+            <div class="apartment-images">
+                <img src="img/agassiz2/1.webp" alt="Agassiz 2 - Principal">
+                <img src="img/agassiz2/2.webp" alt="Agassiz 2 - Interior 1">
+                <img src="img/agassiz2/4.webp" alt="Agassiz 2 - Interior 2">
+            </div>
+            <div class="apartment-detail-info">
+                <h2>Agassiz 2</h2>
+                <span class="capacity" data-i18n="agassiz2.capacity">Hasta 6 personas</span>
+
+                <h3><i class="fa-solid fa-star"></i> <span data-i18n="agassiz2.features">Espacio y comodidad</span></h3>
+                <ul>
+                    <li data-i18n="agassiz2.feature1">2 dormitorios</li>
+                    <li data-i18n="agassiz2.feature2">Cocina equipada</li>
+                    <li data-i18n="agassiz2.feature3">Living cálido con TV</li>
+                    <li data-i18n="agassiz2.feature4">Baño completo</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-spa"></i> <span data-i18n="agassiz2.extras">Relax, un espacio para disfrutar</span></h3>
+                <ul>
+                    <li data-i18n="agassiz2.extra1">Jardín</li>
+                    <li data-i18n="agassiz2.extra2">Patio privado</li>
+                    <li data-i18n="agassiz2.extra3">WiFi gratis</li>
+                    <li data-i18n="agassiz2.extra4">Estacionamiento incluido</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="agassiz2.location">Ubicación estratégica</span></h3>
+                <ul>
+                    <li data-i18n="agassiz2.location1">A solo 5 minutos de la estación de buses</li>
+                    <li data-i18n="agassiz2.location2">A 1,2 km del Museo Regional</li>
+                </ul>
+
+                <p style="margin-top: 2rem; font-style: italic; color: var(--secondary-color);" data-i18n="agassiz2.description">
+                    Ideal para grupos o familias de hasta 6 personas, con todo lo que necesitás para una estadía cómoda y tranquila. <i class="fa-solid fa-leaf"></i>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alto Labrador -->
+    <section id="alto-labrador" class="apartment-detail">
+        <div class="apartment-detail-content">
+            <div class="apartment-images">
+                <img src="img/altolabrador/1.webp" alt="Alto Labrador - Principal">
+                <img src="img/altolabrador/2.webp" alt="Alto Labrador - Interior 1">
+                <img src="img/altolabrador/6.webp" alt="Alto Labrador - Interior 2">
+            </div>
+            <div class="apartment-detail-info">
+                <h2>Alto Labrador</h2>
+                <span class="capacity" data-i18n="altolabrador.capacity">Hasta 6 personas</span>
+
+                <h3><i class="fa-solid fa-star"></i> <span data-i18n="altolabrador.features">¿Qué ofrece este apart?</span></h3>
+                <ul>
+                    <li data-i18n="altolabrador.feature1">2 dormitorios</li>
+                    <li data-i18n="altolabrador.feature2">Cocina equipada</li>
+                    <li data-i18n="altolabrador.feature3">Zona de estar con TV</li>
+                    <li data-i18n="altolabrador.feature4">2 baños completos</li>
+                    <li data-i18n="altolabrador.feature5">Vistas increíbles al lago, la ciudad y la montaña</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-star"></i> <span data-i18n="altolabrador.extras">Extras para tu confort</span></h3>
+                <ul>
+                    <li data-i18n="altolabrador.extra1">WiFi gratis para que estés siempre conectado</li>
+                </ul>
+
+                <h3><i class="fa-solid fa-location-dot"></i> <span data-i18n="altolabrador.location">Ubicación estratégica</span></h3>
+                <ul>
+                    <li data-i18n="altolabrador.location1">A 6 km del Lago Argentino</li>
+                    <li data-i18n="altolabrador.location2">A 2,2 km del Museo Regional</li>
+                    <li data-i18n="altolabrador.location3">A 3,5 km de la estación de autobuses</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="reserva" class="booking-section">
+        <h2 data-i18n="booking.title">Hacé tu Reserva</h2>
+        <div style="max-width: 1200px; margin: 0 auto; text-align: center; padding: 1rem 2rem;">
+            <p style="color: var(--white); font-size: 1.2rem; margin-bottom: 1rem;" data-i18n="booking.description">
+                Haz clic en el botón para acceder a nuestro motor de reservas y consultar disponibilidad
+            </p>
+            <a href="https://frame2.hotelpms.io/BookingFrameClient/hotel/BC230A999AD7B5F5F71585A3D7B89697/e2d8af9e-82cf-4b24-ba19-fc7b08142f0e/book/rooms?currency=ARS&language=es-ES"
+               target="_blank"
+               rel="noopener noreferrer"
+               id="booking-button"
+               class="cta-button"
+               style="display: inline-block; margin-top: 1rem;"
+               data-i18n="booking.button">
+                Abrir Motor de Reservas <i class="fa-solid fa-external-link-alt"></i>
+            </a>
+
+            <div style="margin-top: 2rem;">
+                <p style="color: var(--white); font-size: 1.1rem; margin-bottom: 1rem;" data-i18n="booking.whatsapp_text">
+                    ¿Preferís consultar por WhatsApp?
+                </p>
+                <a href="https://wa.me/5492966385468"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="cta-button"
+                   style="display: inline-block; background-color: #25D366; border-color: #25D366; margin-top: 0 !important;"
+                   data-i18n="booking.whatsapp_button">
+                    <i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Separator -->
+    <div style="background-color: var(--primary-color); padding: 0rem 0; text-align: center;">
+        <span style="color: var(--accent-color); font-size: 1.5rem;">• • •</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>El Calafate, Santa Cruz, Argentina</p>
+            <p>ehaparts.info@gmail.com</p>
+            <p>&copy; 2026 EH Aparts. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Translations
+        const translations = {
+            es: {
+                nav: {
+                    booking: 'Reservá'
+                },
+                hero: {
+                    subtitle: 'Te invitamos a disfrutar de una estadía inigualable con la misma calidez de hogar. <i class="fa-solid fa-house"></i>',
+                    cta: 'Hacé tu reserva <i class="fa-solid fa-mobile-screen-button"></i>'
+                },
+                agassiz1: {
+                    capacity: 'Hasta 4 personas',
+                    features: '¿Qué ofrece este apart?',
+                    feature1: '1 dormitorio',
+                    feature2: 'Baño completo',
+                    feature3: 'Cocina equipada',
+                    feature4: 'Zona de comedor',
+                    feature5: 'TV',
+                    feature6: 'Patio privado con vistas a la ciudad, ideal para disfrutar del aire libre',
+                    extras: 'Extras para tu confort',
+                    extra1: 'Jardín con vistas a la montaña',
+                    extra2: 'WiFi gratis',
+                    extra3: 'Estacionamiento privado sin cargo',
+                    location: 'Ubicación ideal',
+                    location1: 'A solo 5 minutos a pie de la estación de autobuses',
+                    location2: 'A 15 minutos del Museo Regional',
+                    location3: 'A 3,2 km de Laguna Nimez',
+                    description: 'Un espacio ideal para descansar y explorar lo mejor de El Calafate. <i class="fa-solid fa-leaf"></i>'
+                },
+                agassiz2: {
+                    capacity: 'Hasta 6 personas',
+                    features: 'Espacio y comodidad',
+                    feature1: '2 dormitorios',
+                    feature2: 'Cocina equipada',
+                    feature3: 'Living cálido con TV',
+                    feature4: 'Baño completo',
+                    extras: 'Relax, un espacio para disfrutar',
+                    extra1: 'Jardín',
+                    extra2: 'Patio privado',
+                    extra3: 'WiFi gratis',
+                    extra4: 'Estacionamiento incluido',
+                    location: 'Ubicación estratégica',
+                    location1: 'A solo 5 minutos de la estación de buses',
+                    location2: 'A 1,2 km del Museo Regional',
+                    description: 'Ideal para grupos o familias de hasta 6 personas, con todo lo que necesitás para una estadía cómoda y tranquila. <i class="fa-solid fa-leaf"></i>'
+                },
+                altolabrador: {
+                    capacity: 'Hasta 6 personas',
+                    features: '¿Qué ofrece este apart?',
+                    feature1: '2 dormitorios',
+                    feature2: 'Cocina equipada',
+                    feature3: 'Zona de estar con TV',
+                    feature4: '2 baños completos',
+                    feature5: 'Vistas increíbles al lago, la ciudad y la montaña',
+                    extras: 'Extras para tu confort',
+                    extra1: 'WiFi gratis para que estés siempre conectado',
+                    location: 'Ubicación estratégica',
+                    location1: 'A 6 km del Lago Argentino',
+                    location2: 'A 2,2 km del Museo Regional',
+                    location3: 'A 3,5 km de la estación de autobuses'
+                },
+                booking: {
+                    title: 'Hacé tu Reserva',
+                    description: 'Haz clic en el botón para acceder a nuestro motor de reservas y consultar disponibilidad',
+                    button: 'Abrir Motor de Reservas <i class="fa-solid fa-external-link-alt"></i>',
+                    whatsapp_text: '¿Preferís consultar por WhatsApp?',
+                    whatsapp_button: '<i class="fa-brands fa-whatsapp"></i> Contactar por WhatsApp'
+                }
+            },
+            en: {
+                nav: {
+                    booking: 'Book Now'
+                },
+                hero: {
+                    subtitle: 'We invite you to enjoy an unparalleled stay with the warmth of home. <i class="fa-solid fa-house"></i>',
+                    cta: 'Make your reservation <i class="fa-solid fa-mobile-screen-button"></i>'
+                },
+                agassiz1: {
+                    capacity: 'Up to 4 guests',
+                    features: 'What does this apartment offer?',
+                    feature1: '1 bedroom',
+                    feature2: 'Full bathroom',
+                    feature3: 'Equipped kitchen',
+                    feature4: 'Dining area',
+                    feature5: 'TV',
+                    feature6: 'Private patio with city views, ideal for enjoying the outdoors',
+                    extras: 'Extras for your comfort',
+                    extra1: 'Garden with mountain views',
+                    extra2: 'Free WiFi',
+                    extra3: 'Free private parking',
+                    location: 'Ideal location',
+                    location1: 'Just 5 minutes walk from the bus station',
+                    location2: '15 minutes from the Regional Museum',
+                    location3: '3.2 km from Laguna Nimez',
+                    description: 'An ideal space to rest and explore the best of El Calafate. <i class="fa-solid fa-leaf"></i>'
+                },
+                agassiz2: {
+                    capacity: 'Up to 6 guests',
+                    features: 'Space and comfort',
+                    feature1: '2 bedrooms',
+                    feature2: 'Equipped kitchen',
+                    feature3: 'Cozy living room with TV',
+                    feature4: 'Full bathroom',
+                    extras: 'Relax, a space to enjoy',
+                    extra1: 'Garden',
+                    extra2: 'Private patio',
+                    extra3: 'Free WiFi',
+                    extra4: 'Parking included',
+                    location: 'Strategic location',
+                    location1: 'Just 5 minutes from the bus station',
+                    location2: '1.2 km from the Regional Museum',
+                    description: 'Ideal for groups or families of up to 6 people, with everything you need for a comfortable and peaceful stay. <i class="fa-solid fa-leaf"></i>'
+                },
+                altolabrador: {
+                    capacity: 'Up to 6 guests',
+                    features: 'What does this apartment offer?',
+                    feature1: '2 bedrooms',
+                    feature2: 'Equipped kitchen',
+                    feature3: 'Living area with TV',
+                    feature4: '2 full bathrooms',
+                    feature5: 'Incredible views of the lake, city and mountains',
+                    extras: 'Extras for your comfort',
+                    extra1: 'Free WiFi to keep you always connected',
+                    location: 'Strategic location',
+                    location1: '6 km from Lago Argentino',
+                    location2: '2.2 km from the Regional Museum',
+                    location3: '3.5 km from the bus station'
+                },
+                booking: {
+                    title: 'Make Your Reservation',
+                    description: 'Click the button to access our booking engine and check availability',
+                    button: 'Open Booking Engine <i class="fa-solid fa-external-link-alt"></i>',
+                    whatsapp_text: 'Prefer to inquire via WhatsApp?',
+                    whatsapp_button: '<i class="fa-brands fa-whatsapp"></i> Contact via WhatsApp'
+                }
+            }
+        };
+
+        // Current language
+        let currentLang = localStorage.getItem('language') || 'es';
+
+        // Change language function
+        function changeLanguage(lang) {
+            currentLang = lang;
+            localStorage.setItem('language', lang);
+
+            // Update active button
+            document.getElementById('lang-es').classList.toggle('active', lang === 'es');
+            document.getElementById('lang-en').classList.toggle('active', lang === 'en');
+
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const keys = element.getAttribute('data-i18n').split('.');
+                let translation = translations[lang];
+
+                keys.forEach(key => {
+                    translation = translation[key];
+                });
+
+                element.innerHTML = translation;
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const keys = element.getAttribute('data-i18n-placeholder').split('.');
+                let translation = translations[lang];
+
+                keys.forEach(key => {
+                    translation = translation[key];
+                });
+
+                element.placeholder = translation;
+            });
+
+            // Update booking button language and currency
+            const bookingButton = document.getElementById('booking-button');
+            if (bookingButton) {
+                const bookingLang = lang === 'es' ? 'es-ES' : 'en-US';
+                const bookingCurrency = lang === 'es' ? 'ARS' : 'USD';
+                let newHref = bookingButton.href;
+                newHref = newHref.replace(/language=[^&]*/, `language=${bookingLang}`);
+                newHref = newHref.replace(/currency=[^&]*/, `currency=${bookingCurrency}`);
+                if (bookingButton.href !== newHref) {
+                    bookingButton.href = newHref;
+                }
+            }
+        }
+
+        // Initialize language on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            changeLanguage(currentLang);
+        });
+    </script>
+</body>
+</html>
