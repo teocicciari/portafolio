@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Finexus — Estudio Contable</title>
+<meta name="description" content="Finexus, estudio de contador público. Impuestos, sueldos y sociedades para pymes y profesionales. Números en orden, decisiones con calma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Instrument+Sans:wght@400;500;600&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-900:#0E1F3D;
+    --navy-800:#132A50;
+    --navy-700:#16305E;
+    --celeste:#3E9FC4;
+    --celeste-claro:#5BB8DA;
+    --papel:#F4F6F8;
+    --tinta:#12213D;
+    --tinta-suave:#4A5A75;
+    --regla:rgba(18,33,61,.14);
+    --regla-clara:rgba(244,246,248,.16);
+    --display:"Bricolage Grotesque",sans-serif;
+    --cuerpo:"Instrument Sans",sans-serif;
+    --mono:"Spline Sans Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--cuerpo);
+    color:var(--tinta);
+    background:var(--papel);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--celeste);outline-offset:3px;border-radius:2px}
+
+  .contenedor{max-width:1120px;margin:0 auto;padding:0 24px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--celeste);
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,246,248,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--regla);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .logo-img{height:44px;width:auto;mix-blend-mode:multiply}
+  .nav{display:flex;align-items:center;gap:32px}
+  .nav a{
+    text-decoration:none;font-size:.92rem;font-weight:500;
+    color:var(--tinta-suave);transition:color .2s;
+  }
+  .nav a:hover{color:var(--navy-700)}
+  .btn{
+    display:inline-block;text-decoration:none;
+    font-weight:600;font-size:.95rem;
+    padding:12px 26px;border-radius:8px;
+    transition:transform .15s ease, background .2s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-navy{background:var(--navy-700);color:#fff !important}
+  .btn-navy:hover{background:var(--navy-800);box-shadow:0 6px 18px rgba(22,48,94,.25)}
+  .btn-celeste{background:var(--celeste);color:var(--navy-900)}
+  .btn-celeste:hover{background:var(--celeste-claro);box-shadow:0 6px 18px rgba(62,159,196,.35)}
+  .btn-borde{border:1px solid var(--regla-clara);color:#fff}
+  .btn-borde:hover{border-color:var(--celeste);color:var(--celeste-claro)}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(160deg,var(--navy-700) 0%,var(--navy-900) 70%);
+    color:#fff;
+    overflow:hidden;
+  }
+  .hero-inner{
+    position:relative;z-index:2;
+    padding:110px 0 90px;
+    max-width:640px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:800;
+    font-size:clamp(2.4rem,5.5vw,4rem);
+    line-height:1.05;
+    letter-spacing:-.02em;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:normal;color:var(--celeste-claro);
+  }
+  .hero p{
+    font-size:1.08rem;color:rgba(244,246,248,.78);
+    max-width:52ch;margin-bottom:36px;
+  }
+  .hero-acciones{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* isotipo SVG gigante, marca de agua */
+  .hero-marca{
+    position:absolute;z-index:1;
+    right:-6%;top:50%;
+    width:min(560px,55vw);
+    transform:translateY(-50%) rotate(6deg);
+    opacity:.16;
+    pointer-events:none;
+  }
+
+  /* strip de compromisos: la línea del libro */
+  .strip{
+    position:relative;z-index:2;
+    border-top:1px solid var(--regla-clara);
+  }
+  .strip-inner{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;padding:26px 0;
+  }
+  .strip-item{
+    font-family:var(--mono);font-size:.8rem;
+    letter-spacing:.06em;
+    color:rgba(244,246,248,.72);
+    display:flex;align-items:center;gap:12px;
+  }
+  .strip-item::before{
+    content:"";width:8px;height:8px;flex:none;
+    background:var(--celeste);border-radius:50%;
+  }
+
+  /* ---------- Secciones ---------- */
+  .seccion{padding:96px 0}
+  .seccion-cabeza{max-width:560px;margin-bottom:56px}
+  .seccion-cabeza h2{
+    font-family:var(--display);
+    font-weight:700;
+    font-size:clamp(1.8rem,3.5vw,2.6rem);
+    letter-spacing:-.01em;
+    line-height:1.15;
+    margin:14px 0 16px;
+    color:var(--navy-900);
+  }
+  .seccion-cabeza p{color:var(--tinta-suave)}
+
+  /* ---------- Servicios: plan de cuentas ---------- */
+  .libro{border-top:1px solid var(--regla)}
+  .cuenta{
+    display:grid;
+    grid-template-columns:90px 1fr 1.4fr;
+    gap:24px;align-items:baseline;
+    padding:28px 12px;
+    border-bottom:1px solid var(--regla);
+    text-decoration:none;
+    transition:background .2s;
+    position:relative;
+  }
+  .cuenta::after{
+    content:"";position:absolute;left:0;bottom:-1px;
+    width:0;height:2px;background:var(--celeste);
+    transition:width .35s ease;
+  }
+  .cuenta:hover{background:rgba(62,159,196,.06)}
+  .cuenta:hover::after{width:100%}
+  .cuenta-codigo{
+    font-family:var(--mono);font-size:.85rem;
+    color:var(--celeste);
+    font-variant-numeric:tabular-nums;
+  }
+  .cuenta-nombre{
+    font-family:var(--display);font-weight:600;
+    font-size:1.25rem;color:var(--navy-900);
+  }
+  .cuenta-detalle{
+    font-size:.95rem;color:var(--tinta-suave);
+  }
+
+  /* ---------- El estudio ---------- */
+  .estudio{background:#fff;border-block:1px solid var(--regla)}
+  .estudio-grid{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:64px;
+    align-items:center;
+  }
+  .estudio h2{
+    font-family:var(--display);font-weight:700;
+    font-size:clamp(1.8rem,3.5vw,2.4rem);
+    letter-spacing:-.01em;line-height:1.15;
+    margin:14px 0 18px;color:var(--navy-900);
+  }
+  .estudio-texto p{color:var(--tinta-suave);margin-bottom:16px}
+  .estudio-firma{
+    margin-top:28px;padding-top:20px;
+    border-top:1px solid var(--regla);
+  }
+  .estudio-firma strong{
+    font-family:var(--display);font-weight:600;
+    color:var(--navy-900);display:block;
+  }
+  .estudio-firma span{
+    font-family:var(--mono);font-size:.75rem;
+    letter-spacing:.1em;color:var(--tinta-suave);
+  }
+  .balance{
+    background:var(--papel);
+    border:1px solid var(--regla);
+    border-radius:12px;
+    padding:34px 32px;
+  }
+  .balance-titulo{
+    font-family:var(--mono);font-size:.72rem;
+    letter-spacing:.18em;text-transform:uppercase;
+    color:var(--tinta-suave);
+    padding-bottom:14px;margin-bottom:8px;
+    border-bottom:1px solid var(--regla);
+  }
+  .balance-fila{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:13px 0;border-bottom:1px dashed var(--regla);
+    gap:16px;
+  }
+  .balance-fila:last-child{border-bottom:none}
+  .balance-fila dt{font-size:.92rem;color:var(--tinta-suave)}
+  .balance-fila dd{
+    font-family:var(--mono);font-size:.9rem;font-weight:500;
+    color:var(--navy-700);text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* ---------- Contacto ---------- */
+  .contacto{
+    background:linear-gradient(160deg,var(--navy-800),var(--navy-900));
+    color:#fff;text-align:center;
+  }
+  .contacto .eyebrow{color:var(--celeste-claro)}
+  .contacto h2{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(2rem,4.5vw,3.2rem);
+    letter-spacing:-.02em;line-height:1.1;
+    margin:16px auto 18px;max-width:18ch;
+  }
+  .contacto p{
+    color:rgba(244,246,248,.75);
+    max-width:46ch;margin:0 auto 36px;
+  }
+  .contacto-acciones{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .contacto-datos{
+    margin-top:44px;
+    font-family:var(--mono);font-size:.82rem;
+    color:rgba(244,246,248,.6);
+    display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+  }
+  .contacto-datos a{text-decoration:none;transition:color .2s}
+  .contacto-datos a:hover{color:var(--celeste-claro)}
+
+  /* ---------- Autor / Portafolio ---------- */
+  .autor{
+    background:linear-gradient(135deg,var(--celeste) 0%,var(--celeste-claro) 100%);
+    color:var(--navy-900);text-align:center;
+    padding:72px 0;
+  }
+  .autor .eyebrow{color:var(--navy-700)}
+  .autor h2{
+    font-family:var(--display);font-weight:800;
+    font-size:clamp(1.8rem,4vw,2.8rem);
+    letter-spacing:-.02em;line-height:1.12;
+    margin:14px auto 12px;
+  }
+  .autor .autor-texto{max-width:54ch;margin:0 auto 28px;color:rgba(14,31,61,.82)}
+  .autor .btn-navy:hover{box-shadow:0 6px 18px rgba(14,31,61,.3)}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background:var(--navy-900);color:rgba(244,246,248,.55);
+    border-top:1px solid var(--regla-clara);
+  }
+  .footer-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    padding:28px 0;
+    font-size:.85rem;
+  }
+  .footer-marca{
+    font-family:var(--display);font-weight:700;
+    letter-spacing:.04em;color:#fff;
+    display:flex;align-items:center;gap:10px;
+  }
+  .footer-marca svg{width:22px;height:auto}
+  .footer-textos{text-align:right}
+  .footer-credito{margin-top:4px;font-size:.8rem}
+  .footer-credito a{color:var(--celeste-claro);text-decoration:none}
+  .footer-credito a:hover{text-decoration:underline}
+  @media (max-width:820px){
+    .footer-textos{text-align:left}
+  }
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.cuenta::after{transition:none}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:820px){
+    .nav-links{display:none}
+    .hero-inner{padding:80px 0 70px}
+    .hero-marca{right:-30%;opacity:.1}
+    .strip-inner{grid-template-columns:1fr;gap:14px}
+    .seccion{padding:72px 0}
+    .cuenta{grid-template-columns:64px 1fr;row-gap:6px}
+    .cuenta-detalle{grid-column:2}
+    .estudio-grid{grid-template-columns:1fr;gap:40px}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="contenedor header-inner">
+    <a href="#" aria-label="Finexus, inicio">
+      <img class="logo-img" src="logo.png" alt="Finexus">
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <div class="nav-links nav" style="gap:32px">
+        <a href="#servicios">Servicios</a>
+        <a href="#estudio">El estudio</a>
+      </div>
+      <a class="btn btn-navy" href="#contacto">Agendar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <svg class="hero-marca" viewBox="0 0 200 240" aria-hidden="true">
+      <path fill="#F4F6F8" d="M20 120 Q90 150 150 70 Q165 50 185 38 Q120 30 70 70 Q40 92 20 120 Z"/>
+      <path fill="#5BB8DA" d="M95 130 Q120 170 95 215 Q140 190 148 150 Q150 120 120 100 Q110 118 95 130 Z"/>
+      <path fill="#F4F6F8" d="M60 160 Q80 190 95 215 Q70 205 50 180 Z"/>
+    </svg>
+    <div class="contenedor">
+      <div class="hero-inner">
+        <p class="eyebrow">Estudio contable · Contador público</p>
+        <h1>Números en orden, <em>decisiones con calma.</em></h1>
+        <p>Finexus lleva los impuestos, los sueldos y la contabilidad de tu negocio para que vos te ocupes de hacerlo crecer. Atención directa del contador, sin intermediarios.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-celeste" href="#contacto">Agendar una consulta</a>
+          <a class="btn btn-borde" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+    </div>
+    <div class="strip">
+      <div class="contenedor strip-inner">
+        <div class="strip-item">Respuesta en el día</div>
+        <div class="strip-item">Vencimientos siempre cubiertos</div>
+        <div class="strip-item">Pymes, profesionales y monotributistas</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+      <div class="seccion-cabeza reveal">
+        <p class="eyebrow">Plan de cuentas</p>
+        <h2>Todo lo que tu negocio necesita, en un solo estudio.</h2>
+        <p>Cada servicio con su cuenta, como en un libro mayor: claro, ordenado y sin letra chica.</p>
+      </div>
+      <div class="libro reveal">
+        <a class="cuenta" href="#contacto">
+          <span class="cuenta-codigo">1.1</span>
+          <span class="cuenta-nombre">Impuestos</span>
+          <span class="cuenta-detalle">Liquidación mensual y anual: IVA, Ganancias, Ingresos Brutos. Presentaciones ante ARCA sin vencimientos perdidos.</span>
+        </a>
+        <a class="cuenta" href="#contacto">
+          <span class="cuenta-codigo">1.2</span>
+          <span class="cuenta-nombre">Sueldos y cargas sociales</span>
+          <span class="cuenta-detalle">Liquidación de haberes, F.931, altas y bajas de personal, libro de sueldos digital.</span>
+        </a>
+        <a class="cuenta" href="#contacto">
+          <span class="cuenta-codigo">1.3</span>
+          <span class="cuenta-nombre">Sociedades y balances</span>
+          <span class="cuenta-detalle">Constitución de sociedades, balances certificados, actas y presentaciones ante los organismos de control.</span>
+        </a>
+        <a class="cuenta" href="#contacto">
+          <span class="cuenta-codigo">1.4</span>
+          <span class="cuenta-nombre">Monotributo y autónomos</span>
+          <span class="cuenta-detalle">Alta, recategorización y facturación. El encuadre justo para pagar lo que corresponde, ni más ni menos.</span>
+        </a>
+        <a class="cuenta" href="#contacto">
+          <span class="cuenta-codigo">1.5</span>
+          <span class="cuenta-nombre">Consultoría de gestión</span>
+          <span class="cuenta-detalle">Planificación fiscal, tableros de números para decidir y certificaciones contables cuando las necesitás.</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- El estudio -->
+  <section class="estudio seccion" id="estudio">
+    <div class="contenedor estudio-grid">
+      <div class="estudio-texto reveal">
+        <p class="eyebrow">El estudio</p>
+        <h2>Un contador que conoce tu negocio por su nombre.</h2>
+        <p>Finexus nace de una idea simple: la contabilidad no es un trámite, es información para decidir. Por eso acá no hablás con un call center ni con un sistema — hablás con el contador que lleva tus números.</p>
+        <p>Trabajamos de forma 100% digital: recibís recordatorios antes de cada vencimiento, mandás tu documentación por WhatsApp y tenés tus comprobantes siempre a mano.</p>
+        <div class="estudio-firma">
+          <strong>Cr. Nombre Apellido</strong>
+          <span>CONTADOR PÚBLICO · MAT. XX-XXXXX</span>
+        </div>
+      </div>
+      <dl class="balance reveal" aria-label="Cómo trabajamos">
+        <div class="balance-titulo">Cómo trabajamos</div>
+        <div class="balance-fila"><dt>Primera consulta</dt><dd>Sin cargo</dd></div>
+        <div class="balance-fila"><dt>Canal de contacto</dt><dd>WhatsApp directo</dd></div>
+        <div class="balance-fila"><dt>Recordatorio de vencimientos</dt><dd>Siempre, antes</dd></div>
+        <div class="balance-fila"><dt>Honorarios</dt><dd>Fijos y por escrito</dd></div>
+        <div class="balance-fila"><dt>Tu documentación</dt><dd>Digital, a mano</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto seccion" id="contacto">
+    <div class="contenedor">
+      <p class="eyebrow reveal">Contacto</p>
+      <h2 class="reveal">Contanos en qué anda tu negocio.</h2>
+      <p class="reveal">La primera consulta es sin cargo. Escribinos y te respondemos en el día con los próximos pasos.</p>
+      <div class="contacto-acciones reveal">
+        <a class="btn btn-celeste" href="https://wa.me/5490000000000" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-borde" href="mailto:hola@finexus.com.ar">Enviar un mail</a>
+      </div>
+      <div class="contacto-datos reveal">
+        <a href="mailto:hola@finexus.com.ar">hola@finexus.com.ar</a>
+        <span>+54 9 000 000-0000</span>
+        <span>Lun a Vie · 9 a 18 h</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autor / Portafolio -->
+  <section class="autor">
+    <div class="contenedor">
+      <p class="eyebrow">Diseño web</p>
+      <h2>Este boceto lo diseñó Teo Cicciari</h2>
+      <p class="autor-texto">¿Querés un sitio así de cuidado para tu estudio o tu negocio? Mirá más referencias, estilos y precios, y pedí el tuyo.</p>
+      <a class="btn btn-navy" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor footer-inner">
+    <div class="footer-marca">
+      <svg viewBox="0 0 200 240" aria-hidden="true">
+        <path fill="#F4F6F8" d="M20 120 Q90 150 150 70 Q165 50 185 38 Q120 30 70 70 Q40 92 20 120 Z"/>
+        <path fill="#5BB8DA" d="M95 130 Q120 170 95 215 Q140 190 148 150 Q150 120 120 100 Q110 118 95 130 Z"/>
+        <path fill="#F4F6F8" d="M60 160 Q80 190 95 215 Q70 205 50 180 Z"/>
+      </svg>
+      FINEXUS
+    </div>
+    <div class="footer-textos">
+      <div>© <span id="anio"></span> Finexus · Estudio Contable. Todos los derechos reservados.</div>
+      <div class="footer-credito">Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios ↗</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico en el footer
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Reveal al hacer scroll
+  const prefiereQuieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (prefiereQuieto || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const obs = new IntersectionObserver(entradas => {
+      entradas.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .15 });
+    reveals.forEach(el => obs.observe(el));
+  }
+</script>
+
+</body>
+</html>
