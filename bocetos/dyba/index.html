@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DYBA · Propuesta de Marca y Web — Teo Cicciari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Las tipografías se cargan dinámicamente desde el bloque CONFIG (ver <script id="config">) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+  :root{
+    --celeste:   #C1913F;   /* Dorado Once */
+    --celeste-cl:#E3C489;
+    --atardecer: #A65A38;   /* Terracota San Telmo */
+    --atardecer-d:#7C4126;
+    --pasto:     #55523F;   /* Oliva Plaza */
+    --pasto-cl:  #75715C;
+    --tierra:    #8C6F52;   /* Pardo Adoquín */
+    --tierra-d:  #5E4934;
+    --crema:     #F4EDDF;
+    --crema-d:   #E9DFCB;
+    --tinta:     #2B251E;
+    --tinta-suave:#5B5245;
+
+    --serif:'EB Garamond',Georgia,serif;
+    --sans:'Karla','Segoe UI',sans-serif;
+    --hand:'Caveat',cursive;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--tinta);background:var(--crema);line-height:1.65;font-weight:300;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+  .page{max-width:1120px;margin:0 auto;padding:32px}
+  section{padding:130px 0 100px}
+  .section-head{margin-bottom:40px}
+  .section-num{font-weight:500;letter-spacing:.35em;font-size:.72rem;color:var(--atardecer-d);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  .section-num::before{content:"";width:34px;height:1px;background:var(--atardecer)}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,4.5vw,3.1rem);line-height:1.05;letter-spacing:-.01em}
+  h3{font-family:var(--sans);font-weight:500;letter-spacing:.04em;font-size:1.02rem;text-transform:uppercase;color:var(--tierra-d);margin-bottom:14px}
+  .lead{font-family:var(--serif);font-size:1.55rem;font-style:italic;color:var(--tinta-suave);max-width:700px;margin-top:14px}
+  p{max-width:680px;margin-bottom:14px;font-size:1.02rem}
+  p.small{font-size:.9rem;color:var(--tinta-suave)}
+  .center{text-align:center}.mx{margin-left:auto;margin-right:auto}
+
+  /* PROGRESS BAR */
+  #progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--atardecer),var(--celeste));z-index:100;transition:width .1s linear}
+
+  /* NAV */
+  nav{position:sticky;top:0;z-index:60;background:rgba(244,237,223,.82);backdrop-filter:blur(10px);border-bottom:1px solid rgba(140,111,82,.18)}
+  nav .page{display:flex;align-items:center;justify-content:space-between;height:64px}
+  nav .brand{font-family:var(--serif);font-weight:600;font-size:1.35rem;letter-spacing:.2em}
+  nav .brand small{font-family:var(--sans);font-size:.5rem;letter-spacing:.3em;vertical-align:super;color:var(--atardecer-d);font-weight:500}
+  nav ul{display:flex;gap:26px;list-style:none}
+  nav a{text-decoration:none;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-suave);transition:color .2s;position:relative}
+  nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:var(--atardecer);transition:width .25s var(--ease)}
+  nav a:hover{color:var(--atardecer-d)}nav a:hover::after{width:100%}
+
+  .btn{background:var(--atardecer);color:#fff;border:none;cursor:pointer;padding:11px 22px;border-radius:30px;font-family:var(--sans);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .2s}
+  .btn:hover{background:var(--atardecer-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(166,90,56,.35)}
+  .btn-ghost{background:transparent;border:1px solid var(--tierra);color:var(--tierra-d)}
+  .btn-ghost:hover{background:var(--tierra);color:#fff;box-shadow:0 10px 24px rgba(140,111,82,.3)}
+  .btn-light{background:#fff;color:var(--atardecer-d)}
+  .btn-light:hover{background:var(--crema);color:var(--atardecer-d);box-shadow:0 12px 28px rgba(43,37,30,.22)}
+  .btn-outline-light{background:transparent;border:1px solid rgba(255,255,255,.6);color:#fff}
+  .btn-outline-light:hover{background:rgba(255,255,255,.12);color:#fff}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:90px 24px;overflow:hidden;background:radial-gradient(1100px 600px at 50% -10%,#fff,var(--crema) 55%,var(--crema-d))}
+  .hero .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.4;z-index:0}
+  .hero .blob.a{width:420px;height:420px;background:var(--celeste-cl);top:-80px;left:-100px;animation:float 14s var(--ease) infinite alternate}
+  .hero .blob.b{width:380px;height:380px;background:#D9A181;bottom:-120px;right:-80px;animation:float 17s var(--ease) infinite alternate-reverse}
+  @keyframes float{to{transform:translate(40px,30px) scale(1.1)}}
+  .hero>*{position:relative;z-index:1}
+  .hero .kicker{font-family:var(--hand);font-size:1.9rem;color:var(--atardecer);margin-bottom:16px}
+  .hero img.logo{width:280px;max-width:74vw;border-radius:20px;box-shadow:0 24px 60px rgba(43,37,30,.18);margin-bottom:34px;animation:rise 1.1s var(--ease) both}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.2rem,6vw,3.7rem);line-height:1.08;max-width:740px;color:var(--tinta)}
+  .hero h1 em{font-style:italic;color:var(--atardecer-d)}
+  .hero p{max-width:560px;margin:24px auto 0;font-family:var(--serif);font-style:italic;font-size:1.32rem;color:var(--tinta-suave)}
+  .hero .cta-row{margin-top:40px;display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+  .hero .scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--tinta-suave);z-index:1}
+  .hero .scroll-hint i{display:block;margin-top:8px;animation:bounce 1.8s infinite}
+  @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+  .pill{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--crema-d);border-radius:30px;padding:7px 18px;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tierra-d);box-shadow:0 6px 18px rgba(43,37,30,.06)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:start}
+  .three{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .card{background:#fff;border-radius:16px;padding:28px 30px;box-shadow:0 10px 30px rgba(43,37,30,.07);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(43,37,30,.12)}
+
+  /* alt section bg */
+  /* fondo de banda full-bleed: el color llega a los bordes aunque el contenido quede en .page */
+  .band-cream{position:relative;z-index:0}
+  .band-cream::before{content:"";position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:linear-gradient(180deg,#fff,var(--crema))}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,var(--crema-d),transparent);max-width:1120px;margin:0 auto}
+
+  /* IDENTIDAD */
+  .swatches{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:24px}
+  .swatch .chip{height:96px;border-radius:14px;box-shadow:0 8px 22px rgba(43,37,30,.12);transition:transform .3s var(--ease)}
+  .swatch:hover .chip{transform:translateY(-5px) scale(1.02)}
+  .swatch .nm{font-size:.78rem;margin-top:10px;text-align:center;color:var(--tinta-suave)}
+  .swatch .hx{font-size:.68rem;text-align:center;color:var(--tierra);letter-spacing:.05em}
+  .type-mini{display:flex;gap:30px;flex-wrap:wrap;margin-top:10px}
+  .type-mini .t{flex:1;min-width:200px}
+
+  /* RESPUESTAS (Q&A) */
+  .qa-card .ico{font-size:1.7rem;color:var(--atardecer);margin-bottom:12px}
+  .qa-card h4{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:8px;line-height:1.15}
+  .qa-card p{font-size:.9rem;color:var(--tinta-suave);margin:0}
+  .qa-card .reco{display:inline-block;margin-top:12px;background:var(--crema);border-radius:10px;padding:8px 12px;font-size:.82rem;color:var(--tierra-d)}
+  .qa-card .reco b{color:var(--atardecer-d)}
+
+  /* WEB */
+  .browser{border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(43,37,30,.22);border:1px solid var(--crema-d);background:#fff;transition:transform .4s var(--ease)}
+  .browser:hover{transform:translateY(-4px)}
+  .browser-bar{background:#e9e1cf;padding:11px 16px;display:flex;align-items:center;gap:8px}
+  .browser-bar .dot{width:11px;height:11px;border-radius:50%}
+  .browser-bar .url{flex:1;background:#fff;border-radius:20px;padding:6px 14px;font-size:.74rem;color:var(--tinta-suave);margin-left:8px;display:flex;align-items:center;gap:8px}
+  .web-hero{position:relative;height:400px;background:linear-gradient(115deg,rgba(43,37,30,.55),rgba(124,65,38,.35)),linear-gradient(125deg,var(--pasto) 0%,#3E3B2C 55%,var(--tierra-d) 100%)}
+  .web-nav{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:22px 38px;color:#fff}
+  .web-nav .logo{font-family:var(--serif);font-weight:600;letter-spacing:.2em;font-size:1.3rem}
+  .web-nav ul{display:flex;gap:24px;list-style:none;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase}
+  .web-hero .copy{position:absolute;bottom:0;padding:48px 38px;color:#fff;max-width:560px}
+  .web-hero .eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.7rem;color:var(--celeste-cl);margin-bottom:12px}
+  .web-hero h3{font-family:var(--serif);color:#fff;font-size:2.7rem;font-weight:500;text-transform:none;letter-spacing:0;line-height:1.05;margin-bottom:18px}
+  .web-hero .cta{background:var(--atardecer);color:#fff;padding:12px 26px;border-radius:30px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;display:inline-flex;gap:8px;align-items:center}
+  .web-strip{display:grid;grid-template-columns:repeat(4,1fr)}
+  .web-strip div{padding:28px 18px;text-align:center;border-right:1px solid var(--crema-d)}
+  .web-strip div:last-child{border-right:none}
+  .web-strip .ic{font-size:1.4rem;margin-bottom:8px}
+  .web-strip .t{font-family:var(--serif);font-size:1.25rem;font-weight:600}
+  .web-strip .s{font-size:.76rem;color:var(--tinta-suave)}
+  .web-gal{display:grid;grid-template-columns:repeat(3,1fr)}
+  .web-gal div{height:154px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-size:1.35rem;font-weight:600;text-align:center;padding:12px}
+  .web-band{background:var(--pasto);color:#fff;padding:44px 38px;text-align:center}
+  .web-band .q{font-family:var(--serif);font-style:italic;font-size:1.7rem;max-width:640px;margin:0 auto}
+
+  /* SERVICIOS */
+  .svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:8px}
+  .svc .s{background:#fff;border-radius:18px;padding:34px 30px;box-shadow:0 10px 30px rgba(43,37,30,.07);border-top:4px solid var(--atardecer);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+  .svc .s:hover{transform:translateY(-6px);box-shadow:0 22px 46px rgba(43,37,30,.13)}
+  .svc .s:nth-child(2){border-top-color:var(--celeste)}
+  .svc .s:nth-child(3){border-top-color:var(--pasto)}
+  .svc .s .ico{font-size:1.9rem;margin-bottom:14px;color:var(--atardecer)}
+  .svc .s:nth-child(2) .ico{color:var(--celeste)}
+  .svc .s:nth-child(3) .ico{color:var(--pasto)}
+  .svc .s h4{font-family:var(--serif);font-size:1.7rem;font-weight:600;margin-bottom:10px}
+  .svc .s ul{list-style:none;margin-top:10px}
+  .svc .s li{padding:8px 0 8px 26px;position:relative;font-size:.92rem;border-bottom:1px solid var(--crema-d)}
+  .svc .s li:last-child{border-bottom:none}
+  .svc .s li i{position:absolute;left:0;top:11px;color:var(--atardecer);font-size:.8rem}
+
+  /* PAQUETES */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:10px;align-items:stretch}
+  .plan{background:#fff;border-radius:18px;padding:34px 28px;box-shadow:0 10px 30px rgba(43,37,30,.08);display:flex;flex-direction:column;position:relative;transition:transform .3s var(--ease)}
+  .plan:hover{transform:translateY(-5px)}
+  .plan.feat{background:linear-gradient(165deg,#332b22,var(--tinta));color:#F4EDDF;box-shadow:0 26px 56px rgba(43,37,30,.34);z-index:2}
+  @media(min-width:761px){.plan.feat{transform:scale(1.05)}.plan.feat:hover{transform:scale(1.05) translateY(-5px)}}
+  .plan.feat h4,.plan.feat .price{color:#fff}
+  .plan .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--atardecer);color:#fff;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:6px 16px;border-radius:20px;white-space:nowrap;display:inline-flex;gap:6px;align-items:center;box-shadow:0 8px 18px rgba(166,90,56,.4)}
+  .plan h4{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:4px}
+  .plan .sub{font-size:.82rem;color:var(--tinta-suave);margin-bottom:18px}
+  .plan.feat .sub{color:#cec2ab}
+  .plan .price{font-family:var(--serif);font-size:2.4rem;font-weight:600;margin-bottom:2px}
+  .plan .price small{font-size:.9rem;font-weight:400;color:var(--tinta-suave)}
+  .plan.feat .price small{color:#cec2ab}
+  .plan ul{list-style:none;margin:18px 0 24px;flex:1}
+  .plan li{padding:9px 0 9px 26px;position:relative;font-size:.9rem;border-bottom:1px solid rgba(140,120,90,.16)}
+  .plan li i{position:absolute;left:0;top:12px;color:var(--atardecer);font-size:.8rem}
+  .plan.feat li{border-bottom:1px solid rgba(255,255,255,.12)}
+  .plan.feat li i{color:var(--celeste)}
+  .plan .btn{justify-content:center;width:100%}
+
+  /* WHY ME */
+  .why{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:8px}
+  .why .w{text-align:center;padding:14px}
+  .why .w .ic{width:58px;height:58px;border-radius:50%;background:var(--crema);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:1.3rem;color:var(--atardecer);box-shadow:0 8px 20px rgba(43,37,30,.08)}
+  .why .w h4{font-family:var(--serif);font-size:1.4rem;font-weight:600;margin-bottom:6px}
+  .why .w p{font-size:.86rem;color:var(--tinta-suave);margin:0}
+
+  /* PROCESO */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:8px;position:relative}
+  .step{text-align:center;padding:10px}
+  .step .n{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--atardecer),var(--tierra-d));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.4rem;font-weight:600;margin:0 auto 16px;box-shadow:0 10px 22px rgba(166,90,56,.3)}
+  .step h4{font-family:var(--sans);font-weight:600;font-size:1rem;margin-bottom:6px}
+  .step p{font-size:.84rem;color:var(--tinta-suave);margin:0}
+
+  /* CTA FINAL */
+  .cta-final{position:relative;background:linear-gradient(135deg,var(--atardecer),var(--tierra-d));color:#fff;text-align:center;overflow:hidden}
+  .cta-final .blob{position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.08);filter:blur(40px)}
+  .cta-final .blob.a{top:-120px;left:-80px}.cta-final .blob.b{bottom:-140px;right:-60px}
+  .cta-final>.page{position:relative;z-index:1}
+  .cta-final h2{color:#fff}
+  .cta-final p{color:rgba(255,255,255,.92);margin:0 auto 8px}
+  .contact-card{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:30px;max-width:520px;margin:32px auto 0;backdrop-filter:blur(6px)}
+  .contact-card .row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.2);font-size:.95rem}
+  .contact-card .row:last-child{border-bottom:none}
+  .contact-card .row span:first-child{opacity:.8;letter-spacing:.06em;text-transform:uppercase;font-size:.78rem;display:inline-flex;gap:8px;align-items:center}
+
+  footer{background:var(--tinta);color:#cec2ab;text-align:center;padding:48px 24px;font-size:.82rem;letter-spacing:.1em}
+  footer a{color:#cec2ab;text-decoration:none}footer a:hover{color:#fff}
+
+  @media(max-width:760px){
+    nav ul{display:none}
+    section{padding:90px 0 64px}
+    .two,.three,.svc,.plans,.steps,.why{grid-template-columns:1fr}
+    .swatches{grid-template-columns:repeat(3,1fr)}
+    .why{grid-template-columns:repeat(2,1fr)}
+  }
+  /* ===== STYLE EXPLORER ===== */
+  .styler-controls{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:8px}
+  @media(max-width:760px){.styler-controls{grid-template-columns:1fr}}
+  .ctrl-group .ctrl-label{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tierra-d);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .chips{display:flex;gap:12px;flex-wrap:wrap}
+  .chip-opt{cursor:pointer;border:1.5px solid var(--crema-d);background:#fff;border-radius:14px;padding:14px 18px;min-width:158px;text-align:left;transition:transform .25s var(--ease),border-color .2s,box-shadow .25s var(--ease);position:relative}
+  .chip-opt:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(43,37,30,.1)}
+  .chip-opt.active{border-color:var(--atardecer);box-shadow:0 0 0 3px rgba(166,90,56,.16),0 12px 28px rgba(43,37,30,.1)}
+  .chip-opt .check{position:absolute;top:10px;right:12px;color:var(--atardecer);opacity:0;transition:opacity .2s;font-size:.85rem}
+  .chip-opt.active .check{opacity:1}
+  .chip-opt .nm{font-weight:600;font-size:.95rem;color:var(--tinta)}
+  .chip-opt .ex{font-size:.78rem;color:var(--tinta-suave);margin-top:2px}
+  .chip-opt .ex .sf{font-size:1.15rem;line-height:1}
+  .chip-opt .dots{display:flex;gap:6px;margin-top:12px}
+  .chip-opt .dots span{width:18px;height:18px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(43,37,30,.08)}
+
+  .preview{margin-top:40px;background:#fff;border-radius:20px;padding:46px 40px;box-shadow:0 16px 40px rgba(43,37,30,.1);text-align:center;border:1px solid var(--crema-d)}
+  .preview .pv-kicker{font-family:var(--hand);font-size:1.7rem;color:var(--atardecer)}
+  .preview .pv-title{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,4vw,2.8rem);line-height:1.08;margin:6px 0 14px;color:var(--tinta)}
+  .preview .pv-text{font-family:var(--sans);max-width:520px;margin:0 auto 24px;color:var(--tinta-suave);font-size:1rem}
+  .preview .pv-sw{display:flex;justify-content:center;gap:12px;margin-top:30px;flex-wrap:wrap}
+  .preview .pv-sw span{width:46px;height:46px;border-radius:12px;box-shadow:0 6px 16px rgba(43,37,30,.12)}
+
+  @media print{
+    nav,#progress,.scroll-hint,.cta-row,.hero p,.hero .blob{display:none}
+    #estilos{display:none}
+    .reveal{opacity:1;transform:none}
+    *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important}
+    section{page-break-inside:avoid;padding:30px 0}
+    .card,.plan,.svc .s,.browser{box-shadow:none;border:1px solid #e5ddcb}
+    .plan.feat{transform:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════════════════
+     CONFIGURACIÓN DE LA PLANTILLA
+     Editá SOLO este bloque para adaptar la propuesta a cualquier marca:
+       · brand .......... nombre, bajada, logo, usuario de Instagram, web del estudio
+       · palette ........ los 6 colores base de la marca (+ sus variantes)
+       · paletteSwatches  nombres visibles de cada color en la sección "Marca"
+       · fonts .......... opciones tipográficas del explorador (usá fuentes de
+                          Google Fonts con pesos 400–700)
+       · schemes ........ esquemas de color del explorador (acentos)
+     El resto del texto (servicios, precios, copys de los mockups) se edita
+     directamente en el HTML de cada sección.
+     ═══════════════════════════════════════════════════════════════════════ -->
+<script id="config">
+const CONFIG = {
+  brand:{
+    name:"DYBA",
+    tagline:"Private Tours · Buenos Aires",
+    logo:"",                          // sin logo: se usa el wordmark (el logo real se diseña en el proyecto)
+    instagram:"",
+    studioName:"Teo Cicciari",
+    studioUrl:"https://teocicciari.com.ar/",
+    studioUrlText:"teocicciari.com.ar"
+  },
+
+  // Paleta base de la marca. Claves semánticas (no cambies las claves, sí los colores):
+  palette:{
+    accent:"#A65A38",  accentDark:"#7C4126",     // acento principal (botones, títulos)
+    accent2:"#C1913F", accent2Light:"#E3C489",   // acento secundario
+    brown:"#8C6F52",   brownDark:"#5E4934",       // color cálido / tierra
+    slate:"#55523F",   slateLight:"#75715C",      // color sobrio / oscuro de apoyo
+    cream:"#F4EDDF",   creamDark:"#E9DFCB",       // fondo claro
+    ink:"#2B251E",     inkSoft:"#5B5245"          // texto
+  },
+
+  // Nombres visibles de los colores en la sección "Marca"
+  paletteSwatches:[
+    {name:"Terracota San Telmo", hex:"#A65A38"},
+    {name:"Pardo Adoquín",       hex:"#8C6F52"},
+    {name:"Oliva Plaza",         hex:"#55523F"},
+    {name:"Dorado Once",         hex:"#C1913F"},
+    {name:"Crema Lino",          hex:"#F4EDDF"}
+  ],
+
+  // Propuestas tipográficas (la primera es la que se aplica por defecto)
+  fonts:[
+    {label:"Editorial viajero",  serif:"EB Garamond",      sans:"Karla"},
+    {label:"Clásico de guía",    serif:"Playfair Display", sans:"Lato"},
+    {label:"Cálido artesanal",   serif:"Fraunces",         sans:"Nunito Sans"}
+  ],
+  hand:"Caveat",   // fuente manuscrita para acentos
+
+  // Esquemas de color del explorador (la primera es la de por defecto)
+  schemes:[
+    {label:"Terracota", desc:"Terracota + dorado", accent:"#A65A38", accentDark:"#7C4126", accent2:"#C1913F", accent2Light:"#E3C489"},
+    {label:"Tierra",    desc:"Pardo + terracota",  accent:"#8C6F52", accentDark:"#5E4934", accent2:"#A65A38", accent2Light:"#D9A181"},
+    {label:"Oliva",     desc:"Oliva + dorado",     accent:"#6B684C", accentDark:"#4A4834", accent2:"#C1913F", accent2Light:"#E3C489"}
+  ]
+};
+</script>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+<nav>
+  <div class="page">
+    <div class="brand" data-brand>DYBA</div>
+    <ul>
+      <li><a href="#marca">Marca</a></li>
+      <li><a href="#estilos">Estilos</a></li>
+      <li><a href="#respuestas">Tus preguntas</a></li>
+      <li><a href="#web">Web</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a class="btn" href="#contacto">Quiero avanzar <i class="fa-solid fa-arrow-right"></i></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="kicker">para Débora, guía de Buenos Aires</div>
+  <h1>Tus tours, tu marca, <em>tus</em> pasajeros</h1>
+  <p>Identidad de marca, logo y página web en inglés — para que los viajeros te encuentren y te contacten directo, sin depender de las agencias.</p>
+  <div class="cta-row">
+    <a class="btn" href="#marca">Ver la propuesta <i class="fa-solid fa-arrow-down"></i></a>
+    <a class="btn btn-ghost" href="#contacto">Hablemos</a>
+  </div>
+  <div class="scroll-hint">Desplazá<i class="fa-solid fa-chevron-down"></i></div>
+</header>
+
+<!-- INTRO -->
+<section class="page band-cream" id="intro">
+  <div class="section-head reveal">
+    <span class="pill"><i class="fa-solid fa-lightbulb"></i> La idea</span>
+    <h2 style="margin-top:18px">Ya tenés lo más difícil: los tours y la experiencia.<br>Falta la marca que lo <em style="font-style:italic;color:var(--atardecer-d)">muestre</em>.</h2>
+  </div>
+  <div class="two">
+    <div class="reveal">
+      <p>Me contaste que tenés un logo y un nombre que nunca te convencieron, un Instagram que no te representa, y reseñas que quedan en manos de las agencias. Y a la vez, un diferencial enorme: tours en inglés para viajeros de todo el mundo y un nicho en crecimiento — el <strong>turismo judaico y kosher-friendly</strong> — que muy pocos trabajan bien.</p>
+      <p>Mi propuesta es construir tu presencia propia, coherente y profesional, en tres piezas que trabajan juntas:</p>
+      <p class="small">Esta misma propuesta ya está diseñada con una identidad pensada para vos — colores tierra, cálidos y naturales, como los que me dijiste que te gustan. Así podés <strong>ver</strong>, no imaginar, cómo se sentiría tu marca.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div class="card reveal d1" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--atardecer)"><i class="fa-solid fa-palette"></i></span><div><strong>Identidad de marca</strong><br><span class="small">Nombre (lo definimos juntos), logo, colores y tipografías.</span></div></div>
+      <div class="card reveal d2" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--pasto)"><i class="fa-solid fa-laptop"></i></span><div><strong>Página web en inglés</strong><br><span class="small">Tus tours, tus reseñas y tu WhatsApp — para el público extranjero.</span></div></div>
+      <div class="card reveal d3" style="display:flex;gap:18px;align-items:center"><span style="font-size:1.6rem;color:var(--celeste)"><i class="fa-brands fa-instagram"></i></span><div><strong>Instagram sin sufrimiento</strong> <span class="small">(opcional)</span><br><span class="small">Plantillas listas para que un post te lleve minutos, no tres horas.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 1 · IDENTIDAD -->
+<section class="page" id="marca">
+  <div class="section-head reveal">
+    <span class="section-num">01 · Tu marca, ya pensada</span>
+    <h2>La identidad visual</h2>
+    <p class="lead">Un sistema visual pensado para vos: logotipo, colores y tipografías que trabajan en conjunto.</p>
+  </div>
+
+  <div class="two">
+    <div class="card center reveal" style="background:var(--crema)">
+      <img data-logo src="" alt="Logotipo" class="mx" style="width:300px;max-width:100%;background:#fff;padding:20px;border-radius:16px;border:3px solid var(--atardecer);box-shadow:0 14px 34px rgba(43,37,30,.16)">
+      <div data-tagline style="font-size:.7rem;letter-spacing:.42em;text-transform:uppercase;color:var(--tierra-d);margin-top:16px">Private Tours · Buenos Aires</div>
+    </div>
+    <div class="reveal d1">
+      <h3>Primero el nombre, después el logo</h3>
+      <p>Antes de diseñar nada, resolvemos juntos la duda que me contaste: ¿tu nombre o uno de fantasía? (más abajo te dejo mi recomendación). Con el nombre definido, diseño un logotipo claro y memorable que funcione en todos los tamaños — y esta vez, que <strong>te guste de verdad</strong>.</p>
+      <p class="small">Para los mockups uso «DYBA» como punto de partida — el nombre definitivo (¿Shalom Baires? ¿otro?) lo elegimos juntos en la etapa de naming, y toda la identidad se adapta a él. Esta vez, para no cambiarlo nunca más.</p>
+      <h3 style="margin-top:26px">Tipografías</h3>
+      <div class="type-mini" id="typeMini">
+        <div class="t"><div style="font-family:var(--serif);font-size:2.6rem;line-height:1">Serif</div><span class="small">Títulos · serif elegante</span></div>
+        <div class="t"><div style="font-family:var(--sans);font-size:2rem;font-weight:300;line-height:1.2">Sans</div><span class="small">Textos · sans clara</span></div>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:50px" class="reveal">Paleta de la marca</h3>
+  <p class="small reveal" style="margin-top:-6px">Parte de lo que ya te gusta: <strong>tonos tierra, beige y naturales</strong> — los mismos colores con los que te vestís — con un dorado cálido de acento.</p>
+  <div class="swatches reveal d1" id="brandSwatches"></div>
+  <p class="small center mx reveal" style="margin-top:20px;max-width:640px">Toda esta identidad se entrega documentada en un <strong>manual de marca completo</strong>: logotipo y sus variantes, usos correctos e incorrectos, paleta con códigos exactos, tipografías, identidad verbal y ejemplos de aplicación. Es la guía para que todo lo que comuniques —web, redes, tarjetas— se vea siempre coherente y profesional, lo hagas vos o cualquier proveedor.</p>
+</section>
+
+<!-- 1B · EXPLORADOR DE ESTILOS -->
+<section class="page band-cream" id="estilos">
+  <div class="section-head reveal">
+    <span class="section-num">Probá variantes</span>
+    <h2>Elegí el estilo que más te gusta</h2>
+    <p class="lead">Me dijiste que no sabés bien qué colores elegir — no hace falta imaginarlo: tocá las opciones y mirá cómo cambia <em style="font-style:italic;color:var(--atardecer-d)">toda</em> la propuesta en vivo.</p>
+  </div>
+
+  <div class="styler-controls reveal d1">
+    <div class="ctrl-group">
+      <div class="ctrl-label"><i class="fa-solid fa-font"></i> Tipografía</div>
+      <div class="chips" id="fontChips"><!-- generado desde CONFIG.fonts --></div>
+    </div>
+
+    <div class="ctrl-group">
+      <div class="ctrl-label"><i class="fa-solid fa-palette"></i> Esquema de color — misma paleta</div>
+      <div class="chips" id="colorChips"><!-- generado desde CONFIG.schemes --></div>
+    </div>
+  </div>
+
+  <!-- Preview en vivo -->
+  <div class="preview reveal d2">
+    <div class="pv-kicker">tu marca, en cada detalle</div>
+    <div class="pv-title"><span data-brand>DYBA</span> · <span data-tagline>Private Tours · Buenos Aires</span></div>
+    <div class="pv-text">Así se ven los títulos, los textos y los colores de la marca con la combinación elegida. Probá las opciones de arriba.</div>
+    <a class="btn" href="#contacto">Book your tour <i class="fa-solid fa-arrow-right"></i></a>
+    <div class="pv-sw">
+      <span style="background:var(--atardecer)"></span>
+      <span style="background:var(--celeste)"></span>
+      <span style="background:var(--tierra)"></span>
+      <span style="background:var(--pasto)"></span>
+      <span style="background:var(--crema);box-shadow:inset 0 0 0 1px var(--crema-d)"></span>
+    </div>
+  </div>
+  <p class="small center mx reveal" style="margin-top:22px">Lo que elijas acá es solo un punto de partida — en la charla inicial lo afinamos juntos. <a href="#estilos" onclick="resetStyle();return false;" style="color:var(--atardecer-d);font-weight:500">Volver al estilo original</a></p>
+</section>
+
+<!-- 2 · TUS PREGUNTAS, RESPONDIDAS -->
+<section class="page band-cream" id="respuestas">
+  <div class="section-head reveal">
+    <span class="section-num">02 · Tus preguntas</span>
+    <h2>Lo que me preguntaste, respondido</h2>
+    <p class="lead">Todo lo que me mandaste en los audios, desglosado — para avanzar sobre respuestas concretas, no sobre dudas.</p>
+  </div>
+
+  <div class="three">
+    <div class="card qa-card reveal d1">
+      <div class="ico"><i class="fa-solid fa-arrows-rotate"></i></div>
+      <h4>¿Queda mal cambiar de nombre otra vez?</h4>
+      <p>No. Una marca se "instala" con años y miles de clientes — vos recién empezás por tu cuenta, así que este es justo el momento de cambiar sin costo. El problema no es cambiar: es cambiar sin método (por eso hoy el logo dice una cosa y el perfil otra, y el link de tu Google Maps quedó roto).</p>
+      <span class="reco"><b>El plan:</b> hacemos el cambio <b>una sola vez y bien hecho</b> — nombre definitivo, logo, Instagram, Maps y web, todo alineado el mismo día. Y no se toca nunca más.</span>
+    </div>
+    <div class="card qa-card reveal d2">
+      <div class="ico"><i class="fa-solid fa-signature"></i></div>
+      <h4>¿Tu nombre o uno de fantasía?</h4>
+      <p>Tu nombre da confianza (se sabe que hay una guía real detrás), pero limita el crecimiento y es difícil de pronunciar para un extranjero. El de fantasía es memorable, pero puede sentirse impersonal — justo lo que no querés.</p>
+      <span class="reco"><b>Mi recomendación:</b> lo mejor de los dos — una marca corta y pronunciable en inglés, <b>con vos al frente</b>: tu cara, tu nombre y tu historia bien visibles en la web. Marca que se recuerda, guía en la que se confía.</span>
+    </div>
+    <div class="card qa-card reveal d3">
+      <div class="ico"><i class="fa-solid fa-compass"></i></div>
+      <h4>¿Marca judaica o para todos?</h4>
+      <p>Hay colegas 100% judaicos y otros generalistas — pero vos no tenés que resignar ninguno de los dos públicos. Encasillar la marca en un solo nicho te cierra puertas; ignorar el nicho desperdicia tu diferencial.</p>
+      <span class="reco"><b>Mi recomendación:</b> una <b>marca paraguas</b> que funcione para todos tus tours, con el turismo judaico como <b>especialidad bien visible</b>: sección propia "Jewish BA · kosher-friendly" en la web, armada para que las familias ortodoxas te encuentren buscando exactamente eso. Si el nicho crece, tendrá su propia página — sin cambiar de marca.</span>
+    </div>
+    <div class="card qa-card reveal d1">
+      <div class="ico"><i class="fa-solid fa-language"></i></div>
+      <h4>¿La web en inglés o en español?</h4>
+      <p>En inglés, sin dudarlo: tu público son europeos y americanos, y hoy tu web en castellano no les habla a ellos. Todo el sitio se diseña pensado para el viajero extranjero.</p>
+      <span class="reco"><b>Y si querés más:</b> se puede sumar la versión en español como segunda etapa, con un selector de idioma. Primero capturamos a tu público principal.</span>
+    </div>
+    <div class="card qa-card reveal d2">
+      <div class="ico"><i class="fa-solid fa-pen-nib"></i></div>
+      <h4>¿Y los textos quién los escribe?</h4>
+      <p>No tenés que sentarte a redactar nada. Yo te paso un cuestionario simple por cada tour (qué se visita, duración, qué incluye, punto de encuentro) y me contestás como te salga — por audio si querés, como hiciste conmigo.</p>
+      <span class="reco"><b>Con eso yo redacto</b> todos los textos del sitio en inglés, con tono profesional y cálido. Vos solo los revisás y aprobás.</span>
+    </div>
+    <div class="card qa-card reveal d3">
+      <div class="ico"><i class="fa-solid fa-calendar-check"></i></div>
+      <h4>¿Calendario de reservas?</h4>
+      <p>No — y está bien que no. Un calendario automático te comprometería fechas que necesitás libres para las agencias, que hoy son tu ingreso principal.</p>
+      <span class="reco"><b>En su lugar:</b> consulta directa por WhatsApp o formulario. El viajero te escribe con fecha y tour, y vos confirmás según tu agenda. Cero compromiso automático, cero conflicto con las agencias.</span>
+    </div>
+    <div class="card qa-card reveal d1">
+      <div class="ico"><i class="fa-solid fa-money-bill-wave"></i></div>
+      <h4>¿Cómo cobrarles?</h4>
+      <p>El cash al final del tour sigue siendo lo usual y no hay que abandonarlo. El problema real es asegurar la reserva de alguien que está a 10.000 km.</p>
+      <span class="reco"><b>La solución típica:</b> una seña online (link de pago o PayPal) para confirmar, y el resto en efectivo al terminar. La web deja las condiciones claras en las preguntas frecuentes, así no hay malentendidos. Lo definimos juntos en la charla.</span>
+    </div>
+    <div class="card qa-card reveal d2">
+      <div class="ico"><i class="fa-solid fa-ranking-star"></i></div>
+      <h4>¿Y las reseñas?</h4>
+      <p>Tenés razón en las dos cosas: el extranjero usa más TripAdvisor que Google, y las reseñas que generaste hasta ahora quedaron en manos de las agencias.</p>
+      <span class="reco"><b>El plan:</b> tu perfil propio de TripAdvisor (además del de Google que ya tenés), enlazado desde la web, con tu propio QR para mostrarle a tus pasajeros directos. Desde el primer tour propio, la reputación empieza a ser tuya.</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- 3 · WEB -->
+<section class="page" id="web">
+  <div class="section-head reveal">
+    <span class="section-num">03 · Página web</span>
+    <h2>Así se vería tu página web</h2>
+    <p class="lead">El lugar donde el viajero pasa de “me interesa” a “let’s book it” — en su idioma.</p>
+  </div>
+
+  <div class="browser reveal">
+    <div class="browser-bar">
+      <span class="dot" style="background:#e0685e"></span>
+      <span class="dot" style="background:#e6c14a"></span>
+      <span class="dot" style="background:#7bbf6a"></span>
+      <span class="url"><i class="fa-solid fa-lock" style="font-size:.66rem"></i> www.dybatours.com</span>
+    </div>
+    <div class="web-hero">
+      <div class="web-nav">
+        <div class="logo" data-brand>DYBA</div>
+        <ul><li>Tours</li><li>About</li><li>Reviews</li><li>Contact</li></ul>
+      </div>
+      <div class="copy">
+        <div class="eyebrow">Private Tours · Buenos Aires</div>
+        <h3>Discover the real Buenos Aires with a local guide</h3>
+        <span class="cta">Plan your tour <i class="fa-brands fa-whatsapp"></i></span>
+      </div>
+    </div>
+    <div class="web-strip">
+      <div><div class="ic" style="color:var(--atardecer)"><i class="fa-solid fa-landmark"></i></div><div class="t">City Tour</div><div class="s">The classics, done right</div></div>
+      <div><div class="ic" style="color:var(--celeste)"><i class="fa-solid fa-star-of-david"></i></div><div class="t">Jewish BA</div><div class="s">Heritage · kosher-friendly</div></div>
+      <div><div class="ic" style="color:var(--pasto)"><i class="fa-solid fa-water"></i></div><div class="t">Tigre Delta</div><div class="s">A day on the river</div></div>
+      <div><div class="ic" style="color:var(--tierra)"><i class="fa-solid fa-horse"></i></div><div class="t">Gaucho Day</div><div class="s">Field day &amp; traditions</div></div>
+    </div>
+    <div class="web-gal">
+      <div style="background:linear-gradient(135deg,var(--atardecer),var(--atardecer-d))"><span><i class="fa-solid fa-music"></i>&nbsp; Tango Shows</span></div>
+      <div style="background:linear-gradient(135deg,var(--tierra),var(--tierra-d))"><span><i class="fa-solid fa-utensils"></i>&nbsp; Food Walking Tours</span></div>
+      <div style="background:linear-gradient(135deg,var(--pasto),#3E3B2C)"><span><i class="fa-solid fa-camera-retro"></i>&nbsp; San Telmo &amp; Recoleta</span></div>
+    </div>
+    <div class="web-band"><div class="q">“Real reviews, direct contact and tours designed around you — with a licensed local guide.”</div></div>
+  </div>
+  <p class="small center mx reveal" style="margin-top:18px;max-width:600px">Este mockup es orientativo: con tus fotos reales de los tours (y tu cara — que es parte de la marca) toma vida.</p>
+
+  <div class="three" style="margin-top:34px">
+    <div class="card reveal d1"><h3 style="margin-bottom:8px"><i class="fa-brands fa-whatsapp" style="color:var(--pasto)"></i> Consulta directa</h3><p class="small" style="margin:0">Botón de WhatsApp y formulario simple. Sin calendario automático: vos confirmás según tu agenda.</p></div>
+    <div class="card reveal d2"><h3 style="margin-bottom:8px"><i class="fa-solid fa-mobile-screen" style="color:var(--celeste)"></i> Mobile primero</h3><p class="small" style="margin:0">Se ve impecable en el celular, que es donde el viajero te va a encontrar mientras planea el viaje.</p></div>
+    <div class="card reveal d3"><h3 style="margin-bottom:8px"><i class="fa-solid fa-ranking-star" style="color:var(--atardecer)"></i> Encontrable y confiable</h3><p class="small" style="margin:0">Optimizada para Google y con tus reseñas de TripAdvisor integradas — la prueba social que el extranjero busca.</p></div>
+  </div>
+</section>
+
+<!-- POR QUÉ YO -->
+<section class="page band-cream" id="porque">
+  <div class="section-head reveal center" style="max-width:720px;margin-left:auto;margin-right:auto">
+    <span class="section-num" style="justify-content:center">Por qué trabajar conmigo</span>
+    <h2>Una sola persona, todo coordinado</h2>
+    <p class="small mx">Nombre, logo, web e Instagram pensados juntos desde el día uno — sin que tengas que coordinar tres proveedores ni explicar lo mismo tres veces.</p>
+  </div>
+  <div class="why">
+    <div class="w reveal d1"><div class="ic"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h4>Coherencia total</h4><p>La misma identidad de punta a punta, sin mescolanzas.</p></div>
+    <div class="w reveal d2"><div class="ic"><i class="fa-solid fa-gauge-high"></i></div><h4>Rápido y claro</h4><p>Plazos definidos y comunicación directa, sin vueltas.</p></div>
+    <div class="w reveal d3"><div class="ic"><i class="fa-solid fa-hand-holding-heart"></i></div><h4>Pensado para vos</h4><p>Que las redes y la web te den trabajo a vos, no al revés.</p></div>
+    <div class="w reveal d4"><div class="ic"><i class="fa-solid fa-earth-americas"></i></div><h4>Entiendo a tu público</h4><p>Diseño y textos pensados para el viajero extranjero.</p></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SERVICIOS -->
+<section class="page" id="servicios">
+  <div class="section-head reveal">
+    <span class="section-num">04 · Qué incluye</span>
+    <h2>Los tres servicios</h2>
+    <p class="lead">Podés tomar uno, dos o los tres. Juntos rinden más: una sola identidad coherente en todos lados.</p>
+  </div>
+
+  <div class="svc">
+    <div class="s reveal d1">
+      <div class="ico"><i class="fa-solid fa-palette"></i></div>
+      <h4>Identidad de marca</h4>
+      <p class="small">El alma visual de tu marca, resuelta de una vez y para siempre.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Naming: definimos el nombre juntos</li>
+        <li><i class="fa-solid fa-check"></i>Logotipo + variantes</li>
+        <li><i class="fa-solid fa-check"></i>Paleta de color (tonos tierra)</li>
+        <li><i class="fa-solid fa-check"></i>Tipografías</li>
+        <li><i class="fa-solid fa-check"></i>Manual de marca (PDF)</li>
+      </ul>
+    </div>
+    <div class="s reveal d2">
+      <div class="ico"><i class="fa-solid fa-laptop"></i></div>
+      <h4>Página web</h4>
+      <p class="small">Tu vidriera en inglés, abierta las 24 hs para el viajero.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Diseño y desarrollo a medida, en inglés</li>
+        <li><i class="fa-solid fa-check"></i>Tus 6 tours presentados con detalle</li>
+        <li><i class="fa-solid fa-check"></i>Textos redactados por mí (vos solo contás)</li>
+        <li><i class="fa-solid fa-check"></i>Consulta directa: WhatsApp + formulario</li>
+        <li><i class="fa-solid fa-check"></i>Reseñas TripAdvisor + Google integradas</li>
+        <li><i class="fa-solid fa-check"></i>Optimización para Google</li>
+      </ul>
+    </div>
+    <div class="s reveal d3">
+      <div class="ico"><i class="fa-brands fa-instagram"></i></div>
+      <h4>Instagram <span style="font-size:.85rem;color:var(--tinta-suave)">(opcional)</span></h4>
+      <p class="small">Para que publicar te lleve minutos, no tres horas — sin hablarle a la cámara.</p>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Foto de perfil + bio nueva</li>
+        <li><i class="fa-solid fa-check"></i>Plantillas editables (Canva)</li>
+        <li><i class="fa-solid fa-check"></i>Portadas de destacados</li>
+        <li><i class="fa-solid fa-check"></i>Grilla de contenido 1er mes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-head reveal center" style="margin-top:70px;margin-bottom:24px">
+    <h2 style="font-size:2.2rem">Paquetes</h2>
+    <p class="small center mx" style="max-width:560px;margin-top:8px">Precios de referencia — los ajustamos juntos según el alcance final. La gestión mensual es <strong>opcional y sin permanencia</strong>: la activás solo los meses que la necesites.</p>
+  </div>
+  <div class="plans">
+    <div class="plan reveal d1">
+      <h4>Sitio Web</h4>
+      <div class="sub">Tu web en inglés, lista para vender</div>
+      <div class="price">USD 400</div>
+      <div class="sub">pago único · gestión opcional USD 25/mes</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Página web a medida, en inglés</li>
+        <li><i class="fa-solid fa-check"></i>Consulta directa por WhatsApp</li>
+        <li><i class="fa-solid fa-check"></i>Reseñas TripAdvisor integradas</li>
+        <li><i class="fa-solid fa-check"></i>Textos redactados por mí</li>
+        <li><i class="fa-solid fa-check"></i>Optimización para Google</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Sitio Web</a>
+    </div>
+    <div class="plan feat reveal d2">
+      <span class="ribbon"><i class="fa-solid fa-star"></i> La que va con vos</span>
+      <h4>Marca + Web</h4>
+      <div class="sub">La propuesta completa: nombre, logo y web</div>
+      <div class="price">USD 500</div>
+      <div class="sub">pago único · gestión opcional USD 25/mes</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Todo lo del Sitio Web</li>
+        <li><i class="fa-solid fa-check"></i>Naming: el nombre, resuelto juntos</li>
+        <li><i class="fa-solid fa-check"></i>Logotipo + manual de marca (PDF)</li>
+        <li><i class="fa-solid fa-check"></i>Paleta y tipografías definitivas</li>
+        <li><i class="fa-solid fa-check"></i>Kit Instagram: plantillas + bio + destacados</li>
+      </ul>
+      <a class="btn btn-light" href="#contacto">Elegir este plan</a>
+    </div>
+    <div class="plan reveal d3">
+      <h4>Marca + Instagram</h4>
+      <div class="sub">Si preferís arrancar solo por la identidad</div>
+      <div class="price">USD 110</div>
+      <div class="sub">pago único</div>
+      <ul>
+        <li><i class="fa-solid fa-check"></i>Naming + identidad de marca completa</li>
+        <li><i class="fa-solid fa-check"></i>Manual de marca (PDF)</li>
+        <li><i class="fa-solid fa-check"></i>Diseño completo de Instagram</li>
+        <li><i class="fa-solid fa-check"></i>Plantillas editables (Canva)</li>
+      </ul>
+      <a class="btn btn-ghost" href="#contacto">Elegir Marca + IG</a>
+    </div>
+  </div>
+  <p class="small center mx reveal" style="margin-top:26px;max-width:640px">¿Qué es la gestión mensual? Hosting y sitio siempre online, cambios chicos de contenido cuando los necesites (precios, tours, fotos) y un reporte mensual claro de visitas y consultas. Mes a mes, sin permanencia: la activás en temporada alta y la pausás cuando quieras.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROCESO -->
+<section class="page" id="proceso">
+  <div class="section-head reveal">
+    <span class="section-num">05 · Cómo trabajamos</span>
+    <h2>El proceso, simple</h2>
+  </div>
+  <div class="steps">
+    <div class="step reveal d1"><div class="n">1</div><h4>Charla inicial</h4><p>Videollamada o café: definimos alcance, estilo y resolvemos la duda del nombre.</p></div>
+    <div class="step reveal d2"><div class="n">2</div><h4>Naming + identidad</h4><p>Te presento el nombre, el logo y la paleta. Ajustamos juntos hasta que te encante.</p></div>
+    <div class="step reveal d3"><div class="n">3</div><h4>Contenidos</h4><p>Te paso el cuestionario por tour, me contestás por audio y yo redacto todo en inglés.</p></div>
+    <div class="step reveal d4"><div class="n">4</div><h4>Web + entrega</h4><p>Sitio online, TripAdvisor enlazado y todo tuyo — te enseño a usarlo sin depender de nadie.</p></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final" id="contacto">
+  <div class="blob a"></div><div class="blob b"></div>
+  <div class="page">
+    <div class="reveal">
+      <span class="section-num" style="color:#F4EDDF;justify-content:center">06 · Hablemos</span>
+      <h2>¿Arrancamos con tu marca propia?</h2>
+      <p class="mx" style="max-width:560px">Contame qué plan te interesa y coordinamos una charla sin compromiso. Me encantaría ayudarte a dejar de construir la reputación de otros y empezar a construir la tuya.</p>
+    </div>
+    <div class="contact-card reveal d1">
+      <div class="row"><span><i class="fa-solid fa-pen-nib"></i> Diseña</span><span data-studio>Teo Cicciari</span></div>
+      <div class="row"><span><i class="fa-solid fa-globe"></i> Web</span><span><a data-studio-link href="https://teocicciari.com.ar/" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">teocicciari.com.ar</a></span></div>
+    </div>
+    <div class="cta-row reveal d2" style="justify-content:center;margin-top:30px;display:flex;gap:14px;flex-wrap:wrap">
+      <a class="btn btn-light" data-studio-link href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver mi portfolio <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Propuesta preparada para Débora · <span data-tagline>Private Tours · Buenos Aires</span> &nbsp;·&nbsp;
+  <a data-studio-link href="https://teocicciari.com.ar/" target="_blank" rel="noopener"><span data-studio>Teo Cicciari</span> — <span data-studio-urltext>teocicciari.com.ar</span></a> &nbsp;·&nbsp; 2026
+</footer>
+
+<script>
+  // ════════ RENDER DESDE CONFIG (no hace falta tocar nada de acá para abajo) ════════
+  const root=document.documentElement;
+  const $=(s,c=document)=>c.querySelector(s);
+  const $$=(s,c=document)=>[...c.querySelectorAll(s)];
+  const brand=CONFIG.brand;
+
+  // 1) Cargar tipografías de Google Fonts (una por familia, pesos 400–700 + faux italic)
+  (()=>{ const fams=new Set();
+    CONFIG.fonts.forEach(f=>{fams.add(f.serif);fams.add(f.sans);});
+    fams.add(CONFIG.hand);
+    fams.forEach(fam=>{ const l=document.createElement('link'); l.rel='stylesheet';
+      l.href='https://fonts.googleapis.com/css2?family='+fam.trim().replace(/\s+/g,'+')+':wght@400;500;600;700&display=swap';
+      document.head.appendChild(l); });
+  })();
+
+  // 2) Paleta base → variables CSS
+  (()=>{ const map={accent:'--atardecer',accentDark:'--atardecer-d',accent2:'--celeste',accent2Light:'--celeste-cl',
+      brown:'--tierra',brownDark:'--tierra-d',slate:'--pasto',slateLight:'--pasto-cl',
+      cream:'--crema',creamDark:'--crema-d',ink:'--tinta',inkSoft:'--tinta-suave'};
+    for(const k in map){ if(CONFIG.palette[k]) root.style.setProperty(map[k],CONFIG.palette[k]); }
+  })();
+
+  // 3) Tokens de marca / estudio
+  $$('[data-brand]').forEach(e=>e.textContent=brand.name);
+  $$('[data-tagline]').forEach(e=>e.textContent=brand.tagline);
+  $$('[data-studio]').forEach(e=>e.textContent=brand.studioName);
+  $$('[data-studio-urltext]').forEach(e=>e.textContent=brand.studioUrlText);
+  $$('[data-studio-link]').forEach(e=>e.href=brand.studioUrl);
+  $$('[data-logo]').forEach(e=>{
+    if(brand.logo){ e.src=brand.logo; }
+    else { const t=document.createElement('div'); t.textContent=brand.name;
+      t.style.cssText='font-family:var(--serif);font-weight:600;font-size:2rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta)';
+      e.replaceWith(t); }
+  });
+
+  // 4) Swatches de la paleta (sección Marca)
+  const swBox=$('#brandSwatches');
+  if(swBox){ swBox.innerHTML=CONFIG.paletteSwatches.map(c=>{
+      const light=/^#(f|e)/i.test(c.hex);
+      return `<div class="swatch"><div class="chip" style="background:${c.hex}${light?';border:1px solid #e5ddcb':''}"></div><div class="nm">${c.name}</div><div class="hx">${c.hex}</div></div>`;
+    }).join(''); }
+
+  // 5) Mini-muestra tipográfica (sección Marca)
+  const typeMini=$('#typeMini');
+  const renderTypeMini=(serif,sans)=>{ if(!typeMini)return;
+    typeMini.innerHTML=
+      `<div class="t"><div style="font-family:'${serif}',serif;font-size:2.6rem;line-height:1">${serif.split(' ')[0]}</div><span class="small">Títulos · serif</span></div>`+
+      `<div class="t"><div style="font-family:'${sans}',sans-serif;font-size:2rem;font-weight:400;line-height:1.2">${sans.split(' ')[0]}</div><span class="small">Textos · sans</span></div>`;
+  };
+
+  // 6) Chips del explorador (tipografías y esquemas)
+  $('#fontChips').innerHTML=CONFIG.fonts.map((f,i)=>
+    `<button class="chip-opt${i===0?' active':''}" data-serif="'${f.serif}',Georgia,serif" data-sans="'${f.sans}',sans-serif" data-sn="${f.serif}" data-ssn="${f.sans}">
+       <i class="fa-solid fa-check check"></i>
+       <div class="nm">${f.label}</div>
+       <div class="ex"><span class="sf" style="font-family:'${f.serif}',serif">${brand.name}</span> · ${f.serif} + ${f.sans}</div>
+     </button>`).join('');
+  $('#colorChips').innerHTML=CONFIG.schemes.map((s,i)=>
+    `<button class="chip-opt${i===0?' active':''}" data-acc="${s.accent}" data-accd="${s.accentDark}" data-sec="${s.accent2}" data-secl="${s.accent2Light}">
+       <i class="fa-solid fa-check check"></i>
+       <div class="nm">${s.label}</div>
+       <div class="ex">${s.desc}</div>
+       <div class="dots"><span style="background:${s.accent}"></span><span style="background:${s.accent2}"></span><span style="background:${CONFIG.palette.slate}"></span><span style="background:${CONFIG.palette.cream}"></span></div>
+     </button>`).join('');
+
+  // Mini-muestra inicial = primera tipografía
+  renderTypeMini(CONFIG.fonts[0].serif,CONFIG.fonts[0].sans);
+
+  // ════════════════════════════════════════════════════════════════════════════════
+  // Barra de progreso de lectura
+  const prog=document.getElementById('progress');
+  const onScroll=()=>{
+    const h=document.documentElement;
+    const sc=h.scrollTop/(h.scrollHeight-h.clientHeight);
+    prog.style.width=(sc*100)+'%';
+  };
+  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // Reveal al hacer scroll
+  const io=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Contadores animados (stats de Instagram)
+  const fmt=(n,sep)=>sep?n.toLocaleString('es-AR'):String(n);
+  const animate=(el)=>{
+    const to=+el.dataset.to, sep=el.dataset.sep, dur=1400, t0=performance.now();
+    const tick=(t)=>{
+      const p=Math.min((t-t0)/dur,1);
+      const val=Math.round(to*(1-Math.pow(1-p,3)));
+      el.textContent=fmt(val,sep);
+      if(p<1)requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  };
+  const co=new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{if(e.isIntersecting){animate(e.target);co.unobserve(e.target);}});
+  },{threshold:.5});
+  document.querySelectorAll('.count').forEach(el=>co.observe(el));
+
+  // ===== Explorador de estilos (interacción) =====
+  const fontChips=$$('#fontChips .chip-opt');
+  const colorChips=$$('#colorChips .chip-opt');
+  const setActive=(group,el)=>{group.forEach(c=>c.classList.remove('active'));el.classList.add('active');};
+
+  const applyFont=(el)=>{
+    root.style.setProperty('--serif',el.dataset.serif);
+    root.style.setProperty('--sans',el.dataset.sans);
+    renderTypeMini(el.dataset.sn,el.dataset.ssn);
+    setActive(fontChips,el);
+  };
+  const applyColor=(el)=>{
+    root.style.setProperty('--atardecer',el.dataset.acc);
+    root.style.setProperty('--atardecer-d',el.dataset.accd);
+    root.style.setProperty('--celeste',el.dataset.sec);
+    root.style.setProperty('--celeste-cl',el.dataset.secl);
+    setActive(colorChips,el);
+  };
+
+  fontChips.forEach(el=>el.addEventListener('click',()=>applyFont(el)));
+  colorChips.forEach(el=>el.addEventListener('click',()=>applyColor(el)));
+
+  // Aplicar la primera opción de cada grupo por defecto
+  applyFont(fontChips[0]); applyColor(colorChips[0]);
+
+  // Volver al estilo original
+  window.resetStyle=()=>{applyFont(fontChips[0]);applyColor(colorChips[0]);};
+</script>
+</body>
+</html>
