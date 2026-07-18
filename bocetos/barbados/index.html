@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbados — Peluquería Unisex e Insumos</title>
+<meta name="description" content="Peluquería unisex Barbados en El Bolsón, Patagonia: cortes, diseños a navaja, color y barba. Dos sucursales y venta de insumos con envíos a toda Argentina.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Lobster+Two:ital,wght@1,700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta:#191a1f;
+    --tinta-suave:#24252c;
+    --crema:#f4ecdc;
+    --crema-osc:#e9dec6;
+    --rojo:#c23b2c;
+    --rojo-osc:#9e2f23;
+    --azul:#2d6f9c;
+    --azul-osc:#1a4a6b;
+    --hueso:#fbf7ee;
+    --stripe:repeating-linear-gradient(-45deg,
+      var(--rojo) 0 14px, var(--hueso) 14px 28px,
+      var(--azul) 28px 42px, var(--hueso) 42px 56px);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Barlow',sans-serif;
+    background:var(--crema);
+    color:var(--tinta);
+    line-height:1.6;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  :focus-visible{outline:3px solid var(--rojo);outline-offset:3px;}
+
+  h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase;line-height:1.05;}
+  .script{
+    font-family:'Lobster Two',cursive;
+    font-style:italic;
+    text-transform:none;
+    color:var(--rojo);
+  }
+
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    font-size:.8rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.28em;
+    display:inline-flex;
+    align-items:center;
+    gap:.7rem;
+  }
+  .eyebrow::before{content:"";width:34px;height:3px;background:var(--rojo);}
+
+  /* ---- cinta de barbero (divisor firma) ---- */
+  .cinta{height:16px;background:var(--stripe);background-size:80px 80px;}
+
+  /* ---- barra superior ---- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:var(--tinta);
+    color:var(--crema);
+    border-bottom:4px solid var(--rojo);
+  }
+  .nav{
+    max-width:1120px;margin:0 auto;padding:.8rem 1.5rem;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  }
+  .marca{
+    font-family:'Lobster Two',cursive;font-style:italic;font-weight:700;
+    font-size:1.7rem;color:var(--crema);text-decoration:none;line-height:1;
+  }
+  .marca span{color:var(--rojo);}
+  .nav ul{display:flex;gap:1.6rem;list-style:none;flex-wrap:wrap;}
+  .nav ul a{
+    font-family:'Oswald',sans-serif;font-size:.85rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.14em;text-decoration:none;
+    padding:.3rem 0;border-bottom:2px solid transparent;
+  }
+  .nav ul a:hover{border-color:var(--rojo);}
+  .nav .cta-mini{
+    background:var(--rojo);padding:.45rem 1rem;border-bottom:none;
+  }
+  .nav .cta-mini:hover{background:var(--rojo-osc);}
+
+  /* ---- hero ---- */
+  .hero{
+    max-width:1120px;margin:0 auto;padding:4.5rem 1.5rem 4rem;
+    display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,6vw,4.6rem);font-weight:700;
+    margin:1.2rem 0 1.4rem;
+  }
+  .hero h1 .script{font-size:1.08em;display:inline-block;transform:rotate(-2deg);}
+  .hero p{font-size:1.12rem;max-width:32rem;color:#3c3d44;}
+  .hero-acciones{display:flex;gap:1rem;margin-top:2.2rem;flex-wrap:wrap;}
+  .boton{
+    font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.12em;text-decoration:none;
+    padding:.95rem 1.9rem;display:inline-block;
+  }
+  .boton-rojo{background:var(--rojo);color:var(--hueso);box-shadow:4px 4px 0 var(--tinta);}
+  .boton-rojo:hover{background:var(--rojo-osc);}
+  .boton-linea{border:2px solid var(--tinta);color:var(--tinta);}
+  .boton-linea:hover{background:var(--tinta);color:var(--crema);}
+
+  .hero-visual{display:flex;align-items:stretch;gap:1.4rem;justify-content:center;}
+  .hero-foto{
+    border:4px solid var(--tinta);
+    box-shadow:10px 10px 0 var(--azul);
+    transform:rotate(1.5deg);
+    max-width:320px;
+  }
+  .hero-foto img{height:100%;object-fit:cover;}
+
+  /* poste de barbero */
+  .poste{display:flex;flex-direction:column;align-items:center;}
+  .poste-tapa,.poste-base{
+    width:44px;height:20px;background:var(--tinta);border-radius:8px 8px 0 0;
+  }
+  .poste-base{border-radius:0 0 8px 8px;}
+  .poste-tubo{
+    width:36px;height:230px;overflow:hidden;
+    border:4px solid var(--tinta);border-top:none;border-bottom:none;
+    background:var(--hueso);
+  }
+  .poste-tubo::before{
+    content:"";display:block;width:100%;height:200%;
+    background:repeating-linear-gradient(-55deg,
+      var(--rojo) 0 12px, var(--hueso) 12px 24px,
+      var(--azul) 24px 36px, var(--hueso) 36px 48px);
+    animation:girar 3.5s linear infinite;
+  }
+  @keyframes girar{from{transform:translateY(-50%);}to{transform:translateY(0);}}
+  @media (prefers-reduced-motion:reduce){
+    .poste-tubo::before{animation:none;}
+    html{scroll-behavior:auto;}
+  }
+
+  /* ---- secciones ---- */
+  section{padding:4.5rem 1.5rem;}
+  .contenido{max-width:1120px;margin:0 auto;}
+  .cabecera-seccion{margin-bottom:2.8rem;max-width:38rem;}
+  .cabecera-seccion h2{font-size:clamp(1.9rem,4vw,2.8rem);margin-top:.9rem;}
+
+  /* precios */
+  .precios{background:var(--tinta);color:var(--crema);}
+  .precios .eyebrow::before{background:var(--azul);}
+  .precios .cabecera-seccion p{color:#b9b4a6;margin-top:.8rem;}
+  .lista-precios{
+    max-width:640px;
+    border:2px solid var(--crema);
+    padding:2.2rem 2rem;
+    background:var(--tinta-suave);
+  }
+  .lista-precios li{
+    list-style:none;display:flex;align-items:baseline;gap:.6rem;
+    padding:.85rem 0;font-size:1.05rem;
+  }
+  .lista-precios li + li{border-top:1px dashed rgba(244,236,220,.25);}
+  .lista-precios .servicio{font-weight:600;}
+  .lista-precios .puntos{flex:1;border-bottom:2px dotted rgba(244,236,220,.4);transform:translateY(-4px);}
+  .lista-precios .precio{
+    font-family:'Oswald',sans-serif;font-weight:600;color:var(--rojo);
+    font-size:1.15rem;letter-spacing:.04em;
+  }
+  .lista-precios .nota{
+    display:block;font-size:.88rem;color:#b9b4a6;font-weight:400;
+  }
+  .precios-pie{margin-top:1.6rem;font-size:.95rem;color:#b9b4a6;}
+
+  /* galería */
+  .galeria-grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1.1rem;
+  }
+  .galeria-grid figure{
+    border:3px solid var(--tinta);background:var(--hueso);
+    padding:.5rem .5rem 0;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .galeria-grid figure:nth-child(odd){transform:rotate(-1deg);}
+  .galeria-grid figure:nth-child(even){transform:rotate(1.2deg);}
+  .galeria-grid figure:hover{transform:rotate(0) scale(1.03);box-shadow:6px 6px 0 var(--azul);}
+  .galeria-grid img{width:100%;aspect-ratio:3/4;object-fit:cover;}
+  .galeria-grid figcaption{
+    font-family:'Oswald',sans-serif;font-size:.75rem;font-weight:500;
+    text-transform:uppercase;letter-spacing:.16em;
+    padding:.5rem .2rem;text-align:center;
+  }
+
+  /* insumos */
+  .insumos{background:var(--azul);color:var(--hueso);}
+  .insumos .eyebrow::before{background:var(--crema);}
+  .insumos-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;}
+  .insumos h2 .script{color:var(--crema);}
+  .insumos p{color:#dcebf5;}
+  .insumos-lista{margin-top:1.4rem;display:grid;gap:.7rem;}
+  .insumos-lista li{
+    list-style:none;display:flex;gap:.8rem;align-items:baseline;font-size:1.02rem;
+  }
+  .insumos-lista li::before{
+    content:"✂";color:var(--crema);font-size:.9rem;transform:translateY(-1px);
+  }
+  .tarjeta-insumos{
+    background:var(--hueso);color:var(--tinta);
+    border:3px solid var(--tinta);box-shadow:10px 10px 0 var(--azul-osc);
+    padding:2.4rem 2.2rem;text-align:center;
+  }
+  .tarjeta-insumos .script{font-size:2rem;display:block;margin-bottom:.6rem;}
+  .tarjeta-insumos p{color:#3c3d44;margin-bottom:1.6rem;}
+
+  /* visita */
+  .visita-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.4rem;margin-top:2.5rem;}
+  .dato{
+    background:var(--hueso);border:3px solid var(--tinta);padding:1.8rem 1.6rem;
+  }
+  .dato h3{font-size:1.05rem;letter-spacing:.1em;margin-bottom:.8rem;display:flex;align-items:center;gap:.6rem;}
+  .dato h3::before{content:"";width:12px;height:12px;background:var(--rojo);display:inline-block;}
+  .dato p{color:#3c3d44;font-size:.98rem;}
+  .dato a{color:var(--azul-osc);font-weight:600;}
+
+  /* banner autor */
+  .autor{background:var(--crema-osc);text-align:center;}
+  .autor .eyebrow{justify-content:center;}
+  .autor .eyebrow::before{background:var(--azul);}
+  .autor h2{font-size:clamp(1.8rem,3.6vw,2.6rem);margin:1rem auto 1rem;max-width:34rem;}
+  .autor h2 .script{color:var(--azul-osc);}
+  .autor p{max-width:32rem;margin:0 auto 2rem;color:#3c3d44;}
+
+  /* footer */
+  footer{background:var(--tinta);color:#b9b4a6;padding:2.5rem 1.5rem;}
+  .footer-inner{
+    max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:.8rem;
+    text-align:center;font-size:.92rem;
+  }
+  footer .marca{font-size:1.4rem;}
+  footer a{color:var(--crema);}
+
+  /* responsive */
+  @media (max-width:860px){
+    .hero{grid-template-columns:1fr;padding-top:3rem;}
+    .hero-visual{order:-1;}
+    .hero-foto{max-width:260px;}
+    .insumos-inner{grid-template-columns:1fr;}
+    .visita-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .nav ul{gap:1rem;}
+    .nav ul li:not(:last-child){display:none;}
+    .poste{display:none;}
+    .hero-foto{transform:none;box-shadow:6px 6px 0 var(--azul);}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav" aria-label="Principal">
+    <a class="marca" href="#inicio">Barba<span>dos</span></a>
+    <ul>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#cortes">Cortes</a></li>
+      <li><a href="#insumos">Insumos</a></li>
+      <li><a href="#visitanos">Visitanos</a></li>
+      <li><a class="cta-mini" href="https://wa.me/5492944799915" target="_blank" rel="noopener">Pedir turno</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero" aria-label="Presentación">
+    <div>
+      <span class="eyebrow">Peluquería unisex · El Bolsón, Patagonia</span>
+      <h1>Tu corte es <span class="script">tu firma</span></h1>
+      <p>Cortes clásicos, fades con diseño a navaja, color fantasía y barba. Atendemos a toda la familia en nuestras dos sucursales de El Bolsón, con el detalle que se nota en el espejo.</p>
+      <div class="hero-acciones">
+        <a class="boton boton-rojo" href="https://wa.me/5492944799915" target="_blank" rel="noopener">Pedir turno por WhatsApp</a>
+        <a class="boton boton-linea" href="#servicios">Ver precios</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="poste" aria-hidden="true">
+        <div class="poste-tapa"></div>
+        <div class="poste-tubo"></div>
+        <div class="poste-base"></div>
+      </div>
+      <figure class="hero-foto">
+        <img src="img/corte-02.jpg" alt="Corte con diseño a navaja hecho en Barbados">
+      </figure>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"></div>
+
+  <section class="precios" id="servicios">
+    <div class="contenido">
+      <div class="cabecera-seccion">
+        <span class="eyebrow">Lista de precios</span>
+        <h2>Servicios de <span class="script">la casa</span></h2>
+        <p>Precios de referencia del boceto. Se ajustan a la lista real del local.</p>
+      </div>
+      <ul class="lista-precios">
+        <li>
+          <span class="servicio">Corte clásico<span class="nota">Tijera o máquina, terminación prolija</span></span>
+          <span class="puntos"></span><span class="precio">$9.000</span>
+        </li>
+        <li>
+          <span class="servicio">Fade + diseño a navaja<span class="nota">Líneas y dibujos como los de la galería</span></span>
+          <span class="puntos"></span><span class="precio">$12.000</span>
+        </li>
+        <li>
+          <span class="servicio">Color fantasía<span class="nota">Decoloración y tono a elección</span></span>
+          <span class="puntos"></span><span class="precio">$25.000</span>
+        </li>
+        <li>
+          <span class="servicio">Corte + barba<span class="nota">Perfilado y toalla caliente</span></span>
+          <span class="puntos"></span><span class="precio">$13.000</span>
+        </li>
+        <li>
+          <span class="servicio">Corte niños<span class="nota">Hasta 12 años</span></span>
+          <span class="puntos"></span><span class="precio">$7.000</span>
+        </li>
+        <li>
+          <span class="servicio">Cejas</span>
+          <span class="puntos"></span><span class="precio">$3.000</span>
+        </li>
+      </ul>
+      <p class="precios-pie">Turnos por WhatsApp o por orden de llegada. Aceptamos efectivo y transferencia.</p>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"></div>
+
+  <section id="cortes">
+    <div class="contenido">
+      <div class="cabecera-seccion">
+        <span class="eyebrow">Galería</span>
+        <h2>Cortes reales, <span class="script">hechos acá</span></h2>
+      </div>
+      <div class="galeria-grid">
+        <figure><img src="img/corte-01.jpg" alt="Corte con líneas a navaja en la nuca" loading="lazy"><figcaption>Diseño a navaja</figcaption></figure>
+        <figure><img src="img/corte-03.jpg" alt="Fade con diseño en la nuca" loading="lazy"><figcaption>Fade + diseño</figcaption></figure>
+        <figure><img src="img/corte-04.jpg" alt="Corte con degradé y líneas" loading="lazy"><figcaption>Degradé</figcaption></figure>
+        <figure><img src="img/corte-05.jpg" alt="Corte con diseño lateral" loading="lazy"><figcaption>Diseño lateral</figcaption></figure>
+        <figure><img src="img/corte-06.jpg" alt="Fade prolijo con terminación a navaja" loading="lazy"><figcaption>Fade clásico</figcaption></figure>
+        <figure><img src="img/corte-07.jpg" alt="Corte con dibujo a navaja" loading="lazy"><figcaption>Freestyle</figcaption></figure>
+        <figure><img src="img/corte-08.jpg" alt="Corte con líneas en la nuca" loading="lazy"><figcaption>Líneas</figcaption></figure>
+        <figure><img src="img/corte-09.jpg" alt="Corte con color azul fantasía" loading="lazy"><figcaption>Color fantasía</figcaption></figure>
+        <figure><img src="img/corte-10.jpg" alt="Corte unisex con degradé" loading="lazy"><figcaption>Unisex</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"></div>
+
+  <section class="insumos" id="insumos">
+    <div class="contenido insumos-inner">
+      <div>
+        <span class="eyebrow">Además del sillón</span>
+        <h2>Insumos de <span class="script">peluquería</span></h2>
+        <p>En nuestros locales vas a encontrar productos para trabajar o para cuidarte el pelo en casa. Hacemos <strong>envíos a toda Argentina 🇦🇷</strong>.</p>
+        <ul class="insumos-lista">
+          <li>Máquinas, tijeras y navajas</li>
+          <li>Tinturas y decolorantes</li>
+          <li>Ceras, geles y shampoos</li>
+          <li>Capas, peines y accesorios</li>
+        </ul>
+      </div>
+      <div class="tarjeta-insumos">
+        <span class="script">¿Sos colega?</span>
+        <p>Consultanos por precios especiales para peluqueros y compras por cantidad.</p>
+        <a class="boton boton-rojo" href="https://wa.me/5492944799915" target="_blank" rel="noopener">Consultar stock</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"></div>
+
+  <section id="visitanos">
+    <div class="contenido">
+      <div class="cabecera-seccion">
+        <span class="eyebrow">Dos sucursales</span>
+        <h2>Te esperamos <span class="script">en El Bolsón</span></h2>
+      </div>
+      <div class="visita-grid">
+        <div class="dato">
+          <h3>Sucursal Sarmiento</h3>
+          <p>Sarmiento 3336<br>Frente al taller de caños de escape<br><a href="https://maps.app.goo.gl/UVEM5ZfQbTr7wVVq8" target="_blank" rel="noopener">Cómo llegar</a></p>
+        </div>
+        <div class="dato">
+          <h3>Sucursal San Martín</h3>
+          <p>San Martín 2123<br>Galería Los Nogales, local 3<br>(al lado de Verde Menta)</p>
+        </div>
+        <div class="dato">
+          <h3>Horarios</h3>
+          <p>Lunes a sábado<br>9:30 a 13:00 · 16:30 a 20:30</p>
+        </div>
+        <div class="dato">
+          <h3>Contacto</h3>
+          <p>WhatsApp: <a href="https://wa.me/5492944799915" target="_blank" rel="noopener">+54 9 2944 79-9915</a><br>Instagram: <a href="https://www.instagram.com/barbados_peluqueria.unisex" target="_blank" rel="noopener">@barbados_peluqueria.unisex</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true"></div>
+
+  <section class="autor">
+    <div class="contenido">
+      <span class="eyebrow">Diseño web</span>
+      <h2>Este boceto lo diseñó <span class="script">Teo Cicciari</span></h2>
+      <p>¿Te gustaría una página así para tu negocio? Pedí la tuya: diseño a medida, rápido y pensado para que te escriban más clientes.</p>
+      <a class="boton boton-rojo" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <a class="marca" href="#inicio">Barba<span>dos</span></a>
+    <p>© <span id="anio"></span> Barbados — Peluquería Unisex e Insumos · El Bolsón, Patagonia Argentina.</p>
+    <p>Boceto diseñado por <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari</a> — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
