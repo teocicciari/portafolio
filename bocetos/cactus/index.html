@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Complejo Los Cactus · Cabañas en Marcos Paz, Buenos Aires</title>
+<meta name="description" content="Bed & breakfast de campo en Marcos Paz. 5 cabañas equipadas para 2, 4 o 6 personas, pileta, playroom, canchas de fútbol y tenis, a poco más de una hora de Buenos Aires." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Complejo Los Cactus · Marcos Paz, Buenos Aires" />
+<meta property="og:description" content="5 cabañas equipadas, pileta, deportes y naturaleza a poco más de una hora de Buenos Aires." />
+<meta property="og:image" content="img/2.png" />
+
+<link rel="icon" type="image/jpeg" href="img/logo.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+
+<style>
+  :root{
+    --pino:#173420;
+    --pino-osc:#0d2015;
+    --musgo:#5c8a5f;
+    --musgo-clara:#93b986;
+    --arena:#f4eee0;
+    --piedra:#e7dcc3;
+    --carbon:#272420;
+    --terracota:#bd8258;
+    --terracota-osc:#985f3b;
+    --piscina:#2f93ad;
+    --wa:#25d366;
+    --radio:16px;
+    --sombra:0 20px 44px -24px rgba(13,32,21,.55);
+    --max:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Figtree',system-ui,sans-serif;
+    color:var(--carbon);
+    background:var(--arena);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.05;font-weight:800;color:var(--pino-osc);letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  section{position:relative}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem)}
+  .eyebrow{
+    font-family:'Bricolage Grotesque';font-weight:700;text-transform:uppercase;
+    letter-spacing:.2em;font-size:.72rem;color:var(--musgo);
+    display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--terracota)}
+
+  /* ---------- SLATS (motivo firma: sombra de la pérgola) ---------- */
+  .slats{height:16px;background:var(--pino-osc);
+    background-image:repeating-linear-gradient(68deg, rgba(255,255,255,.09) 0 8px, transparent 8px 30px);
+  }
+  .slats.claro{background:var(--piedra);
+    background-image:repeating-linear-gradient(68deg, rgba(23,52,32,.08) 0 8px, transparent 8px 30px);
+  }
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease}
+  header .bar{display:flex;align-items:center;justify-content:space-between;padding:.75rem clamp(1.1rem,4vw,2.4rem);transition:.35s ease}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{width:44px;height:44px;border-radius:10px;object-fit:cover;background:#fff;padding:3px}
+  .brand span{font-family:'Bricolage Grotesque';font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:1.15rem;color:#fff}
+  header.scrolled .brand span{color:var(--pino-osc)}
+  nav.links{display:flex;align-items:center;gap:1.9rem}
+  nav.links a{color:#fff;font-weight:600;font-size:.94rem;position:relative;transition:.2s}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--terracota);transition:.25s}
+  nav.links a:hover::after{width:100%}
+  header.scrolled{background:var(--arena);box-shadow:0 6px 24px -16px rgba(0,0,0,.4)}
+  header.scrolled nav.links a{color:var(--pino-osc)}
+  .nav-cta{background:var(--wa);color:#fff!important;padding:.6rem 1.1rem;border-radius:50px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 8px 18px -8px rgba(37,211,102,.7);transition:.2s}
+  .nav-cta:hover{transform:translateY(-2px)}
+  .nav-cta::after{display:none}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+  header.scrolled .burger{color:var(--pino-osc)}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100svh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(13,32,21,.42) 0%,rgba(13,32,21,.12) 38%,rgba(13,32,21,.86) 100%),url('img/2.png') center 30%/cover no-repeat;
+    color:#fff;padding-bottom:clamp(3rem,8vh,5.5rem);
+  }
+  .hero .wrap{width:100%}
+  .hero .eyebrow{color:var(--musgo-clara)}
+  .hero .eyebrow::before{background:var(--musgo-clara)}
+  .hero h1{color:#fff;font-weight:800;font-size:clamp(2.8rem,10vw,6.2rem);text-transform:uppercase;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:38ch;margin:1rem 0 1.8rem;color:#f1ede2;font-weight:400}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:1.2rem;margin-bottom:2rem;font-size:.94rem;color:#eee7d3}
+  .hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .hero-meta i{color:var(--musgo-clara)}
+  .btn-row{display:flex;flex-wrap:wrap;gap:.9rem}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:50px;cursor:pointer;border:0;transition:.22s;font-family:'Figtree'}
+  .btn-primary{background:var(--terracota);color:#fff;box-shadow:0 12px 26px -12px rgba(152,95,59,.85)}
+  .btn-primary:hover{background:var(--terracota-osc);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+  /* ---------- BASE SECCIONES ---------- */
+  .sec{padding:clamp(3.6rem,8vw,6.5rem) 0}
+  .sec-pino{background:var(--pino-osc);color:#e6e6da}
+  .sec-pino h2,.sec-pino h3{color:#fff}
+  .sec-piedra{background:var(--piedra)}
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- EL COMPLEJO ---------- */
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .intro-grid h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.1rem}
+  .intro-grid p{margin-bottom:1.1rem;font-size:1.05rem;color:#453f34}
+  .intro-media img{border-radius:var(--radio);box-shadow:var(--sombra);width:100%;aspect-ratio:4/5;object-fit:cover}
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+  .stat-chip{background:#fff;border-radius:12px;padding:.75rem 1.1rem;box-shadow:0 10px 24px -18px rgba(23,52,32,.5);display:flex;align-items:center;gap:.6rem;font-weight:700;font-family:'Bricolage Grotesque';font-size:.92rem;color:var(--pino-osc)}
+  .stat-chip i{color:var(--terracota)}
+
+  /* ---------- CABAÑAS ---------- */
+  .cab-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,3.5rem);align-items:stretch}
+  .cab-panel{background:#fff;border-radius:var(--radio);padding:clamp(1.8rem,4vw,2.6rem);box-shadow:var(--sombra)}
+  .cab-panel h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:.3rem}
+  .cab-panel .sub{color:var(--terracota-osc);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem;margin-bottom:1.3rem;font-family:'Bricolage Grotesque'}
+  .capacidades{display:flex;gap:1.1rem;margin:1.3rem 0 1.6rem}
+  .cap-badge{width:76px;height:76px;border-radius:50%;border:3px solid var(--piedra);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0}
+  .cap-badge b{font-family:'Bricolage Grotesque';font-size:1.5rem;color:var(--pino-osc);line-height:1}
+  .cap-badge span{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#8a8172;font-weight:700}
+  .cab-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.7rem 1.4rem;margin-top:.4rem}
+  .cab-list li{display:flex;align-items:center;gap:.6rem;font-size:.95rem}
+  .cab-list i{color:var(--musgo);width:18px;text-align:center}
+  .cab-media{position:relative;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+  .cab-media img{width:100%;height:100%;object-fit:cover}
+  .cab-media .tag{position:absolute;left:1rem;bottom:1rem;background:rgba(13,32,21,.82);color:#fff;padding:.55rem 1rem;border-radius:50px;font-size:.82rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+  .cab-media .tag i{color:var(--musgo-clara)}
+
+  /* ---------- RECREACIÓN ---------- */
+  .rec-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(2rem,5vw,3.5rem);align-items:center}
+  .rec-head h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:.6rem}
+  .rec-head p{color:#cdd2c1;font-size:1.02rem;margin-bottom:1.6rem;max-width:52ch}
+  .amen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .amen{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:1.3rem 1.2rem;transition:.25s}
+  .amen:hover{transform:translateY(-4px);background:rgba(255,255,255,.1)}
+  .amen i{font-size:1.15rem;color:var(--musgo-clara);margin-right:.55rem;display:inline-block;vertical-align:-2px}
+  .amen h4{display:inline;font-size:1.02rem;color:#fff;font-weight:700}
+  .amen p{font-size:.88rem;opacity:.8;margin:.5rem 0 0}
+  .rec-media{border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+  .rec-media img{width:100%;aspect-ratio:4/5;object-fit:cover}
+  .chicos-strip{margin-top:1.6rem;background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.28);border-radius:12px;padding:1.1rem 1.3rem;display:flex;flex-wrap:wrap;gap:1.4rem;align-items:center}
+  .chicos-strip .lbl{font-family:'Bricolage Grotesque';font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em;color:var(--terracota);display:flex;align-items:center;gap:.5rem}
+  .chicos-strip span.item{font-size:.92rem;display:flex;align-items:center;gap:.5rem;color:#e6e6da}
+  .chicos-strip i{color:var(--musgo-clara)}
+
+  /* ---------- GALERÍA ---------- */
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:190px;gap:.8rem}
+  .gal-grid figure{overflow:hidden;border-radius:12px}
+  .gal-grid img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .gal-grid figure:hover img{transform:scale(1.06)}
+  .gal-grid .big{grid-column:span 2;grid-row:span 2}
+
+  /* ---------- ZONA ---------- */
+  .zona-wrap{max-width:820px}
+  .zona-wrap h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.1rem}
+  .zona-wrap p{font-size:1.05rem;color:#453f34;margin-bottom:1.2rem}
+  .zona-facts{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.5rem 0}
+  .zona-facts li{list-style:none;display:flex;gap:.8rem;align-items:flex-start;font-size:.96rem}
+  .zona-facts i{color:var(--terracota);margin-top:.25rem}
+
+  /* ---------- RESERVAS ---------- */
+  #reservas{background:var(--pino-osc);color:#e6e6da}
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .res-intro h2{color:#fff;font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+  .res-intro p{color:#cdd2c1;margin-bottom:1.6rem}
+  .res-channels{display:flex;flex-direction:column;gap:.9rem;margin-top:1.6rem}
+  .chan{display:flex;align-items:center;gap:1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);border-radius:var(--radio);padding:1rem 1.2rem;transition:.2s}
+  .chan:hover{background:rgba(255,255,255,.12);transform:translateX(4px)}
+  .chan i{font-size:1.4rem;width:30px;text-align:center}
+  .chan .fa-whatsapp{color:var(--wa)}
+  .chan .fa-instagram{color:#e19a5a}
+  .chan strong{display:block;font-size:1rem;color:#fff}
+  .chan span{font-size:.85rem;color:#b7bcaa}
+  .chan .arrow{margin-left:auto;color:#8f957f}
+
+  form.reserva{background:var(--arena);border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.3rem);box-shadow:var(--sombra)}
+  form.reserva h3{color:var(--pino-osc);font-size:1.5rem;margin-bottom:.3rem}
+  form.reserva .formsub{color:#726b5a;font-size:.9rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1.05rem}
+  .field label{display:block;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:#5c5646;margin-bottom:.4rem;font-family:'Bricolage Grotesque'}
+  .field input,.field select{width:100%;padding:.8rem .9rem;border:1.5px solid var(--piedra);border-radius:10px;font-family:'Figtree';font-size:1rem;background:#fff;color:var(--carbon);transition:.2s}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--musgo);box-shadow:0 0 0 3px rgba(92,138,95,.15)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .btn-submit{width:100%;background:var(--wa);color:#fff;border:0;padding:1rem;border-radius:50px;font-family:'Figtree';font-weight:700;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:.2s;box-shadow:0 12px 24px -12px rgba(37,211,102,.8)}
+  .btn-submit:hover{background:#1eb858;transform:translateY(-2px)}
+  .form-note{font-size:.78rem;color:#8a8172;text-align:center;margin-top:.9rem}
+
+  /* ---------- AUTOR ---------- */
+  .autor{background:linear-gradient(120deg,var(--terracota) 0%,var(--terracota-osc) 100%);color:#fff;text-align:center}
+  .autor .wrap{padding-top:clamp(3rem,7vw,4.5rem);padding-bottom:clamp(3rem,7vw,4.5rem)}
+  .autor .eyebrow{color:#ffe4cf;justify-content:center}
+  .autor .eyebrow::before{background:#ffe4cf}
+  .autor h2{color:#fff;font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:1rem}
+  .autor p{max-width:48ch;margin:0 auto 1.8rem;color:#ffeee2;font-size:1.05rem}
+  .autor .btn{background:#fff;color:var(--terracota-osc);font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+  .autor .btn:hover{transform:translateY(-3px)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--carbon);color:#b8b3a4;padding:clamp(2.6rem,6vw,3.8rem) 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  .foot-brand .name{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+  .foot-brand img{width:46px;height:46px;border-radius:10px;background:#fff;padding:3px}
+  .foot-brand span.wm{font-family:'Bricolage Grotesque';font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#fff;font-size:1.05rem}
+  .foot-brand p{font-size:.92rem;max-width:34ch}
+  footer h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:1.1rem;font-family:'Bricolage Grotesque';font-weight:700}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+  footer ul a,footer ul li{font-size:.93rem;display:flex;align-items:center;gap:.6rem;transition:.2s}
+  footer ul a:hover{color:#fff}
+  footer i{color:var(--musgo-clara);width:18px;text-align:center}
+  .foot-social{display:flex;gap:.7rem;margin-top:1.1rem}
+  .foot-social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:.2s}
+  .foot-social a:hover{background:var(--musgo);color:#fff}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.85rem}
+  .foot-bottom a.autor-link{color:var(--musgo-clara);font-weight:700}
+  .foot-bottom a.autor-link:hover{color:#fff}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--arena);flex-direction:column;justify-content:center;gap:1.8rem;padding:2rem;transform:translateX(100%);transition:.35s ease;box-shadow:-10px 0 40px -20px rgba(0,0,0,.5)}
+    nav.links.open{transform:none}
+    nav.links a{color:var(--pino-osc)!important;font-size:1.15rem}
+    .burger{display:block}
+    .intro-grid,.cab-grid,.rec-grid,.res-grid{grid-template-columns:1fr}
+    .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}
+    .gal-grid .big{grid-column:span 2;grid-row:span 1}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+    .zona-facts{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){
+    .field-row,.cab-list,.capacidades{grid-template-columns:1fr}
+    .capacidades{flex-wrap:wrap}
+    .hero-meta{gap:.7rem}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="top">
+  <div class="bar">
+    <a href="#top" class="brand" aria-label="Complejo Los Cactus - inicio">
+      <img src="img/logo.jpg" alt="Logo Complejo Los Cactus" />
+      <span>Los Cactus</span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#complejo">El complejo</a>
+      <a href="#cabanas">Cabañas</a>
+      <a href="#recreacion">Recreación</a>
+      <a href="#zona">Zona</a>
+      <a href="#reservas">Reservas</a>
+      <a class="nav-cta" href="https://wa.me/5491121695610" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="eyebrow">Bed & breakfast de campo · Marcos Paz</span>
+    <h1>Los Cactus</h1>
+    <p class="lead">Una hectárea y media de naturaleza, cabañas equipadas y aire libre a poco más de una hora de Buenos Aires.</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-location-dot"></i> Marcos Paz, Buenos Aires</span>
+      <span><i class="fa-solid fa-house-chimney"></i> 5 cabañas equipadas</span>
+      <span><i class="fa-solid fa-car"></i> A 1h de CABA</span>
+    </div>
+    <div class="btn-row">
+      <a href="#reservas" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Reservar mi estadía</a>
+      <a href="#cabanas" class="btn btn-ghost"><i class="fa-solid fa-images"></i> Ver las cabañas</a>
+    </div>
+  </div>
+</section>
+<div class="slats"></div>
+
+<!-- ===== EL COMPLEJO ===== -->
+<section class="sec" id="complejo">
+  <div class="wrap intro-grid reveal">
+    <div>
+      <span class="eyebrow">El complejo</span>
+      <h2>Una escapada corta, sin salir del país</h2>
+      <p>Los Cactus es un alojamiento de campo tipo bed & breakfast en Marcos Paz, Provincia de Buenos Aires. El predio abarca una hectárea y media rodeada de naturaleza, ideal para escapadas de fin de semana cortas.</p>
+      <p>A poco más de una hora de la Ciudad de Buenos Aires, es el lugar para bajar un cambio con la familia, la pareja o el grupo de amigos: cada estadía incluye desayuno seco en el alojamiento.</p>
+      <div class="stat-row">
+        <div class="stat-chip"><i class="fa-solid fa-seedling"></i> 1,5 hectáreas</div>
+        <div class="stat-chip"><i class="fa-solid fa-mug-hot"></i> Desayuno incluido</div>
+        <div class="stat-chip"><i class="fa-solid fa-road"></i> A 1h de Buenos Aires</div>
+      </div>
+    </div>
+    <div class="intro-media">
+      <img src="img/4.png" alt="Pileta exterior con solárium y juegos de jardín en Los Cactus" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<!-- ===== CABAÑAS ===== -->
+<section class="sec sec-piedra" id="cabanas">
+  <div class="wrap cab-grid reveal">
+    <div class="cab-panel">
+      <span class="eyebrow">Las cabañas</span>
+      <h2>5 cabañas equipadas</h2>
+      <p class="sub">Para 2, 4 o 6 personas</p>
+      <div class="capacidades">
+        <div class="cap-badge"><b>2</b><span>Personas</span></div>
+        <div class="cap-badge"><b>4</b><span>Personas</span></div>
+        <div class="cap-badge"><b>6</b><span>Personas</span></div>
+      </div>
+      <ul class="cab-list">
+        <li><i class="fa-solid fa-kitchen-set"></i> Cocina completa</li>
+        <li><i class="fa-solid fa-snowflake"></i> Aire y calefacción</li>
+        <li><i class="fa-solid fa-tv"></i> Smart TV</li>
+        <li><i class="fa-solid fa-wifi"></i> Wifi</li>
+        <li><i class="fa-solid fa-fire-burner"></i> Parrilla bajo techo</li>
+        <li><i class="fa-solid fa-couch"></i> Patio individual</li>
+      </ul>
+    </div>
+    <div class="cab-media">
+      <img src="img/1.png" alt="Living exterior bajo pérgola con parrilla en una cabaña de Los Cactus" loading="lazy" />
+      <span class="tag"><i class="fa-solid fa-fire-burner"></i> Patio con parrilla bajo techo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RECREACIÓN ===== -->
+<section class="sec sec-pino" id="recreacion">
+  <div class="wrap rec-grid reveal">
+    <div>
+      <div class="rec-head">
+        <span class="eyebrow">Recreación</span>
+        <h2>Deportes y aire libre para todo el grupo</h2>
+        <p>El predio suma espacios pensados para que cada estadía sea distinta: desde la pileta hasta la cancha de tenis.</p>
+      </div>
+      <div class="amen-grid">
+        <div class="amen"><i class="fa-solid fa-person-swimming"></i><h4>Piscina con solárium</h4><p>Pileta exterior con espacio para tomar sol.</p></div>
+        <div class="amen"><i class="fa-solid fa-table-tennis-paddle-ball"></i><h4>Playroom</h4><p>Metegol y pool bajo techo.</p></div>
+        <div class="amen"><i class="fa-solid fa-futbol"></i><h4>Cancha de fútbol</h4><p>Espacio para el picadito familiar.</p></div>
+        <div class="amen"><i class="fa-solid fa-baseball-bat-ball"></i><h4>Cancha de tenis</h4><p>Uso libre para los huéspedes.</p></div>
+        <div class="amen"><i class="fa-solid fa-person-biking"></i><h4>Bicicletas</h4><p>Uso libre para recorrer el predio.</p></div>
+      </div>
+      <div class="chicos-strip">
+        <span class="lbl"><i class="fa-solid fa-child-reaching"></i> Para los más chicos</span>
+        <span class="item"><i class="fa-solid fa-tree"></i> Amplio espacio verde</span>
+        <span class="item"><i class="fa-solid fa-puzzle-piece"></i> Juegos de jardín</span>
+        <span class="item"><i class="fa-solid fa-circle-notch"></i> Trampolín</span>
+      </div>
+    </div>
+    <div class="rec-media">
+      <img src="img/4.png" alt="Pileta con juegos de jardín de fondo en Los Cactus" loading="lazy" />
+    </div>
+  </div>
+</section>
+<div class="slats claro"></div>
+
+<!-- ===== GALERÍA ===== -->
+<section class="sec" id="galeria">
+  <div class="wrap reveal">
+    <div style="text-align:center;max-width:640px;margin:0 auto 3rem">
+      <span class="eyebrow" style="justify-content:center">Galería</span>
+      <h2>Conocé el complejo</h2>
+    </div>
+    <div class="gal-grid">
+      <figure class="big"><img src="img/2.png" alt="Vista general de las cabañas y el parque de Los Cactus" loading="lazy" /></figure>
+      <figure><img src="img/1.png" alt="Sector de estar bajo pérgola con parrilla" loading="lazy" /></figure>
+      <figure><img src="img/3.png" alt="Deck de descanso con vista al jardín" loading="lazy" /></figure>
+      <figure><img src="img/4.png" alt="Piscina exterior con solárium" loading="lazy" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ZONA ===== -->
+<section class="sec sec-piedra" id="zona">
+  <div class="wrap reveal">
+    <div class="zona-wrap">
+      <span class="eyebrow">La zona</span>
+      <h2>Marcos Paz, Provincia de Buenos Aires</h2>
+      <p>Ubicado sobre Av. Soldado Argentino 1645, en Marcos Paz, a poco más de una hora de distancia de la Ciudad de Buenos Aires. Ideal para escapadas de fin de semana cortas sin alejarse demasiado.</p>
+      <ul class="zona-facts">
+        <li><i class="fa-solid fa-location-dot"></i> <span>Av. Soldado Argentino 1645, B1727 Marcos Paz.</span></li>
+        <li><i class="fa-solid fa-car-side"></i> <span>A poco más de una hora desde CABA.</span></li>
+        <li><i class="fa-solid fa-seedling"></i> <span>Predio de 1,5 hectáreas rodeado de naturaleza.</span></li>
+        <li><i class="fa-brands fa-instagram"></i> <span>Más fotos y videos en @complejoloscactus.</span></li>
+      </ul>
+      <a href="https://www.google.com/maps/search/?api=1&query=Av.+Soldado+Argentino+1645+Marcos+Paz" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.95rem;padding:.8rem 1.4rem;background:var(--pino-osc)"><i class="fa-solid fa-map-location-dot"></i> Ver en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVAS ===== -->
+<section class="sec" id="reservas">
+  <div class="wrap res-grid reveal">
+    <div class="res-intro">
+      <span class="eyebrow" style="color:var(--musgo-clara)">Reservas</span>
+      <h2>Reservá tu estadía</h2>
+      <p>Completá el formulario y te respondemos por WhatsApp con disponibilidad. También podés escribirnos directamente o ver más fotos en Instagram.</p>
+      <div class="res-channels">
+        <a class="chan" href="https://wa.me/5491121695610" target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i>
+          <div><strong>Escribinos al WhatsApp</strong><span>+54 11 2169-5610</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+        <a class="chan" href="https://instagram.com/complejoloscactus" target="_blank" rel="noopener">
+          <i class="fa-brands fa-instagram"></i>
+          <div><strong>@complejoloscactus</strong><span>Fotos y videos actualizados</span></div>
+          <i class="fa-solid fa-arrow-right arrow"></i>
+        </a>
+      </div>
+    </div>
+
+    <form class="reserva" id="formReserva" novalidate>
+      <h3>Pedí tu reserva</h3>
+      <p class="formsub">Te contactamos por WhatsApp para confirmar.</p>
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="personas">Cantidad de personas</label>
+          <select id="personas" name="personas" required>
+            <option value="" disabled selected>Elegir</option>
+            <option>2</option><option>3</option><option>4</option>
+            <option>5</option><option>6</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="checkin">Check in</label>
+          <input type="date" id="checkin" name="checkin" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="checkout">Check out</label>
+        <input type="date" id="checkout" name="checkout" required />
+      </div>
+      <button type="submit" class="btn-submit"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+      <p class="form-note" id="formNote">Al enviar se abre WhatsApp con tu consulta lista.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== AUTOR / PORTAFOLIO ===== -->
+<section class="autor">
+  <div class="wrap">
+    <span class="eyebrow">Diseño web</span>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>¿Tenés un hospedaje y querés un sitio así de cuidado? Mirá más referencias, precios y pedí el tuyo.</p>
+    <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver referencias y precios</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">
+          <img src="img/logo.jpg" alt="Logo Complejo Los Cactus" />
+          <span class="wm">Los Cactus</span>
+        </div>
+        <p>Bed & breakfast de campo en Marcos Paz. Cabañas equipadas, pileta y deportes a poco más de una hora de Buenos Aires.</p>
+        <div class="foot-social">
+          <a href="https://instagram.com/complejoloscactus" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5491121695610" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#complejo">El complejo</a></li>
+          <li><a href="#cabanas">Cabañas</a></li>
+          <li><a href="#recreacion">Recreación</a></li>
+          <li><a href="#zona">Zona</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Av. Soldado Argentino 1645, Marcos Paz</li>
+          <li><a href="https://wa.me/5491121695610" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> +54 11 2169-5610</a></li>
+          <li><a href="https://instagram.com/complejoloscactus" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i> @complejoloscactus</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="anio"></span> Complejo Los Cactus · Marcos Paz, Buenos Aires.</span>
+      <span>Boceto diseñado por <a class="autor-link" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari — Mirá más referencias y precios <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LodgingBusiness",
+  "name":"Complejo Los Cactus",
+  "description":"Bed & breakfast de campo en Marcos Paz, Provincia de Buenos Aires. 5 cabañas equipadas para 2, 4 o 6 personas, pileta, playroom, canchas de fútbol y tenis.",
+  "image":"img/2.png",
+  "telephone":"+54-11-2169-5610",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Av. Soldado Argentino 1645",
+    "addressLocality":"Marcos Paz",
+    "postalCode":"B1727",
+    "addressRegion":"Buenos Aires",
+    "addressCountry":"AR"
+  },
+  "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Piscina exterior con solárium","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Playroom con metegol y pool","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Cancha de fútbol","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Cancha de tenis","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Bicicletas de uso libre","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Wifi","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Aire acondicionado","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Parrilla bajo techo","value":true}
+  ],
+  "sameAs":["https://instagram.com/complejoloscactus"]
+}
+</script>
+
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll);
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const hoy = new Date().toISOString().split('T')[0];
+  const ci = document.getElementById('checkin');
+  const co = document.getElementById('checkout');
+  ci.min = hoy; co.min = hoy;
+  ci.addEventListener('change', () => { co.min = ci.value || hoy; if(co.value && co.value <= ci.value) co.value=''; });
+
+  const form = document.getElementById('formReserva');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const personas = document.getElementById('personas').value;
+    const cin = ci.value, cout = co.value;
+    if(!nombre || !personas || !cin || !cout){
+      note.textContent = 'Completá todos los campos para continuar.';
+      note.style.color = '#985f3b'; return;
+    }
+    if(cout <= cin){
+      note.textContent = 'La fecha de check out debe ser posterior al check in.';
+      note.style.color = '#985f3b'; return;
+    }
+    const fmt = (f) => new Date(f+'T00:00').toLocaleDateString('es-AR',{day:'2-digit',month:'2-digit',year:'numeric'});
+    const msg =
+      `¡Hola Los Cactus! Quiero reservar:%0A`+
+      `• Nombre: ${nombre}%0A`+
+      `• Personas: ${personas}%0A`+
+      `• Check in: ${fmt(cin)}%0A`+
+      `• Check out: ${fmt(cout)}%0A`+
+      `¿Tienen disponibilidad?`;
+    window.open(`https://wa.me/5491121695610?text=${msg}`, '_blank');
+    note.textContent = '¡Listo! Te abrimos WhatsApp con tu consulta.';
+    note.style.color = '#5c8a5f';
+  });
+</script>
+</body>
+</html>
