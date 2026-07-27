@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>La Dorita · Casa de Campo en El Taladro, Cañuelas</title>
+<meta name="description" content="Casa de campo en El Taladro, Partido de Cañuelas. Alquiler de la casa completa, mínimo 3 noches, rodeada de hectáreas de campo abierto. Se aceptan mascotas." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="La Dorita · Casa de Campo, El Taladro, Cañuelas" />
+<meta property="og:description" content="Descanso rural rodeado de campo abierto, a la altura del km 76 de la Ruta 205. Cocina equipada, quincho, horno de barro y mascotas bienvenidas." />
+<meta property="og:image" content="img/hero.png" />
+
+<link rel="icon" type="image/jpeg" href="img/logo.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700;9..144,800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" referrerpolicy="no-referrer" />
+
+<style>
+  :root{
+    --dusk:#182a20;
+    --dusk-osc:#0d1a12;
+    --campo:#5c7a49;
+    --campo-clara:#a8c283;
+    --oro:#e6982f;
+    --oro-clara:#f4c878;
+    --rojo:#b53a26;
+    --rojo-osc:#8f2c1c;
+    --arena:#f6f1e2;
+    --piedra:#ecdfc0;
+    --carbon:#26211a;
+    --radio:16px;
+    --sombra:0 20px 44px -24px rgba(13,26,18,.55);
+    --max:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Work Sans',system-ui,sans-serif;
+    color:var(--carbon);
+    background:var(--arena);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;line-height:1.08;font-weight:700;color:var(--dusk-osc);letter-spacing:-.01em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  section{position:relative}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.4rem)}
+  .eyebrow{
+    font-family:'Fraunces';font-weight:600;font-style:italic;text-transform:uppercase;
+    letter-spacing:.18em;font-size:.76rem;color:var(--campo);
+    display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1rem;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--oro)}
+
+  /* ---------- CERCA (motivo firma: línea de alambrado al atardecer) ---------- */
+  .cerca{height:15px;background:linear-gradient(90deg,var(--oro) 0%,var(--rojo) 100%);
+    background-image:linear-gradient(90deg,var(--oro) 0%,var(--rojo) 100%),repeating-linear-gradient(90deg, rgba(13,26,18,.75) 0 4px, transparent 4px 46px);
+    background-blend-mode:normal;
+  }
+  .cerca.claro{background-image:linear-gradient(90deg,var(--piedra) 0%,var(--piedra) 100%),repeating-linear-gradient(90deg, rgba(24,42,32,.22) 0 4px, transparent 4px 46px);}
+
+  /* ---------- NAV ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.35s ease}
+  header .bar{display:flex;align-items:center;justify-content:space-between;padding:.75rem clamp(1.1rem,4vw,2.4rem);transition:.35s ease}
+  .brand{display:flex;align-items:center;gap:.7rem}
+  .brand img{width:46px;height:46px;border-radius:10px;object-fit:cover;background:#fff;padding:2px}
+  .brand span{font-family:'Fraunces';font-weight:700;letter-spacing:.02em;font-size:1.25rem;color:#fff}
+  header.scrolled .brand span{color:var(--dusk-osc)}
+  nav.links{display:flex;align-items:center;gap:1.9rem}
+  nav.links a{color:#fff;font-weight:600;font-size:.94rem;position:relative;transition:.2s}
+  nav.links a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:2px;background:var(--oro);transition:.25s}
+  nav.links a:hover::after{width:100%}
+  header.scrolled{background:var(--arena);box-shadow:0 6px 24px -16px rgba(0,0,0,.4)}
+  header.scrolled nav.links a{color:var(--dusk-osc)}
+  .nav-cta{background:var(--rojo);color:#fff!important;padding:.6rem 1.2rem;border-radius:50px;font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:.5rem;box-shadow:0 8px 18px -8px rgba(181,58,38,.7);transition:.2s}
+  .nav-cta:hover{transform:translateY(-2px);background:var(--rojo-osc)}
+  .nav-cta::after{display:none}
+  .burger{display:none;background:none;border:0;color:#fff;font-size:1.5rem;cursor:pointer}
+  header.scrolled .burger{color:var(--dusk-osc)}
+
+  /* ---------- HERO ---------- */
+  .hero{min-height:100svh;display:flex;align-items:flex-end;
+    background:linear-gradient(180deg,rgba(13,26,18,.5) 0%,rgba(13,26,18,.1) 40%,rgba(13,26,18,.9) 100%),url('img/hero.png') center 38%/cover no-repeat;
+    color:#fff;padding-bottom:clamp(3rem,8vh,5.5rem);
+  }
+  .hero .wrap{width:100%}
+  .hero .eyebrow{color:var(--oro-clara)}
+  .hero .eyebrow::before{background:var(--oro-clara)}
+  .hero h1{color:#fff;font-weight:800;font-size:clamp(3rem,11vw,7rem);text-shadow:0 2px 30px rgba(0,0,0,.4)}
+  .hero p.lead{font-size:clamp(1.05rem,2.4vw,1.35rem);max-width:40ch;margin:1rem 0 1.8rem;color:#f1ede2;font-weight:400}
+  .hero-meta{display:flex;flex-wrap:wrap;gap:1.2rem;margin-bottom:2rem;font-size:.94rem;color:#eee7d3}
+  .hero-meta span{display:inline-flex;align-items:center;gap:.5rem}
+  .hero-meta i{color:var(--oro-clara)}
+  .btn-row{display:flex;flex-wrap:wrap;gap:.9rem}
+  .btn{display:inline-flex;align-items:center;gap:.6rem;font-weight:700;font-size:1rem;padding:.95rem 1.7rem;border-radius:50px;cursor:pointer;border:0;transition:.22s;font-family:'Work Sans'}
+  .btn-primary{background:var(--rojo);color:#fff;box-shadow:0 12px 26px -12px rgba(143,44,28,.85)}
+  .btn-primary:hover{background:var(--rojo-osc);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.55);backdrop-filter:blur(4px)}
+  .btn-ghost:hover{background:rgba(255,255,255,.22)}
+
+  /* ---------- BASE SECCIONES ---------- */
+  .sec{padding:clamp(3.6rem,8vw,6.5rem) 0}
+  .sec-dusk{background:var(--dusk-osc);color:#e2e4d9}
+  .sec-dusk h2,.sec-dusk h3{color:#fff}
+  .sec-piedra{background:var(--piedra)}
+  .reveal{opacity:0;transform:translateY(26px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- LA CASA ---------- */
+  .intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+  .intro-grid h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.1rem}
+  .intro-grid p{margin-bottom:1.1rem;font-size:1.05rem;color:#453f34}
+  .intro-media{position:relative;border-radius:var(--radio);overflow:hidden;box-shadow:var(--sombra)}
+  .intro-media img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:20% 60%}
+  .intro-media .tag{position:absolute;left:1rem;bottom:1rem;background:rgba(13,26,18,.82);color:#fff;padding:.55rem 1rem;border-radius:50px;font-size:.8rem;font-weight:600;display:flex;align-items:center;gap:.5rem}
+  .intro-media .tag i{color:var(--oro-clara)}
+  .stat-row{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.5rem}
+  .stat-chip{background:#fff;border-radius:12px;padding:.75rem 1.1rem;box-shadow:0 10px 24px -18px rgba(13,26,18,.5);display:flex;align-items:center;gap:.6rem;font-weight:700;font-family:'Fraunces';font-size:.92rem;color:var(--dusk-osc)}
+  .stat-chip i{color:var(--rojo)}
+
+  /* ---------- COMODIDADES ---------- */
+  .amen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;margin-top:2.4rem}
+  .amen{background:#fff;border-radius:var(--radio);padding:1.6rem 1.5rem;box-shadow:0 14px 30px -22px rgba(13,26,18,.4);transition:.25s}
+  .amen:hover{transform:translateY(-4px)}
+  .amen i{font-size:1.5rem;color:var(--rojo);margin-bottom:.8rem;display:block}
+  .amen h4{font-size:1.05rem;margin-bottom:.35rem}
+  .amen p{font-size:.9rem;color:#5c5646}
+
+  /* ---------- ZONA ---------- */
+  .zona-wrap{max-width:820px}
+  .zona-wrap h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1.1rem}
+  .zona-wrap p{font-size:1.05rem;color:#dfe3d3;margin-bottom:1.2rem}
+  .zona-facts{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin:1.5rem 0}
+  .zona-facts li{list-style:none;display:flex;gap:.8rem;align-items:flex-start;font-size:.96rem;color:#e2e4d9}
+  .zona-facts i{color:var(--oro-clara);margin-top:.25rem}
+
+  /* ---------- RESERVAS ---------- */
+  .res-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:start}
+  .res-intro h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:1rem}
+  .res-intro p{color:#453f34;margin-bottom:1.6rem;font-size:1.05rem}
+  .res-note{display:flex;gap:.9rem;align-items:flex-start;background:var(--piedra);border-radius:var(--radio);padding:1.1rem 1.3rem;font-size:.92rem;color:#5c5646}
+  .res-note i{color:var(--rojo);margin-top:.15rem}
+
+  form.reserva{background:var(--dusk-osc);border-radius:var(--radio);padding:clamp(1.5rem,4vw,2.3rem);box-shadow:var(--sombra)}
+  form.reserva h3{color:#fff;font-size:1.5rem;margin-bottom:.3rem}
+  form.reserva .formsub{color:#b7bcaa;font-size:.9rem;margin-bottom:1.4rem}
+  .field{margin-bottom:1.05rem}
+  .field label{display:block;font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--oro-clara);margin-bottom:.4rem;font-family:'Fraunces'}
+  .field input{width:100%;padding:.8rem .9rem;border:1.5px solid rgba(255,255,255,.18);border-radius:10px;font-family:'Work Sans';font-size:1rem;background:rgba(255,255,255,.06);color:#fff;transition:.2s}
+  .field input::placeholder{color:#8f9587}
+  .field input:focus{outline:none;border-color:var(--oro);box-shadow:0 0 0 3px rgba(230,152,47,.18)}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+  .btn-submit{width:100%;background:var(--oro);color:var(--dusk-osc);border:0;padding:1rem;border-radius:50px;font-family:'Work Sans';font-weight:700;font-size:1.05rem;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:.6rem;transition:.2s;box-shadow:0 12px 24px -12px rgba(230,152,47,.6)}
+  .btn-submit:hover{background:var(--oro-clara);transform:translateY(-2px)}
+  .form-note{font-size:.82rem;color:#b7bcaa;text-align:center;margin-top:.9rem}
+
+  /* ---------- AUTOR ---------- */
+  .autor{background:linear-gradient(120deg,var(--rojo) 0%,var(--rojo-osc) 100%);color:#fff;text-align:center}
+  .autor .wrap{padding-top:clamp(3rem,7vw,4.5rem);padding-bottom:clamp(3rem,7vw,4.5rem)}
+  .autor .eyebrow{color:#ffd9cc;justify-content:center}
+  .autor .eyebrow::before{background:#ffd9cc}
+  .autor h2{color:#fff;font-size:clamp(1.8rem,4.5vw,2.8rem);margin-bottom:1rem}
+  .autor p{max-width:48ch;margin:0 auto 1.8rem;color:#ffe9e1;font-size:1.05rem}
+  .autor .btn{background:#fff;color:var(--rojo-osc);font-size:1.05rem;box-shadow:0 14px 30px -14px rgba(0,0,0,.5)}
+  .autor .btn:hover{transform:translateY(-3px)}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--carbon);color:#b8b3a4;padding:clamp(2.6rem,6vw,3.8rem) 0 2rem}
+  .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+  .foot-brand .name{display:flex;align-items:center;gap:.7rem;margin-bottom:1rem}
+  .foot-brand img{width:46px;height:46px;border-radius:10px;background:#fff;padding:2px}
+  .foot-brand span.wm{font-family:'Fraunces';font-weight:700;color:#fff;font-size:1.1rem}
+  .foot-brand p{font-size:.92rem;max-width:34ch}
+  footer h4{color:#fff;font-size:.85rem;text-transform:uppercase;letter-spacing:.14em;margin-bottom:1.1rem;font-family:'Fraunces';font-weight:700}
+  footer ul{list-style:none;display:flex;flex-direction:column;gap:.7rem}
+  footer ul a,footer ul li{font-size:.93rem;display:flex;align-items:center;gap:.6rem;transition:.2s}
+  footer ul a:hover{color:#fff}
+  footer i{color:var(--oro-clara);width:18px;text-align:center}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:1.5rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;font-size:.85rem}
+  .foot-bottom a.autor-link{color:var(--oro-clara);font-weight:700}
+  .foot-bottom a.autor-link:hover{color:#fff}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:880px){
+    nav.links{position:fixed;inset:0 0 0 auto;width:min(78vw,320px);background:var(--arena);flex-direction:column;justify-content:center;gap:1.8rem;padding:2rem;transform:translateX(100%);transition:.35s ease;box-shadow:-10px 0 40px -20px rgba(0,0,0,.5)}
+    nav.links.open{transform:none}
+    nav.links a{color:var(--dusk-osc)!important;font-size:1.15rem}
+    .burger{display:block}
+    .intro-grid,.res-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-brand{grid-column:1/-1}
+    .zona-facts{grid-template-columns:1fr}
+  }
+  @media(max-width:480px){
+    .field-row{grid-template-columns:1fr}
+    .hero-meta{gap:.7rem}
+    .foot-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<header id="top">
+  <div class="bar">
+    <a href="#top" class="brand" aria-label="La Dorita - inicio">
+      <img src="img/logo.jpg" alt="Logo La Dorita Casa de Campo" />
+      <span>La Dorita</span>
+    </a>
+    <nav class="links" id="menu">
+      <a href="#casa">La casa</a>
+      <a href="#comodidades">Comodidades</a>
+      <a href="#zona">Zona</a>
+      <a href="#reservas">Reservas</a>
+      <a class="nav-cta" href="#reservas"><i class="fa-solid fa-calendar-check"></i> Reservar</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Abrir menú"><i class="fa-solid fa-bars"></i></button>
+  </div>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <span class="eyebrow">Casa de campo · El Taladro, Cañuelas</span>
+    <h1>La Dorita</h1>
+    <p class="lead">Vení a disfrutar y desconectarte de todo, rodeado de campo abierto y aire de atardecer.</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-location-dot"></i> El Taladro, Cañuelas (km 76, Ruta 205)</span>
+      <span><i class="fa-solid fa-calendar-days"></i> Estadía mínima de 3 noches</span>
+      <span><i class="fa-solid fa-paw"></i> Se aceptan mascotas</span>
+    </div>
+    <div class="btn-row">
+      <a href="#reservas" class="btn btn-primary"><i class="fa-solid fa-calendar-check"></i> Reservar mi estadía</a>
+      <a href="#casa" class="btn btn-ghost"><i class="fa-solid fa-tree"></i> Conocé la casa</a>
+    </div>
+  </div>
+</section>
+<div class="cerca"></div>
+
+<!-- ===== LA CASA ===== -->
+<section class="sec" id="casa">
+  <div class="wrap intro-grid reveal">
+    <div>
+      <span class="eyebrow">La casa</span>
+      <h2>Un descanso rural sin apuro</h2>
+      <p>La Dorita es una casa de campo ubicada en la zona de El Taladro, alrededor del kilómetro 76 de la Ruta 205, Partido de Cañuelas, provincia de Buenos Aires. Un espacio rodeado de naturaleza y amplias hectáreas de campo, ideal para bajar un cambio de verdad.</p>
+      <p>El alquiler es de la casa completa, con una estadía mínima de 3 días. Cuenta con cocina y heladera equipadas, y se aceptan mascotas: nadie se queda afuera del plan.</p>
+      <div class="stat-row">
+        <div class="stat-chip"><i class="fa-solid fa-calendar-days"></i> Mínimo 3 noches</div>
+        <div class="stat-chip"><i class="fa-solid fa-paw"></i> Mascotas bienvenidas</div>
+        <div class="stat-chip"><i class="fa-solid fa-seedling"></i> Hectáreas de campo abierto</div>
+      </div>
+    </div>
+    <div class="intro-media">
+      <img src="img/hero.png" alt="Atardecer en el campo de La Dorita, El Taladro, Cañuelas" loading="lazy" />
+      <span class="tag"><i class="fa-solid fa-sun"></i> Atardecer en el campo</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMODIDADES ===== -->
+<section class="sec sec-piedra" id="comodidades">
+  <div class="wrap reveal">
+    <div style="text-align:center;max-width:640px;margin:0 auto">
+      <span class="eyebrow" style="justify-content:center">Comodidades</span>
+      <h2>Todo lo necesario para instalarse</h2>
+    </div>
+    <div class="amen-grid">
+      <div class="amen"><i class="fa-solid fa-kitchen-set"></i><h4>Cocina equipada</h4><p>Para cocinar sin depender de nada de afuera.</p></div>
+      <div class="amen"><i class="fa-solid fa-snowflake"></i><h4>Heladera</h4><p>Lista para guardar las compras de toda la estadía.</p></div>
+      <div class="amen"><i class="fa-solid fa-fire-burner"></i><h4>Quincho</h4><p>Espacio cubierto para las comidas al aire libre.</p></div>
+      <div class="amen"><i class="fa-solid fa-fire"></i><h4>Horno de barro</h4><p>Para pizzas y asados con el sabor de siempre.</p></div>
+      <div class="amen"><i class="fa-solid fa-tree"></i><h4>Entorno verde</h4><p>Amplias hectáreas de campo para desconectarse.</p></div>
+      <div class="amen"><i class="fa-solid fa-paw"></i><h4>Mascotas bienvenidas</h4><p>Se aceptan animales durante la estadía.</p></div>
+    </div>
+  </div>
+</section>
+<div class="cerca claro"></div>
+
+<!-- ===== ZONA ===== -->
+<section class="sec sec-dusk" id="zona">
+  <div class="wrap reveal">
+    <div class="zona-wrap">
+      <span class="eyebrow" style="color:var(--oro-clara)">La zona</span>
+      <h2>El Taladro, Partido de Cañuelas</h2>
+      <p>La casa está en la zona rural de El Taladro, alrededor del kilómetro 76 de la Ruta 205, en el Partido de Cañuelas, provincia de Buenos Aires. Un entorno de campo abierto, ideal para desconectar de la rutina.</p>
+      <ul class="zona-facts">
+        <li><i class="fa-solid fa-location-dot"></i> <span>El Taladro, Cañuelas — km 76, Ruta 205.</span></li>
+        <li><i class="fa-solid fa-seedling"></i> <span>Amplias hectáreas de campo abierto.</span></li>
+        <li><i class="fa-brands fa-facebook"></i> <span>Facebook: Casa de Campo La Dorita.</span></li>
+        <li><i class="fa-brands fa-instagram"></i> <span>Instagram: Casa de Campo La Dorita.</span></li>
+      </ul>
+      <a href="https://www.google.com/maps/search/?api=1&query=El+Taladro%2C+Ca%C3%B1uelas%2C+Ruta+205+km+76" target="_blank" rel="noopener" class="btn btn-primary" style="font-size:.95rem;padding:.8rem 1.4rem"><i class="fa-solid fa-map-location-dot"></i> Ver ubicación en el mapa</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESERVAS ===== -->
+<section class="sec" id="reservas">
+  <div class="wrap res-grid reveal">
+    <div class="res-intro">
+      <span class="eyebrow">Reservas</span>
+      <h2>Reservá tu estadía en La Dorita</h2>
+      <p>Completá el formulario con tus datos y las fechas que tenés en mente. Recordá que la estadía mínima es de 3 noches.</p>
+      <div class="res-note"><i class="fa-solid fa-circle-info"></i> Te contactamos a la brevedad para confirmar disponibilidad.</div>
+    </div>
+
+    <form class="reserva" id="formReserva" novalidate>
+      <h3>Pedí tu reserva</h3>
+      <p class="formsub">Dejanos tus datos y te confirmamos la disponibilidad.</p>
+      <div class="field">
+        <label for="nombre">Nombre</label>
+        <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required />
+      </div>
+      <div class="field-row">
+        <div class="field">
+          <label for="personas">Cantidad de personas</label>
+          <input type="number" id="personas" name="personas" min="1" max="30" placeholder="Ej: 6" required />
+        </div>
+        <div class="field">
+          <label for="checkin">Check in</label>
+          <input type="date" id="checkin" name="checkin" required />
+        </div>
+      </div>
+      <div class="field">
+        <label for="checkout">Check out</label>
+        <input type="date" id="checkout" name="checkout" required />
+      </div>
+      <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Enviar consulta</button>
+      <p class="form-note" id="formNote">La estadía mínima es de 3 noches.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===== AUTOR / PORTAFOLIO ===== -->
+<section class="autor">
+  <div class="wrap">
+    <span class="eyebrow">Diseño web</span>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>¿Tenés un hospedaje y querés un sitio así de cuidado? Mirá más referencias, precios y pedí el tuyo.</p>
+    <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" class="btn"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver referencias y precios</a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="name">
+          <img src="img/logo.jpg" alt="Logo La Dorita Casa de Campo" />
+          <span class="wm">La Dorita</span>
+        </div>
+        <p>Casa de campo en El Taladro, Partido de Cañuelas. Alquiler de la casa completa, rodeada de hectáreas de campo abierto.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <ul>
+          <li><a href="#casa">La casa</a></li>
+          <li><a href="#comodidades">Comodidades</a></li>
+          <li><a href="#zona">Zona</a></li>
+          <li><a href="#reservas">Reservas</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> El Taladro, Cañuelas (km 76, Ruta 205)</li>
+          <li><i class="fa-brands fa-facebook"></i> Casa de Campo La Dorita</li>
+          <li><i class="fa-brands fa-instagram"></i> Casa de Campo La Dorita</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="anio"></span> La Dorita · El Taladro, Cañuelas, Buenos Aires.</span>
+      <span>Boceto diseñado por <a class="autor-link" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari — Mirá más referencias y precios <i class="fa-solid fa-arrow-up-right-from-square"></i></a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JSON-LD ===== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"LodgingBusiness",
+  "name":"La Dorita - Casa de Campo",
+  "description":"Casa de campo en El Taladro, alrededor del kilómetro 76 de la Ruta 205, Partido de Cañuelas, provincia de Buenos Aires. Alquiler de la casa completa con estadía mínima de 3 días.",
+  "image":"img/hero.png",
+  "address":{
+    "@type":"PostalAddress",
+    "addressLocality":"Cañuelas",
+    "addressRegion":"Buenos Aires",
+    "addressCountry":"AR"
+  },
+  "amenityFeature":[
+    {"@type":"LocationFeatureSpecification","name":"Cocina equipada","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Heladera","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Quincho","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Horno de barro","value":true},
+    {"@type":"LocationFeatureSpecification","name":"Se aceptan mascotas","value":true}
+  ]
+}
+</script>
+
+<script>
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  const header = document.getElementById('top');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+  onScroll(); window.addEventListener('scroll', onScroll);
+
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => menu.classList.toggle('open'));
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  const hoy = new Date().toISOString().split('T')[0];
+  const ci = document.getElementById('checkin');
+  const co = document.getElementById('checkout');
+  ci.min = hoy; co.min = hoy;
+  ci.addEventListener('change', () => { co.min = ci.value || hoy; if(co.value && co.value <= ci.value) co.value=''; });
+
+  const MIN_NOCHES = 3;
+  const form = document.getElementById('formReserva');
+  const note = document.getElementById('formNote');
+  form.addEventListener('submit', (ev) => {
+    ev.preventDefault();
+    const nombre = document.getElementById('nombre').value.trim();
+    const personas = document.getElementById('personas').value;
+    const cin = ci.value, cout = co.value;
+    if(!nombre || !personas || !cin || !cout){
+      note.textContent = 'Completá todos los campos para continuar.';
+      note.style.color = '#e6982f'; return;
+    }
+    if(cout <= cin){
+      note.textContent = 'La fecha de check out debe ser posterior al check in.';
+      note.style.color = '#e6982f'; return;
+    }
+    const noches = Math.round((new Date(cout) - new Date(cin)) / 86400000);
+    if(noches < MIN_NOCHES){
+      note.textContent = `La estadía mínima es de ${MIN_NOCHES} noches.`;
+      note.style.color = '#e6982f'; return;
+    }
+    note.textContent = `¡Gracias, ${nombre}! Registramos tu consulta. Te contactamos a la brevedad para confirmar disponibilidad.`;
+    note.style.color = '#a8c283';
+    form.reset();
+  });
+</script>
+</body>
+</html>
