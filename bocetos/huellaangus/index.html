@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Huella Angus — Catálogo de Toros PP</title>
+<meta name="description" content="Catálogo de toros Aberdeen Angus PP de La Huella Angus. Genética con resultados: DEP, pedigrí y fotos de cada toro disponible.">
+<link rel="icon" type="image/jpeg" href="img/huella-angus.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="container">
+    <a href="#top" class="brand">
+      <img src="img/huella-angus.jpg" alt="Logo La Huella Angus">
+      <span class="brand-text">La Huella Angus<span>Genética con resultados</span></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú"><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#remate">6° Remate</a></li>
+      <li><a href="#catalogo">Catálogo</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a class="nav-cta" href="#catalogo">Ver toros</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <symbol id="hoof" viewBox="0 0 60 70">
+          <ellipse cx="19" cy="35" rx="15.5" ry="25" transform="rotate(-9 19 35)"/>
+          <ellipse cx="41" cy="35" rx="15.5" ry="25" transform="rotate(9 41 35)"/>
+        </symbol>
+        <radialGradient id="heroGlow" cx="80%" cy="12%" r="60%">
+          <stop offset="0%" stop-color="#8a9a6b" stop-opacity=".35"/>
+          <stop offset="100%" stop-color="#8a9a6b" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1440" height="900" fill="url(#heroGlow)"/>
+      <g fill="#4b5a2a">
+        <use href="#hoof" x="985" y="742" width="66" height="77" opacity=".38"/>
+        <use href="#hoof" x="1058" y="668" width="60" height="70" opacity=".33" transform="rotate(-6 1088 703)"/>
+        <use href="#hoof" x="1108" y="586" width="54" height="63" opacity=".28" transform="rotate(5 1135 617)"/>
+        <use href="#hoof" x="1168" y="512" width="49" height="57" opacity=".24" transform="rotate(-6 1192 540)"/>
+        <use href="#hoof" x="1210" y="432" width="44" height="51" opacity=".2" transform="rotate(5 1232 457)"/>
+        <use href="#hoof" x="1260" y="362" width="39" height="45" opacity=".16" transform="rotate(-6 1280 384)"/>
+        <use href="#hoof" x="1296" y="292" width="34" height="40" opacity=".13" transform="rotate(5 1313 312)"/>
+        <use href="#hoof" x="1336" y="228" width="30" height="35" opacity=".1" transform="rotate(-6 1351 245)"/>
+        <use href="#hoof" x="1366" y="172" width="26" height="30" opacity=".08" transform="rotate(5 1379 187)"/>
+      </g>
+    </svg>
+  </div>
+  <div class="hero-content container">
+    <p class="eyebrow">Cabaña La Huella Angus</p>
+    <h1>Genética con resultados,<br><em>lote a lote.</em></h1>
+    <p class="hero-sub">Somos criadores de Aberdeen Angus PP. Cada toro que sale de La Huella lleva generaciones de selección genética puestas al servicio de tu rodeo.</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><b>12</b><span>Toros PP en oferta</span></div>
+      <div class="hero-stat"><b>4</b><span>Líneas de padres</span></div>
+      <div class="hero-stat"><b>100%</b><span>Angus PP</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="#catalogo" class="btn btn-primary">Ver catálogo de toros</a>
+      <a href="#remate" class="btn btn-outline">6° Remate Anual · 14/08</a>
+    </div>
+  </div>
+</header>
+
+<section class="intro" id="nosotros">
+  <div class="container intro-grid">
+    <div class="intro-copy">
+      <p class="eyebrow">Quiénes somos</p>
+      <h2 style="margin:.6rem 0 1.2rem;">Una huella que se nota en el rodeo</h2>
+      <p class="lede">En La Huella Angus trabajamos la genética Aberdeen Angus PP con un solo objetivo: que se note en el campo, no solo en la planilla.</p>
+      <p>Seleccionamos cada padre y cada vientre pensando en el toro que vas a necesitar dentro de dos o tres generaciones: fácil de parir, fértil, con marca de raza y capacidad de terminación. Por eso nuestros toros son hijos de líneas probadas —Sancho Panza, OCC Emblazón 854 E, OCC Double Wide, Gentil y Horus— cruzadas sobre nuestras propias madres PP.</p>
+      <p>Este catálogo reúne los toros disponibles de la temporada, con su información genética y de pedigrí, para que la decisión de compra se tome con datos, no solo a ojo.</p>
+    </div>
+    <div class="intro-media">
+      <img src="img/toro2.png" alt="Vaquillona PP de la cabaña La Huella Angus a campo" loading="lazy">
+      <div class="tag-pin"><b>PP</b>Pedigrí Puro certificado en toda nuestra genética</div>
+    </div>
+  </div>
+</section>
+
+<svg class="huella-divider" viewBox="0 0 1200 34" preserveAspectRatio="none" aria-hidden="true">
+  <path d="M0 17 C 150 5, 250 30, 400 17 S 650 5, 800 17 S 1050 30, 1200 17"/>
+</svg>
+
+<section class="remate" id="remate">
+  <div class="container remate-grid">
+    <div>
+      <p class="eyebrow">Próxima fecha</p>
+      <h2 style="margin:.6rem 0 0;">6° Remate Anual</h2>
+      <p style="margin-top:.8rem;max-width:42ch;color:#dfe3cc;">Junto a Cirio Hermanos, ponemos en pista lo mejor de nuestra genética 2026: 12 toros PP hijos de Sancho Panza, OCC Emblazón 854 E, OCC Double Wide, Gentil y Horus, más 4 vaquillonas PP.</p>
+      <ul class="remate-facts">
+        <li><b>14/08/26</b><span>Fecha del remate</span></li>
+        <li><b>Sociedad Rural de Saladillo</b><span>Lugar</span></li>
+        <li><b>12 toros PP</b><span>La Huella Angus</span></li>
+        <li><b>35 toros PPC</b><span>Cirio Hermanos</span></li>
+      </ul>
+      <div class="remate-actions">
+        <a class="btn btn-primary" href="https://wa.me/5492345510720" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+        <a class="btn btn-outline" href="https://www.instagram.com/cabanalahuellaangus" target="_blank" rel="noopener">@cabanalahuellaangus</a>
+      </div>
+    </div>
+    <div class="remate-media">
+      <img src="img/flyer.png" alt="Flyer del 6° Remate Anual de La Huella Angus y Cirio Hermanos, 14 de agosto de 2026 en la Sociedad Rural de Saladillo" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section class="catalogo" id="catalogo">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Catálogo 2026</p>
+        <h2>Toros disponibles</h2>
+      </div>
+      <p>Filtrá por línea de padre u ordená por el DEP que más te importe. Tocá un toro para ver su ficha completa.</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="toolbar-search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="buscarToro" placeholder="Buscar por nombre, lote o padre…" aria-label="Buscar toro">
+      </div>
+      <div class="toolbar-filters">
+        <select id="filtroPadre" aria-label="Filtrar por padre">
+          <option value="">Todos los padres</option>
+        </select>
+        <select id="ordenarPor" aria-label="Ordenar por">
+          <option value="lote">Ordenar: por lote</option>
+          <option value="ced">Mayor facilidad de parto (CED)</option>
+          <option value="ww">Mayor peso al destete (WW)</option>
+          <option value="marb">Mayor marmoleo</option>
+          <option value="b">Mayor $B</option>
+        </select>
+      </div>
+      <span class="toolbar-count" id="conteoToros"></span>
+    </div>
+
+    <div class="grid-toros" id="gridToros"></div>
+  </div>
+</section>
+
+<section class="autor">
+  <div class="container autor-inner">
+    <p class="eyebrow">Diseño web</p>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>Si tenés un negocio de campo, un comercio o cualquier proyecto y querés un sitio con esta misma atención al detalle, hacelo tuyo.</p>
+    <a class="btn btn-primary" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+<footer id="contacto">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <img src="img/huella-angus.jpg" alt="Logo La Huella Angus">
+          <span>La Huella Angus</span>
+        </div>
+        <p>Criadores de Aberdeen Angus PP. Genética con resultados, generación tras generación.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+5492345510720">Carlos Rocca · 2345-510720</a></li>
+          <li><a href="https://www.instagram.com/cabanalahuellaangus" target="_blank" rel="noopener">@cabanalahuellaangus</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Recorré el sitio</h4>
+        <ul>
+          <li><a href="#nosotros">Nosotros</a></li>
+          <li><a href="#remate">6° Remate Anual</a></li>
+          <li><a href="#catalogo">Catálogo de toros</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="anioActual"></span> La Huella Angus</span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal">
+    <button class="modal-close" id="modalClose" aria-label="Cerrar ficha">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 6l12 12M18 6 6 18"/></svg>
+    </button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
