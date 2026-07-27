@@ -365,9 +365,9 @@ section{ padding:5.5rem 0; }
 .modal-close svg{ width:16px; height:16px; }
 
 .modal-grid{ display:grid; grid-template-columns:.9fr 1.1fr; }
-.modal-media{ position:relative; min-height:280px; }
+.modal-media{ position:relative; min-height:280px; min-width:0; }
 .modal-media img{ width:100%; height:100%; object-fit:cover; position:absolute; inset:0; }
-.modal-info{ padding:2rem 2.1rem 2.2rem; }
+.modal-info{ padding:2rem 2.1rem 2.2rem; min-width:0; }
 .modal-info .eyebrow{ margin-bottom:.6rem; }
 .modal-info h3{ font-size:2rem; margin-bottom:.2rem; }
 .modal-info .card-meta{ margin-bottom:1rem; }
@@ -393,7 +393,10 @@ table.epd-table tbody tr:nth-child(even){ background:var(--crema); }
 @media (max-width:760px){
   .modal-grid{ grid-template-columns:1fr; }
   .modal-media{ min-height:220px; }
+  .modal-info{ padding:1.4rem 1.2rem 1.6rem; }
+  .modal-info h3{ font-size:1.6rem; }
   .modal-pedigree{ grid-template-columns:1fr; }
+  table.epd-table th, table.epd-table td{ padding:.5rem .55rem; font-size:.72rem; }
 }
 
 /* ================= AUTOR BANNER ================= */
