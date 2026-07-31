@@ -433,6 +433,158 @@
     }
 }
 
+/* Palmarés — experiencia compitiendo.
+   Cada tarjeta se lee como una fila de planilla de torneo: tipo de resultado
+   a la izquierda, años a la derecha, unidos por la línea punteada. */
+.palmares-section {
+    padding: 80px 20px;
+    background-color: var(--secondary-dark);
+}
+
+.palmares-container {
+    max-width: calc(var(--container-max) - 320px);
+    margin: 0 auto;
+}
+
+.palmares-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    font-size: var(--fs-small);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: var(--space-5);
+}
+
+.palmares-group::after {
+    content: '';
+    flex: 1 1 auto;
+    height: 1px;
+    background-color: var(--border-subtle);
+}
+
+.palmares-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+}
+
+.palmares-grid--recent {
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: var(--space-7);
+}
+
+.palmares-card {
+    background-color: var(--primary-dark);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+    transition: border-color var(--dur-base) var(--ease-out),
+                transform var(--dur-base) var(--ease-out),
+                box-shadow var(--dur-base) var(--ease-out);
+}
+
+.palmares-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+.palmares-card--lead {
+    grid-column: 1 / -1;
+    padding: var(--space-6);
+}
+
+.palmares-meta {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.palmares-kind {
+    flex: none;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.palmares-dots {
+    flex: 1 1 auto;
+    border-bottom: 1px dashed var(--border-subtle);
+    transform: translateY(-0.25em);
+}
+
+.palmares-years {
+    flex: none;
+    font-size: var(--fs-small);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-secondary);
+}
+
+.palmares-card h4 {
+    font-size: var(--fs-h3);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+}
+
+.palmares-card--lead h4 {
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+}
+
+.palmares-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.palmares-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    list-style: none;
+    margin: var(--space-5) 0 0;
+    padding: 0;
+}
+
+.palmares-tags li {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-4);
+    border: 1px solid var(--border-hover);
+    border-radius: 999px;
+    background-color: var(--accent-soft);
+}
+
+.palmares-tag-cat {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.palmares-tag-year {
+    font-size: var(--fs-small);
+    font-variant-numeric: tabular-nums;
+    color: var(--accent);
+}
+
+@media (max-width: 900px) {
+    .palmares-grid,
+    .palmares-grid--recent {
+        grid-template-columns: 1fr;
+    }
+
+    .palmares-card--lead {
+        padding: var(--space-5);
+    }
+}
+
 /* El fade-in por scroll vive en style.css (IntersectionObserver + .active).
    Acá había una animación duplicada que lo pisaba y hacía visible todo
    de inmediato; se eliminó en la v2. */
