@@ -1057,7 +1057,8 @@ h1 {
 .project-card {
     background-color: var(--primary-dark);
     border: 1px solid var(--border-subtle);
-    border-radius: var(--radius-md);
+    /* Esquinas superiores rectas: la imagen apoya a ras del borde. */
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
     overflow: hidden;
     cursor: pointer;
     transition: transform var(--dur-base) var(--ease-out),
