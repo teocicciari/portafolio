@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buena Vida Social Club — Hostería de montaña en El Bolsón</title>
+<meta name="description" content="Hostería en la ladera del Cerro Piltriquitrón, a 3,5 km del centro de El Bolsón. Vista al valle y la cordillera, desayuno casero con productos de la zona, deck y solárium con pileta.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Mulish:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ============ BASE ============ */
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --musgo:#32320C;
+  --musgo-2:#232307;
+  --oliva:#6A7200;
+  --lima:#B2BF00;
+  --ocre:#E0A32A;
+  --ladrillo:#A24E2E;
+  --papel:#F7F2E6;
+  --papel-2:#EEE5CF;
+  --tinta:#2A2712;
+  --suave:rgba(42,39,18,.70);
+  --maxw:1180px;
+  --gable:polygon(50% 0%, 100% 20%, 100% 100%, 0% 100%, 0% 20%);
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{
+  font-family:'Mulish',"Helvetica Neue",Helvetica,Arial,sans-serif;
+  background:var(--papel);color:var(--tinta);
+  line-height:1.7;font-weight:400;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img{display:block;max-width:100%}
+a{color:inherit}
+::selection{background:var(--lima);color:var(--musgo)}
+:focus-visible{outline:3px solid var(--lima);outline-offset:3px;border-radius:2px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 1.5rem;width:100%}
+.sec{padding:clamp(4.5rem,9vw,7.5rem) 0;position:relative}
+section[id]{scroll-margin-top:76px}
+
+.eyebrow{
+  display:inline-block;font-size:.7rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.26em;color:var(--oliva);
+  margin-bottom:1.1rem;
+}
+h1,h2,.display{font-family:'Abril Fatface',Georgia,serif;font-weight:400;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5vw,3.4rem);line-height:1.05;color:var(--musgo)}
+h3{font-family:'Mulish',sans-serif;font-weight:800;font-size:1.1rem;letter-spacing:-.01em}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--suave);font-weight:300}
+p+p{margin-top:1rem}
+
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:1rem 1.9rem;border:none;cursor:pointer;
+  font-family:'Mulish',sans-serif;font-size:.82rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.14em;text-decoration:none;
+  background:var(--lima);color:var(--musgo);border-radius:2px;
+  transition:background .25s,color .25s,transform .25s,box-shadow .25s;
+}
+.btn:hover{background:var(--musgo);color:var(--lima);transform:translateY(-2px);box-shadow:0 10px 24px -12px rgba(50,50,12,.6)}
+.btn--ghost{background:transparent;color:#fff;box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.45)}
+.btn--ghost:hover{background:#fff;color:var(--musgo);box-shadow:none}
+.btn svg{width:16px;height:16px;stroke-width:2}
+
+/* ============ NAV ============ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  transition:background .35s,box-shadow .35s,padding .35s;
+  padding:1.1rem 0;
+}
+.nav.solid{background:rgba(35,35,7,.96);backdrop-filter:blur(12px);padding:.6rem 0;box-shadow:0 1px 0 rgba(178,191,0,.25)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:2rem}
+.nav-logo{display:flex;align-items:center;gap:.75rem;text-decoration:none}
+.nav-logo img{height:46px;width:auto;transition:height .35s}
+.nav.solid .nav-logo img{height:38px}
+.nav-links{display:flex;align-items:center;gap:2.1rem;list-style:none}
+.nav-links a{
+  color:rgba(255,255,255,.88);text-decoration:none;font-size:.78rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.16em;position:relative;padding:.3rem 0;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--lima);transition:width .28s;
+}
+.nav-links a:hover::after{width:100%}
+.nav-links .btn{padding:.75rem 1.35rem;font-size:.72rem}
+.nav-links .btn::after{display:none}
+.burger{display:none;background:none;border:none;cursor:pointer;padding:.5rem;position:relative;z-index:3}
+.burger span{display:block;width:26px;height:2px;background:#fff;margin:5px 0;transition:transform .3s,opacity .3s}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ HERO ============ */
+.hero{
+  min-height:100svh;position:relative;display:flex;align-items:flex-end;
+  padding-top:8rem;overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:url('img/home.webp') center 55%/cover no-repeat;transform:scale(1.06)}
+.hero::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(100deg,rgba(28,26,12,.90) 0%,rgba(28,26,12,.62) 40%,rgba(28,26,12,.06) 78%,transparent 100%),
+    linear-gradient(to top,rgba(28,26,12,.88) 0%,rgba(28,26,12,.25) 38%,transparent 62%);
+}
+.hero-in{position:relative;z-index:2;width:100%;padding-bottom:0}
+.hero-copy{max-width:44rem;color:#fff;padding-bottom:clamp(2.5rem,6vw,4rem)}
+.hero .eyebrow{color:var(--lima)}
+.lockup{margin-bottom:1.6rem}
+.lockup .display{
+  font-size:clamp(3rem,10.5vw,7rem);line-height:.86;color:#fff;
+  text-shadow:0 4px 40px rgba(0,0,0,.35);display:block;
+}
+.lockup-sub{
+  display:flex;align-items:center;gap:1rem;margin-top:1rem;
+}
+.lockup-sub span{
+  font-size:clamp(.72rem,1.6vw,.95rem);font-weight:800;letter-spacing:.5em;
+  text-transform:uppercase;color:var(--lima);white-space:nowrap;
+}
+.lockup-sub::before,.lockup-sub::after{content:"";height:1.5px;background:rgba(178,191,0,.55);flex:1;max-width:90px}
+.lockup-sub::before{max-width:38px}
+.hero-copy p{color:rgba(255,255,255,.9);font-size:clamp(1.05rem,1.8vw,1.28rem);font-weight:300;max-width:34rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+.hero-data{
+  position:relative;z-index:2;border-top:1px solid rgba(255,255,255,.22);
+  display:grid;grid-template-columns:repeat(3,1fr);
+}
+.hero-data div{padding:1.4rem .5rem 1.8rem;color:#fff}
+.hero-data div+div{border-left:1px solid rgba(255,255,255,.22);padding-left:1.6rem}
+.hero-data b{display:block;font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--lima);margin-bottom:.35rem}
+.hero-data em{font-style:normal;font-size:clamp(.9rem,1.4vw,1.02rem);font-weight:300;color:rgba(255,255,255,.92)}
+
+/* ============ DISTINCIÓN ============ */
+.ribbon{background:var(--musgo);color:var(--papel);padding:1.5rem 0}
+.ribbon-in{display:flex;align-items:center;gap:1.4rem;justify-content:center;text-align:left;flex-wrap:wrap}
+.ribbon svg{width:34px;height:34px;stroke:var(--lima);flex-shrink:0}
+.ribbon b{display:block;font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:var(--lima);font-weight:800;margin-bottom:.15rem}
+.ribbon p{font-size:.98rem;font-weight:300;color:rgba(247,242,230,.9);max-width:62ch}
+
+/* ============ LA CASA ============ */
+.casa-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:center}
+.casa-txt p{color:var(--suave);font-size:1.05rem}
+.quote{
+  margin:2rem 0 0;padding:1.6rem 0 .3rem 1.6rem;border-left:3px solid var(--lima);
+}
+.quote p{font-family:'Abril Fatface',serif;font-size:clamp(1.15rem,2.1vw,1.5rem);line-height:1.4;color:var(--musgo)}
+.quote cite{
+  display:block;margin-top:.9rem;font-style:normal;font-size:.72rem;font-weight:800;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--oliva);
+}
+.casa-media{position:relative}
+.casa-media .shot{
+  width:100%;aspect-ratio:4/5;object-fit:cover;clip-path:var(--gable);
+  background:var(--papel-2);
+}
+.casa-badge{
+  position:absolute;left:-1.5rem;bottom:-1.5rem;background:var(--ocre);color:var(--musgo);
+  padding:1.1rem 1.4rem;border-radius:2px;max-width:12rem;box-shadow:0 18px 40px -22px rgba(50,50,12,.9);
+}
+.casa-badge b{display:block;font-family:'Abril Fatface',serif;font-size:1.7rem;line-height:1}
+.casa-badge span{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;line-height:1.4;display:block;margin-top:.3rem}
+
+/* ============ HABITACIONES ============ */
+.habs{background:var(--papel-2)}
+.habs-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:end;margin-bottom:3.5rem}
+.habs-head h2{font-size:clamp(1.9rem,4.2vw,2.9rem)}
+.checks{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.65rem 1.5rem}
+.checks li{display:flex;align-items:flex-start;gap:.6rem;font-size:.96rem;color:var(--suave)}
+.checks svg{width:17px;height:17px;stroke:var(--oliva);stroke-width:2.5;flex-shrink:0;margin-top:.4rem}
+
+.mosaic{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem}
+.mosaic figure{position:relative;overflow:hidden;background:var(--musgo);cursor:zoom-in}
+.mosaic img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.8,.2,1),filter .5s}
+.mosaic figure:hover img{transform:scale(1.06)}
+.mosaic figcaption{
+  position:absolute;left:0;bottom:0;right:0;padding:1.6rem 1.1rem .9rem;
+  background:linear-gradient(to top,rgba(35,35,7,.88),transparent);
+  color:#fff;font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  opacity:0;transform:translateY(8px);transition:opacity .35s,transform .35s;
+}
+.mosaic figure:hover figcaption,.mosaic figure:focus-within figcaption{opacity:1;transform:none}
+.m-a{grid-column:span 4;aspect-ratio:16/10}
+.m-b{grid-column:span 2;aspect-ratio:4/5}
+.m-c{grid-column:span 2;aspect-ratio:1/1}
+.m-d{grid-column:span 2;aspect-ratio:1/1}
+.m-e{grid-column:span 2;aspect-ratio:1/1}
+
+/* ============ SERVICIOS ============ */
+.serv-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid rgba(50,50,12,.16);border-left:1px solid rgba(50,50,12,.16);margin-top:3rem;
+}
+.serv{
+  padding:2.2rem 1.8rem;border-right:1px solid rgba(50,50,12,.16);border-bottom:1px solid rgba(50,50,12,.16);
+  transition:background .3s;position:relative;
+}
+.serv:hover{background:rgba(178,191,0,.1)}
+.serv svg{width:30px;height:30px;stroke:var(--oliva);stroke-width:1.6;fill:none;margin-bottom:1.1rem}
+.serv h3{color:var(--musgo);margin-bottom:.45rem}
+.serv p{font-size:.95rem;color:var(--suave);font-weight:300}
+
+/* ============ EL BOLSÓN ============ */
+.bolson{background:var(--musgo);color:var(--papel);position:relative;padding-top:clamp(6rem,11vw,9rem)}
+.ridge{position:absolute;top:-1px;left:0;width:100%;height:clamp(50px,7vw,90px);display:block}
+.bolson h2{color:var(--papel)}
+.bolson .eyebrow{color:var(--lima)}
+.bolson-head{max-width:52rem;margin-bottom:3.5rem}
+.bolson-head p{color:rgba(247,242,230,.78);font-weight:300;font-size:1.05rem}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(2rem,4vw,3.5rem)}
+.col h3{
+  font-family:'Abril Fatface',serif;font-weight:400;font-size:1.5rem;color:var(--lima);
+  padding-bottom:.9rem;margin-bottom:1.1rem;border-bottom:1px solid rgba(178,191,0,.3);
+}
+.col ul{list-style:none}
+.col li{
+  padding:.55rem 0;font-weight:300;color:rgba(247,242,230,.85);font-size:1rem;
+  border-bottom:1px solid rgba(247,242,230,.09);
+}
+
+/* ============ RESERVA ============ */
+.reserva{background:var(--papel-2)}
+.res-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,5vw,4.5rem);align-items:start}
+.ficha{
+  background:var(--papel);padding:clamp(1.8rem,3.5vw,2.6rem);border-radius:2px;
+  box-shadow:0 30px 70px -45px rgba(50,50,12,.8);border-top:5px solid var(--lima);
+}
+.ficha-top{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-bottom:1.8rem;padding-bottom:1.2rem;border-bottom:1px solid rgba(50,50,12,.14)}
+.ficha-top h3{font-family:'Abril Fatface',serif;font-weight:400;font-size:1.6rem;color:var(--musgo)}
+.ficha-top span{font-size:.66rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--oliva);text-align:right}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{margin-bottom:1rem;display:flex;flex-direction:column}
+.field label{font-size:.68rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--oliva);margin-bottom:.45rem}
+.field input,.field select,.field textarea{
+  font-family:'Mulish',sans-serif;font-size:1rem;color:var(--tinta);
+  padding:.85rem .9rem;border:1px solid rgba(50,50,12,.22);background:#fff;border-radius:2px;
+  transition:border-color .25s,box-shadow .25s;width:100%;
+}
+.field textarea{resize:vertical;min-height:88px}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--oliva);box-shadow:0 0 0 3px rgba(178,191,0,.28);
+}
+.noches{
+  font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ladrillo);
+  min-height:1.2rem;margin:-.2rem 0 .8rem;
+}
+.ficha .btn{width:100%;justify-content:center;margin-top:.6rem;padding:1.1rem}
+.msg{margin-top:1.1rem;padding:1rem 1.1rem;border-radius:2px;font-size:.94rem;display:none;line-height:1.6}
+.msg.show{display:block;background:rgba(178,191,0,.16);border-left:3px solid var(--lima);color:var(--musgo)}
+.msg.error{background:rgba(162,78,46,.12);border-left-color:var(--ladrillo);color:var(--ladrillo)}
+.msg a{font-weight:800;color:var(--oliva)}
+
+.res-info>.eyebrow{margin-top:0}
+.res-media{width:100%;aspect-ratio:16/10;object-fit:cover;margin-bottom:2rem;clip-path:var(--gable)}
+.datos{list-style:none;margin-top:1.6rem}
+.datos li{display:flex;gap:1rem;padding:1.1rem 0;border-bottom:1px solid rgba(50,50,12,.14)}
+.datos svg{width:20px;height:20px;stroke:var(--oliva);stroke-width:1.7;fill:none;flex-shrink:0;margin-top:.35rem}
+.datos b{display:block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--musgo);margin-bottom:.15rem}
+.datos span{font-size:.96rem;color:var(--suave);font-weight:300}
+.datos a{color:var(--oliva);font-weight:700;text-decoration:none;border-bottom:1px solid rgba(106,114,0,.35)}
+
+/* ============ AUTOR ============ */
+.autor{background:var(--ladrillo);color:#fff;position:relative;overflow:hidden;padding:clamp(3.5rem,7vw,5.5rem) 0}
+.autor::before{
+  content:"";position:absolute;right:-3%;top:-14%;width:min(400px,40%);aspect-ratio:1;
+  background:rgba(255,255,255,.08);clip-path:var(--gable);
+}
+.autor-in{display:flex;align-items:center;justify-content:space-between;gap:2.5rem;flex-wrap:wrap;position:relative;z-index:2}
+.autor .eyebrow{color:rgba(255,255,255,.8)}
+.autor h2{color:#fff;font-size:clamp(1.8rem,4vw,2.7rem);margin-bottom:.8rem}
+.autor p{color:rgba(255,255,255,.9);font-weight:300;max-width:48ch}
+.autor .btn{background:#fff;color:var(--ladrillo);white-space:nowrap}
+.autor .btn:hover{background:var(--musgo);color:#fff}
+
+/* ============ FOOTER ============ */
+footer{background:var(--musgo-2);color:rgba(247,242,230,.75);padding:4rem 0 2rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem;padding-bottom:2.5rem;border-bottom:1px solid rgba(247,242,230,.14)}
+.foot-brand img{height:78px;border-radius:50%;margin-bottom:1.1rem}
+.foot-brand p{font-size:.95rem;font-weight:300;max-width:32ch}
+.foot-col h4{font-size:.68rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--lima);margin-bottom:1.1rem}
+.foot-col a,.foot-col p{display:block;font-size:.95rem;font-weight:300;margin-bottom:.6rem;text-decoration:none;transition:color .25s}
+.foot-col a:hover{color:var(--lima)}
+.foot-bot{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-top:1.6rem;font-size:.85rem;font-weight:300}
+.credito{color:var(--lima);text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:.5rem}
+.credito:hover{text-decoration:underline}
+.credito svg{width:14px;height:14px;stroke-width:2}
+
+/* ============ LIGHTBOX ============ */
+.lb{position:fixed;inset:0;background:rgba(23,23,5,.96);z-index:200;display:none;align-items:center;justify-content:center;padding:4vmin}
+.lb.open{display:flex}
+.lb img{max-width:92vw;max-height:86vh;object-fit:contain;box-shadow:0 30px 80px -30px #000}
+.lb button{position:absolute;background:none;border:none;color:#fff;cursor:pointer;padding:1rem;line-height:0}
+.lb button svg{width:32px;height:32px;stroke:currentColor;stroke-width:1.6;fill:none;transition:stroke .25s}
+.lb button:hover svg{stroke:var(--lima)}
+.lb-close{top:1rem;right:1rem}
+.lb-prev{left:.5rem;top:50%;transform:translateY(-50%)}
+.lb-next{right:.5rem;top:50%;transform:translateY(-50%)}
+
+/* ============ REVEAL ============ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.2,.8,.2,1),transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv-2{transition-delay:.12s}
+.rv-3{transition-delay:.24s}
+
+/* ============ RESPONSIVE ============ */
+@media(max-width:900px){
+  .nav-links{
+    position:fixed;inset:0 0 0 auto;width:min(320px,82vw);background:var(--musgo-2);
+    flex-direction:column;justify-content:center;gap:1.8rem;padding:2rem;
+    transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);
+  }
+  .nav-links.open{transform:none}
+  .nav-links a{font-size:1rem}
+  .burger{display:block;z-index:2}
+  .nav{background:rgba(35,35,7,.9);backdrop-filter:blur(10px);padding:.7rem 0}
+  .nav-logo img{height:42px}
+  .nav.solid .nav-logo img{height:36px}
+  .casa-grid,.habs-head,.res-grid,.cols,.serv-grid,.foot-grid{grid-template-columns:1fr}
+  .habs-head{gap:2rem}
+  .serv-grid{border-left:none;border-top:none}
+  .serv{border-left:1px solid rgba(50,50,12,.16)}
+  .casa-badge{left:auto;right:0;bottom:-1rem}
+  .foot-grid{gap:2rem}
+}
+@media(max-width:720px){
+  .hero-data{grid-template-columns:1fr}
+  .hero-data div+div{border-left:none;border-top:1px solid rgba(255,255,255,.2);padding-left:.5rem}
+  .hero-data div{padding:1rem .5rem}
+  .m-a,.m-b,.m-c,.m-d,.m-e{grid-column:span 6;aspect-ratio:4/3}
+  .f-row{grid-template-columns:1fr;gap:0}
+  .checks{grid-template-columns:1fr}
+  .lockup-sub span{letter-spacing:.32em}
+  .foot-bot{flex-direction:column;align-items:flex-start}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#top" class="nav-logo" aria-label="Buena Vida Social Club, inicio">
+      <img src="img/logo-nav.png" alt="Buena Vida Social Club">
+    </a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="menu">
+      <li><a href="#casa">La casa</a></li>
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#bolson">El Bolsón</a></li>
+      <li><a href="#reserva" class="btn">Reservar</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="wrap hero-in">
+    <div class="hero-copy">
+      <span class="eyebrow rv">Hostería de montaña · El Bolsón, Río Negro</span>
+      <div class="lockup rv rv-2">
+        <span class="display">Buena Vida</span>
+        <div class="lockup-sub"><span>Social Club</span></div>
+      </div>
+      <p class="rv rv-2">Una casa en la ladera del Piltriquitrón, con el valle de El Bolsón abajo y la cordillera enfrente. Seis habitaciones, desayuno casero y todo el tiempo del mundo.</p>
+      <div class="hero-cta rv rv-3">
+        <a href="#reserva" class="btn">Consultar disponibilidad</a>
+        <a href="#casa" class="btn btn--ghost">Conocer la casa</a>
+      </div>
+    </div>
+    <div class="hero-data rv rv-3">
+      <div><b>Dónde</b><em>Villa Turismo, ladera del Cerro Piltriquitrón</em></div>
+      <div><b>A cuánto</b><em>3,5 km del centro — 10 minutos en auto</em></div>
+      <div><b>Al lado de</b><em>El camino al Mirador y el Bosque Tallado</em></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DISTINCIÓN ============ -->
+<div class="ribbon">
+  <div class="wrap ribbon-in">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="12" cy="9" r="6"/><path d="M8.5 14.5 7 22l5-2.5L17 22l-1.5-7.5"/>
+    </svg>
+    <div>
+      <b>Distinción</b>
+      <p>Seleccionada entre los 30 emprendimientos finalistas del programa de fortalecimiento turístico de Banco Patagonia y Fundación Nobleza Obliga.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LA CASA ============ -->
+<section class="sec" id="casa">
+  <div class="wrap casa-grid">
+    <div class="casa-txt rv">
+      <span class="eyebrow">La casa</span>
+      <h2>Le pusimos así<br>por el disco</h2>
+      <p style="margin-top:1.4rem">El nombre viene del Buena Vista Social Club, y la idea es la misma: un lugar donde la gente se junta, se queda un rato de más y la pasa bien. Solo que en vez de La Habana, estamos a 3,5 km del centro de El Bolsón, sobre la ladera del cerro.</p>
+      <p>Abajo, en la planta baja, hay un comedor amplio y una sala de estar que son de los huéspedes: se usan para desayunar sin apuro, leer con la estufa prendida o esperar que pare la lluvia. Los desayunos son de elaboración casera, con productos de la zona.</p>
+      <blockquote class="quote">
+        <p>“Queremos que quienes nos visitan conozcan este estilo de vida tan característico de El Bolsón, rodeados de naturaleza, tranquilidad y producción local.”</p>
+        <cite>Susana Montenegro — Buena Vida Social Club</cite>
+      </blockquote>
+    </div>
+    <div class="casa-media rv rv-2">
+      <img class="shot" src="img/5.webp" alt="Deck cubierto de la hostería con sillas de madera y vista a la cordillera" loading="lazy">
+      <div class="casa-badge">
+        <b>3,5 km</b>
+        <span>del centro de El Bolsón</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HABITACIONES ============ -->
+<section class="sec habs" id="habitaciones">
+  <div class="wrap">
+    <div class="habs-head">
+      <div class="rv">
+        <span class="eyebrow">Habitaciones</span>
+        <h2>Algunas miran al valle,<br>otras al jardín</h2>
+      </div>
+      <div class="rv rv-2">
+        <p class="lead" style="margin-bottom:1.6rem">Todas son cómodas, con detalles locales y una decoración cálida que ayuda al descanso. Y todas vienen con lo mismo:</p>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Camas sommier</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Calefacción por radiadores</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Ventanas con termopanel</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Black out</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Sábanas y toallas</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m4 12 5 5L20 6"/></svg>Baño privado con bañera</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mosaic rv">
+      <figure class="m-a"><img src="img/3.webp" alt="Habitación con cama matrimonial y ventana con vista a la montaña" loading="lazy"><figcaption>Habitación con vista al valle</figcaption></figure>
+      <figure class="m-b"><img src="img/4.webp" alt="Habitación triple bajo techo de madera a dos aguas" loading="lazy"><figcaption>Habitación triple</figcaption></figure>
+      <figure class="m-c"><img src="img/6.webp" alt="Sala de estar con sillones de madera maciza y piso de parqué" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
+      <figure class="m-d"><img src="img/7.webp" alt="Mesa de madera junto a ventanales que dan al bosque" loading="lazy"><figcaption>Rincón del comedor</figcaption></figure>
+      <figure class="m-e"><img src="img/1.webp" alt="Comedor de la planta baja con mesas de madera y ventana al jardín" loading="lazy"><figcaption>Comedor de desayunos</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <div class="rv" style="max-width:46rem">
+      <span class="eyebrow">Comodidades y servicios</span>
+      <h2>Lo que está incluido</h2>
+      <p class="lead" style="margin-top:1.2rem">Nada de letra chica: esto es lo que vas a encontrar cuando llegues.</p>
+    </div>
+    <div class="serv-grid rv">
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="17.5" cy="5.5" r="2.5"/><path d="M2 14c1.6 0 1.6 1.6 3.2 1.6S6.8 14 8.4 14s1.6 1.6 3.2 1.6S13.2 14 14.8 14s1.6 1.6 3.2 1.6S19.6 14 21.2 14"/><path d="M2 19c1.6 0 1.6 1.6 3.2 1.6S6.8 19 8.4 19s1.6 1.6 3.2 1.6S13.2 19 14.8 19s1.6 1.6 3.2 1.6S19.6 19 21.2 19"/><path d="M2 9c1.6 0 1.6 1.6 3.2 1.6S6.8 9 8.4 9s1.6 1.6 3.2 1.6"/></svg>
+        <h3>Solárium con pileta</h3>
+        <p>Un sector de solárium con pileta y jardín parquizado para los días de sol.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="3.5" width="19" height="14" rx="1.5"/><path d="M2.5 14.2 8 9l4 3.6L15.5 9l6 5.2"/><circle cx="16.8" cy="7.4" r="1.4"/><path d="M6 21h12"/></svg>
+        <h3>Deck con vista panorámica</h3>
+        <p>Deck cubierto mirando El Bolsón y la cordillera. El mejor lugar de la casa a las siete de la tarde.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4Z"/><path d="M6 2v3M10 2v3M14 2v3"/></svg>
+        <h3>Desayuno casero</h3>
+        <p>Elaboración propia y productos de la Comarca, servidos en el comedor de la planta baja.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5a10 10 0 0 1 14 0"/><path d="M2 9a14 14 0 0 1 20 0"/><path d="M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="20" r="1"/></svg>
+        <h3>Wifi en toda la casa</h3>
+        <p>Internet en las habitaciones y en los espacios comunes, por si tenés que trabajar un rato.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17H3v-5l2-5h11l4 5h1v5h-2"/><circle cx="7.5" cy="17.5" r="2"/><circle cx="16.5" cy="17.5" r="2"/><path d="M9.5 17.5h5"/></svg>
+        <h3>Estacionamiento amplio</h3>
+        <p>Descubierto y con lugar para distintos tipos de vehículo, incluidas casas rodantes.</p>
+      </article>
+      <article class="serv">
+        <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/><path d="M6 15h4"/></svg>
+        <h3>Todos los medios de pago</h3>
+        <p>Efectivo, transferencia, débito y crédito. Se hace la limpieza de las habitaciones todos los días.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EL BOLSÓN ============ -->
+<section class="sec bolson" id="bolson">
+  <svg class="ridge" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,0 H1440 V44 L1362,62 L1268,28 L1174,66 L1066,36 L968,70 L858,26 L742,58 L636,14 L520,54 L418,22 L322,64 L214,38 L108,72 L0,46 Z" fill="#F7F2E6"/>
+  </svg>
+  <div class="wrap">
+    <div class="bolson-head rv">
+      <span class="eyebrow">Qué hacer alrededor</span>
+      <h2>El Bolsón está a diez minutos</h2>
+      <p style="margin-top:1.2rem">A 120 km al sur de Bariloche, Capital Provincial del Bienestar y Capital Nacional del Lúpulo, puerta de entrada a la Comarca Andina. Bosque, montañas, ríos y lagos, en cualquier estación del año.</p>
+    </div>
+    <div class="cols">
+      <div class="col rv">
+        <h3>Paseos y aventura</h3>
+        <ul>
+          <li>Mirador del Piltriquitrón y Bosque Tallado</li>
+          <li>Agroturismo y chacras de la zona</li>
+          <li>Cicloturismo</li>
+          <li>Turismo aventura</li>
+          <li>Pesca deportiva</li>
+          <li>Deportes invernales</li>
+          <li>Parques nacionales</li>
+        </ul>
+      </div>
+      <div class="col rv rv-2">
+        <h3>Bienestar</h3>
+        <ul>
+          <li>Terapias holísticas</li>
+          <li>Seminarios especializados</li>
+          <li>Caminatas y días de descanso</li>
+        </ul>
+      </div>
+      <div class="col rv rv-3">
+        <h3>Gastronomía</h3>
+        <ul>
+          <li>Comidas típicas de la Comarca</li>
+          <li>Cervecerías artesanales</li>
+          <li>Bebidas regionales</li>
+          <li>Chocolaterías y dulcerías</li>
+          <li>Feria Regional de El Bolsón</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESERVA ============ -->
+<section class="sec reserva" id="reserva">
+  <div class="wrap res-grid">
+    <!-- FICHA / FORMULARIO -->
+    <div class="ficha rv">
+      <div class="ficha-top">
+        <h3>Ficha de reserva</h3>
+        <span>Respondemos<br>el mismo día</span>
+      </div>
+      <form id="form" novalidate>
+        <div class="field">
+          <label for="nombre">Nombre y apellido</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Susana Montenegro" required>
+        </div>
+        <div class="field">
+          <label for="personas">Cantidad de personas</label>
+          <select id="personas" name="personas" required>
+            <option value="">Elegí una opción</option>
+            <option value="1">1 persona</option>
+            <option value="2">2 personas</option>
+            <option value="3">3 personas</option>
+            <option value="4">4 personas</option>
+            <option value="5">5 personas</option>
+            <option value="6">6 personas</option>
+            <option value="7 o más">7 o más</option>
+          </select>
+        </div>
+        <div class="f-row">
+          <div class="field">
+            <label for="checkin">Check in</label>
+            <input type="date" id="checkin" name="checkin" required>
+          </div>
+          <div class="field">
+            <label for="checkout">Check out</label>
+            <input type="date" id="checkout" name="checkout" required>
+          </div>
+        </div>
+        <p class="noches" id="noches" aria-live="polite"></p>
+        <div class="field">
+          <label for="contacto">Teléfono o email</label>
+          <input type="text" id="contacto" name="contacto" placeholder="Para poder responderte">
+        </div>
+        <div class="field">
+          <label for="mensaje">Algo que quieras contarnos</label>
+          <textarea id="mensaje" name="mensaje" placeholder="Llegamos en auto, venimos con bicis, festejamos un cumpleaños…"></textarea>
+        </div>
+        <button type="submit" class="btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></svg>
+          Enviar consulta
+        </button>
+        <div class="msg" id="msg" role="status"></div>
+      </form>
+    </div>
+
+    <!-- INFO -->
+    <div class="res-info rv rv-2">
+      <img class="res-media" src="img/2.webp" alt="Comedor y escalera de la planta baja de la hostería" loading="lazy">
+      <span class="eyebrow">Antes de venir</span>
+      <h2 style="font-size:clamp(1.7rem,3.5vw,2.4rem)">Lo práctico</h2>
+      <ul class="datos">
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+          <div><b>Check in / Check out</b><span>Ingresos a partir de las 13 h · Salidas hasta las 10 h. Late check out con adicional.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-4.5-7-10a7 7 0 1 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.5"/></svg>
+          <div><b>Cómo llegar</b><span>Villa Turismo, ladera del Cerro Piltriquitrón, El Bolsón, Río Negro. <a href="https://www.google.com/maps/search/Buena+Vida+Social+Club+El+Bols%C3%B3n" target="_blank" rel="noopener">Ver en Google Maps</a></span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div><b>Política de menores</b><span>Por medidas de seguridad recibimos menores a partir de los 12 años.</span></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v6H4z"/><path d="M4 14h7v6H4zM15 14h5v6h-5z"/></svg>
+          <div><b>Seis habitaciones</b><span>Casa chica y atendida por sus dueños: conviene reservar con tiempo en temporada.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AUTOR ============ -->
+<section class="autor">
+  <div class="wrap autor-in rv">
+    <div>
+      <span class="eyebrow">Diseño web</span>
+      <h2>Este boceto lo diseñó Teo Cicciari</h2>
+      <p>Hago sitios web a medida para hospedajes, casas de campo y emprendimientos de la Comarca y de todo el país. Si querés uno propio, entrá a ver más trabajos y los precios.</p>
+    </div>
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      Ver referencias y precios
+    </a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="img/logo.png" alt="Buena Vida Social Club">
+        <p>Hostería de montaña en la ladera del Cerro Piltriquitrón. El Bolsón, Río Negro, Argentina.</p>
+      </div>
+      <div class="foot-col">
+        <h4>La hostería</h4>
+        <a href="#casa">La casa</a>
+        <a href="#habitaciones">Habitaciones</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#bolson">El Bolsón</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contacto</h4>
+        <a href="#reserva">Consultar disponibilidad</a>
+        <p>Villa Turismo — El Bolsón</p>
+        <p>Check in 13 h · Check out 10 h</p>
+        <a href="https://www.google.com/maps/search/Buena+Vida+Social+Club+El+Bols%C3%B3n" target="_blank" rel="noopener">Ver en Google Maps</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="anio"></span> Buena Vida Social Club · El Bolsón, Río Negro. Todos los derechos reservados.</span>
+      <a class="credito" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">
+        Boceto diseñado por Teo Cicciari — Mirá más referencias y precios
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos">
+  <button class="lb-close" id="lbClose" aria-label="Cerrar galería"><svg viewBox="0 0 24 24" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <button class="lb-prev" id="lbPrev" aria-label="Foto anterior"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5 8 12l7 7"/></svg></button>
+  <img id="lbImg" src="" alt="">
+  <button class="lb-next" id="lbNext" aria-label="Foto siguiente"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+</div>
+
+<script>
+/* Número de WhatsApp de la hostería (formato internacional, sin + ni espacios).
+   Reemplazar por el real antes de publicar. */
+const WHATSAPP = '5492944000000';
+
+/* ---- Año dinámico en el footer ---- */
+document.getElementById('anio').textContent = new Date().getFullYear();
+
+/* ---- Nav: fondo al hacer scroll + menú mobile ---- */
+const nav = document.getElementById('nav');
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+const onScroll = () => nav.classList.toggle('solid', window.scrollY > 60);
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.classList.toggle('open', open);
+  burger.setAttribute('aria-expanded', open);
+  burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+});
+menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  menu.classList.remove('open');
+  burger.classList.remove('open');
+  burger.setAttribute('aria-expanded', 'false');
+}));
+
+/* ---- Reveal on scroll ---- */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, {threshold:.12, rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+/* ---- Fechas: mínimo hoy y cálculo de noches ---- */
+const ci = document.getElementById('checkin');
+const co = document.getElementById('checkout');
+const noches = document.getElementById('noches');
+const hoy = new Date().toISOString().split('T')[0];
+ci.min = hoy; co.min = hoy;
+
+function calcularNoches(){
+  if (ci.value) co.min = ci.value;
+  if (co.value && ci.value && co.value <= ci.value) co.value = '';
+  if (!ci.value || !co.value) { noches.textContent = ''; return 0; }
+  const n = Math.round((new Date(co.value) - new Date(ci.value)) / 86400000);
+  noches.textContent = n === 1 ? '1 noche' : n + ' noches';
+  return n;
+}
+ci.addEventListener('change', calcularNoches);
+co.addEventListener('change', calcularNoches);
+
+/* ---- Envío del formulario ---- */
+const form = document.getElementById('form');
+const msg = document.getElementById('msg');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const d = Object.fromEntries(new FormData(form).entries());
+  msg.classList.remove('error');
+
+  if (!d.nombre.trim() || !d.personas || !d.checkin || !d.checkout) {
+    msg.className = 'msg show error';
+    msg.textContent = 'Nos falta un dato: completá nombre, cantidad de personas y las dos fechas.';
+    return;
+  }
+
+  const n = calcularNoches();
+  const texto =
+    '¡Hola Buena Vida Social Club! Quiero consultar disponibilidad.\n' +
+    '· Nombre: ' + d.nombre + '\n' +
+    '· Personas: ' + d.personas + '\n' +
+    '· Check in: ' + d.checkin + '\n' +
+    '· Check out: ' + d.checkout + (n ? ' (' + n + (n === 1 ? ' noche)' : ' noches)') : '') + '\n' +
+    (d.contacto ? '· Contacto: ' + d.contacto + '\n' : '') +
+    (d.mensaje ? '· Mensaje: ' + d.mensaje : '');
+
+  const link = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(texto);
+  const hayWhatsapp = WHATSAPP !== '5492944000000';
+  msg.className = 'msg show';
+  msg.innerHTML = '¡Listo, ' + d.nombre.split(' ')[0].replace(/[<>&]/g,'') + '! Recibimos tu consulta para ' +
+    (n ? n + (n === 1 ? ' noche' : ' noches') : 'esas fechas') + ' y te respondemos hoy mismo.' +
+    (hayWhatsapp ? ' Si preferís, <a href="' + link + '" target="_blank" rel="noopener">seguí la charla por WhatsApp</a>.' : '');
+  form.reset();
+  noches.textContent = '';
+});
+
+/* ---- Lightbox de la galería ---- */
+const figs = [...document.querySelectorAll('.mosaic figure')];
+const fotos = figs.map(f => ({src:f.querySelector('img').src, alt:f.querySelector('img').alt}));
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lbImg');
+let idx = 0, ultimoFoco = null;
+
+function abrir(i){
+  idx = i; pintar(); lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lbClose').focus();
+}
+function cerrar(){
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+  if (ultimoFoco) ultimoFoco.focus();
+}
+function pintar(){ lbImg.src = fotos[idx].src; lbImg.alt = fotos[idx].alt; }
+function mover(paso){ idx = (idx + paso + fotos.length) % fotos.length; pintar(); }
+
+figs.forEach((f, i) => {
+  f.setAttribute('tabindex','0');
+  f.setAttribute('role','button');
+  f.setAttribute('aria-label','Ampliar: ' + fotos[i].alt);
+  f.addEventListener('click', () => { ultimoFoco = f; abrir(i); });
+  f.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ultimoFoco = f; abrir(i); }
+  });
+});
+document.getElementById('lbClose').addEventListener('click', cerrar);
+document.getElementById('lbPrev').addEventListener('click', () => mover(-1));
+document.getElementById('lbNext').addEventListener('click', () => mover(1));
+lb.addEventListener('click', (e) => { if (e.target === lb) cerrar(); });
+document.addEventListener('keydown', (e) => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') cerrar();
+  if (e.key === 'ArrowLeft') mover(-1);
+  if (e.key === 'ArrowRight') mover(1);
+});
+</script>
+</body>
+</html>
+
