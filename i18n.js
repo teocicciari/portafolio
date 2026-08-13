@@ -176,8 +176,6 @@
             'contact.email.label': 'Email',
             'contact.email.desc': 'Para propuestas detalladas y documentación. Respuesta garantizada en 24 horas.',
             'contact.email.btn': 'Enviar email',
-            'contact.location.label': 'Ubicación',
-            'contact.location.desc': '¿Estás por la zona? Pasá a tomar unos mates y conversemos sobre tu proyecto.',
             // Chess hero
             'chess_hero.title': 'Clases de Ajedrez',
             'chess_hero.subtitle': 'Aprende y mejora tu juego con un instructor experimentado. Desde nivel inicial hasta 1700 Elo FIDE.',
@@ -441,8 +439,6 @@
             'contact.email.label': 'Email',
             'contact.email.desc': 'For detailed proposals and documentation. Response guaranteed within 24 hours.',
             'contact.email.btn': 'Send email',
-            'contact.location.label': 'Location',
-            'contact.location.desc': "In the area? Come have some mates and let's talk about your project.",
             // Chess hero
             'chess_hero.title': 'Chess Lessons',
             'chess_hero.subtitle': 'Learn and improve your game with an experienced instructor. From beginner level to FIDE 1700 Elo.',
