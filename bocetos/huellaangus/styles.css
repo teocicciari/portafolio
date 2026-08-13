@@ -102,7 +102,7 @@ button{ font-family:inherit; }
   transition:width .25s ease;
 }
 .nav-links a:hover::after{ width:100%; }
-.nav-cta{
+.nav-links a.nav-cta{
   background:var(--olivo); color:var(--hueso)!important; padding:.55rem 1.1rem;
   border-radius:999px; font-size:.82rem!important; font-weight:700!important;
   text-decoration:none;
