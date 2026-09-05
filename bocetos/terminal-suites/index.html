@@ -1,0 +1,2917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Terminal Suites - El Calafate, Patagonia Argentina</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Terminal Suites: 8 departamentos de lujo en El Calafate, a 100m de la terminal de buses. Completo equipamiento, WiFi gratuito, estacionamiento privado y servicio de conserjería 24/7. Ubicación ideal para explorar el Glaciar Perito Moreno.">
+    <meta name="keywords" content="departamentos El Calafate, alojamiento Patagonia, Terminal Suites, hospedaje El Calafate, Perito Moreno">
+    <meta name="author" content="Terminal Suites">
+
+    <!-- Open Graph (para WhatsApp, Facebook, LinkedIn) -->
+    <meta property="og:type" content="hotel">
+    <meta property="og:title" content="Terminal Suites - Departamentos en El Calafate">
+    <meta property="og:description" content="8 suites de lujo completamente equipadas a 100m de la terminal. Perfecto para explorar el Glaciar Perito Moreno en Patagonia Argentina.">
+    <meta property="og:image" content="https://terminalsuites.com.ar/img/living1.webp">
+    <meta property="og:url" content="https://terminalsuites.com.ar">
+    <meta property="og:locale" content="es_AR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Terminal Suites - Departamentos en El Calafate">
+    <meta name="twitter:description" content="8 suites de lujo completamente equipadas a 100m de la terminal. Perfecto para explorar el Glaciar Perito Moreno en Patagonia Argentina.">
+    <meta name="twitter:image" content="https://terminalsuites.com.ar/img/living1.webp">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        /* Tipografía Houschka Rounded - Todas las variantes */
+        @font-face {
+            font-family: 'Houschka Rounded';
+            src: url('fonts/fonnts.com-Houschka_Rounded_Light.otf') format('opentype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Houschka Rounded';
+            src: url('fonts/fonnts.com-Houschka_Rounded_Medium.otf') format('opentype');
+            font-weight: 500;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Houschka Rounded';
+            src: url('fonts/fonnts.com-Houschka_Rounded_Bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Houschka Rounded';
+            src: url('fonts/fonnts.com-Houschka_Rounded_Bold_Italic.otf') format('opentype');
+            font-weight: 700;
+            font-style: italic;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Houschka Rounded', 'Montserrat', 'Open Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            color: #3f3f3f;
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        header {
+            position: fixed;
+            width: 100%;
+            background: #eee6dbc1;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #283b4f;
+            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #3f3f3f;
+            font-family: 'Houschka Rounded', 'Montserrat', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #283b4f;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #283b4f;
+            transition: width 0.3s;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Burger Menu */
+        .burger-menu {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .burger-menu span {
+            width: 28px;
+            height: 3px;
+            background: #283b4f;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .burger-menu.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .burger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger-menu.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100dvh;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 15px !important;
+            /* El hero ocupa todo el ancho, ignorando el max-width de section */
+            max-width: none;
+            width: 100%;
+            margin: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -5%;
+            left: -5%;
+            width: 110%;
+            height: 110%;
+            background: url('img/background2.webp') no-repeat center center;
+            background-size: cover;
+            animation: kenBurns 20s ease-in-out infinite alternate;
+            z-index: -2;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6));
+            z-index: -1;
+        }
+
+        @keyframes kenBurns {
+            0% {
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                transform: scale(1.1) translate(-2%, -2%);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Botón de Play */
+        .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            z-index: 10;
+            outline: none;
+        }
+
+        .play-button:hover {
+            background: rgba(40, 59, 79, 0.9);
+            border-color: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .play-button:active {
+            transform: translate(-50%, -50%) scale(1.05);
+        }
+
+        .play-button i {
+            color: white;
+            font-size: 2rem;
+            margin-left: 5px;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 20px rgba(255, 255, 255, 0);
+            }
+        }
+
+        /* Modal de Video */
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+            z-index: 3000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease-out;
+            padding: 1rem;
+        }
+
+        .video-modal.active {
+            display: flex;
+        }
+
+        .video-modal-content {
+            position: relative;
+            width: auto;
+            max-width: 90vw;
+            max-height: 85vh;
+            background: #000;
+            border-radius: 0 20px 0 0;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+            animation: scaleIn 0.3s ease-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .video-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            color: #283b4f;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+            z-index: 3001;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-modal-close:hover {
+            background: white;
+            transform: rotate(90deg) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-wrapper {
+            background-color: transparent;
+            position: relative;
+            width: 100%;
+            height: 85vh;
+            max-height: 85vh;
+            aspect-ratio: 9/16;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 20px 0 0;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0 20px 0 0;
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .video-modal-content {
+                max-width: 95vw;
+                max-height: 80vh;
+            }
+
+            .video-modal-close {
+                top: 0.5rem;
+                right: 0.5rem;
+                width: 40px;
+                height: 40px;
+                font-size: 1.3rem;
+            }
+
+            .video-wrapper {
+                height: 80vh;
+                max-height: 80vh;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+        }
+
+        /* Formulario de Reserva en Hero */
+        .hero-booking-form {
+            background: rgba(255, 255, 255, 0.58);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            border-radius: 60px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-form-group {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-form-group label {
+            display: none;
+        }
+
+        .hero-form-group input[type="number"] {
+            padding: 1rem 1.2rem;
+            border: 2px solid #bab3ae;
+            border-radius: 60px;
+            font-family: 'Houschka Rounded', 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            background: white;
+            color: #3f3f3f;
+            transition: all 0.3s;
+            width: 100%;
+            min-width: 140px;
+        }
+
+        .hero-form-group input[type="number"]::placeholder {
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        /* Ocultar flechas del input number en Chrome, Safari, Edge */
+        .hero-form-group input[type="number"]::-webkit-outer-spin-button,
+        .hero-form-group input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            appearance: none;
+            margin: 0;
+        }
+
+        /* Ocultar flechas del input number en Firefox */
+        .hero-form-group input[type="number"] {
+            -moz-appearance: textfield;
+            appearance: textfield;
+        }
+
+        .hero-form-group input[type="number"]:focus {
+            outline: none;
+            border-color: #283b4f;
+            box-shadow: 0 0 0 3px rgba(40, 59, 79, 0.1);
+        }
+
+        .hero-date-input {
+            padding: 0.8rem 1rem;
+            border: 2px solid #bab3ae;
+            border-radius: 60px;
+            font-family: 'Houschka Rounded', 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            background: white;
+            color: #3f3f3f;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+            min-width: 150px;
+            gap: 0.5rem;
+        }
+
+        .hero-date-input:hover {
+            border-color: #283b4f;
+        }
+
+        .hero-date-input.active {
+            border-color: #283b4f;
+            box-shadow: 0 0 0 3px rgba(40, 59, 79, 0.1);
+        }
+
+        .hero-date-input span {
+            font-size: 0.9rem;
+            white-space: nowrap;
+            color: #888;
+        }
+
+        .hero-date-input span.selected {
+            color: #3f3f3f;
+        }
+
+        .hero-date-input i {
+            color: #283b4f;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .hero-submit-btn {
+            padding: 0.8rem 2rem;
+            background: #283b4f;
+            color: white;
+            border: none;
+            border-radius: 60px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .hero-submit-btn:hover {
+            background: #1e2a3a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 59, 79, 0.4);
+        }
+
+        .hero-submit-btn i {
+            font-size: 1.2rem;
+        }
+
+        .hero-date-picker-container {
+            position: relative;
+        }
+
+        /* Modal para Date Picker */
+        .calendar-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.2s ease-out;
+        }
+
+        .calendar-modal.active {
+            display: flex;
+        }
+
+        .calendar-modal-content {
+            background: white;
+            border-radius: 0 30px 0 0;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            padding: 2rem;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+            animation: slideUp 0.3s ease-out;
+        }
+
+        .calendar-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f4ede3;
+        }
+
+        .calendar-modal-title {
+            font-size: 1.3rem;
+            color: #283b4f;
+            font-weight: 700;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .calendar-modal-close {
+            background: none;
+            border: none;
+            color: #283b4f;
+            font-size: 1.5rem;
+            cursor: pointer;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+        .calendar-modal-close:hover {
+            background: #f4ede3;
+            transform: rotate(90deg);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #283b4f;
+            margin-bottom: 3rem;
+            position: relative;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: #283b4f;
+            margin: 1rem auto;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, #283b4f 0%, #bab3ae 100%);
+            border-radius: 0 35px 0 0;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0 35px 0 0;
+        }
+
+        /* Ubicación */
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .location-features {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .location-item {
+            padding: 1.5rem;
+            background: #f4ede3;
+            border-radius: 0 25px 0 0;
+            border-left: 4px solid #283b4f;
+            transition: all 0.3s;
+        }
+
+        .location-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .location-item h3 {
+            color: #283b4f;
+            margin-bottom: 0.5rem;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            font-weight: 500;
+        }
+
+        .map-placeholder {
+            height: 500px;
+            background: linear-gradient(135deg, #f4ede3 0%, #bab3ae 100%);
+            border-radius: 0 35px 0 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #283b4f;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .map-placeholder iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 0 35px 0 0;
+        }
+
+        /* Apartamentos */
+        .apartments-section {
+            position: relative;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* Carrusel de imágenes */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            margin: 3rem auto;
+            overflow: hidden;
+            border-radius: 0 40px 0 0;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(40,59,79,0.95) 0%, rgba(40,59,79,0.7) 70%, transparent 100%);
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+
+        .carousel-caption h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Houschka Rounded', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .carousel-caption p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        /* Controles del carrusel */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.9);
+            color: #283b4f;
+            border: none;
+            width: 35px;
+            height: 50px;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-btn:hover {
+            background: #283b4f;
+            color: white;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 1rem;
+            border-radius: 25px 0 0 25px;
+        }
+
+        .carousel-btn.next {
+            right: 1rem;
+            border-radius: 0 25px 25px 0;
+        }
+
+        .prev i {
+            padding-left: 5px;
+        }
+
+        .next i {
+            padding-right: 5px;
+        }
+
+        /* Indicadores */
+        .carousel-indicators {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 10;
+        }
+
+        .indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+
+        .indicator.active {
+            background: white;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* Grid de características */
+        .apartments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .apartment-card {
+            background: white;
+            border-radius: 0 30px 0 0;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .apartment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+        }
+
+        .apartment-image {
+            height: 250px;
+            background: linear-gradient(135deg, #283b4f 0%, #bab3ae 100%);
+        }
+
+        .apartment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .apartment-content {
+            padding: 2rem;
+        }
+
+        .apartment-content h3 {
+            color: #283b4f;
+            margin-bottom: 1rem;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .amenities-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .amenities-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .amenities-list li::before {
+            content: '✓ ';
+            color: #283b4f;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        /* Actividades */
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            text-align: center;
+            background: #ffffff;
+            border-radius: 0 25px 0 0;
+            overflow: hidden;
+            box-shadow: 0 2px 14px rgba(40, 59, 79, 0.08);
+            transition: all 0.3s;
+        }
+
+        /* La foto encabeza la card. El ícono queda abajo como marcador
+           chico del tipo de plan, ya no como protagonista. */
+        .activity-photo {
+            aspect-ratio: 3 / 2;
+            overflow: hidden;
+        }
+
+        .activity-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .activity-body {
+            padding: 1.75rem 1.5rem 2rem;
+        }
+
+        .activity-card h3 {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .activity-card:hover {
+            background: #283b4f;
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(40, 59, 79, 0.22);
+        }
+
+        .activity-icon {
+            font-size: 1.4rem;
+            margin-bottom: 0.6rem;
+            color: #bab3ae;
+        }
+
+        /* Traslados privados — portada de la sección Actividades.
+           Es lo único de esta sección que vende Terminal Suites, y es cómo se
+           llega a todo lo que viene abajo: por eso encabeza en vez de ser
+           una card más de la grilla. */
+        .transfers {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            background: #283b4f;
+            border-radius: 0 80px 0 0;
+            overflow: hidden;
+            margin-bottom: 3.5rem;
+        }
+
+        .transfers-photo {
+            position: relative;
+            min-height: 420px;
+        }
+
+        /* Absoluta: la fila del grid la define el texto, y la foto la llena
+           sin depender de que el item tenga altura definida. */
+        .transfers-photo img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .transfers-body {
+            padding: 3rem 3rem 2.5rem;
+            color: #f4ede3;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .transfers-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #bab3ae;
+            margin-bottom: 0.9rem;
+        }
+
+        .transfers-body h3 {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            line-height: 1.05;
+            margin-bottom: 1rem;
+        }
+
+        .transfers-body > p:not(.transfers-eyebrow) {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: #d8d2ca;
+            margin-bottom: 1.8rem;
+        }
+
+        /* Tabla de salidas: cada destino es uno de los planes de abajo.
+           Las distancias salen desde la puerta del aparthotel. */
+        .transfers-routes {
+            list-style: none;
+            border-top: 1px solid rgba(244, 237, 227, 0.18);
+            margin: 0 0 2rem;
+            padding: 0;
+        }
+
+        .transfers-routes li {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px solid rgba(244, 237, 227, 0.18);
+        }
+
+        .transfers-routes .dest {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-size: 1.02rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .transfers-routes .dist {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            color: #bab3ae;
+            font-variant-numeric: tabular-nums;
+            white-space: nowrap;
+        }
+
+        .transfers-cta {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: auto;
+            padding: 0.95rem 2rem;
+            background: #f4ede3;
+            color: #283b4f;
+            text-decoration: none;
+            border-radius: 30px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .transfers-cta:hover,
+        .transfers-cta:focus-visible {
+            background: #ffffff;
+            transform: translateX(4px);
+        }
+
+        .transfers-cta:focus-visible {
+            outline: 3px solid #f4ede3;
+            outline-offset: 3px;
+        }
+
+        /* Bisagra: cierra el "cómo llegás" y abre el "qué hay para hacer". */
+        .activities-hinge {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #283b4f;
+        }
+
+        .activities-hinge::before,
+        .activities-hinge::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #bab3ae;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .transfers-cta {
+                transition: none;
+            }
+
+            .transfers-cta:hover,
+            .transfers-cta:focus-visible {
+                transform: none;
+            }
+        }
+
+        /* Contacto */
+        .contact-section {
+            background: linear-gradient(135deg, #283b4f 0%, #bab3ae 100%);
+            color: white;
+            border-radius: 0 40px 0 0;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-item {
+            padding: 1.5rem;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 0 25px 0 0;
+            transition: all 0.3s;
+        }
+
+        .contact-link {
+            text-decoration: none;
+            color: white;
+            display: block;
+            cursor: pointer;
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-link h3 {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .contact-link p {
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover p {
+            transform: scale(1.05);
+        }
+
+        .contact-link:hover i {
+            transform: scale(1.2);
+            display: inline-block;
+        }
+
+        .contact-link i {
+            transition: all 0.3s;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+        }
+
+        /* Servicios Incluidos */
+        .services-included {
+            text-align: center;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #283b4f 0%, #bab3ae 100%);
+            border-radius: 0 40px 0 0;
+            color: white;
+        }
+
+        .services-included h3 {
+            font-size: 2rem;
+            margin-bottom: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: 0 20px 0 0;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            align-content: center;
+        }
+
+        .service-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-item i {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            display: block;
+            color: #fff;
+        }
+
+        .service-item p {
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Formulario de Reserva */
+        .reservation-form {
+            max-width: 700px;
+            margin: 3rem auto;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 0 40px 0 0;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: all 0.5s ease;
+        }
+
+        .reservation-form.highlight {
+            animation: highlightForm 1s ease-out;
+        }
+
+        @keyframes highlightForm {
+            0%, 100% {
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            }
+            50% {
+                box-shadow: 0 15px 60px rgba(40, 59, 79, 0.5);
+                transform: scale(1.02);
+            }
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: #283b4f;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #bab3ae;
+            border-radius: 0 20px 0 0;
+            font-family: 'Houschka Rounded', 'Montserrat', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s;
+            background: white;
+            color: #3f3f3f;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="number"]:focus {
+            outline: none;
+            border-color: #283b4f;
+            box-shadow: 0 0 0 3px rgba(40, 59, 79, 0.1);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        /* Date Picker Personalizado */
+        .date-picker-container {
+            position: relative;
+        }
+
+        .date-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #bab3ae;
+            border-radius: 0 20px 0 0;
+            font-family: 'Houschka Rounded', 'Montserrat', sans-serif;
+            font-size: 1rem;
+            background: white;
+            color: #3f3f3f;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: all 0.3s;
+        }
+
+        .date-input:hover {
+            border-color: #283b4f;
+        }
+
+        .date-input.active {
+            border-color: #283b4f;
+            box-shadow: 0 0 0 3px rgba(40, 59, 79, 0.1);
+        }
+
+        .date-input i {
+            color: #283b4f;
+        }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+        }
+
+        .calendar-header button {
+            background: none;
+            border: none;
+            color: #283b4f;
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: all 0.3s;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-header button:hover {
+            background: #f4ede3;
+        }
+
+        .calendar-header span {
+            font-weight: 500;
+            color: #283b4f;
+            font-size: 1rem;
+        }
+
+        .calendar-weekdays {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .calendar-weekday {
+            text-align: center;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #283b4f;
+            padding: 0.5rem;
+        }
+
+        .calendar-days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.3rem;
+        }
+
+        .calendar-day {
+            aspect-ratio: 1;
+            border: none;
+            background: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: #3f3f3f;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .calendar-day:hover:not(.disabled):not(.selected) {
+            background: #f4ede3;
+        }
+
+        .calendar-day.disabled {
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .calendar-day.selected {
+            background: #283b4f;
+            color: white;
+            font-weight: 600;
+        }
+
+        .calendar-day.in-range {
+            background: rgba(40, 59, 79, 0.1);
+        }
+
+        .calendar-day.empty {
+            cursor: default;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: #283b4f;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .submit-btn:hover {
+            background: #1e2a3a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(40, 59, 79, 0.4);
+        }
+
+        .submit-btn i {
+            font-size: 1.3rem;
+        }
+
+        .booking-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .platform-link {
+            padding: 0.8rem 2rem;
+            background: white;
+            color: #283b4f;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .platform-link:hover {
+            background: #283b4f;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Mini Cajas Call-to-Action según manual */
+        .cta-box {
+            display: inline-block;
+            padding: 1.5rem 2rem;
+            border-radius: 0 80px 0 0;
+            text-align: center;
+            transition: all 0.3s;
+            min-width: 150px;
+        }
+
+        .cta-box.primary {
+            background: #283b4f;
+            color: white;
+        }
+
+        .cta-box.secondary {
+            background: #bab3ae;
+            color: #283b4f;
+        }
+
+        .cta-box.light {
+            background: #f4ede3;
+            color: #283b4f;
+        }
+
+        .cta-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .cta-box i {
+            display: block;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cta-box p {
+            font-family: 'Houschka Rounded', sans-serif;
+            font-weight: 500;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #283b4f;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a:hover {
+            color: white !important;
+            text-decoration: underline !important;
+        }
+
+        footer i {
+            margin: 0 0.3rem;
+        }
+
+        /* Botón CTA para móvil (oculto por defecto) */
+        .hero-mobile-cta {
+            display: none;
+            padding: 1rem 3rem;
+            background: #283b4f;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 5px 20px rgba(40,59,79,0.4);
+        }
+
+        .hero-mobile-cta:hover {
+            background: #1e2a3a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(40,59,79,0.6);
+        }
+
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .burger-menu {
+                display: flex;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                height: 100vh;
+                width: 70%;
+                max-width: 300px;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                transition: right 0.4s ease;
+                box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            .nav-links.active {
+                right: 0;
+            }
+
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links a {
+                font-size: 1.2rem;
+                padding: 1rem;
+                display: block;
+            }
+
+            nav {
+                justify-content: space-between;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+                letter-spacing: 2px;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .location-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .transfers {
+                grid-template-columns: 1fr;
+                border-radius: 0 40px 0 0;
+            }
+
+            .transfers-photo {
+                min-height: 240px;
+            }
+
+            .transfers-body {
+                padding: 2rem 1.5rem;
+            }
+
+            .transfers-body h3 {
+                font-size: 1.6rem;
+            }
+
+            .transfers-cta {
+                align-self: stretch;
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .services-included h3 {
+                font-size: 1.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+
+            .service-item i {
+                font-size: 2rem;
+            }
+
+            .service-item p {
+                font-size: 0.9rem;
+            }
+
+            .carousel-slide {
+                height: 400px;
+            }
+
+            .carousel-caption h3 {
+                font-size: 1.3rem;
+            }
+
+            .carousel-caption p {
+                font-size: 0.9rem;
+            }
+
+            .carousel-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .reservation-form {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-btn {
+                font-size: 1rem;
+                padding: 1rem;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .submit-btn i {
+                flex-shrink: 0;
+            }
+
+            .hero-booking-form {
+                flex-direction: column;
+                padding: 1.5rem;
+                border-radius: 30px;
+                gap: 1rem;
+            }
+
+            .hero-form-group {
+                width: 100%;
+            }
+
+            .hero-submit-btn {
+                width: 100%;
+                justify-content: center;
+                padding: 1rem;
+            }
+
+            .hero-date-input {
+                min-width: unset;
+            }
+
+            /* Ocultar formulario de reserva en móvil */
+            .hero-booking-form {
+                display: none;
+            }
+
+            /* Mostrar botón de reserva simple en móvil */
+            .hero-mobile-cta {
+                display: block !important;
+            }
+
+            .play-button {
+                width: 60px;
+                height: 60px;
+            }
+
+            .play-button i {
+                font-size: 1.5rem;
+                margin-left: 3px;
+            }
+
+            /* Reducir el efecto Ken Burns en móviles para mejor rendimiento */
+            .hero::before {
+                animation: kenBurnsMobile 15s ease-in-out infinite alternate;
+            }
+
+            @keyframes kenBurnsMobile {
+                0% {
+                    transform: scale(1.05) translate(0, 0);
+                }
+                100% {
+                    transform: scale(1.1) translate(-1%, -1%);
+                }
+            }
+        }
+
+        /* Botón flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+            z-index: 1500;
+            text-decoration: none;
+            border: none;
+            outline: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .whatsapp-float i {
+            color: #fff;
+            font-size: 2rem;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 26px rgba(0,0,0,0.35);
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+                width: 54px;
+                height: 54px;
+            }
+
+            .whatsapp-float i {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo"><img src="img/logo.png" alt="Terminal Suites"></div>
+            <button class="burger-menu" id="burgerMenu" aria-label="Menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#apartamentos">Apartamentos</a></li>
+                <li><a href="#actividades">Actividades</a></li>
+                <li><a href="#contacto">Reserva</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <button class="play-button" id="videoPlayButton" type="button">
+            <i class="fas fa-play"></i>
+        </button> 
+        <div class="hero-content">
+            <!-- Formulario de reserva (visible en desktop) -->
+            <form class="hero-booking-form" id="heroBookingForm">
+                <div class="hero-form-group">
+                    <label for="hero-checkin">Check-in</label>
+                    <div class="hero-date-picker-container">
+                        <div class="hero-date-input" id="heroCheckinInput" data-calendar-type="heroCheckin">
+                            <span>Check-in</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-form-group">
+                    <label for="hero-checkout">Check-out</label>
+                    <div class="hero-date-picker-container">
+                        <div class="hero-date-input" id="heroCheckoutInput" data-calendar-type="heroCheckout">
+                            <span>Check-out</span>
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-form-group">
+                    <label for="hero-personas">Personas</label>
+                    <input type="number" id="hero-personas" name="personas" min="1" max="10" required placeholder="Personas">
+                </div>
+
+                <button type="submit" class="hero-submit-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Reservar
+                </button>
+            </form>
+
+            <!-- Botón simple (visible en móvil) -->
+            <a href="#contacto" class="hero-mobile-cta">Reservar ahora</a>
+        </div>
+    </section>
+
+    <!-- Nosotros -->
+    <section id="nosotros">
+        <h2 class="section-title">BIENVENIDOS A TERMINAL SUITES</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Donde la comodidad y la elegancia se combinan para ofrecerte una experiencia única 
+                    en El Calafate, la joya turística de la Patagonia Austral Argentina. 
+                </p>
+                <p style="margin-top: 1rem;">
+                    Nuestros departamentos totalmente equipados están diseñados para brindarte el máximo 
+                    confort, en una ubicación estratégica y un entorno que refleja la magia de los glaciares.
+                </p>
+                <p style="margin-top: 1rem;">
+                    En Terminal Suites encontrarás el punto de partida perfecto para descubrir este destino 
+                    maravilloso. Déjate sorprender por la magia de El Calafate con nosotros.
+                </p>
+            </div>
+            <div class="about-image"><img src="img/about.webp" alt=""></div>
+        </div>
+    </section>
+
+    <!-- Ubicación -->
+    <section id="ubicacion" style="background: #f4ede3;">
+        <h2 class="section-title">UBICACIÓN PRIVILEGIADA</h2>
+        <div class="location-grid">
+            <div class="map-placeholder">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2547.0853667544407!2d-72.24723932344955!3d-50.33536917157032!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xbdbb0da45edb1935%3A0x6d748c028b251c43!2sTERMINAL%20SUITES!5e0!3m2!1ses-419!2sar!4v1760972823072!5m2!1ses-419!2sar" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="location-features">
+                <div class="location-item">
+                    <h3><i class="fas fa-bus"></i> Terminal de Buses</h3>
+                    <p>A solo 100 metros de la Terminal de Buses</p>
+                </div>
+                <div class="location-item">
+                    <h3><i class="fas fa-hospital"></i> Hospital Regional</h3>
+                    <p>A 200 metros del Hospital Regional</p>
+                </div>
+                <div class="location-item">
+                    <h3><i class="fas fa-mountain"></i> Glaciar Perito Moreno</h3>
+                    <p>A 70 km de una de las maravillas naturales más espectaculares del mundo</p>
+                </div>
+                <div class="location-item">
+                    <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
+                    <p>Enrique Amado 235 - El Calafate, Patagonia Argentina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apartamentos -->
+    <section id="apartamentos">
+        <h2 class="section-title">NUESTROS DEPARTAMENTOS</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
+            8 unidades exclusivas de 70m², completamente equipadas y diseñadas para tu bienestar
+        </p>
+
+        <!-- Carrusel de Imágenes -->
+        <div class="carousel-container">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide">
+                    <img src="img/living1.webp" alt="Departamento Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>ESPACIOS AMPLIOS Y LUMINOSOS</h3>
+                        <p>Departamentos de 70m² diseñados para tu máximo confort</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/tele.webp" alt="Living Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>LIVING TOTALMENTE EQUIPADO</h3>
+                        <p>Sofá, mesa, sillas y Smart TV de 52 pulgadas</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/cocina2.webp" alt="Cocina Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>COCINA MODERNA</h3>
+                        <p>Heladera, microondas, anafe vitrocerámico y menaje completo</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/habitacion4.webp" alt="Dormitorio Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>DORMITORIOS CONFORTABLES</h3>
+                        <p>Camas matrimoniales con ropa de cama premium</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/banio.webp" alt="Baño Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>BAÑOS EQUIPADOS</h3>
+                        <p>Instalaciones modernas y toallas de primera calidad</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/detalle.webp" alt="Detalle Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>ATENCIÓN AL DETALLE</h3>
+                        <p>Cada rincón pensado para tu bienestar</p>
+                    </div>
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/habitacion2.webp" alt="Habitación Terminal Suites">
+                    <div class="carousel-caption">
+                        <h3>HABITACIONES ELEGANTES</h3>
+                        <p>Espacios diseñados para tu descanso y comodidad</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones de navegación -->
+            <button class="carousel-btn prev" id="prevBtn" aria-label="Anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="carousel-btn next" id="nextBtn" aria-label="Siguiente">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Indicadores -->
+            <div class="carousel-indicators" id="carouselIndicators"></div>
+        </div>
+
+        <!-- Grid de Características -->
+        <div class="apartments-grid">
+            <div class="apartment-card">
+                <div class="apartment-content">
+                    <h3>SALA DE ESTAR</h3>
+                    <ul class="amenities-list">
+                        <li>Amplio living de 70m²</li>
+                        <li>Sofá, mesa y sillas cómodas</li>
+                        <li>Smart TV de 52 pulgadas</li>
+                        <li>Wi-Fi de alta velocidad</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="apartment-card">
+                <div class="apartment-content">
+                    <h3>COCINA EQUIPADA</h3>
+                    <ul class="amenities-list">
+                        <li>Heladera y microondas</li>
+                        <li>Anafe vitrocerámico</li>
+                        <li>Pava eléctrica y tostadora</li>
+                        <li>Vajilla y utensilios completos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="apartment-card">
+                <div class="apartment-content">
+                    <h3>DORMITORIOS</h3>
+                    <ul class="amenities-list">
+                        <li>Dos camas matrimoniales</li>
+                        <li>Ropa de cama premium</li>
+                        <li>Cortinas blackout</li>
+                        <li>Armarios y mesas de luz</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="services-included">
+            <h3>SERVICIOS INCLUIDOS</h3>
+            <div class="services-grid">
+                <div class="service-item">
+                    <i class="fas fa-fire"></i>
+                    <p>Calefacción Central</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-wifi"></i>
+                    <p>Wi-Fi Gratuito</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-parking"></i>
+                    <p>Estacionamiento Privado</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-gift"></i>
+                    <p>Box de Bienvenida</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-concierge-bell"></i>
+                    <p>Servicio de Conserjería</p>
+                </div>
+                <div class="service-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <p>Seguridad 24/7</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Actividades -->
+    <section id="actividades" style="background: #f4ede3;">
+        <h2 class="section-title">DESCUBRE EL CALAFATE</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem;">
+            El Calafate es la puerta de entrada al impresionante Glaciar Perito Moreno
+        </p>
+        
+        <div class="transfers">
+            <div class="transfers-photo">
+                <img src="img/traslado-ruta.webp" alt="Auto de traslado privado en la ruta al atardecer, con el cordón del Fitz Roy de fondo" loading="lazy" width="1280" height="960">
+            </div>
+            <div class="transfers-body">
+                <p class="transfers-eyebrow">Servicio propio</p>
+                <h3>Traslados privados</h3>
+                <p>Coordinamos el chofer desde la puerta del aparthotel hasta donde vayas. Sin combis compartidas ni esperas: salís a tu horario y volvés cuando terminás.</p>
+                <ul class="transfers-routes">
+                    <li><span class="dest">Aeropuerto</span> <span class="dist">23 km &middot; 25 min</span></li>
+                    <li><span class="dest">Glaciar Perito Moreno</span> <span class="dist">78 km &middot; 1 h 20</span></li>
+                    <li><span class="dest">El Chaltén</span> <span class="dist">213 km &middot; 3 h</span></li>
+                    <li><span class="dest">Estancias y Lago Roca</span> <span class="dist">50 km &middot; 1 h</span></li>
+                </ul>
+                <a class="transfers-cta" href="https://wa.me/5492966569953?text=Hola%2C%20quiero%20consultar%20por%20un%20traslado%20privado" target="_blank" rel="noopener"
+                   onclick="if (typeof gtag === 'function') { gtag('event', 'clic_whatsapp', { origen: 'traslados' }); }">
+                    <i class="fa-brands fa-whatsapp"></i> Consultar traslado
+                </a>
+            </div>
+        </div>
+
+        <p class="activities-hinge">Y una vez que llegás</p>
+
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/glaciar.webp" alt="Frente del Glaciar Perito Moreno sobre el Lago Argentino, con el bosque en otoño" loading="lazy" width="900" height="506">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-mountain"></i></div>
+                    <h3>Parque Nacional Los Glaciares</h3>
+                    <p>Explora el majestuoso Glaciar Perito Moreno y sus imponentes paredes de hielo</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/navegacion.webp" alt="Embarcación de excursión navegando entre témpanos sobre el agua turquesa del lago" loading="lazy" width="900" height="599">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-ship"></i></div>
+                    <h3>Navegaciones</h3>
+                    <p>Paseos en barco que te acercan a las paredes de hielo en un espectáculo inolvidable</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/escalada.webp" alt="Fila de caminantes sobre el hielo del glaciar durante el minitrekking" loading="lazy" width="900" height="600">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-hiking"></i></div>
+                    <h3>Trekking sobre Hielo</h3>
+                    <p>Caminatas sobre el glaciar para los más aventureros</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/kayak.webp" alt="Persona remando en kayak sobre el agua turquesa de un lago glaciario" loading="lazy" width="900" height="600">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-water"></i></div>
+                    <h3>Kayak en Lago Argentino</h3>
+                    <p>Excursiones en kayak y visitas a glaciares como Upsala y Spegazzini</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/cabalgata.webp" alt="Paisano a caballo con poncho y boina, acompañado por sus perros, en un camino nevado de la cordillera" loading="lazy" width="900" height="600">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-horse"></i></div>
+                    <h3>Estancias Patagónicas</h3>
+                    <p>Cabalgatas y visitas a estancias tradicionales para sumergirse en la vida rural</p>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-photo">
+                    <img src="img/gastronomia.webp" alt="Asador cortando cordero y costillares colgados en la parrilla" loading="lazy" width="900" height="600">
+                </div>
+                <div class="activity-body">
+                    <div class="activity-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Gastronomía Local</h3>
+                    <p>Descubre los sabores auténticos de la Patagonia con exquisita cocina local</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto">
+        <div class="contact-section">
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;">RESERVA TU ESTADÍA</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">
+                Completa el formulario y te responderemos por WhatsApp
+            </p>
+
+            <!-- Formulario de Reserva -->
+            <form class="reservation-form" id="reservationForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Ingresa tu nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="personas">Cantidad de personas</label>
+                    <input type="number" id="personas" name="personas" min="1" max="10" required placeholder="Número de huéspedes">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="checkin">Check-in</label>
+                        <div class="date-picker-container">
+                            <div class="date-input" id="checkinInput" data-calendar-type="checkin">
+                                <span>Selecciona una fecha</span>
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="checkout">Check-out</label>
+                        <div class="date-picker-container">
+                            <div class="date-input" id="checkoutInput" data-calendar-type="checkout">
+                                <span>Selecciona una fecha</span>
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Enviar por WhatsApp
+                </button>
+            </form>
+
+            <div style="text-align: center; margin: 2rem 0; color: rgba(255,255,255,0.8);">
+                <p>O también puedes reservar a través de:</p>
+            </div>
+
+            <div class="booking-platforms">
+                <a class="platform-link" target="_blank" href="https://www.airbnb.mx/rooms/1241439710037018788?check_in=2025-11-04&check_out=2025-11-09&guests=1&adults=1&s=67&unique_share_id=cf010a6a-9340-4978-bdad-661d7ff816fb">Airbnb</a>
+                <a class="platform-link" target="_blank" href="https://www.expedia.ca/El-Calafate-Hotels-Terminal-Suites.h116512955.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link">Expedia</a>
+                <a class="platform-link" target="_blank" href="https://www.booking.com/hotel/ar/apart-austral-el-calafate.es.html?aid=356980&label=gog235jc-10CAsoDEIZYXBhcnQtYXVzdHJhbC1lbC1jYWxhZmF0ZUgsWANoDIgBAZgBM7gBF8gBD9gBA-gBAfgBAYgCAagCAbgCjN3jxwbAAgHSAiQxY2NkNmVhYi0yOTdlLTQ5NDQtOWM3My00M2VkMmI0NThmYTLYAgHgAgE-Share-0yqNGh%401761144483&sid=02019a44e9a0233a4510a3f7165bb783&dest_id=-985388&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1761150271&srpvid=725b7357a857000e&type=total&ucfs=1&">Booking.com</a>
+            </div>
+
+            <div class="contact-info">
+                <a href="tel:+542966569953" class="contact-item contact-link">
+                    <h3><i class="fas fa-phone"></i> Teléfono</h3>
+                    <p>+54 2966 569953</p>
+                </a>
+
+                <a href="mailto:terminalsuiteselcalafate@gmail.com" class="contact-item contact-link">
+                    <h3><i class="fas fa-envelope"></i> Email</h3>
+                    <p>terminalsuiteselcalafate@gmail.com</p>
+                </a>
+
+                <a href="https://www.instagram.com/terminalsuites/" target="_blank" rel="noopener noreferrer" class="contact-item contact-link">
+                    <h3><i class="fab fa-instagram"></i> Instagram</h3>
+                    <p>@terminalsuites</p>
+                </a>
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 1.1rem;">
+                ¡Estamos listos para recibirte!
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; <span id="currentYear"></span> Terminal Suites - El Calafate, Patagonia Argentina</p> <br>
+        <p style="font-size: 0.9rem; opacity: 0.9;">
+            <i class="fas fa-code"></i> Sitio web diseñado y desarrollado por
+            <a href="https://teocicciari.com.ar" target="_blank" rel="noopener noreferrer" style="color: #f4ede3; text-decoration: none; font-weight: 500; transition: all 0.3s;">
+                Teo Cicciari
+            </a>
+            <i class="fas fa-laptop-code" style="margin-left: 0.3rem;"></i>
+        </p>
+    </footer>
+
+    <!-- Modal de Video -->
+    <div class="video-modal" id="videoModal">
+        <div class="video-modal-content">
+            <button type="button" class="video-modal-close" id="videoModalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="video-wrapper">
+                <iframe id="videoIframe" src="" title="Terminal suites" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen playsinline></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Calendario -->
+    <div class="calendar-modal" id="calendarModal">
+        <div class="calendar-modal-content">
+            <div class="calendar-modal-header">
+                <h3 class="calendar-modal-title" id="calendarModalTitle">Selecciona una fecha</h3>
+                <button type="button" class="calendar-modal-close" id="calendarModalClose">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="calendar-header">
+                <button type="button" id="modalCalendarPrev"><i class="fas fa-chevron-left"></i></button>
+                <span id="modalCalendarMonthYear"></span>
+                <button type="button" id="modalCalendarNext"><i class="fas fa-chevron-right"></i></button>
+            </div>
+            <div class="calendar-weekdays">
+                <div class="calendar-weekday">Dom</div>
+                <div class="calendar-weekday">Lun</div>
+                <div class="calendar-weekday">Mar</div>
+                <div class="calendar-weekday">Mié</div>
+                <div class="calendar-weekday">Jue</div>
+                <div class="calendar-weekday">Vie</div>
+                <div class="calendar-weekday">Sáb</div>
+            </div>
+            <div class="calendar-days" id="modalCalendarDays"></div>
+        </div>
+    </div>
+
+    <script>
+        // Burger Menu
+        const burgerMenu = document.getElementById('burgerMenu');
+        const navLinks = document.getElementById('navLinks');
+
+        burgerMenu.addEventListener('click', () => {
+            burgerMenu.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                burgerMenu.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Carrusel de Imágenes
+        class Carousel {
+            constructor() {
+                this.track = document.getElementById('carouselTrack');
+                this.slides = document.querySelectorAll('.carousel-slide');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+                this.indicatorsContainer = document.getElementById('carouselIndicators');
+
+                this.currentIndex = 0;
+                this.totalSlides = this.slides.length;
+                this.autoplayInterval = null;
+
+                this.init();
+            }
+
+            init() {
+                // Crear indicadores
+                this.createIndicators();
+
+                // Event listeners para botones
+                this.prevBtn.addEventListener('click', () => this.prev());
+                this.nextBtn.addEventListener('click', () => this.next());
+
+                // Autoplay
+                this.startAutoplay();
+
+                // Pausar autoplay al hover
+                this.track.parentElement.addEventListener('mouseenter', () => this.stopAutoplay());
+                this.track.parentElement.addEventListener('mouseleave', () => this.startAutoplay());
+
+                // Touch events para móviles
+                this.addTouchEvents();
+            }
+
+            createIndicators() {
+                for (let i = 0; i < this.totalSlides; i++) {
+                    const indicator = document.createElement('button');
+                    indicator.classList.add('indicator');
+                    if (i === 0) indicator.classList.add('active');
+                    indicator.addEventListener('click', () => this.goToSlide(i));
+                    this.indicatorsContainer.appendChild(indicator);
+                }
+                this.indicators = document.querySelectorAll('.indicator');
+            }
+
+            updateCarousel() {
+                const offset = -this.currentIndex * 100;
+                this.track.style.transform = `translateX(${offset}%)`;
+
+                // Actualizar indicadores
+                this.indicators.forEach((indicator, index) => {
+                    indicator.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            next() {
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.updateCarousel();
+            }
+
+            prev() {
+                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.updateCarousel();
+            }
+
+            goToSlide(index) {
+                this.currentIndex = index;
+                this.updateCarousel();
+            }
+
+            startAutoplay() {
+                this.autoplayInterval = setInterval(() => this.next(), 5000);
+            }
+
+            stopAutoplay() {
+                clearInterval(this.autoplayInterval);
+            }
+
+            addTouchEvents() {
+                let startX = 0;
+                let currentX = 0;
+
+                this.track.addEventListener('touchstart', (e) => {
+                    startX = e.touches[0].clientX;
+                });
+
+                this.track.addEventListener('touchmove', (e) => {
+                    currentX = e.touches[0].clientX;
+                });
+
+                this.track.addEventListener('touchend', () => {
+                    const diff = startX - currentX;
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.next();
+                        } else {
+                            this.prev();
+                        }
+                    }
+                });
+            }
+        }
+
+        // Inicializar carrusel cuando el DOM esté listo
+        document.addEventListener('DOMContentLoaded', () => {
+            new Carousel();
+        });
+
+        // Date Picker con Modal
+        class DatePicker {
+            constructor(type) {
+                this.type = type;
+                this.selectedDate = null;
+                this.currentMonth = new Date().getMonth();
+                this.currentYear = new Date().getFullYear();
+                this.input = document.getElementById(`${type}Input`);
+
+                this.init();
+            }
+
+            init() {
+                this.input.addEventListener('click', () => this.openModal());
+            }
+
+            openModal() {
+                window.currentDatePicker = this;
+                const modal = document.getElementById('calendarModal');
+                const title = document.getElementById('calendarModalTitle');
+
+                // Actualizar título según el tipo
+                if (this.type.includes('checkin') || this.type.includes('Checkin')) {
+                    title.textContent = 'Selecciona Check-in';
+                } else {
+                    title.textContent = 'Selecciona Check-out';
+                }
+
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden'; // Prevenir scroll del body
+                this.renderCalendar();
+            }
+
+            changeMonth(delta) {
+                this.currentMonth += delta;
+                if (this.currentMonth > 11) {
+                    this.currentMonth = 0;
+                    this.currentYear++;
+                } else if (this.currentMonth < 0) {
+                    this.currentMonth = 11;
+                    this.currentYear--;
+                }
+                this.renderCalendar();
+            }
+
+            renderCalendar() {
+                const months = ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+                               'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'];
+
+                const monthYear = document.getElementById('modalCalendarMonthYear');
+                const daysContainer = document.getElementById('modalCalendarDays');
+
+                monthYear.textContent = `${months[this.currentMonth]} ${this.currentYear}`;
+
+                const firstDay = new Date(this.currentYear, this.currentMonth, 1).getDay();
+                const daysInMonth = new Date(this.currentYear, this.currentMonth + 1, 0).getDate();
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                daysContainer.innerHTML = '';
+
+                // Días vacíos al inicio
+                for (let i = 0; i < firstDay; i++) {
+                    const emptyDay = document.createElement('button');
+                    emptyDay.type = 'button';
+                    emptyDay.classList.add('calendar-day', 'empty');
+                    daysContainer.appendChild(emptyDay);
+                }
+
+                // Días del mes
+                for (let day = 1; day <= daysInMonth; day++) {
+                    const dayBtn = document.createElement('button');
+                    dayBtn.type = 'button';
+                    dayBtn.classList.add('calendar-day');
+                    dayBtn.textContent = day;
+
+                    const dayDate = new Date(this.currentYear, this.currentMonth, day);
+                    dayDate.setHours(0, 0, 0, 0);
+
+                    // Deshabilitar fechas pasadas
+                    if (dayDate < today) {
+                        dayBtn.classList.add('disabled');
+                    } else {
+                        dayBtn.addEventListener('click', () => this.selectDate(day));
+                    }
+
+                    // Marcar día seleccionado
+                    if (this.selectedDate &&
+                        this.selectedDate.getDate() === day &&
+                        this.selectedDate.getMonth() === this.currentMonth &&
+                        this.selectedDate.getFullYear() === this.currentYear) {
+                        dayBtn.classList.add('selected');
+                    }
+
+                    daysContainer.appendChild(dayBtn);
+                }
+            }
+
+            selectDate(day) {
+                this.selectedDate = new Date(this.currentYear, this.currentMonth, day);
+                const formattedDate = this.formatDate(this.selectedDate);
+                const span = this.input.querySelector('span');
+                span.textContent = formattedDate;
+                span.classList.add('selected');
+                this.closeModal();
+            }
+
+            closeModal() {
+                const modal = document.getElementById('calendarModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = ''; // Restaurar scroll del body
+            }
+
+            formatDate(date) {
+                const day = date.getDate().toString().padStart(2, '0');
+                const month = (date.getMonth() + 1).toString().padStart(2, '0');
+                const year = date.getFullYear();
+                return `${day}/${month}/${year}`;
+            }
+
+            getSelectedDate() {
+                return this.selectedDate;
+            }
+        }
+
+        // Variable global para mantener referencia al DatePicker actual
+        window.currentDatePicker = null;
+
+        // Inicializar Date Pickers
+        let checkinPicker, checkoutPicker;
+        let heroCheckinPicker, heroCheckoutPicker;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkinPicker = new DatePicker('checkin');
+            checkoutPicker = new DatePicker('checkout');
+            heroCheckinPicker = new DatePicker('heroCheckin');
+            heroCheckoutPicker = new DatePicker('heroCheckout');
+
+            // Event listeners para el modal de calendario
+            const modal = document.getElementById('calendarModal');
+            const closeBtn = document.getElementById('calendarModalClose');
+            const prevBtn = document.getElementById('modalCalendarPrev');
+            const nextBtn = document.getElementById('modalCalendarNext');
+
+            // Cerrar modal con el botón X
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+
+            // Cerrar modal al hacer clic fuera del contenido
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+
+            // Botones de navegación del calendario
+            prevBtn.addEventListener('click', () => {
+                if (window.currentDatePicker) {
+                    window.currentDatePicker.changeMonth(-1);
+                }
+            });
+
+            nextBtn.addEventListener('click', () => {
+                if (window.currentDatePicker) {
+                    window.currentDatePicker.changeMonth(1);
+                }
+            });
+
+            // Cerrar con tecla ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modal.classList.contains('active')) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+
+        // Formulario de Reserva por WhatsApp
+        document.getElementById('reservationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Obtener los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const personas = document.getElementById('personas').value;
+            const checkinDate = checkinPicker.getSelectedDate();
+            const checkoutDate = checkoutPicker.getSelectedDate();
+
+            // Validar que se hayan seleccionado las fechas
+            if (!checkinDate || !checkoutDate) {
+                alert('Por favor selecciona las fechas de check-in y check-out');
+                return;
+            }
+
+            // Validar que check-out sea después de check-in
+            if (checkoutDate <= checkinDate) {
+                alert('La fecha de check-out debe ser posterior a la fecha de check-in');
+                return;
+            }
+
+            // Formatear las fechas
+            const checkinFormatted = checkinPicker.formatDate(checkinDate);
+            const checkoutFormatted = checkoutPicker.formatDate(checkoutDate);
+
+            // Crear el mensaje de WhatsApp
+            const mensaje = `¡Hola! Me gustaría hacer una reserva en Terminal Suites:%0A%0A` +
+                          `*Nombre:* ${nombre}%0A` +
+                          `*Cantidad de personas:* ${personas}%0A` +
+                          `*Check-in:* ${checkinFormatted}%0A` +
+                          `*Check-out:* ${checkoutFormatted}%0A%0A` +
+                          `¿Tienen disponibilidad para estas fechas?`;
+
+            // Número de WhatsApp de Terminal Suites
+            const numeroWhatsApp = '5492966569953'; // +54 2966 569953
+
+            // Eventos de conversión GA4
+            if (typeof gtag === 'function') {
+                gtag('event', 'intento_reserva', { form_id: 'reservationForm' });
+                gtag('event', 'clic_whatsapp', { origen: 'formulario_reserva' });
+            }
+
+            // Abrir WhatsApp
+            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
+            window.location.href = 'gracias.html';
+        });
+
+        // Formulario de Reserva Hero - Transferir datos al formulario de contacto
+        document.getElementById('heroBookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Obtener los valores del formulario
+            const personas = document.getElementById('hero-personas').value;
+            const checkinDate = heroCheckinPicker.getSelectedDate();
+            const checkoutDate = heroCheckoutPicker.getSelectedDate();
+
+            // Validar que se hayan seleccionado las fechas
+            if (!checkinDate || !checkoutDate) {
+                alert('Por favor selecciona las fechas de check-in y check-out');
+                return;
+            }
+
+            // Validar que check-out sea después de check-in
+            if (checkoutDate <= checkinDate) {
+                alert('La fecha de check-out debe ser posterior a la fecha de check-in');
+                return;
+            }
+
+            // Evento de conversión GA4 (intención de reserva desde el hero)
+            if (typeof gtag === 'function') gtag('event', 'intento_reserva', { form_id: 'heroBookingForm' });
+
+            // Transferir los datos al formulario de contacto
+            // Formatear las fechas
+            const checkinFormatted = heroCheckinPicker.formatDate(checkinDate);
+            const checkoutFormatted = heroCheckoutPicker.formatDate(checkoutDate);
+
+            // Transferir cantidad de personas
+            document.getElementById('personas').value = personas;
+
+            // Transferir fechas a los date pickers del formulario de contacto
+            checkinPicker.selectedDate = checkinDate;
+            checkinPicker.input.querySelector('span').textContent = checkinFormatted;
+            checkinPicker.input.querySelector('span').classList.add('selected');
+
+            checkoutPicker.selectedDate = checkoutDate;
+            checkoutPicker.input.querySelector('span').textContent = checkoutFormatted;
+            checkoutPicker.input.querySelector('span').classList.add('selected');
+
+            // Hacer scroll suave a la sección de contacto
+            const contactSection = document.getElementById('contacto');
+            contactSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+
+            // Agregar efecto highlight al formulario
+            const reservationForm = document.getElementById('reservationForm');
+            setTimeout(() => {
+                reservationForm.classList.add('highlight');
+                // Remover la clase después de la animación
+                setTimeout(() => {
+                    reservationForm.classList.remove('highlight');
+                }, 1000);
+            }, 500);
+
+            // Enfocar el campo de nombre después de un pequeño delay
+            setTimeout(() => {
+                document.getElementById('nombre').focus();
+            }, 1000);
+        });
+
+        // Modal de Video
+        const videoModal = document.getElementById('videoModal');
+        const videoPlayButton = document.getElementById('videoPlayButton');
+        const videoModalClose = document.getElementById('videoModalClose');
+        const videoIframe = document.getElementById('videoIframe');
+        const videoUrl = 'https://www.youtube.com/embed/bhPpSeTcHYI?autoplay=1&playsinline=1&rel=0';
+
+        // Abrir modal de video
+        videoPlayButton.addEventListener('click', () => {
+            videoIframe.src = videoUrl;
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        // Cerrar modal de video con botón X
+        videoModalClose.addEventListener('click', () => {
+            videoModal.classList.remove('active');
+            videoIframe.src = '';
+            document.body.style.overflow = '';
+        });
+
+        // Cerrar modal de video al hacer clic fuera del contenido
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active');
+                videoIframe.src = '';
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Cerrar modal de video con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                videoModal.classList.remove('active');
+                videoIframe.src = '';
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+    <!-- Schema.org JSON-LD para Hotel/Alojamiento -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org/",
+      "@type": "Hotel",
+      "name": "Terminal Suites",
+      "image": [
+        "https://terminalsuites.com.ar/img/living1.webp",
+        "https://terminalsuites.com.ar/img/habitacion4.webp",
+        "https://terminalsuites.com.ar/img/cocina2.webp"
+      ],
+      "description": "Terminal Suites ofrece 8 departamentos de lujo completamente equipados en El Calafate, Patagonia Argentina. Ubicado a solo 100 metros de la terminal de buses y 70km del Glaciar Perito Moreno.",
+      "telephone": "+54 2966 569953",
+      "email": "terminalsuiteselcalafate@gmail.com",
+      "url": "https://terminalsuites.com.ar",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Enrique Amado 235",
+        "addressLocality": "El Calafate",
+        "addressRegion": "Santa Cruz",
+        "postalCode": "9405",
+        "addressCountry": "AR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-50.3353",
+        "longitude": "-72.2472"
+      },
+      "sameAs": [
+        "https://www.instagram.com/terminalsuites/",
+        "https://www.airbnb.mx/rooms/1241439710037018788",
+        "https://www.booking.com/hotel/ar/apart-austral-el-calafate.es.html"
+      ],
+      "priceRange": "$$",
+      "starRating": {
+        "@type": "Rating",
+        "ratingValue": "5"
+      },
+      "amenityFeature": [
+        {
+          "@type": "Text",
+          "name": "WiFi gratuito"
+        },
+        {
+          "@type": "Text",
+          "name": "Calefacción central"
+        },
+        {
+          "@type": "Text",
+          "name": "Estacionamiento privado"
+        },
+        {
+          "@type": "Text",
+          "name": "Seguridad 24/7"
+        },
+        {
+          "@type": "Text",
+          "name": "Servicio de conserjería"
+        },
+        {
+          "@type": "Text",
+          "name": "Box de bienvenida"
+        }
+      ],
+      "numberOfRooms": 8,
+      "checkinTime": "14:00",
+      "checkoutTime": "10:00",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "Customer Service",
+        "telephone": "+54 2966 569953",
+        "email": "terminalsuiteselcalafate@gmail.com"
+      }
+    }
+    </script>
+
+    <!-- Fecha dinámica en footer -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Botón flotante de WhatsApp -->
+    <a href="https://wa.me/5492966569953?text=Hola%2C%20quiero%20consultar%20disponibilidad"
+       class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Consultar por WhatsApp"
+       onclick="if (typeof gtag === 'function') { gtag('event', 'clic_whatsapp', { origen: 'boton_flotante' }); }">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+
+</html>
+

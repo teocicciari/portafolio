@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>¡Gracias! — Terminal Suites</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+<style>
+  :root {
+    --navy: #283b4f;
+    --navy-osc: #1e2a3a;
+    --crema: #f4ede3;
+    --gris: #bab3ae;
+    --texto: #3f3f3f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--crema);
+    color: var(--texto);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 3rem 2.2rem;
+    max-width: 540px;
+    width: 100%;
+    box-shadow: 0 24px 60px rgba(40, 59, 79, .15);
+  }
+  .check {
+    width: 76px; height: 76px;
+    margin: 0 auto 1.6rem;
+    border-radius: 50%;
+    background: var(--navy);
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2.1rem;
+  }
+  h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: .04em;
+    font-size: clamp(2rem, 6vw, 2.8rem);
+    line-height: 1.05;
+    color: var(--navy);
+    margin-bottom: .9rem;
+  }
+  p { color: var(--texto); font-size: 1.02rem; line-height: 1.6; margin-bottom: .6rem; }
+  .btns { margin-top: 1.8rem; display: flex; gap: .8rem; flex-wrap: wrap; justify-content: center; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    padding: .85rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600; font-size: .95rem;
+    text-decoration: none;
+    transition: transform .15s ease, background .15s ease;
+  }
+  .btn-primario { background: var(--navy); color: #fff; }
+  .btn-primario:hover { background: var(--navy-osc); transform: translateY(-2px); }
+  .btn-secundario { background: transparent; color: var(--navy); border: 1.5px solid var(--gris); }
+  .btn-secundario:hover { transform: translateY(-2px); }
+  footer { margin-top: 2rem; font-size: .85rem; color: var(--texto); opacity: .8; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="check"><i class="fa-solid fa-check"></i></div>
+    <h1>¡Gracias por tu reserva!</h1>
+    <p>Abrimos WhatsApp para que confirmes tu consulta de disponibilidad. Si no se abrió, escribinos directamente y te respondemos a la brevedad.</p>
+    <div class="btns">
+      <a class="btn btn-primario" id="waFallback" href="https://wa.me/5492966569953" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Abrir WhatsApp</a>
+      <a class="btn btn-secundario" href="index.html"><i class="fa-solid fa-arrow-left"></i> Volver al sitio</a>
+    </div>
+  </div>
+  <footer>© <span id="anio"></span> Terminal Suites</footer>
+  <script>
+    document.getElementById('anio').textContent = new Date().getFullYear();
+    // Llegar a esta página confirma que el formulario se completó y WhatsApp se abrió
+    if (typeof gtag === 'function') gtag('event', 'reserva_confirmada');
+    document.getElementById('waFallback').addEventListener('click', function () {
+      if (typeof gtag === 'function') gtag('event', 'clic_whatsapp', { origen: 'pagina_gracias' });
+    });
+  </script>
+</body>
+</html>
