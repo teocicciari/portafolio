@@ -25,7 +25,8 @@
     <meta name="twitter:description" content="8 suites de lujo completamente equipadas a 100m de la terminal. Perfecto para explorar el Glaciar Perito Moreno en Patagonia Argentina.">
     <meta name="twitter:image" content="https://terminalsuites.com.ar/img/living1.webp">
 
-    <link rel="preload" as="image" href="img/hero-glaciar.webp" fetchpriority="high">
+    <link rel="preload" as="image" href="img/hero-glaciar.webp" media="(min-width: 769px)" fetchpriority="high">
+    <link rel="preload" as="image" href="img/hero-glaciar-vert.webp" media="(max-width: 768px)" fetchpriority="high">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1812,6 +1813,7 @@
             /* Reducir el efecto Ken Burns en móviles para mejor rendimiento */
             .hero::before {
                 animation: kenBurnsMobile 15s ease-in-out infinite alternate;
+                background-image: url('img/hero-glaciar-vert.webp');
             }
 
             @keyframes kenBurnsMobile {
