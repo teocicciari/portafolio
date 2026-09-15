@@ -1010,19 +1010,19 @@
             margin-bottom: 3.5rem;
         }
 
-        .transfers-photo {
-            position: relative;
-            min-height: 420px;
+        /* Dos vehiculos apilados: el auto y la combi, que es la flota real.
+           El gap deja pasar el azul del bloque como hairline entre las dos. */
+        .transfers-photos {
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 3px;
+            min-height: 460px;
         }
 
-        /* Absoluta: la fila del grid la define el texto, y la foto la llena
-           sin depender de que el item tenga altura definida. */
-        .transfers-photo img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .transfers-photos img {
             width: 100%;
             height: 100%;
+            min-height: 0;
             object-fit: cover;
             display: block;
         }
@@ -1688,8 +1688,11 @@
                 border-radius: 0 40px 0 0;
             }
 
-            .transfers-photo {
-                min-height: 240px;
+            /* En vertical las dos apiladas quedan achatadas: van lado a lado. */
+            .transfers-photos {
+                grid-template-rows: none;
+                grid-template-columns: 1fr 1fr;
+                min-height: 200px;
             }
 
             .transfers-body {
@@ -2128,13 +2131,14 @@
         </p>
         
         <div class="transfers">
-            <div class="transfers-photo">
-                <img src="img/traslado-ruta.webp" alt="Auto de traslado privado en la ruta al atardecer, con el cordón del Fitz Roy de fondo" loading="lazy" width="1280" height="960">
+            <div class="transfers-photos">
+                <img src="img/traslado-ruta.webp" alt="Auto de traslado privado en la ruta al atardecer, con el cordón del Fitz Roy de fondo" loading="lazy" width="900" height="675">
+                <img src="img/traslado-van.webp" alt="Combi de traslado privado estacionada frente al Fitz Roy al atardecer" loading="lazy" width="900" height="675">
             </div>
             <div class="transfers-body">
                 <p class="transfers-eyebrow">Servicio propio</p>
                 <h3>Traslados privados</h3>
-                <p>Coordinamos el chofer desde la puerta del aparthotel hasta donde vayas. Sin combis compartidas ni esperas: salís a tu horario y volvés cuando terminás.</p>
+                <p>Coordinamos el chofer desde la puerta del aparthotel hasta donde vayas. Sin traslados compartidos ni esperas: salís a tu horario y volvés cuando terminás.</p>
                 <ul class="transfers-routes">
                     <li><span class="dest">Aeropuerto</span> <span class="dist">23 km &middot; 25 min</span></li>
                     <li><span class="dest">Glaciar Perito Moreno</span> <span class="dist">78 km &middot; 1 h 20</span></li>
