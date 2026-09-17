@@ -163,7 +163,22 @@
     font-size:.9rem;
     margin:0 0 22px;
   }
-  .station .gcal-slot{min-height:44px;}
+  .btn-reservar{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    font-family:var(--font-mono);
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    background:var(--rose);
+    color:var(--ink);
+    text-decoration:none;
+    padding:13px 16px;
+    border-radius:3px;
+    transition:background .2s ease, transform .2s ease;
+  }
+  .btn-reservar:hover{background:#e8a397; transform:translateY(-1px);}
 
   @media (prefers-reduced-motion: reduce){
     .station{animation:none; opacity:1;}
@@ -275,26 +290,35 @@
       PROTOTIPO: las 3 estaciones apuntan hoy al mismo calendario (el único
       link real que tenemos). Para que cada estilista tenga SU propia agenda,
       creá una "Programación de citas" por persona en Google Calendar y pegá
-      cada link en el "url" del bloque correspondiente más abajo.
+      cada link en el href correspondiente más abajo.
     -->
     <div class="stations" id="reservar">
       <div class="station">
         <span class="num">Silla 01</span>
         <h3>Nina Ferro</h3>
         <p class="especialidad">Color y transformaciones</p>
-        <div class="gcal-slot" id="gcal-1"></div>
+        <a class="btn-reservar" target="_blank" rel="noopener"
+          href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0CZ4j16tlSmYNtcW1PzPZVW-G2mVzhbWjeRZt5B08DbVqk5i2CDsYJNx_55rCrRCnQKghMrKNS?gv=true">
+          Reservar con Nina
+        </a>
       </div>
       <div class="station">
         <span class="num">Silla 02</span>
         <h3>Bruno Salas</h3>
         <p class="especialidad">Cortes clásicos y barba</p>
-        <div class="gcal-slot" id="gcal-2"></div>
+        <a class="btn-reservar" target="_blank" rel="noopener"
+          href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0CZ4j16tlSmYNtcW1PzPZVW-G2mVzhbWjeRZt5B08DbVqk5i2CDsYJNx_55rCrRCnQKghMrKNS?gv=true">
+          Reservar con Bruno
+        </a>
       </div>
       <div class="station">
         <span class="num">Silla 03</span>
         <h3>Ceci Duarte</h3>
         <p class="especialidad">Texturas y tratamientos</p>
-        <div class="gcal-slot" id="gcal-3"></div>
+        <a class="btn-reservar" target="_blank" rel="noopener"
+          href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0CZ4j16tlSmYNtcW1PzPZVW-G2mVzhbWjeRZt5B08DbVqk5i2CDsYJNx_55rCrRCnQKghMrKNS?gv=true">
+          Reservar con Ceci
+        </a>
       </div>
     </div>
   </div>
@@ -363,24 +387,7 @@
   </div>
 </footer>
 
-<!-- Google Calendar Appointment Scheduling: librería, una sola vez -->
-<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
-<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
 <script>
-  function cargarBotonTurno(elementId, label) {
-    window.addEventListener('load', function () {
-      calendar.schedulingButton.load({
-        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0CZ4j16tlSmYNtcW1PzPZVW-G2mVzhbWjeRZt5B08DbVqk5i2CDsYJNx_55rCrRCnQKghMrKNS?gv=true',
-        color: '#D98E82',
-        label: label,
-        target: document.getElementById(elementId),
-      });
-    });
-  }
-  cargarBotonTurno('gcal-1', 'Reservar con Nina');
-  cargarBotonTurno('gcal-2', 'Reservar con Bruno');
-  cargarBotonTurno('gcal-3', 'Reservar con Ceci');
-
   // Fecha dinámica del footer
   document.getElementById('fecha-footer').textContent =
     new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
