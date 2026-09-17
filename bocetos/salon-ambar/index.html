@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salón Ámbar — Elegí tu silla</title>
+<meta name="description" content="Salón Ámbar. Cada estilista tiene su propia agenda — reservá directo, sin llamadas ni esperas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%2316261F'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='%23D98E82' font-family='Georgia,serif' font-style='italic'%3EÁ%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --ink:#16261F;
+    --ink-2:#1E332A;
+    --ink-soft:rgba(248,243,234,.72);
+    --paper:#F7F1E7;
+    --paper-dim:#ECE2CF;
+    --rose:#D98E82;
+    --rose-dim:#C97A6D;
+    --moss:#8CA684;
+    --moss-dim:#5E7857;
+    --line:rgba(22,38,31,.14);
+    --line-on-dark:rgba(248,243,234,.14);
+    --font-display:'Instrument Serif', serif;
+    --font-body:'Manrope', sans-serif;
+    --font-mono:'Space Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--font-body);
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .eyebrow{
+    font-family:var(--font-mono);
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--moss);
+  }
+  .eyebrow.on-light{color:var(--moss-dim);}
+  :focus-visible{outline:2px solid var(--rose); outline-offset:3px;}
+
+  /* NAV */
+  header.nav{
+    position:sticky;top:0;z-index:40;
+    background:rgba(22,38,31,.88);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line-on-dark);
+  }
+  .nav-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;max-width:1100px;margin:0 auto;
+  }
+  .wordmark{
+    font-family:var(--font-display);
+    font-style:italic;
+    font-size:1.5rem;color:var(--paper);
+    text-decoration:none;
+  }
+  .wordmark span{color:var(--rose);}
+  .nav-cta{
+    font-family:var(--font-mono);
+    font-size:.76rem;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    color:var(--paper);
+    text-decoration:none;
+    border:1px solid var(--rose);
+    padding:9px 16px;
+    border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .nav-cta:hover{background:var(--rose);color:var(--ink);}
+
+  /* HERO */
+  .hero{
+    position:relative;
+    background:
+      radial-gradient(ellipse 70% 55% at 12% -10%, rgba(217,142,130,.16), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 100% 110%, rgba(140,166,132,.14), transparent 55%),
+      var(--ink);
+    color:var(--paper);
+    padding:104px 0 100px;
+    overflow:hidden;
+  }
+  .hero-inner{max-width:1100px;margin:0 auto;padding:0 24px;}
+  .hero-head{max-width:44rem;}
+  .hero h1{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:clamp(3rem, 7vw, 5.4rem);
+    line-height:1;
+    margin:18px 0 20px;
+  }
+  .hero h1 em{
+    font-style:italic;color:var(--rose);
+  }
+  .hero p.tagline{
+    font-size:1.08rem;
+    color:var(--ink-soft);
+    max-width:38ch;
+    margin:0;
+    line-height:1.5;
+  }
+
+  /* ESTACIONES (signature) */
+  .stations{
+    margin-top:56px;
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:1px;
+    background:var(--line-on-dark);
+    border:1px solid var(--line-on-dark);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .station{
+    position:relative;
+    background:var(--ink-2);
+    padding:34px 28px 28px;
+    overflow:hidden;
+    opacity:0;
+    animation:rise .7s ease both;
+  }
+  .station:nth-child(1){animation-delay:.05s;}
+  .station:nth-child(2){animation-delay:.16s;}
+  .station:nth-child(3){animation-delay:.27s;}
+  @keyframes rise{
+    from{opacity:0; transform:translateY(14px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .station::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(115deg, transparent 40%, rgba(248,243,234,.06) 50%, transparent 60%);
+    transform:translateX(-120%);
+    transition:transform .7s ease;
+    pointer-events:none;
+  }
+  .station:hover::after{transform:translateX(120%);}
+  .station .num{
+    font-family:var(--font-mono);
+    color:var(--moss);
+    font-size:.8rem;
+    letter-spacing:.04em;
+  }
+  .station h3{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:1.7rem;
+    margin:12px 0 4px;
+  }
+  .station .especialidad{
+    color:var(--ink-soft);
+    font-size:.9rem;
+    margin:0 0 22px;
+  }
+  .station .gcal-slot{min-height:44px;}
+
+  @media (prefers-reduced-motion: reduce){
+    .station{animation:none; opacity:1;}
+    .station::after{display:none;}
+  }
+
+  /* SECTION SHELL */
+  section{padding:88px 0;}
+  .section-head{margin-bottom:44px;}
+  .section-head h2{
+    font-family:var(--font-display);
+    font-weight:400;
+    font-size:clamp(2.1rem, 3.6vw, 2.9rem);
+    margin:10px 0 0;
+  }
+
+  /* SERVICIOS */
+  .servicios{background:var(--paper);}
+  .menu-list{border-top:1px solid var(--line);}
+  .menu-item{
+    display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+    padding:22px 0;border-bottom:1px solid var(--line);
+  }
+  .menu-item .nombre{
+    font-family:var(--font-display);
+    font-size:1.35rem;
+  }
+  .menu-item .detalle{
+    font-family:var(--font-mono);
+    font-size:.85rem;
+    color:var(--rose-dim);
+    white-space:nowrap;
+  }
+  .menu-item .duracion{
+    display:block;
+    font-family:var(--font-body);
+    font-size:.82rem;
+    color:#6b6355;
+    margin-top:4px;
+  }
+
+  /* BANNER AUTOR */
+  .autor{
+    background:var(--ink);color:var(--paper);
+    text-align:center;
+  }
+  .autor .wrap{max-width:640px;}
+  .autor h2{
+    font-family:var(--font-display);font-weight:400;font-style:italic;
+    font-size:clamp(1.9rem, 3.8vw, 2.5rem);
+    margin:14px 0 16px;
+  }
+  .autor p{color:var(--ink-soft); margin:0 0 28px; font-size:1rem;}
+  .btn-outline{
+    display:inline-block;
+    font-family:var(--font-mono);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    font-size:.82rem;
+    background:transparent;
+    border:1px solid var(--rose);
+    color:var(--rose);
+    text-decoration:none;
+    padding:15px 26px;
+    border-radius:2px;
+    transition:background .2s ease, color .2s ease;
+  }
+  .btn-outline:hover{background:var(--rose);color:var(--ink);}
+
+  /* FOOTER */
+  footer{
+    background:var(--ink);color:var(--ink-soft);
+    border-top:1px solid var(--line-on-dark);
+    padding:32px 0;
+    font-size:.85rem;
+  }
+  footer .wrap{
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  footer a{color:var(--rose); text-decoration:none;}
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width:820px){
+    .stations{grid-template-columns:1fr;}
+  }
+  @media (max-width:760px){
+    .hero{padding:88px 0 72px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="wordmark">Salón <span>Ámbar</span></a>
+    <a href="#reservar" class="nav-cta">Reservar turno</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="hero-head">
+      <span class="eyebrow">Salón unisex — Buenos Aires</span>
+      <h1>Elegí tu <em>silla</em>.</h1>
+      <p class="tagline">Cada estilista maneja su propia agenda. Reservá directo, sin llamadas ni esperas.</p>
+    </div>
+
+    <!--
+      PROTOTIPO: las 3 estaciones apuntan hoy al mismo calendario (el único
+      link real que tenemos). Para que cada estilista tenga SU propia agenda,
+      creá una "Programación de citas" por persona en Google Calendar y pegá
+      cada link en el "url" del bloque correspondiente más abajo.
+    -->
+    <div class="stations" id="reservar">
+      <div class="station">
+        <span class="num">Silla 01</span>
+        <h3>Nina Ferro</h3>
+        <p class="especialidad">Color y transformaciones</p>
+        <div class="gcal-slot" id="gcal-1"></div>
+      </div>
+      <div class="station">
+        <span class="num">Silla 02</span>
+        <h3>Bruno Salas</h3>
+        <p class="especialidad">Cortes clásicos y barba</p>
+        <div class="gcal-slot" id="gcal-2"></div>
+      </div>
+      <div class="station">
+        <span class="num">Silla 03</span>
+        <h3>Ceci Duarte</h3>
+        <p class="especialidad">Texturas y tratamientos</p>
+        <div class="gcal-slot" id="gcal-3"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="servicios" id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow on-light">Menú</span>
+      <h2>Servicios</h2>
+    </div>
+    <div class="menu-list">
+      <div class="menu-item">
+        <div>
+          <div class="nombre">Corte clásico</div>
+          <span class="duracion">40 min</span>
+        </div>
+        <div class="detalle">$8.500</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="nombre">Corte + barba</div>
+          <span class="duracion">55 min</span>
+        </div>
+        <div class="detalle">$12.000</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="nombre">Color completo</div>
+          <span class="duracion">90 min</span>
+        </div>
+        <div class="detalle">$22.000</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="nombre">Barba y perfilado</div>
+          <span class="duracion">25 min</span>
+        </div>
+        <div class="detalle">$6.000</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="nombre">Tratamiento capilar</div>
+          <span class="duracion">45 min</span>
+        </div>
+        <div class="detalle">$15.000</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="autor">
+  <div class="wrap">
+    <span class="eyebrow">Diseño web</span>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>¿Querés uno así para tu salón o tu negocio? Pedí el tuyo a medida.</p>
+    <a href="https://teocicciari.com.ar/" class="btn-outline" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Salón Ámbar · Buenos Aires</span>
+    <span id="fecha-footer"></span>
+    <span>Boceto diseñado por <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari</a> — Mirá más referencias y precios</span>
+  </div>
+</footer>
+
+<!-- Google Calendar Appointment Scheduling: librería, una sola vez -->
+<link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+<script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+<script>
+  function cargarBotonTurno(elementId, label) {
+    window.addEventListener('load', function () {
+      calendar.schedulingButton.load({
+        url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ0CZ4j16tlSmYNtcW1PzPZVW-G2mVzhbWjeRZt5B08DbVqk5i2CDsYJNx_55rCrRCnQKghMrKNS?gv=true',
+        color: '#D98E82',
+        label: label,
+        target: document.getElementById(elementId),
+      });
+    });
+  }
+  cargarBotonTurno('gcal-1', 'Reservar con Nina');
+  cargarBotonTurno('gcal-2', 'Reservar con Bruno');
+  cargarBotonTurno('gcal-3', 'Reservar con Ceci');
+
+  // Fecha dinámica del footer
+  document.getElementById('fecha-footer').textContent =
+    new Date().toLocaleDateString('es-AR', { year: 'numeric', month: 'long', day: 'numeric' });
+</script>
+
+</body>
+</html>
