@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pablo Zarnicki — Psicólogo · Gran Maestro de Ajedrez</title>
+<meta name="description" content="Lic. Pablo Zarnicki, psicólogo especialista en Ludopatía y Psicología del Alto Rendimiento. Gran Maestro de Ajedrez. Consultas presenciales y online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500;1,9..144,600&family=Source+Sans+3:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1A17;
+    --ink-soft:#2E2C27;
+    --ivory:#F4EEE1;
+    --paper:#EAE1CD;
+    --bronze:#A9713C;
+    --bronze-deep:#7C4F26;
+    --bronze-light:#D9AD73;
+    --texto-suave:#5C5546;
+    --linea:rgba(27,26,23,.14);
+    --linea-clara:rgba(244,238,225,.16);
+    --display:"Fraunces",serif;
+    --cuerpo:"Source Sans 3",sans-serif;
+    --mono:"IBM Plex Mono",monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--cuerpo);
+    color:var(--ink);
+    background:var(--ivory);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--bronze);outline-offset:3px;border-radius:2px}
+
+  .contenedor{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:.72rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--bronze-deep);
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(244,238,225,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--linea);
+  }
+  .header-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    height:76px;gap:20px;
+  }
+  .marca{
+    display:flex;align-items:center;gap:12px;
+    text-decoration:none;color:var(--ink);
+  }
+  .marca-casilla{
+    width:38px;height:38px;flex:none;
+    border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:600;font-size:1rem;
+  }
+  .marca-nombre{
+    font-family:var(--display);font-weight:600;font-size:1.05rem;
+    letter-spacing:-.01em;
+  }
+  .marca-nombre span{display:block;font-family:var(--mono);font-weight:400;font-size:.62rem;letter-spacing:.1em;color:var(--texto-suave);text-transform:uppercase;margin-top:2px}
+  .nav{display:flex;align-items:center;gap:34px}
+  .nav-links{display:flex;gap:34px}
+  .nav a{
+    text-decoration:none;font-size:.92rem;font-weight:500;
+    color:var(--texto-suave);transition:color .2s;
+  }
+  .nav a:hover{color:var(--ink)}
+  .btn{
+    display:inline-block;text-decoration:none;
+    font-weight:600;font-size:.95rem;
+    padding:12px 26px;border-radius:3px;
+    transition:transform .15s ease, background .2s, box-shadow .2s;
+    white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn-bronze{background:var(--bronze);color:#fff !important}
+  .btn-bronze:hover{background:var(--bronze-deep);box-shadow:0 6px 18px rgba(124,79,38,.3)}
+  .btn-ink{background:var(--ink);color:var(--ivory) !important}
+  .btn-ink:hover{background:#000;box-shadow:0 6px 18px rgba(0,0,0,.25)}
+  .btn-borde{border:1px solid var(--ink);color:var(--ink)}
+  .btn-borde:hover{background:var(--ink);color:var(--ivory)}
+  .btn-borde-claro{border:1px solid var(--linea-clara);color:#fff}
+  .btn-borde-claro:hover{border-color:var(--bronze-light);color:var(--bronze-light)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;overflow:hidden;background:var(--ivory)}
+  .hero-inner{
+    position:relative;z-index:2;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:76px 0 64px;
+    min-height:calc(100vh - 76px);
+    min-height:calc(100svh - 76px);
+  }
+  .hero-texto{max-width:680px}
+  .hero h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(2.6rem,6vw,4.4rem);
+    line-height:1.06;
+    letter-spacing:-.015em;
+    margin:18px 0 22px;
+  }
+  .hero h1 em{
+    font-style:italic;font-weight:500;color:var(--bronze-deep);
+  }
+  .hero p{
+    font-size:1.1rem;color:var(--texto-suave);
+    max-width:52ch;margin-bottom:34px;
+  }
+  .hero-acciones{display:flex;gap:16px;flex-wrap:wrap}
+
+  /* strip de credenciales */
+  .strip{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);position:relative;z-index:2}
+  .strip-inner{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:24px;padding-block:24px;
+  }
+  .strip-item{
+    font-family:var(--mono);font-size:.78rem;
+    letter-spacing:.04em;
+    color:var(--texto-suave);
+    display:flex;align-items:center;gap:12px;
+  }
+  .strip-item::before{
+    content:"";width:7px;height:7px;flex:none;
+    background:var(--bronze);
+  }
+
+  /* ---------- Secciones ---------- */
+  .seccion{padding:104px 0}
+  .seccion-cabeza{max-width:600px;margin-bottom:56px}
+  .seccion-cabeza h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(1.9rem,3.5vw,2.7rem);
+    letter-spacing:-.01em;
+    line-height:1.15;
+    margin:14px 0 16px;
+  }
+  .seccion-cabeza p{color:var(--texto-suave)}
+
+  /* ---------- Especialidades ---------- */
+  .especialidades{background:#fff;border-bottom:1px solid var(--linea)}
+  .piezas{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea)}
+  .pieza{background:#fff;padding:40px 34px}
+  .pieza-casilla{
+    width:56px;height:56px;
+    border:1.5px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-style:italic;font-weight:600;font-size:1.6rem;
+    margin-bottom:26px;
+  }
+  .pieza h3{
+    font-family:var(--display);font-weight:600;font-size:1.32rem;
+    margin-bottom:12px;letter-spacing:-.005em;
+  }
+  .pieza p{color:var(--texto-suave);font-size:.98rem}
+
+  /* ---------- El método ---------- */
+  .metodo{background:var(--ink);color:var(--ivory)}
+  .metodo .eyebrow{color:var(--bronze-light)}
+  .metodo .seccion-cabeza h2{color:#fff}
+  .metodo .seccion-cabeza p{color:rgba(244,238,225,.68)}
+  .tiempos{position:relative}
+  .tiempos-linea{
+    position:absolute;top:13px;left:0;right:0;height:1px;
+    background:var(--linea-clara);
+  }
+  .tiempos-linea span{
+    display:block;height:100%;width:0%;background:var(--bronze);
+    transition:width 1.1s cubic-bezier(.4,0,.2,1);
+  }
+  .tiempos-linea.visible span{width:100%}
+  .tiempos-grid{
+    position:relative;z-index:2;
+    display:grid;grid-template-columns:repeat(3,1fr);gap:40px;
+  }
+  .tiempo{padding-top:0}
+  .tiempo-punto{
+    width:26px;height:26px;border-radius:50%;
+    background:var(--ink);border:1.5px solid var(--bronze);
+    margin-bottom:22px;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .tiempo-punto::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--bronze)}
+  .tiempo-codigo{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-light);margin-bottom:8px}
+  .tiempo h3{font-family:var(--display);font-weight:600;font-size:1.3rem;margin-bottom:10px}
+  .tiempo p{color:rgba(244,238,225,.7);font-size:.96rem}
+
+  /* ---------- Sobre mí ---------- */
+  .sobre{background:var(--ivory)}
+  .sobre-grid{
+    display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;
+    align-items:start;
+  }
+  .sobre-foto{position:relative}
+  .sobre-foto img{
+    width:100%;aspect-ratio:4/5;object-fit:cover;object-position:top center;
+    filter:grayscale(1) sepia(.18) contrast(1.03);
+    border:1px solid var(--linea);
+  }
+  .sobre-foto-marco{
+    position:absolute;inset:16px -16px -16px 16px;
+    border:1.5px solid var(--ink);z-index:-1;
+  }
+  .sobre-texto p{color:var(--texto-suave);margin-bottom:16px;max-width:60ch}
+  .datos{
+    margin-top:32px;border-top:1px solid var(--linea);
+    display:grid;grid-template-columns:1fr 1fr;gap:0;
+  }
+  .dato{padding:18px 0;border-bottom:1px solid var(--linea)}
+  .dato:nth-child(odd){padding-right:20px}
+  .dato dt{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze-deep);margin-bottom:6px}
+  .dato dd{font-family:var(--display);font-weight:500;font-size:1.02rem}
+
+  /* ---------- Contacto ---------- */
+  .contacto{
+    background:linear-gradient(160deg,var(--ink-soft),var(--ink));
+    color:#fff;text-align:center;
+  }
+  .contacto .eyebrow{color:var(--bronze-light)}
+  .contacto h2{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(2rem,4.5vw,3.1rem);
+    letter-spacing:-.015em;line-height:1.12;
+    margin:16px auto 18px;max-width:20ch;
+  }
+  .contacto p{
+    color:rgba(244,238,225,.72);
+    max-width:48ch;margin:0 auto 36px;
+  }
+  .contacto-acciones{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .contacto-datos{
+    margin-top:46px;
+    font-family:var(--mono);font-size:.82rem;
+    color:rgba(244,238,225,.6);
+    display:flex;gap:28px;justify-content:center;flex-wrap:wrap;
+  }
+  .contacto-datos a{text-decoration:none;transition:color .2s}
+  .contacto-datos a:hover{color:var(--bronze-light)}
+
+  /* ---------- Autor / Portafolio ---------- */
+  .autor{
+    background:linear-gradient(135deg,var(--bronze) 0%,var(--bronze-deep) 100%);
+    color:#fff;text-align:center;
+    padding:72px 0;
+  }
+  .autor .eyebrow{color:rgba(255,255,255,.85)}
+  .autor h2{
+    font-family:var(--display);font-weight:600;
+    font-size:clamp(1.8rem,4vw,2.7rem);
+    letter-spacing:-.015em;line-height:1.12;
+    margin:14px auto 12px;
+  }
+  .autor .autor-texto{max-width:54ch;margin:0 auto 28px;color:rgba(255,255,255,.85)}
+
+  /* ---------- Footer ---------- */
+  .footer{
+    background:var(--ink);color:rgba(244,238,225,.55);
+    border-top:1px solid var(--linea-clara);
+  }
+  .footer-inner{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    padding-block:28px;
+    font-size:.85rem;
+  }
+  .footer-marca{
+    display:flex;align-items:center;gap:12px;
+    font-family:var(--display);font-weight:600;
+    letter-spacing:.01em;color:#fff;
+  }
+  .footer-marca .marca-casilla{border-color:var(--bronze-light);color:var(--bronze-light)}
+  .footer-social{display:flex;gap:14px;align-items:center}
+  .footer-social a{
+    width:34px;height:34px;border:1px solid var(--linea-clara);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    transition:border-color .2s,color .2s;color:rgba(244,238,225,.7);
+  }
+  .footer-social a:hover{border-color:var(--bronze-light);color:var(--bronze-light)}
+  .footer-social svg{width:16px;height:16px}
+  .footer-textos{text-align:right}
+  .footer-credito{margin-top:4px;font-size:.8rem}
+  .footer-credito a{color:var(--bronze-light);text-decoration:none}
+  .footer-credito a:hover{text-decoration:underline}
+  .footer-mid{display:flex;flex-direction:column;gap:10px;align-items:center}
+  @media (max-width:820px){
+    .footer-textos{text-align:left}
+    .footer-mid{align-items:flex-start}
+  }
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .reveal{opacity:1;transform:none;transition:none}
+    .btn,.tiempos-linea span{transition:none}
+    .tiempos-linea span{width:100%}
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero-inner{padding-top:48px}
+    .piezas{grid-template-columns:1fr}
+    .tiempos-grid{grid-template-columns:1fr;gap:36px}
+    .tiempos-linea{display:none}
+    .sobre-grid{grid-template-columns:1fr;gap:40px}
+    .sobre-foto{max-width:320px}
+  }
+  @media (max-width:760px){
+    .nav-links{display:none}
+    .marca-nombre span{display:none}
+    .header-inner{gap:12px}
+    .btn{padding:10px 18px;font-size:.88rem}
+    .strip-inner{grid-template-columns:1fr;gap:12px}
+    .seccion{padding:76px 0}
+    .datos{grid-template-columns:1fr}
+    .dato:nth-child(odd){padding-right:0}
+    .footer-inner{flex-direction:column;text-align:center}
+    .footer-textos{text-align:center}
+  }
+  @media (max-width:400px){
+    .marca-nombre{font-size:.92rem}
+    .btn{padding:9px 14px;font-size:.82rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="contenedor header-inner">
+    <a class="marca" href="#" aria-label="Pablo Zarnicki, inicio">
+      <span class="marca-casilla" aria-hidden="true">PZ</span>
+      <span class="marca-nombre">Pablo Zarnicki<span>Psicólogo · Gran Maestro FIDE</span></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <div class="nav-links">
+        <a href="#especialidades">Especialidades</a>
+        <a href="#metodo">El método</a>
+        <a href="#sobre-mi">Sobre mí</a>
+      </div>
+      <a class="btn btn-ink" href="#contacto">Agendar consulta</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="contenedor hero-inner">
+      <div class="hero-texto">
+        <p class="eyebrow">Psicólogo · Gran Maestro de Ajedrez</p>
+        <h1>Cada decisión<br>es <em>una jugada.</em></h1>
+        <p>Psicólogo especialista en Ludopatía y en Psicología del Alto Rendimiento. Aplico la misma visión estratégica que me llevó a ser Gran Maestro de Ajedrez para ayudarte a recuperar el control de tus decisiones, dentro y fuera del tablero.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-bronze" href="https://wa.me/5491163563851" target="_blank" rel="noopener">Agendar una consulta</a>
+          <a class="btn btn-borde" href="#metodo">Conocer el método</a>
+        </div>
+      </div>
+    </div>
+    <div class="strip">
+      <div class="contenedor strip-inner">
+        <div class="strip-item">Lic. en Psicología</div>
+        <div class="strip-item">Gran Maestro FIDE de Ajedrez</div>
+        <div class="strip-item">Atención presencial y online</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Especialidades -->
+  <section class="especialidades seccion" id="especialidades">
+    <div class="contenedor">
+      <div class="seccion-cabeza reveal">
+        <p class="eyebrow">Especialidades</p>
+        <h2>Tres formas de recuperar el control.</h2>
+        <p>Cada área de trabajo parte de la misma pregunta: qué jugada te conviene hacer ahora.</p>
+      </div>
+      <div class="piezas reveal">
+        <div class="pieza">
+          <span class="pieza-casilla" aria-hidden="true">R</span>
+          <h3>Ludopatía</h3>
+          <p>Tratamiento de adicciones conductuales con un enfoque clínico y estratégico. Te ayudo a recuperar el control de los impulsos y a construir una gestión saludable del riesgo.</p>
+        </div>
+        <div class="pieza">
+          <span class="pieza-casilla" aria-hidden="true">C</span>
+          <h3>Psicología y Alto Rendimiento</h3>
+          <p>Entrenamiento mental para deportistas y profesionales que buscan sostener su nivel bajo presión: toma de decisiones, resiliencia y gestión emocional en la alta competencia.</p>
+        </div>
+        <div class="pieza">
+          <span class="pieza-casilla" aria-hidden="true">D</span>
+          <h3>Estrategia y toma de decisiones</h3>
+          <p>Como Gran Maestro de Ajedrez y Licenciado en Psicología, aplico una metodología propia para analizar problemas complejos y resolver conflictos estratégicos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- El método -->
+  <section class="metodo seccion" id="metodo">
+    <div class="contenedor">
+      <div class="seccion-cabeza reveal">
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Todo proceso tiene tres tiempos.</h2>
+        <p>Como en una partida, el orden importa: primero se entiende la posición, después se juega y por último se consolida lo ganado.</p>
+      </div>
+      <div class="tiempos reveal">
+        <div class="tiempos-linea"><span></span></div>
+        <div class="tiempos-grid">
+          <div class="tiempo">
+            <div class="tiempo-punto" aria-hidden="true"></div>
+            <p class="tiempo-codigo">Apertura</p>
+            <h3>La primera consulta</h3>
+            <p>Relevamos tu posición real: qué te trae, qué intentaste antes y qué querés lograr.</p>
+          </div>
+          <div class="tiempo">
+            <div class="tiempo-punto" aria-hidden="true"></div>
+            <p class="tiempo-codigo">Medio juego</p>
+            <h3>El trabajo de fondo</h3>
+            <p>Herramientas concretas, sesión a sesión, ajustando el plan según cómo responde el tablero.</p>
+          </div>
+          <div class="tiempo">
+            <div class="tiempo-punto" aria-hidden="true"></div>
+            <p class="tiempo-codigo">Final</p>
+            <h3>Consolidar lo ganado</h3>
+            <p>El objetivo no es ganar una partida: es que sepas jugar solo la próxima.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre mí -->
+  <section class="sobre seccion" id="sobre-mi">
+    <div class="contenedor sobre-grid">
+      <div class="sobre-foto reveal">
+        <div class="sobre-foto-marco" aria-hidden="true"></div>
+        <img src="img/pablo-zarnicki.jpg" alt="Pablo Zarnicki, psicólogo y Gran Maestro de Ajedrez" width="640" height="721" loading="lazy">
+      </div>
+      <div class="sobre-texto reveal">
+        <p class="eyebrow">Sobre mí</p>
+        <h2>Dos tableros, una misma cabeza.</h2>
+        <p>Soy Licenciado en Psicología y Gran Maestro de Ajedrez. Durante años, el ajedrez de alto nivel me entrenó a pensar bajo presión, calcular riesgos y sostener la calma cuando una decisión importa de verdad.</p>
+        <p>Hoy aplico esa misma mirada en el consultorio: en el abordaje de las adicciones conductuales y en el entrenamiento mental de deportistas y profesionales que necesitan decidir bien justo cuando más cuesta.</p>
+        <dl class="datos">
+          <div class="dato"><dt>Formación</dt><dd>Lic. en Psicología</dd></div>
+          <div class="dato"><dt>Título</dt><dd>Gran Maestro FIDE de Ajedrez</dd></div>
+          <div class="dato"><dt>Especialidades</dt><dd>Ludopatía · Psicología del deporte</dd></div>
+          <div class="dato"><dt>Modalidad</dt><dd>Presencial y online</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contacto -->
+  <section class="contacto seccion" id="contacto">
+    <div class="contenedor">
+      <p class="eyebrow reveal">Contacto</p>
+      <h2 class="reveal">Escribime y arrancamos.</h2>
+      <p class="reveal">El primer contacto es confidencial. Contame tu situación y coordinamos una consulta.</p>
+      <div class="contacto-acciones reveal">
+        <a class="btn btn-bronze" href="https://wa.me/5491163563851" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-borde-claro" href="mailto:pablozarnicki.psi@gmail.com">Enviar un mail</a>
+      </div>
+      <div class="contacto-datos reveal">
+        <a href="mailto:pablozarnicki.psi@gmail.com">pablozarnicki.psi@gmail.com</a>
+        <span>+54 9 11 6356-3851</span>
+        <a href="https://www.instagram.com/pablozarnicki.psi/" target="_blank" rel="noopener">@pablozarnicki.psi</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Autor / Portafolio -->
+  <section class="autor">
+    <div class="contenedor">
+      <p class="eyebrow">Diseño web</p>
+      <h2>Este boceto lo diseñó Teo Cicciari</h2>
+      <p class="autor-texto">¿Querés un sitio así de cuidado para tu consultorio o marca profesional? Mirá más referencias, estilos y precios, y pedí el tuyo.</p>
+      <a class="btn btn-ink" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="contenedor footer-inner">
+    <div class="footer-marca">
+      <span class="marca-casilla" aria-hidden="true">PZ</span>
+      Pablo Zarnicki
+    </div>
+    <div class="footer-mid">
+      <div class="footer-social">
+        <a href="https://wa.me/5491163563851" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 20l1.4-4.2A7.8 7.8 0 1 1 9 18.6L4 20Z"/><path d="M8.5 9.3c.2-.5.4-.5.6-.5h.5c.2 0 .4 0 .5.4.2.5.6 1.4.6 1.5.1.1.1.3 0 .4-.1.2-.2.3-.3.4l-.4.4c-.1.1-.3.3-.1.6.2.3.7 1.1 1.5 1.8.9.8 1.6 1 1.9 1.2.3.1.5.1.6-.1l.5-.6c.2-.2.4-.2.6-.1l1.3.6c.2.1.4.2.4.4 0 .2 0 .9-.3 1.3-.3.4-1.2.9-2 .9-.8 0-2.5-.4-4.1-2-1.7-1.7-2.4-3.1-2.5-3.6-.1-.5-.5-1.3.2-2.1Z" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.instagram.com/pablozarnicki.psi/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="mailto:pablozarnicki.psi@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3.5 6.5 12 13l8.5-6.5"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-textos">
+      <div>© <span id="anio"></span> Pablo Zarnicki · Psicólogo. Todos los derechos reservados.</div>
+      <div class="footer-credito">Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios ↗</a></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Año dinámico en el footer
+  document.getElementById('anio').textContent = new Date().getFullYear();
+
+  // Reveal al hacer scroll
+  const prefiereQuieto = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const reveals = document.querySelectorAll('.reveal');
+  if (prefiereQuieto || !('IntersectionObserver' in window)) {
+    reveals.forEach(el => el.classList.add('visible'));
+  } else {
+    const obs = new IntersectionObserver(entradas => {
+      entradas.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+      });
+    }, { threshold: .15 });
+    reveals.forEach(el => obs.observe(el));
+
+    const linea = document.querySelector('.tiempos-linea');
+    if (linea) {
+      const obsLinea = new IntersectionObserver(entradas => {
+        entradas.forEach(e => {
+          if (e.isIntersecting) { linea.classList.add('visible'); obsLinea.unobserve(e.target); }
+        });
+      }, { threshold: .4 });
+      obsLinea.observe(linea);
+    }
+  }
+</script>
+
+</body>
+</html>
