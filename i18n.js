@@ -71,6 +71,7 @@
             'projects.techie.desc': 'Portfolio de personaje cyberpunk con estilo glassmorphism oscuro, neon glow y animaciones de scroll.',
             'projects.bignotti.desc': 'Sitio web para empresa chilena de servicios industriales.',
             'projects.visualuv.desc': 'Portfolio profesional de fotografía con diseño elegante y navegación intuitiva.',
+            'projects.buenayre.desc': 'Sitio web para empresa de excursiones y tours en Buenos Aires.',
             // Premium
             'premium.badge': 'EXPERIENCIAL · PREMIUM',
             'premium.title': 'Portfolio Premium',
@@ -334,6 +335,7 @@
             'projects.techie.desc': 'Cyberpunk character portfolio with dark glassmorphism style, neon glow and scroll animations.',
             'projects.bignotti.desc': 'Website for Chilean industrial services company.',
             'projects.visualuv.desc': 'Professional photography portfolio with elegant design and intuitive navigation.',
+            'projects.buenayre.desc': 'Website for a tour and excursions company in Buenos Aires.',
             // Premium (EN)
             'premium.badge': 'EXPERIENTIAL · PREMIUM',
             'premium.title': 'Premium Portfolio',
