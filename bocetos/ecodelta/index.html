@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ecodelta Kayak</title>
+  <meta name="description" content="Cursos, travesías y salidas de luna llena en kayak por los arroyos del Delta de Escobar. Y la Ecocabaña, un refugio en el bosque a 50 km de CABA.">
+  <link rel="icon" href="img/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="top">
+    <a class="nav__brand" href="#top" aria-label="Ecodelta Kayak, inicio">
+      <img src="img/logo.jpg" alt="" width="44" height="44">
+      <span>Ecodelta<br>Kayak</span>
+    </a>
+    <button class="nav__toggle" aria-expanded="false" aria-controls="menu">
+      <span class="sr-only">Abrir menú</span>
+      <span class="nav__bars" aria-hidden="true"></span>
+    </button>
+    <nav class="nav__menu" id="menu" aria-label="Principal">
+      <a href="#salidas">Salidas</a>
+      <a href="#ecocabana">Ecocabaña</a>
+      <a href="#contacto">Contacto</a>
+      <a class="nav__cta" href="#reservar">Reservar</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <img class="hero__img" src="img/canal-otono.jpg" alt="Arroyo del Delta de Escobar en otoño, con árboles rojos reflejados en el agua">
+      <div class="hero__shade" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="tag tag--light">Belén de Escobar · a 50 km de CABA</p>
+        <h1 class="hero__title">El Delta<br>se conoce<br><em>remando</em></h1>
+        <p class="hero__lead">Cursos, travesías y salidas de luna llena por los arroyos de Escobar. Y una ecocabaña en el bosque, para quedarte a dormir.</p>
+        <div class="hero__actions">
+          <a class="btn btn--lima" href="#salidas">Ver las salidas</a>
+          <a class="btn btn--ghost" href="#ecocabana">Conocer la Ecocabaña</a>
+        </div>
+      </div>
+      <svg class="hero__wake" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M-20 78 C 120 30, 240 118, 380 70 S 640 20, 780 66 S 1040 116, 1180 62 S 1380 30, 1460 58" />
+      </svg>
+    </section>
+    <div class="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+
+    <!-- FAMILIA -->
+    <section class="intro wrap">
+      <div class="intro__text">
+        <p class="tag">Emprendimiento familiar</p>
+        <h2 class="h2">Te llevamos al agua, <em>aunque nunca hayas remado</em></h2>
+        <p>Ecodelta Kayak es un emprendimiento familiar de turismo aventura con base en Belén de Escobar. Damos cursos, organizamos travesías y salimos a remar por los canales del Delta con gente de todas las edades.</p>
+        <p>La idea es simple: que conectes con la naturaleza desde el kayak. Nosotros ponemos el equipo, la guía y el mate en el muelle.</p>
+      </div>
+      <figure class="intro__photo">
+        <img src="img/mate-muelle.jpg" alt="Dos remeros sonríen con un mate en el muelle, con chalecos de Ecodelta" loading="lazy">
+        <figcaption>Pausa en el muelle, a mitad de la salida</figcaption>
+      </figure>
+    </section>
+
+    <!-- SALIDAS -->
+    <section class="salidas" id="salidas">
+      <div class="wrap">
+        <header class="sec-head">
+          <p class="tag">Salidas</p>
+          <h2 class="h2">Elegí cómo querés <em>salir a remar</em></h2>
+          <p class="sec-head__note">Las fechas de cada salida se publican en nuestro <a href="https://www.instagram.com/ecodeltakayak/" target="_blank" rel="noopener">Instagram</a>.</p>
+        </header>
+
+        <div class="salidas__grid">
+          <article class="salida salida--feature">
+            <img src="img/kayak-ceibo.jpg" alt="Dos chicas reman un kayak doble naranja bajo un árbol florecido" loading="lazy">
+            <div class="salida__body">
+              <p class="salida__for">Para principiantes</p>
+              <h3>CursoTour</h3>
+              <p>Primero aprendés lo básico de seguridad y técnica de remo. Después salimos juntos, con guía, por los canales del Delta. Pensado para quien nunca se subió a un kayak o tiene poca experiencia.</p>
+              <a class="link" href="#contacto">Consultar fechas</a>
+            </div>
+          </article>
+
+          <article class="salida">
+            <img src="img/travesia-juncos.jpg" alt="Grupo de kayakistas entre los juncos de un arroyo" loading="lazy">
+            <div class="salida__body">
+              <p class="salida__for">Grupales</p>
+              <h3>Travesías y luna llena</h3>
+              <p>Salidas de día y noches de luna llena para recorrer los arroyos y conocer el ecosistema de la zona.</p>
+              <a class="link" href="#contacto">Consultar fechas</a>
+            </div>
+          </article>
+
+          <article class="salida">
+            <img src="img/taller-remos.jpg" alt="Grupo de chicos con remos de colores antes de salir al agua" loading="lazy">
+            <div class="salida__body">
+              <p class="salida__for">Escuelas y profesorados</p>
+              <h3>Talleres educativos</h3>
+              <p>Capacitaciones en canotaje para profesorados de educación física y escuelas. Deporte y conciencia ambiental, en el agua.</p>
+              <a class="link" href="#contacto">Armar un taller</a>
+            </div>
+          </article>
+        </div>
+
+        <div class="equipo">
+          <p class="equipo__title">El equipo va incluido</p>
+          <ul>
+            <li><strong>Kayaks sit-on-top</strong> simples y dobles</li>
+            <li><strong>Remos</strong> para cada remero</li>
+            <li><strong>Chalecos salvavidas</strong>, obligatorios siempre</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section class="galeria" aria-label="Fotos de las salidas">
+      <figure><img src="img/grupo-muelle.jpg" alt="Remeros descansan en un muelle de madera junto al río" loading="lazy"><figcaption>Parada en el muelle</figcaption></figure>
+      <figure><img src="img/amigos-mate.jpg" alt="Tres amigos con chalecos y mate frente al río" loading="lazy"><figcaption>Antes de salir</figcaption></figure>
+      <figure><img src="img/travesia-selfie.jpg" alt="Kayakistas saludan a la cámara en plena travesía" loading="lazy"><figcaption>Travesía por el río</figcaption></figure>
+    </section>
+
+    <!-- ECOCABAÑA -->
+    <section class="cabana" id="ecocabana">
+      <div class="wrap">
+        <div class="cabana__top">
+          <div class="cabana__text">
+            <p class="tag tag--lima">Para quedarte</p>
+            <h2 class="h2 h2--light">La Ecocabaña, <em>un refugio en pleno bosque</em></h2>
+            <p>Entre palmeras y enredaderas, a pasos del agua. Dormís con el bosque en la ventana y a la mañana salís a remar con nosotros.</p>
+            <dl class="datos">
+              <div><dt>Cómo se llega</dt><dd>Por tierra, sin lancha</dd></div>
+              <div><dt>Distancia</dt><dd>50 km desde CABA</dd></div>
+              <div><dt>Afuera</dt><dd>Deck de madera en el bosque</dd></div>
+              <div><dt>Extra</dt><dd>Salidas en kayak con Ecodelta</dd></div>
+            </dl>
+            <a class="btn btn--lima" href="#reservar">Reservar la Ecocabaña</a>
+          </div>
+          <figure class="cabana__main">
+            <img src="img/cabana-deck.jpg" alt="Deck de madera con sillones rodeado de palmeras y vegetación" loading="lazy">
+          </figure>
+        </div>
+        <div class="cabana__row">
+          <figure><img src="img/cabana-habitacion.jpg" alt="Habitación con cama matrimonial y dos ventanas al bosque" loading="lazy"><figcaption>Habitación con ventanas al bosque</figcaption></figure>
+          <figure><img src="img/cabana-habitacion-2.jpg" alt="Habitación con placard y ventana a la vegetación" loading="lazy"><figcaption>Placard amplio y luz natural</figcaption></figure>
+          <figure><img src="img/cabana-bano.jpg" alt="Baño completo con ducha y mesada de madera" loading="lazy"><figcaption>Baño completo</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section class="reserva" id="reservar">
+      <div class="wrap reserva__grid">
+        <div class="reserva__text">
+          <p class="tag">Reservas</p>
+          <h2 class="h2">Reservá tu lugar <em>en la Ecocabaña</em></h2>
+          <p>Contanos cuántos son y qué fechas buscás. Te respondemos con la disponibilidad y, si querés, sumamos una salida en kayak durante tu estadía.</p>
+        </div>
+        <form class="form" id="form-reserva" novalidate>
+          <div class="field field--full">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre y apellido">
+          </div>
+          <div class="field field--full">
+            <label for="personas">Cantidad de personas</label>
+            <select id="personas" name="personas" required>
+              <option value="">Elegí</option>
+              <option>1</option><option>2</option><option>3</option><option>4</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="checkin">Fecha de check in</label>
+            <input id="checkin" name="checkin" type="date" required>
+          </div>
+          <div class="field">
+            <label for="checkout">Fecha de check out</label>
+            <input id="checkout" name="checkout" type="date" required>
+          </div>
+          <label class="check field--full">
+            <input type="checkbox" name="kayak">
+            <span>Quiero sumar una salida en kayak</span>
+          </label>
+          <p class="form__msg field--full" id="form-msg" role="status" aria-live="polite"></p>
+          <button class="btn btn--marino field--full" type="submit">Enviar consulta</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="contacto" id="contacto">
+      <div class="wrap contacto__grid">
+        <div>
+          <p class="tag">Contacto</p>
+          <h2 class="h2">Mirá el cronograma <em>y escribinos</em></h2>
+          <p>Publicamos las próximas salidas, fotos de cada experiencia y novedades en nuestras redes. Por ahí también tomamos reservas.</p>
+        </div>
+        <ul class="canales">
+          <li><a href="https://www.instagram.com/ecodeltakayak/" target="_blank" rel="noopener"><span class="canales__k">Instagram</span><span class="canales__v">@ecodeltakayak</span></a></li>
+          <li><a href="https://www.facebook.com/search/top?q=Ecodelta%20Kayak" target="_blank" rel="noopener"><span class="canales__k">Facebook</span><span class="canales__v">Ecodelta Kayak</span></a></li>
+          <li><div><span class="canales__k">Base</span><span class="canales__v">Belén de Escobar, Buenos Aires</span></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- BANNER AUTOR -->
+    <section class="autor">
+      <div class="wrap autor__inner">
+        <div>
+          <p class="tag tag--lima">Diseño web</p>
+          <h2 class="autor__title">Este boceto lo diseñó Teo Cicciari</h2>
+          <p>¿Tenés un emprendimiento y querés un sitio así, hecho a tu medida? Pedí el tuyo y mirá otros trabajos.</p>
+        </div>
+        <a class="btn btn--lima" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="stripes" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="wrap footer__inner">
+      <div class="footer__brand">
+        <img src="img/logo.jpg" alt="" width="52" height="52">
+        <p><strong>Ecodelta Kayak</strong><br>Turismo aventura, cursos y travesías en kayak.<br>Belén de Escobar, Buenos Aires.</p>
+      </div>
+      <nav class="footer__links" aria-label="Pie de página">
+        <a href="#salidas">Salidas</a>
+        <a href="#ecocabana">Ecocabaña</a>
+        <a href="#reservar">Reservar</a>
+        <a href="https://www.instagram.com/ecodeltakayak/" target="_blank" rel="noopener">Instagram</a>
+      </nav>
+    </div>
+    <div class="wrap footer__bottom">
+      <p>© <span id="year"></span> Ecodelta Kayak · <span id="today"></span></p>
+      <p>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
