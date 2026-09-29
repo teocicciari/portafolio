@@ -85,8 +85,9 @@ html[data-sky="noche"] .sello-noche{display:block}
 .hero-lead{max-width:34em; color:var(--muted); font-size:1.1rem}
 .hero-ctas{display:flex; flex-wrap:wrap; gap:.75rem; margin-top:.4rem}
 @media (min-width:900px){
-  .hero{grid-template-columns:1.1fr .9fr; min-height:calc(100svh - var(--nav-h)); max-width:1440px; margin:0 auto}
-  .hero-texto{order:-1; padding:72px 56px 72px max(var(--gutter), calc((100vw - 1440px)/2 + var(--gutter)))}
+  .hero{grid-template-columns:minmax(0, 1.2fr) minmax(0, .8fr); min-height:calc(100svh - var(--nav-h))}
+  .hero-texto{order:-1; padding:72px 56px 72px max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter)))}
+  .hero h1{font-size:clamp(3.4rem, 5.4vw, 5.6rem)}
   .hero-foto{height:auto; min-height:0}
   .hero-foto .sello-hero{left:-60px; bottom:48px; width:132px}
 }
