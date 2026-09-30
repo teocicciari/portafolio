@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pachagonia Loft · Lofts en El Calafate, Patagonia</title>
+<meta name="description" content="Pachagonia Loft: 10 lofts modernos y sustentables en El Calafate, construidos con piedra, madera y materiales reciclados. A minutos del centro, con guía de montaña en casa.">
+<link rel="icon" href="img/logo-negativo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@300;500;700;800&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#191B2B;
+  --noche-2:#23253A;
+  --noche-3:#111220;
+  --zinc:#E9ECEE;
+  --zinc-2:#D4D9DD;
+  --zinc-3:#BCC3C9;
+  --grafito:#24272C;
+  --gris:#5B6168;
+  --lenticular:#EE8A4C;
+  --lenticular-hondo:#B9551F;
+  --glaciar:#8CC3DD;
+  --display:"Big Shoulders Display","Arial Narrow",sans-serif;
+  --texto:"Newsreader",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --gutter:clamp(16px,4vw,56px);
+  --max:1240px;
+  --techo:clamp(70px,11vw,150px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--zinc);color:var(--grafito);font-family:var(--texto);font-size:clamp(17px,1.1vw + 12px,19px);line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lenticular);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 1.1rem}
+.h-display{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.9;letter-spacing:.005em;margin:0;overflow-wrap:break-word}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:1rem 1.4rem;border:1px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-fuego{background:var(--lenticular);color:var(--noche)}
+.btn-fuego:hover{background:#F6A472}
+.btn-linea{border-color:rgba(233,236,238,.55);color:var(--zinc)}
+.btn-linea:hover{border-color:var(--zinc);background:rgba(233,236,238,.08)}
+
+/* ---------- header ---------- */
+.top{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.top.solid{background:rgba(25,27,43,.92);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(233,236,238,.08)}
+.top-in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:76px}
+.top-logo img{height:44px;width:auto}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{font-family:var(--mono);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--zinc);opacity:.85}
+.nav a:hover{opacity:1}
+.nav .btn{opacity:1;padding:.75rem 1.1rem}
+.menu-btn{display:none;background:none;border:1px solid rgba(233,236,238,.4);color:var(--zinc);font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem .9rem;cursor:pointer}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--zinc);background:var(--noche);overflow:hidden}
+.hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 64%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(25,27,43,.55) 0%,rgba(25,27,43,0) 24%,rgba(25,27,43,0) 40%,rgba(25,27,43,.82) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding-bottom:calc(var(--techo) + clamp(28px,5vw,56px));display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:2rem}
+.hero .eyebrow{color:var(--zinc);text-shadow:0 1px 12px rgba(17,18,32,.6)}
+.hero .eyebrow::before{content:"";display:inline-block;width:.6em;height:.6em;background:var(--lenticular);margin-right:.7em;vertical-align:.05em}
+.hero h1{font-size:clamp(3rem,7vw,6.4rem);max-width:12ch;text-shadow:0 2px 30px rgba(17,18,32,.35)}
+.hero h1 span{font-weight:300;display:block}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
+.hud{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;line-height:1.9;text-align:right;color:rgba(233,236,238,.82);border-right:2px solid var(--lenticular);padding-right:.9rem}
+.hud b{font-weight:500;color:var(--zinc);font-size:1.05rem;letter-spacing:.04em}
+
+/* el techo: paneles de chapa escalonados como la fachada */
+.techo{position:absolute;left:0;right:0;bottom:-1px;height:var(--techo);display:flex;align-items:flex-end;z-index:3;pointer-events:none}
+.techo i{flex:0 0 auto;display:block;height:var(--h);background:
+  repeating-linear-gradient(90deg,rgba(255,255,255,.55) 0 1px,rgba(255,255,255,0) 1px 4px,rgba(36,39,44,.09) 4px 5px,rgba(255,255,255,0) 5px 7px),
+  linear-gradient(180deg,var(--zinc-2),var(--zinc) 70%);
+  transform-origin:bottom;animation:sube .9s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--d)}
+.techo i.v{background:var(--zinc)}
+@keyframes sube{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+
+/* ---------- nosotros ---------- */
+.sec{padding:clamp(72px,10vw,140px) 0}
+.nosotros{background:var(--zinc)}
+.nosotros .eyebrow{color:var(--lenticular-hondo)}
+.nosotros h2{font-size:clamp(2.8rem,7vw,6.2rem);color:var(--noche);max-width:12ch}
+.nos-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,6vw,96px);margin-top:clamp(40px,6vw,72px);align-items:start}
+.nos-texto p{margin:0 0 1.2em;max-width:36em}
+.nos-texto p:first-child::first-letter{font-family:var(--display);font-weight:800;font-size:3.4em;float:left;line-height:.8;margin:.08em .12em 0 0;color:var(--noche)}
+.ficha{margin:2.2rem 0 0;padding:0;font-family:var(--mono);font-size:.8rem;border-top:1px solid var(--zinc-3)}
+.ficha div{display:grid;grid-template-columns:9.5rem 1fr;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--zinc-3)}
+.ficha dt{letter-spacing:.12em;text-transform:uppercase;color:var(--gris)}
+.ficha dd{margin:0;color:var(--grafito)}
+.nos-foto{position:relative}
+.nos-foto img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.nos-foto figcaption{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--gris);margin-top:.7rem}
+
+/* ---------- lofts ---------- */
+.lofts{background:var(--noche);color:var(--zinc)}
+.lofts .eyebrow{color:var(--lenticular)}
+.lofts-head{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,80px);align-items:end}
+.lofts h2{font-size:clamp(2.8rem,7vw,6.2rem)}
+.lofts-head p{margin:0;color:rgba(233,236,238,.8);max-width:32em}
+.galeria{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:clamp(120px,15vw,210px);gap:10px;margin-top:clamp(40px,6vw,72px)}
+.galeria figure{margin:0;position:relative;overflow:hidden;background:var(--noche-2)}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
+.galeria figure:hover img{transform:scale(1.04)}
+.galeria figcaption{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;background:var(--noche);color:var(--zinc);padding:.4rem .7rem}
+.g1{grid-column:1/3;grid-row:span 3}
+.g2{grid-column:3/7;grid-row:span 2}
+.g3{grid-column:3/5;grid-row:span 1}
+.g4{grid-column:5/7;grid-row:span 1}
+.g5{grid-column:1/7;grid-row:span 2}
+.g5 img{object-position:50% 60%}
+.comodidades{list-style:none;margin:clamp(40px,6vw,64px) 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid rgba(233,236,238,.15)}
+.comodidades li{padding:1.2rem 1.2rem 1.2rem 0;border-bottom:1px solid rgba(233,236,238,.15)}
+.comodidades strong{display:block;font-family:var(--display);font-weight:700;font-size:1.45rem;text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.comodidades span{font-size:.92rem;color:rgba(233,236,238,.68)}
+
+/* ---------- franja viento ---------- */
+.viento{position:relative;min-height:88svh;display:flex;align-items:flex-end;color:var(--zinc);overflow:hidden}
+.viento img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+.viento::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(17,18,32,0) 40%,rgba(17,18,32,.8))}
+.viento blockquote{position:relative;z-index:2;margin:0;padding-bottom:clamp(48px,8vw,96px);max-width:28em}
+.viento p{font-style:italic;font-size:clamp(1.5rem,3vw,2.4rem);line-height:1.25;margin:0 0 1rem}
+.viento cite{font-family:var(--mono);font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--lenticular)}
+
+/* ---------- experiencias ---------- */
+.experiencias{background:var(--zinc)}
+.experiencias .eyebrow{color:var(--lenticular-hondo)}
+.experiencias h2{font-size:clamp(2.8rem,7vw,6.2rem);color:var(--noche);max-width:13ch}
+.exp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(28px,4vw,48px) clamp(20px,3vw,40px);margin-top:clamp(40px,6vw,72px)}
+.exp{margin:0}
+.exp img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:var(--zinc-2)}
+.exp h3{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3vw,2.4rem);text-transform:uppercase;line-height:1;margin:1.2rem 0 .5rem;color:var(--noche)}
+.exp p{margin:0;max-width:30em;color:#3A3E44}
+.exp-guia{grid-column:1/-1;display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(20px,4vw,56px);align-items:center;background:var(--noche);color:var(--zinc);padding:0 clamp(20px,4vw,56px) 0 0}
+.exp-guia img{aspect-ratio:16/10;height:100%}
+.exp-guia h3{color:var(--zinc);margin-top:0}
+.exp-guia p{color:rgba(233,236,238,.82)}
+.exp-guia .eyebrow{color:var(--lenticular);margin-bottom:.8rem}
+.distancias{margin:clamp(48px,6vw,80px) 0 0;font-family:var(--mono);font-size:.8rem;display:flex;flex-wrap:wrap;border-top:2px solid var(--noche)}
+.distancias div{flex:1 1 220px;padding:1.1rem 1.4rem 1.1rem 0}
+.distancias dt{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gris)}
+.distancias dd{margin:.3rem 0 0;font-family:var(--display);font-weight:700;font-size:1.7rem;text-transform:uppercase;color:var(--noche);line-height:1.05}
+
+/* ---------- reseñas ---------- */
+.resenas{background:var(--noche-2);color:var(--zinc)}
+.res-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1.5rem}
+.resenas .eyebrow{color:var(--lenticular)}
+.resenas h2{font-size:clamp(2.8rem,7vw,6.2rem)}
+.estrellas{font-family:var(--mono);font-size:.8rem;letter-spacing:.08em;color:rgba(233,236,238,.75);margin:0}
+.estrellas b{display:block;color:var(--lenticular);font-size:1.5rem;letter-spacing:.2em;font-weight:500}
+.res-cols{columns:3 280px;column-gap:clamp(20px,3vw,40px);margin-top:clamp(40px,6vw,72px)}
+.res{break-inside:avoid;margin:0 0 clamp(20px,3vw,36px);padding-top:1.2rem;border-top:1px solid rgba(233,236,238,.18)}
+.res blockquote{margin:0;font-size:1.02rem;line-height:1.55}
+.res figcaption{display:flex;justify-content:space-between;gap:1rem;margin-top:.9rem;font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;color:rgba(233,236,238,.6)}
+.res figcaption strong{color:var(--zinc);font-weight:500}
+.lang{display:inline-block;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;border:1px solid rgba(140,195,221,.5);color:var(--glaciar);padding:.1rem .4rem;margin-bottom:.8rem}
+
+/* ---------- reservar ---------- */
+.reservar{background:var(--zinc);position:relative}
+.res-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,6vw,96px);align-items:start}
+.reservar .eyebrow{color:var(--lenticular-hondo)}
+.reservar h2{font-size:clamp(2.8rem,6.5vw,5.6rem);color:var(--noche)}
+.reservar .intro{margin:1.4rem 0 2.4rem;max-width:30em}
+.contacto-directo{list-style:none;margin:0;padding:0;font-family:var(--mono);font-size:.82rem;border-top:1px solid var(--zinc-3)}
+.contacto-directo li{border-bottom:1px solid var(--zinc-3)}
+.contacto-directo a{display:flex;justify-content:space-between;gap:1rem;padding:.95rem 0;text-decoration:none}
+.contacto-directo a:hover span:last-child{color:var(--lenticular-hondo)}
+.contacto-directo span:first-child{letter-spacing:.12em;text-transform:uppercase;color:var(--gris)}
+.form{position:relative;background:var(--noche);color:var(--zinc);padding:clamp(24px,4vw,48px)}
+.form::before{content:"";position:absolute;top:0;left:0;right:0;height:10px;background:repeating-linear-gradient(90deg,var(--zinc-2) 0 3px,var(--zinc-3) 3px 5px,var(--zinc) 5px 8px)}
+.form h3{font-family:var(--display);font-weight:700;font-size:1.9rem;text-transform:uppercase;margin:.6rem 0 1.6rem;line-height:1}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+.campo{display:flex;flex-direction:column;gap:.45rem}
+.campo.full{grid-column:1/-1}
+.campo label{font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(233,236,238,.72)}
+.campo input{font:inherit;font-size:1rem;color:var(--zinc);background:rgba(233,236,238,.06);border:1px solid rgba(233,236,238,.25);border-radius:0;padding:.85rem .9rem;min-height:50px;width:100%;color-scheme:dark}
+.campo input:focus{outline:none;border-color:var(--lenticular);background:rgba(233,236,238,.1)}
+.campo input[aria-invalid="true"]{border-color:#F08A7A}
+.form-foot{margin-top:1.6rem;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between}
+.noches{font-family:var(--mono);font-size:.78rem;color:var(--glaciar);min-height:1.2em}
+.form .btn{width:100%;justify-content:center;margin-top:1.2rem;font-size:.85rem;padding:1.1rem}
+.form-msg{font-family:var(--mono);font-size:.78rem;margin:1rem 0 0;min-height:1.2em;color:#F5B39A}
+.form-nota{font-size:.85rem;color:rgba(233,236,238,.6);margin:.9rem 0 0}
+
+/* ---------- banner autor ---------- */
+.autor{background:var(--noche-3);color:var(--zinc);padding:clamp(56px,8vw,96px) 0;border-top:1px solid rgba(233,236,238,.08)}
+.autor-in{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end}
+.autor .eyebrow{color:var(--lenticular)}
+.autor h2{font-size:clamp(2.2rem,5vw,4.2rem)}
+.autor p{margin:1rem 0 0;max-width:34em;color:rgba(233,236,238,.75)}
+
+/* ---------- footer ---------- */
+.pie{background:var(--noche-3);color:rgba(233,236,238,.7);font-family:var(--mono);font-size:.74rem;letter-spacing:.04em;padding:0 0 2.2rem}
+.pie-in{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.2rem 2rem;padding-top:2rem;border-top:1px solid rgba(233,236,238,.12)}
+.pie img{height:36px;width:auto;margin-bottom:.8rem}
+.pie nav{display:flex;flex-wrap:wrap;gap:1.2rem}
+.pie a{text-decoration:none}
+.pie a:hover{color:var(--lenticular)}
+.credito{width:100%;margin:.4rem 0 0;color:rgba(233,236,238,.55)}
+.credito a{color:var(--lenticular);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- aparición ---------- */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rev.in{opacity:1;transform:none}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav{position:fixed;inset:76px 0 auto 0;flex-direction:column;align-items:stretch;gap:0;background:var(--noche);padding:.5rem var(--gutter) 1.5rem;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .2s,transform .2s,visibility .2s}
+  .nav.open{opacity:1;visibility:visible;transform:none}
+  .nav a{padding:1rem 0;border-bottom:1px solid rgba(233,236,238,.1)}
+  .nav .btn{margin-top:1rem;justify-content:center;border-bottom:0}
+  .menu-btn{display:block}
+  .hero-in{grid-template-columns:minmax(0,1fr)}
+  .hud{text-align:left;border-right:0;border-left:2px solid var(--lenticular);padding:0 0 0 .9rem;order:-1;justify-self:start}
+  .nos-grid,.lofts-head,.res-grid,.autor-in{grid-template-columns:minmax(0,1fr)}
+  .nos-foto img{aspect-ratio:4/3}
+  .galeria{grid-template-columns:1fr 1fr;grid-auto-rows:clamp(150px,42vw,260px)}
+  .g1{grid-column:1/2;grid-row:span 2}
+  .g2{grid-column:2/3;grid-row:span 1}
+  .g3{grid-column:2/3;grid-row:span 1}
+  .g4{grid-column:1/3;grid-row:span 1}
+  .g5{grid-column:1/3;grid-row:span 1}
+  .comodidades{grid-template-columns:1fr 1fr}
+  .exp-guia{grid-template-columns:1fr;padding:0 0 clamp(24px,5vw,40px)}
+  .exp-guia > div{padding:0 clamp(20px,5vw,40px)}
+}
+@media (max-width:600px){
+  .top-logo img{height:36px}
+  .reservar h2{font-size:clamp(2.2rem,10vw,2.8rem)}
+  .contacto-directo a{flex-wrap:wrap;gap:.2rem 1rem}
+  .exp-grid{grid-template-columns:1fr}
+  .comodidades{grid-template-columns:1fr}
+  .campos{grid-template-columns:1fr}
+  .ficha div{grid-template-columns:1fr;gap:.2rem}
+  .hero-cta .btn{flex:1 1 100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .techo i{animation:none}
+  .rev{opacity:1;transform:none;transition:none}
+  .galeria img{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top" id="top">
+  <div class="wrap top-in">
+    <a class="top-logo" href="#inicio" aria-label="Pachagonia Loft, inicio"><img src="img/logo-negativo.png" alt="Pachagonia Loft" width="132" height="44"></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menú</button>
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#nosotros">El proyecto</a>
+      <a href="#lofts">Los lofts</a>
+      <a href="#experiencias">Experiencias</a>
+      <a href="#resenas">Reseñas</a>
+      <a class="btn btn-fuego" href="#reservar">Reservar</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <img class="hero-img" src="img/cielos.jpg" alt="Fachada de chapa de Pachagonia Loft bajo un atardecer de nubes naranjas en El Calafate" fetchpriority="high">
+    <div class="wrap hero-in">
+      <div>
+        <p class="eyebrow">Nature Lofts Fusion · El Calafate</p>
+        <h1 class="h-display"><span>Donde el confort</span>se encuentra con la Patagonia</h1>
+        <div class="hero-cta">
+          <a class="btn btn-fuego" href="#reservar">Consultar disponibilidad</a>
+          <a class="btn btn-linea" href="#lofts">Ver los lofts</a>
+        </div>
+      </div>
+      <p class="hud" aria-label="Hora actual en El Calafate">
+        50°20′S · 72°16′O<br>
+        Hora en El Calafate<br>
+        <b id="hora">--:--</b>
+      </p>
+    </div>
+    <div class="techo" id="techo" aria-hidden="true"></div>
+  </section>
+
+  <section class="sec nosotros" id="nosotros">
+    <div class="wrap">
+      <p class="eyebrow rev">El proyecto</p>
+      <h2 class="h-display rev">Chapa, piedra, madera y cielo.</h2>
+      <div class="nos-grid">
+        <div class="nos-texto rev">
+          <p>Pachagonia es un proyecto moderno y sustentable en El Calafate: diez lofts luminosos y multifuncionales, construidos con piedra, madera y materiales reciclados y reciclables, lejos de lo artificial y con mucha sensibilidad por lo autóctono.</p>
+          <p>Cada espacio tiene detalles propios y obras de artistas locales e internacionales. Y ventanales enormes, para que la luz del cielo patagónico llegue hasta el último rincón.</p>
+          <dl class="ficha">
+            <div><dt>Unidades</dt><dd>10 lofts</dd></div>
+            <div><dt>Materiales</dt><dd>Piedra · madera · reciclados</dd></div>
+            <div><dt>Ubicación</dt><dd>El Calafate, a minutos caminando del centro</dd></div>
+            <div><dt>En casa</dt><dd>Un guía de montaña profesional</dd></div>
+            <div><dt>Airbnb</dt><dd>5 estrellas · 22 reseñas</dd></div>
+          </dl>
+        </div>
+        <figure class="nos-foto rev">
+          <img src="img/fachada-noche.jpg" alt="Pachagonia Loft de noche: fachada de chapa con ventanales iluminados sobre una base de piedra en gaviones" loading="lazy" width="1024" height="768">
+          <figcaption>Fachada de chapa sobre base de piedra en gaviones.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec lofts" id="lofts">
+    <div class="wrap">
+      <div class="lofts-head">
+        <div>
+          <p class="eyebrow rev">Los lofts</p>
+          <h2 class="h-display rev">Adentro, todo es calma</h2>
+        </div>
+        <p class="rev">Espacios pensados para volver después de un día de viento y hielo: cocina equipada, un rincón para trabajar con buen wifi y libros sobre la zona para planear la próxima salida.</p>
+      </div>
+      <div class="galeria">
+        <figure class="g1"><img src="img/living.webp" alt="Living del loft con sillón y ventanal" loading="lazy"><figcaption>Living</figcaption></figure>
+        <figure class="g2"><img src="img/dormitorio-1.webp" alt="Dormitorio del loft" loading="lazy"><figcaption>Dormitorio</figcaption></figure>
+        <figure class="g3"><img src="img/oficina.webp" alt="Rincón de trabajo del loft" loading="lazy"><figcaption>Rincón de trabajo</figcaption></figure>
+        <figure class="g4"><img src="img/dormitorio-2.webp" alt="Otro dormitorio del loft" loading="lazy"><figcaption>Dormitorio</figcaption></figure>
+        <figure class="g5"><img src="img/living-detalle.jpg" alt="Mesa de madera con binoculares y un libro de fotos de montaña" loading="lazy"><figcaption>Libros y binoculares para la próxima salida</figcaption></figure>
+      </div>
+      <ul class="comodidades">
+        <li class="rev"><strong>Cocina equipada</strong><span>Con todo lo necesario, y el súper cerca.</span></li>
+        <li class="rev"><strong>Wifi rápido</strong><span>Espacio cómodo para trabajo remoto.</span></li>
+        <li class="rev"><strong>Ventanales al cielo</strong><span>Luz natural en todos los ambientes.</span></li>
+        <li class="rev"><strong>Arte en cada loft</strong><span>Obras de artistas locales e internacionales.</span></li>
+        <li class="rev"><strong>Libros de la zona</strong><span>Para conocer la historia del lugar.</span></li>
+        <li class="rev"><strong>Cerca del centro</strong><span>A unos minutos caminando.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="viento" aria-label="Agua y viento">
+    <img src="img/condor.jpg" alt="Un cóndor despega desde una roca frente a la estepa, el Lago Argentino y la cordillera nevada" loading="lazy">
+    <div class="wrap">
+      <blockquote class="rev">
+        <p>“El viento y los paisajes regalan una comprensión profunda de lo que significa estar vivo en este rincón de la tierra.”</p>
+        <cite>Agua y viento · Pachagonia</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <section class="sec experiencias" id="experiencias">
+    <div class="wrap">
+      <p class="eyebrow rev">Experiencias</p>
+      <h2 class="h-display rev">Afuera, la Patagonia entera</h2>
+      <div class="exp-grid">
+        <figure class="exp rev">
+          <img src="img/roca-hielo.jpg" alt="Bloques de hielo sobre las rocas frente al glaciar Perito Moreno" loading="lazy" width="1024" height="683">
+          <figcaption>
+            <h3>Trekking y senderismo</h3>
+            <p>Senderos que hipnotizan y las pasarelas frente al glaciar Perito Moreno, para caminar dentro del paisaje y no solo mirarlo.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp rev">
+          <img src="img/aereo-glaciar.jpg" alt="Vista aérea de un glaciar que desemboca en un lago con témpanos" loading="lazy" width="1024" height="683">
+          <figcaption>
+            <h3>Paisajes increíbles</h3>
+            <p>La estepa, las rocas escarpadas y glaciares enormes que terminan en lagos y lagunas azules, verdes y turquesas.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp rev">
+          <img src="img/aventura.webp" alt="Árbol sin hojas recortado contra el frente azul del glaciar" loading="lazy">
+          <figcaption>
+            <h3>Aventura única</h3>
+            <p>Los glaciares cambian todos los días y el clima también: nunca vas a ver dos veces el mismo río, el mismo bosque ni el mismo hielo.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp rev">
+          <img src="img/glaciar-frente.jpg" alt="Frente del glaciar en tonos azules sobre el lago" loading="lazy" width="1280" height="853">
+          <figcaption>
+            <h3>Roca y hielo</h3>
+            <p>Estás en la tierra de los glaciares. Desde acá salís a conocer el más icónico de todos, el Perito Moreno.</p>
+          </figcaption>
+        </figure>
+        <figure class="exp exp-guia rev">
+          <img src="img/guias.webp" alt="Dos montañistas junto a una carpa en un campo de hielo con una cumbre nevada detrás" loading="lazy">
+          <div>
+            <p class="eyebrow">Lo que nos distingue</p>
+            <h3>Un guía de montaña en casa</h3>
+            <p>Uno de los dueños de Pachagonia es guía de montaña profesional, con años de experiencia. Lo tenés a disposición para ayudarte a elegir y organizar tus salidas.</p>
+          </div>
+        </figure>
+      </div>
+      <dl class="distancias rev" aria-label="Distancias aproximadas desde el loft">
+        <div><dt>Centro de El Calafate</dt><dd>A minutos caminando</dd></div>
+        <div><dt>Glaciar Perito Moreno</dt><dd>≈ 80 km</dd></div>
+        <div><dt>El Chaltén</dt><dd>≈ 215 km</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec resenas" id="resenas">
+    <div class="wrap">
+      <div class="res-head">
+        <div>
+          <p class="eyebrow rev">Reseñas en Airbnb</p>
+          <h2 class="h-display rev">Huéspedes de todo el mundo</h2>
+        </div>
+        <p class="estrellas rev"><b aria-hidden="true">★★★★★</b>Excelente · 22 reseñas verificadas</p>
+      </div>
+      <div class="res-cols">
+        <figure class="res rev">
+          <span class="lang">ES</span>
+          <blockquote>“Muy acogedor y tiene todo lo necesario. Carola fue muy amable, nos recibió personalmente y nos dio recomendaciones de lugares y restaurantes. Amplio espacio para trabajo remoto y buen internet. Bonito detalle los libros sobre los lugares de interés, aprendimos mucho sobre el área.”</blockquote>
+          <figcaption><strong>María</strong><span>04/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">EN</span>
+          <blockquote>“A wonderful place. So nicely decorated, newer construction, the host is so so nice. Giving great recommendations and super responsive. I’d stay there again!”</blockquote>
+          <figcaption><strong>Michael</strong><span>04/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">ES</span>
+          <blockquote>“Nos hicieron sentir como en casa. Está a unos minutos caminando del centro, pero la vista es tan bonita que no te das cuenta. Nos ayudó mucho con recomendaciones de planes y excursiones. Aprovechamos para trabajar y el internet súper rápido también.”</blockquote>
+          <figcaption><strong>Fabi</strong><span>03/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">DE</span>
+          <blockquote>“Das Loft war wunderschön, sehr sauber und wir haben unseren Aufenthalt sehr genossen. Alles sehr modern und stylisch eingerichtet. Wir würden jederzeit wiederkommen!”</blockquote>
+          <figcaption><strong>Natalie</strong><span>04/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">ES</span>
+          <blockquote>“El Airbnb más lindo y amable que me ha tocado hasta ahora. Lo recomiendo mucho: es lindo quedarse un día ahí aunque el día esté feo afuera.”</blockquote>
+          <figcaption><strong>Pauline</strong><span>03/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">ES</span>
+          <blockquote>“Todo perfecto. La cabaña es preciosa y la comunicación fue excelente. Nos ayudaron con todo y recibimos recomendaciones sobre las actividades en El Calafate.”</blockquote>
+          <figcaption><strong>Jannik</strong><span>05/2024</span></figcaption>
+        </figure>
+        <figure class="res rev">
+          <span class="lang">FR</span>
+          <blockquote>“Tout était parfait. Je recommande fortement.”</blockquote>
+          <figcaption><strong>Nicolas</strong><span>03/2024</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec reservar" id="reservar">
+    <div class="wrap res-grid">
+      <div>
+        <p class="eyebrow rev">Reservas</p>
+        <h2 class="h-display rev">Consultá disponibilidad</h2>
+        <p class="intro rev">Completá tus datos y se abre WhatsApp con la consulta lista para enviar. Te respondemos con disponibilidad y tarifa para tus fechas.</p>
+        <ul class="contacto-directo rev">
+          <li><a href="https://wa.me/5492966768086" target="_blank" rel="noopener"><span>WhatsApp</span><span>+54 9 2966 76-8086</span></a></li>
+          <li><a href="https://www.instagram.com/pachagonialoft/" target="_blank" rel="noopener"><span>Instagram</span><span>@pachagonialoft</span></a></li>
+          <li><a href="mailto:pachagonialoft@gmail.com"><span>Email</span><span>pachagonialoft@gmail.com</span></a></li>
+        </ul>
+      </div>
+      <form class="form rev" id="formReserva" novalidate>
+        <h3>Tu estadía</h3>
+        <div class="campos">
+          <div class="campo full">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre y apellido">
+          </div>
+          <div class="campo full">
+            <label for="personas">Cantidad de personas</label>
+            <input id="personas" name="personas" type="number" inputmode="numeric" min="1" max="20" value="2" required>
+          </div>
+          <div class="campo">
+            <label for="checkin">Check-in</label>
+            <input id="checkin" name="checkin" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="checkout">Check-out</label>
+            <input id="checkout" name="checkout" type="date" required>
+          </div>
+        </div>
+        <p class="noches" id="noches" aria-live="polite"></p>
+        <button class="btn btn-fuego" type="submit">Enviar consulta por WhatsApp</button>
+        <p class="form-msg" id="formMsg" role="alert"></p>
+        <p class="form-nota">No se cobra nada ahora: es una consulta de disponibilidad.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="autor" aria-labelledby="autor-titulo">
+    <div class="wrap autor-in">
+      <div>
+        <p class="eyebrow">Diseño web</p>
+        <h2 class="h-display" id="autor-titulo">Este boceto lo diseñó Teo Cicciari</h2>
+        <p>¿Tenés un hospedaje y querés un sitio que muestre lo que lo hace único? Pedí el tuyo: diseño a medida, pensado para que te reserven directo.</p>
+      </div>
+      <a class="btn btn-fuego" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="wrap pie-in">
+    <div>
+      <img src="img/logo-negativo.png" alt="Pachagonia Loft" width="108" height="36">
+      <p style="margin:0">© <span id="anio"></span> Pachagonia Loft · El Calafate, Santa Cruz, Argentina</p>
+    </div>
+    <nav aria-label="Contacto">
+      <a href="https://wa.me/5492966768086" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.instagram.com/pachagonialoft/" target="_blank" rel="noopener">Instagram</a>
+      <a href="mailto:pachagonialoft@gmail.com">Email</a>
+    </nav>
+    <p class="credito">Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var WA = "5492966768086";
+
+  // techo de chapa: alto de cada panel en % imitando la fachada escalonada
+  var techo = document.getElementById("techo");
+  var patron = [100,46,92,50,97,44,84,52,100,48,88,42,95,50,80,46,100,52,90,44,86,48,98,50];
+  var frag = document.createDocumentFragment();
+  for (var i = 0; i < 60; i++) {
+    var p = document.createElement("i");
+    var alto = patron[i % patron.length];
+    var vidrio = i % 2 === 1;
+    if (vidrio) p.className = "v";
+    p.style.setProperty("--h", alto + "%");
+    p.style.setProperty("--d", (i * 0.025) + "s");
+    p.style.width = vidrio ? "clamp(20px,3.2vw,44px)" : "clamp(30px,4.6vw,66px)";
+    frag.appendChild(p);
+  }
+  techo.appendChild(frag);
+
+  // hora local en El Calafate
+  var hora = document.getElementById("hora");
+  function tic(){
+    try {
+      hora.textContent = new Intl.DateTimeFormat("es-AR",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"America/Argentina/Rio_Gallegos"}).format(new Date());
+    } catch(e) { hora.parentNode.style.display = "none"; }
+  }
+  tic(); setInterval(tic, 30000);
+
+  // header sólido al scrollear
+  var top = document.getElementById("top");
+  function onScroll(){ top.classList.toggle("solid", window.scrollY > 40); }
+  onScroll(); window.addEventListener("scroll", onScroll, {passive:true});
+
+  // menú mobile
+  var btn = document.getElementById("menuBtn"), nav = document.getElementById("nav");
+  btn.addEventListener("click", function(){
+    var abierto = nav.classList.toggle("open");
+    btn.setAttribute("aria-expanded", abierto);
+    btn.textContent = abierto ? "Cerrar" : "Menú";
+    if (abierto) top.classList.add("solid"); else onScroll();
+  });
+  nav.addEventListener("click", function(e){
+    if (e.target.tagName === "A") { nav.classList.remove("open"); btn.setAttribute("aria-expanded", false); btn.textContent = "Menú"; }
+  });
+
+  // aparición al entrar en pantalla
+  var revs = document.querySelectorAll(".rev");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
+    }, {rootMargin:"0px 0px -8% 0px"});
+    revs.forEach(function(el){ io.observe(el); });
+  } else { revs.forEach(function(el){ el.classList.add("in"); }); }
+
+  // formulario de reserva
+  var f = document.getElementById("formReserva");
+  var inN = document.getElementById("nombre"), inP = document.getElementById("personas");
+  var inI = document.getElementById("checkin"), inO = document.getElementById("checkout");
+  var msg = document.getElementById("formMsg"), noches = document.getElementById("noches");
+  function iso(d){ return new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10); }
+  var hoy = iso(new Date());
+  inI.min = hoy; inO.min = hoy;
+  function ddmm(s){ var p = s.split("-"); return p[2] + "/" + p[1] + "/" + p[0]; }
+  function cantNoches(){
+    if (!inI.value || !inO.value) return 0;
+    return Math.round((new Date(inO.value) - new Date(inI.value)) / 86400000);
+  }
+  function actualizar(){
+    if (inI.value) {
+      var sig = new Date(inI.value + "T12:00:00"); sig.setDate(sig.getDate() + 1);
+      inO.min = iso(sig);
+    }
+    var n = cantNoches();
+    noches.textContent = n > 0 ? n + (n === 1 ? " noche" : " noches") : "";
+  }
+  inI.addEventListener("change", actualizar);
+  inO.addEventListener("change", actualizar);
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    [inN,inP,inI,inO].forEach(function(el){ el.removeAttribute("aria-invalid"); });
+    var error = "", campo = null;
+    if (!inN.value.trim()) { error = "Escribí tu nombre."; campo = inN; }
+    else if (!(parseInt(inP.value,10) >= 1)) { error = "Indicá cuántas personas viajan."; campo = inP; }
+    else if (!inI.value) { error = "Elegí la fecha de check-in."; campo = inI; }
+    else if (inI.value < hoy) { error = "El check-in no puede ser una fecha pasada."; campo = inI; }
+    else if (!inO.value) { error = "Elegí la fecha de check-out."; campo = inO; }
+    else if (cantNoches() < 1) { error = "El check-out tiene que ser posterior al check-in."; campo = inO; }
+    if (error) { msg.textContent = error; campo.setAttribute("aria-invalid","true"); campo.focus(); return; }
+    msg.textContent = "";
+    var n = cantNoches();
+    var texto = "¡Hola Pachagonia! Quiero consultar disponibilidad:\n" +
+      "• Nombre: " + inN.value.trim() + "\n" +
+      "• Personas: " + parseInt(inP.value,10) + "\n" +
+      "• Check-in: " + ddmm(inI.value) + "\n" +
+      "• Check-out: " + ddmm(inO.value) + " (" + n + (n === 1 ? " noche" : " noches") + ")";
+    window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(texto), "_blank", "noopener");
+  });
+
+  document.getElementById("anio").textContent = new Date().getFullYear();
+})();
+</script>
+</body>
+</html>
