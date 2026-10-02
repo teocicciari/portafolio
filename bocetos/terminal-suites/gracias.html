@@ -85,11 +85,28 @@
   <footer>© <span id="anio"></span> Terminal Suites</footer>
   <script>
     document.getElementById('anio').textContent = new Date().getFullYear();
-    // Llegar a esta página confirma que el formulario se completó y WhatsApp se abrió
+
+    // Llegar aca significa que el formulario se completo y el navegador
+    // alcanzo esta pagina. No prueba que el mensaje se haya enviado.
     if (typeof gtag === 'function') gtag('event', 'reserva_confirmada');
-    document.getElementById('waFallback').addEventListener('click', function () {
+
+    var boton = document.getElementById('waFallback');
+    var waUrl = null;
+    try { waUrl = sessionStorage.getItem('waUrl'); } catch (e) {}
+
+    boton.addEventListener('click', function () {
       if (typeof gtag === 'function') gtag('event', 'clic_whatsapp', { origen: 'pagina_gracias' });
     });
+
+    // Si el mensaje viene armado del formulario, abrimos WhatsApp solos.
+    // El respiro deja que GA mande el evento antes de salir de la pagina, y
+    // replace() evita que el boton Atras vuelva a disparar la redireccion.
+    // Sin waUrl (entrada directa) queda el link pelado que ya trae el boton.
+    if (waUrl) {
+      boton.href = waUrl;
+      try { sessionStorage.removeItem('waUrl'); } catch (e) {}
+      setTimeout(function () { window.location.replace(waUrl); }, 800);
+    }
   </script>
 </body>
 </html>

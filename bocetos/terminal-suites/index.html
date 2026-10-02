@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Terminal Suites - El Calafate, Patagonia Argentina</title>
+    <title>Terminal Suites - Departamentos en El Calafate</title>
 
     <!-- Meta Description -->
-    <meta name="description" content="Terminal Suites: 8 departamentos de lujo en El Calafate, a 100m de la terminal de buses. Completo equipamiento, WiFi gratuito, estacionamiento privado y servicio de conserjería 24/7. Ubicación ideal para explorar el Glaciar Perito Moreno.">
-    <meta name="keywords" content="departamentos El Calafate, alojamiento Patagonia, Terminal Suites, hospedaje El Calafate, Perito Moreno">
+    <meta name="description" content="8 departamentos equipados en El Calafate, a 100 m de la terminal de buses y 77 km del Glaciar Perito Moreno. Estacionamiento, WiFi y traslados privados.">
+    <meta name="keywords" content="departamentos El Calafate, alojamiento cerca de la terminal El Calafate, traslados privados El Calafate, Terminal Suites, hospedaje El Calafate, Perito Moreno">
     <meta name="author" content="Terminal Suites">
 
     <!-- Open Graph (para WhatsApp, Facebook, LinkedIn) -->
@@ -187,6 +187,20 @@
         }
 
         /* Hero Section */
+        /* Titulo principal: el hero no lleva texto, pero Google y los
+           lectores de pantalla necesitan un h1. */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
         .hero {
             height: 100dvh;
             display: flex;
@@ -1591,6 +1605,41 @@
         }
 
         /* Botón CTA para móvil (oculto por defecto) */
+        /* Secundario frente a "Reservar". Quien llega desde el mensaje de
+           bienvenida de WhatsApp viene buscando fotos, y el carrusel estaba
+           a tres pantallas de scroll. */
+        .hero-gallery-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            margin-top: 1.25rem;
+            padding: 0.85rem 2.2rem;
+            border: 2px solid rgba(255, 255, 255, 0.7);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(4px);
+            color: #ffffff;
+            text-decoration: none;
+            font-family: 'Houschka Rounded', 'Bebas Neue', 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .hero-gallery-cta:hover,
+        .hero-gallery-cta:focus-visible {
+            background: #ffffff;
+            border-color: #ffffff;
+            color: #283b4f;
+        }
+
+        .hero-gallery-cta:focus-visible {
+            outline: 3px solid rgba(255, 255, 255, 0.6);
+            outline-offset: 3px;
+        }
+
         .hero-mobile-cta {
             display: none;
             padding: 1rem 3rem;
@@ -1800,6 +1849,12 @@
                 display: block !important;
             }
 
+            .hero-gallery-cta {
+                margin-top: 0.9rem;
+                padding: 0.75rem 1.8rem;
+                font-size: 0.88rem;
+            }
+
             .play-button {
                 width: 60px;
                 height: 60px;
@@ -1892,6 +1947,7 @@
 
     <!-- Hero Section -->
     <section id="inicio" class="hero">
+        <h1 class="sr-only">Terminal Suites — Departamentos en El Calafate a 100 metros de la terminal de buses</h1>
         <button class="play-button" id="videoPlayButton" type="button">
             <i class="fas fa-play"></i>
         </button> 
@@ -1931,6 +1987,12 @@
 
             <!-- Botón simple (visible en móvil) -->
             <a href="#contacto" class="hero-mobile-cta">Reservar ahora</a>
+
+            <!-- Atajo al carrusel de las suites -->
+            <a href="#apartamentos" class="hero-gallery-cta"
+               onclick="if (typeof gtag === 'function') { gtag('event', 'ver_fotos', { origen: 'hero' }); }">
+                <i class="fas fa-images"></i> Ver fotos
+            </a>
         </div>
     </section>
 
@@ -1974,7 +2036,7 @@
                 </div>
                 <div class="location-item">
                     <h3><i class="fas fa-mountain"></i> Glaciar Perito Moreno</h3>
-                    <p>A 70 km de una de las maravillas naturales más espectaculares del mundo</p>
+                    <p>A 77 km de una de las maravillas naturales más espectaculares del mundo</p>
                 </div>
                 <div class="location-item">
                     <h3><i class="fas fa-map-marker-alt"></i> Dirección</h3>
@@ -2145,7 +2207,7 @@
                 <p>Coordinamos el chofer desde la puerta del aparthotel hasta donde vayas. Sin traslados compartidos ni esperas: salís a tu horario y volvés cuando terminás.</p>
                 <ul class="transfers-routes">
                     <li><span class="dest">Aeropuerto</span> <span class="dist">23 km &middot; 25 min</span></li>
-                    <li><span class="dest">Glaciar Perito Moreno</span> <span class="dist">78 km &middot; 1 h 20</span></li>
+                    <li><span class="dest">Glaciar Perito Moreno</span> <span class="dist">77 km &middot; 1 h 20</span></li>
                     <li><span class="dest">El Chaltén</span> <span class="dist">213 km &middot; 3 h</span></li>
                     <li><span class="dest">Estancias y Lago Roca</span> <span class="dist">50 km &middot; 1 h</span></li>
                 </ul>
@@ -2280,7 +2342,7 @@
             </div>
 
             <div class="booking-platforms">
-                <a class="platform-link" target="_blank" href="https://www.airbnb.mx/rooms/1241439710037018788?check_in=2025-11-04&check_out=2025-11-09&guests=1&adults=1&s=67&unique_share_id=cf010a6a-9340-4978-bdad-661d7ff816fb">Airbnb</a>
+                <a class="platform-link" target="_blank" href="https://www.airbnb.mx/rooms/1241439710037018788">Airbnb</a>
                 <a class="platform-link" target="_blank" href="https://www.expedia.ca/El-Calafate-Hotels-Terminal-Suites.h116512955.Hotel-Information?referrerId=HOT.HIS.Share.Landed.Copy_Link">Expedia</a>
                 <a class="platform-link" target="_blank" href="https://www.booking.com/hotel/ar/apart-austral-el-calafate.es.html?aid=356980&label=gog235jc-10CAsoDEIZYXBhcnQtYXVzdHJhbC1lbC1jYWxhZmF0ZUgsWANoDIgBAZgBM7gBF8gBD9gBA-gBAfgBAYgCAagCAbgCjN3jxwbAAgHSAiQxY2NkNmVhYi0yOTdlLTQ5NDQtOWM3My00M2VkMmI0NThmYTLYAgHgAgE-Share-0yqNGh%401761144483&sid=02019a44e9a0233a4510a3f7165bb783&dest_id=-985388&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1761150271&srpvid=725b7357a857000e&type=total&ucfs=1&">Booking.com</a>
             </div>
@@ -2723,8 +2785,13 @@
                 gtag('event', 'clic_whatsapp', { origen: 'formulario_reserva' });
             }
 
-            // Abrir WhatsApp
-            window.open(`https://wa.me/${numeroWhatsApp}?text=${mensaje}`, '_blank');
+            // WhatsApp lo abre gracias.html, no esta pagina. Abrirlo aca con
+            // window.open y navegar en la linea siguiente abortaba la
+            // navegacion en mobile: en septiembre hubo 6 clics de WhatsApp
+            // y 0 cargas de gracias.html, con 63% del trafico en celular.
+            try {
+                sessionStorage.setItem('waUrl', `https://wa.me/${numeroWhatsApp}?text=${mensaje}`);
+            } catch (e) {}
             window.location.href = 'gracias.html';
         });
 
@@ -2843,7 +2910,7 @@
         "https://terminalsuites.com.ar/img/habitacion4.webp",
         "https://terminalsuites.com.ar/img/cocina2.webp"
       ],
-      "description": "Terminal Suites ofrece 8 departamentos de lujo completamente equipados en El Calafate, Patagonia Argentina. Ubicado a solo 100 metros de la terminal de buses y 70km del Glaciar Perito Moreno.",
+      "description": "Terminal Suites ofrece 8 departamentos de lujo completamente equipados en El Calafate, Patagonia Argentina. Ubicado a solo 100 metros de la terminal de buses y 77 km del Glaciar Perito Moreno.",
       "telephone": "+54 2966 569953",
       "email": "terminalsuiteselcalafate@gmail.com",
       "url": "https://terminalsuites.com.ar",
@@ -2872,28 +2939,34 @@
       },
       "amenityFeature": [
         {
-          "@type": "Text",
-          "name": "WiFi gratuito"
+          "@type": "LocationFeatureSpecification",
+          "name": "WiFi gratuito",
+          "value": true
         },
         {
-          "@type": "Text",
-          "name": "Calefacción central"
+          "@type": "LocationFeatureSpecification",
+          "name": "Calefacción central",
+          "value": true
         },
         {
-          "@type": "Text",
-          "name": "Estacionamiento privado"
+          "@type": "LocationFeatureSpecification",
+          "name": "Estacionamiento privado",
+          "value": true
         },
         {
-          "@type": "Text",
-          "name": "Seguridad 24/7"
+          "@type": "LocationFeatureSpecification",
+          "name": "Seguridad 24/7",
+          "value": true
         },
         {
-          "@type": "Text",
-          "name": "Servicio de conserjería"
+          "@type": "LocationFeatureSpecification",
+          "name": "Servicio de conserjería",
+          "value": true
         },
         {
-          "@type": "Text",
-          "name": "Box de bienvenida"
+          "@type": "LocationFeatureSpecification",
+          "name": "Box de bienvenida",
+          "value": true
         }
       ],
       "numberOfRooms": 8,
