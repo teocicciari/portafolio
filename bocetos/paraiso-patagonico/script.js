@@ -584,7 +584,8 @@ document.addEventListener('DOMContentLoaded', () => {
     new ScrollAnimations();
     new LazyLoading();
 
-    console.log('Paraíso Patagónico v2.0 - Cargado exitosamente');
+    const footerYear = document.getElementById('footerYear');
+    if (footerYear) footerYear.textContent = new Date().getFullYear();
 });
 
 // Prevenir comportamientos inesperados
