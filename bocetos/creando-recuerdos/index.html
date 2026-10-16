@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creando Recuerdos — Excursiones en El Calafate</title>
+<meta name="description" content="Excursiones al Glaciar Perito Moreno y el Parque Nacional Los Glaciares desde El Calafate. Navegación, trekking sobre hielo y día de campo patagónico.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* El turquesa del hielo glaciar es el protagonista; el resto acompaña */
+    --hielo:#3E9BCF;
+    --hielo-claro:#7CB9E8;
+    --profundo:#122A36;
+    --arena:#C4A57B;
+    --fuego:#D2691E;
+    --nieve:#F8F6F3;
+    --blanco:#fff;
+    --gris:#64737A;
+    --borde:rgba(18,42,54,.10);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{font-family:'Poppins',system-ui,sans-serif;font-weight:300;color:var(--profundo);
+    background:var(--nieve);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+    color:var(--blanco);overflow:hidden}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(18,42,54,.35) 0%,rgba(18,42,54,.15) 40%,rgba(18,42,54,.88) 100%)}
+  .hero .wrap{position:relative;z-index:2;padding-bottom:72px;padding-top:120px}
+  .marca{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.82rem;
+    letter-spacing:.3em;text-transform:uppercase;margin-bottom:22px;color:var(--hielo-claro)}
+  .hero h1{font-family:'Montserrat',sans-serif;font-weight:900;
+    font-size:clamp(2.4rem,7vw,4.6rem);line-height:1.02;letter-spacing:-.025em;max-width:16ch}
+  .hero p{font-size:clamp(1rem,2.2vw,1.22rem);margin-top:20px;max-width:46ch;color:rgba(255,255,255,.9)}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:'Poppins',sans-serif;
+    font-weight:500;font-size:.96rem;padding:14px 28px;border-radius:50px;
+    text-decoration:none;transition:transform .2s,background .2s,color .2s;border:1.5px solid transparent}
+  .btn-wa{background:var(--fuego);color:var(--blanco)}
+  .btn-wa:hover{background:#b8571a;transform:translateY(-2px)}
+  .btn-ghost{border-color:rgba(255,255,255,.55);color:var(--blanco)}
+  .btn-ghost:hover{background:var(--blanco);color:var(--profundo)}
+  .btn:focus-visible{outline:3px solid var(--hielo-claro);outline-offset:3px}
+
+  /* ---------- Secciones ---------- */
+  section{padding:clamp(64px,10vw,110px) 0}
+  .eyebrow{font-family:'Montserrat',sans-serif;font-weight:800;font-size:.76rem;
+    letter-spacing:.26em;text-transform:uppercase;color:var(--hielo);margin-bottom:16px}
+  h2{font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:clamp(1.8rem,4.4vw,2.9rem);line-height:1.1;letter-spacing:-.02em}
+  .lede{font-size:1.08rem;color:var(--gris);max-width:58ch;margin-top:18px}
+
+  .intro{background:var(--blanco)}
+  .intro .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);align-items:center}
+  .intro p+p{margin-top:16px}
+  .intro .dato{border-left:3px solid var(--hielo);padding-left:22px;margin-top:28px}
+  .intro .dato strong{display:block;font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:2.2rem;line-height:1;color:var(--profundo)}
+  .intro .dato span{font-size:.92rem;color:var(--gris)}
+
+  /* ---------- Excursiones ---------- */
+  .exc{display:grid;gap:clamp(40px,7vw,86px);margin-top:clamp(42px,6vw,70px)}
+  .tour{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(26px,5vw,56px);align-items:center}
+  .tour:nth-child(even) .tour-foto{order:2}
+  .tour-foto{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/2;background:#dfe6ea}
+  .tour-foto img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+  .tour:hover .tour-foto img{transform:scale(1.04)}
+
+  .tour h3{font-family:'Montserrat',sans-serif;font-weight:800;
+    font-size:clamp(1.4rem,3vw,2rem);line-height:1.15;letter-spacing:-.015em}
+  .tour-desc{color:var(--gris);margin-top:14px}
+
+  /* El momento que define cada excursión: lo que te vas a acordar */
+  .momento{margin-top:20px;padding:16px 20px;background:rgba(62,155,207,.09);
+    border-radius:3px;font-size:.95rem;color:var(--profundo)}
+  .momento b{font-family:'Montserrat',sans-serif;font-weight:700;display:block;
+    font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--hielo);margin-bottom:4px}
+
+  .ficha{display:flex;gap:26px;flex-wrap:wrap;margin-top:22px;align-items:flex-end}
+  .ficha > div{font-size:.86rem}
+  .ficha b{display:block;font-size:.68rem;font-weight:600;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gris);margin-bottom:5px}
+
+  /* Barra de intensidad: cuánto esfuerzo pide cada salida */
+  .nivel{display:flex;gap:4px;align-items:center}
+  .nivel i{width:22px;height:5px;border-radius:3px;background:rgba(18,42,54,.14)}
+  .nivel i.on{background:var(--hielo)}
+  .nivel.alto i.on{background:var(--fuego)}
+  .nivel span{font-size:.84rem;margin-left:8px;color:var(--profundo)}
+
+  .tour .btn{margin-top:24px;background:var(--profundo);color:var(--blanco);padding:12px 24px;font-size:.9rem}
+  .tour .btn:hover{background:var(--hielo);transform:translateY(-2px)}
+
+  /* ---------- Por qué ---------- */
+  .porque{background:var(--profundo);color:var(--blanco)}
+  .porque h2{color:var(--blanco)}
+  .porque .lede{color:rgba(255,255,255,.72)}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:36px;margin-top:52px}
+  .col h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.1rem;margin-bottom:10px}
+  .col p{color:rgba(255,255,255,.72);font-size:.95rem}
+  .col .linea{width:38px;height:3px;background:var(--hielo);margin-bottom:18px}
+
+  /* ---------- FAQ ---------- */
+  .faq{background:var(--blanco)}
+  details{border-bottom:1px solid var(--borde);padding:22px 0}
+  details summary{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1.02rem;
+    cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";font-size:1.5rem;font-weight:400;color:var(--hielo);
+    transition:transform .25s;line-height:1}
+  details[open] summary::after{transform:rotate(45deg)}
+  details p{color:var(--gris);margin-top:14px;font-size:.96rem;max-width:68ch}
+  details summary:focus-visible{outline:3px solid var(--hielo);outline-offset:4px}
+
+  /* ---------- Cierre ---------- */
+  .cierre{text-align:center;background:var(--nieve)}
+  .cierre h2{max-width:18ch;margin:0 auto}
+  .cierre .lede{margin:18px auto 32px}
+
+  /* ---------- Banner de autor ---------- */
+  .autor{background:var(--arena);color:var(--profundo)}
+  .autor .wrap{text-align:center;max-width:660px}
+  .autor .eyebrow{color:#7a5a2a}
+  .autor h2{font-size:clamp(1.5rem,3.4vw,2.1rem)}
+  .autor p{margin:16px 0 28px;color:#5a4423}
+  .autor .btn{background:var(--profundo);color:var(--blanco)}
+  .autor .btn:hover{background:#000;transform:translateY(-2px)}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--profundo);color:rgba(255,255,255,.62);
+    padding:52px 0 40px;font-size:.88rem}
+  footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap}
+  footer a{color:var(--hielo-claro);text-decoration:none}
+  footer a:hover{color:var(--blanco)}
+  footer .marca-pie{font-family:'Montserrat',sans-serif;font-weight:800;
+    color:var(--blanco);font-size:1rem;letter-spacing:.04em;margin-bottom:6px}
+
+  /* ---------- WhatsApp flotante ---------- */
+  .flota{position:fixed;right:20px;bottom:20px;z-index:50;background:#25D366;color:#fff;
+    width:56px;height:56px;border-radius:50%;display:grid;place-items:center;
+    box-shadow:0 6px 24px rgba(0,0,0,.22);text-decoration:none;transition:transform .2s}
+  .flota:hover{transform:scale(1.08)}
+  .flota svg{width:28px;height:28px;fill:currentColor}
+
+  @media (max-width:860px){
+    .intro .wrap{grid-template-columns:1fr}
+    .tour{grid-template-columns:1fr}
+    .tour:nth-child(even) .tour-foto{order:0}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none!important;animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <img src="img/hero.webp" alt="El crucero María Turquesa navegando frente al muro de hielo del Glaciar Perito Moreno" width="1920" height="1285">
+  <div class="wrap">
+    <div class="marca">Creando Recuerdos · El Calafate</div>
+    <h1>El glaciar no se cuenta. Se camina.</h1>
+    <p>Excursiones al Perito Moreno y al Parque Nacional Los Glaciares, armadas para
+      que vuelvas con algo más que fotos.</p>
+    <div class="hero-cta">
+      <a class="btn btn-wa" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20las%20excursiones" target="_blank" rel="noopener">Consultar por WhatsApp</a>
+      <a class="btn btn-ghost" href="#excursiones">Ver las excursiones</a>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Quiénes somos</div>
+      <h2>Conocemos el camino porque vivimos acá</h2>
+    </div>
+    <div>
+      <p>Somos la agencia de I Keu Ken Hostel. Llevamos años recibiendo viajeros en
+        El Calafate y acompañándolos a conocer el Parque Nacional Los Glaciares.</p>
+      <p>Trabajamos con los operadores habilitados de cada excursión y te ayudamos a
+        elegir la que va con vos: cuántos días tenés, cuánto querés caminar y qué te
+        gustaría ver.</p>
+      <div class="dato">
+        <strong>200+</strong>
+        <span>glaciares en el Parque Nacional. Te ayudamos a elegir por dónde empezar.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="excursiones">
+  <div class="wrap">
+    <div class="eyebrow">Las excursiones</div>
+    <h2>Cuatro formas de conocer el hielo</h2>
+    <p class="lede">Cada salida pide algo distinto. Elegí por lo que querés vivir, no
+      por lo que dura.</p>
+
+    <div class="exc">
+
+      <article class="tour">
+        <div class="tour-foto">
+          <img loading="lazy" src="img/gourmet.webp" alt="Visitantes observando el crucero María Turquesa desde las pasarelas del Perito Moreno" width="1100" height="736">
+        </div>
+        <div>
+          <h3>Glaciares Gourmet</h3>
+          <p class="tour-desc">Un día entero a bordo del crucero María Turquesa, navegando
+            entre los glaciares Spegazzini y Upsala. El Spegazzini levanta un frente de
+            135 metros sobre el agua; el Upsala cubre un valle de 765 km². Todo eso se mira
+            desde cubierta, con almuerzo gourmet servido a bordo.</p>
+          <div class="momento">
+            <b>El momento</b>
+            Cuando el barco apaga motores frente al Spegazzini y nadie habla.
+          </div>
+          <div class="ficha">
+            <div><b>Duración</b>Full day · 8:30 a 17:00</div>
+            <div><b>Exigencia</b>
+              <div class="nivel"><i class="on"></i><i></i><i></i><span>Suave</span></div>
+            </div>
+          </div>
+          <a class="btn" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20Glaciares%20Gourmet" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+
+      <article class="tour">
+        <div class="tour-foto">
+          <img loading="lazy" src="img/minitrekking.webp" alt="Tres personas caminando sobre el Glaciar Perito Moreno durante el minitrekking" width="1100" height="825">
+        </div>
+        <div>
+          <h3>Minitrekking sobre el hielo</h3>
+          <p class="tour-desc">La forma clásica de pisar el Perito Moreno. Se cruza el
+            Lago Rico en barco, se camina por la costa hasta el glaciar y ahí te colocan
+            los crampones. Entre una hora y media y dos horas caminando entre grietas,
+            sumideros y lagunas azules, siempre con guía.</p>
+          <div class="momento">
+            <b>El momento</b>
+            El brindis al final, con hielo que se formó hace siglos.
+          </div>
+          <div class="ficha">
+            <div><b>Duración</b>Día completo</div>
+            <div><b>Exigencia</b>
+              <div class="nivel"><i class="on"></i><i class="on"></i><i></i><span>Moderada</span></div>
+            </div>
+          </div>
+          <a class="btn" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20el%20Minitrekking" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+
+      <article class="tour">
+        <div class="tour-foto">
+          <img loading="lazy" src="img/bigice.webp" alt="Vista aérea de un grupo caminando sobre el hielo azul del glaciar en la travesía Big Ice" width="1100" height="775">
+        </div>
+        <div>
+          <h3>Big Ice</h3>
+          <p class="tour-desc">La travesía larga, para los que quieren ir más adentro.
+            Se camina entre tres y cuatro horas sobre el glaciar, lejos de la zona que
+            pisa todo el mundo, por el hielo azul profundo donde el paisaje cambia por
+            completo. Grupos chicos y guías de alta montaña.</p>
+          <div class="momento">
+            <b>El momento</b>
+            Darte vuelta y no ver a nadie más que a tu grupo sobre el hielo.
+          </div>
+          <div class="ficha">
+            <div><b>Duración</b>Jornada completa</div>
+            <div><b>Exigencia</b>
+              <div class="nivel alto"><i class="on"></i><i class="on"></i><i class="on"></i><span>Exigente</span></div>
+            </div>
+          </div>
+          <a class="btn" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20Big%20Ice" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+
+      <article class="tour">
+        <div class="tour-foto">
+          <img loading="lazy" src="img/estancia.webp" alt="Puestero a caballo arreando ovejas en la Estancia 25 de Mayo" width="1100" height="733">
+        </div>
+        <div>
+          <h3>Estancia 25 de Mayo</h3>
+          <p class="tour-desc">El otro lado de la Patagonia, el que no es hielo. Un día
+            de campo con cordero al asador, demostración de arreo con perros y esquila,
+            y la opción de salir a cabalgar por la estepa aunque nunca te hayas subido a
+            un caballo.</p>
+          <div class="momento">
+            <b>El momento</b>
+            El silencio de la estepa cuando se apaga el ruido del pueblo.
+          </div>
+          <div class="ficha">
+            <div><b>Duración</b>Día completo</div>
+            <div><b>Exigencia</b>
+              <div class="nivel"><i class="on"></i><i></i><i></i><span>Suave</span></div>
+            </div>
+          </div>
+          <a class="btn" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20la%20Estancia%2025%20de%20Mayo" target="_blank" rel="noopener">Consultar</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="porque">
+  <div class="wrap">
+    <div class="eyebrow">Por qué con nosotros</div>
+    <h2>Somos los que te reciben cuando volvés</h2>
+    <p class="lede">No vendemos excursiones por catálogo. Estamos en El Calafate y nos
+      vas a encontrar acá antes y después de cada salida.</p>
+    <div class="cols">
+      <div class="col">
+        <div class="linea"></div>
+        <h3>Te ayudamos a elegir</h3>
+        <p>Si tenés dos días no podés hacer todo. Te decimos qué conviene según lo que
+          querés ver y cuánto estás dispuesto a caminar.</p>
+      </div>
+      <div class="col">
+        <div class="linea"></div>
+        <h3>Operadores habilitados</h3>
+        <p>Trabajamos con las empresas autorizadas a operar dentro del Parque Nacional.
+          Guías, equipo y seguros incluidos.</p>
+      </div>
+      <div class="col">
+        <div class="linea"></div>
+        <h3>Todo por WhatsApp</h3>
+        <p>Consultás, reservás y coordinás el horario de salida por mensaje. Sin formularios
+          largos ni esperas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="wrap">
+    <div class="eyebrow">Antes de venir</div>
+    <h2>Preguntas frecuentes</h2>
+    <div style="margin-top:40px">
+      <details>
+        <summary>¿Cuántos días necesito en El Calafate?</summary>
+        <p>Con tres días completos entrás cómodo: uno para el glaciar caminando, otro
+          para navegar y uno de campo. Si tenés dos, te ayudamos a elegir las dos que
+          mejor se complementan.</p>
+      </details>
+      <details>
+        <summary>¿Hace falta experiencia para caminar sobre el hielo?</summary>
+        <p>Para el minitrekking no. Te dan los crampones, te explican cómo caminar y vas
+          siempre con guía. Para el Big Ice sí conviene estar entrenado: son varias horas
+          sobre hielo irregular.</p>
+      </details>
+      <details>
+        <summary>¿Qué ropa llevo?</summary>
+        <p>Capas. Primera capa térmica, polar y campera rompeviento impermeable. Calzado
+          de trekking con tobillo alto para las caminatas sobre hielo, gorro, guantes y
+          anteojos de sol. El clima cambia varias veces en el mismo día.</p>
+      </details>
+      <details>
+        <summary>¿Está incluida la entrada al Parque Nacional?</summary>
+        <p>No. La entrada se abona aparte, al ingresar, y el valor lo fija el Parque
+          Nacional. Te confirmamos el monto actualizado cuando reserves.</p>
+      </details>
+      <details>
+        <summary>¿Puedo reservar estando ya en El Calafate?</summary>
+        <p>Sí, pero en temporada alta las salidas se llenan con días de anticipación.
+          Si ya tenés fecha, escribinos antes de viajar.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cierre">
+  <div class="wrap">
+    <div class="eyebrow">Escribinos</div>
+    <h2>Contanos cuándo venís y te armamos los días</h2>
+    <p class="lede">Respondemos por WhatsApp, en español o en inglés.</p>
+    <a class="btn btn-wa" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20armar%20mi%20viaje%20a%20El%20Calafate" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+<section class="autor">
+  <div class="wrap">
+    <div class="eyebrow">Diseño web</div>
+    <h2>Este boceto lo diseñó Teo Cicciari</h2>
+    <p>¿Tenés un proyecto y querés una web así? Puedo armarte la tuya, con tu identidad
+      y pensada para que te escriban.</p>
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="marca-pie">Creando Recuerdos</div>
+      <div>Excursiones en El Calafate · Santa Cruz, Patagonia Argentina</div>
+      <div style="margin-top:6px">
+        <a href="https://wa.me/5492966266581" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div id="anio"></div>
+      <div style="margin-top:6px">
+        Boceto diseñado por
+        <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Teo Cicciari</a>
+        — Mirá más referencias y precios
+      </div>
+    </div>
+  </div>
+</footer>
+
+<a class="flota" href="https://wa.me/5492966266581?text=Hola!%20Quiero%20consultar%20por%20las%20excursiones"
+   target="_blank" rel="noopener" aria-label="Consultar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.5-.5c.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.2.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 2-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3.1.8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.6 0-4.6 3.8-8.4 8.4-8.4s8.4 3.8 8.4 8.4-3.7 8.5-8.3 8.5z"/></svg>
+</a>
+
+<script>
+  document.getElementById('anio').textContent = '© ' + new Date().getFullYear() + ' Creando Recuerdos';
+</script>
+
+</body>
+</html>
