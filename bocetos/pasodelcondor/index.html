@@ -1,0 +1,686 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabaña El Paso del Cóndor · Refugio de pesca en el río Aluminé</title>
+<meta name="description" content="Cabaña de montaña y refugio de pesca con mosca a orillas del río Aluminé, en el paraje Lonco Luan (Ruta Provincial 23), entre Aluminé y Villa Pehuenia, Neuquén. Abre cada temporada desde el 1 de noviembre.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 L30 29 H2 Z' fill='%232E6E5C'/%3E%3Crect x='13' y='19' width='6' height='10' fill='%23B04A2F'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Karla:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --niebla:#E6EAE7;
+    --niebla-2:#D5DCD7;
+    --araucaria:#16201B;
+    --araucaria-2:#22302A;
+    --chapa:#2E6E5C;
+    --chapa-osc:#245748;
+    --rio:#3FA7A3;
+    --rio-claro:#7BD3CB;
+    --ladrillo:#B04A2F;
+    --pino:#E0B47A;
+    --pino-claro:#EED6AB;
+    --tinta:#1C2420;
+    --tinta-suave:#4A5650;
+
+    --f-display:"Zilla Slab", Rockwell, "Courier New", serif;
+    --f-body:"Karla", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --f-mono:"IBM Plex Mono", ui-monospace, Consolas, monospace;
+
+    --gutter:clamp(16px, 5vw, 64px);
+    --max:1180px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--niebla);
+    color:var(--tinta);
+    font-family:var(--f-body);
+    font-size:1.0625rem;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--rio);outline-offset:3px;border-radius:2px}
+
+  .wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
+
+  .eyebrow{
+    font-family:var(--f-mono);
+    font-size:.75rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  h1,h2,h3{font-family:var(--f-display);font-weight:600;margin:0;line-height:1.02;letter-spacing:-.01em}
+  h2{font-size:clamp(2.1rem, 5vw, 3.6rem)}
+  h2 em{font-style:italic;font-weight:400}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.6em;
+    font-family:var(--f-body);font-weight:700;font-size:1rem;
+    padding:.95em 1.5em;border-radius:999px;border:2px solid transparent;
+    text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn--ladrillo{background:var(--ladrillo);color:#fff}
+  .btn--ladrillo:hover{background:#963c24}
+  .btn--linea{border-color:currentColor;color:inherit;background:transparent}
+  .btn--linea:hover{background:rgba(255,255,255,.12)}
+  .btn svg{width:1.15em;height:1.15em;flex:none}
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    color:#fff;
+    transition:background .3s, color .3s, box-shadow .3s;
+  }
+  .nav.is-solid{background:rgba(22,32,27,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(255,255,255,.06)}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+  .marca{display:flex;align-items:center;gap:.65rem;text-decoration:none}
+  .marca svg{width:30px;height:30px;flex:none}
+  .marca__txt{display:flex;flex-direction:column;line-height:1}
+  .marca__txt small{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;opacity:.8}
+  .marca__txt span{font-family:var(--f-display);font-weight:700;font-size:1.2rem;margin-top:.2rem}
+  .nav__links{display:flex;align-items:center;gap:1.8rem;list-style:none;margin:0;padding:0}
+  .nav__links a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.88}
+  .nav__links a:hover{opacity:1;text-decoration:underline;text-underline-offset:4px}
+  .nav__links .btn{padding:.6em 1.15em;font-size:.9rem;opacity:1}
+  .nav__links .btn:hover{text-decoration:none}
+  @media (max-width:820px){
+    .nav__links li:not(:last-child){display:none}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;background:var(--araucaria);color:#fff}
+  .hero__stage{position:relative;min-height:86svh;display:flex;align-items:flex-start;overflow:hidden}
+  .hero__media{position:absolute;inset:0}
+  .hero__media img{width:100%;height:100%;object-fit:cover;object-position:30% 60%}
+  .hero__media::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(14,22,19,.82) 0%, rgba(14,22,19,.45) 34%, rgba(14,22,19,0) 58%),
+      linear-gradient(0deg, rgba(14,22,19,.55) 0%, rgba(14,22,19,0) 22%);
+  }
+  .hero__copy{position:relative;padding-top:calc(68px + clamp(1.5rem, 6vh, 4rem));padding-bottom:3rem}
+  .hero__copy .eyebrow{color:var(--pino-claro)}
+  .hero h1{
+    font-size:clamp(2.6rem, 6.2vw, 5.2rem);
+    max-width:14ch;
+    margin:.9rem 0 1.1rem;
+    text-wrap:balance;
+  }
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--rio-claro)}
+  .hero__lead{max-width:34rem;font-size:clamp(1.02rem, 1.6vw, 1.18rem);color:rgba(255,255,255,.9);margin:0 0 1.8rem}
+  .hero__cta{display:flex;flex-wrap:wrap;gap:.75rem}
+  @media (max-width:600px){.hero__cta .btn--linea{display:none}}
+
+  /* Signature: la etiqueta de temporada */
+  .tag{
+    position:relative;z-index:2;
+    margin:-3.25rem var(--gutter) 0;
+    background:var(--pino-claro);
+    color:var(--araucaria);
+    padding:1.15rem 1.4rem 1.2rem 3.1rem;
+    clip-path:polygon(22px 0,100% 0,100% 100%,22px 100%,0 calc(100% - 22px),0 22px);
+    -webkit-mask:radial-gradient(circle at 24px 50%, transparent 7px, #000 7.5px);
+            mask:radial-gradient(circle at 24px 50%, transparent 7px, #000 7.5px);
+    box-shadow:0 18px 40px rgba(0,0,0,.25);
+  }
+  .tag::before{
+    content:"";position:absolute;inset:7px 7px 7px 42px;
+    border:1.5px dashed rgba(22,32,27,.35);pointer-events:none;
+  }
+  .tag__top{display:flex;justify-content:space-between;gap:1rem;font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--chapa-osc);font-weight:500}
+  .tag__titulo{font-family:var(--f-display);font-size:1.35rem;font-weight:600;margin:.35rem 0 .15rem;line-height:1.1}
+  .tag__cuenta{display:flex;align-items:baseline;gap:.5rem;margin:.1rem 0 .2rem}
+  .tag__num{font-family:var(--f-display);font-weight:700;font-size:3.4rem;line-height:.95;color:var(--ladrillo)}
+  .tag__unidad{font-family:var(--f-display);font-style:italic;font-size:1.2rem}
+  .tag__pie{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--tinta-suave);border-top:1px solid rgba(22,32,27,.18);padding-top:.55rem;margin-top:.5rem}
+
+  @media (min-width:900px){
+    .hero__stage{min-height:100svh}
+    .hero__media img{object-position:center 62%}
+    .tag{
+      position:absolute;right:var(--gutter);bottom:6rem;margin:0;
+      width:330px;
+    }
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .js .tag{animation:colgar 1s cubic-bezier(.2,.8,.2,1) .35s both}
+    @keyframes colgar{from{opacity:0;transform:translateY(-18px) rotate(-3deg)}to{opacity:1;transform:none}}
+  }
+
+  /* ---------- Secciones ---------- */
+  section{padding-block:clamp(4.5rem, 10vw, 8rem)}
+
+  /* El refugio */
+  .refugio__grid{display:grid;gap:clamp(2.5rem, 6vw, 5rem);align-items:center}
+  .gable{
+    background:var(--ladrillo);
+    padding:7px;
+    clip-path:polygon(50% 0,100% 28%,100% 100%,0 100%,0 28%);
+    max-width:520px;
+    margin-inline:auto;
+    width:100%;
+  }
+  .gable img{
+    width:100%;aspect-ratio:1/1.04;object-fit:cover;object-position:62% 40%;
+    clip-path:polygon(50% 0,100% 28%,100% 100%,0 100%,0 28%);
+  }
+  .gable-pie{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.08em;color:var(--tinta-suave);text-align:center;margin-top:.9rem}
+  .refugio .eyebrow{color:var(--chapa)}
+  .refugio h2{margin:.8rem 0 1.4rem}
+  .refugio p{color:var(--tinta-suave);max-width:36rem;margin:0 0 1rem}
+  .adentro{list-style:none;margin:2rem 0 0;padding:0;border-top:1.5px solid var(--tinta)}
+  .adentro li{
+    display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+    padding:.8rem 0;border-bottom:1px solid var(--niebla-2);
+    font-weight:500;
+  }
+  .adentro li span{white-space:nowrap;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--chapa)}
+  @media (min-width:900px){
+    .refugio__grid{grid-template-columns:1fr 1.05fr}
+  }
+
+  /* La pesca */
+  .pesca{background:var(--araucaria);color:#fff;position:relative;overflow:hidden}
+  .pesca__grid{display:grid;gap:clamp(2.5rem, 6vw, 5rem);align-items:center}
+  .pesca .eyebrow{color:var(--rio-claro)}
+  .pesca h2{margin:.8rem 0 1.4rem;max-width:14ch}
+  .pesca h2 em{color:var(--pino)}
+  .pesca p{color:rgba(255,255,255,.8);max-width:34rem;margin:0 0 1rem}
+  .pesca__foto{position:relative}
+  .pesca__foto img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;border-radius:4px}
+  .pesca__foto figcaption{
+    position:absolute;left:.8rem;bottom:.8rem;
+    font-family:var(--f-mono);font-size:.7rem;letter-spacing:.08em;
+    background:rgba(22,32,27,.78);padding:.35rem .6rem;border-radius:2px;
+  }
+  .datos{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:2.2rem 0 0;border-top:1px solid rgba(255,255,255,.18)}
+  .datos div{padding:1rem 0 .2rem;border-bottom:1px solid rgba(255,255,255,.12)}
+  .datos div:nth-child(odd){padding-right:1rem}
+  .datos dt{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rio-claro)}
+  .datos dd{margin:.25rem 0 .8rem;font-family:var(--f-display);font-size:1.3rem;font-weight:600}
+  @media (min-width:900px){
+    .pesca__grid{grid-template-columns:1.1fr .9fr}
+  }
+
+  /* Galería */
+  .galeria .eyebrow{color:var(--chapa)}
+  .galeria__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem 2rem;margin-bottom:2.2rem}
+  .galeria__head p{max-width:26rem;margin:0;color:var(--tinta-suave)}
+  .grid-fotos{
+    display:grid;gap:8px;
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-rows:150px;
+  }
+  .grid-fotos figure{margin:0;position:relative;overflow:hidden;border-radius:3px;grid-row:span 2;background:var(--niebla-2)}
+  .grid-fotos img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+  .grid-fotos figure:hover img{transform:scale(1.03)}
+  .grid-fotos figcaption{
+    position:absolute;left:.6rem;bottom:.6rem;
+    font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;color:#fff;
+    background:rgba(22,32,27,.72);padding:.3rem .55rem;border-radius:2px;
+  }
+  .f-estar{grid-column:span 2}
+  @media (min-width:760px){
+    .grid-fotos{grid-template-columns:repeat(6,1fr);grid-auto-rows:170px;gap:10px}
+    .f-estar{grid-column:span 4}
+    .f-cocina{grid-column:span 2}
+    .f-altillo,.f-altillo2,.f-bano{grid-column:span 2}
+  }
+
+  /* Ubicación */
+  .ubicacion{background:var(--niebla-2)}
+  .ubicacion .eyebrow{color:var(--chapa)}
+  .ubicacion h2{margin:.8rem 0 1.2rem}
+  .ubicacion__txt{max-width:40rem;color:var(--tinta-suave);margin:0 0 3rem}
+  .ruta{
+    position:relative;
+    display:grid;
+    grid-template-columns:1fr;
+    gap:0;
+    list-style:none;margin:0 0 2.5rem;padding:0;
+  }
+  .ruta li{position:relative;padding:0 0 2rem 2.6rem}
+  .ruta li::before{
+    content:"";position:absolute;left:9px;top:12px;bottom:-12px;width:3px;
+    background:repeating-linear-gradient(180deg,var(--tinta) 0 10px,transparent 10px 18px);
+  }
+  .ruta li:last-child{padding-bottom:0}
+  .ruta li:last-child::before{display:none}
+  .ruta__punto{position:absolute;left:0;top:4px;width:21px;height:21px;border-radius:50%;background:var(--niebla-2);border:3px solid var(--tinta)}
+  .ruta .es-aca .ruta__punto{
+    border:0;border-radius:0;background:var(--chapa);
+    width:26px;height:24px;left:-2px;top:0;
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+  }
+  .ruta__nombre{font-family:var(--f-display);font-weight:600;font-size:1.45rem;line-height:1.15}
+  .ruta__det{display:block;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-suave);margin-top:.2rem}
+  .ruta .es-aca .ruta__nombre{color:var(--chapa)}
+  .ruta__label{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ladrillo);margin-bottom:1.2rem}
+  @media (min-width:760px){
+    .ruta{grid-template-columns:1fr 1.2fr 1fr;text-align:center}
+    .ruta li{padding:2.8rem .5rem 0}
+    .ruta li::before{
+      left:50%;right:-50%;top:10px;bottom:auto;width:auto;height:3px;
+      background:repeating-linear-gradient(90deg,var(--tinta) 0 12px,transparent 12px 20px);
+    }
+    .ruta__punto{left:50%;top:0;transform:translateX(-50%)}
+    .ruta .es-aca .ruta__punto{left:50%;top:-4px;width:30px;height:28px}
+    .ruta__label{text-align:center}
+  }
+
+  /* Reserva */
+  .reserva{background:var(--chapa);color:#fff;position:relative;overflow:hidden}
+  .reserva::before{
+    content:"";position:absolute;right:-8%;bottom:-2px;width:min(560px,80vw);aspect-ratio:1.15/1;
+    background:var(--chapa-osc);
+    clip-path:polygon(50% 0,100% 100%,0 100%);
+    pointer-events:none;
+  }
+  .reserva__grid{position:relative;display:grid;gap:2.5rem;align-items:start}
+  .reserva .eyebrow{color:var(--pino-claro)}
+  .reserva h2{margin:.8rem 0 1.2rem}
+  .reserva__intro p{color:rgba(255,255,255,.85);max-width:28rem;margin:0 0 1rem}
+  .reserva__tel{font-family:var(--f-mono);font-size:.9rem;margin-top:1.5rem}
+  .reserva__tel a{color:var(--pino-claro)}
+  .form{
+    background:var(--niebla);color:var(--tinta);
+    padding:clamp(1.4rem, 4vw, 2.4rem);
+    border-radius:6px;
+    box-shadow:0 30px 60px rgba(0,0,0,.25);
+    display:grid;gap:1.1rem;
+  }
+  .form__fila{display:grid;gap:1.1rem;grid-template-columns:1fr 1fr}
+  .campo{display:flex;flex-direction:column;gap:.35rem;min-width:0}
+  .campo label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--tinta-suave);font-weight:500}
+  .campo input{
+    font:inherit;font-size:1rem;color:var(--tinta);
+    background:#fff;border:1.5px solid var(--niebla-2);border-radius:4px;
+    padding:.8rem .85rem;width:100%;min-width:0;
+    transition:border-color .2s;
+  }
+  .campo input:focus{outline:none;border-color:var(--chapa);box-shadow:0 0 0 3px rgba(46,110,92,.18)}
+  .form .btn{width:100%;margin-top:.3rem}
+  .form__nota{font-size:.85rem;color:var(--tinta-suave);margin:0}
+  .form__error{color:var(--ladrillo);font-weight:700;font-size:.92rem;margin:0;min-height:1.3em}
+  @media (max-width:420px){
+    .form__fila--fechas{grid-template-columns:1fr}
+  }
+  @media (min-width:900px){
+    .reserva__grid{grid-template-columns:.9fr 1.1fr;gap:5rem}
+  }
+
+  /* Banner de autor */
+  .autor{background:var(--pino-claro);color:var(--araucaria);padding-block:clamp(3.5rem, 8vw, 5.5rem)}
+  .autor__in{display:grid;gap:1.5rem;align-items:center}
+  .autor .eyebrow{color:var(--ladrillo)}
+  .autor h2{font-size:clamp(1.9rem, 4.2vw, 3rem);margin:.6rem 0 .8rem}
+  .autor p{margin:0;max-width:34rem;color:var(--araucaria-2)}
+  .autor .btn{background:var(--araucaria);color:#fff;justify-self:start}
+  .autor .btn:hover{background:var(--chapa-osc)}
+  @media (min-width:860px){
+    .autor__in{grid-template-columns:1fr auto;gap:3rem}
+  }
+
+  /* Footer */
+  .footer{background:var(--araucaria);color:rgba(255,255,255,.78);padding-block:3.5rem 2rem;font-size:.95rem}
+  .footer__top{display:grid;gap:2rem;padding-bottom:2rem;border-bottom:1px solid rgba(255,255,255,.12)}
+  .footer .marca{color:#fff}
+  .footer h3{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--rio-claro);margin-bottom:.6rem}
+  .footer p{margin:0 0 .3rem}
+  .footer a{color:#fff}
+  .footer__bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.8rem 2rem;padding-top:1.5rem;font-size:.85rem}
+  .footer__bottom a{color:var(--pino)}
+  @media (min-width:760px){
+    .footer__top{grid-template-columns:1.4fr 1fr 1fr}
+  }
+
+  /* WhatsApp flotante */
+  .wa-flot{
+    position:fixed;right:16px;bottom:16px;z-index:40;
+    width:56px;height:56px;border-radius:50%;
+    background:#25D366;color:#fff;display:grid;place-items:center;
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+    transition:transform .2s;
+  }
+  .wa-flot:hover{transform:scale(1.06)}
+  .wa-flot svg{width:28px;height:28px}
+
+  /* Reveal */
+  @media (prefers-reduced-motion:no-preference){
+    .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s ease}
+    .js .reveal.is-in{opacity:1;transform:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Principal">
+  <div class="wrap nav__in">
+    <a href="#inicio" class="marca" aria-label="Cabaña El Paso del Cóndor, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 L30 29 H2 Z" fill="#2E6E5C"/><path d="M16 3 L30 29" stroke="#E0B47A" stroke-width="2.2"/><path d="M16 3 L2 29" stroke="#E0B47A" stroke-width="2.2"/><rect x="13" y="19" width="6" height="10" fill="#B04A2F"/></svg>
+      <span class="marca__txt"><small>Cabaña</small><span>El Paso del Cóndor</span></span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#refugio">La cabaña</a></li>
+      <li><a href="#pesca">La pesca</a></li>
+      <li><a href="#galeria">Fotos</a></li>
+      <li><a href="#ubicacion">Cómo llegar</a></li>
+      <li><a href="#reserva" class="btn btn--ladrillo">Reservar</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="hero__stage">
+    <div class="hero__media">
+      <img src="img/475456240_631583312715720_798689373709095314_n.jpg" alt="La cabaña de techo verde con la luz encendida al atardecer, junto al río Aluminé y el cerro con araucarias" fetchpriority="high">
+    </div>
+    <div class="wrap hero__copy">
+      <p class="eyebrow">Refugio de pesca · Lonco Luan, Neuquén</p>
+      <h1>Una cabaña sola, a orillas del <em>Aluminé</em>.</h1>
+      <p class="hero__lead">Base para la temporada de pesca con mosca en la Patagonia, sobre la Ruta Provincial 23, entre Aluminé y Villa Pehuenia.</p>
+      <div class="hero__cta">
+        <a href="#reserva" class="btn btn--ladrillo">Consultar disponibilidad</a>
+        <a href="#refugio" class="btn btn--linea">Conocer la cabaña</a>
+      </div>
+    </div>
+  </div>
+
+  <aside class="tag" aria-live="polite" id="tag">
+    <div class="tag__top"><span id="tag-temp">Temporada</span><span>RP 23</span></div>
+    <p class="tag__titulo" id="tag-titulo">Abrimos el 1 de noviembre</p>
+    <div class="tag__cuenta" id="tag-cuenta" hidden>
+      <span class="tag__num" id="tag-num"></span><span class="tag__unidad" id="tag-unidad"></span>
+    </div>
+    <p class="tag__pie">Pesca con mosca · Río Aluminé</p>
+  </aside>
+</header>
+
+<main>
+
+<!-- EL REFUGIO -->
+<section class="refugio" id="refugio">
+  <div class="wrap refugio__grid">
+    <div class="reveal">
+      <div class="gable">
+        <img src="img/312476232_186279150579474_8266786514228238465_n.jpg" alt="La cabaña a dos aguas con techo de chapa verde y frente de ladrillo, con escarcha en el suelo y el cerro entre la niebla" loading="lazy">
+      </div>
+      <p class="gable-pie">Lonco Luan, una mañana de escarcha</p>
+    </div>
+    <div class="reveal">
+      <p class="eyebrow">La cabaña</p>
+      <h2>Chapa verde, ladrillo y <em>pino</em>.</h2>
+      <p>Una cabaña de montaña a dos aguas, pensada para descansar entre salida y salida al río. Abajo, el estar con estufa a leña, la cocina y el baño. Arriba, bajo el techo de madera, el altillo.</p>
+      <p>Afuera no hay mucho más: el cerro con araucarias, el ruido del agua y el cielo de la cordillera.</p>
+      <ul class="adentro">
+        <li>Estufa a leña en el estar <span>Planta baja</span></li>
+        <li>Cocina con horno y microondas <span>Planta baja</span></li>
+        <li>Baño con bañera <span>Planta baja</span></li>
+        <li>Altillo con dos camas <span>Planta alta</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- LA PESCA -->
+<section class="pesca" id="pesca">
+  <div class="wrap pesca__grid">
+    <div class="reveal">
+      <p class="eyebrow">Temporada de pesca con mosca</p>
+      <h2>Salís de la cabaña y estás en el <em>río</em>.</h2>
+      <p>El Paso del Cóndor funciona como refugio para pescadores: abre cada año el 1 de noviembre y cierra cuando termina la temporada de pesca.</p>
+      <p>Entre una jornada y otra, el Aluminé corre turquesa entre las piedras, y la mesa se arma afuera, frente al agua.</p>
+      <dl class="datos">
+        <div><dt>Apertura</dt><dd>1 de noviembre</dd></div>
+        <div><dt>Río</dt><dd>Aluminé</dd></div>
+        <div><dt>Modalidad</dt><dd>Pesca con mosca</dd></div>
+        <div><dt>Acceso</dt><dd>Ruta Prov. 23</dd></div>
+      </dl>
+    </div>
+    <figure class="pesca__foto reveal" style="margin:0">
+      <img src="img/468942487_584275897414129_6973667217082715353_n.jpg" alt="Mesa de madera con asado, ensalada y vino, frente a los rápidos turquesa del río Aluminé" loading="lazy">
+      <figcaption>Asado frente al Aluminé</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+  <div class="wrap">
+    <div class="galeria__head reveal">
+      <div>
+        <p class="eyebrow">Adentro</p>
+        <h2 style="margin-top:.8rem">Madera, ladrillo y <em>fuego</em>.</h2>
+      </div>
+      <p>Muebles de pino hechos a mano, paredes de ladrillo visto y la salamandra siempre a mano para las noches frías de la cordillera.</p>
+    </div>
+    <div class="grid-fotos reveal">
+      <figure class="f-estar">
+        <img src="img/468951134_584275880747464_9105606108501392215_n.jpg" alt="Estar con sillones de pino, estufa a leña y paredes de ladrillo y verde" loading="lazy">
+        <figcaption>Estar con estufa a leña</figcaption>
+      </figure>
+      <figure class="f-cocina">
+        <img src="img/475042808_631582709382447_728970547438082254_n.jpg" alt="Cocina con mesada de madera, microondas y cocina con horno" loading="lazy">
+        <figcaption>Cocina</figcaption>
+      </figure>
+      <figure class="f-altillo">
+        <img src="img/475246062_631582812715770_3754099232562719071_n.jpg" alt="Altillo bajo el techo de madera con dos camas y ventanas al fondo" loading="lazy">
+        <figcaption>Altillo</figcaption>
+      </figure>
+      <figure class="f-altillo2">
+        <img src="img/468526854_584275924080793_6388603734914042102_n.jpg" alt="El altillo visto desde la escalera, con dos camas y ventanas de madera" loading="lazy">
+        <figcaption>Altillo, desde la escalera</figcaption>
+      </figure>
+      <figure class="f-bano">
+        <img src="img/468716017_584275914080794_3450176218922813007_n.jpg" alt="Baño con bañera revestida en piedra y bacha sobre mesada de madera" loading="lazy">
+        <figcaption>Baño con bañera</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="ubicacion" id="ubicacion">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Cómo llegar</p>
+      <h2>Paraje <em>Lonco Luan</em>, Neuquén.</h2>
+      <p class="ubicacion__txt">La cabaña está sobre la Ruta Provincial N° 23, en el paraje Lonco Luan, entre Aluminé y Villa Pehuenia, a orillas del río Aluminé.</p>
+    </div>
+    <div class="reveal">
+      <p class="ruta__label">Ruta Provincial 23</p>
+      <ol class="ruta">
+        <li><span class="ruta__punto" aria-hidden="true"></span><span class="ruta__nombre">Aluminé</span><span class="ruta__det">Pueblo</span></li>
+        <li class="es-aca"><span class="ruta__punto" aria-hidden="true"></span><span class="ruta__nombre">El Paso del Cóndor</span><span class="ruta__det">Paraje Lonco Luan · río Aluminé</span></li>
+        <li><span class="ruta__punto" aria-hidden="true"></span><span class="ruta__nombre">Villa Pehuenia</span><span class="ruta__det">Pueblo</span></li>
+      </ol>
+      <a class="btn btn--linea" href="https://www.google.com/maps/search/?api=1&query=Lonco+Luan+Ruta+Provincial+23+Neuqu%C3%A9n" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="reserva" id="reserva">
+  <div class="wrap reserva__grid">
+    <div class="reserva__intro reveal">
+      <p class="eyebrow">Reservas</p>
+      <h2>Guardá tu lugar para la <em>temporada</em>.</h2>
+      <p>Contanos quiénes vienen y en qué fechas. La consulta llega directo por WhatsApp y te respondemos con disponibilidad.</p>
+      <p class="reserva__tel">O escribinos al <a href="https://wa.me/5492942647215" target="_blank" rel="noopener">+54 2942 64-7215</a></p>
+    </div>
+
+    <form class="form reveal" id="form-reserva" novalidate>
+      <div class="campo">
+        <label for="f-nombre">Nombre</label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre">
+      </div>
+      <div class="campo">
+        <label for="f-personas">Cantidad de personas</label>
+        <input id="f-personas" name="personas" type="number" inputmode="numeric" min="1" step="1" required placeholder="Ej: 2">
+      </div>
+      <div class="form__fila form__fila--fechas">
+        <div class="campo">
+          <label for="f-in">Check in</label>
+          <input id="f-in" name="checkin" type="date" required>
+        </div>
+        <div class="campo">
+          <label for="f-out">Check out</label>
+          <input id="f-out" name="checkout" type="date" required>
+        </div>
+      </div>
+      <p class="form__error" id="f-error" role="alert"></p>
+      <button type="submit" class="btn btn--ladrillo">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.69-6.16A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.05 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.41c0 6.56-5.34 11.89-11.9 11.89a11.9 11.9 0 0 1-5.69-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.38 1.59 5.45 0 9.89-4.43 9.89-9.88a9.88 9.88 0 0 0-9.88-9.9c-5.46 0-9.9 4.44-9.9 9.89 0 2.22.66 3.89 1.75 5.63l-1 3.65 3.76-.98zm11.39-5.46c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41z"/></svg>
+        Enviar consulta por WhatsApp
+      </button>
+      <p class="form__nota" id="f-nota">La cabaña recibe huéspedes desde el 1 de noviembre.</p>
+    </form>
+  </div>
+</section>
+
+<!-- BANNER DE AUTOR -->
+<section class="autor" aria-labelledby="autor-titulo">
+  <div class="wrap autor__in">
+    <div>
+      <p class="eyebrow">Diseño web</p>
+      <h2 id="autor-titulo">Este boceto lo diseñó Teo Cicciari</h2>
+      <p>¿Tenés un hospedaje y querés un sitio así, hecho a medida y pensado para recibir reservas? Pedí el tuyo.</p>
+    </div>
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <a href="#inicio" class="marca" aria-label="Cabaña El Paso del Cóndor, volver al inicio">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3 L30 29 H2 Z" fill="#2E6E5C"/><path d="M16 3 L30 29" stroke="#E0B47A" stroke-width="2.2"/><path d="M16 3 L2 29" stroke="#E0B47A" stroke-width="2.2"/><rect x="13" y="19" width="6" height="10" fill="#B04A2F"/></svg>
+          <span class="marca__txt"><small>Cabaña</small><span>El Paso del Cóndor</span></span>
+        </a>
+        <p style="margin-top:1rem;max-width:22rem">Refugio de montaña y alojamiento para pescadores a orillas del río Aluminé.</p>
+      </div>
+      <div>
+        <h3>Dónde</h3>
+        <p>Ruta Provincial N° 23</p>
+        <p>Paraje Lonco Luan</p>
+        <p>Entre Aluminé y Villa Pehuenia, Neuquén</p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <p><a href="https://wa.me/5492942647215" target="_blank" rel="noopener">WhatsApp +54 2942 64-7215</a></p>
+        <p>Temporada desde el 1 de noviembre</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="anio"></span> Cabaña El Paso del Cóndor · <span id="fecha-hoy"></span></p>
+      <p>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flot" href="https://wa.me/5492942647215" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.06 24l1.69-6.16A11.87 11.87 0 0 1 .16 11.9C.16 5.34 5.5 0 12.05 0a11.82 11.82 0 0 1 8.41 3.49 11.82 11.82 0 0 1 3.48 8.41c0 6.56-5.34 11.89-11.9 11.89a11.9 11.9 0 0 1-5.69-1.45L.06 24zm6.6-3.8c1.68.99 3.28 1.59 5.38 1.59 5.45 0 9.89-4.43 9.89-9.88a9.88 9.88 0 0 0-9.88-9.9c-5.46 0-9.9 4.44-9.9 9.89 0 2.22.66 3.89 1.75 5.63l-1 3.65 3.76-.98zm11.39-5.46c-.07-.12-.27-.2-.57-.35-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51l-.57-.01c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41z"/></svg>
+</a>
+
+<script>
+(function(){
+  var WA = '5492942647215';
+  var hoy = new Date(); hoy.setHours(0,0,0,0);
+  var y = hoy.getFullYear(), m = hoy.getMonth();
+
+  // Footer: fecha dinámica
+  document.getElementById('anio').textContent = y;
+  document.getElementById('fecha-hoy').textContent = hoy.toLocaleDateString('es-AR', {day:'numeric', month:'long', year:'numeric'});
+
+  // Nav sólida al scrollear
+  var nav = document.getElementById('nav');
+  function onScroll(){ nav.classList.toggle('is-solid', window.scrollY > 40); }
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Etiqueta de temporada: abre el 1 de noviembre
+  // Noviembre–abril se muestra como temporada abierta; mayo–octubre, cuenta regresiva.
+  var abierta = (m >= 10) || (m <= 3);
+  var desde = m <= 3 ? y - 1 : y;
+  var temp = desde + '/' + String(desde + 1).slice(2);
+  var apertura = new Date(y, 10, 1);
+  document.getElementById('tag-temp').textContent = 'Temporada ' + temp;
+  var cuenta = document.getElementById('tag-cuenta');
+  if (abierta){
+    document.getElementById('tag-titulo').textContent = 'Temporada en curso';
+    cuenta.hidden = false;
+    document.getElementById('tag-num').textContent = 'Abierta';
+    document.getElementById('tag-unidad').textContent = 'recibiendo pescadores';
+  } else {
+    var dias = Math.round((apertura - hoy) / 86400000);
+    document.getElementById('tag-titulo').textContent = 'Abrimos el 1 de noviembre';
+    cuenta.hidden = false;
+    document.getElementById('tag-num').textContent = dias;
+    document.getElementById('tag-unidad').textContent = dias === 1 ? 'día para abrir' : 'días para abrir';
+  }
+
+  // Formulario de reserva → WhatsApp
+  var fIn = document.getElementById('f-in'), fOut = document.getElementById('f-out');
+  function iso(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+  function ddmm(s){ var p = s.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+  var minIn = abierta ? hoy : apertura;
+  fIn.min = iso(minIn);
+  fOut.min = iso(new Date(minIn.getTime() + 86400000));
+  fIn.addEventListener('change', function(){
+    if (!fIn.value) return;
+    var d = new Date(fIn.value + 'T00:00'); d.setDate(d.getDate() + 1);
+    fOut.min = iso(d);
+    if (fOut.value && fOut.value <= fIn.value) fOut.value = '';
+  });
+
+  var form = document.getElementById('form-reserva'), err = document.getElementById('f-error');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nombre = form.nombre.value.trim(), personas = parseInt(form.personas.value, 10);
+    err.textContent = '';
+    if (!nombre){ err.textContent = 'Escribí tu nombre.'; form.nombre.focus(); return; }
+    if (!personas || personas < 1){ err.textContent = 'Indicá cuántas personas vienen.'; form.personas.focus(); return; }
+    if (!fIn.value){ err.textContent = 'Elegí la fecha de check in.'; fIn.focus(); return; }
+    if (!fOut.value){ err.textContent = 'Elegí la fecha de check out.'; fOut.focus(); return; }
+    if (fOut.value <= fIn.value){ err.textContent = 'El check out tiene que ser después del check in.'; fOut.focus(); return; }
+    var msg = 'Hola! Quiero consultar disponibilidad en la Cabaña El Paso del Cóndor.\n\n' +
+      'Nombre: ' + nombre + '\n' +
+      'Personas: ' + personas + '\n' +
+      'Check in: ' + ddmm(fIn.value) + '\n' +
+      'Check out: ' + ddmm(fOut.value);
+    window.open('https://wa.me/' + WA + '?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+
+  // Reveal al scrollear
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('is-in'); io.unobserve(en.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){ io.observe(el); });
+  } else {
+    els.forEach(function(el){ el.classList.add('is-in'); });
+  }
+})();
+</script>
+</body>
+</html>
