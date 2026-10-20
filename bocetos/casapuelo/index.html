@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Casa Puelo Lodge — Hostería, estudios y cabañas en Lago Puelo</title>
+<meta name="description" content="Refugio de autor en ciprés rescatado, en el bosque de Lago Puelo, Chubut. Suites, cabañas y estudios a 300 m del pueblo y 2 km del Parque Nacional.">
+<meta name="theme-color" content="#1F2160">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M10 6h12v40L10 38z' fill='%232D2F77'/%3E%3Cpath d='M26 6h12v52l-12-7z' fill='%23C7C6C5'/%3E%3Cpath d='M42 6h12v32l-12 8z' fill='%23D22027'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Courier+Prime:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Paleta tomada del logo: azul, plata y rojo de las cintas */
+  --niebla:#ECECE9;
+  --niebla-2:#DFDEDA;
+  --papel:#F8F8F6;
+  --azul:#1F2160;
+  --azul-2:#2D2F77;
+  --azul-claro:#2D2F77;
+  --plata:#C7C6C5;
+  --rojo:#D22027;
+  --rojo-tinta:#B01B21;
+  --tinta:#16172B;
+  --tinta-suave:#4B4C5E;
+  --linea:rgba(22,23,43,.15);
+
+  --f-display:"IM Fell English", "Iowan Old Style", Georgia, serif;
+  --f-body:"Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-label:"Courier Prime", "Courier New", monospace;
+
+  --gutter:clamp(16px,4vw,48px);
+  --max:1240px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--niebla);color:var(--tinta);font-family:var(--f-body);font-size:17px;line-height:1.6}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- Tipografía ---------- */
+h1,h2,h3{font-family:var(--f-display);font-weight:400;line-height:1.05;margin:0;letter-spacing:-.005em}
+h2{font-size:clamp(2.2rem,5.2vw,3.9rem)}
+h3{font-size:1.9rem}
+.lead{font-size:clamp(1.05rem,1.6vw,1.2rem);color:var(--tinta-suave);max-width:58ch}
+.kicker{font-family:var(--f-body);font-weight:600;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rojo-tinta);margin:0 0 14px;display:flex;align-items:center;gap:12px}
+.kicker::before{content:"";flex:none;width:24px;height:10px;background:linear-gradient(90deg,var(--k1,var(--azul-2)) 0 28%,transparent 0 36%,var(--plata) 0 64%,transparent 0 72%,var(--rojo) 0)}
+.sci{font-family:var(--f-display);font-style:italic}
+
+/* ---------- Botones ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-body);font-weight:600;font-size:.98rem;padding:14px 22px;border-radius:999px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.btn-solid{background:var(--rojo);color:#fff}
+.btn-solid:hover{background:var(--rojo-tinta)}
+.btn-ghost{border-color:currentColor;background:transparent}
+.btn-ghost:hover{background:rgba(255,255,255,.12)}
+.btn-dark{background:var(--azul);color:var(--papel)}
+.btn-dark:hover{background:var(--azul-2)}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s,box-shadow .3s}
+.nav-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+.brand{display:block;align-self:flex-start;margin-top:10px;line-height:0}
+.brand img{height:100px;width:auto;filter:drop-shadow(0 2px 10px rgba(10,11,30,.35))}
+.nav-links{display:flex;gap:26px;list-style:none;margin:0;padding:0}
+.nav-links a{color:var(--papel);text-decoration:none;font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+.nav-links a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.nav .btn{padding:10px 18px;font-size:.92rem}
+.nav.solid{background:var(--azul);box-shadow:0 1px 0 rgba(0,0,0,.2)}
+.nav.solid .brand img{filter:drop-shadow(0 4px 6px rgba(10,11,30,.18))}
+.burger{display:none;background:none;border:0;color:var(--papel);padding:8px;cursor:pointer}
+@media (max-width:900px){
+  .nav-links,.nav .btn{display:none}
+  .burger{display:block}
+  .nav.open{background:var(--azul)}
+  .brand img{height:84px}
+  .nav.open .nav-links{display:flex;flex-direction:column;gap:0;position:absolute;top:72px;left:0;right:0;background:var(--azul);padding:36px var(--gutter) 24px}
+  .nav.open .nav-links a{display:block;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.1);font-size:.9rem}
+}
+
+/* ---------- Etiqueta de herbario (firma) ---------- */
+.label{position:relative;background:var(--papel);color:var(--tinta);font-family:var(--f-label);font-size:.86rem;line-height:1.5;padding:18px 20px 16px;border:1px solid var(--linea);box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 40px -24px rgba(0,0,0,.45)}
+.label::before,.label::after{content:"";position:absolute;width:54px;height:16px;background:rgba(199,198,197,.8);top:-8px}
+.label::before{left:18px;transform:rotate(-4deg)}
+.label::after{right:18px;transform:rotate(3deg)}
+.label .l-name{font-family:var(--f-display);font-size:1.55rem;line-height:1.1;display:block;margin-bottom:2px}
+.label .l-row{display:flex;justify-content:space-between;gap:12px;border-top:1px dashed var(--linea);padding-top:6px;margin-top:8px}
+.label .l-row span:first-child{color:var(--tinta-suave)}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:var(--papel);overflow:hidden;background:var(--azul)}
+.hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,15,40,.6) 0%,rgba(14,15,40,0) 30%,rgba(14,15,40,.15) 55%,rgba(14,15,40,.85) 100%)}
+.hero-in{position:relative;z-index:2;width:100%;padding-top:140px;padding-bottom:clamp(36px,7vh,80px);display:grid;grid-template-columns:1fr auto;gap:40px;align-items:end}
+.hero h1{font-size:clamp(2.8rem,8.2vw,6.6rem);max-width:11ch;text-shadow:0 2px 30px rgba(0,0,0,.35)}
+.hero h1 em{color:var(--plata)}
+.hero p{max-width:44ch;font-size:1.12rem;margin:22px 0 28px;opacity:.94}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .label{width:290px;transform:rotate(1.5deg);margin-bottom:6px}
+@media (max-width:900px){
+  .hero-in{grid-template-columns:1fr;gap:28px}
+  .hero .label{width:auto;max-width:340px;transform:rotate(-1deg)}
+}
+
+/* ---------- Secciones ---------- */
+section{scroll-margin-top:72px}
+.sec{padding:clamp(72px,11vw,140px) 0}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 56px;align-items:end;margin-bottom:clamp(36px,6vw,64px)}
+@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+
+/* ---------- La casa ---------- */
+.casa{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+.casa-text p{margin:0 0 18px}
+.casa-text p.first::first-letter{font-family:var(--f-display);float:left;font-size:4.6rem;line-height:.82;padding:6px 10px 0 0;color:var(--rojo-tinta)}
+.facts{list-style:none;padding:0;margin:30px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.facts li{background:var(--niebla);padding:16px 18px}
+.facts b{display:block;font-family:var(--f-display);font-weight:400;font-size:2rem;line-height:1;color:var(--azul)}
+.facts span{font-size:.9rem;color:var(--tinta-suave)}
+.collage{display:grid;grid-template-columns:repeat(6,1fr);grid-template-rows:repeat(6,minmax(0,64px));gap:12px}
+.collage img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.collage .c1{grid-column:1/5;grid-row:1/5}
+.collage .c2{grid-column:5/7;grid-row:2/5}
+.collage .c3{grid-column:2/7;grid-row:5/7}
+.collage figure{margin:0;position:relative}
+.collage figcaption{position:absolute;left:10px;bottom:10px;font-family:var(--f-label);font-size:.75rem;background:var(--papel);padding:3px 8px}
+@media (max-width:820px){
+  .casa{grid-template-columns:1fr}
+  .collage{grid-template-rows:repeat(6,minmax(0,52px))}
+}
+
+/* ---------- Herbario / unidades ---------- */
+.herbario{background:var(--papel);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.grupo{margin-top:clamp(48px,7vw,80px)}
+.grupo:first-of-type{margin-top:0}
+.grupo-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;border-bottom:1.5px solid var(--tinta);padding-bottom:12px;margin-bottom:28px}
+.grupo-head h3{font-size:clamp(1.7rem,3vw,2.3rem)}
+.grupo-head p{margin:0;font-family:var(--f-label);font-size:.85rem;color:var(--tinta-suave)}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:clamp(20px,3vw,36px)}
+.cards.cuatro{grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr));gap:clamp(20px,2.4vw,28px)}
+.ejemplar{display:flex;flex-direction:column}
+.ejemplar .foto{position:relative;display:block;width:100%;padding:0;border:0;background:var(--niebla-2);cursor:zoom-in;aspect-ratio:4/3;overflow:hidden;border-radius:4px}
+.ejemplar .foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.ejemplar .foto:hover img{transform:scale(1.04)}
+.ejemplar .nfotos{position:absolute;right:10px;bottom:10px;font-family:var(--f-label);font-size:.75rem;background:rgba(23,32,27,.78);color:var(--papel);padding:4px 9px;border-radius:999px}
+.ejemplar .label{margin:-34px 14px 0;z-index:1}
+.ejemplar:nth-child(odd) .label{transform:rotate(-.8deg)}
+.ejemplar:nth-child(even) .label{transform:rotate(.7deg)}
+.ejemplar .label .sci{font-size:1rem;color:var(--azul-claro)}
+.specs{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px}
+.ejemplar .desc{font-size:.97rem;color:var(--tinta-suave);margin:18px 4px 0}
+.chip{display:inline-block;margin:12px 4px 0;font-size:.82rem;font-weight:600;padding:4px 10px;border-radius:999px;align-self:flex-start}
+.chip.si{background:rgba(45,47,119,.1);color:var(--azul-2)}
+.chip.no{background:var(--niebla);color:var(--tinta-suave)}
+
+/* ---------- Servicios ---------- */
+.servicios{background:var(--azul);color:var(--papel)}
+.servicios .kicker,.reserva .kicker{color:var(--plata);--k1:#fff}
+.servicios .lead{color:rgba(243,244,236,.78)}
+.serv-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,80px);align-items:start}
+.serv-list{list-style:none;margin:0;padding:0;border-top:1px solid rgba(243,244,236,.2)}
+.serv-list li{display:grid;grid-template-columns:minmax(0,11rem) 1fr;gap:16px;padding:20px 0;border-bottom:1px solid rgba(243,244,236,.2)}
+.serv-list b{font-family:var(--f-display);font-weight:400;font-size:1.45rem;line-height:1.15}
+.serv-list span{color:rgba(243,244,236,.8)}
+.serv-fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px;position:sticky;top:96px}
+.serv-fotos img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.serv-fotos img:first-child{grid-column:1/3;aspect-ratio:16/9}
+@media (max-width:820px){
+  .serv-grid{grid-template-columns:1fr}
+  .serv-fotos{position:static}
+  .serv-list li{grid-template-columns:1fr;gap:4px}
+}
+
+/* ---------- Experiencias ---------- */
+.exp-rail{scroll-padding-inline:var(--gutter);display:grid;grid-auto-flow:column;grid-auto-columns:minmax(260px,320px);gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px var(--gutter) 24px;margin:0 calc(var(--gutter)*-1);scrollbar-width:thin;scrollbar-color:var(--rojo-tinta) transparent}
+.exp{scroll-snap-align:start;background:var(--papel);border:1px solid var(--linea);border-radius:4px;overflow:hidden;display:flex;flex-direction:column}
+.exp img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.exp-body{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
+.exp h3{font-size:1.45rem;line-height:1.1}
+.exp p{margin:8px 0 18px;font-size:.95rem;color:var(--tinta-suave);flex:1}
+.exp .precio{font-family:var(--f-label);font-size:.9rem;border-top:1px dashed var(--linea);padding-top:10px;display:flex;justify-content:space-between}
+.exp .precio b{font-size:1.05rem;color:var(--rojo-tinta)}
+.rail-hint{font-family:var(--f-label);font-size:.8rem;color:var(--tinta-suave);margin-top:4px}
+
+/* ---------- Beneficios ---------- */
+.beneficios{background:var(--niebla-2)}
+.ben-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:1px;background:var(--linea);border:1px solid var(--linea)}
+.ben-list li{background:var(--papel);padding:24px 22px}
+.ben-list b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.35rem;line-height:1.15;margin-bottom:8px}
+.ben-list span{font-size:.94rem;color:var(--tinta-suave)}
+.ben-list em{display:block;font-style:normal;font-family:var(--f-label);font-size:.8rem;color:var(--rojo-tinta);margin-top:12px}
+
+/* ---------- Reseñas ---------- */
+.resenas-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,8fr);gap:clamp(32px,6vw,80px)}
+.score{border:1.5px solid var(--tinta);padding:26px 24px;align-self:start}
+.score b{font-family:var(--f-display);font-weight:400;font-size:6rem;line-height:.9;display:block;color:var(--azul)}
+.score p{margin:10px 0 0;font-size:.95rem;color:var(--tinta-suave)}
+.quotes{display:grid;grid-template-columns:1fr 1fr;gap:28px 36px}
+.quote{margin:0;border-left:2px solid var(--rojo);padding-left:18px}
+.quote p{font-family:var(--f-display);font-size:1.32rem;line-height:1.3;margin:0}
+.quote footer{font-family:var(--f-label);font-size:.8rem;color:var(--tinta-suave);margin-top:10px}
+@media (max-width:820px){.resenas-grid,.quotes{grid-template-columns:1fr}}
+
+/* ---------- Reserva ---------- */
+.reserva{background:var(--azul);color:var(--papel);position:relative;overflow:hidden}
+.reserva-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,80px);align-items:start}
+.reserva .lead{color:rgba(243,244,236,.8)}
+.contacto{list-style:none;padding:0;margin:32px 0 0;font-family:var(--f-label);font-size:.92rem}
+.contacto li{padding:10px 0;border-top:1px solid rgba(243,244,236,.18);display:flex;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.contacto li span:first-child{color:rgba(243,244,236,.6)}
+.contacto a{color:var(--papel)}
+.form.label{padding:30px clamp(20px,4vw,34px) 28px;transform:rotate(-.6deg)}
+.form .l-name{font-size:2rem;margin-bottom:18px}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.campo label{font-family:var(--f-label);font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--tinta-suave)}
+.campo input,.campo select{font:inherit;font-family:var(--f-body);font-size:1rem;color:var(--tinta);background:transparent;border:0;border-bottom:1.5px solid var(--tinta);padding:8px 2px;border-radius:0;width:100%;min-height:44px}
+.campo input:focus,.campo select:focus{outline:none;border-bottom-color:var(--rojo-tinta);background:rgba(45,47,119,.05)}
+.campos-2{display:grid;grid-template-columns:1fr 1fr;gap:0 18px}
+.form .btn{width:100%;justify-content:center;margin-top:8px}
+.form-nota{font-size:.8rem;color:var(--tinta-suave);margin:12px 0 0;text-align:center}
+.form-error{color:#9B2C1A;font-size:.88rem;min-height:1.3em;margin:4px 0 0}
+@media (max-width:820px){.reserva-grid{grid-template-columns:1fr}}
+@media (max-width:420px){.campos-2{grid-template-columns:1fr}}
+
+/* ---------- Ubicación ---------- */
+.ubi-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,72px);align-items:stretch}
+.distancias{list-style:none;padding:0;margin:28px 0 28px}
+.distancias li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid var(--linea)}
+.distancias b{font-family:var(--f-display);font-weight:400;font-size:1.9rem;min-width:5.2ch;color:var(--rojo-tinta)}
+.mapa{min-height:360px;border:1px solid var(--linea);border-radius:4px;overflow:hidden;background:var(--niebla-2)}
+.mapa iframe{width:100%;height:100%;min-height:360px;border:0;filter:saturate(.7) contrast(1.05)}
+@media (max-width:820px){.ubi-grid{grid-template-columns:1fr}}
+
+/* ---------- Banner autor ---------- */
+.autor{background:var(--rojo-tinta);color:var(--papel);padding:clamp(56px,8vw,96px) 0}
+.autor-in{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px 48px;align-items:end}
+.autor .kicker{color:var(--papel);opacity:.8}
+.autor h2{font-size:clamp(2rem,4.6vw,3.4rem);max-width:18ch}
+.autor p{max-width:52ch;margin:16px 0 0;opacity:.92}
+.autor .btn-solid{background:var(--papel);color:var(--tinta)}
+.autor .btn-solid:hover{background:#fff}
+@media (max-width:820px){.autor-in{grid-template-columns:1fr}}
+
+/* ---------- Footer ---------- */
+footer.pie{background:var(--tinta);color:rgba(243,244,236,.75);padding:56px 0 32px;font-size:.92rem}
+.pie-grid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:28px}
+.pie .brand{margin:0}
+.pie .brand img{height:110px;filter:none}
+.pie a{color:var(--papel)}
+.pie ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.pie-base{margin-top:40px;padding-top:20px;border-top:1px solid rgba(243,244,236,.15);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:.84rem}
+.pie-base a{color:#fff;text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Lightbox ---------- */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(14,15,40,.94);display:none;align-items:center;justify-content:center;padding:56px 16px}
+.lb.on{display:flex}
+.lb img{max-width:min(1200px,100%);max-height:100%;object-fit:contain;border-radius:2px}
+.lb button{position:absolute;background:rgba(243,244,236,.12);color:var(--papel);border:0;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer}
+.lb button:hover{background:rgba(243,244,236,.25)}
+.lb .x{top:14px;right:14px}
+.lb .prev{left:14px;top:50%;transform:translateY(-50%)}
+.lb .next{right:14px;top:50%;transform:translateY(-50%)}
+.lb .cap{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:var(--papel);font-family:var(--f-label);font-size:.85rem}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa{position:fixed;right:18px;bottom:18px;z-index:40;width:56px;height:56px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 30px -8px rgba(0,0,0,.45)}
+.wa svg{width:28px;height:28px}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="brand" href="#inicio" aria-label="Casa Puelo, inicio">
+      <img src="img/logo.png" alt="Casa Puelo · Patagonia Argentina" width="168" height="100">
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#casa">La casa</a></li>
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#experiencias">Experiencias</a></li>
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+    </ul>
+    <a class="btn btn-solid" href="#reservar">Consultar fechas</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <img class="bg" src="img/hero-noche.jpg" alt="Casa Puelo Lodge al atardecer, con las luces encendidas al pie del bosque">
+  <div class="wrap hero-in">
+    <div>
+      <h1>Un refugio de ciprés, <em>adentro</em> del bosque.</h1>
+      <p>Hostería, estudios y cabañas en Lago Puelo, Chubut. Construida a mano en madera de ciprés rescatado, a 300 metros del pueblo y a 2 km del Parque Nacional.</p>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#reservar">Consultar disponibilidad</a>
+        <a class="btn btn-ghost" href="#habitaciones">Ver habitaciones</a>
+      </div>
+    </div>
+    <div class="label" aria-label="Ficha del lodge">
+      <span class="l-name">Casa Puelo Lodge</span>
+      <span>Refugio de autor · Comarca Andina</span>
+      <div class="l-row"><span>Dónde</span><span>Ruta Prov. 16 #10</span></div>
+      <div class="l-row"><span>Vista</span><span>Cerro Currumahuida</span></div>
+      <div class="l-row"><span>Huéspedes</span><span>8,9 en Booking</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LA CASA -->
+<section class="sec" id="casa">
+  <div class="wrap casa">
+    <div class="casa-text">
+      <p class="kicker">La casa</p>
+      <h2>Acá no sos un cliente: sos la visita esperada.</h2>
+      <div style="height:28px"></div>
+      <p class="first">Casa Puelo es una hostería levantada de forma artesanal con ciprés rescatado, rodeada de jardín y de montaña. Los días arrancan sin apuro: la luz entra por el gran ventanal de madera mientras Susi exprime, una a una, las naranjas del jugo de la mañana.</p>
+      <p>El desayuno patagónico es casero, abundante y hecho con productos de la región. De noche, las chimeneas encendidas, el entrepiso para leer con un té y el silencio del bosque como único despertador.</p>
+      <ul class="facts">
+        <li><b>300 m</b><span>del centro de Lago Puelo</span></li>
+        <li><b>2 km</b><span>de los senderos del Parque Nacional</span></li>
+        <li><b>10</b><span>suites, cabañas y estudios</span></li>
+        <li><b>8,9</b><span>sobre 63 reseñas en Booking</span></li>
+      </ul>
+    </div>
+    <div class="collage">
+      <figure class="c1"><img src="img/cartel.jpg" alt="Cartel tallado en madera de Casa Puelo frente a la hostería" loading="lazy"></figure>
+      <figure class="c2"><img src="img/desayuno.jpg" alt="Desayuno patagónico casero servido en la hostería" loading="lazy"><figcaption>Desayuno de Susi</figcaption></figure>
+      <figure class="c3"><img src="img/living-fuego.jpg" alt="Living con hogar a leña, usado también como espacio de coworking" loading="lazy"><figcaption>Living &amp; coworking</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- HABITACIONES -->
+<section class="sec herbario" id="habitaciones">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">Habitaciones</p>
+        <h2>Diez rincones, cada uno con nombre del bosque.</h2>
+      </div>
+      <p class="lead">Las suites llevan nombres de árboles nativos, las cabañas de flores y frutos de la cordillera, y los estudios de los lagos de la zona. Tocá cada foto para ver la galería completa.</p>
+    </div>
+
+    <!-- Suites -->
+    <div class="grupo">
+      <div class="grupo-head">
+        <h3>Suites en la hostería</h3>
+        <p>Calefacción central · vista al jardín y al Currumahuida</p>
+      </div>
+      <div class="cards cuatro">
+        <article class="ejemplar">
+          <button class="foto" data-gal="coihue" data-title="Coihue Suite Familiar"><img src="img/coihue-1.jpg" alt="Coihue Suite Familiar" loading="lazy"><span class="nfotos">2 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Coihue <span style="font-size:.7em">Suite Familiar</span></span>
+            <span class="sci">Nothofagus dombeyi</span>
+            <div class="l-row specs"><span>Hasta 5 personas</span><span>2 habitaciones · 1 baño</span></div>
+          </div>
+          <p class="desc">Doble suite: una habitación con cama King y otra triple con camas individuales, conectadas por una puerta y cada una con su privacidad. Baño completo con hidromasaje y frigobar.</p>
+          <span class="chip no">Desayuno opcional, aparte</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="cipres" data-title="Suite Ciprés"><img src="img/cipres-1.jpg" alt="Suite Ciprés con cama King size" loading="lazy"></button>
+          <div class="label">
+            <span class="l-name">Suite Ciprés</span>
+            <span class="sci">Austrocedrus chilensis</span>
+            <div class="l-row specs"><span>Hasta 2 personas</span><span>1 habitación · 1 baño</span></div>
+          </div>
+          <p class="desc">Cama King size y baño completo con hidromasaje doble, calefacción central y frigobar. Para descansar después de un día de caminata.</p>
+          <span class="chip si">Desayuno patagónico incluido</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="maiten" data-title="Suite Maitén"><img src="img/maiten-1.jpg" alt="Suite Maitén revestida en madera" loading="lazy"><span class="nfotos">4 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Suite Maitén</span>
+            <span class="sci">Maytenus boaria</span>
+            <div class="l-row specs"><span>Hasta 3 personas</span><span>2 ambientes · 1 baño</span></div>
+          </div>
+          <p class="desc">La calidez de la madera en su versión más pura. Cama King size más una individual, baño completo con bañera, calefacción central y frigobar.</p>
+          <span class="chip si">Desayuno patagónico incluido</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="nire" data-title="Suite Ñire"><img src="img/nire-1.jpg" alt="Suite Ñire con cama King size" loading="lazy"><span class="nfotos">2 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Suite Ñire</span>
+            <span class="sci">Nothofagus antarctica</span>
+            <div class="l-row specs"><span>Hasta 2 personas</span><span>1 habitación · 1 baño</span></div>
+          </div>
+          <p class="desc">Amplia, con cama King size, baño completo con bañera y calefacción central. Vista al Cerro Currumahuida.</p>
+          <span class="chip si">Desayuno patagónico incluido</span>
+        </article>
+      </div>
+    </div>
+
+    <!-- Cabañas -->
+    <div class="grupo">
+      <div class="grupo-head">
+        <h3>Cabañas</h3>
+        <p>Cocina propia · espacios para descansar por separado</p>
+      </div>
+      <div class="cards">
+        <article class="ejemplar">
+          <button class="foto" data-gal="cpuelo" data-title="Cabaña Puelo"><img src="img/cpuelo-1.jpg" alt="Habitación de la Cabaña Puelo" loading="lazy"><span class="nfotos">4 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Cabaña Puelo</span>
+            <span class="sci">por el lago Puelo</span>
+            <div class="l-row specs"><span>Hasta 6 personas</span><span>2 plantas · 1 baño</span></div>
+          </div>
+          <p class="desc">Abajo, una habitación doble muy luminosa, living comedor y cocina equipada con horno, microondas y heladera con freezer. Arriba, cuatro camas individuales. Área de descanso y parrilla en el jardín.</p>
+          <span class="chip no">Desayuno opcional, aparte</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="amancay" data-title="Cabaña Amancay"><img src="img/amancay-1.jpg" alt="Exterior de la Cabaña Amancay" loading="lazy"><span class="nfotos">5 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Cabaña Amancay</span>
+            <span class="sci">Alstroemeria aurea</span>
+            <div class="l-row specs"><span>Hasta 4 personas</span><span>2 dormitorios · 1 baño</span></div>
+          </div>
+          <p class="desc">Cabaña independiente de la hostería, con dos dormitorios, cocina y baño privado. Para cuatro personas que buscan espacios separados para descansar.</p>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="calafate" data-title="Cabaña Calafate"><img src="img/calafate-1.jpg" alt="Exterior de la Cabaña Calafate" loading="lazy"><span class="nfotos">8 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Cabaña Calafate</span>
+            <span class="sci">Berberis microphylla</span>
+            <div class="l-row specs"><span>Hasta 4 personas</span><span>2 dormitorios · 1 baño</span></div>
+          </div>
+          <p class="desc">Cabaña independiente con dos dormitorios, cocina y living integrados y baño privado. Para descansar por separado y reunirse durante el día.</p>
+        </article>
+      </div>
+    </div>
+
+    <!-- Estudios -->
+    <div class="grupo">
+      <div class="grupo-head">
+        <h3>Estudios</h3>
+        <p>Planta baja · kitchenette · Wi-Fi · ropa de cama y limpieza</p>
+      </div>
+      <div class="cards">
+        <article class="ejemplar">
+          <button class="foto" data-gal="epuelo" data-title="Estudios Puelo"><img src="img/epuelo-1.jpg" alt="Estudio Puelo con cama doble" loading="lazy"><span class="nfotos">5 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Estudios Puelo</span>
+            <span class="sci">por el lago Puelo</span>
+            <div class="l-row specs"><span>Hasta 2 personas</span><span>19,50 m² · 1 baño</span></div>
+          </div>
+          <p class="desc">Monoambiente con cama doble con sommier, kitchenette con heladera y anafe eléctrico, calefacción, Wi-Fi y Smart TV. Práctico e independiente.</p>
+          <span class="chip no">Sin desayuno</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="epuyen" data-title="Estudios Epuyén"><img src="img/epuyen-1.jpg" alt="Estudio Epuyén con cama doble e individual" loading="lazy"><span class="nfotos">3 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Estudios Epuyén</span>
+            <span class="sci">por el lago Epuyén</span>
+            <div class="l-row specs"><span>Hasta 3 personas</span><span>19,50 m² · 1 baño</span></div>
+          </div>
+          <p class="desc">Monoambiente con una cama doble y una individual, kitchenette con heladera y anafe eléctrico, baño privado, calefacción y Wi-Fi.</p>
+          <span class="chip no">Sin desayuno</span>
+        </article>
+        <article class="ejemplar">
+          <button class="foto" data-gal="mascardi" data-title="Estudios Mascardi"><img src="img/mascardi-1.jpg" alt="Estudio Mascardi" loading="lazy"><span class="nfotos">6 fotos</span></button>
+          <div class="label">
+            <span class="l-name">Estudios Mascardi</span>
+            <span class="sci">por el lago Mascardi</span>
+            <div class="l-row specs"><span>Hasta 4 personas</span><span>2 habitaciones · 1 baño</span></div>
+          </div>
+          <p class="desc">Dos dormitorios, cocina y living integrados, y baño privado. Espacios para descansar por separado y reunirse durante el día.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="sec servicios" id="servicios">
+  <div class="wrap serv-grid">
+    <div>
+      <p class="kicker">Durante tu estadía</p>
+      <h2>Lo que pasa puertas adentro.</h2>
+      <p class="lead" style="margin:20px 0 36px">Una casa pensada para quedarse: comer bien, trabajar si hace falta y bajar un cambio.</p>
+      <ul class="serv-list">
+        <li><b>Desayuno patagónico</b><span>Casero, saludable y con productos de la región. Pan recién horneado y jugo de naranja exprimido en el momento.</span></li>
+        <li><b>Restaurante Mavyska</b><span>A solo pasos de Casa Puelo.</span></li>
+        <li><b>Patagonia Gourmet</b><span>Gastronomía patagónica en recorridos de cuatro pasos.</span></li>
+        <li><b>Masoterapia y wellness</b><span>Masajes, propuestas de bienestar y fitness.</span></li>
+        <li><b>Lobby y coworking</b><span>Un espacio de encuentro junto al fuego, también para trabajar.</span></li>
+        <li><b>Wi-Fi Starlink</b><span>Internet de alta velocidad, sin cargo.</span></li>
+      </ul>
+    </div>
+    <div class="serv-fotos">
+      <img src="img/comedor.jpg" alt="Comedor de la hostería con mesas de madera y ventanales" loading="lazy">
+      <img src="img/galeria-bosque.jpg" alt="Galería vidriada con vista al bosque" loading="lazy">
+      <img src="img/promo-mavyska.jpg" alt="Restaurante Mavyska iluminado de noche" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIAS -->
+<section class="sec" id="experiencias">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">Experiencias</p>
+        <h2>Salir a buscar la Patagonia.</h2>
+      </div>
+      <p class="lead">Cabalgatas, pesca, bodegas y navegación por la Comarca Andina, organizadas desde la hostería. Valores por persona.</p>
+    </div>
+    <div class="exp-rail" tabindex="0" aria-label="Experiencias, deslizá para ver más">
+      <article class="exp"><img src="img/exp-tulipanes.jpg" alt="Campo de tulipanes en Trevelin con montañas de fondo" loading="lazy"><div class="exp-body"><h3>Excursión entre tulipanes</h3><p>Una escapada de primavera a Trevelin, en octubre.</p><div class="precio"><span>por persona</span><b>USD 100</b></div></div></article>
+      <article class="exp"><img src="img/exp-valle.jpg" alt="Viñedo patagónico con la cordillera de fondo" loading="lazy"><div class="exp-body"><h3>Degustación Sabores del Valle</h3><p>Recorrido por la bodega, vinos y picada patagónica.</p><div class="precio"><span>por persona</span><b>USD 100</b></div></div></article>
+      <article class="exp"><img src="img/exp-horizonte.jpg" alt="Cabalgata con vista al lago y la cordillera" loading="lazy"><div class="exp-body"><h3>Horizonte Puelo</h3><p>Cabalgata panorámica y cena patagónica.</p><div class="precio"><span>por persona</span><b>USD 100</b></div></div></article>
+      <article class="exp"><img src="img/exp-ritmo.jpg" alt="Cabalgata a orillas del río" loading="lazy"><div class="exp-body"><h3>Cabalgata Ritmo del Azul</h3><p>Cabalgata junto al río y brunch en Mavyska.</p><div class="precio"><span>por persona</span><b>USD 120</b></div></div></article>
+      <article class="exp"><img src="img/exp-pesca.jpg" alt="Flotada de pesca en el río" loading="lazy"><div class="exp-body"><h3>Pesca Marina Experience</h3><p>Flotada de día completo y cena de autor.</p><div class="precio"><span>por persona</span><b>USD 350</b></div></div></article>
+      <article class="exp"><img src="img/exp-lago.jpg" alt="Pesca con mosca en el río" loading="lazy"><div class="exp-body"><h3>Lago Gourmet</h3><p>Pesca de media jornada y brunch patagónico.</p><div class="precio"><span>por persona</span><b>USD 250</b></div></div></article>
+      <article class="exp"><img src="img/exp-sidra.jpg" alt="Plato de cordero patagónico" loading="lazy"><div class="exp-body"><h3>Senderos y Sidra</h3><p>Laberinto Patagonia y un encuentro gastronómico único.</p><div class="precio"><span>por persona</span><b>USD 200</b></div></div></article>
+      <article class="exp"><img src="img/exp-copas.jpg" alt="Copa de vino servida en un viñedo" loading="lazy"><div class="exp-body"><h3>Entre Copas y Cordillera</h3><p>Un encuentro exclusivo con los vinos de Patagonian Wines.</p><div class="precio"><span>por persona</span><b>USD 180</b></div></div></article>
+      <article class="exp"><img src="img/exp-gourmet.jpg" alt="Plato de trucha con vegetales" loading="lazy"><div class="exp-body"><h3>Puelo Gourmet</h3><p>Navegación hacia el paso Los Hitos y sabores patagónicos.</p><div class="precio"><span>por persona</span><b>USD 250</b></div></div></article>
+    </div>
+    <p class="rail-hint">← Deslizá para ver las 9 experiencias →</p>
+  </div>
+</section>
+
+<!-- BENEFICIOS -->
+<section class="sec beneficios" id="beneficios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="kicker">Reservando directo</p>
+        <h2>Beneficios para huéspedes de Casa Puelo.</h2>
+      </div>
+      <p class="lead">Acuerdos con lugares de la comarca que solo aplican cuando reservás con nosotros, sin intermediarios.</p>
+    </div>
+    <ul class="ben-list">
+      <li><b>Cena 2×1 en Mavyska</b><span>Con reserva directa de 2 noches en nuestra web.</span><em>Restaurante propio</em></li>
+      <li><b>Transfer aeropuerto</b><span>50% de descuento en el traslado Bariloche – Lago Puelo, ida y vuelta, reservando 3 noches.</span><em>Desde 3 noches</em></li>
+      <li><b>Laberinto Patagonia</b><span>Beneficios exclusivos en el laberinto más grande de Sudamérica.</span><em>Para huéspedes</em></li>
+      <li><b>Sidra Laberinto</b><span>Beneficios en este restaurante icónico de la zona.</span><em>Para huéspedes</em></li>
+      <li><b>Alquiler de auto</b><span>Alquilando con Hertz obtenés descuento en el alojamiento.</span><em>Con Hertz</em></li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section class="sec" id="resenas">
+  <div class="wrap resenas-grid">
+    <div>
+      <p class="kicker">Huéspedes</p>
+      <div class="score">
+        <b>8,9</b>
+        <p>Puntaje promedio en Booking.com sobre 63 reseñas. Lo más elogiado: la atención personal de Susi, el desayuno casero y la calma del lugar.</p>
+      </div>
+    </div>
+    <div class="quotes">
+      <blockquote class="quote"><p>“Impecable estadía con desayuno exquisito. Todo casero, rodeado de una naturaleza hermosa. Un lugar para volver y disfrutar.”</p><footer>Juan · Booking · 10</footer></blockquote>
+      <blockquote class="quote"><p>“Todo... la amabilidad de Susana, el desayuno, las instalaciones, las sugerencias para conocer la ciudad y lugares turísticos.”</p><footer>Nancy · Booking · 10</footer></blockquote>
+      <blockquote class="quote" lang="fr"><p>“Excellent petit déjeuner. Décoration soignée. Une perle rare.”</p><footer>Chantou · desde Francia · 10</footer></blockquote>
+      <blockquote class="quote" lang="pt"><p>“De todo o tempo que passamos na Argentina, a acomodação da Suzana foi a melhor em que estivemos.”</p><footer>Adolfo · desde Brasil · 10</footer></blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="sec reserva" id="reservar">
+  <div class="wrap reserva-grid">
+    <div>
+      <p class="kicker">Reservas directas</p>
+      <h2>Contanos tus fechas y te respondemos por WhatsApp.</h2>
+      <p class="lead" style="margin-top:20px">Reservar directo es el mejor precio y te da acceso a los beneficios de la casa.</p>
+      <ul class="contacto">
+        <li><span>WhatsApp</span><a href="https://wa.me/5492944309122" target="_blank" rel="noopener">+54 9 2944 30-9122</a></li>
+        <li><span>Teléfono</span><a href="tel:+542944378031">+54 2944 37-8031</a></li>
+        <li><span>Instagram</span><a href="https://www.instagram.com/casapuelo.lodge/" target="_blank" rel="noopener">@casapuelo.lodge</a></li>
+        <li><span>Dirección</span><span>Ruta Provincial 16 #10, Lago Puelo, Chubut</span></li>
+      </ul>
+    </div>
+    <form class="form label" id="formReserva" novalidate>
+      <span class="l-name">Consultar disponibilidad</span>
+      <div class="campo">
+        <label for="f-nombre">Nombre</label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required>
+      </div>
+      <div class="campos-2">
+        <div class="campo">
+          <label for="f-personas">Cantidad de personas</label>
+          <input id="f-personas" name="personas" type="number" min="1" value="2" inputmode="numeric" required>
+        </div>
+        <div class="campo">
+          <label for="f-unidad">Alojamiento</label>
+          <select id="f-unidad" name="unidad">
+            <option value="">Cualquiera disponible</option>
+            <optgroup label="Suites en la hostería">
+              <option>Coihue Suite Familiar</option>
+              <option>Suite Ciprés</option>
+              <option>Suite Maitén</option>
+              <option>Suite Ñire</option>
+            </optgroup>
+            <optgroup label="Cabañas">
+              <option>Cabaña Puelo</option>
+              <option>Cabaña Amancay</option>
+              <option>Cabaña Calafate</option>
+            </optgroup>
+            <optgroup label="Estudios">
+              <option>Estudios Puelo</option>
+              <option>Estudios Epuyén</option>
+              <option>Estudios Mascardi</option>
+            </optgroup>
+          </select>
+        </div>
+      </div>
+      <div class="campos-2">
+        <div class="campo">
+          <label for="f-in">Check-in</label>
+          <input id="f-in" name="checkin" type="date" required>
+        </div>
+        <div class="campo">
+          <label for="f-out">Check-out</label>
+          <input id="f-out" name="checkout" type="date" required>
+        </div>
+      </div>
+      <p class="form-error" id="formError" role="alert"></p>
+      <button class="btn btn-dark" type="submit">Enviar consulta por WhatsApp</button>
+      <p class="form-note form-nota">Se abre WhatsApp con tu mensaje listo para enviar.</p>
+    </form>
+  </div>
+</section>
+
+<!-- UBICACIÓN -->
+<section class="sec" id="ubicacion">
+  <div class="wrap ubi-grid">
+    <div>
+      <p class="kicker">Cómo llegar</p>
+      <h2>Lo mejor de dos mundos.</h2>
+      <p class="lead" style="margin-top:18px">El silencio del bosque, a una caminata del pueblo.</p>
+      <ul class="distancias">
+        <li><b>300 m</b><span>del casco urbano de Lago Puelo</span></li>
+        <li><b>2 km</b><span>de los senderos del Parque Nacional Lago Puelo</span></li>
+      </ul>
+      <a class="btn btn-dark" href="https://www.google.com/maps/search/?api=1&query=Casa+Puelo+Lodge+Ruta+Provincial+16+10+Lago+Puelo+Chubut" target="_blank" rel="noopener">Abrir en Google Maps</a>
+    </div>
+    <div class="mapa">
+      <iframe title="Mapa de Casa Puelo Lodge en Lago Puelo" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Casa+Puelo+Lodge,+Lago+Puelo,+Chubut&output=embed"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- BANNER AUTOR -->
+<section class="autor" aria-labelledby="autor-t">
+  <div class="wrap autor-in">
+    <div>
+      <p class="kicker">Diseño web</p>
+      <h2 id="autor-t">Este boceto lo diseñó Teo Cicciari</h2>
+      <p>¿Tenés un hospedaje, un emprendimiento o un proyecto y querés un sitio así, pensado a tu medida? Pedí el tuyo.</p>
+    </div>
+    <a class="btn btn-solid" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="pie">
+  <div class="wrap">
+    <div class="pie-grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="Casa Puelo, inicio"><img src="img/logo.png" alt="Casa Puelo · Patagonia Argentina" width="185" height="110" loading="lazy"></a>
+        <p style="max-width:32ch;margin-top:16px">Hostería, estudios y cabañas en ciprés rescatado. Ruta Provincial 16 #10, Lago Puelo, Chubut.</p>
+      </div>
+      <ul>
+        <li><a href="#habitaciones">Habitaciones</a></li>
+        <li><a href="#experiencias">Experiencias</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#reservar">Reservar</a></li>
+      </ul>
+      <ul>
+        <li><a href="https://wa.me/5492944309122" target="_blank" rel="noopener">WhatsApp</a></li>
+        <li><a href="tel:+542944378031">+54 2944 37-8031</a></li>
+        <li><a href="https://www.instagram.com/casapuelo.lodge/" target="_blank" rel="noopener">@casapuelo.lodge</a></li>
+      </ul>
+    </div>
+    <div class="pie-base">
+      <span>© <span id="anio"></span> Casa Puelo Lodge · <span id="hoy"></span></span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5492944309122" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-.9 1.2-.3.2-.6.1a8 8 0 0 1-2.4-1.5 9 9 0 0 1-1.6-2c-.2-.3 0-.5.1-.6l.4-.5.3-.5v-.5c0-.1-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6a1.1 1.1 0 0 0-.8.4 3.4 3.4 0 0 0-1 2.5 5.9 5.9 0 0 0 1.2 3.1 13.4 13.4 0 0 0 5.2 4.6c1.9.8 2.7.9 3.6.7a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.8L.1 24l6.4-1.7A11.8 11.8 0 0 0 12 23.7 11.8 11.8 0 0 0 20.4 3.6z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Galería de fotos">
+  <img id="lbImg" alt="">
+  <button class="x" id="lbX" aria-label="Cerrar galería">×</button>
+  <button class="prev" id="lbPrev" aria-label="Foto anterior">‹</button>
+  <button class="next" id="lbNext" aria-label="Foto siguiente">›</button>
+  <div class="cap" id="lbCap"></div>
+</div>
+
+<script>
+(function(){
+  /* Fecha dinámica del footer */
+  var now = new Date();
+  document.getElementById('anio').textContent = now.getFullYear();
+  document.getElementById('hoy').textContent = now.toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'});
+
+  /* Nav: fondo sólido al scrollear + menú mobile */
+  var nav = document.getElementById('nav'), burger = document.getElementById('burger');
+  function onScroll(){ nav.classList.toggle('solid', window.scrollY > 60); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.setAttribute('aria-expanded', open);
+  });
+  document.querySelectorAll('#navLinks a').forEach(function(a){
+    a.addEventListener('click', function(){ nav.classList.remove('open'); burger.setAttribute('aria-expanded', false); });
+  });
+
+  /* Galerías por unidad */
+  var gal = {
+    coihue:2, cipres:1, maiten:4, nire:2, cpuelo:4, amancay:5, calafate:8, epuelo:5, epuyen:3, mascardi:6
+  };
+  var lb = document.getElementById('lb'), lbImg = document.getElementById('lbImg'), lbCap = document.getElementById('lbCap');
+  var cur = {key:null, i:0, n:0, title:''}, lastFocus = null;
+  function show(){
+    lbImg.src = 'img/' + cur.key + '-' + (cur.i + 1) + '.jpg';
+    lbImg.alt = cur.title + ', foto ' + (cur.i + 1);
+    lbCap.textContent = cur.title + ' · ' + (cur.i + 1) + ' / ' + cur.n;
+    document.getElementById('lbPrev').style.display = document.getElementById('lbNext').style.display = cur.n > 1 ? '' : 'none';
+  }
+  function open(key, title){
+    cur = {key:key, i:0, n:gal[key], title:title};
+    lastFocus = document.activeElement;
+    show(); lb.classList.add('on'); document.body.style.overflow = 'hidden';
+    document.getElementById('lbX').focus();
+  }
+  function close(){ lb.classList.remove('on'); document.body.style.overflow = ''; if (lastFocus) lastFocus.focus(); }
+  function step(d){ cur.i = (cur.i + d + cur.n) % cur.n; show(); }
+  document.querySelectorAll('[data-gal]').forEach(function(b){
+    b.addEventListener('click', function(){ open(b.dataset.gal, b.dataset.title); });
+  });
+  document.getElementById('lbX').addEventListener('click', close);
+  document.getElementById('lbPrev').addEventListener('click', function(){ step(-1); });
+  document.getElementById('lbNext').addEventListener('click', function(){ step(1); });
+  lb.addEventListener('click', function(e){ if (e.target === lb) close(); });
+  document.addEventListener('keydown', function(e){
+    if (!lb.classList.contains('on')) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') step(-1);
+    if (e.key === 'ArrowRight') step(1);
+  });
+  var tx = null;
+  lb.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    if (tx === null) return;
+    var dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    tx = null;
+  });
+
+  /* Formulario de reserva → WhatsApp */
+  var form = document.getElementById('formReserva'), err = document.getElementById('formError');
+  var fin = document.getElementById('f-in'), fout = document.getElementById('f-out');
+  var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+  fin.min = hoy.toISOString().slice(0,10);
+  fout.min = fin.min;
+  fin.addEventListener('change', function(){
+    if (!fin.value) return;
+    var d = new Date(fin.value); d.setDate(d.getDate() + 1);
+    fout.min = d.toISOString().slice(0,10);
+    if (fout.value && fout.value <= fin.value) fout.value = fout.min;
+  });
+  function fmt(v){ var p = v.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var f = form.elements, nombre = f.nombre.value.trim(), personas = f.personas.value;
+    if (!nombre){ err.textContent = 'Escribí tu nombre para que sepamos a quién responder.'; f.nombre.focus(); return; }
+    if (!personas || personas < 1){ err.textContent = 'Indicá cuántas personas viajan.'; f.personas.focus(); return; }
+    if (!fin.value || !fout.value){ err.textContent = 'Elegí las fechas de check-in y check-out.'; (fin.value ? fout : fin).focus(); return; }
+    if (fout.value <= fin.value){ err.textContent = 'El check-out tiene que ser posterior al check-in.'; fout.focus(); return; }
+    err.textContent = '';
+    var msg = 'Hola Casa Puelo! Quería consultar disponibilidad.\n\n' +
+      'Nombre: ' + nombre + '\n' +
+      'Personas: ' + personas + '\n' +
+      'Check-in: ' + fmt(fin.value) + '\n' +
+      'Check-out: ' + fmt(fout.value) +
+      (f.unidad.value ? '\nAlojamiento: ' + f.unidad.value : '');
+    window.open('https://wa.me/5492944309122?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+  });
+})();
+</script>
+</body>
+</html>
