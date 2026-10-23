@@ -1315,6 +1315,23 @@
         window.dataLayer = window.dataLayer || [];
         window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
 
+        // Eventos de Meta Pixel para los clics de contacto:
+        // - Lead: pedir el boceto gratis (la conversión más fuerte)
+        // - Contact: WhatsApp/email desde la vista de diseño
+        // - ContactoAjedrez (personalizado): WhatsApp desde la vista de ajedrez,
+        //   separado para que no ensucie la optimización de los anuncios de diseño
+        function metaContacto(a, canal) {
+            if (!window.fbq) return;
+            const ubicacion = a.className || 'desconocida';
+            if (document.body.classList.contains('theme-forest')) {
+                fbq('trackCustom', 'ContactoAjedrez', { canal: canal, ubicacion: ubicacion });
+            } else if (a.classList.contains('cta-boceto-btn')) {
+                fbq('track', 'Lead', { content_name: 'boceto_gratis', canal: canal });
+            } else {
+                fbq('track', 'Contact', { content_category: 'diseno_web', canal: canal, ubicacion: ubicacion });
+            }
+        }
+
         // Medición de conversiones: clics a WhatsApp y email.
         document.addEventListener('click', function(e) {
             const a = e.target.closest && e.target.closest('a');
@@ -1322,12 +1339,24 @@
             const href = a.getAttribute('href') || '';
             if (href.includes('wa.me') || href.includes('api.whatsapp')) {
                 gtag('event', 'clic_whatsapp', { ubicacion: a.className || 'desconocida' });
-                if (window.fbq) fbq('track', 'Contact', { canal: 'whatsapp' });
+                metaContacto(a, 'whatsapp');
             } else if (href.indexOf('mailto:') === 0) {
                 gtag('event', 'clic_email', { ubicacion: a.className || 'desconocida' });
-                if (window.fbq) fbq('track', 'Contact', { canal: 'email' });
+                metaContacto(a, 'email');
             }
         }, true);
+
+        // ViewContent: llegó a ver la sección de precios (una vez por visita).
+        // Sirve para armar públicos de remarketing de gente interesada que no escribió.
+        const precios = document.getElementById('prices');
+        if (precios && 'IntersectionObserver' in window) {
+            const obsPrecios = new IntersectionObserver(function(entries) {
+                if (!entries[0].isIntersecting) return;
+                if (window.fbq) fbq('track', 'ViewContent', { content_name: 'precios', content_category: 'diseno_web' });
+                obsPrecios.disconnect();
+            }, { threshold: 0.3 });
+            obsPrecios.observe(precios);
+        }
 
         function loadAnalytics() {
             if (analyticsLoaded) return;
