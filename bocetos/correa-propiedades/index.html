@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Correa Propiedades Osorno | Arriendos y ventas de casas y cabañas — Alejandra Correa</title>
+<meta name="description" content="Correa Propiedades, corredora de propiedades en Osorno, Chile. Casas y cabañas en arriendo y venta en Osorno y alrededores. Agenda tu visita con Alejandra Correa.">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Figtree:wght@400;500;600;700&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rojo:#A3121B;
+    --rojo-hondo:#6E0B10;
+    --tinta:#1C1B1D;
+    --niebla:#EDEFF0;
+    --blanco:#FFFFFF;
+    --pizarra:#5E646A;
+    --linea:#D5D9DC;
+    --display:'Archivo', system-ui, sans-serif;
+    --texto:'Figtree', system-ui, sans-serif;
+    --firma:'Mrs Saint Delafield', cursive;
+    --ancho:1200px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{font-family:var(--texto);color:var(--tinta);background:var(--niebla);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer}
+  :focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+  .contenedor{width:min(var(--ancho), 100% - 48px);margin-inline:auto}
+
+  /* ---------- tipografía ---------- */
+  .ceja{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo)}
+  h1,h2,h3{font-family:var(--display);line-height:1.02;font-weight:800}
+  h2{font-size:clamp(2rem,4.2vw,3.2rem);font-stretch:112%;letter-spacing:-.01em}
+  .bajada{color:var(--pizarra);max-width:56ch}
+
+  /* ---------- botones ---------- */
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-family:var(--display);font-stretch:90%;font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;padding:.95em 1.5em;border:2px solid var(--rojo);border-radius:2px;transition:background .2s,color .2s,border-color .2s}
+  .btn-rojo{background:var(--rojo);color:var(--blanco)}
+  .btn-rojo:hover{background:var(--rojo-hondo);border-color:var(--rojo-hondo)}
+  .btn-linea{background:transparent;color:var(--rojo)}
+  .btn-linea:hover{background:var(--rojo);color:var(--blanco)}
+  .btn-blanco{background:var(--blanco);color:var(--rojo);border-color:var(--blanco)}
+  .btn-blanco:hover{background:transparent;color:var(--blanco)}
+
+  /* ---------- letrero (elemento firma) ---------- */
+  .tag{display:inline-block;font-family:var(--display);font-stretch:70%;font-weight:900;font-size:.95rem;letter-spacing:.05em;text-transform:uppercase;line-height:1;padding:.45em .6em .4em;border:2.5px solid var(--rojo);border-radius:2px;background:var(--blanco);color:var(--rojo)}
+  .tag.venta{background:var(--rojo);color:var(--blanco)}
+  .tag.arrendada{background:var(--tinta);border-color:var(--tinta);color:var(--blanco)}
+
+  /* ---------- header ---------- */
+  .cabecera{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+  .cabecera .contenedor{display:flex;align-items:center;justify-content:space-between;height:72px;gap:24px}
+  .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .marca img{width:50px;height:50px;object-fit:contain}
+  .marca span{font-family:var(--display);font-stretch:120%;font-weight:800;font-size:1.05rem;letter-spacing:.04em;line-height:1}
+  .marca small{display:block;font-stretch:90%;font-weight:600;font-size:.62rem;letter-spacing:.28em;color:var(--rojo);margin-top:4px}
+  .menu{display:flex;align-items:center;gap:28px;list-style:none}
+  .menu a{text-decoration:none;font-weight:600;font-size:.95rem}
+  .menu a:not(.btn):hover{color:var(--rojo)}
+  .menu .btn{padding:.7em 1.1em;font-size:.82rem}
+  .menu-boton{display:none;background:none;border:0;width:44px;height:44px;position:relative}
+  .menu-boton span,.menu-boton span::before,.menu-boton span::after{position:absolute;left:10px;width:24px;height:2px;background:var(--tinta);content:"";transition:transform .2s}
+  .menu-boton span{top:21px}
+  .menu-boton span::before{left:0;top:-7px}
+  .menu-boton span::after{left:0;top:7px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:72px 0 88px;overflow:hidden}
+  .hero .contenedor{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.9rem);font-stretch:112%;letter-spacing:-.02em;margin:18px 0 24px}
+  .hero h1 em{font-style:normal;color:var(--rojo)}
+  .hero .bajada{font-size:1.12rem}
+  .hero-acciones{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .hero-stock{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:38px;padding-top:22px;border-top:1px solid var(--linea);font-size:.95rem;color:var(--pizarra)}
+  .hero-stock button{background:none;border:0;padding:0;font-weight:700;color:var(--tinta);text-decoration:underline;text-decoration-color:var(--rojo);text-decoration-thickness:2px;text-underline-offset:4px}
+  .hero-stock button:hover{color:var(--rojo)}
+
+  .hero-foto{position:relative;margin-left:40px}
+  .hero-foto > button{display:block;width:100%;border:0;padding:0;background:none;text-align:left}
+  .hero-foto img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:2px;box-shadow:0 30px 60px -30px rgba(28,27,29,.45)}
+  .hero-foto figcaption{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-size:.92rem;color:var(--pizarra)}
+  .hero-foto figcaption b{font-family:var(--display);font-stretch:80%;font-size:1.1rem;color:var(--tinta)}
+
+  .letrero{position:absolute;top:56px;left:-72px;z-index:2;transform-origin:50% -46px;animation:balanceo 2.6s cubic-bezier(.3,.6,.35,1) .4s both}
+  .letrero svg{position:absolute;left:50%;top:-50px;transform:translateX(-50%);overflow:visible}
+  .letrero-cartel{background:var(--blanco);border:4px solid var(--rojo);padding:16px 22px 14px;box-shadow:0 18px 30px -16px rgba(28,27,29,.55);text-align:center;min-width:240px;perspective:400px}
+  .letrero-palabra{display:block;font-family:var(--display);font-stretch:66%;font-weight:900;font-size:3rem;line-height:.9;letter-spacing:.01em;color:var(--rojo);text-transform:uppercase;transition:transform .35s ease, opacity .35s ease}
+  .letrero-palabra.girando{transform:rotateX(90deg);opacity:0}
+  .letrero-pie{display:block;margin-top:10px;padding-top:8px;border-top:2px solid var(--rojo);font-family:var(--display);font-stretch:85%;font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
+  @keyframes balanceo{
+    0%{transform:rotate(-10deg)}
+    22%{transform:rotate(7deg)}
+    44%{transform:rotate(-4deg)}
+    66%{transform:rotate(2deg)}
+    84%{transform:rotate(-.8deg)}
+    100%{transform:rotate(-1.5deg)}
+  }
+
+  /* ---------- propiedades ---------- */
+  .seccion{padding:96px 0}
+  .cabeza-seccion{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+  .cabeza-seccion h2{margin-top:12px}
+  .filtros{display:flex;gap:8px;flex-wrap:wrap}
+  .filtros button{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;padding:.7em 1.1em;border:2px solid var(--tinta);background:transparent;color:var(--tinta);border-radius:2px}
+  .filtros button[aria-pressed="true"]{background:var(--tinta);color:var(--blanco)}
+  .filtros button:hover:not([aria-pressed="true"]){border-color:var(--rojo);color:var(--rojo)}
+  .filtros small{font-weight:600;opacity:.7;margin-left:4px}
+
+  .grilla{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .ficha{background:var(--blanco);border-radius:2px;display:flex;flex-direction:column;transition:transform .25s, box-shadow .25s}
+  .ficha:hover{transform:translateY(-4px);box-shadow:0 24px 40px -24px rgba(28,27,29,.35)}
+  .ficha[hidden]{display:none}
+  .ficha-foto{position:relative;display:block;width:100%;border:0;padding:0;background:var(--linea);overflow:hidden}
+  .ficha-foto img{width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .5s}
+  .ficha:hover .ficha-foto img{transform:scale(1.04)}
+  .ficha-foto .tag{position:absolute;top:14px;left:14px;transform:rotate(-2deg)}
+  .ficha-foto .cuenta{position:absolute;right:12px;bottom:12px;background:rgba(28,27,29,.75);color:var(--blanco);font-size:.78rem;font-weight:600;padding:3px 9px;border-radius:2px}
+  .ficha.no-disponible .ficha-foto img{filter:grayscale(.85) brightness(.95)}
+  .ficha-cuerpo{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .ficha-lugar{font-size:.85rem;font-weight:600;color:var(--rojo);letter-spacing:.02em}
+  .ficha h3{font-size:1.32rem;font-stretch:100%;font-weight:750;margin:6px 0 14px;line-height:1.15}
+  .ficha-datos{display:flex;flex-wrap:wrap;gap:6px 16px;list-style:none;font-size:.88rem;color:var(--pizarra);margin-bottom:18px}
+  .ficha-datos b{color:var(--tinta);font-weight:700}
+  .ficha-pie{margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;gap:12px;padding-top:16px;border-top:1px solid var(--linea)}
+  .precio{font-family:var(--display);font-stretch:75%;font-weight:850;font-size:1.75rem;line-height:1;font-variant-numeric:tabular-nums}
+  .precio small{display:block;font-family:var(--texto);font-weight:500;font-size:.78rem;color:var(--pizarra);margin-top:5px}
+  .ficha.no-disponible .precio{color:var(--pizarra)}
+  .ficha.no-disponible .precio span{text-decoration:line-through;text-decoration-color:var(--rojo);text-decoration-thickness:2px}
+  .ver-mas{background:none;border:0;font-weight:700;font-size:.9rem;color:var(--rojo);white-space:nowrap;padding:4px 0}
+  .ver-mas:hover{text-decoration:underline;text-underline-offset:4px}
+
+  /* ---------- modal ---------- */
+  dialog.detalle{border:0;padding:0;width:min(1080px,100% - 32px);max-height:calc(100dvh - 32px);margin:auto;background:var(--blanco);color:var(--tinta);border-radius:2px;overflow:auto}
+  dialog.detalle::backdrop{background:rgba(28,27,29,.72)}
+  .detalle-grid{display:grid;grid-template-columns:1.25fr 1fr}
+  .galeria{background:var(--tinta);position:relative;display:flex;flex-direction:column}
+  .galeria-principal{position:relative;flex:1;min-height:360px}
+  .galeria-principal img{width:100%;height:100%;max-height:72dvh;object-fit:contain;position:absolute;inset:0}
+  .galeria-flecha{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--tinta);font-size:1.3rem;display:grid;place-items:center}
+  .galeria-flecha:hover{background:var(--rojo);color:var(--blanco)}
+  .galeria-flecha.prev{left:12px}
+  .galeria-flecha.next{right:12px}
+  .galeria-num{position:absolute;bottom:12px;left:12px;color:var(--blanco);font-size:.8rem;font-weight:600;background:rgba(0,0,0,.45);padding:2px 9px;border-radius:2px}
+  .miniaturas{display:flex;gap:6px;padding:8px;overflow-x:auto}
+  .miniaturas button{flex:0 0 64px;height:48px;border:2px solid transparent;padding:0;background:none;opacity:.6}
+  .miniaturas button[aria-current="true"]{border-color:var(--rojo);opacity:1}
+  .miniaturas img{width:100%;height:100%;object-fit:cover}
+  .detalle-info{padding:36px 34px 34px;position:relative}
+  .cerrar{position:absolute;top:12px;right:12px;width:42px;height:42px;border:0;background:var(--niebla);border-radius:50%;font-size:1.4rem;line-height:1}
+  .cerrar:hover{background:var(--rojo);color:var(--blanco)}
+  .detalle-info h3{font-size:1.65rem;font-stretch:105%;margin:16px 0 6px;padding-right:36px}
+  .detalle-info .ficha-lugar{display:block;margin-bottom:18px}
+  .detalle-info .precio{font-size:2.3rem;margin-bottom:20px}
+  .detalle-datos{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--linea);border:1px solid var(--linea);margin-bottom:22px;list-style:none}
+  .detalle-datos li{background:var(--blanco);padding:10px 12px;font-size:.85rem;color:var(--pizarra)}
+  .detalle-datos b{display:block;font-family:var(--display);font-stretch:80%;font-size:1.15rem;color:var(--tinta)}
+  .detalle-info h4{font-family:var(--display);font-stretch:85%;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo);margin:18px 0 8px}
+  .caracteristicas{list-style:none;columns:2;column-gap:20px;font-size:.92rem}
+  .caracteristicas li{padding:3px 0 3px 16px;position:relative;break-inside:avoid}
+  .caracteristicas li::before{content:"";position:absolute;left:0;top:.75em;width:7px;height:7px;background:var(--rojo)}
+  .notas{font-size:.9rem;color:var(--pizarra);margin-top:14px}
+  .detalle-info .btn{margin-top:26px;width:100%;justify-content:center}
+
+  /* ---------- servicios ---------- */
+  .servicios{background:var(--blanco)}
+  .servicios-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--tinta);margin-top:44px}
+  .servicio{padding:40px 40px 44px}
+  .servicio + .servicio{border-left:2px solid var(--tinta)}
+  .servicio .tag{font-size:1.15rem;transform:rotate(-2deg)}
+  .servicio h3{font-size:1.6rem;font-stretch:108%;margin:24px 0 10px}
+  .servicio > p{color:var(--pizarra);margin-bottom:20px}
+  .servicio ul{list-style:none}
+  .servicio li{padding:11px 0;border-top:1px solid var(--linea);font-weight:500}
+  .propietarios{display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;background:var(--rojo);color:var(--blanco);padding:36px 40px;margin-top:28px}
+  .propietarios h3{font-size:1.7rem;font-stretch:108%}
+  .propietarios p{opacity:.88;margin-top:6px;max-width:52ch}
+
+  /* ---------- alejandra ---------- */
+  .alejandra .contenedor{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:center}
+  .retrato{position:relative}
+  .retrato img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:2px}
+  .retrato::before{content:"";position:absolute;inset:22px -22px -22px 22px;border:4px solid var(--rojo);z-index:-1}
+  .alejandra{position:relative;z-index:0}
+  .nombre-firma{font-family:var(--firma);color:var(--rojo);font-size:clamp(3.4rem,6vw,5rem);line-height:.8;display:block;margin-top:16px;transform:translateX(-4px)}
+  .nombre-apellido{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:clamp(2.8rem,6vw,4.6rem);letter-spacing:.01em;line-height:.95;display:block}
+  .alejandra .rol{font-family:var(--display);font-stretch:95%;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;margin:18px 0 22px;padding-top:16px;border-top:3px solid var(--rojo);width:fit-content}
+  .alejandra p + p{margin-top:14px}
+  .valores{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;list-style:none}
+  .valores li{font-family:var(--display);font-stretch:85%;font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:.55em 1em;border:2px solid var(--tinta)}
+
+  /* ---------- agendar visita ---------- */
+  .visita{background:var(--tinta);color:var(--blanco)}
+  .visita .contenedor{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+  .visita .ceja{color:#F07A80}
+  .visita .bajada{color:#B9BDC1;margin-top:16px}
+  .canales{margin-top:30px;list-style:none}
+  .canales li{padding:14px 0;border-top:1px solid rgba(255,255,255,.14);font-size:.95rem}
+  .canales b{display:block;font-family:var(--display);font-stretch:85%;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:#B9BDC1;font-weight:700}
+  .canales a{text-decoration:none;font-weight:600}
+  .canales a:hover{color:#F07A80}
+  .formulario{background:var(--blanco);color:var(--tinta);padding:36px;border-top:6px solid var(--rojo)}
+  .campos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .campo{display:flex;flex-direction:column;gap:6px}
+  .campo.ancho{grid-column:1/-1}
+  .campo label{font-size:.82rem;font-weight:700}
+  .campo input,.campo select,.campo textarea{font:inherit;font-size:1rem;padding:12px 14px;border:1.5px solid var(--linea);border-radius:2px;background:var(--niebla);color:var(--tinta);width:100%}
+  .campo input:focus,.campo select:focus,.campo textarea:focus{outline:none;border-color:var(--rojo);background:var(--blanco)}
+  .campo textarea{min-height:96px;resize:vertical}
+  .formulario .btn{margin-top:24px;width:100%;justify-content:center}
+  .formulario-ok{display:none;text-align:center;padding:28px 8px}
+  .formulario-ok .tag{font-size:1.3rem;transform:rotate(-2deg)}
+  .formulario-ok p{margin-top:18px}
+  .formulario.enviado .formulario-ok{display:block}
+  .formulario.enviado form{display:none}
+
+  /* ---------- banner autor ---------- */
+  .autor{background:var(--rojo);color:var(--blanco);padding:84px 0;text-align:center}
+  .autor .ceja{color:var(--blanco);opacity:.8}
+  .autor h2{margin:14px auto 16px;max-width:18ch}
+  .autor p{max-width:52ch;margin:0 auto 30px;opacity:.9}
+
+  /* ---------- footer ---------- */
+  .pie{background:var(--tinta);color:#B9BDC1;padding:56px 0 30px;font-size:.92rem}
+  .pie-grid{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .pie .marca{color:var(--blanco)}
+  .pie .marca small{color:#F07A80}
+  .pie .marca img{background:var(--blanco);border-radius:50%;padding:3px}
+  .pie-cols{display:flex;gap:56px;flex-wrap:wrap}
+  .pie h4{font-family:var(--display);font-stretch:85%;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blanco);margin-bottom:10px}
+  .pie ul{list-style:none}
+  .pie li{padding:3px 0}
+  .pie a{text-decoration:none}
+  .pie a:hover{color:var(--blanco)}
+  .pie-legal{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:.84rem}
+  .pie-credito a{color:var(--blanco);text-decoration:underline;text-decoration-color:var(--rojo);text-underline-offset:3px}
+
+  /* ---------- responsive ---------- */
+  @media (max-width:1020px){
+    .grilla{grid-template-columns:repeat(2,1fr)}
+    .hero .contenedor,.alejandra .contenedor,.visita .contenedor{gap:48px}
+    .detalle-grid{grid-template-columns:1fr}
+    .galeria-principal{min-height:0;aspect-ratio:4/3}
+    .galeria-principal img{max-height:none}
+  }
+  @media (max-width:860px){
+    .menu-boton{display:block}
+    .menu{position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--blanco);border-bottom:1px solid var(--linea);padding:8px 24px 20px;display:none}
+    .menu.abierto{display:flex}
+    .menu li a:not(.btn){display:block;padding:14px 0;border-bottom:1px solid var(--linea)}
+    .menu .btn{margin-top:16px;justify-content:center}
+    .hero{padding:44px 0 64px}
+    .hero .contenedor{grid-template-columns:1fr}
+    .hero-foto{margin:56px 0 0}
+    .letrero{left:auto;right:-6px;top:-30px}
+    .letrero-cartel{min-width:200px;padding:12px 16px 10px}
+    .letrero-palabra{font-size:2.3rem}
+    .servicios-grid{grid-template-columns:1fr}
+    .servicio + .servicio{border-left:0;border-top:2px solid var(--tinta)}
+    .alejandra .contenedor,.visita .contenedor{grid-template-columns:1fr}
+    .retrato{max-width:380px;margin-right:22px}
+  }
+  @media (max-width:620px){
+    body{font-size:16px}
+    .seccion{padding:72px 0}
+    .grilla{grid-template-columns:1fr}
+    .servicio,.propietarios{padding:30px 24px}
+    .formulario{padding:26px 20px}
+    .campos{grid-template-columns:1fr}
+    .detalle-info{padding:28px 22px}
+    .caracteristicas{columns:1}
+    .marca span{font-size:.9rem}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="#inicio" aria-label="Correa Propiedades, inicio">
+      <img src="img/logo.png" alt="">
+      <span>CORREA<small>PROPIEDADES</small></span>
+    </a>
+    <button class="menu-boton" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#propiedades">Propiedades</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#alejandra">Quién soy</a></li>
+      <li><a class="btn btn-rojo" href="#visita">Agenda tu visita</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="contenedor">
+      <div>
+        <p class="ceja">Corredora de propiedades · Osorno, Chile</p>
+        <h1>Casas y cabañas en <em>Osorno</em> para arrendar o comprar.</h1>
+        <p class="bajada">Soy Alejandra Correa. Te muestro la propiedad, respondo tus dudas sin vueltas y te acompaño hasta la firma del contrato o la escritura.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-rojo" href="#propiedades">Ver propiedades</a>
+          <a class="btn btn-linea" href="#visita">Agenda tu visita</a>
+        </div>
+        <p class="hero-stock" id="hero-stock"></p>
+      </div>
+
+      <figure class="hero-foto">
+        <div class="letrero" aria-hidden="true">
+          <svg width="120" height="52" viewBox="0 0 120 52"><path d="M14 52 L60 6 L106 52" fill="none" stroke="#1C1B1D" stroke-width="1.6"/><circle cx="60" cy="6" r="5" fill="#1C1B1D"/></svg>
+          <div class="letrero-cartel">
+            <span class="letrero-palabra" id="letrero-palabra">Se arrienda</span>
+            <span class="letrero-pie">Correa Propiedades · Osorno</span>
+          </div>
+        </div>
+        <button type="button" data-abrir="4" aria-label="Ver casa en venta en Cañal Bajo">
+          <img src="img/p4-01.jpg" alt="Casa de dos niveles en Cañal Bajo, a minutos de Osorno, rodeada de pasto al atardecer">
+        </button>
+        <figcaption><span>En venta · Cañal Bajo, a 7 min de Osorno</span><b>UF 8.950</b></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- PROPIEDADES -->
+  <section class="seccion" id="propiedades" style="padding-top:24px">
+    <div class="contenedor">
+      <div class="cabeza-seccion">
+        <div>
+          <p class="ceja">Disponibles ahora</p>
+          <h2>Propiedades</h2>
+        </div>
+        <div class="filtros" role="group" aria-label="Filtrar propiedades">
+          <button type="button" data-filtro="todas" aria-pressed="true">Todas<small></small></button>
+          <button type="button" data-filtro="arriendo" aria-pressed="false">Arriendo<small></small></button>
+          <button type="button" data-filtro="venta" aria-pressed="false">Venta<small></small></button>
+        </div>
+      </div>
+      <div class="grilla" id="grilla"></div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="seccion servicios" id="servicios">
+    <div class="contenedor">
+      <p class="ceja">Servicios</p>
+      <h2>Arriendos y ventas, de principio a fin.</h2>
+      <div class="servicios-grid">
+        <article class="servicio">
+          <span class="tag">Se arrienda</span>
+          <h3>Arriendos</h3>
+          <p>Gestión integral de tu arriendo, para que no tengas que coordinar nada por tu cuenta.</p>
+          <ul>
+            <li>Fotos y publicación de la propiedad</li>
+            <li>Visitas coordinadas con cada interesado</li>
+            <li>Revisión de antecedentes del arrendatario</li>
+            <li>Contrato, inventario y entrega de llaves</li>
+          </ul>
+        </article>
+        <article class="servicio">
+          <span class="tag venta">Se vende</span>
+          <h3>Ventas</h3>
+          <p>Asesoría personalizada para vender o comprar con información clara en cada paso.</p>
+          <ul>
+            <li>Precio de publicación según el mercado de Osorno</li>
+            <li>Difusión en redes y atención de consultas</li>
+            <li>Acompañamiento en la negociación</li>
+            <li>Seguimiento hasta la firma de la escritura</li>
+          </ul>
+        </article>
+      </div>
+      <div class="propietarios">
+        <div>
+          <h3>¿Tienes una propiedad para arrendar o vender?</h3>
+          <p>Cuéntame dónde está y qué tiene. Te respondo con una propuesta para publicarla.</p>
+        </div>
+        <a class="btn btn-blanco" href="https://ig.me/m/correapropiedades_" target="_blank" rel="noopener">Escríbeme por Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ALEJANDRA -->
+  <section class="seccion alejandra" id="alejandra">
+    <div class="contenedor">
+      <div class="retrato">
+        <img src="img/alejandra.jpg" alt="Alejandra Correa, corredora de propiedades en Osorno" loading="lazy">
+      </div>
+      <div>
+        <p class="ceja">Quién soy</p>
+        <span class="nombre-firma">Alejandra</span>
+        <span class="nombre-apellido">CORREA</span>
+        <p class="rol">Corredora de propiedades</p>
+        <p>Me especializo en arriendos y ventas de inmuebles en Osorno y sus alrededores: casas en la ciudad, cabañas en sectores tranquilos y parcelas a pocos minutos del centro.</p>
+        <p>Trabajo con un enfoque cercano, transparente y efectivo. Si una propiedad no es para ti, te lo digo; si aparece una que sí, te aviso primero.</p>
+        <ul class="valores">
+          <li>Confianza</li>
+          <li>Compromiso</li>
+          <li>Resultados</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- AGENDAR VISITA -->
+  <section class="seccion visita" id="visita">
+    <div class="contenedor">
+      <div>
+        <p class="ceja">Agenda tu visita</p>
+        <h2>Ven a conocerla en persona.</h2>
+        <p class="bajada">Elige la propiedad y el día que te acomoda. Te escribo para confirmar la hora y la dirección exacta.</p>
+        <ul class="canales">
+          <li><b>Instagram</b><a href="https://www.instagram.com/correapropiedades_/" target="_blank" rel="noopener">@correapropiedades_</a></li>
+          <li><b>Zona</b>Osorno y alrededores, Región de Los Lagos</li>
+        </ul>
+      </div>
+
+      <div class="formulario" id="formulario">
+        <form id="form-visita">
+          <div class="campos">
+            <div class="campo">
+              <label for="f-nombre">Nombre</label>
+              <input id="f-nombre" name="nombre" autocomplete="name" required>
+            </div>
+            <div class="campo">
+              <label for="f-telefono">Teléfono / WhatsApp</label>
+              <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" placeholder="+56 9" required>
+            </div>
+            <div class="campo ancho">
+              <label for="f-propiedad">Propiedad</label>
+              <select id="f-propiedad" name="propiedad" required></select>
+            </div>
+            <div class="campo">
+              <label for="f-fecha">Día preferido</label>
+              <input id="f-fecha" name="fecha" type="date" required>
+            </div>
+            <div class="campo">
+              <label for="f-horario">Horario</label>
+              <select id="f-horario" name="horario">
+                <option>Mañana</option>
+                <option>Tarde</option>
+                <option>Me da lo mismo</option>
+              </select>
+            </div>
+            <div class="campo ancho">
+              <label for="f-mensaje">Mensaje (opcional)</label>
+              <textarea id="f-mensaje" name="mensaje" placeholder="Por ejemplo: somos 2 adultos y un niño, buscamos arrendar desde marzo."></textarea>
+            </div>
+          </div>
+          <button class="btn btn-rojo" type="submit">Solicitar visita</button>
+        </form>
+        <div class="formulario-ok" role="status" aria-live="polite">
+          <span class="tag venta">Visita solicitada</span>
+          <p id="ok-texto"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER AUTOR -->
+  <section class="autor">
+    <div class="contenedor">
+      <p class="ceja">Diseño web</p>
+      <h2>Este boceto lo diseñó Teo Cicciari</h2>
+      <p>¿Quieres un sitio a medida para tu corretaje o tu negocio? Mira más referencias, estilos y precios, y pide el tuyo.</p>
+      <a class="btn btn-blanco" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios ↗</a>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-grid">
+      <div>
+        <a class="marca" href="#inicio">
+          <img src="img/logo.png" alt="">
+          <span>CORREA<small>PROPIEDADES</small></span>
+        </a>
+        <p style="margin-top:16px;max-width:34ch">Arriendos y ventas de propiedades en Osorno, Chile. Confianza · Compromiso · Resultados.</p>
+      </div>
+      <div class="pie-cols">
+        <div>
+          <h4>Sitio</h4>
+          <ul>
+            <li><a href="#propiedades">Propiedades</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#alejandra">Quién soy</a></li>
+            <li><a href="#visita">Agenda tu visita</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/correapropiedades_/" target="_blank" rel="noopener">Instagram</a></li>
+            <li>Osorno, Región de Los Lagos</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="pie-legal">
+      <span>© <span id="anio"></span> Correa Propiedades SpA · <span id="fecha-hoy"></span></span>
+      <span class="pie-credito">Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios ↗</a></span>
+    </div>
+  </div>
+</footer>
+
+<dialog class="detalle" id="detalle" aria-labelledby="detalle-titulo">
+  <div class="detalle-grid">
+    <div class="galeria">
+      <div class="galeria-principal">
+        <img id="galeria-img" src="" alt="">
+        <button class="galeria-flecha prev" type="button" aria-label="Foto anterior">←</button>
+        <button class="galeria-flecha next" type="button" aria-label="Foto siguiente">→</button>
+        <span class="galeria-num" id="galeria-num"></span>
+      </div>
+      <div class="miniaturas" id="miniaturas"></div>
+    </div>
+    <div class="detalle-info" id="detalle-info"></div>
+  </div>
+</dialog>
+
+<script>
+  const PROPIEDADES = [
+    {
+      id: 4, tipo: 'venta', estado: 'disponible', fotos: 10,
+      titulo: 'Casa en condominio con 5.000 m² de terreno',
+      lugar: 'Cañal Bajo, a 7 min de Osorno',
+      precio: 'UF 8.950', precioNota: 'Precio de venta',
+      datos: [['5.000 m²', 'Terreno'], ['322 m²', 'Construidos'], ['4', 'Dormitorios'], ['4', 'Baños'], ['3', 'Estacionamientos techados'], ['Nororiente', 'Orientación']],
+      corto: ['4 dorm.', '4 baños', '322 m²'],
+      caracteristicas: ['Baño en suite y baño de visitas', 'Cocina amoblada con encimera', 'Amplio hall de acceso', '2 terrazas', 'Altillo', 'Logia y bodega', 'Pieza de servicio', 'Ventanas termopanel', 'Calefacción y agua caliente central', 'Baños con piso de porcelanato', 'Condominio cerrado con CCTV', 'Portón automático y cerco eléctrico', 'Pozo de agua propio'],
+      notas: 'A 3 min del aeropuerto y a menos de 2 min de colegio y universidad. Cercana a jardín infantil, comercio y servicios. Recepción final en trámite.'
+    },
+    {
+      id: 5, tipo: 'arriendo', estado: 'disponible', fotos: 10,
+      titulo: 'Casa amplia de dos pisos, completamente amoblada',
+      lugar: 'Ruta 215 km 18, Callejón Urzúa',
+      precio: '$750.000', precioNota: 'Mensual · amoblada',
+      datos: [['4', 'Dormitorios con clóset'], ['4', 'Baños'], ['5', 'Camas'], ['8', 'Puestos en el comedor']],
+      corto: ['4 dorm.', '4 baños', 'Amoblada'],
+      caracteristicas: ['Dormitorio principal con walk-in clóset y jacuzzi', 'Living-comedor amplio', 'Cocina con comedor de diario', 'Lavandería y despensa', 'Terraza y balcón con sillones', 'Espacio para oficina', 'Refrigerador y conservadora', 'Calefacción a pellet y eléctrica'],
+      notas: 'Sector tranquilo y de fácil acceso.'
+    },
+    {
+      id: 2, tipo: 'arriendo', estado: 'disponible', fotos: 12,
+      titulo: 'Casa de dos pisos con quincho',
+      lugar: 'Reina Luisa, Osorno',
+      precio: '$500.000', precioNota: 'Mensual · sin muebles',
+      datos: [['3', 'Dormitorios'], ['1', 'Baño'], ['2', 'Estacionamientos'], ['Pellet', 'Calefacción']],
+      corto: ['3 dorm.', '1 baño', 'Quincho'],
+      caracteristicas: ['Sala de estar', 'Cocina con muebles', 'Aire acondicionado', 'Estufa a pellet', 'Bodega', 'Cortinas roller', 'Quincho', 'Patio trasero y antejardín'],
+      notas: 'Se entrega sin muebles. No se aceptan mascotas.'
+    },
+    {
+      id: 3, tipo: 'arriendo', estado: 'disponible', fotos: 7,
+      titulo: 'Cabaña amoblada para grupos de trabajo',
+      lugar: 'Sector Oriente, Osorno',
+      precio: '$180.000', precioNota: 'Por persona',
+      datos: [['3', 'Dormitorios independientes'], ['Wi-Fi', 'Alta velocidad'], ['Sí', 'Estacionamiento seguro'], ['Sí', 'Lavadora']],
+      corto: ['3 dorm.', 'Wi-Fi', 'Amoblada'],
+      caracteristicas: ['Cocina completa abierta', 'Totalmente equipada y amoblada', 'TV cable', 'Aire acondicionado', 'Incluye lavadora', 'Estacionamiento seguro'],
+      notas: 'Cabaña interior, a pasos de Av. Diego de Almagro y Hernando de Magallanes.'
+    },
+    {
+      id: 1, tipo: 'venta', estado: 'disponible', fotos: 4,
+      titulo: 'Casa para inversión en Ovejería',
+      lugar: 'Felizardo Asenjo 215, Ovejería, Osorno',
+      precio: '$70.000.000', precioNota: 'Precio conversable',
+      datos: [['269 m²', 'Terreno'], ['137 m²', 'Construcción']],
+      corto: ['269 m² terreno', '137 m² const.'],
+      caracteristicas: ['Ideal para inversión', 'Patio con espacio verde'],
+      notas: 'Consultas y visitas coordinadas con Alejandra.'
+    },
+    {
+      id: 6, tipo: 'arriendo', estado: 'arrendada', fotos: 9,
+      titulo: 'Cabaña amoblada con agua e internet incluidos',
+      lugar: 'Camino a Puerto Octay, Loteo Doña Catalina',
+      precio: '$450.000', precioNota: 'Mensual · ya arrendada',
+      datos: [['2', 'Dormitorios'], ['1', 'Baño'], ['5 min', 'De Osorno'], ['Incluidos', 'Agua e internet']],
+      corto: ['2 dorm.', '1 baño', 'Amoblada'],
+      caracteristicas: ['Living-comedor', 'Cocina equipada', 'Totalmente amoblada', 'Portón eléctrico', 'Agua incluida', 'Internet incluido'],
+      notas: 'Esta cabaña ya se arrendó. Si buscas algo parecido, escríbeme y te aviso cuando aparezca.'
+    }
+  ];
+
+  const foto = (id, n) => `img/p${id}-${String(n).padStart(2, '0')}.jpg`;
+  const etiqueta = p => p.estado === 'arrendada' ? ['arrendada', 'Arrendada'] : p.tipo === 'venta' ? ['venta', 'Se vende'] : ['', 'Se arrienda'];
+
+  // Fichas
+  const grilla = document.getElementById('grilla');
+  grilla.innerHTML = PROPIEDADES.map(p => {
+    const [clase, texto] = etiqueta(p);
+    return `
+    <article class="ficha${p.estado !== 'disponible' ? ' no-disponible' : ''}" data-tipo="${p.tipo}">
+      <button class="ficha-foto" type="button" data-abrir="${p.id}" aria-label="Ver fotos: ${p.titulo}">
+        <img src="${foto(p.id, 1)}" alt="${p.titulo}, ${p.lugar}" loading="lazy">
+        <span class="tag ${clase}">${texto}</span>
+        <span class="cuenta">${p.fotos} fotos</span>
+      </button>
+      <div class="ficha-cuerpo">
+        <span class="ficha-lugar">${p.lugar}</span>
+        <h3>${p.titulo}</h3>
+        <ul class="ficha-datos">${p.corto.map(d => `<li><b>${d}</b></li>`).join('')}</ul>
+        <div class="ficha-pie">
+          <p class="precio"><span>${p.precio}</span><small>${p.precioNota}</small></p>
+          <button class="ver-mas" type="button" data-abrir="${p.id}">Ver detalle →</button>
+        </div>
+      </div>
+    </article>`;
+  }).join('');
+
+  // Filtros + conteos
+  const disponibles = PROPIEDADES.filter(p => p.estado === 'disponible');
+  const cuenta = { todas: PROPIEDADES.length, arriendo: PROPIEDADES.filter(p => p.tipo === 'arriendo').length, venta: PROPIEDADES.filter(p => p.tipo === 'venta').length };
+  const botonesFiltro = document.querySelectorAll('[data-filtro]');
+  botonesFiltro.forEach(b => b.querySelector('small').textContent = cuenta[b.dataset.filtro]);
+  function filtrar(tipo) {
+    botonesFiltro.forEach(b => b.setAttribute('aria-pressed', b.dataset.filtro === tipo));
+    grilla.querySelectorAll('.ficha').forEach(f => f.hidden = tipo !== 'todas' && f.dataset.tipo !== tipo);
+  }
+  botonesFiltro.forEach(b => b.addEventListener('click', () => filtrar(b.dataset.filtro)));
+
+  const nArriendo = disponibles.filter(p => p.tipo === 'arriendo').length;
+  const nVenta = disponibles.filter(p => p.tipo === 'venta').length;
+  document.getElementById('hero-stock').innerHTML =
+    `<span>Hoy disponibles:</span>
+     <button type="button" data-ir="arriendo">${nArriendo} en arriendo</button>
+     <button type="button" data-ir="venta">${nVenta} en venta</button>`;
+  document.querySelectorAll('[data-ir]').forEach(b => b.addEventListener('click', () => {
+    filtrar(b.dataset.ir);
+    document.getElementById('propiedades').scrollIntoView();
+  }));
+
+  // Detalle con galería
+  const dialogo = document.getElementById('detalle');
+  const imgGrande = document.getElementById('galeria-img');
+  const miniaturas = document.getElementById('miniaturas');
+  let actual = null, indice = 1;
+
+  function mostrarFoto(n) {
+    indice = (n - 1 + actual.fotos) % actual.fotos + 1;
+    imgGrande.src = foto(actual.id, indice);
+    imgGrande.alt = `${actual.titulo}, foto ${indice} de ${actual.fotos}`;
+    document.getElementById('galeria-num').textContent = `${indice} / ${actual.fotos}`;
+    miniaturas.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-current', i + 1 === indice));
+  }
+
+  function abrir(id) {
+    actual = PROPIEDADES.find(p => p.id === id);
+    const [clase, texto] = etiqueta(actual);
+    const disponible = actual.estado === 'disponible';
+    miniaturas.innerHTML = Array.from({ length: actual.fotos }, (_, i) =>
+      `<button type="button" aria-label="Foto ${i + 1}"><img src="${foto(actual.id, i + 1)}" alt="" loading="lazy"></button>`).join('');
+    miniaturas.querySelectorAll('button').forEach((b, i) => b.addEventListener('click', () => mostrarFoto(i + 1)));
+    document.getElementById('detalle-info').innerHTML = `
+      <button class="cerrar" type="button" aria-label="Cerrar">×</button>
+      <span class="tag ${clase}">${texto}</span>
+      <h3 id="detalle-titulo">${actual.titulo}</h3>
+      <span class="ficha-lugar">${actual.lugar}</span>
+      <p class="precio">${actual.precio}<small>${actual.precioNota}</small></p>
+      <ul class="detalle-datos">${actual.datos.map(([v, l]) => `<li><b>${v}</b>${l}</li>`).join('')}</ul>
+      <h4>Características</h4>
+      <ul class="caracteristicas">${actual.caracteristicas.map(c => `<li>${c}</li>`).join('')}</ul>
+      <p class="notas">${actual.notas}</p>
+      ${disponible
+        ? `<a class="btn btn-rojo" href="#visita" data-agendar="${actual.id}">Agendar visita a esta propiedad</a>`
+        : `<a class="btn btn-linea" href="https://ig.me/m/correapropiedades_" target="_blank" rel="noopener">Avísame si aparece una similar</a>`}`;
+    dialogo.querySelector('.cerrar').addEventListener('click', () => dialogo.close());
+    const agendar = dialogo.querySelector('[data-agendar]');
+    if (agendar) agendar.addEventListener('click', () => {
+      document.getElementById('f-propiedad').value = actual.id;
+      dialogo.close();
+    });
+    mostrarFoto(1);
+    dialogo.showModal();
+  }
+
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-abrir]');
+    if (b) abrir(Number(b.dataset.abrir));
+  });
+  dialogo.querySelector('.prev').addEventListener('click', () => mostrarFoto(indice - 1));
+  dialogo.querySelector('.next').addEventListener('click', () => mostrarFoto(indice + 1));
+  dialogo.addEventListener('click', e => { if (e.target === dialogo) dialogo.close(); });
+  dialogo.addEventListener('keydown', e => {
+    if (e.key === 'ArrowLeft') mostrarFoto(indice - 1);
+    if (e.key === 'ArrowRight') mostrarFoto(indice + 1);
+  });
+
+  // Formulario de visita
+  const selectProp = document.getElementById('f-propiedad');
+  selectProp.innerHTML = '<option value="">Elige una propiedad</option>' +
+    disponibles.map(p => `<option value="${p.id}">${p.tipo === 'venta' ? 'Venta' : 'Arriendo'} · ${p.titulo} (${p.lugar})</option>`).join('');
+  const hoy = new Date();
+  document.getElementById('f-fecha').min = hoy.toISOString().slice(0, 10);
+  document.getElementById('form-visita').addEventListener('submit', e => {
+    e.preventDefault();
+    const datos = new FormData(e.target);
+    const p = PROPIEDADES.find(x => x.id === Number(datos.get('propiedad')));
+    const dia = new Date(datos.get('fecha') + 'T12:00').toLocaleDateString('es-CL', { weekday: 'long', day: 'numeric', month: 'long' });
+    document.getElementById('ok-texto').textContent =
+      `Gracias, ${datos.get('nombre').split(' ')[0]}. Te escribiré al ${datos.get('telefono')} para confirmar la visita a «${p.titulo}» el ${dia}.`;
+    document.getElementById('formulario').classList.add('enviado');
+  });
+
+  // Letrero: alterna entre "Se arrienda" y "Se vende"
+  const palabra = document.getElementById('letrero-palabra');
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const textos = ['Se arrienda', 'Se vende'];
+    let t = 0;
+    setInterval(() => {
+      palabra.classList.add('girando');
+      setTimeout(() => { t = 1 - t; palabra.textContent = textos[t]; palabra.classList.remove('girando'); }, 350);
+    }, 3600);
+  }
+
+  // Menú móvil
+  const botonMenu = document.querySelector('.menu-boton');
+  const menu = document.getElementById('menu');
+  botonMenu.addEventListener('click', () => {
+    const abierto = menu.classList.toggle('abierto');
+    botonMenu.setAttribute('aria-expanded', abierto);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('abierto');
+    botonMenu.setAttribute('aria-expanded', false);
+  }));
+
+  // Footer con fecha dinámica
+  document.getElementById('anio').textContent = hoy.getFullYear();
+  document.getElementById('fecha-hoy').textContent = hoy.toLocaleDateString('es-CL', { day: 'numeric', month: 'long', year: 'numeric' });
+</script>
+</body>
+</html>
