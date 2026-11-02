@@ -137,10 +137,10 @@
   /* ---------- modal ---------- */
   dialog.detalle{border:0;padding:0;width:min(1080px,100% - 32px);max-height:calc(100dvh - 32px);margin:auto;background:var(--blanco);color:var(--tinta);border-radius:2px;overflow:auto}
   dialog.detalle::backdrop{background:rgba(28,27,29,.72)}
-  .detalle-grid{display:grid;grid-template-columns:1.25fr 1fr}
+  .detalle-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)}
   .galeria{background:var(--tinta);position:relative;display:flex;flex-direction:column}
-  .galeria-principal{position:relative;flex:1;min-height:360px}
-  .galeria-principal img{width:100%;height:100%;max-height:72dvh;object-fit:contain;position:absolute;inset:0}
+  .galeria-principal{position:relative;flex:1;min-height:min(68dvh,620px)}
+  .galeria-principal img{width:100%;height:100%;object-fit:contain;object-position:center;position:absolute;inset:0}
   .galeria-flecha{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:46px;border:0;border-radius:50%;background:rgba(255,255,255,.92);color:var(--tinta);font-size:1.3rem;display:grid;place-items:center}
   .galeria-flecha:hover{background:var(--rojo);color:var(--blanco)}
   .galeria-flecha.prev{left:12px}
@@ -243,9 +243,8 @@
   @media (max-width:1020px){
     .grilla{grid-template-columns:repeat(2,1fr)}
     .hero .contenedor,.alejandra .contenedor,.visita .contenedor{gap:48px}
-    .detalle-grid{grid-template-columns:1fr}
-    .galeria-principal{min-height:0;aspect-ratio:4/3}
-    .galeria-principal img{max-height:none}
+    .detalle-grid{grid-template-columns:minmax(0,1fr)}
+    .galeria-principal{flex:none;min-height:0;height:min(62dvh,520px)}
   }
   @media (max-width:860px){
     .menu-boton{display:block}
