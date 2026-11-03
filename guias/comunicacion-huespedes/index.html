@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cómo comunicarte con los huéspedes de tu hotel · Guía en español</title>
+  <meta name="description" content="Qué canal prefieren los huéspedes y qué quieren leer antes, durante y después de la estadía. Guía basada en una encuesta a 190 huéspedes, traducida al español.">
+  <meta property="og:title" content="Cómo comunicarte con los huéspedes de tu hotel">
+  <meta property="og:description" content="Email antes, mensaje durante, email después: lo que dicen los datos de 190 huéspedes.">
+  <meta property="og:image" content="https://teocicciari.com.ar/img/overview.png">
+  <link rel="shortcut icon" href="../../img/fav.png" type="image/x-icon">
+  <link rel="preload" href="../../fonts/Space_Grotesk/SpaceGrotesk[wght].woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    @font-face {
+      font-family: 'Space Grotesk';
+      src: url('../../fonts/Space_Grotesk/SpaceGrotesk[wght].woff2') format('woff2-variations');
+      font-weight: 300 700;
+      font-display: swap;
+    }
+
+    /* Tokens de marca (espejo del :root de style.css) */
+    :root {
+      --bg: #1a2f1a;
+      --bg-elev: #2d422d;
+      --bg-deep: #142514;
+      --accent: #7ac142;
+      --accent-hi: #92d45e;
+      --text: #f1f7eb;
+      --text-2: #b8c5b8;
+      --moss: #567a45;
+      --sage: #8fa58a;
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(122, 193, 66, 0.45);
+      --accent-soft: rgba(122, 193, 66, 0.12);
+      --glow: 0 0 40px rgba(122, 193, 66, 0.15);
+
+      --fs-display: clamp(2.4rem, 6vw, 4.6rem);
+      --fs-h2: clamp(1.7rem, 3.4vw, 2.6rem);
+      --fs-h3: 1.15rem;
+      --fs-body: 1.0625rem;
+      --fs-small: 0.875rem;
+
+      --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-pill: 50px;
+      --ease: cubic-bezier(0.22, 1, 0.36, 1);
+      --wrap: 1180px;
+      --pad: clamp(1.25rem, 4vw, 3rem);
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: var(--fs-body);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3 { letter-spacing: -0.02em; line-height: 1.12; font-weight: 600; }
+    a { color: var(--accent); }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 var(--pad); }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ── Barra superior ── */
+    .topbar {
+      border-bottom: 1px solid var(--border);
+      font-size: var(--fs-small);
+      color: var(--text-2);
+    }
+    .topbar .wrap { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding-top: 14px; padding-bottom: 14px; }
+    .topbar a { color: var(--text); text-decoration: none; font-weight: 500; }
+    .topbar a:hover { color: var(--accent); }
+
+    /* ── Hero ── */
+    .hero { padding: clamp(3.5rem, 9vw, 7rem) 0 clamp(3rem, 6vw, 5rem); }
+    .hero h1 { font-size: var(--fs-display); max-width: 15ch; margin: 18px 0 22px; font-weight: 600; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero .lead { font-size: clamp(1.1rem, 1.8vw, 1.3rem); color: var(--text-2); max-width: 46ch; }
+
+    /* Firma: la línea de la estadía */
+    .journey {
+      margin-top: clamp(3rem, 6vw, 4.5rem);
+      position: relative;
+      background: var(--bg-deep);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+    }
+    .journey-body { position: relative; }
+    .journey-grid { display: grid; grid-template-columns: repeat(3, 1fr); position: relative; z-index: 1; }
+    .phase { padding: 28px 28px 104px; position: relative; }
+    .phase + .phase { border-left: 1px dashed rgba(122, 193, 66, 0.35); }
+    .phase-tag { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-2); font-weight: 600; }
+    .phase-channel { font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; letter-spacing: -0.02em; margin: 8px 0 4px; }
+    .phase-channel small { display: block; font-size: var(--fs-small); font-weight: 400; color: var(--text-2); letter-spacing: 0; margin-top: 2px; }
+    .phase-read { margin-top: 36px; font-size: var(--fs-small); color: var(--text-2); }
+    .phase-read b { display: block; font-size: 2rem; color: var(--text); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+    .phase-read b span { font-size: 1rem; color: var(--text-2); font-weight: 400; }
+    .marker {
+      position: absolute; top: 0; left: -1px; transform: translateX(-50%);
+      background: var(--accent); color: var(--bg);
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 0 0 var(--r-sm) var(--r-sm); white-space: nowrap;
+    }
+    .curve { position: absolute; inset: auto 0 0 0; height: 84px; width: 100%; z-index: 0; pointer-events: none; }
+    .curve path.line { fill: none; stroke: var(--accent); stroke-width: 2.5; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .curve path.area { fill: url(#curveFill); }
+    .journey-caption { padding: 14px 28px; border-top: 1px solid var(--border); font-size: var(--fs-small); color: var(--text-2); position: relative; z-index: 1; background: var(--bg-deep); }
+
+    /* ── Secciones ── */
+    section { padding: clamp(3.5rem, 8vw, 6rem) 0; }
+    section + section { border-top: 1px solid var(--border); }
+    .sec-head { max-width: 640px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+    .sec-head h2 { font-size: var(--fs-h2); margin: 12px 0 14px; }
+    .sec-head p { color: var(--text-2); }
+
+    /* Contexto */
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .fact { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px; }
+    .fact b { display: block; font-size: 2.4rem; font-weight: 600; letter-spacing: -0.03em; line-height: 1; margin-bottom: 10px; }
+    .fact b.hi { color: var(--accent); }
+    .fact p { color: var(--text-2); font-size: 0.95rem; }
+    .ages { margin-top: 16px; background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px; }
+    .ages h3 { font-size: var(--fs-h3); margin-bottom: 14px; }
+    .stack { display: flex; height: 44px; border-radius: var(--r-sm); overflow: hidden; gap: 2px; }
+    .stack span { display: flex; align-items: center; padding: 0 12px; font-size: 0.85rem; font-weight: 600; white-space: nowrap; overflow: hidden; }
+    .stack .s1 { flex: 39; background: var(--accent); color: var(--bg); }
+    .stack .s2 { flex: 26; background: var(--moss); }
+    .stack .s3 { flex: 21; background: #3f5c34; }
+    .stack .s4 { flex: 14; background: rgba(255,255,255,.08); color: var(--text-2); }
+    .stack-legend { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 12px; font-size: var(--fs-small); color: var(--text-2); }
+
+    /* Fases */
+    .phase-sec .layout { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+    .phase-sec .intro { position: sticky; top: 32px; }
+    .step { display: flex; align-items: baseline; gap: 12px; }
+    .step-n { font-size: 0.8rem; color: var(--text-2); font-weight: 500; letter-spacing: 0.08em; }
+    .phase-sec h2 { font-size: var(--fs-h2); margin: 12px 0 16px; }
+    .phase-sec .intro p { color: var(--text-2); margin-bottom: 14px; }
+    .phase-sec .intro p strong { color: var(--text); font-weight: 600; }
+    .verdict {
+      margin-top: 22px; display: inline-flex; align-items: center; gap: 10px;
+      border: 1px solid var(--border-hover); background: var(--accent-soft);
+      border-radius: var(--r-pill); padding: 8px 16px; font-size: 0.9rem; font-weight: 500;
+    }
+    .verdict::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+
+    .charts { display: grid; gap: 16px; }
+    .chart { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-md); padding: 24px; }
+    .chart-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin-bottom: 18px; }
+    .chart h3 { font-size: 1rem; font-weight: 600; letter-spacing: -0.01em; }
+    .chart .unit { font-size: 0.75rem; color: var(--text-2); white-space: nowrap; }
+    .bars { list-style: none; display: grid; gap: 12px; }
+    .bar { display: grid; grid-template-columns: minmax(0, 15rem) 1fr 2.6rem; align-items: center; gap: 14px; font-size: 0.9rem; }
+    .bar-label { color: var(--text-2); line-height: 1.35; }
+    .bar-track { height: 12px; background: rgba(255,255,255,.05); border-radius: 6px; overflow: hidden; }
+    .bar-fill {
+      display: block; height: 100%; border-radius: 6px; background: var(--sage);
+      width: calc(var(--v) * 10%);
+      transform-origin: left; transform: scaleX(0);
+      transition: transform 1.1s var(--ease);
+    }
+    .bar.top .bar-fill { background: var(--accent); }
+    .bar.top .bar-label { color: var(--text); font-weight: 500; }
+    .bar.low .bar-fill { background: var(--moss); }
+    .bar-val { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .bars.no-val .bar { grid-template-columns: minmax(0, 15rem) 1fr; }
+    .is-visible .bar-fill { transform: scaleX(1); }
+    .bars li:nth-child(2) .bar-fill { transition-delay: .06s; }
+    .bars li:nth-child(3) .bar-fill { transition-delay: .12s; }
+    .bars li:nth-child(4) .bar-fill { transition-delay: .18s; }
+    .bars li:nth-child(5) .bar-fill { transition-delay: .24s; }
+    .bars li:nth-child(6) .bar-fill { transition-delay: .30s; }
+    .bars li:nth-child(7) .bar-fill { transition-delay: .36s; }
+    .chart-note { margin-top: 14px; font-size: 0.78rem; color: var(--text-2); opacity: .85; }
+
+    /* Nube de palabras */
+    .cloud {
+      background: var(--bg-deep); border: 1px solid var(--border); border-radius: var(--r-lg);
+      padding: clamp(2rem, 5vw, 3.5rem);
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline;
+      gap: 6px 22px; line-height: 1.15; text-align: center;
+    }
+    .cloud span { letter-spacing: -0.02em; color: var(--text-2); }
+    .cloud .xl { font-size: clamp(2.8rem, 8vw, 5.6rem); font-weight: 700; color: var(--accent); }
+    .cloud .l  { font-size: clamp(1.7rem, 4.2vw, 2.9rem); font-weight: 600; color: var(--text); }
+    .cloud .m  { font-size: clamp(1.25rem, 2.6vw, 1.8rem); font-weight: 500; color: var(--text); }
+    .cloud .s  { font-size: clamp(1rem, 1.8vw, 1.25rem); font-weight: 400; }
+    .cloud .xs { font-size: 0.95rem; font-weight: 400; opacity: .7; }
+    .cloud .acc { color: var(--accent); }
+
+    /* Conclusiones */
+    .takeaways { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .take {
+      background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--r-md);
+      padding: 26px; transition: border-color .3s var(--ease), box-shadow .3s var(--ease);
+    }
+    .take:hover { border-color: var(--border-hover); box-shadow: var(--glow); }
+    .take .when { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+    .take h3 { font-size: 1.2rem; margin: 10px 0 8px; }
+    .take p { color: var(--text-2); font-size: 0.97rem; }
+
+    .local {
+      margin-top: 28px; border-left: 3px solid var(--accent); padding: 6px 0 6px 22px; max-width: 760px;
+    }
+    .local p { color: var(--text-2); }
+    .local strong { color: var(--text); }
+
+    /* Fuente */
+    .source { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem, 4vw, 3rem); font-size: 0.95rem; color: var(--text-2); }
+    .source h3 { font-size: 1rem; color: var(--text); margin-bottom: 8px; }
+    .source ul { list-style: none; display: grid; gap: 6px; }
+
+    /* Banner de autor */
+    .author {
+      background: var(--bg-elev); border: 1px solid var(--border-hover); border-radius: var(--r-lg);
+      padding: clamp(2rem, 5vw, 3.5rem); box-shadow: var(--glow);
+      display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+    }
+    .author h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 10px 0 10px; }
+    .author p { color: var(--text-2); max-width: 52ch; }
+    .btn {
+      display: inline-block; text-decoration: none; white-space: nowrap;
+      background: var(--accent); color: var(--bg); font-weight: 600; letter-spacing: 0.04em;
+      padding: 15px 28px; border-radius: var(--r-pill); box-shadow: var(--glow);
+      transition: background .15s var(--ease), transform .15s var(--ease);
+    }
+    .btn:hover { background: var(--accent-hi); transform: translateY(-1px); }
+
+    footer { border-top: 1px solid var(--border); padding: 28px 0 40px; font-size: var(--fs-small); color: var(--text-2); }
+    footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Entrada */
+    .fade-in { opacity: 0; transform: translateY(16px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+    .fade-in.is-visible { opacity: 1; transform: none; }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .phase-sec .layout { grid-template-columns: 1fr; }
+      .phase-sec .intro { position: static; }
+      .takeaways, .source { grid-template-columns: 1fr; }
+      .author { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+      .journey-grid { grid-template-columns: 1fr; }
+      .phase { padding: 30px 22px 24px; }
+      .phase + .phase { border-left: 0; border-top: 1px dashed rgba(122, 193, 66, 0.35); }
+      .marker { left: 22px; top: -1px; transform: none; }
+      .phase-read { margin-top: 14px; }
+      .curve { display: none; }
+      .facts { grid-template-columns: 1fr; }
+      .bar { grid-template-columns: 1fr 2.6rem; gap: 6px 12px; }
+      .bar-label { grid-column: 1 / -1; }
+      .bars.no-val .bar { grid-template-columns: 1fr; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .fade-in, .fade-in.is-visible { opacity: 1; transform: none; transition: none; }
+      .bar-fill { transform: none; transition: none; }
+      .btn, .take { transition: none; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1042886832145100');
+  fbq('track', 'PageView');
+  </script>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+  src="https://www.facebook.com/tr?id=1042886832145100&ev=PageView&noscript=1"
+  ></noscript>
+
+  <div class="topbar">
+    <div class="wrap">
+      <a href="../../">← Teo Cicciari · Diseño web</a>
+      <span>Guía traducida al español</span>
+    </div>
+  </div>
+
+  <main>
+    <!-- HERO -->
+    <header class="hero">
+      <div class="wrap">
+        <span class="eyebrow">Guía · Comunicación con huéspedes</span>
+        <h1>Cómo comunicarte con los huéspedes de tu <em>hotel</em></h1>
+        <p class="lead">Qué canal prefieren y qué quieren leer antes, durante y después de la estadía, según una encuesta a 190 huéspedes.</p>
+
+        <div class="journey fade-in" role="region" aria-label="Resumen: canal preferido y nivel de lectura en cada momento de la estadía">
+          <div class="journey-body">
+          <div class="journey-grid">
+            <div class="phase">
+              <span class="phase-tag">Antes de llegar</span>
+              <p class="phase-channel">Email<small>después, SMS</small></p>
+              <p class="phase-read"><b>8,1<span>/10</span></b>siempre lo abren</p>
+            </div>
+            <div class="phase">
+              <span class="marker">Check-in</span>
+              <span class="phase-tag">Durante la estadía</span>
+              <p class="phase-channel">Mensaje<small>SMS / WhatsApp, casi empatado con email</small></p>
+              <p class="phase-read"><b>6,7<span>/10</span></b>siempre lo abren</p>
+            </div>
+            <div class="phase">
+              <span class="marker">Check-out</span>
+              <span class="phase-tag">Después de irse</span>
+              <p class="phase-channel">Email<small>por lejos</small></p>
+              <p class="phase-read"><b>5,3<span>/10</span></b>siempre lo abren</p>
+            </div>
+          </div>
+          <svg class="curve" viewBox="0 0 300 84" preserveAspectRatio="none" aria-hidden="true">
+            <defs>
+              <linearGradient id="curveFill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7ac142" stop-opacity=".22"/>
+                <stop offset="1" stop-color="#7ac142" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <!-- y = 84 - (valor-4)*15 aprox. (8,1 → 14 · 6,7 → 38 · 5,3 → 62) -->
+            <path class="area" d="M0,14 L85,14 C100,14 100,38 115,38 L185,38 C200,38 200,62 215,62 L300,62 L300,84 L0,84 Z"/>
+            <path class="line" d="M0,14 L85,14 C100,14 100,38 115,38 L185,38 C200,38 200,62 215,62 L300,62"/>
+          </svg>
+          </div>
+          <p class="journey-caption">El interés cae a medida que avanza la estadía: lo más importante va en el mensaje previo a la llegada.</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- CONTEXTO -->
+    <section id="contexto">
+      <div class="wrap">
+        <div class="sec-head fade-in">
+          <span class="eyebrow">Para ponerte en contexto</span>
+          <h2>Comunicarte bien también se traduce en ingresos</h2>
+          <p>Un buen plan de comunicación aumenta las ventas adicionales (antes de la llegada y durante la estadía), genera fidelidad y hace que los huéspedes vuelvan más seguido. Torrens University Australia y Blue Mountains International Hotel Management School encuestaron a huéspedes australianos sobre cómo prefieren que se comuniquen con ellos los hoteles. Estos son los hallazgos principales.</p>
+        </div>
+
+        <div class="facts">
+          <div class="fact fade-in"><b class="hi">+46%</b><p>gastan en promedio los huéspedes muy comprometidos con el alojamiento, frente a los que no lo están.</p></div>
+          <div class="fact fade-in"><b>190</b><p>personas respondieron la encuesta.</p></div>
+          <div class="fact fade-in"><b>2 a 5</b><p>veces por año se aloja en hoteles más de la mitad de los encuestados.</p></div>
+        </div>
+
+        <div class="ages fade-in">
+          <h3>Edad de los encuestados</h3>
+          <div class="stack" role="img" aria-label="35 a 44 años: 39%. 45 a 54: 26%. 25 a 34: 21%. Resto: 14%.">
+            <span class="s1">39%</span><span class="s2">26%</span><span class="s3">21%</span><span class="s4">14%</span>
+          </div>
+          <div class="stack-legend">
+            <span>35–44 años · 39%</span><span>45–54 · 26%</span><span>25–34 · 21%</span><span>Resto de las franjas · 14%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANTES -->
+    <section class="phase-sec" id="antes">
+      <div class="wrap layout">
+        <div class="intro fade-in">
+          <div class="step"><span class="eyebrow">Antes de la estadía</span><span class="step-n">1 de 3</span></div>
+          <h2>Lo que más se lee es el resumen de la reserva</h2>
+          <p>La gran mayoría prefiere recibir los mensajes previos a la llegada por <strong>email</strong> o por <strong>mensaje de texto</strong>. Aunque se separen las respuestas por edad, hay poca diferencia. El email sale primero, y las notificaciones dentro de una app tienen poca aceptación.</p>
+          <p>Estos mensajes casi siempre se abren, pero el nivel real de interacción es bastante más bajo. Lo que la gente quiere ver es un <strong>resumen de su reserva</strong> e información útil sobre el hotel, sus servicios y la zona. Las promociones y los servicios pagos despiertan menos interés.</p>
+          <span class="verdict">Canal por defecto: email</span>
+        </div>
+        <div class="charts">
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Canal preferido</h3><span class="unit">proporción relativa</span></div>
+            <ul class="bars no-val">
+              <li class="bar top"><span class="bar-label">Email</span><span class="bar-track"><span class="bar-fill" style="--v:10"></span></span></li>
+              <li class="bar"><span class="bar-label">Mensaje de texto / SMS</span><span class="bar-track"><span class="bar-fill" style="--v:6.7"></span></span></li>
+              <li class="bar low"><span class="bar-label">Llamada telefónica</span><span class="bar-track"><span class="bar-fill" style="--v:1.3"></span></span></li>
+              <li class="bar low"><span class="bar-label">Otro (por ejemplo, notificaciones de una app)</span><span class="bar-track"><span class="bar-fill" style="--v:0.6"></span></span></li>
+            </ul>
+          </div>
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Cómo interactúan con el mensaje</h3><span class="unit">promedio 0–10</span></div>
+            <ul class="bars">
+              <li class="bar top"><span class="bar-label">Siempre lo abro / lo leo</span><span class="bar-track"><span class="bar-fill" style="--v:8.1"></span></span><span class="bar-val">8,1</span></li>
+              <li class="bar"><span class="bar-label">Leo todo el contenido</span><span class="bar-track"><span class="bar-fill" style="--v:5.7"></span></span><span class="bar-val">5,7</span></li>
+              <li class="bar"><span class="bar-label">Hago clic en servicios adicionales u ofertas</span><span class="bar-track"><span class="bar-fill" style="--v:4.2"></span></span><span class="bar-val">4,2</span></li>
+            </ul>
+          </div>
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Qué quieren leer</h3><span class="unit">promedio 0–10</span></div>
+            <ul class="bars">
+              <li class="bar top"><span class="bar-label">Detalles o resumen de la reserva</span><span class="bar-track"><span class="bar-fill" style="--v:9.7"></span></span><span class="bar-val">9,7</span></li>
+              <li class="bar"><span class="bar-label">Información general del hotel y sus servicios</span><span class="bar-track"><span class="bar-fill" style="--v:7.5"></span></span><span class="bar-val">7,5</span></li>
+              <li class="bar"><span class="bar-label">Hotel y servicios, personalizado según mi perfil de viajero</span><span class="bar-track"><span class="bar-fill" style="--v:6.1"></span></span><span class="bar-val">6,1</span></li>
+              <li class="bar"><span class="bar-label">La zona, personalizado según mi perfil de viajero</span><span class="bar-track"><span class="bar-fill" style="--v:5.2"></span></span><span class="bar-val">5,2</span></li>
+              <li class="bar"><span class="bar-label">Información general de la zona</span><span class="bar-track"><span class="bar-fill" style="--v:5.1"></span></span><span class="bar-val">5,1</span></li>
+              <li class="bar"><span class="bar-label">Productos o servicios para sumar a la estadía</span><span class="bar-track"><span class="bar-fill" style="--v:5.0"></span></span><span class="bar-val">5,0</span></li>
+              <li class="bar low"><span class="bar-label">Promociones para futuras estadías o eventos del hotel</span><span class="bar-track"><span class="bar-fill" style="--v:3.4"></span></span><span class="bar-val">3,4</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DURANTE -->
+    <section class="phase-sec" id="durante">
+      <div class="wrap layout">
+        <div class="intro fade-in">
+          <div class="step"><span class="eyebrow">Durante la estadía</span><span class="step-n">2 de 3</span></div>
+          <h2>Ya instalado, el huésped prefiere un mensaje</h2>
+          <p>Una vez que llega, el canal preferido pasa del email al <strong>mensaje de texto</strong>, aunque el email sigue muy cerca. El patrón se repite en todas las franjas de edad, con una leve preferencia por el email entre los 15 y los 34 años.</p>
+          <p>La interacción es más baja que antes de la llegada, pero la disposición a mirar ofertas <strong>sube un poco</strong>. Lo que más importa en esta etapa son los <strong>datos de facturación y las instrucciones de check-out</strong>. También valoran que les pregunten cómo va la estadía. Para la próxima reserva, en cambio, todavía es muy temprano.</p>
+          <span class="verdict">Canal por defecto: mensaje</span>
+        </div>
+        <div class="charts">
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Canal preferido</h3><span class="unit">proporción relativa</span></div>
+            <ul class="bars no-val">
+              <li class="bar top"><span class="bar-label">Mensaje de texto / SMS</span><span class="bar-track"><span class="bar-fill" style="--v:10"></span></span></li>
+              <li class="bar"><span class="bar-label">Email</span><span class="bar-track"><span class="bar-fill" style="--v:9.5"></span></span></li>
+              <li class="bar low"><span class="bar-label">Llamada telefónica</span><span class="bar-track"><span class="bar-fill" style="--v:2.5"></span></span></li>
+              <li class="bar low"><span class="bar-label">Otro</span><span class="bar-track"><span class="bar-fill" style="--v:1.5"></span></span></li>
+            </ul>
+          </div>
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Cómo interactúan con el mensaje</h3><span class="unit">promedio 0–10</span></div>
+            <ul class="bars">
+              <li class="bar top"><span class="bar-label">Siempre lo abro / lo leo</span><span class="bar-track"><span class="bar-fill" style="--v:6.7"></span></span><span class="bar-val">6,7</span></li>
+              <li class="bar"><span class="bar-label">Leo todo el contenido</span><span class="bar-track"><span class="bar-fill" style="--v:5.1"></span></span><span class="bar-val">5,1</span></li>
+              <li class="bar"><span class="bar-label">Hago clic en servicios adicionales u ofertas</span><span class="bar-track"><span class="bar-fill" style="--v:4.6"></span></span><span class="bar-val">4,6</span></li>
+            </ul>
+          </div>
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Qué quieren leer</h3><span class="unit">promedio 0–10</span></div>
+            <ul class="bars">
+              <li class="bar top"><span class="bar-label">Datos de facturación</span><span class="bar-track"><span class="bar-fill" style="--v:8.7"></span></span><span class="bar-val">8,7</span></li>
+              <li class="bar"><span class="bar-label">Que pregunten cómo va la estadía</span><span class="bar-track"><span class="bar-fill" style="--v:6.7"></span></span><span class="bar-val">6,7</span></li>
+              <li class="bar"><span class="bar-label">Información sobre el hotel</span><span class="bar-track"><span class="bar-fill" style="--v:5.7"></span></span><span class="bar-val">5,7</span></li>
+              <li class="bar"><span class="bar-label">Promocionar o reservar instalaciones del hotel</span><span class="bar-track"><span class="bar-fill" style="--v:4.4"></span></span><span class="bar-val">4,4</span></li>
+              <li class="bar"><span class="bar-label">Ofrecer productos o servicios adicionales</span><span class="bar-track"><span class="bar-fill" style="--v:3.8"></span></span><span class="bar-val">3,8</span></li>
+              <li class="bar low"><span class="bar-label">Promocionar o reservar actividades externas</span><span class="bar-track"><span class="bar-fill" style="--v:2.6"></span></span><span class="bar-val">2,6</span></li>
+              <li class="bar low"><span class="bar-label">Reservar la próxima estadía</span><span class="bar-track"><span class="bar-fill" style="--v:1.4"></span></span><span class="bar-val">1,4</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DESPUÉS -->
+    <section class="phase-sec" id="despues">
+      <div class="wrap layout">
+        <div class="intro fade-in">
+          <div class="step"><span class="eyebrow">Después de la estadía</span><span class="step-n">3 de 3</span></div>
+          <h2>Cuando ya se fue, solo por email</h2>
+          <p>Para los mensajes posteriores a la estadía la preferencia es clarísima: <strong>email, por lejos</strong>. Y se mantiene firme en todas las franjas de edad, con su punto más alto entre los 35 y los 54 años.</p>
+          <p>Como era de esperar, tanto la apertura como la interacción en general caen una vez que el huésped terminó su estadía.</p>
+          <span class="verdict">Canal por defecto: email</span>
+        </div>
+        <div class="charts">
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Canal preferido</h3><span class="unit">proporción relativa</span></div>
+            <ul class="bars no-val">
+              <li class="bar top"><span class="bar-label">Email</span><span class="bar-track"><span class="bar-fill" style="--v:10"></span></span></li>
+              <li class="bar"><span class="bar-label">Mensaje de texto / SMS</span><span class="bar-track"><span class="bar-fill" style="--v:2.5"></span></span></li>
+              <li class="bar low"><span class="bar-label">Otro</span><span class="bar-track"><span class="bar-fill" style="--v:0.5"></span></span></li>
+              <li class="bar low"><span class="bar-label">Llamada telefónica</span><span class="bar-track"><span class="bar-fill" style="--v:0.4"></span></span></li>
+            </ul>
+          </div>
+          <div class="chart fade-in">
+            <div class="chart-head"><h3>Cómo interactúan con el mensaje</h3><span class="unit">promedio 0–10</span></div>
+            <ul class="bars">
+              <li class="bar top"><span class="bar-label">Siempre lo abro / lo leo</span><span class="bar-track"><span class="bar-fill" style="--v:5.3"></span></span><span class="bar-val">5,3</span></li>
+              <li class="bar"><span class="bar-label">Leo todo el contenido</span><span class="bar-track"><span class="bar-fill" style="--v:3.9"></span></span><span class="bar-val">3,9</span></li>
+              <li class="bar"><span class="bar-label">Hago clic en ofertas para futuras reservas o promociones</span><span class="bar-track"><span class="bar-fill" style="--v:3.7"></span></span><span class="bar-val">3,7</span></li>
+            </ul>
+            <p class="chart-note">Los puntajes son el promedio en una escala de 0 a 10, donde 10 es el comportamiento más frecuente o el contenido más deseado. Los valores son aproximados: el original los muestra solo como gráfico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NUBE -->
+    <section id="palabras">
+      <div class="wrap">
+        <div class="sec-head fade-in">
+          <span class="eyebrow">En sus propias palabras</span>
+          <h2>Qué quieren leer los huéspedes</h2>
+          <p>Las palabras que más se repitieron en las respuestas de los encuestados. Cuanto más grande, más frecuente.</p>
+        </div>
+        <div class="cloud fade-in" role="img" aria-label="Nube de palabras. Las más frecuentes: información, personalizar, check-in y check-out, relevante, servicio y reserva.">
+          <span class="s">Detalle</span><span class="m">Claridad</span><span class="xs">Atractivo</span>
+          <span class="m">Restaurante</span><span class="s acc">Especial</span><span class="xs">Cosas para hacer</span>
+          <span class="l acc">Relevante</span><span class="m">Oportuno</span><span class="s">Breve</span>
+          <span class="xs">Llegada</span><span class="xs">Dirección</span><span class="s">Ventas</span>
+          <span class="l">Personalizar</span><span class="xl">Información</span><span class="l">Check-in / out</span>
+          <span class="m">Hotel</span><span class="m acc">Promoción</span><span class="m">Oferta</span><span class="s">Estadía</span>
+          <span class="s">Horarios</span><span class="xs">Opción</span><span class="s">Zona</span><span class="xs">Comida</span>
+          <span class="l">Servicio</span><span class="m">Correcto</span><span class="m acc">Instalaciones</span>
+          <span class="s">Descuento</span><span class="m">Conciso</span><span class="l acc">Reserva</span>
+          <span class="m">Confirmación</span><span class="m">Precisa</span><span class="s">Informativo</span>
+          <span class="xs">Factura</span><span class="xs">Claro</span><span class="xs">Email</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSIONES -->
+    <section id="conclusiones">
+      <div class="wrap">
+        <div class="sec-head fade-in">
+          <span class="eyebrow">Conclusiones</span>
+          <h2>Qué nos dicen los datos</h2>
+        </div>
+        <div class="takeaways">
+          <article class="take fade-in">
+            <span class="when">En todos los mensajes</span>
+            <h3>Personalizá</h3>
+            <p>Todas las comunicaciones deberían tener contenido personalizado, directamente relacionado con las preferencias y el perfil del huésped.</p>
+          </article>
+          <article class="take fade-in">
+            <span class="when">Antes de la estadía</span>
+            <h3>Lo importante va primero</h3>
+            <p>Los mensajes previos a la llegada son, por lejos, los más leídos. Poné ahí lo más importante que tengas para decir.</p>
+          </article>
+          <article class="take fade-in">
+            <span class="when">Antes y después</span>
+            <h3>Email por defecto</h3>
+            <p>Usá el email antes y después de la estadía. Las llamadas y los mensajes de texto se pueden sentir invasivos, sobre todo cuando la estadía ya terminó.</p>
+          </article>
+          <article class="take fade-in">
+            <span class="when">Durante la estadía</span>
+            <h3>Mensaje, y si se puede, automatizado</h3>
+            <p>El mensaje de texto es el canal preferido mientras el huésped está alojado. Puede valer la pena automatizar esos envíos o sumar un chatbot.</p>
+          </article>
+          <article class="take fade-in">
+            <span class="when">Durante la estadía</span>
+            <h3>El mejor momento para ofrecer extras</h3>
+            <p>Los huéspedes alojados son los más dispuestos a explorar ofertas y servicios adicionales incluidos en tus mensajes.</p>
+          </article>
+          <article class="take fade-in">
+            <span class="when">Al medir resultados</span>
+            <h3>Medí clics, no solo aperturas</h3>
+            <p>Enfocate en el contenido y no solo en si abren el mensaje. La tasa de clics es tan importante como la tasa de apertura.</p>
+          </article>
+        </div>
+        <div class="local fade-in">
+          <p><strong>Nota para hospedajes de Argentina:</strong> la encuesta habla de "mensaje de texto" o SMS. Acá, ese lugar lo ocupa WhatsApp, y es el canal natural para la comunicación durante la estadía.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUENTE -->
+    <section id="fuente">
+      <div class="wrap">
+        <div class="sec-head fade-in">
+          <span class="eyebrow">Fuente</span>
+          <h2>Sobre esta guía</h2>
+        </div>
+        <div class="source fade-in">
+          <div>
+            <h3>Original</h3>
+            <p><em>How To Message Your Hotel Guests — A Data-Led Guide For Australian Properties</em>, publicada por <a href="https://www.mews.com/" target="_blank" rel="noopener">Mews</a> con datos de Torrens University Australia y Blue Mountains International Hotel Management School. Todos los datos y conclusiones son de esa publicación.</p>
+          </div>
+          <div>
+            <h3>Sobre la traducción</h3>
+            <ul>
+              <li>Traducida y adaptada al español rioplatense.</li>
+              <li>El original muestra los resultados solo como gráficos: los valores de esta versión se leyeron sobre la escala y son aproximados.</li>
+              <li>Los datos de canal preferido se muestran en proporción relativa, porque el original no indica valores.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER DE AUTOR -->
+    <section id="autor">
+      <div class="wrap">
+        <div class="author fade-in">
+          <div>
+            <span class="eyebrow">Diseño web</span>
+            <h2>Esta guía la tradujo y diseñó Teo Cicciari</h2>
+            <p>Diseño sitios para hospedajes que se comunican bien con sus huéspedes desde la primera reserva. Si querés uno para el tuyo, mirá referencias y precios.</p>
+          </div>
+          <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© <span id="fecha"></span> · Traducción de una guía de Mews / Torrens University Australia</span>
+      <span>Guía traducida y diseñada por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Fecha dinámica del footer
+    (function () {
+      var d = new Date();
+      var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+      document.getElementById('fecha').textContent = d.getDate() + ' de ' + meses[d.getMonth()] + ' de ' + d.getFullYear();
+    })();
+
+    // Entrada al hacer scroll (y relleno de barras)
+    (function () {
+      var els = document.querySelectorAll('.fade-in');
+      if (!('IntersectionObserver' in window)) {
+        els.forEach(function (el) { el.classList.add('is-visible'); });
+        return;
+      }
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('is-visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    })();
+  </script>
+</body>
+</html>
