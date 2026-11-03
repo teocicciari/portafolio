@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diseño web para hospedajes | Teo Cicciari</title>
+<meta name="description" content="Diseño tu sitio web a medida y me ocupo de que esté siempre al día: hosting, cambios de temporada y reporte mensual. Pedí tu boceto gratis, sin compromiso.">
+<meta name="robots" content="noindex,follow">
+<link rel="preload" href="../fonts/Space_Grotesk/SpaceGrotesk[wght].woff2" as="font" type="font/woff2" crossorigin>
+
+<!-- Meta Pixel Code (carga inmediata, fuera del loader lazy, para que Meta lo detecte) -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1042886832145100');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+
+<style>
+@font-face {
+    font-family: 'Space Grotesk';
+    src: url('../fonts/Space_Grotesk/SpaceGrotesk[wght].woff2') format('woff2-variations'),
+         url('../fonts/Space_Grotesk/SpaceGrotesk-VariableFont_wght.ttf') format('truetype-variations');
+    font-weight: 300 700;
+    font-display: swap;
+}
+
+:root {
+    /* Tokens de marca (espejo del :root de style.css) */
+    --bg: #1a2f1a;
+    --bg-elev: #2d422d;
+    --accent: #7ac142;
+    --accent-hi: #92d45e;
+    --text: #f1f7eb;
+    --text-2: #b8c5b8;
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(122, 193, 66, 0.45);
+    --accent-soft: rgba(122, 193, 66, 0.12);
+    --warn: #d9664f;
+    --glow: 0 0 40px rgba(122, 193, 66, 0.15);
+
+    --fs-display: clamp(2.2rem, 5vw, 3.4rem);
+    --fs-h2: clamp(1.5rem, 3vw, 2.1rem);
+    --fs-body: 1.0625rem;
+    --fs-small: 0.875rem;
+
+    --space-2: 8px; --space-3: 12px; --space-4: 16px;
+    --space-5: 24px; --space-6: 40px; --space-7: 64px; --space-8: 96px;
+    --radius-sm: 8px; --radius-md: 14px; --radius-lg: 20px; --radius-pill: 50px;
+    --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: var(--fs-body);
+    line-height: 1.6;
+}
+
+.wrap { max-width: 1040px; margin: 0 auto; padding-inline: var(--space-5); }
+
+a { color: inherit; }
+
+header.top {
+    padding-block: var(--space-5);
+}
+header.top .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 700; letter-spacing: -0.02em; font-size: 1.1rem; text-decoration: none; color: var(--text); }
+.logo span { color: var(--accent); }
+
+section { padding-block: var(--space-7); }
+
+.eyebrow {
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    font-size: var(--fs-small);
+    font-weight: 600;
+    color: var(--accent);
+    margin: 0 0 var(--space-3);
+}
+
+h1 {
+    font-size: var(--fs-display);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.12;
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin: 0 0 var(--space-5);
+    text-wrap: balance;
+}
+
+.lead {
+    color: var(--text-2);
+    max-width: 56ch;
+    margin: 0 0 var(--space-6);
+}
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: var(--accent);
+    color: #12210f;
+    font-weight: 600;
+    letter-spacing: .02em;
+    text-decoration: none;
+    padding: 16px 32px;
+    border-radius: var(--radius-pill);
+    box-shadow: var(--glow);
+    transition: background var(--ease-out) .15s, transform var(--ease-out) .15s;
+}
+.btn-primary:hover { background: var(--accent-hi); }
+.btn-primary:active { transform: scale(.97); }
+
+.reassure {
+    margin-top: var(--space-4);
+    font-size: var(--fs-small);
+    color: var(--text-2);
+}
+
+/* Hero */
+.hero { padding-top: var(--space-6); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-7); align-items: center; }
+
+.mock { position: relative; height: 320px; }
+.card {
+    position: absolute;
+    width: 280px;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    background: rgba(45, 66, 45, .55);
+    padding: var(--space-4);
+}
+.card.antes { top: 10px; left: 0; transform: rotate(-4deg); }
+.card.ahora {
+    top: 60px; left: 150px; transform: rotate(4deg);
+    background: var(--bg-elev);
+    border-color: var(--border-hover);
+    box-shadow: var(--glow);
+}
+.card .dots { display: flex; gap: 6px; margin-bottom: var(--space-3); }
+.card .dots span { width: 8px; height: 8px; border-radius: 50%; background: rgba(184,197,184,.4); display: block; }
+.card .hero-block { height: 64px; border-radius: var(--radius-sm); background: rgba(241,247,235,.06); margin-bottom: var(--space-3); }
+.card.ahora .hero-block { background: var(--accent-soft); }
+.card .line { height: 8px; border-radius: 4px; background: rgba(241,247,235,.14); margin-bottom: 8px; }
+.card .line.w60 { width: 60%; }
+.card .line.w35 { width: 35%; }
+.card.ahora .line { background: rgba(241,247,235,.35); }
+.card .cta-mini { width: 70px; height: 22px; border-radius: 11px; background: var(--accent); margin-top: var(--space-2); }
+.card .warn {
+    position: absolute; top: -10px; right: -10px;
+    background: var(--warn); color: var(--bg); font-size: 11px; font-weight: 700;
+    padding: 4px 8px; border-radius: 6px; letter-spacing: .02em;
+}
+.mock .arrow { position: absolute; top: 150px; left: 128px; font-size: 1.6rem; color: var(--accent); }
+
+/* Pasos */
+.pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+.paso { background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: var(--space-5); }
+.paso .num { color: var(--accent); font-weight: 700; font-size: 1.3rem; display: block; margin-bottom: var(--space-2); }
+.paso h3 { margin: 0 0 var(--space-2); font-size: 1.05rem; }
+.paso p { margin: 0; color: var(--text-2); font-size: var(--fs-small); }
+
+/* Incluye */
+.incluye-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-4) var(--space-6); }
+.incluye-item { display: flex; gap: var(--space-3); align-items: flex-start; }
+.incluye-item .check { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+.incluye-item p { margin: 0; }
+.incluye-item strong { display: block; margin-bottom: 2px; }
+.incluye-item span.muted { color: var(--text-2); font-size: var(--fs-small); }
+
+/* Portafolio */
+.portfolio-note {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: var(--space-5); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: var(--space-4);
+}
+.portfolio-note p { margin: 0; color: var(--text-2); }
+.portfolio-note a.link { color: var(--accent); font-weight: 600; text-decoration: none; white-space: nowrap; }
+.portfolio-note a.link:hover { text-decoration: underline; }
+
+/* Precios */
+#precios .price-card {
+    background: var(--bg-elev); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: var(--space-6);
+}
+.price-row { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-4); padding-block: var(--space-3); border-bottom: 1px solid var(--border); }
+.price-row:last-child { border-bottom: none; }
+.price-row .label { font-weight: 600; }
+.price-row .label small { display: block; color: var(--text-2); font-weight: 400; font-size: var(--fs-small); margin-top: 2px; }
+.price-row .amount { font-weight: 700; color: var(--accent-hi); white-space: nowrap; }
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid var(--border); padding-block: var(--space-4); }
+.faq-item h3 { margin: 0 0 var(--space-2); font-size: 1rem; }
+.faq-item p { margin: 0; color: var(--text-2); }
+
+/* CTA final */
+.cta-final { text-align: center; background: var(--bg-elev); border-radius: var(--radius-lg); padding: var(--space-7) var(--space-5); }
+.cta-final h2 { margin-bottom: var(--space-3); }
+.cta-final .lead { margin-inline: auto; margin-bottom: var(--space-5); }
+
+footer { border-top: 1px solid var(--border); padding: 28px 0 40px; font-size: var(--fs-small); color: var(--text-2); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 24px; }
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { text-decoration: underline; }
+
+@media (max-width: 768px) {
+    .hero .wrap { grid-template-columns: 1fr; }
+    .mock { height: 260px; }
+    .card { width: 230px; }
+    .card.ahora { left: 90px; }
+    .pasos { grid-template-columns: 1fr; }
+    .incluye-grid { grid-template-columns: 1fr; }
+    section { padding-block: var(--space-6); }
+}
+</style>
+</head>
+<body>
+<noscript><img height="1" width="1" style="display:none" alt=""
+src="https://www.facebook.com/tr?id=1042886832145100&ev=PageView&noscript=1"
+/></noscript>
+
+<header class="top">
+    <div class="wrap">
+        <a href="../index.html" class="logo">Teo <span>Cicciari</span></a>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="wrap">
+        <div>
+            <p class="eyebrow">Para dueños de hospedaje</p>
+            <h1>¿Tu sitio web está roto o todavía no tenés uno?</h1>
+            <p class="lead">Diseño tu sitio a medida y después me ocupo de que esté siempre al día: hosting, cambios de temporada y un reporte mensual de cuántas consultas te trae. Vos atendés tu hospedaje; de tu presencia online me encargo yo.</p>
+            <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20pedir%20mi%20boceto%20gratis%20para%20el%20sitio%20de%20mi%20hospedaje.%20" class="cta-boceto-btn btn-primary" target="_blank" rel="noopener">Escribime y pedí tu boceto gratis</a>
+            <p class="reassure">Sin compromiso · Te respondo el mismo día</p>
+        </div>
+        <div class="mock" aria-hidden="true">
+            <span class="eyebrow" style="position:absolute; top:-26px; left:0;">Antes</span>
+            <span class="eyebrow" style="position:absolute; top:24px; left:150px;">Ahora</span>
+            <div class="card antes">
+                <span class="warn">No seguro</span>
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="hero-block"></div>
+                <div class="line w60"></div>
+                <div class="line w35"></div>
+            </div>
+            <div class="card ahora">
+                <div class="dots"><span></span><span></span><span></span></div>
+                <div class="hero-block"></div>
+                <div class="line w60"></div>
+                <div class="line w35"></div>
+                <div class="cta-mini"></div>
+            </div>
+            <span class="arrow">→</span>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <h2>Cómo funciona</h2>
+        <div class="pasos">
+            <div class="paso">
+                <span class="num">1</span>
+                <h3>Me contás de tu hospedaje</h3>
+                <p>Nombre, fotos si tenés, y qué te gustaría que tenga el sitio. Dos minutos por WhatsApp.</p>
+            </div>
+            <div class="paso">
+                <span class="num">2</span>
+                <h3>Te armo el boceto</h3>
+                <p>En 3-5 días te mando el link para que lo veas funcionando, sin compromiso.</p>
+            </div>
+            <div class="paso">
+                <span class="num">3</span>
+                <h3>Si te gusta, lo publicamos</h3>
+                <p>Lo dejamos online esa misma semana, y me sigo ocupando yo de que funcione.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <h2>Qué incluye</h2>
+        <div class="incluye-grid">
+            <div class="incluye-item">
+                <span class="check">✓</span>
+                <p><strong>Diseño a medida</strong><span class="muted">Pensado para tu hospedaje, no una plantilla genérica.</span></p>
+            </div>
+            <div class="incluye-item">
+                <span class="check">✓</span>
+                <p><strong>Formulario de reserva o consulta</strong><span class="muted">Para que te lleguen las consultas directo a vos.</span></p>
+            </div>
+            <div class="incluye-item">
+                <span class="check">✓</span>
+                <p><strong>Optimizado para Google e IA</strong><span class="muted">Para que te encuentren cuando buscan dónde alojarse, en buscadores tradicionales y de IA.</span></p>
+            </div>
+            <div class="incluye-item">
+                <span class="check">✓</span>
+                <p><strong>Gestión mensual (opcional)</strong><span class="muted">Hosting, cambios de temporada y reporte mensual. Mes a mes, sin permanencia.</span></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <div class="portfolio-note">
+            <p>Ya diseñé y dejé funcionando sitios para hospedajes y negocios locales en distintos puntos del país.</p>
+            <a href="../index.html" class="link">Ver sitios que ya lancé →</a>
+        </div>
+    </div>
+</section>
+
+<section id="precios">
+    <div class="wrap">
+        <h2>Precios</h2>
+        <div class="price-card">
+            <div class="price-row">
+                <div class="label">Boceto<small>Para que veas cómo quedaría tu sitio</small></div>
+                <div class="amount">Gratis</div>
+            </div>
+            <div class="price-row">
+                <div class="label">Sitio a medida<small>Según el alcance del proyecto</small></div>
+                <div class="amount">USD 300-500</div>
+            </div>
+            <div class="price-row">
+                <div class="label">Gestión mensual (opcional)<small>Hosting, cambios y reporte mensual — mes a mes</small></div>
+                <div class="amount">USD 25/mes</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <h2>Preguntas frecuentes</h2>
+        <div class="faq-item">
+            <h3>¿Cuánto cuesta?</h3>
+            <p>El boceto es gratis y sin compromiso. Si después querés dejarlo online, el sitio sale USD 300-500 según el alcance. La gestión mensual es opcional, USD 25/mes, mes a mes.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cómo sigue después de pedir mi boceto?</h3>
+            <p>Te pido 2-3 datos del hospedaje (nombre, fotos si tenés, qué querés que tenga) y en unos días te mando el boceto para que lo veas funcionando. Recién ahí decidís si lo publicamos.</p>
+        </div>
+        <div class="faq-item">
+            <h3>¿Cuánto tarda en estar listo?</h3>
+            <p>El boceto, unos 3-5 días. Si lo publicamos, lo dejamos online esa misma semana.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="wrap">
+        <div class="cta-final">
+            <h2>¿Lo vemos?</h2>
+            <p class="lead">Pedí tu boceto gratis, sin compromiso, y mirá cómo podría verse el sitio de tu hospedaje.</p>
+            <a href="https://wa.me/5492944812580?text=Hola%20Teo!%20Me%20gustar%C3%ADa%20pedir%20mi%20boceto%20gratis%20para%20el%20sitio%20de%20mi%20hospedaje.%20" class="cta-boceto-btn btn-primary" target="_blank" rel="noopener">Escribime y pedí tu boceto gratis</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="wrap">
+        <span>© <span id="fecha"></span> · Teo Cicciari — Diseño web para hospedajes</span>
+        <span><a href="../index.html">Volver al sitio principal</a></span>
+    </div>
+</footer>
+
+<script>
+(function () {
+    var d = new Date();
+    var meses = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+    document.getElementById('fecha').textContent = d.getDate() + ' de ' + meses[d.getMonth()] + ' de ' + d.getFullYear();
+})();
+</script>
+
+<script>
+(function() {
+    let analyticsLoaded = false;
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function(){ dataLayer.push(arguments); };
+
+    // Eventos de Meta Pixel para los clics de contacto:
+    // - Lead: pedir el boceto gratis (la conversión más fuerte)
+    // - Contact: cualquier otro contacto por WhatsApp
+    function metaContacto(a, canal) {
+        if (!window.fbq) return;
+        const ubicacion = a.className || 'desconocida';
+        if (a.classList.contains('cta-boceto-btn')) {
+            fbq('track', 'Lead', { content_name: 'boceto_gratis_hospedajes', canal: canal });
+        } else {
+            fbq('track', 'Contact', { content_category: 'hospedajes', canal: canal, ubicacion: ubicacion });
+        }
+    }
+
+    document.addEventListener('click', function(e) {
+        const a = e.target.closest && e.target.closest('a');
+        if (!a) return;
+        const href = a.getAttribute('href') || '';
+        if (href.includes('wa.me') || href.includes('api.whatsapp')) {
+            gtag('event', 'clic_whatsapp', { ubicacion: a.className || 'desconocida' });
+            metaContacto(a, 'whatsapp');
+        } else if (href.indexOf('mailto:') === 0) {
+            gtag('event', 'clic_email', { ubicacion: a.className || 'desconocida' });
+            metaContacto(a, 'email');
+        }
+    }, true);
+
+    const precios = document.getElementById('precios');
+    if (precios && 'IntersectionObserver' in window) {
+        const obsPrecios = new IntersectionObserver(function(entries) {
+            if (!entries[0].isIntersecting) return;
+            if (window.fbq) fbq('track', 'ViewContent', { content_name: 'precios_hospedajes', content_category: 'hospedajes' });
+            obsPrecios.disconnect();
+        }, { threshold: 0.3 });
+        obsPrecios.observe(precios);
+    }
+
+    function loadAnalytics() {
+        if (analyticsLoaded) return;
+        analyticsLoaded = true;
+
+        const gtagScript = document.createElement('script');
+        gtagScript.async = true;
+        gtagScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-5PCN6P8ESD';
+        document.head.appendChild(gtagScript);
+        gtagScript.onload = function() {
+            gtag('js', new Date());
+            gtag('config', 'G-5PCN6P8ESD');
+        };
+
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "rgx4rfddmu");
+    }
+
+    const events = ['mousedown', 'touchstart', 'scroll'];
+    const loadOnce = function() {
+        loadAnalytics();
+        events.forEach(event => window.removeEventListener(event, loadOnce));
+    };
+    events.forEach(event => window.addEventListener(event, loadOnce, { passive: true, once: true }));
+    setTimeout(loadAnalytics, 3000);
+})();
+</script>
+</body>
+</html>
