@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brisas del Campo · Cabañas con servicios en Uribelarrea</title>
+<meta name="description" content="Siete cabañas equipadas con pileta cubierta y descubierta, parque, gimnasio y desayuno incluido, en Uribelarrea, a 85 km de Buenos Aires.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cal:#F2F4EE;
+  --cal-2:#E6EAE0;
+  --eucalipto:#1D3A32;
+  --eucalipto-2:#2B5045;
+  --turquesa:#2A9D96;
+  --turquesa-osc:#1E7A74;
+  --magenta:#B8336A;
+  --trigo:#D9C58A;
+  --tinta:#1A2421;
+  --gris:#5C6B65;
+  --display:"Young Serif", Georgia, serif;
+  --texto:"Hanken Grotesk", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, monospace;
+  --ancho:1180px;
+  --radio:14px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;background:var(--cal);color:var(--tinta);font-family:var(--texto);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+p{margin:0 0 1em}
+.contenedor{width:min(var(--ancho),100% - 40px);margin-inline:auto}
+.ceja{font-family:var(--mono);font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--turquesa-osc);margin:0 0 14px;display:block}
+:focus-visible{outline:3px solid var(--turquesa);outline-offset:3px;border-radius:4px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--texto);font-weight:600;font-size:16px;padding:14px 24px;border-radius:999px;border:2px solid transparent;text-decoration:none;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primario{background:var(--turquesa);color:#fff}
+.btn-primario:hover{background:var(--turquesa-osc)}
+.btn-linea{border-color:currentColor;color:#fff;background:transparent}
+.btn-linea:hover{background:#fff;color:var(--eucalipto);border-color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.nav.solida{background:var(--eucalipto);box-shadow:0 2px 20px rgba(0,0,0,.15)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px}
+.nav-logo img{height:40px;width:auto}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0;padding:0;align-items:center}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;opacity:.9}
+.nav-links a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px}
+.nav-links .btn{padding:10px 20px;font-size:14.5px;opacity:1}
+.nav-links .btn:hover{text-decoration:none}
+.nav-toggle{display:none;background:none;border:0;color:#fff;padding:8px;cursor:pointer}
+.nav-toggle span{display:block;width:26px;height:2px;background:currentColor;margin:6px 0;transition:transform .25s,opacity .25s}
+@media (max-width:860px){
+  .nav-toggle{display:block}
+  .nav-links{position:fixed;inset:72px 0 auto;flex-direction:column;align-items:flex-start;gap:0;background:var(--eucalipto);padding:8px 20px 24px;transform:translateY(-8px);opacity:0;visibility:hidden;transition:opacity .25s,transform .25s,visibility .25s}
+  .nav-links li{width:100%;border-bottom:1px solid rgba(255,255,255,.12)}
+  .nav-links li:last-child{border:0;padding-top:16px}
+  .nav-links a{display:block;padding:14px 0;font-size:18px}
+  .nav.abierta{background:var(--eucalipto)}
+  .nav.abierta .nav-links{opacity:1;visibility:visible;transform:none}
+  .nav.abierta .nav-toggle span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .nav.abierta .nav-toggle span:nth-child(2){opacity:0}
+  .nav.abierta .nav-toggle span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+}
+
+/* ---------- HERO ---------- */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+.hero-foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,35,30,.55) 0%,rgba(15,35,30,0) 28%,rgba(15,35,30,.1) 50%,rgba(15,35,30,.82) 100%)}
+.hero-in{position:relative;z-index:1;padding:140px 0 56px}
+@media (max-width:600px){.hero::after{background:linear-gradient(180deg,rgba(15,35,30,.6) 0%,rgba(15,35,30,.35) 35%,rgba(15,35,30,.88) 100%)}}
+.hero h1{font-size:clamp(42px,7.4vw,96px);max-width:13ch;text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--trigo)}
+.hero-bajada{font-size:clamp(17px,1.6vw,20px);max-width:46ch;margin:22px 0 30px;opacity:.95}
+.hero-acciones{display:flex;flex-wrap:wrap;gap:12px}
+.hero-pie{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:48px;padding-top:20px;border-top:1px solid rgba(255,255,255,.28);font-family:var(--mono);font-size:13px;letter-spacing:.04em;opacity:.9}
+@media (prefers-reduced-motion:no-preference){
+  .hero-foto{animation:acercar 14s ease-out both}
+  .hero-in > *{animation:subir .9s cubic-bezier(.2,.7,.2,1) both}
+  .hero-in > *:nth-child(2){animation-delay:.12s}
+  .hero-in > *:nth-child(3){animation-delay:.24s}
+  .hero-in > *:nth-child(4){animation-delay:.36s}
+  @keyframes acercar{from{transform:scale(1.08)}to{transform:scale(1)}}
+  @keyframes subir{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- INTRO ---------- */
+.intro{padding:110px 0 90px}
+.intro-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:72px;align-items:center}
+.intro h2{font-size:clamp(34px,4.4vw,56px);margin-bottom:24px;text-wrap:balance}
+.intro p{color:var(--gris);font-size:18px;max-width:52ch}
+.incluye{margin-top:34px;padding:22px 24px;border-radius:var(--radio);background:#fff;border:1px solid var(--cal-2)}
+.incluye strong{display:block;font-family:var(--mono);font-weight:500;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--eucalipto);margin-bottom:12px}
+.incluye ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.incluye li{font-size:15px;padding:6px 14px;border-radius:999px;background:var(--cal);color:var(--eucalipto)}
+.intro-fotos{position:relative;aspect-ratio:4/5}
+.intro-fotos img{position:absolute;object-fit:cover;border-radius:var(--radio)}
+.intro-fotos img:nth-child(1){inset:0 18% 16% 0;width:82%;height:84%}
+.intro-fotos img:nth-child(2){right:0;bottom:0;width:52%;height:44%;border:8px solid var(--cal)}
+@media (max-width:860px){
+  .intro{padding:80px 0 64px}
+  .intro-grid{grid-template-columns:1fr;gap:48px}
+  .intro-fotos{aspect-ratio:1/1}
+}
+
+/* ---------- UNIDADES (firma) ---------- */
+.unidades{padding:90px 0 100px;background:#fff}
+.unidades-cabeza{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:44px}
+.unidades-cabeza h2{font-size:clamp(34px,4.4vw,56px);max-width:14ch}
+.unidades-cabeza p{color:var(--gris);max-width:42ch;margin:16px 0 0}
+.contador{background:var(--eucalipto);color:#fff;border-radius:20px;padding:20px 22px;min-width:300px}
+.contador-label{font-family:var(--mono);font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.8;display:block;margin-bottom:10px}
+.contador-ctrl{display:flex;align-items:center;gap:16px}
+.contador button{width:48px;height:48px;border-radius:50%;border:2px solid rgba(255,255,255,.35);background:transparent;color:#fff;font-size:24px;line-height:1;cursor:pointer;transition:background .2s,border-color .2s}
+.contador button:hover:not(:disabled){background:var(--turquesa);border-color:var(--turquesa)}
+.contador button:disabled{opacity:.3;cursor:not-allowed}
+.contador-num{font-family:var(--display);font-size:52px;line-height:1;min-width:1.4ch;text-align:center}
+.contador-txt{font-size:15px;line-height:1.3}
+.contador .contador-res{margin:12px 0 0;font-size:14px;color:var(--trigo);min-height:1.3em;max-width:none}
+
+.grilla-unidades{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media (max-width:1100px){.grilla-unidades{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.grilla-unidades{grid-template-columns:1fr}}
+.unidad-ayuda{background:var(--eucalipto);color:#fff;border-radius:18px;padding:30px 26px;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.unidad-ayuda h3{font-size:30px;margin-bottom:12px}
+.unidad-ayuda p{margin:0;opacity:.85;font-size:15.5px}
+.unidad-ayuda .btn{align-self:flex-start;padding:11px 20px;font-size:15px}
+.unidad{display:flex;flex-direction:column;background:var(--cal);border-radius:18px;overflow:hidden;transition:opacity .35s,filter .35s,transform .35s}
+.unidad-foto{position:relative;aspect-ratio:3/2;overflow:hidden}
+.unidad-foto img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.unidad:hover .unidad-foto img{transform:scale(1.04)}
+.unidad-etiqueta{position:absolute;top:14px;left:14px;font-family:var(--mono);font-size:12px;letter-spacing:.06em;background:rgba(255,255,255,.94);color:var(--eucalipto);padding:5px 11px;border-radius:999px}
+.unidad-cuerpo{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.unidad h3{font-size:26px;margin-bottom:6px}
+.unidad-camas{color:var(--gris);font-size:15.5px;margin:0 0 18px;flex:1}
+.unidad-nota{display:block;margin-top:6px;color:var(--magenta);font-size:14px}
+.datos{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;align-items:center;font-family:var(--mono);font-size:13px;color:var(--eucalipto);margin-bottom:20px}
+.datos dt{opacity:.7}
+.datos dd{margin:0;display:flex;align-items:center;gap:10px}
+.barra{flex:1;height:6px;border-radius:6px;background:var(--cal-2);overflow:hidden}
+.barra i{display:block;height:100%;width:var(--m2);background:var(--turquesa);border-radius:6px;transform-origin:left;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.personas{display:flex;gap:4px}
+.personas i{width:9px;height:9px;border-radius:50%;background:var(--eucalipto)}
+.unidad .btn{align-self:flex-start;padding:11px 20px;font-size:15px;background:var(--eucalipto);color:#fff}
+.unidad .btn:hover{background:var(--turquesa)}
+.unidad.no-entra{opacity:.38;filter:grayscale(.9)}
+.unidad.no-entra .unidad-etiqueta{background:var(--magenta);color:#fff}
+.unidad.no-entra:hover .unidad-foto img{transform:none}
+
+.equipamiento{margin-top:56px;display:grid;grid-template-columns:260px 1fr;gap:40px;padding-top:40px;border-top:1px solid var(--cal-2)}
+.equipamiento h3{font-size:26px}
+.equipamiento ul{list-style:none;margin:0;padding:0;columns:3 200px;column-gap:32px}
+.equipamiento li{padding:8px 0 8px 22px;position:relative;break-inside:avoid;font-size:15.5px;border-bottom:1px dashed var(--cal-2)}
+.equipamiento li::before{content:"";position:absolute;left:0;top:16px;width:8px;height:8px;border-radius:50%;background:var(--turquesa)}
+@media (max-width:860px){
+  .unidades{padding:72px 0 80px}
+  .contador{width:100%;min-width:0}
+  .equipamiento{grid-template-columns:1fr;gap:20px}
+}
+
+/* ---------- SERVICIOS ---------- */
+.servicios{padding:110px 0}
+.servicios-cabeza{max-width:640px;margin-bottom:52px}
+.servicios-cabeza h2{font-size:clamp(34px,4.4vw,56px);margin-bottom:18px}
+.servicios-cabeza p{color:var(--gris);font-size:18px}
+.piletas{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;margin-bottom:22px}
+.pileta{position:relative;border-radius:20px;overflow:hidden;min-height:460px;color:#fff;display:flex;align-items:flex-end}
+.pileta img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pileta::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(12,30,26,.85))}
+.pileta-txt{position:relative;z-index:1;padding:28px}
+.pileta h3{font-size:32px;margin-bottom:8px}
+.pileta p{margin:0;max-width:40ch;opacity:.92;font-size:16px}
+.pileta .sello{display:inline-block;margin-bottom:14px;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;background:var(--trigo);color:var(--eucalipto);padding:5px 11px;border-radius:999px}
+.servicios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.serv{background:#fff;border-radius:18px;overflow:hidden;display:flex;flex-direction:column}
+.serv img{aspect-ratio:16/10;object-fit:cover;width:100%}
+.serv-txt{padding:22px 22px 24px}
+.serv h3{font-size:24px;margin-bottom:8px}
+.serv p{color:var(--gris);font-size:15.5px;margin:0}
+.serv-lista{grid-column:span 3;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--eucalipto);color:#fff;border-radius:18px;overflow:hidden}
+.serv-lista div{padding:26px 24px;border-right:1px solid rgba(255,255,255,.12)}
+.serv-lista div:last-child{border-right:0}
+.serv-lista h3{font-size:21px;margin-bottom:8px;color:var(--trigo)}
+.serv-lista p{margin:0;font-size:15px;opacity:.88}
+@media (max-width:960px){
+  .servicios{padding:80px 0}
+  .piletas{grid-template-columns:1fr}
+  .pileta{min-height:380px}
+  .servicios-grid{grid-template-columns:1fr 1fr}
+  .serv-lista{grid-column:span 2;grid-template-columns:1fr 1fr}
+  .serv-lista div:nth-child(2){border-right:0}
+  .serv-lista div:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.12)}
+}
+@media (max-width:600px){
+  .servicios-grid{grid-template-columns:1fr}
+  .serv-lista{grid-column:auto;grid-template-columns:1fr}
+  .serv-lista div{border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .serv-lista div:last-child{border-bottom:0}
+}
+
+/* ---------- GALERÍA ---------- */
+.galeria{padding:0 0 110px}
+.galeria-cabeza{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
+.galeria-cabeza h2{font-size:clamp(30px,3.6vw,46px)}
+.galeria-cabeza a{font-weight:600;color:var(--turquesa-osc);text-underline-offset:5px}
+.mosaico{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;grid-auto-flow:dense;gap:12px}
+.mosaico button{padding:0;border:0;border-radius:12px;overflow:hidden;cursor:zoom-in;background:var(--cal-2)}
+.mosaico img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.mosaico button:hover img{transform:scale(1.05)}
+.mosaico .alta{grid-row:span 2}
+.mosaico .ancha{grid-column:span 2}
+@media (max-width:760px){
+  .galeria{padding-bottom:80px}
+  .mosaico{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+}
+.visor{border:0;padding:0;background:transparent;max-width:min(1200px,94vw);max-height:92vh}
+.visor::backdrop{background:rgba(10,22,19,.9)}
+.visor img{max-width:100%;max-height:86vh;border-radius:10px;margin:auto}
+.visor-cerrar{position:fixed;top:16px;right:16px;width:46px;height:46px;border-radius:50%;border:0;background:#fff;color:var(--eucalipto);font-size:26px;cursor:pointer}
+
+/* ---------- URIBELARREA ---------- */
+.uribe{background:var(--eucalipto);color:#fff;padding:110px 0}
+.uribe-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px}
+.uribe .ceja{color:var(--trigo)}
+.uribe h2{font-size:clamp(34px,4.4vw,56px);margin-bottom:22px}
+.uribe-intro p{opacity:.85;font-size:18px;max-width:44ch}
+.uribe-intro .bici{margin-top:28px;padding:18px 20px;border-left:3px solid var(--turquesa);background:rgba(255,255,255,.05);border-radius:0 12px 12px 0;font-size:16px;opacity:1}
+.lugares{list-style:none;margin:0;padding:0}
+.lugares li{padding:24px 0;border-bottom:1px solid rgba(255,255,255,.14);display:grid;grid-template-columns:120px 1fr;gap:20px}
+.lugares li:first-child{border-top:1px solid rgba(255,255,255,.14)}
+.lugares .tipo{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--trigo);padding-top:6px}
+.lugares h3{font-size:24px;margin-bottom:6px}
+.lugares p{margin:0;opacity:.82;font-size:15.5px}
+@media (max-width:860px){
+  .uribe{padding:80px 0}
+  .uribe-grid{grid-template-columns:1fr;gap:40px}
+  .lugares li{grid-template-columns:1fr;gap:4px}
+}
+
+/* ---------- RESERVA ---------- */
+.reserva{padding:110px 0}
+.reserva-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:start}
+.form-caja{background:#fff;border-radius:22px;padding:40px;box-shadow:0 20px 60px -30px rgba(29,58,50,.35)}
+.form-caja h2{font-size:clamp(32px,3.8vw,48px);margin-bottom:10px}
+.form-caja > p{color:var(--gris);margin-bottom:28px}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.campo{display:flex;flex-direction:column;gap:7px}
+.campo.completo{grid-column:1/-1}
+.campo label{font-weight:600;font-size:14.5px;color:var(--eucalipto)}
+.campo input,.campo select{font:inherit;font-size:16px;padding:13px 14px;border-radius:10px;border:1.5px solid var(--cal-2);background:var(--cal);color:var(--tinta);width:100%;min-height:50px}
+.campo input:focus,.campo select:focus{outline:none;border-color:var(--turquesa);background:#fff;box-shadow:0 0 0 4px rgba(42,157,150,.15)}
+.form-error{color:var(--magenta);font-size:14.5px;margin:16px 0 0;min-height:1.2em}
+.form-caja .btn{margin-top:14px;width:100%;padding:16px}
+.form-aviso{font-size:13.5px;color:var(--gris);margin:14px 0 0;text-align:center}
+.contacto{display:flex;flex-direction:column;gap:22px}
+.contacto-foto{border-radius:22px;overflow:hidden;aspect-ratio:16/10}
+.contacto-foto img{width:100%;height:100%;object-fit:cover}
+.contacto dl{margin:0;display:grid;gap:18px}
+.contacto dt{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--turquesa-osc);margin-bottom:3px}
+.contacto dd{margin:0;font-size:17px}
+.contacto dd a{text-decoration:none;font-weight:500}
+.contacto dd a:hover{text-decoration:underline}
+.redes{display:flex;gap:10px;flex-wrap:wrap}
+.redes a{font-size:14.5px;padding:8px 16px;border:1.5px solid var(--eucalipto);border-radius:999px;text-decoration:none!important}
+.redes a:hover{background:var(--eucalipto);color:#fff}
+.mapa{border-radius:18px;overflow:hidden;aspect-ratio:16/10;background:var(--cal-2)}
+.mapa iframe{width:100%;height:100%;border:0}
+@media (max-width:900px){
+  .reserva{padding:80px 0}
+  .reserva-grid{grid-template-columns:1fr}
+  .form-caja{padding:28px 22px}
+}
+@media (max-width:520px){.campos{grid-template-columns:1fr}}
+
+/* ---------- AUTOR ---------- */
+.autor{padding:0 0 90px}
+.autor-caja{position:relative;overflow:hidden;background:var(--turquesa);color:#fff;border-radius:24px;padding:56px;display:grid;grid-template-columns:1.4fr auto;gap:32px;align-items:center}
+.autor-caja::before{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;border:40px solid rgba(255,255,255,.09)}
+.autor .ceja{color:var(--eucalipto)}
+.autor h2{font-size:clamp(28px,3.4vw,42px);margin-bottom:12px}
+.autor p{margin:0;max-width:52ch;opacity:.95}
+.autor .btn{background:var(--eucalipto);color:#fff;position:relative}
+.autor .btn:hover{background:#fff;color:var(--eucalipto)}
+@media (max-width:760px){.autor-caja{grid-template-columns:1fr;padding:36px 26px}}
+
+/* ---------- FOOTER ---------- */
+.pie{background:var(--tinta);color:rgba(255,255,255,.75);padding:56px 0 30px;font-size:15px}
+.pie-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:30px;padding-bottom:30px;border-bottom:1px solid rgba(255,255,255,.1)}
+.pie-top img{height:62px;width:auto}
+.pie-top address{font-style:normal;line-height:1.8}
+.pie-top a{text-decoration:none}
+.pie-top a:hover{color:#fff;text-decoration:underline}
+.pie-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;padding-top:24px;font-size:14px}
+.pie-bottom a{color:var(--trigo)}
+
+/* ---------- WHATSAPP FLOTANTE ---------- */
+.wa-flotante{position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.25);transition:transform .2s}
+.wa-flotante:hover{transform:scale(1.07)}
+.wa-flotante svg{width:30px;height:30px;fill:#fff}
+
+/* ---------- REVEAL ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .js .revelar{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
+  .js .revelar.visto{opacity:1;transform:none}
+  .js .unidad .barra i{transform:scaleX(0)}
+  .js .grilla-unidades.visto .barra i{transform:scaleX(1)}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="contenedor nav-in">
+    <a href="#inicio" class="nav-logo" aria-label="Brisas del Campo, ir al inicio"><img src="img/logo-blanco-simple.png" alt="Brisas del Campo" width="501" height="128"></a>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#unidades">Unidades</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#uribelarrea">Uribelarrea</a></li>
+      <li><a href="#reservar" class="btn btn-primario">Consultar fechas</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <img class="hero-foto" src="img/pileta-exterior.jpg" alt="Pileta descubierta con reposeras frente a una de las cabañas de Brisas del Campo" width="1800" height="918">
+  <div class="contenedor hero-in">
+    <h1>Siete cabañas, pileta y parque en <em>Uribelarrea</em></h1>
+    <p class="hero-bajada">Cabañas equipadas con desayuno y ropa blanca incluidos, dos piletas, gimnasio y bicicletas para recorrer el pueblo. A 85 km de la Ciudad de Buenos Aires.</p>
+    <div class="hero-acciones">
+      <a href="#unidades" class="btn btn-primario">Elegir unidad</a>
+      <a href="#reservar" class="btn btn-linea">Consultar disponibilidad</a>
+    </div>
+    <div class="hero-pie">
+      <span>Rosenbusch 450 · Uribelarrea, Cañuelas</span>
+      <span>De 2 a 7 huéspedes por unidad</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section class="intro">
+  <div class="contenedor intro-grid">
+    <div class="revelar">
+      <span class="ceja">Diseño, relax y confort</span>
+      <h2>Una estadía tranquila, con todo resuelto</h2>
+      <p>Brisas del Campo es un apart hotel de siete unidades rodeadas de parque, en el corazón de Uribelarrea. Ambientes amplios, materiales cálidos y mobiliario moderno, pensados para que los días se pasen entre la pileta, el parque y el pueblo.</p>
+      <p>Cada unidad tiene su cocina equipada, así que podés quedarte a cocinar, prender la parrilla o salir a probar la gastronomía del pueblo.</p>
+      <div class="incluye">
+        <strong>Incluido en todas las unidades</strong>
+        <ul>
+          <li>Desayuno seco</li>
+          <li>Ropa blanca</li>
+          <li>Aire acondicionado</li>
+          <li>Cocina equipada</li>
+          <li>TV con cable</li>
+        </ul>
+      </div>
+    </div>
+    <div class="intro-fotos revelar">
+      <img src="img/living-cocina.jpg" alt="Living con sillones y cocina integrada de una cabaña" loading="lazy">
+      <img src="img/detalle-suculentas.jpg" alt="Detalle de suculentas y almohadón estampado en el living" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- UNIDADES -->
+<section class="unidades" id="unidades">
+  <div class="contenedor">
+    <div class="unidades-cabeza revelar">
+      <div>
+        <span class="ceja">Nuestras unidades</span>
+        <h2>Una cabaña a la medida del grupo</h2>
+        <p>Siete unidades, del loft para dos al chalet para siete. Indicá cuántos viajan y te mostramos dónde entran.</p>
+      </div>
+      <div class="contador" role="group" aria-labelledby="contadorLabel">
+        <span class="contador-label" id="contadorLabel">¿Cuántos viajan?</span>
+        <div class="contador-ctrl">
+          <button type="button" id="menos" aria-label="Una persona menos">−</button>
+          <span class="contador-num" id="cantidad" aria-live="polite">2</span>
+          <button type="button" id="mas" aria-label="Una persona más">+</button>
+          <span class="contador-txt" id="cantidadTxt">personas</span>
+        </div>
+        <p class="contador-res" id="contadorRes" aria-live="polite">Entran en las 7 unidades</p>
+      </div>
+    </div>
+
+    <div class="grilla-unidades revelar" id="grillaUnidades">
+      <article class="unidad" data-cap="4" data-nombre="Unidad 1">
+        <div class="unidad-foto"><img src="img/unidad-1.jpg" alt="Cocina comedor de la Unidad 1" loading="lazy"><span class="unidad-etiqueta">Hasta 4 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Unidad 1</h3>
+          <p class="unidad-camas">Dos dormitorios: uno con cama matrimonial y otro con dos camas simples.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>51 m² <span class="barra" aria-hidden="true"><i style="--m2:46.4%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 4</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 1">Consultar esta unidad</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="4" data-nombre="Unidad 2">
+        <div class="unidad-foto"><img src="img/unidad-2.jpg" alt="Living y cocina de la Unidad 2" loading="lazy"><span class="unidad-etiqueta">Hasta 4 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Unidad 2</h3>
+          <p class="unidad-camas">Dos dormitorios: uno con cama matrimonial y otro con dos camas simples.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>51 m² <span class="barra" aria-hidden="true"><i style="--m2:46.4%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 4</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 2">Consultar esta unidad</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="2" data-nombre="Unidad 3">
+        <div class="unidad-foto"><img src="img/unidad-3.jpg" alt="Dormitorio con cama matrimonial y almohadones de colores" loading="lazy"><span class="unidad-etiqueta">Hasta 2 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Unidad 3</h3>
+          <p class="unidad-camas">Un dormitorio con cama matrimonial. Ideal para parejas.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>35 m² <span class="barra" aria-hidden="true"><i style="--m2:31.8%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i></span> 2</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 3">Consultar esta unidad</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="4" data-nombre="Unidad 4">
+        <div class="unidad-foto"><img src="img/unidad-4.jpg" alt="Comedor con mesa de madera y sillas de colores" loading="lazy"><span class="unidad-etiqueta">Hasta 4 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Unidad 4</h3>
+          <p class="unidad-camas">Dos dormitorios: uno con cama matrimonial y otro con dos camas simples.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>56 m² <span class="barra" aria-hidden="true"><i style="--m2:50.9%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i><i></i><i></i></span> 4</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 4">Consultar esta unidad</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="5" data-nombre="Unidad 5">
+        <div class="unidad-foto"><img src="img/unidad-5.jpg" alt="Dormitorio con pared verde y almohadones estampados" loading="lazy"><span class="unidad-etiqueta">Hasta 5 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Unidad 5</h3>
+          <p class="unidad-camas">Dos dormitorios: uno con cama matrimonial y otro con tres camas simples.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>56 m² <span class="barra" aria-hidden="true"><i style="--m2:50.9%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span> 5</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 5">Consultar esta unidad</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="7" data-nombre="Unidad 6 – Chalet">
+        <div class="unidad-foto"><img src="img/unidad-6-chalet.jpg" alt="Amplio comedor del chalet con mesa para seis" loading="lazy"><span class="unidad-etiqueta">Hasta 7 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Chalet</h3>
+          <p class="unidad-camas">Tres dormitorios: uno con cama matrimonial, otro con tres camas simples y otro con dos camas individuales. Con patio privado.
+            <span class="unidad-nota">Se puede sumar un sommier twin en el living (tarifa adicional).</span></p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>110 m² <span class="barra" aria-hidden="true"><i style="--m2:100%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span> 7</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 6 – Chalet">Consultar el chalet</a>
+        </div>
+      </article>
+
+      <article class="unidad" data-cap="2" data-nombre="Unidad 7 – Loft">
+        <div class="unidad-foto"><img src="img/unidad-7-loft.jpg" alt="Loft con cama matrimonial y mesa junto a la ventana" loading="lazy"><span class="unidad-etiqueta">Hasta 2 huéspedes</span></div>
+        <div class="unidad-cuerpo">
+          <h3>Loft</h3>
+          <p class="unidad-camas">Cama matrimonial, cocina y calefacción. Para dos.</p>
+          <dl class="datos">
+            <dt>Superficie</dt><dd>26 m² <span class="barra" aria-hidden="true"><i style="--m2:23.6%"></i></span></dd>
+            <dt>Huéspedes</dt><dd><span class="personas" aria-hidden="true"><i></i><i></i></span> 2</dd>
+          </dl>
+          <a href="#reservar" class="btn" data-elegir="Unidad 7 – Loft">Consultar el loft</a>
+        </div>
+      </article>
+
+      <aside class="unidad-ayuda">
+        <div>
+          <h3>¿No sabés cuál elegir?</h3>
+          <p>Contanos cuántos son y qué fechas buscan, y te recomendamos la unidad que mejor les quede.</p>
+        </div>
+        <a href="https://wa.me/5492226683822?text=Hola%2C%20quiero%20que%20me%20recomienden%20una%20unidad%20en%20Brisas%20del%20Campo." class="btn btn-primario" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+      </aside>
+    </div>
+
+    <div class="equipamiento revelar">
+      <h3>En cada unidad</h3>
+      <ul>
+        <li>Aire acondicionado en todos los ambientes</li>
+        <li>TV LCD con cable en living y dormitorio</li>
+        <li>DVD</li>
+        <li>Sommiers en todas las habitaciones</li>
+        <li>Cocina y heladera con freezer</li>
+        <li>Microondas, tostadora y pava eléctrica</li>
+        <li>Vajilla completa</li>
+        <li>Baño privado</li>
+        <li>Alarma</li>
+        <li>Practicuna a pedido</li>
+        <li>Desayuno seco en la cabaña</li>
+        <li>Ropa blanca</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section class="servicios" id="servicios">
+  <div class="contenedor">
+    <div class="servicios-cabeza revelar">
+      <span class="ceja">Servicios</span>
+      <h2>Dos piletas, un parque y espacio para moverse</h2>
+      <p>Lo que comparten todas las unidades: para descansar, entrenar, festejar o salir a pedalear.</p>
+    </div>
+
+    <div class="piletas">
+      <article class="pileta revelar">
+        <img src="img/pileta-solarium.jpg" alt="Pileta descubierta con solarium y reposeras" loading="lazy">
+        <div class="pileta-txt">
+          <h3>Pileta descubierta</h3>
+          <p>Con un amplio solarium y reposeras para aprovechar el sol del campo.</p>
+        </div>
+      </article>
+      <article class="pileta revelar">
+        <img src="img/pileta-cubierta.jpg" alt="Pileta cubierta climatizada con techo de madera" loading="lazy">
+        <div class="pileta-txt">
+          <span class="sello">Climatizada abril–noviembre</span>
+          <h3>Pileta cubierta</h3>
+          <p>Climatizada de abril a noviembre los fines de semana y feriados. El resto del año, a temperatura ambiente.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="servicios-grid">
+      <article class="serv revelar">
+        <img src="img/pergola.jpg" alt="Rincón del parque con sillones bajo una pérgola" loading="lazy">
+        <div class="serv-txt">
+          <h3>Parque y juegos</h3>
+          <p>Un parque amplio con sector para chicos: casita de madera en altura con mangrullo, tobogán y hamaca.</p>
+        </div>
+      </article>
+      <article class="serv revelar">
+        <img src="img/gimnasio.jpg" alt="Gimnasio con cinta y bicicleta de spinning" loading="lazy">
+        <div class="serv-txt">
+          <h3>Gimnasio</h3>
+          <p>Cinta, bicicleta de spinning, pesas y colchonetas, con aire acondicionado.</p>
+        </div>
+      </article>
+      <article class="serv revelar">
+        <img src="img/sum-quincho.jpg" alt="Salón de usos múltiples con mesas y proyector" loading="lazy">
+        <div class="serv-txt">
+          <h3>Salón de usos múltiples</h3>
+          <p>Para 35 personas, con aire acondicionado, mesas y sillas. Para reuniones, cumpleaños o un partido en pantalla grande.</p>
+        </div>
+      </article>
+      <div class="serv-lista revelar">
+        <div><h3>Parrillas y asador</h3><p>Sector exclusivo de parrillas al aire libre.</p></div>
+        <div><h3>Bicicletas</h3><p>De cortesía, para recorrer las calles del pueblo.</p></div>
+        <div><h3>Masajes</h3><p>A pedido y según disponibilidad. Se solicitan al reservar y se abonan aparte.</p></div>
+        <div><h3>Grupo electrógeno</h3><p>Cubre todo el complejo si se corta la luz.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="galeria" id="galeria">
+  <div class="contenedor">
+    <div class="galeria-cabeza revelar">
+      <div>
+        <span class="ceja">Galería</span>
+        <h2>Así se ve Brisas</h2>
+      </div>
+      <a href="https://www.youtube.com/watch?v=rsvcraDRqqU" target="_blank" rel="noopener">Ver el video del complejo ↗</a>
+    </div>
+    <div class="mosaico revelar">
+      <button class="ancha" type="button"><img src="img/parque.jpg" alt="Parque con césped y cabaña de dos plantas" loading="lazy"></button>
+      <button class="alta" type="button"><img src="img/pileta-cubierta-vertical.jpg" alt="Pileta cubierta vista desde el borde" loading="lazy"></button>
+      <button type="button"><img src="img/dormitorio-azul.jpg" alt="Dormitorio con pared azul" loading="lazy"></button>
+      <button type="button"><img src="img/living-verde.jpg" alt="Living con pared verde y sillón violeta" loading="lazy"></button>
+      <button type="button"><img src="img/rincon-turquesa.jpg" alt="Rincón con sillón turquesa junto a la ventana" loading="lazy"></button>
+      <button class="ancha" type="button"><img src="img/entrada.jpg" alt="Muro de piedra de la entrada con el nombre Brisas del Campo" loading="lazy"></button>
+      <button type="button"><img src="img/dormitorio-almohadones.jpg" alt="Cama con almohadones amarillos y a rayas" loading="lazy"></button>
+      <button class="ancha" type="button"><img src="img/cocina-loft.jpg" alt="Cocina integrada con techo de vigas" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<!-- URIBELARREA -->
+<section class="uribe" id="uribelarrea">
+  <div class="contenedor uribe-grid">
+    <div class="uribe-intro revelar">
+      <span class="ceja">Qué hacer en Uribelarrea</span>
+      <h2>Un pueblo de 1890 para recorrer en bici</h2>
+      <p>Uribelarrea está a unos 85 km de la Ciudad de Buenos Aires, en el partido de Cañuelas. Tiene poco más de mil habitantes y nació como colonia agrícola sobre tierras que donó el estanciero Miguel Nemesio de Uribelarrea.</p>
+      <p class="bici">Con las bicicletas de cortesía de Brisas se llega a todo el pueblo pedaleando.</p>
+    </div>
+    <ul class="lugares revelar">
+      <li>
+        <span class="tipo">Patrimonio</span>
+        <div><h3>Iglesia Nuestra Señora de Luján</h3><p>Construida en 1890. Guarda los restos del fundador del pueblo y fue escenario de la película <em>Evita</em>.</p></div>
+      </li>
+      <li>
+        <span class="tipo">Productos</span>
+        <div><h3>Escuela Agrotécnica Don Bosco</h3><p>Escuela salesiana con historia propia, donde se compran el dulce de leche y los quesos que elaboran los alumnos.</p></div>
+      </li>
+      <li>
+        <span class="tipo">Museo</span>
+        <div><h3>Museo Leopoldo Rizzi</h3><p>En un galpón ferroviario frente a la estación: cocinas, planchas, arados y máquinas de tejer antiguas.</p></div>
+      </li>
+      <li>
+        <span class="tipo">Salidas</span>
+        <div><h3>Polo gastronómico</h3><p>Cerveza artesanal, picadas, cabalgatas, viñedos y un tambo de cabras.</p></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESERVA -->
+<section class="reserva" id="reservar">
+  <div class="contenedor reserva-grid">
+    <div class="form-caja revelar">
+      <span class="ceja">Reservas</span>
+      <h2>Consultá disponibilidad</h2>
+      <p>Completá los datos y te abrimos WhatsApp con la consulta lista para enviar.</p>
+      <form id="formReserva" novalidate>
+        <div class="campos">
+          <div class="campo completo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre y apellido">
+          </div>
+          <div class="campo">
+            <label for="personas">Cantidad de personas</label>
+            <select id="personas" name="personas" required>
+              <option value="1">1 persona</option>
+              <option value="2" selected>2 personas</option>
+              <option value="3">3 personas</option>
+              <option value="4">4 personas</option>
+              <option value="5">5 personas</option>
+              <option value="6">6 personas</option>
+              <option value="7">7 personas</option>
+              <option value="8+">8 o más</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="unidad">Unidad</label>
+            <select id="unidad" name="unidad">
+              <option value="">Sin preferencia</option>
+              <option>Unidad 1</option>
+              <option>Unidad 2</option>
+              <option>Unidad 3</option>
+              <option>Unidad 4</option>
+              <option>Unidad 5</option>
+              <option>Unidad 6 – Chalet</option>
+              <option>Unidad 7 – Loft</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="checkin">Fecha de check in</label>
+            <input id="checkin" name="checkin" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="checkout">Fecha de check out</label>
+            <input id="checkout" name="checkout" type="date" required>
+          </div>
+        </div>
+        <p class="form-error" id="formError" role="alert"></p>
+        <button type="submit" class="btn btn-primario">Enviar consulta por WhatsApp</button>
+        <p class="form-aviso">Te respondemos con disponibilidad y tarifa para esas fechas.</p>
+      </form>
+    </div>
+
+    <aside class="contacto revelar">
+      <div class="contacto-foto"><img src="img/entrada.jpg" alt="Entrada de Brisas del Campo" loading="lazy"></div>
+      <dl>
+        <div><dt>Dirección</dt><dd>Rosenbusch 450, Uribelarrea, Cañuelas</dd></div>
+        <div><dt>Teléfono</dt><dd><a href="tel:+5492226683822">02226 15-68-3822</a></dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:info@brisasdelcampo.com.ar">info@brisasdelcampo.com.ar</a></dd></div>
+        <div><dt>Redes</dt><dd class="redes">
+          <a href="https://www.instagram.com/brisasdelcampo/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.facebook.com/pg/brisasdelcampoaparthotel/" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.youtube.com/channel/UCGlnM5xUJ-JQxCbL3lcCGIg" target="_blank" rel="noopener">YouTube</a>
+        </dd></div>
+      </dl>
+      <div class="mapa">
+        <iframe title="Mapa: Rosenbusch 450, Uribelarrea" src="https://www.google.com/maps?q=Rosenbusch+450,+Uribelarrea,+Buenos+Aires&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- BANNER AUTOR -->
+<section class="autor">
+  <div class="contenedor">
+    <div class="autor-caja revelar">
+      <div>
+        <span class="ceja">Diseño web</span>
+        <h2>Este boceto lo diseñó Teo Cicciari</h2>
+        <p>¿Tenés un hospedaje y querés un sitio así, pensado para que te reserven directo? Pedí el tuyo.</p>
+      </div>
+      <a href="https://teocicciari.com.ar/" class="btn" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <div class="pie-top">
+      <img src="img/logo-blanco.png" alt="Brisas del Campo · Cabañas con servicios" width="501" height="154" loading="lazy">
+      <address>
+        Rosenbusch 450, Uribelarrea, Cañuelas<br>
+        <a href="tel:+5492226683822">02226 15-68-3822</a> · <a href="mailto:info@brisasdelcampo.com.ar">info@brisasdelcampo.com.ar</a>
+      </address>
+    </div>
+    <div class="pie-bottom">
+      <span>© <span id="anio"></span> Brisas del Campo · <span id="fechaHoy"></span></span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/5492226683822?text=Hola%2C%20quiero%20consultar%20disponibilidad%20en%20Brisas%20del%20Campo." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8C29 8.7 23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.9-3.9-1.9-6 0-5.9 4.9-10.7 11-10.7s11 4.8 11 10.7-4.9 10.9-10.9 10.9zm6-8c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.8 5 .8.4 1.4.6 1.9.7.8.3 1.6.2 2.2.1.7-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.3-.3-.4-.6-.5z"/></svg>
+</a>
+
+<dialog class="visor" id="visor">
+  <button class="visor-cerrar" id="visorCerrar" aria-label="Cerrar">×</button>
+  <img id="visorImg" src="" alt="">
+</dialog>
+
+<script>
+document.documentElement.classList.add('js');
+const WA = '5492226683822';
+
+/* Nav */
+const nav = document.getElementById('nav');
+const toggle = document.getElementById('navToggle');
+const fijarNav = () => nav.classList.toggle('solida', window.scrollY > 60);
+fijarNav();
+window.addEventListener('scroll', fijarNav, {passive:true});
+toggle.addEventListener('click', () => {
+  const abierta = nav.classList.toggle('abierta');
+  toggle.setAttribute('aria-expanded', abierta);
+  toggle.setAttribute('aria-label', abierta ? 'Cerrar menú' : 'Abrir menú');
+});
+document.querySelectorAll('#navLinks a').forEach(a => a.addEventListener('click', () => {
+  nav.classList.remove('abierta'); toggle.setAttribute('aria-expanded', 'false');
+}));
+
+/* Contador de huéspedes */
+const MAX = 7;
+let n = 2;
+const unidades = [...document.querySelectorAll('.unidad')];
+const numEl = document.getElementById('cantidad');
+const txtEl = document.getElementById('cantidadTxt');
+const resEl = document.getElementById('contadorRes');
+const menos = document.getElementById('menos');
+const mas = document.getElementById('mas');
+const selPersonas = document.getElementById('personas');
+
+function pintar(){
+  numEl.textContent = n;
+  txtEl.textContent = n === 1 ? 'persona' : 'personas';
+  let entran = 0;
+  unidades.forEach(u => {
+    const cap = +u.dataset.cap;
+    const ok = cap >= n;
+    if (ok) entran++;
+    u.classList.toggle('no-entra', !ok);
+    u.querySelector('.unidad-etiqueta').textContent = ok ? `Hasta ${cap} huéspedes` : `Solo hasta ${cap}`;
+  });
+  resEl.textContent = entran === unidades.length ? 'Entran en las 7 unidades'
+    : entran === 1 ? 'Entran en 1 unidad: el chalet'
+    : `Entran en ${entran} de las 7 unidades`;
+  menos.disabled = n <= 1;
+  mas.disabled = n >= MAX;
+  selPersonas.value = String(n);
+}
+menos.addEventListener('click', () => { if (n > 1){ n--; pintar(); } });
+mas.addEventListener('click', () => { if (n < MAX){ n++; pintar(); } });
+pintar();
+
+/* Elegir unidad -> formulario */
+const selUnidad = document.getElementById('unidad');
+document.querySelectorAll('[data-elegir]').forEach(b => b.addEventListener('click', () => {
+  selUnidad.value = b.dataset.elegir;
+}));
+
+/* Fechas */
+const hoy = new Date();
+const iso = d => new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+const inEl = document.getElementById('checkin');
+const outEl = document.getElementById('checkout');
+inEl.min = iso(hoy);
+outEl.min = iso(new Date(hoy.getTime() + 864e5));
+inEl.addEventListener('change', () => {
+  if (!inEl.value) return;
+  const sig = new Date(inEl.value + 'T12:00'); sig.setDate(sig.getDate() + 1);
+  outEl.min = iso(sig);
+  if (!outEl.value || outEl.value <= inEl.value) outEl.value = iso(sig);
+});
+
+/* Envío a WhatsApp */
+const fmt = v => v.split('-').reverse().join('/');
+document.getElementById('formReserva').addEventListener('submit', e => {
+  e.preventDefault();
+  const err = document.getElementById('formError');
+  const nombre = document.getElementById('nombre').value.trim();
+  if (!nombre){ err.textContent = 'Escribí tu nombre para enviar la consulta.'; document.getElementById('nombre').focus(); return; }
+  if (!inEl.value){ err.textContent = 'Elegí la fecha de check in.'; inEl.focus(); return; }
+  if (!outEl.value){ err.textContent = 'Elegí la fecha de check out.'; outEl.focus(); return; }
+  if (outEl.value <= inEl.value){ err.textContent = 'El check out tiene que ser posterior al check in.'; outEl.focus(); return; }
+  err.textContent = '';
+  const p = selPersonas.value;
+  const msg = [
+    'Hola, quiero consultar disponibilidad en Brisas del Campo.',
+    `Nombre: ${nombre}`,
+    `Personas: ${p === '8+' ? '8 o más' : p}`,
+    selUnidad.value ? `Unidad: ${selUnidad.value}` : 'Unidad: sin preferencia',
+    `Check in: ${fmt(inEl.value)}`,
+    `Check out: ${fmt(outEl.value)}`
+  ].join('\n');
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+});
+
+/* Galería */
+const visor = document.getElementById('visor');
+const visorImg = document.getElementById('visorImg');
+document.querySelectorAll('.mosaico button').forEach(b => b.addEventListener('click', () => {
+  const img = b.querySelector('img');
+  visorImg.src = img.src; visorImg.alt = img.alt;
+  visor.showModal();
+}));
+document.getElementById('visorCerrar').addEventListener('click', () => visor.close());
+visor.addEventListener('click', e => { if (e.target === visor) visor.close(); });
+
+/* Revelado al scrollear */
+const io = new IntersectionObserver(es => es.forEach(en => {
+  if (en.isIntersecting){ en.target.classList.add('visto'); io.unobserve(en.target); }
+}), {threshold:.12});
+document.querySelectorAll('.revelar').forEach(el => io.observe(el));
+
+/* Fecha dinámica en el footer */
+document.getElementById('anio').textContent = hoy.getFullYear();
+document.getElementById('fechaHoy').textContent = hoy.toLocaleDateString('es-AR', {day:'numeric', month:'long', year:'numeric'});
+</script>
+</body>
+</html>
