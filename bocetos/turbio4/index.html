@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Turbio IV · Expedición Patagonia salvaje</title>
+  <meta name="description" content="Turbio IV: expedición guiada de 11 días a un rincón remoto de la Patagonia argentina. 52 km, 3 refugios, trekking, tirolesa, rafting y cabalgatas. Todo incluido.">
+  <link rel="icon" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800;900&family=DM+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header class="nav" id="nav">
+    <a href="#inicio" class="nav__brand" aria-label="Turbio IV, inicio">
+      <img src="img/logo.png" alt="" width="44" height="44">
+      <span>Turbio IV</span>
+    </a>
+    <nav class="nav__links" aria-label="Secciones">
+      <a href="#recorrido">Recorrido</a>
+      <a href="#refugios">Refugios</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#antes">Antes de ir</a>
+    </nav>
+    <a href="#reserva" class="btn btn--sun nav__cta">Reservar lugar</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <img class="hero__img" src="img/pared-glaciar.jpg" alt="Paredes de granito nevadas sobre una laguna con hielo en el valle alto del Turbio">
+    <div class="hero__shade" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="eyebrow eyebrow--sun">— Patagonia salvaje —</p>
+      <h1 class="hero__title"><span>Turbio</span><span>IV</span></h1>
+      <p class="hero__lead">Un rincón remoto de la Patagonia argentina, al que solo se llega a pie, a caballo y cruzando el río.</p>
+      <div class="hero__actions">
+        <a href="#reserva" class="btn btn--sun">Quiero ir en la próxima salida</a>
+        <a href="#recorrido" class="btn btn--ghost">Ver el recorrido</a>
+      </div>
+    </div>
+    <ul class="hero__facts" aria-label="La expedición en datos">
+      <li><b>11</b><span>días de aventura</span></li>
+      <li><b>52</b><span>km de sendero</span></li>
+      <li><b>3</b><span>refugios de montaña</span></li>
+      <li><b>Todo</b><span>incluido, con guías</span></li>
+    </ul>
+  </section>
+
+  <!-- INTRO -->
+  <section class="intro">
+    <div class="intro__text reveal">
+      <p class="eyebrow">La expedición</p>
+      <h2 class="h2">No es un paseo. Es entrar a un valle que casi nadie vio.</h2>
+      <p>Turbio IV es una travesía guiada de once días por bosque nativo, ríos glaciares y paredes de granito. Caminamos con baqueanos de la zona, los caballos cargan el equipo pesado y cada noche dormimos bajo techo en un refugio de montaña.</p>
+      <p>Comidas, guías, cabalgatas, tirolesa y rafting están incluidos. Vos traés las piernas y las ganas.</p>
+    </div>
+    <figure class="intro__photo reveal">
+      <img src="img/baqueanos-rio.jpg" alt="Baqueano a caballo y expedicionario cruzando el río con los caballos de carga" loading="lazy">
+      <figcaption>Cruce del río con los caballos de carga</figcaption>
+    </figure>
+  </section>
+
+  <!-- RECORRIDO (firma) -->
+  <section class="route" id="recorrido">
+    <div class="route__head">
+      <p class="eyebrow eyebrow--forest">Recorrido · 52 km</p>
+      <h2 class="h2 h2--forest">Del lago al hielo, en once días</h2>
+      <p class="route__note">Recorrido orientativo. El orden exacto de cada jornada lo define el guía según el clima y el río.</p>
+    </div>
+
+    <div class="route__track" id="track">
+      <svg class="route__line" id="routeSvg" aria-hidden="true">
+        <path class="route__path route__path--base" id="routeBase" pathLength="1"/>
+        <path class="route__path route__path--drawn" id="routePath" pathLength="1"/>
+      </svg>
+
+      <ol class="route__stops">
+        <li class="stop">
+          <span class="stop__pin" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Partida · cabalgata</p>
+            <h3>Arrancamos con los baqueanos</h3>
+            <p>Encuentro con el equipo, se cargan los caballos y empieza el sendero hacia el valle.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <span class="stop__pin stop__pin--hut" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Refugio · noche bajo coihues</p>
+            <h3>Refugio Don Ropo</h3>
+            <p>Primer techo del viaje, rodeado de árboles centenarios. Fuego, cena y a descansar.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <span class="stop__pin" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Cruce · tirolesa</p>
+            <h3>Sobre el río turquesa</h3>
+            <p>Cruzamos el cañón colgados de la tirolesa, con el agua glaciar corriendo abajo.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <span class="stop__pin stop__pin--hut" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Refugio · cabaña de madera</p>
+            <h3>Refugio Don Chule</h3>
+            <p>Una cabaña hecha a mano en medio del bosque. Base para las jornadas más largas.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <span class="stop__pin stop__pin--hut" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Refugio · el más adentro</p>
+            <h3>Tercer refugio</h3>
+            <p>La última noche antes de subir al valle alto.</p>
+          </div>
+        </li>
+        <li class="stop stop--summit">
+          <span class="stop__pin stop__pin--peak" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Valle alto · trekking y escalada</p>
+            <h3>Granito, glaciar y laguna helada</h3>
+            <p>Paredes de cientos de metros, nieve todo el año y una laguna con hielo flotando. El corazón del Turbio.</p>
+          </div>
+        </li>
+        <li class="stop">
+          <span class="stop__pin" aria-hidden="true"></span>
+          <div class="stop__body">
+            <p class="stop__tag">Regreso · rafting</p>
+            <h3>De vuelta por el río</h3>
+            <p>Bajamos con otra mirada: la misma agua que vimos desde arriba, ahora desde el bote.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- REFUGIOS -->
+  <section class="huts" id="refugios">
+    <div class="huts__head reveal">
+      <p class="eyebrow eyebrow--sun">Dónde dormimos</p>
+      <h2 class="h2 h2--light">Tres refugios, levantados a mano en el bosque</h2>
+    </div>
+    <div class="huts__grid">
+      <article class="hut reveal">
+        <img src="img/refugio-don-ropo.jpg" alt="Refugio Don Ropo, construcción de madera con techo de tejuelas entre árboles altos" loading="lazy">
+        <div class="hut__label">
+          <p class="hut__n">Refugio I</p>
+          <h3>Don Ropo</h3>
+        </div>
+      </article>
+      <article class="hut reveal">
+        <img src="img/refugio-don-chule.jpg" alt="Refugio Don Chule, cabaña de madera con techo de chapa en medio del bosque soleado" loading="lazy">
+        <div class="hut__label">
+          <p class="hut__n">Refugio II</p>
+          <h3>Don Chule</h3>
+        </div>
+      </article>
+      <article class="hut hut--text reveal">
+        <p class="hut__n">Refugio III</p>
+        <h3>El más adentro</h3>
+        <p>Leña, estufa y techo seco al final de cada jornada. Los refugios son simples y de montaña: se comparte el espacio y se duerme en bolsa de dormir.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ACTIVIDADES -->
+  <section class="acts" id="actividades">
+    <div class="acts__head reveal">
+      <p class="eyebrow">Qué hacemos</p>
+      <h2 class="h2">Cinco formas de atravesar el valle</h2>
+    </div>
+    <div class="acts__grid">
+      <article class="act act--wide reveal">
+        <img src="img/cabalgata-campamento.jpg" alt="Caballos de carga descansando en un claro entre troncos caídos, con montañas detrás" loading="lazy">
+        <div class="act__cap"><h3>Cabalgatas</h3><p>Con baqueanos de la zona y caballos que conocen el camino.</p></div>
+      </article>
+      <article class="act act--tall reveal">
+        <img src="img/tirolesa-rio.jpg" alt="Cruce en tirolesa sobre un río turquesa entre paredes de roca y bosque" loading="lazy">
+        <div class="act__cap"><h3>Tirolesa</h3><p>El cruce del cañón, colgado sobre el agua.</p></div>
+      </article>
+      <article class="act reveal">
+        <img src="img/valle-nieve.jpg" alt="Sendero entre rocas y bosque bajo montañas nevadas" loading="lazy">
+        <div class="act__cap"><h3>Trekking</h3><p>52 km de sendero.</p></div>
+      </article>
+      <article class="act act--rock reveal">
+        <div class="act__cap act__cap--solid"><h3>Climbing</h3><p>Paredes de granito de cientos de metros.</p></div>
+      </article>
+      <article class="act act--river reveal">
+        <div class="act__cap act__cap--solid"><h3>Rafting</h3><p>Agua glaciar, color turquesa y la vuelta en bote.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ANTES DE IR -->
+  <section class="before" id="antes">
+    <div class="before__text">
+      <p class="eyebrow eyebrow--sun">Antes de ir</p>
+      <h2 class="h2 h2--light">Lo que nos preguntan siempre</h2>
+      <dl class="faq">
+        <div class="faq__item reveal">
+          <dt>¿Cuántos días dura?</dt>
+          <dd>La expedición requiere un mínimo de 10 días. La salida completa es de 11.</dd>
+        </div>
+        <div class="faq__item reveal">
+          <dt>¿Cuándo es la mejor época?</dt>
+          <dd>De noviembre a marzo. Siempre depende de las condiciones climáticas: en la montaña manda el tiempo.</dd>
+        </div>
+        <div class="faq__item reveal">
+          <dt>¿Lo puede hacer cualquiera?</dt>
+          <dd>Hace falta buen estado físico y equipo de montaña. Se hace siempre con guía de montaña: nunca vas solo.</dd>
+        </div>
+        <div class="faq__item reveal">
+          <dt>¿Cómo llego?</dt>
+          <dd>Cuando reservás te pasamos el punto de encuentro, la logística para llegar y la lista de equipo.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- RESERVA -->
+  <section class="book" id="reserva">
+    <div class="book__intro reveal">
+      <p class="eyebrow eyebrow--forest">Reservas y consultas</p>
+      <h2 class="h2 h2--forest">Guardá tu lugar en la próxima salida</h2>
+      <p>Los grupos son chicos y las salidas se programan con tiempo. Contanos cuántos son y qué fechas tienen en mente: te respondemos con disponibilidad y precio.</p>
+      <p class="book__mail">También podés escribirnos a <a href="mailto:turbio4oficial@gmail.com">turbio4oficial@gmail.com</a></p>
+    </div>
+
+    <form class="form reveal" id="bookingForm" novalidate>
+      <div class="field field--full">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre y apellido">
+      </div>
+      <div class="field field--full">
+        <label for="personas">Cantidad de personas</label>
+        <select id="personas" name="personas" required>
+          <option value="">Elegí</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8 o más</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="checkin">Fecha de check in</label>
+        <input id="checkin" name="checkin" type="date" required>
+        <small>Inicio de la expedición</small>
+      </div>
+      <div class="field">
+        <label for="checkout">Fecha de check out</label>
+        <input id="checkout" name="checkout" type="date" required>
+        <small>Mínimo 10 días después</small>
+      </div>
+      <p class="form__error" id="formError" role="alert"></p>
+      <button type="submit" class="btn btn--forest form__submit">Enviar consulta de reserva</button>
+    </form>
+  </section>
+
+  <!-- BANNER AUTOR -->
+  <section class="author">
+    <div class="author__inner reveal">
+      <p class="eyebrow eyebrow--sun">Diseño web</p>
+      <h2 class="author__title">Este boceto lo diseñó Teo Cicciari</h2>
+      <p>¿Tenés un emprendimiento de turismo, un refugio o una expedición? Pedí el tuyo: un sitio a medida, pensado para que te consulten y reserven.</p>
+      <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener" class="btn btn--sun">Ver referencias y precios</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <a href="#inicio" class="footer__brand">
+        <img src="img/logo.png" alt="Logo de Turbio IV" width="88" height="88" loading="lazy">
+      </a>
+      <div>
+        <p class="footer__name">Turbio IV · Oficial</p>
+        <p>Paraíso natural, escondido en la Patagonia</p>
+        <p class="footer__acts">Trekking · Rafting · Climbing</p>
+      </div>
+      <div class="footer__contact">
+        <a href="mailto:turbio4oficial@gmail.com">turbio4oficial@gmail.com</a>
+        <a href="https://www.instagram.com/turbio4oficial/" target="_blank" rel="noopener">@turbio4oficial</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© <span id="year"></span> Turbio IV · <span id="today"></span></p>
+      <p>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
