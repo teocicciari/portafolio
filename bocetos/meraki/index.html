@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meraki · Camping & Refugio cultural · El Desemboque, El Hoyo</title>
+<meta name="description" content="Camping y refugio cultural en el paraje El Desemboque, El Hoyo, Chubut. Costa de río, bosque nativo y a 3 km del Lago Puelo. Un lugar para encontrarse.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Caveat:wght@500;700&family=Figtree:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noche:#1C181F;
+    --noche-2:#26212A;
+    --noche-3:#131115;
+    --hueso:#F1EADF;
+    --hueso-2:#C9C0B4;
+    --naranja:#F5821F;
+    --magenta:#F0189A;
+    --turquesa:#13AEB2;
+    --lima:#9EDB1E;
+
+    --f-display:"Amatic SC", "Comic Sans MS", cursive;
+    --f-mano:"Caveat", "Segoe Print", cursive;
+    --f-texto:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+    --ancho:1180px;
+    --pad:clamp(20px, 5vw, 48px);
+    --rombos:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='16'%3E%3Cpath d='M8 2 L14 8 L8 14 L2 8Z' fill='%23F5821F'/%3E%3Ccircle cx='23' cy='8' r='1.7' fill='%23F5821F'/%3E%3C/svg%3E");
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--noche);color:var(--hueso);
+    font-family:var(--f-texto);font-size:17px;line-height:1.6;
+    -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--lima);outline-offset:3px;border-radius:4px}
+  .contenedor{width:min(var(--ancho), 100% - 2*var(--pad));margin-inline:auto}
+
+  /* utilidades tipográficas */
+  .leyenda{
+    font-family:var(--f-texto);font-weight:800;font-size:.78rem;
+    letter-spacing:.18em;text-transform:uppercase;
+  }
+  .mano{font-family:var(--f-mano);font-weight:500}
+  .banda-rombos{height:16px;background:var(--rombos) repeat-x center / 30px 16px;opacity:.9}
+
+  /* botones */
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-family:var(--f-texto);font-weight:800;font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;
+    text-decoration:none;padding:1em 1.6em;border-radius:999px;border:2px solid transparent;
+    cursor:pointer;transition:transform .2s, background-color .2s, color .2s, border-color .2s;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-lima{background:var(--lima);color:var(--noche-3)}
+  .btn-lima:hover{background:#B5EC45}
+  .btn-borde{border-color:var(--hueso-2);color:var(--hueso)}
+  .btn-borde:hover{border-color:var(--hueso);background:rgba(241,234,223,.06)}
+  .btn svg{width:18px;height:18px;flex:none}
+
+  /* ---------- NAV ---------- */
+  .nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;
+    transition:background-color .3s, box-shadow .3s;
+  }
+  .nav.solida{background:rgba(26,22,30,.94);box-shadow:0 1px 0 rgba(241,234,223,.08);backdrop-filter:blur(8px)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:72px}
+  .marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .marca img{width:54px;height:54px;object-fit:contain}
+  .marca span{font-family:var(--f-display);font-weight:700;font-size:1.9rem;letter-spacing:.06em;line-height:1}
+  .nav-links{display:flex;align-items:center;gap:28px;list-style:none;margin:0;padding:0}
+  .nav-links a{text-decoration:none;font-weight:700;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--hueso-2);transition:color .2s}
+  .nav-links a:hover{color:var(--hueso)}
+  .nav-links .btn{padding:.75em 1.3em;color:var(--noche-3)}
+  @media (max-width:820px){ .nav-links li:not(:last-child){display:none} }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;min-height:100svh;display:flex;align-items:center;
+    padding:110px 0 70px;overflow:hidden;
+  }
+  .hero::before{ /* brillo cálido del atardecer */
+    content:"";position:absolute;inset:auto -20% -40% 30%;height:90%;
+    background:radial-gradient(closest-side, rgba(245,130,31,.16), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.05fr 1fr;align-items:center;gap:clamp(32px,5vw,72px)}
+  .hero-texto .mano{color:var(--lima);font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1;display:block;margin-left:.2em}
+  .hero h1{
+    font-family:var(--f-display);font-weight:700;margin:0;
+    font-size:clamp(6rem,17vw,12.5rem);line-height:.82;letter-spacing:.04em;
+  }
+  .hero-lema{
+    margin:22px 0 0;font-family:var(--f-texto);font-weight:800;letter-spacing:.2em;text-transform:uppercase;
+    font-size:clamp(.82rem,1.3vw,.95rem);color:var(--naranja);
+  }
+  .hero-bajada{max-width:30em;color:var(--hueso-2);margin:14px 0 32px;font-size:1.05rem}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:14px}
+  .hero-ubic{margin-top:34px;color:var(--hueso-2);font-size:.72rem}
+
+  /* sello circular */
+  .sello{position:relative;width:min(520px,100%);aspect-ratio:1;margin-inline:auto}
+  .sello svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+  .sello-giro{animation:girar 120s linear infinite;transform-origin:50% 50%}
+  .sello-foto{
+    position:absolute;inset:13.46%;border-radius:50%;overflow:hidden;
+    box-shadow:0 30px 80px rgba(0,0,0,.45);
+  }
+  .sello-foto img{width:100%;height:100%;object-fit:cover;object-position:62% 50%;transform:scale(1.12)}
+  .sello-texto{font-family:var(--f-texto);font-weight:800;font-size:17px;letter-spacing:.22em;fill:var(--hueso)}
+  @keyframes girar{to{transform:rotate(360deg)}}
+
+  @media (max-width:860px){
+    .hero{padding-top:96px;align-items:flex-start}
+    .hero-grid{grid-template-columns:1fr;gap:28px}
+    .sello{order:-1;width:min(340px,82vw)}
+    .hero-texto{text-align:center}
+    .hero-texto .mano{margin-left:0}
+    .hero-bajada{margin-inline:auto}
+    .hero-ctas{justify-content:center}
+  }
+
+  /* ---------- FLECHA (divisor) ---------- */
+  .flecha{display:block;width:min(560px,90%);height:auto;margin:0 auto}
+  .flecha .trazo{stroke-dasharray:var(--l,700);stroke-dashoffset:var(--l,700);transition:stroke-dashoffset 1.6s cubic-bezier(.6,.1,.2,1)}
+  .flecha.visto .trazo{stroke-dashoffset:0}
+  .flecha .hoja{opacity:0;transform:scale(.6);transform-box:fill-box;transform-origin:center;transition:opacity .5s, transform .5s}
+  .flecha.visto .hoja{opacity:1;transform:none}
+
+  /* ---------- SECCIONES base ---------- */
+  .seccion{padding:clamp(72px,10vw,130px) 0}
+  .titulo{
+    font-family:var(--f-display);font-weight:700;line-height:.95;margin:.15em 0 .35em;
+    font-size:clamp(3rem,7vw,5.2rem);letter-spacing:.02em;
+  }
+  .eyebrow{color:var(--naranja)}
+
+  /* ---------- DICCIONARIO ---------- */
+  .dicc{background:var(--noche-3)}
+  .entrada{max-width:900px;margin:0 auto}
+  .entrada-cabeza{display:flex;flex-wrap:wrap;align-items:baseline;gap:.2em 1em;border-bottom:1px solid rgba(241,234,223,.14);padding-bottom:18px}
+  .entrada-palabra{font-family:var(--f-display);font-weight:700;font-size:clamp(4rem,11vw,7.5rem);line-height:.85;letter-spacing:.03em}
+  .entrada-palabra .sil{color:var(--magenta)}
+  .entrada-fon{font-size:1.15rem;color:var(--hueso-2)}
+  .entrada-griego{font-family:Georgia, "Times New Roman", serif;font-style:italic;font-size:1.6rem;color:var(--turquesa)}
+  .entrada-cat{width:100%;color:var(--hueso-2);font-size:.72rem}
+  .acepciones{list-style:none;margin:30px 0 0;padding:0;counter-reset:acep}
+  .acepciones li{
+    counter-increment:acep;display:grid;grid-template-columns:3.2rem 1fr;gap:6px;
+    padding:18px 0;border-bottom:1px dashed rgba(241,234,223,.12);
+    font-size:clamp(1.15rem,2.2vw,1.5rem);line-height:1.45;
+  }
+  .acepciones li::before{
+    content:counter(acep) ".";font-family:var(--f-display);font-weight:700;font-size:2.3rem;line-height:1;
+    color:var(--c,var(--lima));
+  }
+  .acepciones li:nth-child(2){--c:var(--turquesa)}
+  .acepciones li:nth-child(3){--c:var(--naranja)}
+  .acepciones .lugar{display:block;font-size:.72rem;color:var(--naranja);margin-bottom:6px}
+  .acepciones em{font-style:normal;color:var(--lima)}
+  .acepciones .mano{font-size:1.25em;color:var(--hueso)}
+
+  /* ---------- EL ESPACIO ---------- */
+  .espacio-intro{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:48px}
+  .espacio-intro p{color:var(--hueso-2);margin:0;max-width:32em}
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .card{background:var(--noche-2);border-radius:22px;overflow:hidden;display:flex;flex-direction:column}
+  .card-foto{aspect-ratio:4/3;overflow:hidden}
+  .card-foto img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+  .card:hover .card-foto img{transform:scale(1.04)}
+  .card-cuerpo{padding:26px 28px 30px;display:flex;flex-direction:column;gap:10px;flex:1}
+  .card h3{font-family:var(--f-display);font-weight:700;font-size:2.8rem;line-height:1;margin:0}
+  .card .mano{font-size:1.45rem;line-height:1.1}
+  .card p{margin:0;color:var(--hueso-2)}
+  .card ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+  .card li{font-size:.8rem;font-weight:700;padding:.4em .9em;border-radius:999px;border:1px solid rgba(241,234,223,.18)}
+  .card-refugio .mano{color:var(--turquesa)}
+  .card-camping .mano{color:var(--lima)}
+
+  .comodidades{
+    margin-top:56px;padding:26px 28px;border-radius:22px;border:1px solid rgba(241,234,223,.12);
+    display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;
+  }
+  .comodidades .leyenda{color:var(--hueso-2);margin-right:6px}
+  .comodidad{display:flex;align-items:center;gap:10px;font-weight:700}
+  .comodidad i{width:11px;height:11px;transform:rotate(45deg);background:var(--c);flex:none}
+
+  @media (max-width:820px){
+    .espacio-intro,.cards{grid-template-columns:1fr}
+    .espacio-intro{gap:12px;margin-bottom:32px}
+  }
+
+  /* ---------- ENTORNO ---------- */
+  .entorno{background:var(--noche-3);position:relative;overflow:hidden}
+  .entorno-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(36px,6vw,80px);align-items:center}
+  .entorno-foto{border-radius:220px 220px 22px 22px;overflow:hidden;aspect-ratio:4/5}
+  .entorno-foto img{width:100%;height:100%;object-fit:cover;object-position:30% 50%}
+  .recorrido{list-style:none;margin:28px 0 36px;padding:0;position:relative}
+  .recorrido::before{content:"";position:absolute;left:11px;top:14px;bottom:14px;border-left:2px dashed rgba(241,234,223,.25)}
+  .recorrido li{position:relative;display:grid;grid-template-columns:24px 1fr auto;gap:16px;align-items:baseline;padding:12px 0}
+  .recorrido li::before{content:"";width:14px;height:14px;margin-left:5px;transform:rotate(45deg) translateY(2px);background:var(--c,var(--naranja));align-self:center}
+  .recorrido strong{font-size:1.15rem}
+  .recorrido small{display:block;color:var(--hueso-2);font-size:.9rem}
+  .recorrido .km{white-space:nowrap;font-family:var(--f-display);font-weight:700;font-size:2.3rem;line-height:1;color:var(--c,var(--naranja))}
+  .actividades{display:flex;flex-wrap:wrap;gap:10px}
+  .actividades span{
+    font-family:var(--f-mano);font-size:1.5rem;line-height:1;padding:.35em .8em .45em;
+    border-radius:999px;background:rgba(158,219,30,.12);color:var(--lima)
+  }
+  .actividades span:nth-child(2){background:rgba(19,174,178,.15);color:#4FD0D3}
+  .actividades span:nth-child(3){background:rgba(245,130,31,.14);color:var(--naranja)}
+  .actividades span:nth-child(4){background:rgba(240,24,154,.14);color:#FF5DB8}
+  @media (max-width:860px){
+    .entorno-grid{grid-template-columns:1fr}
+    .entorno-foto{aspect-ratio:1/1;max-width:520px}
+  }
+
+  /* ---------- FOTOS ---------- */
+  .fotos-grid{
+    display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:280px 280px;gap:16px;margin-top:40px;
+  }
+  .foto{position:relative;margin:0;border-radius:18px;overflow:hidden}
+  .foto img{width:100%;height:100%;object-fit:cover}
+  .foto figcaption{
+    position:absolute;left:14px;bottom:12px;font-family:var(--f-mano);font-size:1.45rem;line-height:1;
+    background:var(--noche);color:var(--hueso);padding:.25em .6em .35em;border-radius:10px;
+    transform:rotate(-2deg);
+  }
+  .f-alta{grid-row:span 2}
+  .f-ancha{grid-column:span 2}
+  @media (max-width:760px){
+    .fotos-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto;grid-auto-rows:200px;grid-auto-flow:dense}
+    .f-alta{grid-row:span 2}
+    .f-ancha{grid-column:span 2}
+  }
+
+  /* ---------- PROMO ---------- */
+  .promo{background:var(--magenta);color:#fff}
+  .promo-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px 40px;padding:44px 0}
+  .promo h2{font-family:var(--f-display);font-weight:700;font-size:clamp(2.4rem,5vw,3.6rem);line-height:1;margin:0}
+  .promo p{margin:.3em 0 0;font-weight:700}
+  .promo .btn{background:var(--noche-3);color:#fff}
+  .promo .btn:hover{background:#000}
+
+  /* ---------- RESERVA ---------- */
+  .reserva-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(36px,6vw,80px);align-items:start}
+  .reserva-texto p{color:var(--hueso-2);max-width:26em}
+  .reserva-contacto{margin-top:26px;display:flex;flex-direction:column;gap:12px}
+  .reserva-contacto a{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-weight:700}
+  .reserva-contacto a:hover{color:var(--lima)}
+  .reserva-contacto svg{width:22px;height:22px;flex:none}
+  .form{
+    background:var(--noche-2);border-radius:26px;padding:clamp(24px,4vw,40px);position:relative;
+  }
+  .form::before{content:"";position:absolute;left:28px;right:28px;top:-8px;height:16px;background:var(--rombos) repeat-x center / 30px 16px}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .campo{display:flex;flex-direction:column;gap:7px}
+  .campo.ancho{grid-column:1/-1}
+  .campo label{font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--hueso-2)}
+  .campo input,.campo select{
+    font:inherit;font-size:1rem;color:var(--hueso);background:var(--noche);
+    border:1.5px solid rgba(241,234,223,.16);border-radius:12px;padding:.85em 1em;width:100%;
+    color-scheme:dark;transition:border-color .2s;
+  }
+  .campo input:focus,.campo select:focus{outline:none;border-color:var(--lima)}
+  .campo select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--lima) 50%),linear-gradient(135deg,var(--lima) 50%,transparent 50%);background-position:calc(100% - 22px) 52%,calc(100% - 16px) 52%;background-size:6px 6px;background-repeat:no-repeat;padding-right:2.6em}
+  .form-pie{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 20px}
+  .form-pie small{color:var(--hueso-2);flex:1;min-width:200px}
+  .form-error{grid-column:1/-1;margin:0;color:#FF8FC2;font-weight:700;min-height:1.2em;font-size:.92rem}
+  @media (max-width:860px){
+    .reserva-grid{grid-template-columns:1fr}
+  }
+  @media (max-width:520px){
+    .form-grid{grid-template-columns:1fr}
+    .form-pie .btn{width:100%;justify-content:center}
+  }
+
+  /* ---------- AUTOR ---------- */
+  .autor{background:var(--turquesa);color:var(--noche-3)}
+  .autor-inner{display:grid;grid-template-columns:1fr auto;gap:24px 48px;align-items:center;padding:clamp(56px,8vw,90px) 0}
+  .autor .leyenda{color:var(--noche-3);opacity:.75}
+  .autor h2{font-family:var(--f-display);font-weight:700;font-size:clamp(2.6rem,6vw,4.4rem);line-height:.95;margin:.15em 0 .25em}
+  .autor p{margin:0;max-width:36em;font-weight:500}
+  .autor .btn{background:var(--noche-3);color:var(--hueso)}
+  .autor .btn:hover{background:#000}
+  @media (max-width:760px){ .autor-inner{grid-template-columns:1fr} }
+
+  /* ---------- FOOTER ---------- */
+  .footer{background:var(--noche-3);padding:56px 0 30px;font-size:.92rem}
+  .footer-grid{display:grid;grid-template-columns:auto 1fr auto;gap:28px 48px;align-items:center}
+  .footer-logo{width:140px;height:140px;object-fit:contain}
+  .footer h3{font-family:var(--f-display);font-weight:700;font-size:2.2rem;line-height:1;margin:0 0 6px}
+  .footer p{margin:0;color:var(--hueso-2)}
+  .footer-links{display:flex;flex-direction:column;gap:8px;text-align:right}
+  .footer-links a{text-decoration:none;font-weight:700}
+  .footer-links a:hover{color:var(--lima)}
+  .footer-base{margin-top:40px;padding-top:22px;border-top:1px solid rgba(241,234,223,.1);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;color:var(--hueso-2);font-size:.82rem}
+  .footer-base a{color:var(--lima)}
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr;text-align:center;justify-items:center}
+    .footer-links{text-align:center}
+    .footer-base{justify-content:center;text-align:center}
+  }
+
+  /* ---------- WhatsApp flotante ---------- */
+  .wa-flot{
+    position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;
+    background:var(--lima);color:var(--noche-3);display:grid;place-items:center;
+    box-shadow:0 10px 30px rgba(0,0,0,.4);transition:transform .2s;
+  }
+  .wa-flot:hover{transform:scale(1.07)}
+  .wa-flot svg{width:28px;height:28px}
+
+  /* aparición suave */
+  .aparece{opacity:0;transform:translateY(18px);transition:opacity .8s, transform .8s}
+  .aparece.visto{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    .sello-giro{animation:none}
+    .aparece,.flecha .hoja{opacity:1;transform:none;transition:none}
+    .flecha .trazo{stroke-dashoffset:0;transition:none}
+    .btn,.card-foto img{transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header class="nav" id="nav">
+  <div class="contenedor nav-inner">
+    <a class="marca" href="#inicio" aria-label="Meraki, inicio">
+      <img src="img/logo.png" alt="">
+      <span>Meraki</span>
+    </a>
+    <nav aria-label="Principal">
+      <ul class="nav-links">
+        <li><a href="#espacio">El espacio</a></li>
+        <li><a href="#entorno">Entorno</a></li>
+        <li><a href="#fotos">Fotos</a></li>
+        <li><a class="btn btn-lima" href="#reservar">Reservar</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="contenedor hero-grid">
+    <div class="hero-texto">
+      <span class="mano">camping &amp; refugio</span>
+      <h1>MERAKI</h1>
+      <p class="hero-lema">Un lugar para encontrarse</p>
+      <p class="hero-bajada">Refugio cultural y camping entre bosque nativo, con costa de río y a 3&nbsp;km del Lago Puelo.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-lima" href="#reservar">Consultar fechas</a>
+        <a class="btn btn-borde" href="#espacio">Conocer el espacio</a>
+      </div>
+      <p class="hero-ubic leyenda">Pje. El Desemboque · El Hoyo · Chubut · Patagonia</p>
+    </div>
+
+    <div class="sello" aria-hidden="true">
+      <svg viewBox="0 0 520 520">
+        <circle cx="260" cy="260" r="199" fill="none" stroke="#F5821F" stroke-width="1.5" opacity=".8"/>
+        <g class="sello-giro">
+          <defs>
+            <path id="anillo" d="M260,260 m-208,0 a208,208 0 1,1 416,0 a208,208 0 1,1 -416,0"/>
+          </defs>
+          <text class="sello-texto"><textPath href="#anillo" textLength="1300" lengthAdjust="spacing">UN LUGAR PARA ENCONTRARSE ✦ PJE. DESEMBOQUE · EL HOYO · CHUBUT ✦</textPath></text>
+          <g id="rombos"></g>
+        </g>
+      </svg>
+      <div class="sello-foto"><img src="img/valle-atardecer.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<div class="banda-rombos" role="presentation"></div>
+
+<!-- ================= EL ESPACIO ================= -->
+<section class="seccion" id="espacio" aria-labelledby="t-espacio">
+  <div class="contenedor">
+    <div class="espacio-intro aparece">
+      <div>
+        <p class="leyenda eyebrow">El espacio</p>
+        <h2 class="titulo" id="t-espacio">Refugio o carpa,<br>vos elegís</h2>
+      </div>
+      <p>Dos formas de quedarse en Meraki: bajo techo en el refugio, con habitaciones compartidas y privadas, o con la carpa en el camping, entre los árboles. Si vienen en grupo, el refugio se alquila completo.</p>
+    </div>
+
+    <div class="cards">
+      <article class="card card-refugio aparece">
+        <div class="card-foto"><img src="img/refugio-estufa.jpg" alt="Interior del refugio con paredes de troncos, estufa a leña y un sillón" loading="lazy"></div>
+        <div class="card-cuerpo">
+          <span class="mano">bajo techo</span>
+          <h3>El refugio</h3>
+          <p>Habitaciones compartidas y privadas, con agua caliente y WiFi. Para grupos y familias, se alquila completo para hasta 8 personas.</p>
+          <ul>
+            <li>Compartidas</li>
+            <li>Privadas</li>
+            <li>Completo · hasta 8</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card card-camping aparece">
+        <div class="card-foto"><img src="img/rio-banistas.jpg" alt="Viajeros bañándose en el río, rodeado de vegetación" loading="lazy"></div>
+        <div class="card-cuerpo">
+          <span class="mano">bajo las estrellas</span>
+          <h3>El camping</h3>
+          <p>Armá tu carpa entre vegetación y bosque nativo, con fogones, agua caliente, estacionamiento y la costa del río para pasar la tarde.</p>
+          <ul>
+            <li>Fogones</li>
+            <li>Costa de río</li>
+            <li>Estacionamiento</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+
+    <div class="comodidades aparece" aria-label="Comodidades">
+      <span class="leyenda">Tenemos</span>
+      <span class="comodidad"><i style="--c:var(--turquesa)"></i>Costa de río</span>
+      <span class="comodidad"><i style="--c:var(--lima)"></i>Bosque nativo</span>
+      <span class="comodidad"><i style="--c:var(--naranja)"></i>Fogones</span>
+      <span class="comodidad"><i style="--c:var(--magenta)"></i>Agua caliente</span>
+      <span class="comodidad"><i style="--c:var(--turquesa)"></i>WiFi</span>
+      <span class="comodidad"><i style="--c:var(--lima)"></i>Estacionamiento</span>
+    </div>
+  </div>
+</section>
+
+<!-- divisor: flecha de hojas, como la del logo -->
+<svg class="flecha" id="flecha" viewBox="0 0 600 70" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path class="trazo" d="M40 35 H560" stroke="#9EDB1E" stroke-width="3" style="--l:530"/>
+  <path class="trazo" d="M538 20 L568 35 L538 50" stroke="#9EDB1E" stroke-width="3" style="--l:80"/>
+  <path class="trazo" d="M40 35 L18 15 M56 35 L34 15 M72 35 L50 15 M40 35 L18 55 M56 35 L34 55 M72 35 L50 55" stroke="#13AEB2" stroke-width="2.5" style="--l:200"/>
+  <g stroke-width="2">
+    <path class="hoja" d="M150 35 q12 -22 34 -20 q-10 18 -34 20z" stroke="#13AEB2" style="transition-delay:.5s"/>
+    <path class="hoja" d="M210 35 q12 22 34 20 q-10 -18 -34 -20z" stroke="#9EDB1E" style="transition-delay:.65s"/>
+    <path class="hoja" d="M270 35 q12 -22 34 -20 q-10 18 -34 20z" stroke="#9EDB1E" style="transition-delay:.8s"/>
+    <path class="hoja" d="M330 35 q12 22 34 20 q-10 -18 -34 -20z" stroke="#13AEB2" style="transition-delay:.95s"/>
+    <path class="hoja" d="M390 35 q12 -22 34 -20 q-10 18 -34 20z" stroke="#13AEB2" style="transition-delay:1.1s"/>
+    <path class="hoja" d="M450 35 q12 22 34 20 q-10 -18 -34 -20z" stroke="#9EDB1E" style="transition-delay:1.25s"/>
+  </g>
+  <g fill="#F0189A" stroke="none">
+    <path class="hoja" d="M110 22 l4 -5 4 5 -4 5z M120 14 l3 -4 3 4 -3 4z M100 14 l3 -4 3 4 -3 4z" style="transition-delay:1.35s"/>
+    <path class="hoja" d="M500 48 l4 5 4 -5 -4 -5z M510 56 l3 4 3 -4 -3 -4z M490 56 l3 4 3 -4 -3 -4z" style="transition-delay:1.45s"/>
+  </g>
+</svg>
+
+<!-- ================= ENTORNO ================= -->
+<section class="seccion entorno" id="entorno" aria-labelledby="t-entorno">
+  <div class="contenedor entorno-grid">
+    <div class="entorno-foto aparece"><img src="img/rio.jpg" alt="El río entre sauces y montaña, en un día de cielo azul" loading="lazy"></div>
+    <div class="aparece">
+      <p class="leyenda eyebrow">El entorno</p>
+      <h2 class="titulo" id="t-entorno">El Desemboque,<br>a pie de río</h2>
+      <p style="color:var(--hueso-2);margin:0">Estamos en El Hoyo, Chubut, entre el bosque nativo y la cordillera. Lo que tenés cerca:</p>
+      <ol class="recorrido">
+        <li style="--c:var(--lima)"><span><strong>Meraki</strong><small>Costa de río y bosque nativo</small></span><span class="km">0</span></li>
+        <li style="--c:var(--turquesa)"><span><strong>Lago Puelo</strong><small>El Desemboque</small></span><span class="km">3 km</span></li>
+        <li style="--c:var(--naranja)"><span><strong>Laberinto Patagonia</strong><small>El Hoyo</small></span><span class="km">5,5 km</span></li>
+      </ol>
+      <p class="leyenda" style="color:var(--hueso-2);margin:0 0 14px">Para hacer en los alrededores</p>
+      <div class="actividades">
+        <span>cabalgatas</span>
+        <span>paseos en lancha</span>
+        <span>trekking</span>
+        <span>pesca</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOTOS ================= -->
+<section class="seccion" id="fotos" aria-labelledby="t-fotos">
+  <div class="contenedor">
+    <p class="leyenda eyebrow aparece">Fotos</p>
+    <h2 class="titulo aparece" id="t-fotos">Así se vive Meraki</h2>
+    <div class="fotos-grid">
+      <figure class="foto f-alta aparece"><img src="img/piramide-viajeros.jpg" alt="Un grupo de viajeros armando una pirámide humana a orillas del río" loading="lazy" style="object-position:50% 40%"><figcaption>viajeros que se encuentran</figcaption></figure>
+      <figure class="foto f-ancha aparece"><img src="img/valle-atardecer.jpg" alt="Vista aérea del valle de El Desemboque al atardecer, con el río y las montañas encendidas" loading="lazy"><figcaption>el valle al atardecer</figcaption></figure>
+      <figure class="foto aparece"><img src="img/moras.jpg" alt="Una mano juntando moras silvestres" loading="lazy"><figcaption>moras de temporada</figcaption></figure>
+      <figure class="foto aparece"><img src="img/cocina.jpg" alt="Cocina de madera con luz de la mañana entrando por la ventana" loading="lazy"><figcaption>la cocina</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DICCIONARIO ================= -->
+<section class="seccion dicc" aria-labelledby="t-palabra">
+  <div class="contenedor entrada aparece">
+    <p class="leyenda eyebrow">La palabra</p>
+    <div class="entrada-cabeza">
+      <h2 class="entrada-palabra" id="t-palabra">me<span class="sil">·</span>ra<span class="sil">·</span>ki</h2>
+      <span class="entrada-fon">/me·ˈɾa·ki/</span>
+      <span class="entrada-griego" lang="el">μεράκι</span>
+      <span class="entrada-cat leyenda">sustantivo · del griego</span>
+    </div>
+    <ol class="acepciones">
+      <li><span>Hacer algo con el alma, con <em>creatividad</em> y con <em>amor</em>.</span></li>
+      <li><span>Dejar un pedazo de uno mismo en lo que se hace.</span></li>
+      <li>
+        <span>
+          <span class="lugar leyenda">El Hoyo, Chubut</span>
+          Camping y refugio cultural en el paraje El Desemboque, rodeado de bosque nativo y a orillas del río.
+          <span class="mano">Un lugar para encontrarse.</span>
+        </span>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= PROMO ================= -->
+<section class="promo" aria-label="Promociones">
+  <div class="contenedor promo-inner">
+    <div>
+      <h2>¿Vienen varios días o en grupo?</h2>
+      <p>Tenemos promociones para estadías largas y grupos. Escribinos y te pasamos el precio.</p>
+    </div>
+    <a class="btn" href="https://wa.me/5492944581610?text=Hola%20Meraki!%20Quer%C3%ADa%20consultar%20por%20las%20promociones%20para%20varios%20d%C3%ADas%20o%20grupos." target="_blank" rel="noopener">Pedir la promo</a>
+  </div>
+</section>
+
+<!-- ================= RESERVA ================= -->
+<section class="seccion" id="reservar" aria-labelledby="t-reserva">
+  <div class="contenedor reserva-grid">
+    <div class="reserva-texto aparece">
+      <p class="leyenda eyebrow">Reservas</p>
+      <h2 class="titulo" id="t-reserva">Contanos cuándo venís</h2>
+      <p>Completá tus datos y se abre WhatsApp con el mensaje armado. Te respondemos con disponibilidad y precio.</p>
+      <div class="reserva-contacto">
+        <a href="https://wa.me/5492944581610" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.9 13.9 0 0 0 5.3 4.7c2 .8 2.7.9 3.7.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.8L.1 24l6.4-1.7A11.8 11.8 0 0 0 12 23.7 11.8 11.8 0 0 0 20.4 3.6z"/></svg>
+          WhatsApp · 294 458-1610
+        </a>
+        <a href="https://www.instagram.com/merakirefugiocultural/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          @merakirefugiocultural
+        </a>
+      </div>
+    </div>
+
+    <form class="form aparece" id="form-reserva" novalidate>
+      <div class="form-grid">
+        <div class="campo ancho">
+          <label for="r-nombre">Nombre</label>
+          <input id="r-nombre" name="nombre" type="text" autocomplete="name" required placeholder="¿Cómo te llamás?">
+        </div>
+        <div class="campo">
+          <label for="r-aloj">Alojamiento</label>
+          <select id="r-aloj" name="alojamiento" required>
+            <option value="Refugio · habitación compartida">Refugio · compartida</option>
+            <option value="Refugio · habitación privada">Refugio · privada</option>
+            <option value="Refugio completo (hasta 8 personas)">Refugio completo</option>
+            <option value="Camping">Camping</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="r-personas">Cantidad de personas</label>
+          <input id="r-personas" name="personas" type="number" min="1" max="30" value="2" inputmode="numeric" required>
+        </div>
+        <div class="campo">
+          <label for="r-in">Check in</label>
+          <input id="r-in" name="checkin" type="date" required>
+        </div>
+        <div class="campo">
+          <label for="r-out">Check out</label>
+          <input id="r-out" name="checkout" type="date" required>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+      </div>
+      <div class="form-pie">
+        <small>Se abre WhatsApp con tu consulta lista para enviar.</small>
+        <button class="btn btn-lima" type="submit">Consultar por WhatsApp</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= BANNER AUTOR ================= -->
+<section class="autor" aria-labelledby="t-autor">
+  <div class="contenedor autor-inner">
+    <div>
+      <p class="leyenda">Diseño web</p>
+      <h2 id="t-autor">Este boceto lo diseñó Teo Cicciari</h2>
+      <p>¿Tenés un hospedaje, un camping o un emprendimiento y querés un sitio hecho a medida, con tu identidad? Pedí el tuyo.</p>
+    </div>
+    <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer-grid">
+      <img class="footer-logo" src="img/logo.png" alt="Logo de Camping & Refugio Meraki">
+      <div>
+        <h3>Camping &amp; Refugio Meraki</h3>
+        <p>Paraje El Desemboque · El Hoyo · Chubut · Patagonia Argentina</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/5492944581610" target="_blank" rel="noopener">WhatsApp 294 458-1610</a>
+        <a href="https://www.instagram.com/merakirefugiocultural/" target="_blank" rel="noopener">@merakirefugiocultural</a>
+        <a href="#reservar">Consultar fechas</a>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="anio"></span> Meraki · Un lugar para encontrarse · <span id="hoy"></span></span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flot" href="https://wa.me/5492944581610" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1s-.5-.1-.7.1-.8 1-1 1.2-.4.2-.7.1a8.2 8.2 0 0 1-4-3.5c-.3-.5.3-.5.9-1.6.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.8.4 3.5 3.5 0 0 0-1.1 2.6 6 6 0 0 0 1.3 3.2 13.9 13.9 0 0 0 5.3 4.7c2 .8 2.7.9 3.7.8a3.1 3.1 0 0 0 2-1.4 2.5 2.5 0 0 0 .2-1.4c-.1-.1-.3-.2-.6-.3zM12 21.8a9.8 9.8 0 0 1-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.8L.1 24l6.4-1.7A11.8 11.8 0 0 0 12 23.7 11.8 11.8 0 0 0 20.4 3.6z"/></svg>
+</a>
+
+<script>
+  // Anillo de rombos del sello (como el borde del logo)
+  (function(){
+    var g = document.getElementById('rombos'), ns = 'http://www.w3.org/2000/svg';
+    var n = 44, r = 240, c = 260;
+    for (var i = 0; i < n; i++){
+      var a = (i / n) * Math.PI * 2, x = c + r * Math.cos(a), y = c + r * Math.sin(a);
+      var deg = a * 180 / Math.PI;
+      var p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', 'M0 -8 L6 0 L0 8 L-6 0Z');
+      p.setAttribute('fill', '#F5821F');
+      p.setAttribute('transform', 'translate(' + x.toFixed(2) + ' ' + y.toFixed(2) + ') rotate(' + (deg + 90).toFixed(1) + ')');
+      g.appendChild(p);
+      var a2 = ((i + .5) / n) * Math.PI * 2;
+      var d = document.createElementNS(ns, 'circle');
+      d.setAttribute('cx', (c + r * Math.cos(a2)).toFixed(2));
+      d.setAttribute('cy', (c + r * Math.sin(a2)).toFixed(2));
+      d.setAttribute('r', '2');
+      d.setAttribute('fill', '#F5821F');
+      g.appendChild(d);
+    }
+  })();
+
+  // Nav sólida al scrollear
+  var nav = document.getElementById('nav');
+  function navEstado(){ nav.classList.toggle('solida', window.scrollY > 40); }
+  navEstado(); window.addEventListener('scroll', navEstado, {passive:true});
+
+  // Apariciones
+  var obs = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('visto'); obs.unobserve(e.target); } });
+  }, {threshold:.15}) : null;
+  document.querySelectorAll('.aparece, .flecha').forEach(function(el){
+    if (obs) obs.observe(el); else el.classList.add('visto');
+  });
+
+  // Fecha dinámica del footer
+  var ahora = new Date();
+  document.getElementById('anio').textContent = ahora.getFullYear();
+  document.getElementById('hoy').textContent = ahora.toLocaleDateString('es-AR', {weekday:'long', day:'numeric', month:'long', year:'numeric'});
+
+  // Formulario de reserva → WhatsApp
+  (function(){
+    var form = document.getElementById('form-reserva');
+    var fIn = document.getElementById('r-in'), fOut = document.getElementById('r-out');
+    var err = document.getElementById('form-error');
+    function iso(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
+    function lindo(s){ var p = s.split('-'); return p[2] + '/' + p[1] + '/' + p[0]; }
+    var hoy = iso(new Date());
+    fIn.min = hoy; fOut.min = hoy;
+    fIn.addEventListener('change', function(){
+      if (!fIn.value) return;
+      var sig = new Date(fIn.value + 'T12:00:00'); sig.setDate(sig.getDate() + 1);
+      fOut.min = iso(sig);
+      if (!fOut.value || fOut.value <= fIn.value) fOut.value = iso(sig);
+    });
+    form.addEventListener('submit', function(ev){
+      ev.preventDefault();
+      var nombre = form.nombre.value.trim(), personas = parseInt(form.personas.value, 10);
+      var aloj = form.alojamiento.value, cin = fIn.value, cout = fOut.value;
+      err.textContent = '';
+      if (!nombre){ err.textContent = 'Escribí tu nombre para que sepamos quién consulta.'; form.nombre.focus(); return; }
+      if (!personas || personas < 1){ err.textContent = 'Indicá cuántas personas vienen.'; form.personas.focus(); return; }
+      if (aloj.indexOf('completo') > -1 && personas > 8){ err.textContent = 'El refugio completo es para hasta 8 personas. Para grupos más grandes, sumá el camping en la consulta.'; form.personas.focus(); return; }
+      if (!cin){ err.textContent = 'Elegí la fecha de check in.'; fIn.focus(); return; }
+      if (!cout || cout <= cin){ err.textContent = 'El check out tiene que ser después del check in.'; fOut.focus(); return; }
+      var msg = 'Hola Meraki! Quiero consultar disponibilidad:\n' +
+        '• Nombre: ' + nombre + '\n' +
+        '• Alojamiento: ' + aloj + '\n' +
+        '• Personas: ' + personas + '\n' +
+        '• Check in: ' + lindo(cin) + '\n' +
+        '• Check out: ' + lindo(cout);
+      window.open('https://wa.me/5492944581610?text=' + encodeURIComponent(msg), '_blank', 'noopener');
+    });
+  })();
+</script>
+</body>
+</html>
