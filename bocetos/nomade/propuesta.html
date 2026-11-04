@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta web · Parada Nómade</title>
+<meta name="description" content="Propuesta de Teo Cicciari para el sitio web de Parada Nómade, lofts de campo en Los Cardales.">
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Figtree:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+:root{
+  --rocio:#E3E8DC; --rocio-2:#EDF1E7; --paja:#EAD9B4; --noche:#10151B; --noche-2:#18202A;
+  --tero:#15171A; --hueso:#ECE8DC; --musgo:#4B574F;
+  --pileta:#1C7A74; --brasa:#E27D3E; --sol:#EDB93F; --wa:#25D366;
+  --display:"Stardos Stencil", Georgia, serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"DM Mono", ui-monospace, "Cascadia Mono", monospace;
+  --gutter:clamp(18px, 4vw, 48px);
+  --max:1160px;
+  --line:rgba(21,23,26,.16);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--rocio); color:var(--tero); font-family:var(--body); font-size:1.0625rem; line-height:1.6; -webkit-font-smoothing:antialiased}
+img{display:block; max-width:100%; height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display); font-weight:700; line-height:1.02; margin:0}
+p,ul{margin:0}
+:focus-visible{outline:2px solid var(--brasa); outline-offset:3px; border-radius:2px}
+.wrap{max-width:var(--max); margin:0 auto; padding:0 var(--gutter)}
+.tag{font:500 .74rem/1.3 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--musgo)}
+.btn{display:inline-flex; align-items:center; gap:.55em; font:600 1rem/1 var(--body); padding:1em 1.45em; border-radius:999px; text-decoration:none; border:1.5px solid transparent; transition:transform .2s ease}
+.btn:hover{transform:translateY(-2px)}
+.btn-pileta{background:var(--pileta); color:#fff}
+.btn-brasa{background:var(--brasa); color:var(--noche)}
+.btn-line{border-color:currentColor}
+
+/* ---------- bloques ---------- */
+.bloque{padding:clamp(72px, 10vw, 128px) 0}
+.bloque.oscuro{background:var(--noche); color:var(--hueso); --line:rgba(236,232,220,.16)}
+.bloque.oscuro .tag{color:#9AA3A9}
+.bloque.paja{background:var(--paja)}
+.cabeza{display:grid; gap:1rem; max-width:42rem; margin-bottom:clamp(36px, 5vw, 60px)}
+.cabeza h2{font-size:clamp(2.2rem, 5.6vw, 3.8rem)}
+.cabeza p{color:var(--musgo); font-size:1.1rem}
+.oscuro .cabeza p{color:#B7BEC2}
+
+/* ---------- portada ---------- */
+.portada{display:grid; min-height:100svh}
+.portada-foto{position:relative; min-height:46svh}
+.portada-foto img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:30% 50%}
+.portada-texto{padding:56px var(--gutter) 64px; display:grid; gap:1.4rem; align-content:center}
+.membrete{display:flex; align-items:center; gap:.8rem}
+.membrete img{width:52px; height:52px}
+.membrete span{font:500 .74rem/1.4 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--musgo)}
+.portada h1{font-size:clamp(2.8rem, 8vw, 5.4rem); text-wrap:balance}
+.portada h1 em{font-style:normal; color:var(--pileta)}
+.portada-lead{max-width:32em; color:var(--musgo); font-size:1.12rem}
+.portada-ctas{display:flex; flex-wrap:wrap; gap:.75rem}
+.para{display:grid; grid-template-columns:auto 1fr; gap:.3rem 1.2rem; font-size:.95rem; border-top:1px solid var(--line); padding-top:1.2rem; max-width:30rem}
+.para dt{font:500 .72rem/1.9 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--musgo)}
+.para dd{margin:0; font-weight:500}
+@media (min-width:920px){
+  .portada{grid-template-columns:1fr 1fr}
+  .portada h1{font-size:clamp(3.2rem, 4.6vw, 4.4rem)}
+  .portada-texto{padding:72px 64px 72px max(var(--gutter), calc((100vw - var(--max))/2 + var(--gutter)))}
+}
+
+/* ---------- lo que ya está hecho ---------- */
+.destacados{display:grid; gap:44px}
+@media (min-width:860px){ .destacados{grid-template-columns:repeat(3, 1fr); gap:32px} }
+.destacado{display:grid; gap:.9rem; align-content:start}
+.destacado img{aspect-ratio:4/5; object-fit:cover; width:100%; border-radius:4px}
+.destacado h3{font-size:1.7rem}
+.destacado p{color:var(--musgo)}
+.cielo{display:flex; height:10px; border-radius:99px; overflow:hidden}
+.cielo i{flex:1}
+.inventario{list-style:none; padding:0; margin-top:clamp(48px, 6vw, 72px); display:grid; gap:0 48px}
+@media (min-width:700px){ .inventario{grid-template-columns:1fr 1fr} }
+.inventario li{display:grid; grid-template-columns:28px 1fr; gap:.9rem; padding:1.1rem 0; border-top:1px solid var(--line)}
+.inventario i{color:var(--pileta); font-size:1.05rem; padding-top:.2rem; text-align:center}
+.inventario b{display:block; font-weight:600}
+.inventario span{color:var(--musgo); font-size:.95rem}
+
+/* ---------- lo que charlamos ---------- */
+.sumas{display:grid; gap:20px}
+@media (min-width:860px){ .sumas{grid-template-columns:1fr 1fr} }
+.suma{background:var(--noche-2); border:1px solid var(--line); border-radius:8px; padding:clamp(22px, 3.4vw, 34px); display:grid; gap:1rem; align-content:start}
+.suma-head{display:flex; align-items:center; gap:.8rem}
+.suma-head i{width:42px; height:42px; display:grid; place-items:center; border-radius:50%; background:rgba(226,125,62,.16); color:var(--brasa); font-size:1.05rem; flex:none}
+.suma h3{font-size:1.65rem}
+.suma p{color:#B7BEC2}
+.demo{border-radius:6px; overflow:hidden; background:var(--rocio); color:var(--tero)}
+.demo-label{font:500 .66rem/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:#9AA3A9}
+/* reseñas */
+.resenas{display:grid; gap:10px; padding:14px; background:var(--rocio)}
+.resena{background:#fff; border-radius:6px; padding:14px 16px; display:grid; gap:.4rem}
+.estrellas{color:var(--sol); font-size:.8rem; letter-spacing:.15em}
+.resena p{font-size:.92rem; color:var(--musgo); font-style:italic}
+.resena small{font:500 .7rem/1.3 var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--musgo)}
+/* mapa */
+.mapa iframe{display:block; width:100%; height:240px; border:0; filter:saturate(.8)}
+/* loft nuevo */
+.lofts-mini{display:grid; grid-template-columns:repeat(3, 1fr); gap:8px; padding:12px; background:var(--rocio)}
+.lofts-mini figure{margin:0; display:grid; gap:6px}
+.lofts-mini img, .lofts-mini .vacio{aspect-ratio:4/5; width:100%; object-fit:cover; border-radius:4px}
+.lofts-mini .vacio{border:2px dashed var(--pileta); display:grid; place-items:center; text-align:center; padding:8px; color:var(--pileta); font:500 .7rem/1.35 var(--mono); letter-spacing:.06em; text-transform:uppercase; background:rgba(28,122,116,.06)}
+.lofts-mini figcaption{font-family:var(--display); font-size:.95rem; font-weight:700}
+.lofts-mini .nuevo figcaption{color:var(--pileta)}
+/* whatsapp */
+.telefono{position:relative; height:240px; background:linear-gradient(180deg, var(--rocio) 0%, var(--paja) 100%); overflow:hidden}
+.telefono .lineas{position:absolute; inset:22px 22px auto 22px; display:grid; gap:10px}
+.telefono .lineas i{display:block; height:10px; border-radius:99px; background:rgba(21,23,26,.12)}
+.telefono .lineas i:nth-child(1){width:55%; height:22px; background:rgba(21,23,26,.22)}
+.telefono .lineas i:nth-child(3){width:80%}
+.telefono .lineas i:nth-child(4){width:64%}
+.burbuja{position:absolute; right:18px; bottom:18px; width:54px; height:54px; border-radius:50%; background:var(--wa); color:#fff; display:grid; place-items:center; font-size:1.7rem; box-shadow:0 8px 22px rgba(0,0,0,.22); animation:latido 2.6s ease-in-out infinite}
+.globo{position:absolute; right:82px; bottom:28px; background:#fff; border-radius:10px 10px 2px 10px; padding:.55em .8em; font-size:.82rem; font-weight:500; box-shadow:0 4px 14px rgba(0,0,0,.1)}
+@keyframes latido{0%,100%{transform:scale(1)} 50%{transform:scale(1.08)}}
+.nota{font-size:.88rem; color:#9AA3A9; display:flex; gap:.5rem; align-items:baseline}
+
+/* ---------- gestión ---------- */
+.gestion{display:grid; gap:48px}
+@media (min-width:900px){ .gestion{grid-template-columns:1fr 1fr; gap:72px; align-items:start} }
+.incluye{list-style:none; padding:0; display:grid}
+.incluye li{display:grid; grid-template-columns:30px 1fr; gap:.9rem; padding:1.1rem 0; border-top:1px solid rgba(21,23,26,.2)}
+.incluye i{color:#8A4A22; padding-top:.25rem; text-align:center}
+.incluye b{display:block}
+.incluye span{color:#5A4D33; font-size:.95rem}
+.calendario{background:var(--hueso); border-radius:8px; padding:clamp(22px, 3.5vw, 34px); display:grid; gap:1.1rem; border:1px solid rgba(21,23,26,.12)}
+.calendario h3{font-size:1.5rem}
+.calendario p{color:#5A4D33; font-size:.95rem}
+.meses{display:grid; grid-template-columns:repeat(6, 1fr); gap:6px}
+.mes{font:500 .78rem/1 var(--mono); letter-spacing:.06em; text-transform:uppercase; padding:.95em 0; border-radius:6px; border:1.5px solid rgba(21,23,26,.22); background:transparent; color:var(--tero); cursor:pointer; transition:background-color .2s, color .2s, border-color .2s}
+.mes[aria-pressed="true"]{background:var(--pileta); border-color:var(--pileta); color:#fff}
+.total{font-size:1.05rem; min-height:3.2em}
+.total b{font-family:var(--display); font-size:1.5rem}
+
+/* ---------- boleto (firma) ---------- */
+.boleto{
+  --hueco:var(--noche);
+  position:relative; display:grid; background:var(--hueso); color:var(--tero); border-radius:10px;
+  filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));
+}
+.boleto-cuerpo{padding:clamp(26px, 4.4vw, 48px); display:grid; gap:1.3rem}
+.boleto-ruta{display:flex; align-items:center; gap:.7rem; font:500 .74rem/1 var(--mono); letter-spacing:.14em; text-transform:uppercase; color:var(--musgo)}
+.boleto-ruta .tramo{flex:1; border-top:2px dashed rgba(21,23,26,.3); min-width:24px}
+.boleto-ruta .tramo + span{color:var(--pileta)}
+.precio{display:flex; align-items:baseline; gap:.8rem; flex-wrap:wrap}
+.precio strong{font-family:var(--display); font-size:clamp(4rem, 12vw, 7rem); line-height:.9; letter-spacing:-.01em}
+.precio span{font:500 .8rem/1.4 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--musgo)}
+.boleto-lista{list-style:none; padding:0; display:grid; gap:.5rem 28px}
+@media (min-width:640px){ .boleto-lista{grid-template-columns:1fr 1fr} }
+.boleto-lista li{display:flex; gap:.6rem; align-items:baseline; font-size:.97rem}
+.boleto-lista li::before{content:""; flex:none; width:8px; height:8px; border-radius:50%; background:var(--pileta); transform:translateY(-1px)}
+.boleto-lista li.extra::before{background:var(--brasa)}
+.pago{display:grid; grid-template-columns:1fr 1fr; border:1.5px solid rgba(21,23,26,.2); border-radius:6px}
+.pago div{padding:.9rem 1rem; display:grid; gap:.2rem}
+.pago div + div{border-left:1.5px dashed rgba(21,23,26,.25)}
+.pago small{font:500 .68rem/1.3 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--musgo)}
+.pago b{font-family:var(--display); font-size:1.5rem}
+.talon{position:relative; padding:clamp(26px, 4vw, 40px); display:grid; gap:.9rem; align-content:center; background:var(--sol); border-radius:0 0 10px 10px; border-top:2px dashed rgba(21,23,26,.35)}
+.talon::before,.talon::after{content:""; position:absolute; width:28px; height:28px; border-radius:50%; background:var(--hueco); top:-15px}
+.talon::before{left:-14px} .talon::after{right:-14px}
+.oscuro .talon .tag{color:#5A4D33}
+.talon strong{font-family:var(--display); font-size:clamp(2.4rem, 5vw, 3rem); line-height:.95; white-space:nowrap}
+.talon strong small{font-size:.45em}
+.talon p{font-size:.95rem; color:#3E3420}
+.sello{display:none; position:absolute; right:40px; top:30px; width:104px; transform:rotate(-10deg); opacity:.9}
+@media (min-width:640px){ .sello{display:block} .boleto-ruta{max-width:calc(100% - 140px)} }
+@media (min-width:900px){
+  .boleto{grid-template-columns:1fr 330px}
+  .talon{border-radius:0 10px 10px 0; border-top:0; border-left:2px dashed rgba(21,23,26,.35)}
+  .talon::before,.talon::after{left:-15px; right:auto}
+  .talon::before{top:-14px} .talon::after{top:auto; bottom:-14px}
+}
+.letra-chica{margin-top:28px; display:grid; gap:.6rem; color:#B7BEC2; font-size:.93rem; max-width:52rem}
+.letra-chica p{display:flex; gap:.6rem; align-items:baseline}
+.letra-chica i{color:var(--brasa); font-size:.8rem}
+
+/* ---------- hoja de ruta ---------- */
+.ruta{list-style:none; padding:0; display:grid; gap:0; position:relative}
+.ruta li{display:grid; grid-template-columns:56px 1fr; gap:1.2rem; align-content:start; padding-bottom:2.2rem; position:relative}
+.ruta li::before{content:""; position:absolute; left:27px; top:46px; bottom:0; border-left:2px dashed rgba(21,23,26,.28)}
+.ruta li:last-child::before{display:none}
+.parada-n{width:56px; height:56px; border-radius:50%; background:var(--hueso); border:2px solid var(--tero); display:grid; place-items:center; font-family:var(--display); font-size:1.5rem; font-weight:700}
+.ruta li:last-child .parada-n{background:var(--pileta); border-color:var(--pileta); color:#fff}
+.ruta h3{font-size:1.55rem; padding-top:.55rem}
+.ruta p{color:var(--musgo); max-width:36em; margin-top:.35rem}
+.ruta .quien{font:500 .7rem/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:var(--pileta); margin-top:.6rem; display:block}
+@media (min-width:900px){
+  .ruta{grid-template-columns:repeat(5, 1fr); gap:20px}
+  .ruta li{grid-template-columns:1fr; gap:.9rem; padding-bottom:0}
+  .ruta li::before{left:56px; right:-20px; top:27px; bottom:auto; border-left:0; border-top:2px dashed rgba(21,23,26,.28)}
+  .ruta h3{padding-top:0; font-size:1.4rem}
+}
+
+/* ---------- cierre / autor ---------- */
+.cierre{display:grid; gap:40px}
+@media (min-width:900px){ .cierre{grid-template-columns:1.1fr .9fr; gap:64px; align-items:center} }
+.cierre h2{font-size:clamp(2.3rem, 6vw, 4rem)}
+.cierre h2 em{font-style:normal; color:var(--brasa)}
+.cierre-texto{display:grid; gap:1.3rem}
+.cierre-texto p{color:#B7BEC2; font-size:1.1rem; max-width:32em}
+.cierre img{border-radius:6px; aspect-ratio:1; object-fit:cover; width:100%}
+.autor{margin-top:clamp(64px, 9vw, 104px); border:1px solid var(--line); border-radius:8px; padding:clamp(28px, 5vw, 52px); display:grid; gap:1rem; justify-items:start; background:radial-gradient(120% 140% at 100% 0%, rgba(226,125,62,.16), transparent 55%)}
+.autor .tag{color:var(--brasa)}
+.autor h2{font-size:clamp(1.9rem, 4.4vw, 2.8rem)}
+.autor p{color:#B7BEC2; max-width:36em}
+.footer{background:var(--noche); color:#9AA3A9; border-top:1px solid rgba(236,232,220,.14); padding:36px 0 96px; font-size:.92rem}
+.footer .wrap{display:grid; gap:.6rem}
+@media (min-width:820px){ .footer .wrap{grid-template-columns:1fr auto; align-items:center} }
+.footer a{color:var(--hueso)}
+
+/* ---------- whatsapp flotante (demo real) ---------- */
+.wa-flotante{position:fixed; right:clamp(16px, 3vw, 28px); bottom:clamp(16px, 3vw, 28px); z-index:50; width:60px; height:60px; border-radius:50%; background:var(--wa); color:#fff; display:grid; place-items:center; font-size:2rem; text-decoration:none; box-shadow:0 10px 26px rgba(0,0,0,.28); transition:transform .2s ease}
+.wa-flotante:hover{transform:scale(1.07)}
+.wa-flotante span{position:absolute; right:72px; white-space:nowrap; background:var(--tero); color:var(--hueso); font:500 .85rem/1 var(--body); padding:.65em .9em; border-radius:8px; opacity:0; transform:translateX(6px); transition:opacity .2s, transform .2s; pointer-events:none}
+.wa-flotante:hover span,.wa-flotante:focus-visible span{opacity:1; transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition:none !important; animation:none !important}
+}
+</style>
+</head>
+<body>
+
+<main>
+  <!-- PORTADA -->
+  <header class="portada">
+    <div class="portada-texto">
+      <div class="membrete">
+        <img src="img/logo-negro.png" alt="" width="52" height="52">
+        <span>Propuesta web<br>Parada Nómade · Los Cardales</span>
+      </div>
+      <h1>Tu parada, <em>abierta en internet todo el año.</em></h1>
+      <p class="portada-lead">El sitio ya está diseñado y funcionando. Esta propuesta reúne lo que tiene, lo que le sumamos después de la charla y lo que cuesta ponerlo online con tu propio dominio.</p>
+      <div class="portada-ctas">
+        <a class="btn btn-pileta" href="https://teocicciari.com.ar/bocetos/nomade/" target="_blank" rel="noopener"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i> Ver el sitio funcionando</a>
+        <a class="btn btn-line" href="#inversion">Ir a la inversión</a>
+      </div>
+      <dl class="para">
+        <dt>Para</dt><dd>Parada Nómade</dd>
+        <dt>De</dt><dd>Teo Cicciari · diseño web</dd>
+        <dt>Fecha</dt><dd id="fecha-propuesta">noviembre de 2026</dd>
+      </dl>
+    </div>
+    <div class="portada-foto">
+      <img src="img/piscina-lofts.jpg" alt="La piscina de Parada Nómade con los lofts al fondo" width="1280" height="1280" fetchpriority="high">
+    </div>
+  </header>
+
+  <!-- LO QUE YA ESTÁ HECHO -->
+  <section class="bloque" id="sitio">
+    <div class="wrap">
+      <div class="cabeza">
+        <p class="tag">El sitio, tal como está hoy</p>
+        <h2>No es una plantilla. Está hecho para la parada.</h2>
+        <p>Lo diseñé desde cero mirando tus fotos, tu cartel de chapa y la forma en que contás la experiencia. Estas son las tres cosas que más lo distinguen.</p>
+      </div>
+
+      <div class="destacados">
+        <article class="destacado">
+          <img src="img/tranquera.jpg" alt="El cartel de chapa de Parada Nómade en la tranquera" loading="lazy" width="1200" height="1600">
+          <h3>Tu identidad, no la de un tema</h3>
+          <p>La tipografía calada sale del cartel de la tranquera, y los colores de la pileta y las brasas. Alguien que entra al sitio y después llega a la parada siente que es el mismo lugar.</p>
+        </article>
+        <article class="destacado">
+          <img src="img/piscina-noche.jpg" alt="La piscina iluminada de noche" loading="lazy" width="1200" height="1200">
+          <h3>Un día entero en un scroll</h3>
+          <div class="cielo" aria-hidden="true"><i style="background:#E3E8DC"></i><i style="background:#D9EAE5"></i><i style="background:#EAD9B4"></i><i style="background:#10151B"></i></div>
+          <p>La sección «Un día en la parada» va del desayuno a los fogones. Mientras bajás, el sol cruza un arco y el sitio cambia de color de la mañana a la noche.</p>
+        </article>
+        <article class="destacado">
+          <img src="img/loft-mostaza-cama.jpg" alt="La cama doble de uno de los lofts" loading="lazy" width="1200" height="1600">
+          <h3>Consultas que llegan completas</h3>
+          <p>El huésped elige loft, cantidad de personas y fechas, y se le abre WhatsApp con el mensaje ya escrito, noches incluidas. Se terminó el «hola, ¿precio?» sin datos.</p>
+        </article>
+      </div>
+
+      <ul class="inventario">
+        <li><i class="fa-solid fa-calendar-check" aria-hidden="true"></i><div><b>Formulario de reserva con controles</b><span>No deja elegir fechas pasadas ni un check-out anterior al check-in, y avisa si son más de 3 personas para un solo loft.</span></div></li>
+        <li><i class="fa-solid fa-hand-pointer" aria-hidden="true"></i><div><b>«Consultar este loft»</b><span>Cada loft tiene su botón, que lleva al formulario con ese loft ya elegido.</span></div></li>
+        <li><i class="fa-solid fa-mobile-screen" aria-hidden="true"></i><div><b>Pensado primero para el celular</b><span>La mayoría de las consultas llegan desde el teléfono, así que ahí se ve y se usa mejor.</span></div></li>
+        <li><i class="fa-solid fa-bolt" aria-hidden="true"></i><div><b>Rápido y sin mantenimiento técnico</b><span>No es WordPress: no tiene plugins para actualizar ni panel que se pueda hackear. Carga rápido aunque la señal sea mala.</span></div></li>
+        <li><i class="fa-brands fa-google" aria-hidden="true"></i><div><b>Preparado para Google</b><span>Lleva títulos, descripciones y datos estructurados de alojamiento para que Google entienda qué es la parada y dónde está.</span></div></li>
+        <li><i class="fa-solid fa-robot" aria-hidden="true"></i><div><b>Preparado para buscadores con IA</b><span>Incluye un archivo llms.txt para que ChatGPT, Gemini y compañía puedan recomendar la parada a quien busque un lugar tranquilo cerca de Buenos Aires.</span></div></li>
+        <li><i class="fa-solid fa-chart-line" aria-hidden="true"></i><div><b>Estadísticas de visitas</b><span>Muestran cuánta gente entra, desde dónde y con qué dispositivo. No usan cookies, así que no hace falta cartel de aviso.</span></div></li>
+        <li><i class="fa-solid fa-images" aria-hidden="true"></i><div><b>Lofts, servicios, galería y contacto</b><span>Están los dos lofts, los once servicios, la galería deslizable y los accesos a WhatsApp, mail, Instagram y Facebook.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- LO QUE CHARLAMOS -->
+  <section class="bloque oscuro" id="sumas">
+    <div class="wrap">
+      <div class="cabeza">
+        <p class="tag">Lo que charlamos el 3 de noviembre</p>
+        <h2>Cuatro sumas, ya incluidas en el precio.</h2>
+        <p>Estos son los cambios que me pediste en la reunión. No se cobran aparte: entran en el mismo proyecto.</p>
+      </div>
+
+      <div class="sumas">
+        <article class="suma">
+          <div class="suma-head"><i class="fa-solid fa-star" aria-hidden="true"></i><h3>Reseñas de huéspedes</h3></div>
+          <p>Una sección con lo que dicen quienes ya pararon ahí. Es lo primero que mira alguien que todavía no te conoce. Uso reseñas reales que me pases, de Google, Booking, Airbnb o mensajes.</p>
+          <p class="demo-label">Así se vería · las reseñas reales las cargo con lo que me pases</p>
+          <div class="demo resenas">
+            <div class="resena"><span class="estrellas" aria-label="5 estrellas">★★★★★</span><p>Acá va la reseña de un huésped, con sus palabras.</p><small>Nombre del huésped · Google · mes y año</small></div>
+            <div class="resena"><span class="estrellas" aria-label="5 estrellas">★★★★★</span><p>Otra reseña real, por ejemplo sobre el desayuno o la pileta.</p><small>Nombre del huésped · Booking · mes y año</small></div>
+          </div>
+        </article>
+
+        <article class="suma">
+          <div class="suma-head"><i class="fa-solid fa-map-location-dot" aria-hidden="true"></i><h3>Mapa de ubicación</h3></div>
+          <p>Un mapa dentro del sitio para que el huésped vea dónde queda la parada y saque la ruta desde su casa sin salir de la página. Es este mismo:</p>
+          <div class="demo mapa">
+            <iframe title="Mapa: Chacabuco 185, Barrio La Ferme III, Los Cardales" src="https://www.google.com/maps?q=Chacabuco+185,+La+Ferme+III,+Los+Cardales,+Buenos+Aires&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </article>
+
+        <article class="suma">
+          <div class="suma-head"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i><h3>Botón de WhatsApp flotante</h3></div>
+          <p>Queda fijo en una esquina en todas las secciones, así nadie tiene que volver arriba para escribirte. Abajo a la derecha de esta página tenés uno funcionando: probalo.</p>
+          <div class="demo telefono" aria-hidden="true">
+            <div class="lineas"><i></i><i></i><i></i><i></i></div>
+            <span class="globo">¿Consultas? Escribinos</span>
+            <span class="burbuja"><i class="fa-brands fa-whatsapp"></i></span>
+          </div>
+        </article>
+
+        <article class="suma">
+          <div class="suma-head"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i><h3>El loft nuevo</h3></div>
+          <p>Suma su ficha con fotos, capacidad y botón de consulta. También se agrega al formulario, con la opción de reservar varios lofts para grupos más grandes.</p>
+          <div class="demo lofts-mini">
+            <figure><img src="img/loft-mostaza-cama.jpg" alt="" loading="lazy" width="1200" height="1600"><figcaption>Loft de la Piscina</figcaption></figure>
+            <figure><img src="img/loft-azul-cama.jpg" alt="" loading="lazy" width="1200" height="1600"><figcaption>Loft del Jardín</figcaption></figure>
+            <figure class="nuevo"><div class="vacio">Acá van<br>las fotos<br>del loft nuevo</div><figcaption>Loft nuevo</figcaption></figure>
+          </div>
+        </article>
+      </div>
+
+      <p class="nota" style="margin-top:24px"><i class="fa-solid fa-camera" aria-hidden="true"></i> Para el loft nuevo voy a necesitar fotos, nombre, capacidad y camas. Para las reseñas, links o capturas de las que quieras mostrar.</p>
+    </div>
+  </section>
+
+  <!-- GESTIÓN MENSUAL -->
+  <section class="bloque paja" id="gestion">
+    <div class="wrap gestion">
+      <div>
+        <div class="cabeza" style="margin-bottom:28px">
+          <p class="tag" style="color:#5A4D33">Después de lanzarlo</p>
+          <h2>Que el sitio siga al día sin que tengas que pensar en él.</h2>
+          <p style="color:#5A4D33">Con la gestión mensual (opcional) me encargo del sitio mientras vos atendés la parada.</p>
+        </div>
+        <ul class="incluye">
+          <li><i class="fa-solid fa-server" aria-hidden="true"></i><div><b>Hosting y sitio online</b><span>Me ocupo de que esté siempre funcionando.</span></div></li>
+          <li><i class="fa-solid fa-pen" aria-hidden="true"></i><div><b>Cambios chicos cuando los necesites</b><span>Fotos nuevas, textos, servicios o fechas de temporada. Me escribís por WhatsApp y yo lo cambio (hasta 1 o 2 pedidos por mes).</span></div></li>
+          <li><i class="fa-solid fa-chart-simple" aria-hidden="true"></i><div><b>Reporte mensual en criollo</b><span>Cuántas visitas tuvo el sitio, cuántas consultas trajo y qué funcionó, explicado por mí y sin tecnicismos.</span></div></li>
+          <li><i class="fa-solid fa-unlock" aria-hidden="true"></i><div><b>Mes a mes, sin permanencia</b><span>La activás los meses que te sirva y la pausás cuando quieras.</span></div></li>
+        </ul>
+      </div>
+
+      <div class="calendario">
+        <p class="tag" style="color:#5A4D33">Calculadora</p>
+        <h3>Elegí en qué meses la tendrías activa</h3>
+        <p>Por ejemplo, de noviembre a marzo, que es la temporada de pileta. Tocá los meses para sumarlos o sacarlos.</p>
+        <div class="meses" id="meses" role="group" aria-label="Meses con gestión activa"></div>
+        <p class="total" id="total" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INVERSIÓN: el boleto -->
+  <section class="bloque oscuro" id="inversion">
+    <div class="wrap">
+      <div class="cabeza">
+        <p class="tag">La inversión</p>
+        <h2>Un solo pago y el sitio es tuyo.</h2>
+        <p>Pagás una vez y el sitio queda online, a tu nombre. La gestión mensual es aparte y la sumás solo si querés.</p>
+      </div>
+
+      <div class="boleto">
+        <div class="boleto-cuerpo">
+          <img class="sello" src="img/logo-negro.png" alt="" width="104" height="104">
+          <div class="boleto-ruta"><span>Boceto</span><span class="tramo"></span><span>Online</span></div>
+          <div class="precio"><strong>USD 300</strong><span>Pago único<br>Sitio completo</span></div>
+          <ul class="boleto-lista">
+            <li>Diseño a medida (ya hecho)</li>
+            <li>Formulario de reserva por WhatsApp</li>
+            <li>Lofts, servicios, galería y contacto</li>
+            <li>Optimización para Google y buscadores con IA</li>
+            <li>Estadísticas de visitas sin cookies</li>
+            <li>Publicación en tu dominio propio</li>
+            <li class="extra">Reseñas de huéspedes</li>
+            <li class="extra">Mapa de ubicación</li>
+            <li class="extra">Botón de WhatsApp flotante</li>
+            <li class="extra">Ficha del loft nuevo</li>
+            <li>2 rondas de ajustes (textos, fotos, colores)</li>
+          </ul>
+          <div class="pago">
+            <div><small>Para arrancar</small><b>USD 150</b><small>Seña del 50%</small></div>
+            <div><small>Al lanzar</small><b>USD 150</b><small>Con el sitio online</small></div>
+          </div>
+        </div>
+        <div class="talon">
+          <p class="tag">Opcional · mes a mes</p>
+          <strong>+ USD 25 <small>/ mes</small></strong>
+          <p>Gestión mensual: hosting, cambios chicos y reporte de visitas y consultas. Sin permanencia: la activás y la pausás cuando quieras.</p>
+        </div>
+      </div>
+
+      <div class="letra-chica">
+        <p><i class="fa-solid fa-circle" aria-hidden="true"></i><span>El dominio (por ejemplo, paradanomade.com.ar) se registra a nombre de Parada Nómade. Su costo de registro se paga aparte, directamente a quien lo registra.</span></p>
+        <p><i class="fa-solid fa-circle" aria-hidden="true"></i><span>Los cambios empiezan cuando se acredita la seña y tengo el material del loft nuevo y las reseñas.</span></p>
+        <p><i class="fa-solid fa-circle" aria-hidden="true"></i><span>Lo que no está en esta lista, como secciones nuevas grandes o un sistema de reservas con pago online, se cotiza aparte.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOJA DE RUTA -->
+  <section class="bloque" id="ruta">
+    <div class="wrap">
+      <div class="cabeza">
+        <p class="tag">Hoja de ruta</p>
+        <h2>De este boceto a tu sitio online.</h2>
+        <p>Cinco paradas, en este orden.</p>
+      </div>
+      <ol class="ruta">
+        <li><span class="parada-n">1</span><div><h3>Confirmás</h3><p>Me avisás que avanzamos y transferís la seña del 50%.</p><span class="quien">Vos</span></div></li>
+        <li><span class="parada-n">2</span><div><h3>Me pasás el material</h3><p>Fotos y datos del loft nuevo, las reseñas que quieras mostrar y el dominio que te guste.</p><span class="quien">Vos</span></div></li>
+        <li><span class="parada-n">3</span><div><h3>Aplico los cambios</h3><p>Sumo reseñas, mapa, WhatsApp flotante y el loft nuevo. Lo revisás y hacemos hasta 2 rondas de ajustes.</p><span class="quien">Yo</span></div></li>
+        <li><span class="parada-n">4</span><div><h3>Lanzamiento</h3><p>Publico el sitio en tu dominio, dejo listas las estadísticas y el registro en Google, y pagás el 50% restante.</p><span class="quien">Los dos</span></div></li>
+        <li><span class="parada-n">5</span><div><h3>Abierto todo el año</h3><p>Desde ahí, las consultas te llegan completas por WhatsApp. Si sumás la gestión, del sitio me ocupo yo.</p><span class="quien">La parada</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="bloque oscuro" id="cierre">
+    <div class="wrap">
+      <div class="cierre">
+        <div class="cierre-texto">
+          <p class="tag">¿Avanzamos?</p>
+          <h2>El sitio ya existe. <em>Falta abrirle la tranquera.</em></h2>
+          <p>Cuando lo decidas, escribime y arrancamos. Si te queda alguna duda sobre la propuesta, también la charlamos por WhatsApp.</p>
+          <div class="portada-ctas">
+            <a class="btn btn-brasa" href="https://wa.me/5492944812580?text=Hola%20Teo%2C%20vi%20la%20propuesta%20para%20Parada%20N%C3%B3made" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp" aria-hidden="true"></i> Escribirle a Teo</a>
+            <a class="btn btn-line" href="https://teocicciari.com.ar/bocetos/nomade/" target="_blank" rel="noopener">Ver el sitio de nuevo</a>
+          </div>
+        </div>
+        <img src="img/fuego.jpg" alt="Fogonero encendido en el parque de la parada" loading="lazy" width="576" height="576">
+      </div>
+
+      <div class="autor">
+        <p class="tag">Diseño web</p>
+        <h2>Este boceto lo diseñó Teo Cicciari</h2>
+        <p>Diseño sitios a medida para hospedajes y negocios locales, y después me ocupo de que sigan funcionando. ¿Querés ver otros trabajos? Pedí el tuyo o mirá referencias y precios.</p>
+        <a class="btn btn-brasa" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>© <span id="anio"></span> Propuesta para Parada Nómade · <span id="hoy"></span></p>
+    <p>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/5492944812580?text=Hola%20Teo%2C%20vi%20la%20propuesta%20para%20Parada%20N%C3%B3made" target="_blank" rel="noopener" aria-label="Escribirle a Teo por WhatsApp">
+  <i class="fa-brands fa-whatsapp" aria-hidden="true"></i><span>Así funciona el botón flotante</span>
+</a>
+
+<script>
+(() => {
+  const ahora = new Date();
+  document.getElementById('anio').textContent = ahora.getFullYear();
+  document.getElementById('hoy').textContent = ahora.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
+
+  // Calculadora de gestión mes a mes
+  const nombres = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const largos = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  const activos = new Set([0, 1, 2, 10, 11]); // temporada de pileta: nov a mar
+  const cont = document.getElementById('meses');
+  const total = document.getElementById('total');
+  const pintar = () => {
+    const n = activos.size;
+    total.innerHTML = n === 0
+      ? 'Sin gestión: el sitio queda online igual, pero nadie se ocupa de mantenerlo al día.'
+      : `<b>USD ${n * 25}</b> al año · ${n} ${n === 1 ? 'mes' : 'meses'} de gestión a USD 25 cada uno.`;
+  };
+  nombres.forEach((m, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'mes';
+    b.textContent = m;
+    b.setAttribute('aria-label', largos[i]);
+    b.setAttribute('aria-pressed', String(activos.has(i)));
+    b.addEventListener('click', () => {
+      activos.has(i) ? activos.delete(i) : activos.add(i);
+      b.setAttribute('aria-pressed', String(activos.has(i)));
+      pintar();
+    });
+    cont.appendChild(b);
+  });
+  pintar();
+})();
+</script>
+</body>
+</html>
