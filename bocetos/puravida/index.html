@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chacra Pura Vida · Hospedaje en Epuyén, Chubut</title>
+<meta name="description" content="Casa de madera para hasta 10 personas dentro de una chacra agroecológica familiar en Epuyén, Chubut. Frutales, animales, arroyo y jugos 100% naturales.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Familjen+Grotesk:wght@400;500;600;700&family=Kalam:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --mostaza:#D6A21E;
+  --mostaza-claro:#E9C25A;
+  --monte:#26311A;
+  --oliva:#6E7F2E;
+  --papel:#F3EBD8;
+  --frambuesa:#B3243B;
+  --sauco:#2B2030;
+  --tinta:#26311A;
+  --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --body:"Familjen Grotesk", "Helvetica Neue", Arial, sans-serif;
+  --mano:"Kalam", "Comic Sans MS", cursive;
+  --max:1180px;
+  --pad:clamp(1.25rem, 4vw, 3rem);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{font-family:var(--body);color:var(--tinta);background:var(--papel);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--frambuesa);outline-offset:3px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.hero-grid>*,.casa-grid>*,.chacra-intro>*,.despensa-grid>*,.llegar-grid>*,.reservar-grid>*,.foot-grid>*,.autor-box>*,.mosaico>*,.frascos>*,.casa-fotos>*{min-width:0}
+html,body{overflow-x:hidden}
+
+/* ---------- tipografía ---------- */
+.display{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:.005em}
+.eyebrow{font-family:var(--body);font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase}
+.mano{font-family:var(--mano);font-weight:700;line-height:1.1}
+h2.display{font-size:clamp(2.8rem, 9vw, 5.6rem)}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--body);font-weight:700;font-size:1rem;text-decoration:none;padding:.95rem 1.5rem;border-radius:999px;border:2px solid var(--monte);cursor:pointer;transition:transform .2s ease, background .2s ease, color .2s ease}
+.btn-ink{background:var(--monte);color:var(--papel)}
+.btn-ink:hover{background:var(--frambuesa);border-color:var(--frambuesa)}
+.btn-line{background:transparent;color:var(--monte)}
+.btn-line:hover{background:var(--monte);color:var(--papel)}
+.btn:active{transform:scale(.97)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--mostaza);border-bottom:2px solid var(--monte)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:4.25rem}
+.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid var(--monte);background:#fff}
+.brand span{font-family:var(--display);font-weight:800;font-size:1.35rem;text-transform:uppercase;letter-spacing:.02em;line-height:1}
+.nav ul{display:none;list-style:none;gap:1.8rem}
+.nav ul a{text-decoration:none;font-weight:600;font-size:.95rem}
+.nav ul a:hover{text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:4px}
+.nav .btn{padding:.6rem 1.1rem;font-size:.9rem}
+@media (min-width:860px){.nav ul{display:flex}}
+
+/* ---------- hero ---------- */
+.hero{background:var(--mostaza);border-bottom:2px solid var(--monte);overflow:hidden}
+.hero-grid{display:grid;gap:2.5rem;padding-top:2.5rem;padding-bottom:0}
+.hero-copy .eyebrow{display:block;margin-bottom:1.2rem}
+.hero h1{font-size:clamp(3.3rem, 15vw, 8.6rem);color:var(--monte)}
+.hero h1 em{font-style:normal;color:var(--papel);-webkit-text-stroke:2px var(--monte);paint-order:stroke fill}
+.hero-lead{max-width:30rem;margin:1.6rem 0 2rem;font-size:1.15rem}
+.hero-cta{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.hero-photo{position:relative;margin:0 calc(var(--pad) * -1)}
+.hero-photo img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 60%;border-top:2px solid var(--monte)}
+.nota{position:absolute;color:var(--papel);font-size:1.6rem;transform:rotate(-6deg);text-shadow:0 2px 10px rgba(0,0,0,.45);display:flex;align-items:flex-end;gap:.3rem;pointer-events:none}
+.nota svg{width:56px;height:56px;stroke:currentColor;fill:none;stroke-width:2.4;stroke-linecap:round;filter:drop-shadow(0 2px 6px rgba(0,0,0,.4))}
+.hero .nota{top:1.4rem;left:1.4rem}
+@media (min-width:900px){
+  .hero-grid{grid-template-columns:1.15fr .85fr;align-items:end;padding-top:4rem}
+  .hero-copy{padding-bottom:4.5rem}
+  .hero-photo{margin:0;margin-right:calc(var(--pad) * -1)}
+  .hero-photo img{border-top:none;border-left:2px solid var(--monte);aspect-ratio:4/5.4}
+}
+.hechos{background:var(--monte);color:var(--papel)}
+.hechos ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.8rem;padding:1rem var(--pad);font-weight:600;font-size:.95rem}
+.hechos li{display:flex;align-items:center;gap:.55rem}
+.hechos li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mostaza)}
+
+/* ---------- secciones ---------- */
+section{padding:clamp(4.5rem, 10vw, 7.5rem) 0}
+.sec-head{margin-bottom:2.8rem;max-width:44rem}
+.sec-head .eyebrow{display:block;margin-bottom:1rem;color:var(--oliva)}
+.sec-head p{margin-top:1.3rem;font-size:1.12rem}
+
+/* ---------- la casa ---------- */
+.casa-grid{display:grid;gap:2.5rem}
+.casa-fotos{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;align-self:start}
+.casa-fotos img{width:100%;height:100%;object-fit:cover;border-radius:4px}
+.casa-fotos figure{position:relative;aspect-ratio:1}
+.casa-fotos .alta{grid-column:2;grid-row:1 / span 2;aspect-ratio:auto}
+.casa-fotos .alta img{position:absolute;inset:0}
+.casa-fotos .mat img{object-position:center top}
+.casa-fotos figcaption{position:absolute;left:.7rem;bottom:.5rem;color:#fff;font-size:1.15rem;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+
+/* etiqueta "información de la casa" */
+.etiqueta{background:#fffaf0;border:2px solid var(--monte);padding:1.2rem 1.3rem 1.4rem;align-self:start;box-shadow:8px 8px 0 var(--mostaza)}
+.etiqueta h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2.4rem;line-height:.95;border-bottom:10px solid var(--monte);padding-bottom:.5rem}
+.etiqueta .porcion{display:flex;justify-content:space-between;font-weight:700;font-size:1.05rem;border-bottom:4px solid var(--monte);padding:.55rem 0}
+.etiqueta dl{display:grid;grid-template-columns:1fr auto}
+.etiqueta dt,.etiqueta dd{padding:.6rem 0;border-bottom:1px solid var(--monte)}
+.etiqueta dd{padding-left:1rem}
+.etiqueta dt b{display:block;font-weight:700}
+.etiqueta dt small{display:block;font-size:.88rem;opacity:.8;line-height:1.4;margin-top:.15rem}
+.etiqueta dd{font-family:var(--display);font-weight:800;font-size:1.6rem;text-align:right;line-height:1.1}
+.etiqueta dd.txt{font-family:var(--body);font-weight:600;font-size:.92rem;padding-top:.75rem}
+.etiqueta .pie{margin-top:.9rem;font-size:.85rem;line-height:1.45}
+.etiqueta .sello{display:inline-block;margin-top:.9rem;background:var(--frambuesa);color:#fff;padding:.25rem .7rem;font-size:1.15rem;transform:rotate(-2deg)}
+@media (min-width:900px){.casa-grid{grid-template-columns:1.25fr 1fr;gap:3.5rem}}
+
+/* ---------- la chacra ---------- */
+.chacra{background:var(--monte);color:var(--papel)}
+.chacra .sec-head .eyebrow{color:var(--mostaza-claro)}
+.chacra-intro{display:grid;gap:2.5rem;margin-bottom:3.5rem}
+.chacra-intro figure{position:relative}
+.chacra-intro figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.chacra-intro .nota{bottom:1.2rem;right:1rem;top:auto;left:auto;transform:rotate(-4deg)}
+.lista-vida{list-style:none;display:grid;gap:1rem;margin-top:1.8rem}
+.lista-vida li{border-top:1px solid rgba(243,235,216,.3);padding-top:1rem}
+.lista-vida b{display:block;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.5rem;letter-spacing:.02em;color:var(--mostaza-claro)}
+@media (min-width:900px){.chacra-intro{grid-template-columns:1fr 1fr;align-items:center;gap:4rem}}
+
+.mosaico{display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem}
+.mosaico figure{position:relative;overflow:hidden;border-radius:4px}
+.mosaico img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;transition:transform .8s ease}
+.mosaico figure:hover img{transform:scale(1.04)}
+.mosaico figcaption{position:absolute;left:.8rem;bottom:.6rem;font-size:1.2rem;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+.mosaico .ancho{grid-column:span 2}
+.mosaico .ancho img{aspect-ratio:16/10}
+@media (min-width:900px){
+  .mosaico{grid-template-columns:repeat(4,1fr)}
+  .mosaico .ancho{grid-column:span 2;grid-row:span 2}
+  .mosaico .ancho img{aspect-ratio:auto}
+}
+
+/* ---------- despensa ---------- */
+.despensa-grid{display:grid;gap:2.5rem}
+.frascos{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem}
+.frascos img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:4px}
+.frascos figure:nth-child(2){margin-top:2.5rem}
+.frascos figure:nth-child(3){margin-top:-2.5rem}
+.sabores{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;margin:1.6rem 0}
+.sabores li{border:2px solid var(--monte);border-radius:999px;padding:.35rem 1rem;font-weight:700;font-size:.95rem}
+.sabores li:nth-child(1){background:#E9D27A}
+.sabores li:nth-child(2){background:#CFC0D6}
+.sabores li:nth-child(3){background:#F0B7B7}
+.sabores li:nth-child(4){background:#E8A3B0}
+.donde{margin-top:2rem;border-left:4px solid var(--mostaza);padding:.3rem 0 .3rem 1.2rem}
+.donde .eyebrow{display:block;color:var(--oliva);margin-bottom:.5rem}
+.donde p + p{margin-top:.4rem}
+@media (min-width:900px){.despensa-grid{grid-template-columns:1fr 1.1fr;align-items:center;gap:4.5rem}}
+
+/* ---------- reseña ---------- */
+.resena{background:var(--sauco);color:var(--papel);position:relative;overflow:hidden}
+.resena .estrellas{color:var(--mostaza);font-size:1.4rem;letter-spacing:.25em}
+.resena blockquote{max-width:52rem;font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0}
+.resena blockquote p{font-family:var(--body);font-weight:500;font-size:clamp(1.3rem, 3.2vw, 2rem);line-height:1.4;margin:1.4rem 0 1.8rem}
+.resena blockquote p mark{background:none;color:var(--mostaza-claro)}
+.resena cite{font-style:normal;font-size:1.5rem;color:var(--mostaza-claro)}
+
+/* ---------- cómo llegar: regla de distancias ---------- */
+.llegar-grid{display:grid;gap:3rem}
+.regla{position:relative;height:540px;margin-left:.6rem}
+.regla::before{content:"";position:absolute;left:0;top:0;bottom:0;width:6px;background:repeating-linear-gradient(to bottom, var(--monte) 0 14px, transparent 14px 22px);border-radius:3px}
+.hito{position:absolute;left:0;display:flex;align-items:center;gap:1rem;transform:translateY(-50%)}
+.hito::before{content:"";flex:none;width:22px;height:22px;margin-left:-8px;border-radius:50%;background:var(--papel);border:4px solid var(--monte)}
+.hito.casa::before{background:var(--mostaza);width:30px;height:30px;margin-left:-12px}
+.hito.lejos::before{background:var(--frambuesa)}
+.hito .km{font-family:var(--display);font-weight:900;font-size:2.2rem;line-height:1;min-width:5.2rem}
+.hito .km small{font-size:1.1rem;font-weight:800;margin-left:.15rem}
+.hito .lugar{font-weight:600;line-height:1.25;font-size:.98rem}
+.hito .lugar small{display:block;font-weight:400;opacity:.75}
+.direccion{background:#fffaf0;border:2px solid var(--monte);padding:1.6rem}
+.direccion .eyebrow{color:var(--oliva);display:block;margin-bottom:.6rem}
+.direccion address{font-style:normal;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:2rem;line-height:1}
+.direccion p{margin:.9rem 0 1.4rem}
+.mapa{margin-top:1.2rem;border:2px solid var(--monte);aspect-ratio:4/3;background:var(--mostaza-claro)}
+.mapa iframe{width:100%;height:100%;border:0;display:block}
+@media (min-width:900px){
+  .llegar-grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+}
+
+/* ---------- reservar ---------- */
+.reservar{background:var(--mostaza);border-top:2px solid var(--monte);border-bottom:2px solid var(--monte)}
+.reservar-grid{display:grid;gap:2.5rem}
+.reservar .sec-head .eyebrow{color:var(--monte)}
+.reservar-foto{position:relative}
+.reservar-foto img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:center 100%;border:2px solid var(--monte);border-radius:4px}
+form{background:var(--papel);border:2px solid var(--monte);padding:1.6rem;box-shadow:8px 8px 0 var(--monte);display:grid;gap:1.1rem}
+.campo{display:grid;gap:.35rem}
+.campo label{font-weight:700;font-size:.92rem}
+.campo input,.campo textarea{font:inherit;font-size:1rem;color:var(--tinta);background:#fffaf0;border:2px solid var(--monte);border-radius:6px;padding:.8rem .9rem;width:100%}
+.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--frambuesa);box-shadow:0 0 0 3px rgba(179,36,59,.2)}
+.fechas{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+.fechas>*,form>*{min-width:0}
+.campo input{min-width:0;-webkit-appearance:none;appearance:none;min-height:3.1rem}
+.ayuda{font-size:.85rem;opacity:.8}
+.error{color:var(--frambuesa);font-weight:700;font-size:.9rem;min-height:1.2em}
+form .btn{justify-content:center;width:100%;font-size:1.05rem}
+.ok{display:none;background:var(--papel);border:2px solid var(--monte);padding:2rem 1.6rem;box-shadow:8px 8px 0 var(--monte)}
+.ok.visible{display:block}
+.ok h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2.4rem;line-height:.95;margin-bottom:.8rem}
+@media (min-width:900px){.reservar-grid{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}}
+
+/* ---------- banner autor ---------- */
+.autor{background:var(--papel)}
+.autor-box{border:2px solid var(--monte);border-radius:4px;padding:clamp(2rem,5vw,3.5rem);display:grid;gap:1.4rem;background:repeating-linear-gradient(-45deg, transparent 0 18px, rgba(214,162,30,.12) 18px 20px)}
+.autor-box .eyebrow{color:var(--frambuesa)}
+.autor-box h2{font-size:clamp(2.2rem, 6vw, 3.8rem)}
+.autor-box p{max-width:38rem;font-size:1.08rem}
+@media (min-width:900px){.autor-box{grid-template-columns:1.5fr 1fr;align-items:end}.autor-box .btn{justify-self:end}}
+
+/* ---------- footer ---------- */
+footer{background:var(--sauco);color:var(--papel);padding:3.5rem 0 2rem}
+.foot-grid{display:grid;gap:2rem}
+.foot-brand{display:flex;align-items:center;gap:1rem}
+.foot-brand img{width:64px;height:64px;border-radius:50%;object-fit:cover;background:#fff}
+.foot-brand strong{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:1.8rem;line-height:1}
+footer h4{font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--mostaza-claro);margin-bottom:.6rem}
+footer p,footer li{font-size:.95rem;opacity:.9}
+footer ul{list-style:none}
+footer a{text-decoration-color:var(--mostaza)}
+.foot-legal{margin-top:2.8rem;padding-top:1.4rem;border-top:1px solid rgba(243,235,216,.2);display:flex;flex-wrap:wrap;gap:.6rem 2rem;justify-content:space-between;font-size:.85rem;opacity:.85}
+.foot-legal a{color:var(--mostaza-claro)}
+@media (min-width:800px){.foot-grid{grid-template-columns:1.4fr 1fr 1fr}}
+
+/* ---------- movimiento ---------- */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease, transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.hero h1 .linea{display:block;animation:sube .9s cubic-bezier(.2,.8,.2,1) both}
+.hero h1 .linea:nth-child(2){animation-delay:.12s}
+.hero h1 .linea:nth-child(3){animation-delay:.24s}
+@keyframes sube{from{opacity:0;transform:translateY(40%)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none !important;transition:none !important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#inicio" aria-label="Chacra Pura Vida, inicio">
+      <img src="img/logo.jpg" alt="">
+      <span>Pura Vida</span>
+    </a>
+    <ul>
+      <li><a href="#casa">La casa</a></li>
+      <li><a href="#chacra">La chacra</a></li>
+      <li><a href="#despensa">Jugos y dulces</a></li>
+      <li><a href="#llegar">Cómo llegar</a></li>
+    </ul>
+    <a class="btn btn-ink" href="#reservar">Reservar</a>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow">Epuyén · Chubut · Patagonia</span>
+        <h1 class="display">
+          <span class="linea">Hospedate</span>
+          <span class="linea">en nuestra</span>
+          <span class="linea"><em>chacra</em></span>
+        </h1>
+        <p class="hero-lead">Una casa de madera para hasta 10 personas, entre frutales, animales y un arroyo, dentro de una chacra agroecológica familiar.</p>
+        <div class="hero-cta">
+          <a class="btn btn-ink" href="#reservar">Consultar fechas</a>
+          <a class="btn btn-line" href="#casa">Ver la casa</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="img/casa-amarilla.jpg" alt="La casa amarilla de madera de Chacra Pura Vida, con escalera exterior y árboles alrededor">
+        <figcaption class="nota mano">te esperamos!
+          <svg viewBox="0 0 60 60" aria-hidden="true"><path d="M6 8 C 30 6, 44 22, 42 50"/><path d="M33 42 L42 51 L50 41"/></svg>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="hechos">
+    <ul>
+      <li>Hasta 10 personas</li>
+      <li>Cultivos sin agrotóxicos</li>
+      <li>A 1,2 km del centro de Epuyén</li>
+      <li>A 5 km del Lago Epuyén</li>
+    </ul>
+  </div>
+
+  <!-- LA CASA -->
+  <section id="casa">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">La casa</span>
+        <h2 class="display">Lugar para<br>todo el grupo</h2>
+        <p>Pensada para familias o grupos que buscan tranquilidad, privacidad y contacto con la naturaleza. Madera por dentro y por fuera, ventanales grandes y la chacra entera alrededor.</p>
+      </div>
+      <div class="casa-grid">
+        <div class="casa-fotos reveal">
+          <figure class="mat">
+            <img src="img/habitacion-matrimonial.jpg" alt="Habitación matrimonial con paredes de madera, cama de dos plazas y un cuadro del paisaje patagónico">
+            <figcaption class="mano">cama matrimonial</figcaption>
+          </figure>
+          <figure class="alta">
+            <img src="img/habitacion-cuchetas.jpg" alt="Habitación con cucheta doble de madera y ventana al bosque">
+            <figcaption class="mano">cucheta doble</figcaption>
+          </figure>
+          <figure>
+            <img src="img/ventana-vista.jpg" alt="Vista verde desde una ventana de la casa">
+          </figure>
+        </div>
+
+        <aside class="etiqueta reveal" aria-label="Información de la casa">
+          <h3>Información<br>de la casa</h3>
+          <div class="porcion"><span>Capacidad</span><span>hasta 10 personas</span></div>
+          <dl>
+            <dt><b>Habitaciones con cucheta doble</b><small>Dos personas por habitación</small></dt>
+            <dd>4</dd>
+            <dt><b>Habitación matrimonial</b><small>Con baño privado</small></dt>
+            <dd>1</dd>
+            <dt><b>Baño compartido</b><small>En cuartos separados: ducha, inodoro y sector bacha en la entrada</small></dt>
+            <dd>1</dd>
+            <dt><b>Cocina comedor</b><small>Totalmente equipada, con horno y heladera. Ventanales grandes, muy luminosa</small></dt>
+            <dd>1</dd>
+            <dt><b>Calefacción</b></dt>
+            <dd class="txt">A gas</dd>
+            <dt><b>Aire acondicionado</b></dt>
+            <dd class="txt">Sí</dd>
+          </dl>
+          <p class="pie">Rodeada de frutales, huerta, animales y un arroyo.</p>
+          <span class="sello mano">sin agrotóxicos</span>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA CHACRA -->
+  <section id="chacra" class="chacra">
+    <div class="wrap">
+      <div class="chacra-intro">
+        <div class="reveal">
+          <div class="sec-head" style="margin-bottom:0">
+            <span class="eyebrow">La chacra</span>
+            <h2 class="display">Una chacra<br>llena de vida</h2>
+            <p>Chacra Pura Vida es un emprendimiento agroecológico familiar. Cultivamos fruta sin agrotóxicos y con ella hacemos nuestros jugos y dulces. Quedarte acá es vivir la chacra de cerca.</p>
+          </div>
+          <ul class="lista-vida">
+            <li><b>Animales</b>Ovejas y corderos que andan por el campo.</li>
+            <li><b>Frutales y huerta</b>Frambuesas, saúco, manzanas y frutillas de cultivo orgánico.</li>
+            <li><b>Un arroyo</b>Que cruza la chacra entre árboles.</li>
+          </ul>
+        </div>
+        <figure class="reveal">
+          <img src="img/familia.jpg" alt="Las anfitrionas de Chacra Pura Vida con delantal y gorra de la marca">
+          <figcaption class="nota mano">la familia de la chacra</figcaption>
+        </figure>
+      </div>
+
+      <div class="mosaico reveal">
+        <figure class="ancho"><img src="img/alamos-otono.jpg" alt="Álamos amarillos en otoño dentro de la chacra" loading="lazy"><figcaption class="mano">otoño en la chacra</figcaption></figure>
+        <figure><img src="img/ovejas.jpg" alt="Ovejas y corderos pastando junto al alambrado" loading="lazy"><figcaption class="mano">los vecinos</figcaption></figure>
+        <figure><img src="img/frambuesas.jpg" alt="Mano con frambuesas recién cosechadas" loading="lazy"></figure>
+        <figure><img src="img/sauco.jpg" alt="Racimo de saúco maduro" loading="lazy"><figcaption class="mano">hola saúco!</figcaption></figure>
+        <figure><img src="img/bosque-otono.jpg" alt="Banco de pallets bajo los árboles, con hojas de otoño en el suelo" loading="lazy"></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESPENSA -->
+  <section id="despensa">
+    <div class="wrap despensa-grid">
+      <div class="frascos reveal">
+        <figure><img src="img/jugo-manzana.jpg" alt="Botella de jugo de manzana Pura Vida y un vaso servido" loading="lazy"></figure>
+        <figure><img src="img/dulce-frambuesa.jpg" alt="Frasco de dulce de frambuesa con tostada y frambuesas" loading="lazy"></figure>
+        <figure><img src="img/jugo-frutilla.jpg" alt="Botella de jugo de frutilla frente al río" loading="lazy"></figure>
+        <figure><img src="img/brindis-manzana.jpg" alt="Jugo de manzana servido en vaso" loading="lazy"></figure>
+      </div>
+      <div class="reveal">
+        <div class="sec-head" style="margin-bottom:0">
+          <span class="eyebrow">De la chacra a la mesa</span>
+          <h2 class="display">Jugos y dulces<br>de acá</h2>
+          <p>Elaboramos jugos 100% naturales y dulces artesanales con frutas cosechadas de nuestros cultivos orgánicos. Sin colorantes ni saborizantes artificiales.</p>
+        </div>
+        <ul class="sabores" aria-label="Sabores de jugos">
+          <li>Manzana</li><li>Saúco</li><li>Frutilla</li><li>Frambuesa</li>
+        </ul>
+        <div class="donde">
+          <span class="eyebrow">Dónde conseguirlos</span>
+          <p><strong>Centro Cultural Antu Quillen</strong> · Puerto Bonito, Lago Epuyén.</p>
+          <p><strong>Envíos a todo el país.</strong></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESEÑA -->
+  <section class="resena">
+    <div class="wrap reveal">
+      <span class="estrellas" aria-label="5 de 5 estrellas">★★★★★</span>
+      <blockquote>
+        <p>“El lugar es un sueño, sus instalaciones son de primer nivel porque son muy cómodas y limpias. Además, quiero destacar la amabilidad y predisposición de sus anfitriones que nos ayudaron y aconsejaron en todo momento. <mark>La chacra está llena de vida</mark> porque hay mucha presencia de animales, un arroyo y una huerta de la que hacen sus propios dulces y jugos. La ubicación es excelente porque está a 10 minutos del lago. Recomiendo totalmente!!!”</p>
+        <cite class="mano">— Chiara Di Nardo</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CÓMO LLEGAR -->
+  <section id="llegar">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Cómo llegar</span>
+        <h2 class="display">Cerca de todo,<br>lejos del ruido</h2>
+        <p>A pocos metros de la avenida principal, con fácil acceso a pie, en colectivo o en vehículo.</p>
+      </div>
+      <div class="llegar-grid">
+        <div class="regla reveal" role="list" aria-label="Distancias desde la chacra">
+          <div class="hito casa" role="listitem" style="top:3%"><span class="km">0</span><span class="lugar">Chacra Pura Vida<small>Av. Los Cóndores 4376</small></span></div>
+          <div class="hito" role="listitem" style="top:28%"><span class="km">1,2<small>km</small></span><span class="lugar">Centro de Epuyén</span></div>
+          <div class="hito" role="listitem" style="top:41%"><span class="km">1,5<small>km</small></span><span class="lugar">Río Epuyén</span></div>
+          <div class="hito lejos" role="listitem" style="top:90%"><span class="km">5<small>km</small></span><span class="lugar">Lago Epuyén y Centro Cultural Antu Quillen<small>Puerto Bonito</small></span></div>
+        </div>
+        <div class="reveal">
+          <div class="direccion">
+            <span class="eyebrow">Dirección</span>
+            <address>Av. Los Cóndores 4376<br>Epuyén, Chubut</address>
+            <p>Comarca Andina del Paralelo 42, Patagonia Argentina.</p>
+            <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Chacra+Pura+Vida+Hostel+Epuy%C3%A9n" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+          <div class="mapa">
+            <iframe title="Mapa de Chacra Pura Vida en Epuyén" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2955.0267728104072!2d-71.39125830416636!3d-42.21387242384272!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961b89d110f97ea7%3A0xaacafb695d7130d6!2sChacra%20Pura%20Vida%20HOSTEL!5e0!3m2!1ses!2sus!4v1793806093607!5m2!1ses!2sus"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVAR -->
+  <section id="reservar" class="reservar">
+    <div class="wrap reservar-grid">
+      <div class="reveal">
+        <div class="sec-head">
+          <span class="eyebrow">Reservar</span>
+          <h2 class="display">Tu descanso<br>empieza acá</h2>
+          <p>Contanos cuántos son y qué fechas tienen en mente. Te respondemos con la disponibilidad.</p>
+        </div>
+        <div class="reservar-foto">
+          <img src="img/casa-portada.jpg" alt="La casa de la chacra entre árboles" loading="lazy">
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form id="form-reserva" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="Tu nombre">
+          </div>
+          <div class="campo">
+            <label for="personas">Cantidad de personas</label>
+            <input id="personas" name="personas" type="number" min="1" max="10" value="2" required inputmode="numeric">
+            <span class="ayuda">La casa recibe hasta 10 personas.</span>
+          </div>
+          <div class="fechas">
+            <div class="campo">
+              <label for="checkin">Check in</label>
+              <input id="checkin" name="checkin" type="date" required>
+            </div>
+            <div class="campo">
+              <label for="checkout">Check out</label>
+              <input id="checkout" name="checkout" type="date" required>
+            </div>
+          </div>
+          <p class="error" id="form-error" role="alert"></p>
+          <button class="btn btn-ink" type="submit">Enviar consulta</button>
+        </form>
+        <div class="ok" id="form-ok" role="status" tabindex="-1">
+          <h3>Consulta enviada</h3>
+          <p id="ok-texto"></p>
+          <p style="margin-top:1rem"><button class="btn btn-line" type="button" id="otra">Hacer otra consulta</button></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER AUTOR -->
+  <section class="autor">
+    <div class="wrap">
+      <div class="autor-box reveal">
+        <div>
+          <span class="eyebrow">Diseño web</span>
+          <h2 class="display" style="margin:.8rem 0 1rem">Este boceto lo diseñó Teo Cicciari</h2>
+          <p>¿Tenés un hospedaje, una chacra o un emprendimiento y querés un sitio así, hecho a medida? Pedí el tuyo.</p>
+        </div>
+        <a class="btn btn-ink" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <img src="img/logo.jpg" alt="Logo de Chacra Pura Vida">
+          <strong>Chacra<br>Pura Vida</strong>
+        </div>
+        <p style="margin-top:1rem;max-width:22rem">Emprendimiento agroecológico familiar. Hospedaje, jugos y dulces artesanales.</p>
+      </div>
+      <div>
+        <h4>Dónde estamos</h4>
+        <p>Av. Los Cóndores 4376<br>Epuyén, Chubut, Argentina</p>
+      </div>
+      <div>
+        <h4>Navegar</h4>
+        <ul>
+          <li><a href="#casa">La casa</a></li>
+          <li><a href="#chacra">La chacra</a></li>
+          <li><a href="#despensa">Jugos y dulces</a></li>
+          <li><a href="#reservar">Reservar</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>© <span id="anio"></span> Chacra Pura Vida · Epuyén, Chubut · <span id="hoy"></span></span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Fecha dinámica en el footer
+(function(){
+  var d = new Date();
+  document.getElementById('anio').textContent = d.getFullYear();
+  document.getElementById('hoy').textContent = d.toLocaleDateString('es-AR', {day:'numeric', month:'long', year:'numeric'});
+})();
+
+// Aparición al hacer scroll
+(function(){
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window)) { els.forEach(function(e){ e.classList.add('in'); }); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){ if (en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, {threshold: .12});
+  els.forEach(function(e){ io.observe(e); });
+})();
+
+// Formulario de reserva (confirmación local)
+(function(){
+  var form = document.getElementById('form-reserva');
+  var ok = document.getElementById('form-ok');
+  var err = document.getElementById('form-error');
+  var cin = document.getElementById('checkin');
+  var cout = document.getElementById('checkout');
+
+  function iso(d){ return d.toISOString().slice(0,10); }
+  var hoy = new Date(); hoy.setMinutes(hoy.getMinutes() - hoy.getTimezoneOffset());
+  cin.min = iso(hoy);
+  cout.min = iso(new Date(hoy.getTime() + 864e5));
+
+  cin.addEventListener('change', function(){
+    if (!cin.value) return;
+    var sig = new Date(cin.value + 'T00:00:00Z'); sig.setUTCDate(sig.getUTCDate() + 1);
+    cout.min = iso(sig);
+    if (cout.value && cout.value <= cin.value) cout.value = '';
+  });
+
+  function fmt(v){
+    var p = v.split('-');
+    return new Date(+p[0], +p[1]-1, +p[2]).toLocaleDateString('es-AR', {day:'numeric', month:'long'});
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var nombre = form.nombre.value.trim();
+    var personas = parseInt(form.personas.value, 10);
+    err.textContent = '';
+    if (!nombre) { err.textContent = 'Escribí tu nombre para que sepamos a quién responder.'; form.nombre.focus(); return; }
+    if (!personas || personas < 1 || personas > 10) { err.textContent = 'La casa recibe de 1 a 10 personas.'; form.personas.focus(); return; }
+    if (!cin.value) { err.textContent = 'Elegí la fecha de check in.'; cin.focus(); return; }
+    if (!cout.value) { err.textContent = 'Elegí la fecha de check out.'; cout.focus(); return; }
+    if (cout.value <= cin.value) { err.textContent = 'El check out tiene que ser posterior al check in.'; cout.focus(); return; }
+
+    var noches = Math.round((new Date(cout.value) - new Date(cin.value)) / 864e5);
+    document.getElementById('ok-texto').textContent =
+      'Gracias, ' + nombre + '. Recibimos tu consulta para ' + personas + (personas === 1 ? ' persona' : ' personas') +
+      ', del ' + fmt(cin.value) + ' al ' + fmt(cout.value) + ' (' + noches + (noches === 1 ? ' noche' : ' noches') +
+      '). Te respondemos con la disponibilidad.';
+    form.style.display = 'none';
+    ok.classList.add('visible');
+    ok.focus();
+  });
+
+  document.getElementById('otra').addEventListener('click', function(){
+    form.reset();
+    ok.classList.remove('visible');
+    form.style.display = '';
+    form.nombre.focus();
+  });
+})();
+</script>
+</body>
+</html>
