@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ecopuelo Departamentos · Lago Puelo, Chubut</title>
+<meta name="description" content="Departamentos de dos dormitorios para cuatro personas en Lago Puelo, Chubut. A 100 m del Río Azul, a 4 km del lago y a 7 km de El Bolsón.">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Overpass:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --niebla:#EDF0EA;   /* fondo: niebla de cordillera */
+    --papel:#F7F8F4;
+    --tinta:#1A2620;
+    --tinta-2:#4A5850;
+    --pino:#1F4B36;     /* verde de las hojas del logo */
+    --rio:#2C8A92;      /* Río Azul */
+    --rio-claro:#CFE6E4;
+    --madera:#5B3B24;   /* cartel de sendero */
+    --madera-2:#4A2F1C;
+    --senal:#F0C75E;    /* letra amarilla del cartel */
+    --mano:#A8231F;     /* rojo de la mano del logo, solo detalles */
+    --linea:rgba(26,38,32,.14);
+    --display:"Young Serif", Georgia, serif;
+    --sans:"Overpass", "Segoe UI", system-ui, sans-serif;
+    --r:6px;
+    --wrap:1180px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:72px}
+  body{margin:0;background:var(--niebla);color:var(--tinta);font-family:var(--sans);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--rio);outline-offset:3px;border-radius:2px}
+  .wrap{width:min(100% - 2.5rem, var(--wrap));margin-inline:auto}
+  .eyebrow{font-family:var(--sans);font-weight:800;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rio);margin:0 0 .9rem}
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;letter-spacing:-.01em}
+  h2{font-size:clamp(2rem,5.2vw,3.4rem)}
+  .btn{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--sans);font-weight:700;font-size:1rem;text-decoration:none;border:0;cursor:pointer;padding:.95rem 1.5rem;border-radius:999px;background:var(--pino);color:#fff;transition:background .2s, transform .2s}
+  .btn:hover{background:var(--tinta);transform:translateY(-1px)}
+  .btn--ghost{background:transparent;color:var(--pino);box-shadow:inset 0 0 0 2px var(--pino)}
+  .btn--ghost:hover{background:var(--pino);color:#fff}
+
+  /* ---------- NAV ---------- */
+  .nav{position:sticky;top:0;z-index:40;background:rgba(237,240,234,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+  .brand img{width:38px;height:38px}
+  .brand span{font-family:var(--display);font-size:1.45rem;line-height:1;color:var(--tinta)}
+  .nav__links{display:none;gap:1.8rem;list-style:none;margin:0;padding:0}
+  .nav__links a{text-decoration:none;font-weight:500;font-size:.95rem;color:var(--tinta-2)}
+  .nav__links a:hover{color:var(--pino)}
+  .nav .btn{padding:.6rem 1.1rem;font-size:.9rem}
+  @media (min-width:860px){.nav__links{display:flex}}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:2.2rem 0 4rem;overflow:hidden}
+  .hero__grid{display:grid;gap:2.2rem;align-items:center}
+  .hero h1{font-size:clamp(2.5rem,8.6vw,5.1rem);max-width:12ch}
+  .hero h1 em{font-style:normal;color:var(--rio)}
+  .hero__lead{font-size:1.15rem;color:var(--tinta-2);max-width:34ch;margin:1.2rem 0 1.8rem}
+  .hero__ctas{display:flex;flex-wrap:wrap;gap:.8rem}
+  .hero__visual{position:relative;padding-bottom:5.5rem}
+  .hero__photo{border-radius:var(--r);overflow:hidden;aspect-ratio:4/4.3;box-shadow:0 30px 60px -30px rgba(26,38,32,.45)}
+  .hero__photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%}
+
+  /* Poste de carteles de sendero: la firma del sitio */
+  .poste{position:absolute;left:-.4rem;bottom:0;width:min(78%,330px);padding-top:.4rem}
+  .poste::before{content:"";position:absolute;left:2.1rem;top:-1.2rem;bottom:-1.5rem;width:16px;border-radius:3px 3px 0 0;
+    background:linear-gradient(90deg,var(--madera-2),var(--madera) 45%,var(--madera-2));box-shadow:0 10px 18px -8px rgba(0,0,0,.5)}
+  .cartel{position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin:0 0 .55rem;
+    padding:.72rem 2.4rem .62rem 1.1rem;color:var(--senal);font-family:var(--sans);font-weight:800;text-transform:uppercase;letter-spacing:.07em;font-size:.98rem;line-height:1.1;
+    background:
+      repeating-linear-gradient(180deg,rgba(0,0,0,.07) 0 1px,transparent 1px 6px),
+      linear-gradient(180deg,#6A4529,var(--madera) 55%,var(--madera-2));
+    clip-path:polygon(0 0,calc(100% - 1.4rem) 0,100% 50%,calc(100% - 1.4rem) 100%,0 100%);
+    filter:drop-shadow(0 6px 6px rgba(0,0,0,.25));
+    transform-origin:2.6rem 50%}
+  .cartel b{font-weight:800;font-size:1.1em;letter-spacing:.04em;white-space:nowrap}
+  .cartel:nth-child(2){margin-left:1.4rem}
+  .cartel:nth-child(3){margin-left:.5rem}
+  .cartel small{display:block;font-size:.66rem;letter-spacing:.14em;font-weight:700;color:rgba(240,199,94,.72);margin-top:.15rem}
+  @media (prefers-reduced-motion:no-preference){
+    .cartel{animation:balanceo .9s cubic-bezier(.2,.8,.25,1.15) both}
+    .cartel:nth-child(1){animation-delay:.25s}
+    .cartel:nth-child(2){animation-delay:.42s}
+    .cartel:nth-child(3){animation-delay:.59s}
+    @keyframes balanceo{from{opacity:0;transform:rotate(-9deg) translateX(-14px)}to{opacity:1;transform:none}}
+  }
+  @media (min-width:900px){
+    .hero{padding:4.5rem 0 6rem}
+    .hero__grid{grid-template-columns:1.05fr 1fr;gap:4rem}
+    .hero__visual{padding-bottom:0}
+    .hero__photo{aspect-ratio:4/4.6}
+    .poste{left:-4.5rem;bottom:2.5rem}
+  }
+
+  /* ---------- EL DEPARTAMENTO ---------- */
+  .depto{background:var(--papel);padding:5rem 0;border-top:1px solid var(--linea)}
+  .depto__head{display:grid;gap:1.2rem;margin-bottom:3rem}
+  .depto__head p{color:var(--tinta-2);max-width:46ch;margin:0}
+  @media (min-width:900px){.depto__head{grid-template-columns:1fr 1fr;align-items:end}}
+  .listas{display:grid;gap:2.5rem}
+  @media (min-width:760px){.listas{grid-template-columns:1fr 1fr;gap:4rem}}
+  .lista h3{font-family:var(--sans);font-weight:800;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--pino);padding-bottom:.8rem;border-bottom:2px solid var(--pino);margin-bottom:.4rem}
+  .lista ul{list-style:none;margin:0;padding:0}
+  .lista li{display:flex;justify-content:space-between;gap:1rem;padding:.95rem 0;border-bottom:1px solid var(--linea);font-size:1.08rem}
+  .lista li span{color:var(--tinta-2);font-size:.92rem;text-align:right}
+
+  .losa{margin-top:3.5rem;display:grid;gap:1.4rem;background:var(--pino);color:#E9F0EA;border-radius:var(--r);padding:2.2rem 1.6rem;position:relative;overflow:hidden}
+  .losa h3{font-size:clamp(1.6rem,3.6vw,2.3rem);color:#fff;max-width:18ch}
+  .losa p{margin:0;max-width:44ch;color:#C9D8CD}
+  .losa::after{content:"";position:absolute;inset:auto 0 0 0;height:10px;
+    background:repeating-linear-gradient(90deg,var(--senal) 0 22px,transparent 22px 34px);opacity:.55}
+  @media (min-width:860px){.losa{grid-template-columns:1fr 1fr;align-items:center;padding:3rem}}
+
+  /* ---------- RECORRIDO (galería por ambiente) ---------- */
+  .recorrido{padding:5rem 0}
+  .recorrido__head{margin-bottom:2.6rem;max-width:40rem}
+  .recorrido__head p{color:var(--tinta-2);margin:.9rem 0 0}
+  .ambientes{display:grid;gap:1.4rem;grid-template-columns:1fr}
+  @media (min-width:640px){.ambientes{grid-template-columns:1fr 1fr}}
+  @media (min-width:1000px){.ambientes{grid-template-columns:repeat(6,1fr)}
+    .amb--estar{grid-column:span 3}.amb--cocina{grid-column:span 3}
+    .amb--d1,.amb--d2,.amb--bano{grid-column:span 2}}
+  .amb{margin:0}
+  .amb__fotos{display:grid;grid-template-columns:1fr;gap:.4rem;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3}
+  .amb__fotos.dos{grid-template-columns:1.6fr 1fr}
+  .amb__fotos button{all:unset;cursor:zoom-in;display:block;overflow:hidden;position:relative;height:100%;min-height:0}
+  @media (min-width:1000px){.amb--estar .amb__fotos,.amb--cocina .amb__fotos{aspect-ratio:16/9.5}}
+  .amb__fotos button:focus-visible{outline:3px solid var(--rio);outline-offset:-3px}
+  .amb__fotos img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .amb__fotos button:hover img{transform:scale(1.04)}
+  .amb figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;padding:.85rem .1rem 0}
+  .amb figcaption strong{font-family:var(--display);font-weight:400;font-size:1.35rem}
+  .amb figcaption span{font-size:.85rem;color:var(--tinta-2);text-align:right}
+
+  /* ---------- AFUERA ---------- */
+  .afuera{background:var(--tinta);color:#E6ECE7;padding:5rem 0}
+  .afuera__grid{display:grid;gap:2.5rem;align-items:center}
+  .afuera h2{color:#fff}
+  .afuera .eyebrow{color:var(--senal)}
+  .afuera p{color:#B8C6BD;max-width:42ch}
+  .afuera__fotos{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .afuera__fotos button{all:unset;cursor:zoom-in;display:block;overflow:hidden;border-radius:var(--r);aspect-ratio:4/3}
+  .afuera__fotos button:first-child{grid-column:span 2;aspect-ratio:16/11}
+  .afuera__fotos button:focus-visible{outline:3px solid var(--senal);outline-offset:2px}
+  .afuera__fotos img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+  .afuera__fotos button:hover img{transform:scale(1.04)}
+  .afuera ul{list-style:none;padding:0;margin:1.8rem 0 0;display:grid;gap:.7rem}
+  .afuera li{display:flex;gap:.8rem;align-items:center;font-weight:500}
+  .afuera li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--senal);flex:none}
+  @media (min-width:900px){.afuera__grid{grid-template-columns:.9fr 1.1fr;gap:4.5rem}}
+
+  /* ---------- RESERVA ---------- */
+  .reserva{padding:5rem 0;background:linear-gradient(180deg,var(--rio-claro),var(--niebla) 75%)}
+  .reserva__grid{display:grid;gap:2.5rem}
+  @media (min-width:900px){.reserva__grid{grid-template-columns:.85fr 1.15fr;gap:4.5rem;align-items:start}}
+  .reserva__intro p{color:var(--tinta-2);max-width:36ch}
+  .contacto{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1rem}
+  .contacto li{display:grid;gap:.1rem}
+  .contacto small{font-weight:800;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rio)}
+  .contacto a{font-size:1.15rem;text-decoration:none;font-weight:500;border-bottom:1px solid transparent;justify-self:start}
+  .contacto a:hover{border-color:currentColor}
+  form{background:var(--papel);border-radius:var(--r);padding:1.6rem;box-shadow:0 24px 50px -30px rgba(26,38,32,.35);display:grid;gap:1.1rem}
+  @media (min-width:560px){form{padding:2.4rem;grid-template-columns:1fr 1fr} .full{grid-column:1/-1}}
+  label{display:grid;gap:.4rem;font-weight:700;font-size:.85rem;letter-spacing:.02em}
+  input,select{font:inherit;font-weight:400;font-size:1rem;color:var(--tinta);background:#fff;border:1.5px solid rgba(26,38,32,.22);border-radius:var(--r);padding:.8rem .9rem;min-height:50px;width:100%}
+  input:focus,select:focus{outline:none;border-color:var(--rio);box-shadow:0 0 0 3px rgba(44,138,146,.2)}
+  form .btn{justify-content:center;width:100%;padding:1.05rem}
+  .form__nota{font-size:.85rem;color:var(--tinta-2);margin:0;text-align:center}
+  .form__error{color:var(--mano);font-size:.9rem;font-weight:500;margin:0;min-height:1.2em}
+
+  /* ---------- BANNER DE AUTOR ---------- */
+  .autor{padding:4.5rem 0;background:var(--niebla)}
+  .autor__box{border:2px solid var(--pino);border-radius:var(--r);padding:2.4rem 1.6rem;display:grid;gap:1.4rem;position:relative;background:var(--papel)}
+  .autor__box h2{font-size:clamp(1.7rem,4.2vw,2.6rem);max-width:20ch}
+  .autor__box p{margin:0;color:var(--tinta-2);max-width:48ch}
+  .autor__box .eyebrow{margin:0}
+  @media (min-width:860px){.autor__box{grid-template-columns:1.3fr 1fr;align-items:center;padding:3rem}.autor__cta{justify-self:end}}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--pino);color:#C9D8CD;padding:3.5rem 0 2rem;font-size:.95rem}
+  .foot{display:grid;gap:2rem}
+  .foot__logo{width:120px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.25))}
+  .foot a{color:#fff;text-decoration:none}
+  .foot a:hover{text-decoration:underline}
+  .foot h4{font-weight:800;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--senal);margin:0 0 .7rem}
+  .foot p{margin:.2rem 0}
+  @media (min-width:760px){.foot{grid-template-columns:auto 1fr 1fr;gap:3.5rem;align-items:start}}
+  .foot__bajo{border-top:1px solid rgba(255,255,255,.15);margin-top:2.5rem;padding-top:1.4rem;display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;justify-content:space-between;font-size:.85rem}
+  .foot__bajo a{color:var(--senal)}
+
+  /* ---------- WhatsApp flotante ---------- */
+  .wa{position:fixed;right:1rem;bottom:1rem;z-index:50;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px -6px rgba(0,0,0,.4);transition:transform .2s}
+  .wa:hover{transform:scale(1.06)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+
+  /* ---------- Lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:100;background:rgba(14,22,18,.94);display:none;align-items:center;justify-content:center;padding:3.5rem 1rem}
+  .lb.abierto{display:flex}
+  .lb img{max-height:100%;max-width:100%;object-fit:contain;border-radius:4px}
+  .lb button{position:absolute;background:rgba(255,255,255,.1);color:#fff;border:0;width:48px;height:48px;border-radius:50%;font-size:1.5rem;cursor:pointer;display:grid;place-items:center}
+  .lb button:hover{background:rgba(255,255,255,.22)}
+  .lb__cerrar{top:.8rem;right:.8rem}
+  .lb__ant{left:.6rem;top:50%;transform:translateY(-50%)}
+  .lb__sig{right:.6rem;top:50%;transform:translateY(-50%)}
+  .lb__pie{position:absolute;bottom:1rem;left:0;right:0;text-align:center;color:#C9D8CD;font-size:.9rem;font-weight:500}
+
+  @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Principal">
+  <div class="wrap nav__in">
+    <a class="brand" href="#inicio" aria-label="Ecopuelo Departamentos, inicio">
+      <img src="img/favicon.png" alt="" width="38" height="38">
+      <span>ecopuelo</span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#departamento">El departamento</a></li>
+      <li><a href="#recorrido">Fotos</a></li>
+      <li><a href="#afuera">Parrilla y parque</a></li>
+      <li><a href="#reserva">Contacto</a></li>
+    </ul>
+    <a class="btn" href="#reserva">Reservar</a>
+  </div>
+</nav>
+
+<header class="hero" id="inicio">
+  <div class="wrap hero__grid">
+    <div>
+      <p class="eyebrow">Departamentos · Lago Puelo, Chubut</p>
+      <h1>Dos dormitorios a cien metros del <em>Río Azul</em>.</h1>
+      <p class="hero__lead">Departamentos equipados para cuatro personas, con cocina completa, parrilla y parque, en la Comarca Andina.</p>
+      <div class="hero__ctas">
+        <a class="btn" href="#reserva">Consultar disponibilidad</a>
+        <a class="btn btn--ghost" href="#recorrido">Ver los ambientes</a>
+      </div>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__photo">
+        <img src="img/exterior.jpg" alt="Frente del edificio de Ecopuelo Departamentos, de ladrillo, con escalera exterior y árboles" width="898" height="911">
+      </div>
+      <div class="poste" aria-label="Distancias desde Ecopuelo">
+        <p class="cartel"><span>Río Azul<small>a pie</small></span><b>100 m</b></p>
+        <p class="cartel"><span>Lago Puelo</span><b>4 km</b></p>
+        <p class="cartel"><span>El Bolsón</span><b>7 km</b></p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="depto" id="departamento">
+  <div class="wrap">
+    <div class="depto__head">
+      <div>
+        <p class="eyebrow">El departamento</p>
+        <h2>Todo lo de una casa, para cuatro.</h2>
+      </div>
+      <p>Cada departamento tiene dos dormitorios, estar, comedor con cocina y baño. Llegás, guardás el auto y no te falta nada.</p>
+    </div>
+
+    <div class="listas">
+      <div class="lista">
+        <h3>Adentro</h3>
+        <ul>
+          <li>Dos dormitorios <span>para 4 personas</span></li>
+          <li>Cocina completa <span>heladera y horno</span></li>
+          <li>Smart TV</li>
+          <li>Wifi</li>
+          <li>Calefacción <span>losa radiante</span></li>
+        </ul>
+      </div>
+      <div class="lista">
+        <h3>Afuera</h3>
+        <ul>
+          <li>Parrilla</li>
+          <li>Parque</li>
+          <li>Estacionamiento</li>
+          <li>Río Azul <span>a 100 m</span></li>
+          <li>Lago Puelo y El Bolsón <span>a 4 y 7 km</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="losa">
+      <h3>Calefacción por losa radiante.</h3>
+      <p>El calor sale del piso y se reparte parejo en todo el departamento: sin estufas a la vista, también en las noches frías de la cordillera.</p>
+    </div>
+  </div>
+</section>
+
+<section class="recorrido" id="recorrido">
+  <div class="wrap">
+    <div class="recorrido__head">
+      <p class="eyebrow">Recorrido</p>
+      <h2>Ambiente por ambiente.</h2>
+      <p>Tocá cualquier foto para verla en grande.</p>
+    </div>
+
+    <div class="ambientes">
+      <figure class="amb amb--estar">
+        <div class="amb__fotos"><button data-i="0" aria-label="Ampliar foto del estar"><img src="img/estar.jpg" alt="Estar con futón y mesa de luz de madera" loading="lazy"></button></div>
+        <figcaption><strong>Estar</strong><span>con futón</span></figcaption>
+      </figure>
+      <figure class="amb amb--cocina">
+        <div class="amb__fotos dos">
+          <button data-i="1" aria-label="Ampliar foto del comedor"><img src="img/comedor.jpg" alt="Comedor con mesa de madera y cocina integrada" loading="lazy"></button>
+          <button data-i="2" aria-label="Ampliar foto de la cocina"><img src="img/cocina.jpg" alt="Cocina con heladera, horno y bacha" loading="lazy"></button>
+        </div>
+        <figcaption><strong>Comedor y cocina</strong><span>cocina completa</span></figcaption>
+      </figure>
+      <figure class="amb amb--d1">
+        <div class="amb__fotos dos">
+          <button data-i="3" aria-label="Ampliar foto del dormitorio 1"><img src="img/dormitorio1.jpg" alt="Dormitorio 1 con cama matrimonial y mesas de luz" loading="lazy"></button>
+          <button data-i="4" aria-label="Ampliar segunda foto del dormitorio 1"><img src="img/dormitorio1_2.jpg" alt="Dormitorio 1 con placard" loading="lazy"></button>
+        </div>
+        <figcaption><strong>Dormitorio 1</strong><span>cama matrimonial</span></figcaption>
+      </figure>
+      <figure class="amb amb--d2">
+        <div class="amb__fotos dos">
+          <button data-i="5" aria-label="Ampliar foto del dormitorio 2"><img src="img/dormitorio2_2.jpg" alt="Dormitorio 2 con dos camas de una plaza" loading="lazy"></button>
+          <button data-i="6" aria-label="Ampliar segunda foto del dormitorio 2"><img src="img/dormitorio2.jpg" alt="Dormitorio 2 con techo de madera" loading="lazy"></button>
+        </div>
+        <figcaption><strong>Dormitorio 2</strong><span>dos camas simples</span></figcaption>
+      </figure>
+      <figure class="amb amb--bano">
+        <div class="amb__fotos dos">
+          <button data-i="7" aria-label="Ampliar foto del baño"><img src="img/sanitario_1.jpg" alt="Baño con bacha sobre mueble de madera" loading="lazy"></button>
+          <button data-i="8" aria-label="Ampliar segunda foto del baño"><img src="img/sanitario_2.jpg" alt="Baño con ducha" loading="lazy"></button>
+        </div>
+        <figcaption><strong>Baño</strong><span>con ducha</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="afuera" id="afuera">
+  <div class="wrap afuera__grid">
+    <div>
+      <p class="eyebrow">Parrilla y parque</p>
+      <h2>El asado se hace afuera.</h2>
+      <p>Una parrilla de ladrillo con lugar para la leña y un parque para estar al aire libre. El auto queda en el estacionamiento, al lado de la puerta.</p>
+      <ul>
+        <li>Parrilla con leñero</li>
+        <li>Parque</li>
+        <li>Estacionamiento</li>
+      </ul>
+    </div>
+    <div class="afuera__fotos">
+      <button data-i="9" aria-label="Ampliar foto de la parrilla"><img src="img/parrilla.jpg" alt="Parrilla de ladrillo con un cordero al asador" loading="lazy"></button>
+      <button data-i="10" aria-label="Ampliar foto de la escalera exterior"><img src="img/exterior_2.jpg" alt="Escalera exterior de madera hacia la planta alta" loading="lazy"></button>
+      <button data-i="11" aria-label="Ampliar foto del frente"><img src="img/exterior.jpg" alt="Frente del edificio" loading="lazy"></button>
+    </div>
+  </div>
+</section>
+
+<section class="reserva" id="reserva">
+  <div class="wrap reserva__grid">
+    <div class="reserva__intro">
+      <p class="eyebrow">Reservas</p>
+      <h2>Consultá tus fechas.</h2>
+      <p>Completá el formulario y se abre WhatsApp con tu consulta lista para enviar. Te respondemos con disponibilidad y tarifa.</p>
+      <ul class="contacto">
+        <li><small>WhatsApp</small><a href="https://wa.me/5492944610381" target="_blank" rel="noopener">+54 9 294 461-0381</a></li>
+        <li><small>Teléfono</small><a href="tel:+5492944342532">+54 9 294 434-2532</a></li>
+        <li><small>Email</small><a href="mailto:info@ecopuelodepartamentos.com.ar">info@ecopuelodepartamentos.com.ar</a></li>
+      </ul>
+    </div>
+
+    <form id="form-reserva" novalidate>
+      <label class="full">Nombre
+        <input type="text" name="nombre" autocomplete="name" required placeholder="Tu nombre">
+      </label>
+      <label class="full">Cantidad de personas
+        <select name="personas" required>
+          <option value="">Elegí</option>
+          <option>1</option><option>2</option><option>3</option><option>4</option>
+          <option value="más de 4">Más de 4 (más de un departamento)</option>
+        </select>
+      </label>
+      <label>Check in
+        <input type="date" name="checkin" required>
+      </label>
+      <label>Check out
+        <input type="date" name="checkout" required>
+      </label>
+      <p class="form__error full" id="form-error" role="alert"></p>
+      <div class="full">
+        <button class="btn" type="submit">Enviar consulta por WhatsApp</button>
+      </div>
+      <p class="form__nota full">Sin pagos ni compromiso: es solo una consulta.</p>
+    </form>
+  </div>
+</section>
+
+<section class="autor" aria-labelledby="autor-titulo">
+  <div class="wrap">
+    <div class="autor__box">
+      <div>
+        <p class="eyebrow">Diseño web</p>
+        <h2 id="autor-titulo">Este boceto lo diseñó Teo Cicciari</h2>
+      </div>
+      <div>
+        <p>¿Tenés un hospedaje y querés un sitio así, pensado para tu lugar y listo para recibir reservas desde el celular? Pedí el tuyo.</p>
+        <p style="margin-top:1.3rem"><a class="btn autor__cta" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <img class="foot__logo" src="img/logo.png" alt="Ecopuelo Departamentos, Patagonia Argentina" width="120" height="123" loading="lazy">
+      <div>
+        <h4>Dónde</h4>
+        <p>Lago Puelo, Chubut</p>
+        <p>A 100 m del Río Azul</p>
+        <p>A 4 km de Lago Puelo y 7 km de El Bolsón</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><a href="https://wa.me/5492944610381" target="_blank" rel="noopener">+54 9 294 461-0381</a></p>
+        <p><a href="tel:+5492944342532">+54 9 294 434-2532</a></p>
+        <p><a href="mailto:info@ecopuelodepartamentos.com.ar">info@ecopuelodepartamentos.com.ar</a></p>
+      </div>
+    </div>
+    <div class="foot__bajo">
+      <span>© <span id="anio"></span> Ecopuelo Departamentos · <span id="fecha"></span></span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5492944610381" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.6.13-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.88 1.21 3.07.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.04 21.5h-.01a9.43 9.43 0 0 1-4.8-1.32l-.35-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.24-9.44 9.45-9.44 2.52 0 4.89.99 6.67 2.77a9.37 9.37 0 0 1 2.76 6.68c0 5.2-4.24 9.44-9.44 9.44zm8.03-17.47A11.28 11.28 0 0 0 12.04.7C5.78.7.69 5.79.69 12.05c0 2 .52 3.95 1.52 5.67L.6 23.6l6.02-1.58a11.3 11.3 0 0 0 5.42 1.38h.01c6.26 0 11.35-5.09 11.35-11.35 0-3.03-1.18-5.88-3.33-8.02z"/></svg>
+</a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada">
+  <img id="lb-img" src="" alt="">
+  <button class="lb__cerrar" id="lb-cerrar" aria-label="Cerrar">×</button>
+  <button class="lb__ant" id="lb-ant" aria-label="Foto anterior">‹</button>
+  <button class="lb__sig" id="lb-sig" aria-label="Foto siguiente">›</button>
+  <p class="lb__pie" id="lb-pie"></p>
+</div>
+
+<script>
+  // Fecha dinámica en el footer
+  const hoy = new Date();
+  document.getElementById('anio').textContent = hoy.getFullYear();
+  document.getElementById('fecha').textContent = hoy.toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
+
+  // Formulario de reserva -> WhatsApp
+  const WHATSAPP = '5492944610381';
+  const form = document.getElementById('form-reserva');
+  const err = document.getElementById('form-error');
+  const ci = form.checkin, co = form.checkout;
+  const iso = d => new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  ci.min = iso(hoy); co.min = iso(hoy);
+  ci.addEventListener('change', () => {
+    if (!ci.value) return;
+    const sig = new Date(ci.value + 'T12:00'); sig.setDate(sig.getDate() + 1);
+    co.min = iso(sig);
+    if (co.value && co.value <= ci.value) co.value = iso(sig);
+  });
+  const fmt = v => new Date(v + 'T12:00').toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    err.textContent = '';
+    const nombre = form.nombre.value.trim();
+    if (!nombre) { err.textContent = 'Escribí tu nombre.'; form.nombre.focus(); return; }
+    if (!form.personas.value) { err.textContent = 'Elegí la cantidad de personas.'; form.personas.focus(); return; }
+    if (!ci.value) { err.textContent = 'Elegí la fecha de check in.'; ci.focus(); return; }
+    if (!co.value) { err.textContent = 'Elegí la fecha de check out.'; co.focus(); return; }
+    if (co.value <= ci.value) { err.textContent = 'El check out tiene que ser después del check in.'; co.focus(); return; }
+    const noches = Math.round((new Date(co.value) - new Date(ci.value)) / 86400000);
+    const msg = `Hola, soy ${nombre}. Quiero consultar disponibilidad en Ecopuelo Departamentos:\n` +
+      `• Personas: ${form.personas.value}\n` +
+      `• Check in: ${fmt(ci.value)}\n` +
+      `• Check out: ${fmt(co.value)} (${noches} ${noches === 1 ? 'noche' : 'noches'})`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  });
+
+  // Lightbox
+  const botones = [...document.querySelectorAll('[data-i]')].sort((a,b) => a.dataset.i - b.dataset.i);
+  const fotos = botones.map(b => { const im = b.querySelector('img'); return { src: im.getAttribute('src'), alt: im.alt }; });
+  const lb = document.getElementById('lb'), lbImg = document.getElementById('lb-img'), lbPie = document.getElementById('lb-pie');
+  let actual = 0, origen = null;
+  const mostrar = i => { actual = (i + fotos.length) % fotos.length; lbImg.src = fotos[actual].src; lbImg.alt = fotos[actual].alt; lbPie.textContent = `${fotos[actual].alt} · ${actual+1}/${fotos.length}`; };
+  const abrir = (i, btn) => { origen = btn; mostrar(i); lb.classList.add('abierto'); document.body.style.overflow = 'hidden'; document.getElementById('lb-cerrar').focus(); };
+  const cerrar = () => { lb.classList.remove('abierto'); document.body.style.overflow = ''; if (origen) origen.focus(); };
+  botones.forEach(b => b.addEventListener('click', () => abrir(+b.dataset.i, b)));
+  document.getElementById('lb-cerrar').onclick = cerrar;
+  document.getElementById('lb-ant').onclick = () => mostrar(actual - 1);
+  document.getElementById('lb-sig').onclick = () => mostrar(actual + 1);
+  lb.addEventListener('click', e => { if (e.target === lb) cerrar(); });
+  document.addEventListener('keydown', e => {
+    if (!lb.classList.contains('abierto')) return;
+    if (e.key === 'Escape') cerrar();
+    if (e.key === 'ArrowLeft') mostrar(actual - 1);
+    if (e.key === 'ArrowRight') mostrar(actual + 1);
+  });
+  // Swipe en el celular
+  let x0 = null;
+  lb.addEventListener('touchstart', e => x0 = e.touches[0].clientX, { passive:true });
+  lb.addEventListener('touchend', e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) mostrar(actual + (dx < 0 ? 1 : -1)); x0 = null; });
+</script>
+</body>
+</html>
