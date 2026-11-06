@@ -4,82 +4,95 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hostel Hormiga Negra · Frente al lago Nahuel Huapi, Bariloche</title>
-<meta name="description" content="Hostel en la costanera de San Carlos de Bariloche, frente al lago Nahuel Huapi. Dormitorios compartidos y habitación doble con vista al lago, desayuno, cocina, bar y atención 24 hs.">
-<link rel="icon" href="img/hostel_hormiganegra_logo.jpg">
+<meta name="description" content="Hostel en la costanera de San Carlos de Bariloche, frente al lago Nahuel Huapi. Habitaciones privadas y compartidas con vista al lago, desayuno incluido, cocina, bar y jardín con fogonero.">
+<link rel="icon" href="img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Karla:ital,wght@0,400;0,600;0,800;1,400&family=Sacramento&display=swap" rel="stylesheet">
 <style>
+  /* Paleta tomada del mural del hostel (Mural HHN.pdf) */
   :root{
-    --carbon:#35363a;      /* fondo del logo */
-    --carbon-2:#2a2b2e;
-    --magenta:#e50987;
-    --turquesa:#00a88f;
-    --cian:#53c5d0;
-    --lima:#ccd32b;
-    --violeta:#a2248f;
-    --amarillo:#eee133;
-    --hueso:#e0dcd9;
+    --negro:#231f20;
+    --magenta:#ec008c;
+    --rosa:#e9288b;
+    --rosa-claro:#f6adcd;
+    --rojo:#ed1651;
+    --purpura:#b00182;
+    --turquesa:#00ab93;
+    --cian:#55c5d0;
+    --celeste:#8dd8f8;
+    --azul:#0095da;
+    --lima:#d1d608;
+    --amarillo:#f2e32d;
+    --oro:#ffcb03;
+    --gris:#939598;
     --blanco:#ffffff;
     --display:"Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
     --body:"Karla", system-ui, sans-serif;
     --script:"Sacramento", cursive;
     --wrap:1180px;
+    --nav-h:84px;
   }
   *,*::before,*::after{box-sizing:border-box}
   html{scroll-behavior:smooth}
-  body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--carbon);background:var(--blanco);-webkit-font-smoothing:antialiased}
+  body{margin:0;font-family:var(--body);font-size:1.0625rem;line-height:1.6;color:var(--negro);background:var(--blanco);-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%}
   a{color:inherit}
   :focus-visible{outline:3px solid var(--magenta);outline-offset:3px}
   .wrap{width:min(var(--wrap),100% - 2.5rem);margin-inline:auto}
 
   /* ---------- tipografía ---------- */
-  .eyebrow{font-family:var(--body);font-weight:800;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;margin:0 0 1rem}
-  .display{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.88;letter-spacing:-.005em;margin:0}
-  .script{font-family:var(--script);font-weight:400;text-transform:none;letter-spacing:0;line-height:1}
-  h2.display{font-size:clamp(2.6rem,7vw,4.8rem)}
+  /* rótulo de cada bloque: mismo tamaño y letra en todas las secciones */
+  .label{font-family:var(--body);font-weight:800;font-size:clamp(1.05rem,2.2vw,1.35rem);letter-spacing:.14em;text-transform:uppercase;line-height:1.2;margin:0 0 1.1rem}
+  .display{font-family:var(--display);font-weight:900;text-transform:uppercase;line-height:.9;letter-spacing:-.005em;margin:0}
+  h2.display{font-size:clamp(2.6rem,7vw,4.8rem);text-wrap:balance}
   .lead{font-size:1.15rem;max-width:36rem}
 
   /* ---------- botones ---------- */
   .btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--body);font-weight:800;font-size:.95rem;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;padding:1rem 1.5rem;border:0;cursor:pointer;transition:transform .15s ease, box-shadow .15s ease}
-  .btn--magenta{background:var(--magenta);color:var(--blanco);box-shadow:6px 6px 0 var(--carbon-2)}
-  .btn--magenta:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--carbon-2)}
+  .btn--magenta{background:var(--magenta);color:var(--blanco);box-shadow:6px 6px 0 #000}
+  .btn--magenta:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 #000}
   .btn--ghost{background:transparent;color:var(--blanco);box-shadow:inset 0 0 0 2px var(--blanco)}
-  .btn--ghost:hover{background:var(--blanco);color:var(--carbon)}
+  .btn--ghost:hover{background:var(--blanco);color:var(--negro)}
+  .btn--dark{background:var(--negro);color:var(--blanco);box-shadow:6px 6px 0 var(--cian)}
+  .btn--dark:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--cian)}
+  .btn--line{background:transparent;color:var(--negro);box-shadow:inset 0 0 0 2px var(--negro)}
+  .btn--line:hover{background:var(--negro);color:var(--blanco)}
   .btn svg{width:1.15em;height:1.15em;flex:none}
 
   /* ---------- nav ---------- */
-  .nav{position:sticky;top:0;z-index:50;background:var(--carbon);color:var(--blanco)}
-  .nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:64px}
-  .brand{display:flex;align-items:center;gap:.25rem;text-decoration:none}
-  .brand img.ant{height:46px;width:auto}
-  .brand img.word{height:34px;width:auto}
+  .nav{position:sticky;top:0;z-index:50;background:var(--negro);color:var(--blanco)}
+  .nav__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:var(--nav-h)}
+  .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none}
+  .brand .ant{height:54px;width:auto}
+  .brand .word{height:22px;width:auto;margin-top:6px}
   .nav__links{display:none;gap:1.75rem;list-style:none;margin:0;padding:0}
   .nav__links a{text-decoration:none;font-weight:600;font-size:.95rem}
   .nav__links a:hover{color:var(--cian)}
   .nav__cta{font-size:.8rem;padding:.65rem 1rem;box-shadow:none}
-  @media (min-width:900px){.nav__links{display:flex}}
+  @media (min-width:600px){.brand .ant{height:70px}.brand .word{height:34px}}
+  @media (min-width:960px){.nav__links{display:flex}}
 
-  /* ---------- hero: la pared Warhol ---------- */
-  .hero{background:var(--carbon);color:var(--blanco);padding:2.5rem 0 0;overflow:hidden}
+  /* ---------- hero: el mural ---------- */
+  .hero{background:var(--negro);color:var(--blanco);padding:2.5rem 0 0;overflow:hidden}
   .hero__grid{display:grid;gap:2.5rem}
-  .hero h1{font-size:clamp(3.4rem,13vw,7.6rem)}
-  .hero h1 .script{display:block;color:var(--cian);font-size:.62em;margin:.18em 0 .05em;transform:rotate(-4deg);transform-origin:left}
-  .hero__copy p{color:#d6d6d9;margin:1.5rem 0 2rem}
+  .hero .label{color:var(--lima)}
+  .hero h1{font-size:clamp(2.6rem,10vw,5rem)}
+  .hero__copy p.lead{color:#dcdadb;margin:1.5rem 0 2rem}
   .hero__ctas{display:flex;flex-wrap:wrap;gap:1rem}
-  .hero__addr{margin-top:1.75rem;font-size:.9rem;color:#b9b9bd;display:flex;align-items:center;gap:.5rem}
+  .hero__addr{margin-top:1.75rem;font-size:.9rem;color:#bdbbbc;display:flex;align-items:center;gap:.5rem}
   .hero__addr::before{content:"";width:10px;height:10px;background:var(--lima)}
 
-  .wall{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-inline:calc(50% - 50vw)}
-  .tile{position:relative;aspect-ratio:1;overflow:hidden;background:var(--hueso)}
-  .tile img{width:100%;height:100%;object-fit:cover}
-  .tile--ant img{object-position:70% 40%}
-  .tile figcaption{position:absolute;left:.6rem;bottom:.6rem;background:var(--carbon);color:var(--blanco);font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .55rem}
+  .wall{display:grid;grid-template-columns:repeat(3,1fr);margin-inline:calc(50% - 50vw)}
+  .tile{margin:0;aspect-ratio:9/8;overflow:hidden}
+  .tile img{width:100%;height:100%;object-fit:cover;transition:transform .45s cubic-bezier(.3,1.4,.5,1)}
+  .tile.flip img{transform:scaleX(-1)}
+  .tile:hover img{transform:scaleX(-1)}
+  .tile.flip:hover img{transform:none}
   @media (min-width:900px){
-    .hero{padding:4.5rem 0 4.5rem}
+    .hero{padding:4.5rem 0}
     .hero__grid{grid-template-columns:1fr 1.05fr;align-items:center;gap:3.5rem}
-    .wall{margin:0;grid-template-columns:repeat(3,1fr);box-shadow:14px 14px 0 var(--magenta)}
+    .wall{margin:0;box-shadow:14px 14px 0 var(--magenta)}
   }
   @media (prefers-reduced-motion:no-preference){
     .tile{animation:print .55s cubic-bezier(.2,.9,.3,1.2) both}
@@ -88,17 +101,18 @@
     .tile:nth-child(6){animation-delay:.4s}
     @keyframes print{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:none}}
   }
+  @media (prefers-reduced-motion:reduce){.tile img{transition:none}}
 
   /* ---------- franja de vista ---------- */
   .wake{background:var(--cian);padding:3.5rem 0}
   .wake__in{display:grid;gap:2rem;align-items:center}
-  .wake blockquote{margin:0;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:clamp(2rem,5.4vw,3.4rem);line-height:.95}
-  .wake blockquote .script{display:inline-block;color:var(--blanco);text-shadow:2px 2px 0 var(--carbon);font-size:1.15em;text-transform:none}
-  .wake img{width:100%;aspect-ratio:16/10;object-fit:cover;box-shadow:10px 10px 0 var(--carbon)}
+  .wake blockquote{margin:0;font-family:var(--script);font-size:clamp(2.8rem,6.5vw,4.6rem);line-height:1.05;color:var(--negro)}
+  .wake blockquote span{color:var(--blanco);text-shadow:2px 2px 0 var(--negro)}
+  .wake img{width:100%;aspect-ratio:16/10;object-fit:cover;box-shadow:10px 10px 0 var(--negro)}
   @media (min-width:900px){.wake__in{grid-template-columns:1fr 1fr;gap:4rem}}
 
   /* ---------- secciones ---------- */
-  section{scroll-margin-top:64px}
+  section{scroll-margin-top:var(--nav-h)}
   .sec{padding:5rem 0}
   .sec__head{display:grid;gap:1.25rem;margin-bottom:3rem}
   @media (min-width:900px){.sec__head{grid-template-columns:1.1fr 1fr;align-items:end;gap:4rem}}
@@ -106,8 +120,7 @@
 
   /* habitaciones */
   .rooms{display:grid;gap:2.5rem}
-  @media (min-width:900px){.rooms{grid-template-columns:1fr 1fr;gap:2.5rem}}
-  .room{display:flex;flex-direction:column}
+  @media (min-width:900px){.rooms{grid-template-columns:1fr 1fr}}
   .room__img{position:relative}
   .room__img img{width:100%;aspect-ratio:4/3;object-fit:cover}
   .room__img .tag{position:absolute;top:1rem;left:1rem}
@@ -116,96 +129,92 @@
   .room p{margin:0 0 1rem}
   .room .cap{font-size:.9rem;font-weight:600}
 
-  .incl{margin-top:4rem;background:var(--lima);padding:2.5rem 1.5rem;position:relative}
+  .incl{margin-top:4rem;background:var(--lima);padding:2.5rem 1.5rem}
   .incl h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2rem;margin:0 0 1.5rem;line-height:1}
   .incl ul{list-style:none;margin:0;padding:0;display:grid;gap:.9rem 2.5rem}
   .incl li{padding-left:1.6rem;position:relative}
-  .incl li::before{content:"";position:absolute;left:0;top:.5em;width:.7rem;height:.7rem;background:var(--carbon)}
+  .incl li::before{content:"";position:absolute;left:0;top:.5em;width:.7rem;height:.7rem;background:var(--negro)}
   .incl li b{font-weight:800}
-  .incl .note{margin:1.75rem 0 0;font-size:.92rem;border-top:2px solid var(--carbon);padding-top:1rem}
+  .incl .note{margin:1.75rem 0 0;font-size:.95rem;font-weight:600;border-top:2px solid var(--negro);padding-top:1rem}
   @media (min-width:700px){.incl{padding:3rem}.incl ul{grid-template-columns:1fr 1fr}}
 
-  .strip{display:grid;grid-template-columns:1fr;gap:.5rem}
+  .strip{display:grid;grid-template-columns:1fr;gap:.5rem;margin-top:3rem}
   .strip img{width:100%;aspect-ratio:16/9;object-fit:cover}
   @media (min-width:700px){.strip{grid-template-columns:1fr 1fr}}
 
   /* espacios compartidos */
-  .spaces{background:var(--carbon);color:var(--blanco)}
-  .spaces .lead{color:#d6d6d9}
+  .spaces{background:var(--negro);color:var(--blanco)}
+  .spaces .lead{color:#dcdadb}
   .mosaic{display:grid;gap:.6rem;grid-template-columns:1fr 1fr}
   .mosaic figure{margin:0;position:relative;overflow:hidden}
   .mosaic img{width:100%;height:100%;object-fit:cover;aspect-ratio:1;transition:transform .5s ease}
   .mosaic figure:hover img{transform:scale(1.04)}
-  .mosaic figcaption{position:absolute;left:0;bottom:0;padding:.45rem .7rem;font-weight:800;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--carbon);background:var(--c)}
+  .mosaic figcaption{position:absolute;left:0;bottom:0;padding:.45rem .7rem;font-weight:800;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--negro);background:var(--c)}
   .mosaic .big{grid-column:span 2}
   .mosaic .big img{aspect-ratio:16/9}
   @media (min-width:900px){
     .mosaic{grid-template-columns:repeat(4,1fr);grid-auto-rows:240px}
-    .mosaic img{aspect-ratio:auto}
-    .mosaic .big{grid-column:span 2;grid-row:span 2}
-    .mosaic .big img{aspect-ratio:auto}
+    .mosaic img,.mosaic .big img{aspect-ratio:auto}
+    .mosaic .big{grid-row:span 2}
   }
 
   /* servicios */
-  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:0}
-  .svc{background:var(--c);color:var(--t,var(--carbon));padding:1.5rem 1.1rem;min-height:9.5rem;display:flex;flex-direction:column;justify-content:space-between}
+  .services{display:grid;grid-template-columns:repeat(2,1fr)}
+  .svc{background:var(--c);color:var(--t,var(--negro));padding:1.5rem 1.1rem;min-height:10rem;display:flex;flex-direction:column;justify-content:space-between;gap:1rem}
   .svc svg{width:30px;height:30px}
   .svc h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.5rem;line-height:1;margin:0}
-  .svc p{margin:.35rem 0 0;font-size:.88rem;line-height:1.35}
-  @media (min-width:700px){.services{grid-template-columns:repeat(4,1fr)}.svc{min-height:12rem;padding:1.75rem 1.5rem}}
-
-  /* reserva */
-  .book{background:var(--magenta);color:var(--blanco);position:relative;overflow:hidden}
-  .book__in{display:grid;gap:3rem;position:relative}
-  @media (min-width:900px){.book__in{grid-template-columns:1fr 1.1fr;align-items:start;gap:4rem}}
-  .book h2 .script{display:block;font-size:.7em;color:var(--carbon);margin-top:.15em}
-  .book__info p{max-width:28rem}
-  .book__info .small{font-size:.92rem;opacity:.92}
-  .form{background:var(--blanco);color:var(--carbon);padding:2rem 1.5rem;box-shadow:12px 12px 0 var(--carbon);display:grid;gap:1.1rem}
-  @media (min-width:600px){.form{padding:2.5rem;grid-template-columns:1fr 1fr}.form .full{grid-column:1/-1}}
-  .field label{display:block;font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem}
-  .field input,.field select{width:100%;font:inherit;font-size:1rem;padding:.8rem .9rem;border:2px solid var(--carbon);background:var(--blanco);color:var(--carbon);border-radius:0;appearance:none;-webkit-appearance:none}
-  .field select{background-image:linear-gradient(45deg,transparent 50%,var(--carbon) 50%),linear-gradient(135deg,var(--carbon) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat}
-  .field input:focus,.field select:focus{outline:none;border-color:var(--magenta);box-shadow:4px 4px 0 var(--magenta)}
-  .form .btn{justify-content:center;width:100%;box-shadow:6px 6px 0 var(--carbon)}
-  .form__err{color:#b0005f;font-weight:700;font-size:.9rem;margin:0;min-height:1.2em}
+  .svc p{margin:.35rem 0 0;font-size:.9rem;line-height:1.35}
+  .svc--wide{grid-column:1/-1}
+  @media (min-width:700px){.services{grid-template-columns:repeat(4,1fr)}.svc{min-height:12rem;padding:1.75rem 1.5rem}.svc--wide{grid-column:auto}}
 
   /* ubicación */
   .where{display:grid;gap:2.5rem;align-items:center}
   @media (min-width:900px){.where{grid-template-columns:1fr 1fr;gap:4rem}}
-  .where address{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2.4rem,6vw,3.8rem);line-height:.92;margin:1rem 0 1.5rem}
-  .where address small{display:block;font-family:var(--body);font-weight:600;text-transform:none;font-size:1.05rem;letter-spacing:0;margin-top:.8rem}
-  .where .links{display:flex;flex-wrap:wrap;gap:1rem}
-  .btn--dark{background:var(--carbon);color:var(--blanco);box-shadow:6px 6px 0 var(--cian)}
-  .btn--dark:hover{transform:translate(-2px,-2px);box-shadow:8px 8px 0 var(--cian)}
-  .btn--line{background:transparent;color:var(--carbon);box-shadow:inset 0 0 0 2px var(--carbon)}
-  .btn--line:hover{background:var(--carbon);color:var(--blanco)}
-  .map{width:100%;aspect-ratio:4/3;border:0;display:block;box-shadow:-12px 12px 0 var(--turquesa);background:var(--hueso)}
+  .where address{font-style:normal;font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:clamp(2.6rem,7vw,4.8rem);line-height:.9;margin:0 0 1.5rem}
+  .where address small{display:block;font-family:var(--body);font-weight:600;text-transform:none;font-size:1.05rem;line-height:1.5;margin-top:1rem}
+  .where .links{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem}
+  .map{width:100%;aspect-ratio:4/3;border:0;display:block;box-shadow:-12px 12px 0 var(--turquesa);background:#eee}
+
+  /* reserva */
+  .book{background:var(--magenta);color:var(--blanco)}
+  .book__in{display:grid;gap:3rem}
+  @media (min-width:900px){.book__in{grid-template-columns:1fr 1.1fr;align-items:start;gap:4rem}}
+  .book .label{color:var(--negro)}
+  .book__info p{max-width:28rem}
+  .book__info .small{font-size:.95rem}
+  .form{background:var(--blanco);color:var(--negro);padding:2rem 1.5rem;box-shadow:12px 12px 0 var(--negro);display:grid;gap:1.1rem}
+  @media (min-width:600px){.form{padding:2.5rem;grid-template-columns:1fr 1fr}.form .full{grid-column:1/-1}}
+  .field label{display:block;font-weight:800;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.4rem}
+  .field input,.field select{width:100%;font:inherit;font-size:1rem;padding:.8rem .9rem;border:2px solid var(--negro);background:var(--blanco);color:var(--negro);border-radius:0;appearance:none;-webkit-appearance:none}
+  .field select{padding-right:2.5rem}
+  .field select{background-image:linear-gradient(45deg,transparent 50%,var(--negro) 50%),linear-gradient(135deg,var(--negro) 50%,transparent 50%);background-position:calc(100% - 18px) 50%,calc(100% - 12px) 50%;background-size:6px 6px;background-repeat:no-repeat}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--magenta);box-shadow:4px 4px 0 var(--magenta)}
+  .form .btn{justify-content:center;width:100%;box-shadow:6px 6px 0 var(--negro)}
+  .form__err{color:#b0005f;font-weight:700;font-size:.9rem;margin:0;min-height:1.2em}
 
   /* banner autor */
   .author{background:var(--lima);padding:4.5rem 0}
   .author__in{display:grid;gap:1.5rem;align-items:center}
   @media (min-width:900px){.author__in{grid-template-columns:1.4fr auto;gap:4rem}}
+  .author .label{color:var(--purpura)}
   .author h2{font-size:clamp(2.2rem,5.5vw,3.6rem)}
-  .author .eyebrow{margin-bottom:1.4rem}
   .author p{margin:.9rem 0 0;max-width:38rem}
-  .author .btn{box-shadow:6px 6px 0 var(--violeta)}
-  .author .btn:hover{box-shadow:8px 8px 0 var(--violeta)}
+  .author .btn{box-shadow:6px 6px 0 var(--purpura)}
+  .author .btn:hover{box-shadow:8px 8px 0 var(--purpura)}
 
   /* footer */
-  footer{background:var(--carbon);color:#c9c9cd;padding:3.5rem 0 2rem;font-size:.95rem}
+  .colorbar{display:flex;height:8px}.colorbar span{flex:1}
+  footer{background:var(--negro);color:#cfcdce;padding:3.5rem 0 2rem;font-size:.95rem}
   .foot{display:grid;gap:2rem}
   @media (min-width:800px){.foot{grid-template-columns:1.2fr 1fr 1fr}}
   .foot h4{font-family:var(--body);font-weight:800;font-size:.75rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blanco);margin:0 0 .8rem}
   .foot a{text-decoration:none}.foot a:hover{color:var(--cian)}
   .foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.4rem}
-  .foot .brand img.ant{height:56px}
-  .foot__bar{border-top:1px solid #45464b;margin-top:2.5rem;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;font-size:.85rem}
+  .foot__bar{border-top:1px solid #444041;margin-top:2.5rem;padding-top:1.5rem;display:flex;flex-wrap:wrap;gap:.75rem 2rem;justify-content:space-between;font-size:.85rem}
   .foot__bar a{color:var(--lima)}
-  .colorbar{display:flex;height:8px}.colorbar span{flex:1}
 
   /* WhatsApp flotante */
-  .wa{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:4px 4px 0 var(--carbon);transition:transform .15s}
+  .wa{position:fixed;right:1.1rem;bottom:1.1rem;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:4px 4px 0 var(--negro);transition:transform .15s}
   .wa:hover{transform:scale(1.07)}
   .wa svg{width:30px;height:30px;fill:#fff}
 
@@ -222,8 +231,8 @@
 <nav class="nav" aria-label="Principal">
   <div class="wrap nav__in">
     <a class="brand" href="#inicio" aria-label="Hostel Hormiga Negra, inicio">
-      <img class="ant" src="img/hostel_hormiganegra_logo.jpg" alt="">
-      <img class="word" src="img/hostel_hormiganegra_titulo_1.jpg" alt="Hormiga Negra">
+      <img class="ant" src="img/logo-hormiga.png" alt="">
+      <img class="word" src="img/wordmark.png" alt="Hormiga Negra">
     </a>
     <ul class="nav__links">
       <li><a href="#habitaciones">Habitaciones</a></li>
@@ -238,11 +247,9 @@
 <header class="hero" id="inicio">
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="eyebrow" style="color:var(--lima)">Hostel · San Carlos de Bariloche</p>
-      <h1 class="display">Frente al lago
-        <span class="script">Nahuel Huapi</span>
-        en pleno centro</h1>
-      <p class="lead">Estamos en la costanera de Bariloche, con una de las mejores vistas al lago. Dormitorios compartidos y habitación doble, desayuno incluido y alguien en recepción las 24 horas.</p>
+      <p class="label">Hostel · San Carlos de Bariloche</p>
+      <h1 class="display">Frente al lago,<br> en pleno centro</h1>
+      <p class="lead">Estamos en la costanera de Bariloche, con una de las mejores vistas al lago. Habitaciones privadas y compartidas. Todos los baños son compartidos. Desayuno incluido.</p>
       <div class="hero__ctas">
         <a class="btn btn--magenta" href="#reservar">Consultar disponibilidad</a>
         <a class="btn btn--ghost" href="#habitaciones">Ver habitaciones</a>
@@ -250,21 +257,21 @@
       <p class="hero__addr">12 de Octubre 971 · Costanera</p>
     </div>
 
-    <div class="wall" aria-label="Fotos del hostel">
-      <figure class="tile tile--ant" style="margin:0"><img src="img/hostel_hormiga_4.jpg" alt=""></figure>
-      <figure class="tile" style="margin:0"><img src="img/hostel_hormiganegra-59.jpg" alt="Mate frente a la ventana con vista al lago Nahuel Huapi y la cordillera"><figcaption>La vista</figcaption></figure>
-      <figure class="tile tile--ant" style="margin:0"><img src="img/hostel_hormiganegra-52.jpg" alt=""></figure>
-      <figure class="tile tile--ant" style="margin:0"><img src="img/hostel_hormiganegra-53.jpg" alt=""></figure>
-      <figure class="tile tile--ant" style="margin:0"><img src="img/hostel_hormiganegra-55.jpg" alt=""></figure>
-      <figure class="tile" style="margin:0"><img src="img/hostel-hormiga-negra-82.jpg" alt="Recepción del hostel con la pared de hormigas de colores" style="object-position:30% 50%"><figcaption>Recepción</figcaption></figure>
+    <div class="wall" role="img" aria-label="Mural de hormigas de colores del hostel">
+      <figure class="tile"><img src="img/ant-purpura.webp" alt=""></figure>
+      <figure class="tile flip"><img src="img/ant-turquesa.webp" alt=""></figure>
+      <figure class="tile"><img src="img/ant-cian.webp" alt=""></figure>
+      <figure class="tile flip"><img src="img/ant-rojo.webp" alt=""></figure>
+      <figure class="tile"><img src="img/ant-rosa.webp" alt=""></figure>
+      <figure class="tile flip"><img src="img/ant-lima.webp" alt=""></figure>
     </div>
   </div>
 </header>
 
 <div class="wake">
   <div class="wrap wake__in">
-    <blockquote class="rv">Imaginate despertar con <span class="script">esta vista</span> desde tu cama.</blockquote>
-    <img class="rv" src="img/hab7.webp" alt="Dormitorio con cuchetas y ventanal al lago Nahuel Huapi" loading="lazy">
+    <blockquote class="rv">Imaginate despertar con <span>esta vista</span> desde tu cama.</blockquote>
+    <img class="rv" src="img/hostel_hormiganegra-59.jpg" alt="Vista al lago Nahuel Huapi y la cordillera desde el hostel" loading="lazy">
   </div>
 </div>
 
@@ -272,33 +279,33 @@
   <div class="wrap">
     <div class="sec__head">
       <div>
-        <p class="eyebrow" style="color:var(--magenta)">Habitaciones</p>
-        <h2 class="display">Privada o compartida, con vista</h2>
+        <p class="label" style="color:var(--magenta)">Habitaciones</p>
+        <h2 class="display">Habitaciones privadas y compartidas</h2>
       </div>
-      <p class="lead">Los dormitorios son luminosos y cómodos, y miran al lago Nahuel Huapi o al parque interno. Elegí cómo querés dormir.</p>
+      <p class="lead">Las habitaciones son luminosas y cómodas, con vista al lago Nahuel Huapi o al jardín. Elegí cómo querés dormir.</p>
     </div>
 
     <div class="rooms">
       <article class="room rv" style="--c:var(--magenta)">
         <div class="room__img">
-          <img src="img/hab1.webp" alt="Habitación doble con cama matrimonial y ventana al lago" loading="lazy">
+          <img src="img/hab1.webp" alt="Habitación privada con cama grande y ventana al lago" loading="lazy">
           <span class="tag" style="background:var(--magenta);color:#fff">Privada</span>
         </div>
         <div class="room__body">
-          <h3>Habitación doble frente al lago</h3>
-          <p>Para quienes prefieren más privacidad y comodidad: una cama doble y el Nahuel Huapi del otro lado de la ventana.</p>
+          <h3>Habitación privada</h3>
+          <p>Con una cama grande o dos camas individuales, con vista al lago.</p>
           <p class="cap">Hasta 2 personas</p>
         </div>
       </article>
       <article class="room rv" style="--c:var(--cian)">
         <div class="room__img">
-          <img src="img/dsc_0636-1.webp" alt="Dormitorio compartido con cuchetas y vista al lago" loading="lazy">
+          <img src="img/dsc_0636-1.webp" alt="Habitación compartida con cuchetas y vista al lago" loading="lazy">
           <span class="tag" style="background:var(--cian)">Compartida</span>
         </div>
         <div class="room__body">
-          <h3>Dormitorios mixtos</h3>
-          <p>Si viajás para conocer gente, tenemos habitaciones mixtas triples, cuádruples y quíntuples. Cada cama con su velador y su enchufe.</p>
-          <p class="cap">3, 4 o 5 camas · precio por persona</p>
+          <h3>Habitación compartida mixta</h3>
+          <p>Doble, triple o séxtuple, para compartir el viaje con otros viajeros.</p>
+          <p class="cap">Precio por persona</p>
         </div>
       </article>
     </div>
@@ -306,22 +313,21 @@
     <div class="incl rv">
       <h3>En todas las habitaciones</h3>
       <ul>
-        <li><b>Camas XL</b>, colchones premium y sábanas de lujo</li>
+        <li><b>Camas XL</b> y colchones premium</li>
         <li><b>Velador y tomacorriente</b> independiente para cada cama</li>
-        <li><b>Toalla</b> de mano y shampoo</li>
+        <li><b>Toalla</b> de mano</li>
         <li><b>Limpieza</b> diaria</li>
-        <li><b>Lockers</b> de seguridad con llave</li>
+        <li><b>Lockers individuales</b> con candado y llave</li>
         <li><b>Desayuno</b> continental</li>
-        <li><b>Vistas</b> al lago o al parque interno</li>
-        <li><b>Guarda</b> equipaje</li>
+        <li><b>Vistas</b> al lago o al jardín</li>
       </ul>
-      <p class="note">Las duchas y los baños son compartidos y están cerca de los dormitorios.</p>
+      <p class="note">Todos los baños son compartidos y están cerca de las habitaciones.</p>
     </div>
 
-    <div class="strip rv" style="margin-top:3rem">
-      <img src="img/hab2.webp" alt="Huéspedes charlando en un dormitorio" loading="lazy">
+    <div class="strip rv">
+      <img src="img/hab2.webp" alt="Huéspedes charlando en una habitación" loading="lazy">
       <img src="img/hab3.webp" alt="Huésped mirando el lago desde la cama" loading="lazy">
-      <img src="img/hab4.webp" alt="Cuchetas con luz cálida" loading="lazy">
+      <img src="img/hab4.webp" alt="Huésped descansando en su cama" loading="lazy">
       <img src="img/hostel-hormiga-negra-70.jpg" alt="Huésped leyendo en su cama" loading="lazy">
     </div>
   </div>
@@ -331,17 +337,17 @@
   <div class="wrap">
     <div class="sec__head">
       <div>
-        <p class="eyebrow" style="color:var(--cian)">Espacios compartidos</p>
-        <h2 class="display">Una casa con <span class="script" style="color:var(--lima);font-size:.8em">el lago</span> de fondo</h2>
+        <p class="label" style="color:var(--cian)">Espacios compartidos</p>
+        <h2 class="display">Un hostel con vista al lago</h2>
       </div>
-      <p class="lead">Desayunás mirando el Nahuel Huapi, cocinás lo tuyo cuando quieras y a la noche hay bar. Todo a dos pasos de la costanera.</p>
+      <p class="lead">Desayunás mirando el Nahuel Huapi, cocinás lo tuyo cuando quieras y a la noche hay bar o fogón en el jardín. Todo a dos pasos de la costanera.</p>
     </div>
     <div class="mosaic">
-      <figure class="big rv" style="--c:var(--lima)"><img src="img/hostel_hormiganegra_25.jpg" alt="Comedor con desayuno servido y ventanales al lago" loading="lazy"><figcaption>Comedor y desayuno</figcaption></figure>
+      <figure class="big rv" style="--c:var(--lima)"><img src="img/hostel_hormiganegra_25.jpg" alt="Sala de estar con ventanales al lago y la pared de hormigas" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
+      <figure class="rv" style="--c:var(--oro)"><img src="img/hostel_hormiganegra_bar_2.jpeg" alt="Barra del bar con bebidas" loading="lazy"><figcaption>Bar</figcaption></figure>
       <figure class="rv" style="--c:var(--cian)"><img src="img/hostel_hormiganegra_cocina_2.jpg" alt="Cocina equipada para huéspedes" loading="lazy"><figcaption>Cocina</figcaption></figure>
-      <figure class="rv" style="--c:var(--amarillo)"><img src="img/hostel_hormiganegra_bar_2.jpeg" alt="Barra con bebidas y champagne" loading="lazy"><figcaption>Bar</figcaption></figure>
-      <figure class="rv" style="--c:var(--turquesa)"><img src="img/hostel_hormiganegra_wifi_2.jpeg" alt="Huéspedes en las mesas turquesa con notebook" loading="lazy"><figcaption>Mesas y wifi</figcaption></figure>
-      <figure class="rv" style="--c:var(--magenta)"><img src="img/hostel_hormiganegra_servicios_3.jpg" alt="Dormitorio cuádruple luminoso" loading="lazy"><figcaption style="color:#fff">Dormis</figcaption></figure>
+      <figure class="rv" style="--c:var(--celeste)"><img src="img/ant-azul.webp" alt="" loading="lazy"><figcaption>Jardín delantero</figcaption></figure>
+      <figure class="rv" style="--c:var(--rosa-claro)"><img src="img/ant-celeste.webp" alt="" loading="lazy" style="transform:scaleX(-1)"><figcaption>Jardín con fogonero</figcaption></figure>
     </div>
   </div>
 </section>
@@ -350,55 +356,71 @@
   <div class="wrap">
     <div class="sec__head">
       <div>
-        <p class="eyebrow" style="color:var(--violeta)">Servicios</p>
-        <h2 class="display">Lo que ya está resuelto</h2>
+        <p class="label" style="color:var(--purpura)">Servicios</p>
+        <h2 class="display">Lo que te ofrecemos</h2>
       </div>
       <p class="lead">Llegás, dejás la mochila y salís a recorrer Bariloche.</p>
     </div>
 
     <div class="services rv">
-      <div class="svc" style="--c:var(--magenta);--t:#fff">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-        <div><h3>Atención 24 hs</h3><p>Siempre hay alguien en recepción.</p></div>
-      </div>
-      <div class="svc" style="--c:var(--lima)">
+      <div class="svc" style="--c:var(--oro)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10h13v4a6 6 0 0 1-6 6h-1a6 6 0 0 1-6-6z"/><path d="M17 11h1.5a2.5 2.5 0 0 1 0 5H16M8 3v3M12 3v3"/></svg>
         <div><h3>Desayuno</h3><p>Continental, frente al lago.</p></div>
       </div>
       <div class="svc" style="--c:var(--cian)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="3" width="16" height="18"/><path d="M4 9h16M8 6h.01M12 6h.01"/><circle cx="12" cy="15" r="3"/></svg>
-        <div><h3>Uso de cocina</h3><p>Equipada, para cocinar lo tuyo.</p></div>
+        <div><h3>Uso de la cocina</h3><p>Totalmente equipada.</p></div>
       </div>
-      <div class="svc" style="--c:var(--violeta);--t:#fff">
+      <div class="svc" style="--c:var(--purpura);--t:#fff">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0zM12 13v7M8 21h8"/></svg>
-        <div><h3>Bar del hostel</h3><p>Tragos y bebidas.</p></div>
+        <div><h3>Bar</h3><p>Tragos y bebidas.</p></div>
+      </div>
+      <div class="svc" style="--c:var(--turquesa)">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3c2.5 3 4.5 5.2 4.5 8.2a4.5 4.5 0 0 1-9 0C7.5 8.2 9.5 6 12 3z"/><path d="M4 21l16-4M4 17l16 4"/></svg>
+        <div><h3>Jardín</h3><p>Con parrilla y fogonero.</p></div>
       </div>
       <div class="svc" style="--c:var(--amarillo)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg>
         <div><h3>Wifi</h3><p>En todo el hostel.</p></div>
       </div>
-      <div class="svc" style="--c:var(--turquesa)">
+      <div class="svc" style="--c:var(--celeste)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 21V8l7-5 7 5v13"/><path d="M9 21v-6h6v6"/></svg>
         <div><h3>Limpieza diaria</h3><p>Habitaciones y espacios comunes.</p></div>
       </div>
-      <div class="svc" style="--c:var(--carbon);--t:#fff">
+      <div class="svc" style="--c:var(--negro);--t:#fff">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="11"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
-        <div><h3>Lockers</h3><p>De seguridad, con llave.</p></div>
+        <div><h3>Lockers individuales</h3><p>Con candado y llaves.</p></div>
       </div>
-      <div class="svc" style="--c:var(--hueso)">
+      <div class="svc svc--wide" style="--c:var(--rosa-claro)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="7" width="12" height="13" rx="2"/><path d="M9 7V4h6v3M9 20v1M15 20v1"/></svg>
-        <div><h3>Guarda equipaje</h3><p>Antes del check-in y después del check-out.</p></div>
+        <div><h3>Guarda equipaje</h3><p>Si llegás antes del horario de check in o necesitás dejar tu equipaje después del check out, te lo guardamos.</p></div>
       </div>
     </div>
+  </div>
+</section>
 
+<section class="sec" id="ubicacion" style="padding-top:0">
+  <div class="wrap where">
+    <div class="rv">
+      <p class="label" style="color:var(--turquesa)">¿Dónde estamos?</p>
+      <address>12 de Octubre 971
+        <small>Costanera de San Carlos de Bariloche, Río Negro, Argentina</small>
+      </address>
+      <p>Sobre la costanera, frente al lago Nahuel Huapi y cerca del centro de la ciudad.</p>
+      <div class="links">
+        <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=12+de+Octubre+971+San+Carlos+de+Bariloche" target="_blank" rel="noopener">Cómo llegar</a>
+        <a class="btn btn--line" href="https://www.instagram.com/hostelhormiganegra/" target="_blank" rel="noopener">@hostelhormiganegra</a>
+      </div>
+    </div>
+    <iframe class="map rv" title="Mapa: Hostel Hormiga Negra, 12 de Octubre 971, Bariloche" src="https://maps.google.com/maps?q=12%20de%20Octubre%20971%2C%20San%20Carlos%20de%20Bariloche&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
 </section>
 
 <section class="sec book" id="reservar">
   <div class="wrap book__in">
     <div class="book__info">
-      <p class="eyebrow" style="color:var(--carbon)">Reservas</p>
-      <h2 class="display">Contanos cuándo venís <span class="script">y te pasamos tarifa</span></h2>
+      <p class="label">Reservas</p>
+      <h2 class="display">Contanos cuándo venís y te pasamos tarifa</h2>
       <p>Completá tus fechas y te respondemos por WhatsApp con disponibilidad y precio para tu estadía.</p>
       <p class="small">Las tarifas cambian según la temporada: siempre te pasamos la del momento.</p>
     </div>
@@ -415,8 +437,8 @@
       <div class="field">
         <label for="habitacion">Habitación</label>
         <select id="habitacion" name="habitacion">
-          <option>Dormitorio compartido</option>
-          <option>Habitación doble frente al lago</option>
+          <option>Habitación compartida mixta</option>
+          <option>Habitación privada</option>
           <option>Todavía no sé</option>
         </select>
       </div>
@@ -439,27 +461,10 @@
   </div>
 </section>
 
-<section class="sec" id="ubicacion">
-  <div class="wrap where">
-    <div class="rv">
-      <p class="eyebrow" style="color:var(--turquesa)">Ubicación</p>
-      <address>12 de Octubre 971
-        <small>Costanera de San Carlos de Bariloche, Río Negro, Argentina</small>
-      </address>
-      <p>Sobre la costanera, frente al lago Nahuel Huapi y cerca del centro de la ciudad.</p>
-      <div class="links">
-        <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=12+de+Octubre+971+San+Carlos+de+Bariloche" target="_blank" rel="noopener">Cómo llegar</a>
-        <a class="btn btn--line" href="https://www.instagram.com/hostelhormiganegra/" target="_blank" rel="noopener">@hostelhormiganegra</a>
-      </div>
-    </div>
-    <iframe class="map rv" title="Mapa: Hostel Hormiga Negra, 12 de Octubre 971, Bariloche" src="https://maps.google.com/maps?q=12%20de%20Octubre%20971%2C%20San%20Carlos%20de%20Bariloche&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-  </div>
-</section>
-
 <section class="author" aria-labelledby="author-title">
   <div class="wrap author__in">
     <div>
-      <p class="eyebrow" style="color:var(--violeta)">Diseño web</p>
+      <p class="label">Diseño web</p>
       <h2 class="display" id="author-title">Este boceto lo diseñó Teo Cicciari</h2>
       <p>¿Tenés un hospedaje y querés un sitio con esta personalidad? Pedí el tuyo: diseños a medida, pensados para que te reserven desde el celular.</p>
     </div>
@@ -468,15 +473,15 @@
 </section>
 
 <div class="colorbar" aria-hidden="true">
-  <span style="background:var(--magenta)"></span><span style="background:var(--turquesa)"></span><span style="background:var(--cian)"></span><span style="background:var(--violeta)"></span><span style="background:var(--amarillo)"></span>
+  <span style="background:var(--rojo)"></span><span style="background:var(--celeste)"></span><span style="background:var(--purpura)"></span><span style="background:var(--turquesa)"></span><span style="background:var(--rosa)"></span><span style="background:var(--azul)"></span><span style="background:var(--oro)"></span>
 </div>
 <footer>
   <div class="wrap">
     <div class="foot">
       <div>
         <a class="brand" href="#inicio" aria-label="Hostel Hormiga Negra, inicio">
-          <img class="ant" src="img/hostel_hormiganegra_logo.jpg" alt="">
-          <img class="word" src="img/hostel_hormiganegra_titulo_1.jpg" alt="Hormiga Negra">
+          <img class="ant" src="img/logo-hormiga.png" alt="">
+          <img class="word" src="img/wordmark.png" alt="Hormiga Negra">
         </a>
         <p style="margin:1rem 0 0;max-width:20rem">Hostel en la costanera de Bariloche, frente al lago Nahuel Huapi.</p>
       </div>
