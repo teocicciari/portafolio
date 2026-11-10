@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>בית חם בפטגוניה · Hostel & Camping Onda Azul · Lago Puelo</title>
+<title>החווה – בית חם בפטגוניה · Hostel & Camping Onda Azul · Lago Puelo</title>
 <meta name="description" content="Hostel & Camping Onda Azul — chacra familiar a orillas del río Azul, Lago Puelo, Patagonia. הוסטל וקמפינג משפחתי על גדת הנהר הכחול.">
 <link rel="icon" href="img/logo-dark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,8 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth;scroll-padding-top:5rem}
   body{font-family:var(--body);font-size:1.0625rem;line-height:1.65;color:var(--noche);background:var(--niebla);-webkit-font-smoothing:antialiased}
-  img{display:block;max-width:100%}
+  img{display:block;max-width:100%;height:auto}
+  .sr-only{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
   a{color:inherit}
   :focus-visible{outline:3px solid var(--glaciar);outline-offset:3px;border-radius:4px}
   .wrap{width:var(--wrap);margin-inline:auto}
@@ -74,6 +75,8 @@
   .hero .wrap{position:relative;z-index:2;padding-block:8rem 3.5rem}
   .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(4.6rem,15vw,12rem);line-height:.82;letter-spacing:-.005em;max-width:10ch;margin-block:.6rem 1.4rem;text-wrap:balance}
   html:not([lang="he"]) .hero h1{max-width:9ch}
+  html[lang="he"] .hero h1{font-size:clamp(4.2rem,11.5vw,9.6rem);max-width:none}
+  .hero h1,.h2{white-space:pre-line}
   .hero .eyebrow{color:var(--ocre)}
   .hero p.sub{font-size:1.2rem;max-width:34rem;color:rgba(255,255,255,.92)}
   .hero .ctas{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
@@ -90,6 +93,7 @@
   /* intro */
   .intro .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,5.5rem);align-items:center}
   .intro p + p{margin-top:1rem}
+  .intro-sub{font-family:var(--display);font-weight:700;font-size:clamp(1.9rem,3.4vw,2.5rem);line-height:1;color:var(--rio);margin:-.5rem 0 1.2rem}
   .intro figure{position:relative}
   .intro figure img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px}
   .intro blockquote{position:absolute;inset-inline-start:-2rem;bottom:-2rem;max-width:19rem;background:var(--rio);color:#fff;padding:1.3rem 1.5rem;border-radius:12px;font-size:1rem;line-height:1.5}
@@ -160,12 +164,34 @@
   .menu .item b{font-family:var(--display);font-size:1.75rem;font-weight:700;line-height:1;white-space:nowrap}
   .menu .item i{flex:1;border-bottom:2px dotted rgba(16,36,42,.25);transform:translateY(-.3em)}
   .menu .item span{font-size:.9rem;color:#4a5d62;text-align:end}
+  .menu-friday{margin-top:1rem;padding:1rem 1.15rem;background:#FBF1D6;border-radius:10px;font-family:var(--display);font-weight:700;font-size:1.65rem;line-height:1.1;color:var(--lenga)}
   @media (max-width:860px){.resto .wrap{grid-template-columns:1fr}}
+
+  /* carta (hojas de papel + visor) */
+  .carta{display:flex;flex-direction:column;align-items:center;gap:1.4rem}
+  .carta-stage{position:relative;width:min(100%,34rem);aspect-ratio:1/.98;cursor:zoom-in}
+  .carta-stage .pg{position:absolute;top:0;width:60%;aspect-ratio:2/3;object-fit:cover;object-position:top;border-radius:6px;
+    box-shadow:0 18px 40px rgba(16,36,42,.22),0 2px 6px rgba(16,36,42,.12);transition:transform .45s cubic-bezier(.2,.7,.2,1)}
+  .carta-stage .pg-1{inset-inline-start:3%;z-index:2;transform:rotate(1.5deg)}
+  .carta-stage .pg-2{inset-inline-end:3%;top:5%;z-index:1;transform:rotate(-3deg)}
+  .carta-stage:hover .pg-1{transform:rotate(0deg) translateY(-6px)}
+  .carta-stage:hover .pg-2{transform:rotate(-5deg) translateX(-10px)}
+  html[dir="ltr"] .carta-stage:hover .pg-2{transform:rotate(-5deg) translateX(10px)}
+  html:not([lang="he"]) .carta-stage .pg-1{inset-inline-start:50%;transform:translateX(-50%) rotate(-1.5deg)}
+  html:not([lang="he"]) .carta-stage:hover .pg-1{transform:translateX(-50%) translateY(-6px)}
+  html[lang="he"] [data-carta="es"],html:not([lang="he"]) [data-carta="he"]{display:none}
+  .carta-dlg{border:0;padding:0;background:transparent;width:min(860px,100% - 2rem);max-width:none;max-height:calc(100% - 2rem);margin:auto;overflow:auto;overscroll-behavior:contain}
+  .carta-dlg::backdrop{background:rgba(10,36,42,.88)}
+  .carta-dlg .pages{display:grid;gap:1rem}
+  .carta-dlg .pages img{width:100%;height:auto;border-radius:8px}
+  .carta-dlg .close{position:sticky;top:.6rem;z-index:1;display:grid;place-items:center;width:2.8rem;height:2.8rem;margin:0 .6rem -3.4rem auto;
+    border:0;border-radius:50%;background:#fff;color:var(--noche);font-size:1.6rem;line-height:1;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}
+  html[dir="rtl"] .carta-dlg .close{margin:0 auto -3.4rem .6rem}
 
   /* galería */
   .gal{padding-bottom:0}
   .strip{display:flex;gap:.9rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:2rem max(1.25rem,calc((100% - 1180px)/2)) 1.6rem;scrollbar-width:thin}
-  .strip img{flex:none;height:clamp(15rem,34vw,24rem);width:auto;aspect-ratio:16/9;object-fit:cover;border-radius:12px;scroll-snap-align:center}
+  .strip img{flex:none;height:clamp(15rem,34vw,24rem);width:auto;object-fit:cover;border-radius:12px;scroll-snap-align:center}
 
   /* reserva */
   .reserva{background:var(--rio);color:#fff}
@@ -215,6 +241,36 @@
   [data-reveal]{opacity:0;transform:translateY(22px);transition:opacity .8s,transform .8s cubic-bezier(.2,.7,.2,1)}
   [data-reveal].in{opacity:1;transform:none}
 
+  /* ---------- selector de idioma de entrada ---------- */
+  .splash-screen{display:none;position:fixed;inset:0;z-index:100;place-items:center;overflow:auto;background:var(--rio-2);color:#fff;transition:opacity .55s ease,visibility .55s}
+  html.splash .splash-screen,.splash-screen.leaving{display:grid}
+  .splash-screen.leaving{opacity:0;visibility:hidden}
+  html.splash body{overflow:hidden}
+  .hero h1:focus{outline:none}
+  html.splash .rise,html.splash .hero img.bg{animation-play-state:paused}
+  .splash-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.38}
+  .splash-screen::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,rgba(10,59,74,.35),rgba(10,36,42,.9))}
+  .splash-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;text-align:center;padding:2rem 1.25rem;width:min(100%,30rem)}
+  .splash-logo{height:5.2rem;width:auto;margin-bottom:1.2rem}
+  .splash-hi{font-size:.95rem;letter-spacing:.06em;color:rgba(255,255,255,.85)}
+  .splash-post{position:relative;width:100%;padding-block:1.6rem 3.2rem;margin-top:1.4rem}
+  .splash-post::before{content:"";position:absolute;top:0;bottom:0;left:50%;width:22px;margin-left:-11px;border-radius:4px 4px 0 0;background:linear-gradient(90deg,#3f2816,#6a4527 45%,#4a2f1b)}
+  .splash-plank{position:relative;display:block;width:74%;margin-block:.9rem;padding:.55rem 2.2rem .4rem;border:0;cursor:pointer;
+    font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,8vw,2.8rem);line-height:1;color:var(--ocre);text-align:center;
+    background-color:var(--lenga);background-image:repeating-linear-gradient(177deg,rgba(0,0,0,.09) 0 2px,transparent 2px 8px),linear-gradient(180deg,rgba(255,255,255,.07),rgba(0,0,0,.15));
+    filter:drop-shadow(0 6px 10px rgba(0,0,0,.35));animation:swing .9s cubic-bezier(.3,1.5,.5,1) backwards;transition:transform .25s,background-color .25s,color .25s}
+  .splash-plank.r{margin-left:auto;margin-right:0;clip-path:polygon(0 0,calc(100% - 28px) 0,100% 50%,calc(100% - 28px) 100%,0 100%);transform-origin:0 50%;transform:rotate(var(--t))}
+  .splash-plank.l{margin-right:auto;margin-left:0;clip-path:polygon(28px 0,100% 0,100% 100%,28px 100%,0 50%);transform-origin:100% 50%;transform:rotate(var(--t))}
+  .splash-plank:nth-child(2){animation-delay:.12s}.splash-plank:nth-child(3){animation-delay:.24s}
+  .splash-plank:hover,.splash-plank:focus-visible{background-color:#2e6f5e;color:#fff}
+  .splash-plank.r:hover,.splash-plank.r:focus-visible{transform:rotate(0deg) translateX(6px)}
+  .splash-plank.l:hover,.splash-plank.l:focus-visible{transform:rotate(0deg) translateX(-6px)}
+  .splash-plank:focus-visible{outline:3px solid var(--glaciar);outline-offset:4px}
+  @keyframes swing{from{opacity:0;transform:rotate(calc(var(--t) * 7))}}
+  .splash-load{width:9rem;height:3px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
+  .splash-load i{display:block;height:100%;width:0;background:var(--ocre);transition:width .3s}
+  .splash-place{margin-top:.8rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
     .rise,[data-reveal],.post:not(.in) .plank{opacity:1;transform:none}
@@ -222,8 +278,30 @@
     .hero img.bg{transform:none}
   }
 </style>
+<script>
+  // Selector de idioma de entrada: solo si no hay ?lang= ni una elección guardada
+  (function(){
+    var q = /[?&]lang=(he|es|en)/.test(location.search), s = null;
+    try{ s = localStorage.getItem("oa-lang"); }catch(e){}
+    if(!q && !s) document.documentElement.classList.add("splash");
+  })();
+</script>
 </head>
 <body>
+<div class="splash-screen" id="splash" role="dialog" aria-modal="true" aria-labelledby="splash-t">
+  <img class="splash-bg" src="img/img_9671.jpg" alt="" fetchpriority="high">
+  <div class="splash-in">
+    <img class="splash-logo" src="img/logo-light.png" alt="Onda Azul — Hostel & Camping">
+    <p class="splash-hi" id="splash-t"><span lang="he" dir="rtl">ברוכים הבאים</span> · <span lang="es">Bienvenidos</span> · <span lang="en">Welcome</span></p>
+    <div class="splash-post">
+      <button type="button" class="splash-plank r" data-pick="he" lang="he" dir="rtl" style="--t:-2deg">עברית</button>
+      <button type="button" class="splash-plank l" data-pick="es" lang="es" style="--t:2deg">Español</button>
+      <button type="button" class="splash-plank r" data-pick="en" lang="en" style="--t:-1.5deg">English</button>
+    </div>
+    <div class="splash-load" aria-hidden="true"><i id="splash-bar"></i></div>
+    <p class="splash-place">Lago Puelo · Patagonia</p>
+  </div>
+</div>
 
 <header class="top" id="top">
   <div class="wrap">
@@ -261,10 +339,11 @@
         <a class="btn btn-ghost" href="#reserva" data-i18n="hero.cta2"></a>
       </div>
       <div class="chips rise d4">
-        <span data-i18n="chip.wifi"></span>
-        <span data-i18n="chip.pets"></span>
-        <span data-i18n="chip.parking"></span>
-        <span data-i18n="chip.river"></span>
+        <span data-i18n="chip.1"></span>
+        <span data-i18n="chip.2"></span>
+        <span data-i18n="chip.3"></span>
+        <span data-i18n="chip.4"></span>
+        <span data-i18n="chip.5"></span>
       </div>
     </div>
   </section>
@@ -274,11 +353,13 @@
       <div data-reveal>
         <p class="eyebrow" data-i18n="intro.eyebrow"></p>
         <h2 class="h2" data-i18n="intro.title"></h2>
+        <p class="intro-sub" data-i18n="intro.sub"></p>
         <p class="lead" data-i18n="intro.p1"></p>
         <p data-i18n="intro.p2"></p>
+        <p data-i18n="intro.p3"></p>
       </div>
       <figure data-reveal>
-        <img src="img/copy-of-img_9834.jpg" alt="" loading="lazy" data-i18n-alt="alt.house">
+        <img src="img/intro-perra.jpg" alt="" loading="lazy" width="720" height="720" data-i18n-alt="alt.dog">
         <blockquote data-i18n="intro.quote"></blockquote>
       </figure>
     </div>
@@ -326,7 +407,7 @@
           <div class="body"><h3 data-i18n="r.group.t"></h3><p data-i18n="r.group.d"></p><a href="#reserva" data-type="group" data-i18n="r.cta"></a></div>
         </article>
         <article class="room" data-reveal>
-          <img src="img/img_9922.jpg" alt="" loading="lazy">
+          <img src="img/hab-doble.jpg" alt="" loading="lazy" width="1200" height="675">
           <div class="body"><h3 data-i18n="r.double.t"></h3><p data-i18n="r.double.d"></p><a href="#reserva" data-type="double" data-i18n="r.cta"></a></div>
         </article>
       </div>
@@ -354,7 +435,14 @@
 
   <section class="sec resto" id="restaurante">
     <div class="wrap">
-      <div class="photo" data-reveal><img src="img/img_9738.jpg" alt="" loading="lazy"></div>
+      <div class="carta" data-reveal>
+        <div class="carta-stage" data-open-carta>
+          <img class="pg pg-2" data-carta="he" src="img/carta-he-2.jpg" alt="" loading="lazy" width="1024" height="1536">
+          <img class="pg pg-1" data-carta="he" src="img/carta-he-1.jpg" alt="" loading="lazy" width="1024" height="1536">
+          <img class="pg pg-1" data-carta="es" src="img/carta-es.jpg" alt="" loading="lazy" width="1024" height="1536">
+        </div>
+        <button type="button" class="btn btn-rio" data-open-carta aria-haspopup="dialog"><span data-i18n="carta.cta"></span></button>
+      </div>
       <div data-reveal>
         <p class="eyebrow" data-i18n="food.eyebrow"></p>
         <h2 class="h2" data-i18n="food.title"></h2>
@@ -365,6 +453,7 @@
           <div class="item"><b data-i18n="m.2"></b><i></i><span data-i18n="m.2d"></span></div>
           <div class="item"><b data-i18n="m.3"></b><i></i><span data-i18n="m.3d"></span></div>
           <div class="item"><b data-i18n="m.4"></b><i></i><span data-i18n="m.4d"></span></div>
+          <p class="menu-friday" data-i18n="m.friday"></p>
         </div>
       </div>
     </div>
@@ -376,15 +465,22 @@
       <h2 class="h2" data-i18n="gal.title"></h2>
     </div>
     <div class="strip" tabindex="0" aria-label="gallery">
-      <img src="img/exterior.jpg" alt="" loading="lazy">
-      <img src="img/img_9758.jpg" alt="" loading="lazy">
-      <img src="img/img_9766.jpg" alt="" loading="lazy">
-      <img src="img/img_9890.jpg" alt="" loading="lazy">
-      <img src="img/img_9781.jpg" alt="" loading="lazy">
-      <img src="img/img_9880.jpg" alt="" loading="lazy">
-      <img src="img/img_9811.jpg" alt="" loading="lazy">
-      <img src="img/img_9895.jpg" alt="" loading="lazy">
-      <img src="img/img_9715.jpg" alt="" loading="lazy">
+      <img src="img/gal-01.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-02.jpg" alt="" loading="lazy" width="933" height="1400">
+      <img src="img/gal-03.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-04.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-05.jpg" alt="" loading="lazy" width="933" height="1400">
+      <img src="img/gal-06.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-07.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-08.jpg" alt="" loading="lazy" width="704" height="428">
+      <img src="img/gal-09.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-10.jpg" alt="" loading="lazy" width="933" height="1400">
+      <img src="img/gal-11.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-12.jpg" alt="" loading="lazy" width="1400" height="1091">
+      <img src="img/gal-13.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-14.jpg" alt="" loading="lazy" width="933" height="1400">
+      <img src="img/gal-15.jpg" alt="" loading="lazy" width="1400" height="788">
+      <img src="img/gal-16.jpg" alt="" loading="lazy" width="1400" height="787">
     </div>
   </section>
 
@@ -474,6 +570,16 @@
   </div>
 </footer>
 
+<dialog class="carta-dlg" id="carta-dlg" aria-labelledby="carta-dlg-t">
+  <button type="button" class="close" data-close-carta data-i18n-aria="carta.close">×</button>
+  <h2 id="carta-dlg-t" class="sr-only" data-i18n="carta.alt"></h2>
+  <div class="pages">
+    <img data-carta="he" src="img/carta-he-1.jpg" alt="" loading="lazy" width="1024" height="1536">
+    <img data-carta="he" src="img/carta-he-2.jpg" alt="" loading="lazy" width="1024" height="1536">
+    <img data-carta="es" src="img/carta-es.jpg" alt="" loading="lazy" width="1024" height="1536">
+  </div>
+</dialog>
+
 <a class="wa-float wa-link" href="https://wa.me/5492944628955" target="_blank" rel="noopener" aria-label="WhatsApp">
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2.1-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4C2.7 15.6 2.2 13.8 2.2 12 2.2 6.6 6.6 2.2 12 2.2S21.8 6.6 21.8 12 17.4 21.8 12 21.8zM12 0C5.4 0 0 5.4 0 12c0 2.1.6 4.2 1.6 6L0 24l6.2-1.6c1.8 1 3.8 1.5 5.8 1.5 6.6 0 12-5.4 12-12S18.6 0 12 0z"/></svg>
 </a>
@@ -484,19 +590,20 @@ const T = {
   he: {
     "nav.stay":"לינה","nav.park":"הפארק","nav.food":"המסעדה","nav.where":"איך מגיעים","nav.book":"בדיקת תאריכים",
     "hero.eyebrow":"הוסטל וקמפינג · לאגו פואלו, פטגוניה",
-    "hero.title":"בית חם בפטגוניה",
+    "hero.title":"החווה –\nבית חם בפטגוניה",
     "hero.sub":"חווה ירוקה על גדת הנהר הכחול, קילומטר אחד ממרכז לאגו פואלו. עסק משפחתי מאז 2003, עם נוף של 360° על הרי האנדים.",
     "hero.cta1":"כתבו לנו בוואטסאפ","hero.cta2":"בדיקת תאריכים",
-    "chip.wifi":"Wi‑Fi Starlink","chip.pets":"מקבלים חיות מחמד","chip.parking":"חניה חינם","chip.river":"ירידה ישירה לנהר",
-    "intro.eyebrow":"מאז 2003","intro.title":"עסק משפחתי, לא רשת",
-    "intro.p1":"Onda Azul היא חווה מטופחת על גדת הריו אזול: עצים מקומיים, המון עצי פרי, דשא לכל הכיוונים והאנדים מסביב. מקום לחופשה אמיתית, באווירה צעירה ובטבע.",
-    "intro.p2":"יש מגרשי כדורגל וכדורעף, פינג־פונג, פינת מנגל מקורה עם גריל, מטבחים משותפים, מדורות, חדר בילוי והמסעדה שלנו. מטיילים עם כלב? גם הוא מוזמן.",
+    "chip.1":"Wi‑Fi Starlink","chip.2":"מסעדה עם אוכל ישראלי וארוחות שישי","chip.3":"מידע והשאלת ציוד לטרקים באזור","chip.4":"חוף נהר","chip.5":"20 דונם של פארק ענק עם מתקני ספורט ויוגה על הדשא",
+    "intro.eyebrow":"מאז 2003","intro.title":"זה לא עוד הוסטל –\nזה החווה!","intro.sub":"עסק משפחתי, לא רשת",
+    "intro.p1":"Onda Azul היא חווה מטופחת על גדת הריו אזול: צמחייה מקומית, המון עצי פרי, דשא לכל הכיוונים והאנדים מסביב. מקום לחופשה אמיתית, באווירה צעירה ובטבע.",
+    "intro.p2":"יש פארק ענק עם מגרשי כדורגל וכדורעף, פינג־פונג, מתקני כושר, ערסלים, פינת מנגל מקורה עם גריל, מטבחים משותפים, מדורות, חדר קולנוע עם כל אתרי הסטרימינג (בטח שיש ליגת אלופות בשידור ישיר) וכמובן המסעדה שלנו.",
+    "intro.p3":"יש לנו את כל המידע כדי לעזור לכם לתכנן טרקים וטיולים בכל האזור, וניתן להשאיר אצלנו ציוד בשמירת חפצים ללא עלות בזמן שאתם בטרק, וגם להשאיל שקי שינה – חינם לאורחים שלנו! רק תשאלו.",
     "intro.quote":"מעל הכל, אנחנו משפחה שרוצה שהטיול שלכם יהיה בלתי נשכח.",
-    "alt.house":"הבית הראשי של Onda Azul",
+    "alt.dog":"הכלבה של החווה משחקת על הדשא","carta.cta":"לתפריט המלא","carta.close":"סגירה","carta.alt":"התפריט של המסעדה",
     "ruta.eyebrow":"על המסלול","ruta.title":"התחנה שאחרי אל בולסון",
-    "ruta.p1":"רוב המטיילים מגיעים מבארילוצ'ה דרך אל בולסון. אנחנו כ־15 ק״מ משם, קילומטר מהטרמינל של לאגו פואלו ו־5 ק״מ מהפארק הלאומי: שבילים, מים צלולים ומאטה על החוף.",
-    "ruta.p2":"יש לנו את כל המידע כדי לעזור לכם לתכנן טרקים וטיולים בכל האזור. רק תשאלו.",
-    "s.river":"הנהר הכחול","s.river.d":"צמוד","s.town":"מרכז וטרמינל","s.park":"פארק לאומי","s.bolson":"אל בולסון","s.bari":"בארילוצ'ה",
+    "ruta.p1":"אחרי ברילוצ'ה ובדרך דרומה, או בכיוון ההפוך אחרי קלפאטה ואל צ'לטאן ורגע לפני שמגיעים לברילוצ'ה – חובה לעצור בחווה לכמה ימים של כיף ומנוחה!",
+    "ruta.p2":"אפשר להגיע אלינו בקלות מהטרמינל אוטובוסים או משדה התעופה בברילוצ'ה – האוטובוסים של חברת ויה ברילוצ'ה עוצרים במרכז לאגו פואלו, מרחק 10 דקות הליכה או 2 דקות במונית מהחווה. אם מגיעים מהדרום יש אוטובוסים ישירים מאל קלפאטה ואל צ'לטאן עד אל בולסון, שנמצאת 15 דקות במונית מהחווה. ואם באים עם רכב מהקראטרה אוסטרל, אז אנחנו על המסלול בדיוק באמצע הדרך בין אסקל לברילוצ'ה.",
+    "s.river":"הנהר הכחול","s.river.d":"צמוד","s.town":"מרכז וטרמינל","s.park":"פארק לאומי","s.bolson":"אל בולסון","s.bari":"ברילוצ'ה",
     "s.km1":"1 ק״מ","s.km5":"5 ק״מ","s.km15":"15 ק״מ","s.km135":"135 ק״מ",
     "stay.eyebrow":"איפה ישנים","stay.title":"מאוהל ועד חדר לכל החבר'ה",
     "stay.p":"קמפינג על הדשא, מיטה בחדר משותף או חדר פרטי. כל האפשרויות עם גישה לפארק, למטבחים ולמסעדה.",
@@ -508,10 +615,11 @@ const T = {
     "park.eyebrow":"הפארק","park.title":"חצר של חווה, לא של מלון",
     "p.1":"מגרשי כדורגל וכדורעף","p.2":"שולחנות פינג־פונג וטקבול","p.3":"פינת מנגל מקורה, מטבחים משותפים ומדורות","p.4":"פינת כושר","p.5":"ערסלים ושולחנות פיקניק","p.6":"חדר בילוי","p.7":"ירידה ישירה לחוף של הריו אזול","p.8":"חניה חינם","p.9":"Wi‑Fi Starlink",
     "food.eyebrow":"המסעדה","food.title":"חומוס ושקשוקה מול האנדים",
-    "food.p":"מארוחת בוקר ועד ארוחת ערב: מנות ארגנטינאיות קלאסיות, ולצידן כמה התמחויות מהמזרח התיכון, כמו חומוס ושקשוקה. ולמי שבא לו משהו מתוק, קלאסיקה של אל בולסון: גלידת JAUJA.",
+    "food.p":"מארוחת בוקר ועד ארוחת ערב: מטבח בינלאומי קלאסי עם כמה מנות ישראליות שיגרמו לכם להרגיש בבית, כמו חומוס, שקשוקה, מלוואח ושניצל. ולמי שבא לו משהו מתוק, קלאסיקה של אל בולסון: גלידת JAUJA.",
     "menu.t":"על השולחן",
-    "m.1":"שקשוקה","m.1d":"מהמזרח התיכון","m.2":"חומוס","m.2d":"מהמזרח התיכון","m.3":"מטבח ארגנטינאי","m.3d":"מהבוקר עד הערב","m.4":"גלידת JAUJA","m.4d":"קלאסיקה של אל בולסון",
-    "gal.eyebrow":"תמונות","gal.title":"ככה זה נראה מבפנים",
+    "m.1":"שקשוקה וחומוס","m.1d":"כמו בבית","m.2":"שניצל","m.2d":"כמו בבית","m.3":"מטבח בינלאומי","m.3d":"המבורגר, פיצה, פסטה","m.4":"גלידת JAUJA","m.4d":"קלאסיקה של אל בולסון",
+    "m.friday":"ארוחות שישי המפורסמות של החווה! עם קוסקוס, סלטים וחלה של שבת!",
+    "gal.eyebrow":"תמונות","gal.title":"ככה זה נראה בחווה",
     "res.eyebrow":"הזמנות","res.title":"ספרו לנו מתי אתם מגיעים",
     "res.p":"ממלאים את הטופס ונפתח וואטסאפ עם הודעה מוכנה. עונים כל יום בין 9:00 ל־23:00.",
     "f.name":"שם","f.name.ph":"השם שלכם","f.people":"כמה אנשים","f.in":"צ'ק־אין","f.out":"צ'ק־אאוט","f.type":"סוג לינה (לא חובה)","o.any":"עוד לא יודעים",
@@ -528,12 +636,12 @@ const T = {
     "hero.title":"Tu hogar en Lago Puelo",
     "hero.sub":"Una chacra parquizada a orillas del río Azul, a 1 km del centro de Lago Puelo. Negocio familiar desde 2003, con vista 360° a la cordillera.",
     "hero.cta1":"Escribinos por WhatsApp","hero.cta2":"Consultar fechas",
-    "chip.wifi":"Wi‑Fi Starlink","chip.pets":"Aceptamos mascotas","chip.parking":"Estacionamiento gratis","chip.river":"Acceso directo al río",
+    "chip.1":"Wi‑Fi Starlink","chip.2":"Aceptamos mascotas","chip.3":"Estacionamiento gratis","chip.4":"Acceso directo al río",
     "intro.eyebrow":"Desde 2003","intro.title":"Un negocio familiar, no una cadena",
     "intro.p1":"Onda Azul es una chacra parquizada a orillas del río Azul: árboles autóctonos, muchos frutales, pasto de sobra y la cordillera de los Andes alrededor. Un lugar para vacaciones de verdad, en un ambiente joven y natural.",
     "intro.p2":"Hay canchas de fútbol y vóley, ping‑pong, quincho con parrilla, cocinas compartidas, fogones, sala recreativa y nuestro restaurante. ¿Viajás con tu perro? También es bienvenido.",
     "intro.quote":"Sobre todo, somos una familia comprometida con que tus vacaciones sean inolvidables.",
-    "alt.house":"La casa principal de Onda Azul",
+    "alt.dog":"La perra de la chacra jugando en el pasto","carta.cta":"Ver la carta completa","carta.close":"Cerrar","carta.alt":"Carta del restaurante",
     "ruta.eyebrow":"En la ruta","ruta.title":"La parada después de El Bolsón",
     "ruta.p1":"La mayoría llega desde Bariloche pasando por El Bolsón. Estamos a unos 15 km de ahí, a 1 km de la terminal de Lago Puelo y a 5 km del Parque Nacional: senderos, aguas cristalinas y mate en la playa.",
     "ruta.p2":"Tenemos toda la información para que recorras la Comarca Andina. Preguntanos.",
@@ -552,7 +660,7 @@ const T = {
     "food.p":"Del desayuno a la cena: platos típicos argentinos y algunas especialidades de Medio Oriente, como el hummus y la shakshuka. Y si querés darte un gustito dulce, un clásico de El Bolsón: helado JAUJA.",
     "menu.t":"En la mesa",
     "m.1":"Shakshuka","m.1d":"Medio Oriente","m.2":"Hummus","m.2d":"Medio Oriente","m.3":"Cocina argentina","m.3d":"Del desayuno a la cena","m.4":"Helado JAUJA","m.4d":"Un clásico de El Bolsón",
-    "gal.eyebrow":"Fotos","gal.title":"Así se vive adentro",
+    "gal.eyebrow":"Fotos","gal.title":"Así es la chacra",
     "res.eyebrow":"Reservas","res.title":"Contanos cuándo venís",
     "res.p":"Completá el formulario y se abre WhatsApp con el mensaje listo. Respondemos todos los días de 9 a 23 h.",
     "f.name":"Nombre","f.name.ph":"Tu nombre","f.people":"Cantidad de personas","f.in":"Check in","f.out":"Check out","f.type":"Tipo de alojamiento (opcional)","o.any":"Todavía no sé",
@@ -569,12 +677,12 @@ const T = {
     "hero.title":"A warm home in Patagonia",
     "hero.sub":"A green farm on the banks of the Río Azul, 1 km from downtown Lago Puelo. Family-run since 2003, with 360° views of the Andes.",
     "hero.cta1":"Message us on WhatsApp","hero.cta2":"Check dates",
-    "chip.wifi":"Starlink Wi‑Fi","chip.pets":"Pets welcome","chip.parking":"Free parking","chip.river":"Direct river access",
+    "chip.1":"Starlink Wi‑Fi","chip.2":"Pets welcome","chip.3":"Free parking","chip.4":"Direct river access",
     "intro.eyebrow":"Since 2003","intro.title":"A family business, not a chain",
     "intro.p1":"Onda Azul is a landscaped farm on the banks of the Río Azul: native trees, plenty of fruit trees, lawns all around and the Andes on every side. A place for a real holiday, with a young, outdoorsy vibe.",
     "intro.p2":"There are football and volleyball courts, ping‑pong, a covered barbecue area, shared kitchens, fire pits, a games room and our restaurant. Travelling with your dog? It's welcome too.",
     "intro.quote":"Above all, we're a family set on making your trip one to remember.",
-    "alt.house":"Onda Azul's main house",
+    "alt.dog":"The farm dog playing on the grass","carta.cta":"See the full menu","carta.close":"Close","carta.alt":"Restaurant menu",
     "ruta.eyebrow":"On the route","ruta.title":"The stop after El Bolsón",
     "ruta.p1":"Most travellers come from Bariloche via El Bolsón. We're about 15 km from there, 1 km from the Lago Puelo bus terminal and 5 km from the National Park: trails, crystal-clear water and mate on the beach.",
     "ruta.p2":"We have all the info to help you plan treks and trips around the whole region. Just ask.",
@@ -593,7 +701,7 @@ const T = {
     "food.p":"From breakfast to dinner: classic Argentine dishes plus a few Middle Eastern specialities, like hummus and shakshuka. And for something sweet, an El Bolsón classic: JAUJA ice cream.",
     "menu.t":"On the table",
     "m.1":"Shakshuka","m.1d":"Middle Eastern","m.2":"Hummus","m.2d":"Middle Eastern","m.3":"Argentine food","m.3d":"Breakfast to dinner","m.4":"JAUJA ice cream","m.4d":"An El Bolsón classic",
-    "gal.eyebrow":"Photos","gal.title":"What it looks like inside",
+    "gal.eyebrow":"Photos","gal.title":"What the farm looks like",
     "res.eyebrow":"Bookings","res.title":"Tell us when you're coming",
     "res.p":"Fill in the form and WhatsApp opens with your message ready. We reply every day from 9 am to 11 pm.",
     "f.name":"Name","f.name.ph":"Your name","f.people":"Number of people","f.in":"Check in","f.out":"Check out","f.type":"Type of stay (optional)","o.any":"Not sure yet",
@@ -613,9 +721,11 @@ function setLang(l){
   lang = l;
   const d = T[l], html = document.documentElement;
   html.lang = l; html.dir = l === "he" ? "rtl" : "ltr";
-  document.querySelectorAll("[data-i18n]").forEach(el => { const v = d[el.dataset.i18n]; if(v !== undefined) el.textContent = v; });
+  document.querySelectorAll("[data-i18n]").forEach(el => { const v = d[el.dataset.i18n]; el.hidden = v === undefined; if(v !== undefined) el.textContent = v; });
   document.querySelectorAll("[data-i18n-ph]").forEach(el => el.placeholder = d[el.dataset.i18nPh]);
   document.querySelectorAll("[data-i18n-alt]").forEach(el => el.alt = d[el.dataset.i18nAlt]);
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => el.setAttribute("aria-label", d[el.dataset.i18nAria]));
+  document.querySelectorAll(".carta-stage .pg, .carta-dlg img").forEach(el => el.alt = d["carta.alt"]);
   document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
   document.querySelectorAll(".err").forEach(e => e.textContent = "");
   try{ localStorage.setItem("oa-lang", l); }catch(e){}
@@ -624,6 +734,35 @@ document.querySelectorAll(".langs button").forEach(b => b.addEventListener("clic
 const qs = new URLSearchParams(location.search).get("lang");
 let saved = null; try{ saved = localStorage.getItem("oa-lang"); }catch(e){}
 setLang(qs || saved || "he");
+
+// ---------- selector de idioma de entrada + precarga ----------
+const splash = document.getElementById("splash");
+if(document.documentElement.classList.contains("splash")){
+  // Precarga: fuentes + imágenes de la página en orden de aparición (la carta del visor queda para cuando se abra)
+  const bar = document.getElementById("splash-bar");
+  const srcs = [...new Set([...document.querySelectorAll("main img, .top img")].map(i => i.currentSrc || i.src))];
+  let done = 0, next = 0;
+  const total = srcs.length + 1;
+  const tick = () => { done++; bar.style.width = Math.round(done / total * 100) + "%"; };
+  const pump = () => { if(next >= srcs.length) return; const im = new Image(); im.onload = im.onerror = () => { tick(); pump(); }; im.src = srcs[next++]; };
+  for(let i = 0; i < 4; i++) pump();          // 4 descargas en paralelo
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(tick);
+
+  const pick = l => {
+    setLang(l);
+    splash.classList.add("leaving");
+    document.documentElement.classList.remove("splash");
+    const end = () => { splash.hidden = true; };
+    splash.addEventListener("transitionend", end, {once:true});
+    setTimeout(end, 700);
+    const h = document.querySelector(".hero h1"); if(h){ h.setAttribute("tabindex","-1"); h.focus({preventScroll:true}); }
+  };
+  splash.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => pick(b.dataset.pick)));
+  splash.addEventListener("keydown", e => { if(e.key === "Escape") pick(lang); });
+  splash.querySelector("[data-pick]").focus({preventScroll:true});
+} else {
+  splash.hidden = true;
+}
 
 // header sólido al scrollear
 const header = document.getElementById("top");
@@ -656,6 +795,12 @@ document.getElementById("form").addEventListener("submit", ev => {
   const msg = `¡Hola Onda Azul! Soy ${name}. Quiero consultar disponibilidad:\n• Personas: ${people}\n• Check in: ${fmt(cin)}\n• Check out: ${fmt(cout)}\n• Alojamiento: ${TYPE_ES[f.type.value]}\n(Escribo desde la web — idioma: ${T[lang].langName})`;
   window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, "_blank", "noopener");
 });
+
+// carta: visor
+const dlg = document.getElementById("carta-dlg");
+document.querySelectorAll("[data-open-carta]").forEach(el => el.addEventListener("click", () => { dlg.showModal(); dlg.scrollTop = 0; }));
+dlg.querySelector("[data-close-carta]").addEventListener("click", () => dlg.close());
+dlg.addEventListener("click", e => { if(e.target === dlg) dlg.close(); });
 
 document.getElementById("year").textContent = new Date().getFullYear();
 </script>
