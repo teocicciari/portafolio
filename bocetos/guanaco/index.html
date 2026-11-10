@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guanaco Hostel · Puerto Madryn</title>
+<meta name="description" content="Guanaco Hostel: hostel en el centro de Puerto Madryn, Chubut, a 300 metros de la playa. Habitaciones privadas y compartidas, desayuno incluido, cocina equipada y patio con parrilla.">
+<link rel="icon" href="img/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,700;12..96,800&family=Martian+Mono:wght@400;500&family=Shrikhand&display=swap" rel="stylesheet">
+<style>
+:root{
+  --amarillo:#F6C31C;
+  --amarillo-claro:#FBDD72;
+  --tinta:#15130F;
+  --tinta-2:#26231D;
+  --golfo:#1D4F6E;
+  --estepa:#C98B3A;
+  --hueso:#FAF8F3;
+  --gris:#6B665C;
+  --display:'Shrikhand',Georgia,serif;
+  --body:'Bricolage Grotesque',system-ui,sans-serif;
+  --mono:'Martian Mono',ui-monospace,monospace;
+  --wrap:1180px;
+  --gutter:clamp(16px,4vw,40px);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font-family:var(--body);color:var(--tinta);background:var(--hueso);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--golfo);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--gutter)}
+.eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500}
+h1,h2,h3{margin:0;line-height:1.05}
+h2{font-family:var(--display);font-weight:400;font-size:clamp(2.2rem,6vw,3.8rem);letter-spacing:-.01em}
+.btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--body);font-weight:700;font-size:1rem;padding:.95em 1.5em;border-radius:999px;text-decoration:none;border:2px solid var(--tinta);cursor:pointer;transition:transform .2s ease,box-shadow .2s ease,background .2s}
+.btn-tinta{background:var(--tinta);color:var(--amarillo)}
+.btn-tinta:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--golfo)}
+.btn-borde{background:transparent;color:var(--tinta)}
+.btn-borde:hover{background:var(--tinta);color:var(--amarillo)}
+.btn-amarillo{background:var(--amarillo);color:var(--tinta);border-color:var(--amarillo)}
+.btn-amarillo:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--hueso)}
+
+/* ---------- NAV ---------- */
+.nav{position:sticky;top:0;z-index:50;background:var(--tinta);color:var(--hueso)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:1rem}
+.nav-logo img{height:52px;width:52px;object-fit:cover}
+.nav-links{display:flex;gap:1.8rem;list-style:none;margin:0;padding:0}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem;opacity:.85}
+.nav-links a:hover{opacity:1;color:var(--amarillo)}
+.nav .btn{padding:.6em 1.2em;font-size:.9rem}
+.nav-toggle{display:none;background:none;border:0;color:var(--hueso);cursor:pointer;padding:.4rem}
+@media (max-width:860px){
+  .nav-links{position:absolute;top:68px;left:0;right:0;background:var(--tinta);flex-direction:column;gap:0;padding:.5rem var(--gutter) 1.25rem;display:none}
+  .nav-links.abierto{display:flex}
+  .nav-links a{display:block;padding:.75rem 0;border-bottom:1px solid var(--tinta-2);font-size:1.05rem}
+  .nav-toggle{display:block}
+  .nav .btn{display:none}
+}
+
+/* ---------- HERO ---------- */
+.hero{background:var(--amarillo);position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center;padding-top:clamp(3rem,7vw,5.5rem);padding-bottom:clamp(3.5rem,7vw,6rem)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(3.2rem,9.5vw,7rem);letter-spacing:-.02em;line-height:.95;margin:.9rem 0 1.4rem}
+.hero h1 span{display:block;color:var(--hueso);-webkit-text-stroke:2px var(--tinta);paint-order:stroke fill;text-shadow:5px 5px 0 var(--tinta)}
+.hero-sub{font-size:clamp(1.05rem,2.2vw,1.25rem);max-width:32ch;margin:0 0 2rem;font-weight:500}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.8rem}
+.hero-datos{display:flex;flex-wrap:wrap;gap:.5rem;margin:2.2rem 0 0;padding:0;list-style:none}
+.hero-datos li{font-family:var(--mono);font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;border:1.5px solid var(--tinta);border-radius:999px;padding:.45em .9em}
+.postal{position:relative;background:var(--hueso);padding:14px 14px 0;transform:rotate(2.5deg);box-shadow:10px 12px 0 var(--tinta);max-width:470px;justify-self:center;animation:llega 1s cubic-bezier(.2,.8,.2,1) both .15s}
+.postal img{aspect-ratio:4/3.4;object-fit:cover;width:100%}
+.postal figcaption{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:.8rem .2rem;font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gris)}
+.postal figcaption b{color:var(--tinta);font-weight:500}
+@keyframes llega{from{opacity:0;transform:rotate(9deg) translateY(40px)}to{opacity:1;transform:rotate(2.5deg)}}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr;gap:2.8rem}
+  .postal{max-width:420px;width:92%}
+}
+
+/* ---------- OLAS (firma) ---------- */
+.olas{display:block;width:100%;height:clamp(54px,8vw,96px);background:var(--amarillo);color:var(--tinta)}
+.olas.invertida{transform:scaleY(-1)}
+.olas.sobre-tinta{background:var(--tinta)}
+.olas.sobre-hueso{background:var(--hueso)}
+
+/* ---------- UBICACIÓN RÁPIDA ---------- */
+.cerca{background:var(--tinta);color:var(--hueso);padding:clamp(3.5rem,8vw,6rem) 0}
+.cerca .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.cerca h2{color:var(--amarillo)}
+.cerca p{color:#d8d3c7;max-width:42ch}
+.carteles{display:flex;flex-direction:column;gap:.9rem}
+.cartel{display:flex;justify-content:space-between;align-items:center;gap:1rem;background:var(--hueso);color:var(--tinta);padding:1rem 1.3rem;border-radius:10px;font-weight:700;font-size:1.1rem;position:relative}
+.cartel:nth-child(2){margin-left:1.5rem}
+.cartel:nth-child(3){margin-left:3rem}
+.cartel::after{content:"";position:absolute;right:-14px;top:50%;transform:translateY(-50%);border:14px solid transparent;border-left-color:var(--hueso);border-right:0}
+.cartel small{font-family:var(--mono);font-weight:500;font-size:.72rem;text-transform:uppercase;letter-spacing:.06em;color:var(--golfo);white-space:nowrap}
+.cartel.playa{background:var(--amarillo)}
+.cartel.playa::after{border-left-color:var(--amarillo)}
+@media (max-width:860px){
+  .cerca .wrap{grid-template-columns:1fr}
+  .cartel:nth-child(2){margin-left:.75rem}
+  .cartel:nth-child(3){margin-left:1.5rem}
+  .carteles{padding-right:14px}
+}
+
+/* ---------- HABITACIONES ---------- */
+.seccion{padding:clamp(4rem,9vw,7rem) 0}
+.cabecera{display:flex;justify-content:space-between;align-items:end;gap:2rem;flex-wrap:wrap;margin-bottom:2.8rem}
+.cabecera p{max-width:40ch;margin:0;color:var(--gris)}
+.cabecera .eyebrow{color:var(--golfo);display:block;margin-bottom:.8rem}
+.habs{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.hab{background:#fff;border:2px solid var(--tinta);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .25s ease,box-shadow .25s ease}
+.hab:hover{transform:translate(-3px,-3px);box-shadow:6px 6px 0 var(--amarillo),6px 6px 0 2px var(--tinta)}
+.hab img{aspect-ratio:4/3.2;object-fit:cover;border-bottom:2px solid var(--tinta)}
+.hab-cuerpo{padding:1.2rem 1.2rem 1.4rem;display:flex;flex-direction:column;gap:.5rem;flex:1}
+.hab .tag{font-family:var(--mono);font-size:.66rem;text-transform:uppercase;letter-spacing:.06em;background:var(--amarillo);align-self:flex-start;padding:.3em .7em;border-radius:999px}
+.hab .tag.privada{background:var(--golfo);color:var(--hueso)}
+.hab h3{font-size:1.3rem;font-weight:800;letter-spacing:-.01em}
+.hab p{margin:0;font-size:.95rem;color:var(--gris)}
+.hab a{margin-top:auto;padding-top:.6rem;font-weight:700;font-size:.92rem;text-decoration:none;color:var(--golfo)}
+.hab a:hover{text-decoration:underline}
+.capacidad{margin-top:2.2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-weight:500}
+.capacidad b{font-family:var(--display);font-weight:400;font-size:2.4rem;line-height:1}
+@media (max-width:1000px){.habs{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.habs{grid-template-columns:1fr}}
+
+/* ---------- SERVICIOS ---------- */
+.servicios{background:var(--amarillo)}
+.serv-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:start}
+.serv-lista{list-style:none;margin:0;padding:0;border-top:2px solid var(--tinta)}
+.serv-lista li{display:grid;grid-template-columns:2.6rem 1fr;gap:1rem;align-items:start;padding:1.15rem 0;border-bottom:2px solid var(--tinta)}
+.serv-lista svg{width:2.2rem;height:2.2rem}
+.serv-lista h3{font-size:1.2rem;font-weight:800;margin-bottom:.15rem}
+.serv-lista p{margin:0;font-size:.95rem}
+.serv-fotos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.serv-fotos figure{margin:0;position:relative;border:2px solid var(--tinta);border-radius:14px;overflow:hidden;background:var(--tinta)}
+.serv-fotos figure:first-child{grid-column:1/-1}
+.serv-fotos img{width:100%;aspect-ratio:1;object-fit:cover}
+.serv-fotos figure:first-child img{aspect-ratio:16/10}
+.serv-fotos figcaption{position:absolute;left:10px;bottom:10px;background:var(--tinta);color:var(--amarillo);font-family:var(--mono);font-size:.64rem;text-transform:uppercase;letter-spacing:.06em;padding:.4em .7em;border-radius:6px}
+.servicios .cabecera p{color:var(--tinta)}
+.servicios .cabecera .eyebrow{color:var(--tinta)}
+.todos{margin-top:2.5rem;padding:1.4rem 1.6rem;background:var(--tinta);color:var(--hueso);border-radius:16px;display:flex;gap:1.2rem;align-items:center;flex-wrap:wrap}
+.todos strong{font-family:var(--display);font-weight:400;font-size:1.6rem;color:var(--amarillo)}
+.todos span{flex:1;min-width:220px}
+.arcoiris{display:inline-flex;height:14px;width:56px;border-radius:999px;overflow:hidden}
+.arcoiris i{flex:1}
+@media (max-width:860px){.serv-grid{grid-template-columns:1fr}}
+
+/* ---------- GALERÍA ---------- */
+.galeria{columns:4 220px;column-gap:12px}
+@media (max-width:600px){.galeria{columns:2;column-gap:8px}.galeria button{margin-bottom:8px;border-radius:10px}}
+.galeria button{all:unset;display:block;margin:0 0 12px;break-inside:avoid;cursor:zoom-in;border-radius:12px;overflow:hidden;position:relative}
+.galeria button:focus-visible{outline:3px solid var(--golfo);outline-offset:3px}
+.galeria img{width:100%;transition:transform .5s ease,filter .5s}
+.galeria button:hover img{transform:scale(1.04)}
+.visor{position:fixed;inset:0;background:rgba(21,19,15,.94);display:none;align-items:center;justify-content:center;z-index:100;padding:1rem}
+.visor.abierto{display:flex}
+.visor img{max-height:86vh;max-width:min(1100px,100%);border-radius:8px}
+.visor button{position:absolute;background:var(--amarillo);color:var(--tinta);border:0;border-radius:999px;width:48px;height:48px;font-size:1.4rem;cursor:pointer;font-weight:700}
+.visor .cerrar{top:16px;right:16px}
+.visor .ant{left:16px;top:50%;transform:translateY(-50%)}
+.visor .sig{right:16px;top:50%;transform:translateY(-50%)}
+
+/* ---------- RESERVA ---------- */
+.reserva{background:var(--golfo);color:var(--hueso)}
+.reserva .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
+.reserva h2{color:var(--hueso)}
+.reserva h2 em{font-style:normal;color:var(--amarillo)}
+.reserva .eyebrow{color:var(--amarillo-claro)}
+.reserva-intro p{color:#d6e2ea;max-width:38ch}
+.ticket{background:var(--hueso);color:var(--tinta);border-radius:18px;padding:clamp(1.4rem,4vw,2.2rem);box-shadow:10px 10px 0 var(--tinta);position:relative}
+.ticket::before{content:"";position:absolute;left:0;right:0;top:-1px;height:10px;background:radial-gradient(circle at 8px 0,var(--golfo) 6px,transparent 6.5px) repeat-x;background-size:16px 10px}
+.ticket h3{font-family:var(--display);font-weight:400;font-size:1.7rem;margin-bottom:1.2rem}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.campo{display:flex;flex-direction:column;gap:.35rem}
+.campo.ancho{grid-column:1/-1}
+.campo label{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--gris)}
+.campo input,.campo select{font:inherit;font-size:1rem;padding:.8rem .9rem;border:2px solid var(--tinta);border-radius:10px;background:#fff;color:var(--tinta);width:100%;min-height:50px}
+.campo input:focus,.campo select:focus{outline:none;border-color:var(--golfo);box-shadow:0 0 0 3px var(--amarillo)}
+.ticket .btn{width:100%;justify-content:center;margin-top:1.4rem}
+.form-error{color:#B3261E;font-weight:600;font-size:.9rem;margin:.9rem 0 0;min-height:1.2em}
+.ticket .nota{font-size:.82rem;color:var(--gris);margin:.6rem 0 0;text-align:center}
+@media (max-width:860px){.reserva .wrap{grid-template-columns:1fr}}
+@media (max-width:460px){.campos{grid-template-columns:1fr}}
+
+/* ---------- UBICACIÓN ---------- */
+.ubic-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:2.5rem;align-items:stretch}
+.ubic-datos{display:flex;flex-direction:column;gap:1.4rem}
+.ubic-datos dl{margin:0;display:grid;gap:1.1rem}
+.ubic-datos dt{font-family:var(--mono);font-size:.68rem;text-transform:uppercase;letter-spacing:.06em;color:var(--golfo)}
+.ubic-datos dd{margin:.15rem 0 0;font-weight:700;font-size:1.15rem}
+.ubic-datos dd a{text-decoration-color:var(--amarillo);text-decoration-thickness:3px;text-underline-offset:4px}
+.mapa{border:2px solid var(--tinta);border-radius:16px;overflow:hidden;min-height:340px;background:var(--amarillo-claro)}
+.mapa iframe{width:100%;height:100%;min-height:340px;border:0;display:block;filter:grayscale(.3)}
+@media (max-width:860px){.ubic-grid{grid-template-columns:1fr}}
+
+/* ---------- AUTOR ---------- */
+.autor{background:var(--tinta);color:var(--hueso);padding:clamp(3.5rem,8vw,5.5rem) 0;text-align:center}
+.autor .eyebrow{color:var(--amarillo)}
+.autor h2{font-size:clamp(1.9rem,5vw,3rem);margin:.9rem auto 1rem;max-width:18ch}
+.autor h2 span{color:var(--amarillo)}
+.autor p{max-width:46ch;margin:0 auto 1.8rem;color:#cfc9bc}
+
+/* ---------- FOOTER ---------- */
+.footer{background:var(--tinta);color:#bdb6a8;border-top:1px solid var(--tinta-2);padding:2.5rem 0 6rem;font-size:.9rem}
+.footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1.5rem;align-items:center}
+.footer-marca{display:flex;align-items:center;gap:1rem}
+.footer-marca img{width:56px;height:56px;object-fit:cover}
+.footer a{color:var(--amarillo)}
+.footer p{margin:.2rem 0}
+
+/* ---------- WHATSAPP FLOTANTE ---------- */
+.wa-flotante{position:fixed;right:18px;bottom:18px;z-index:60;width:60px;height:60px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 0 0 3px var(--tinta),4px 4px 0 3px var(--tinta);transition:transform .2s}
+.wa-flotante:hover{transform:scale(1.07)}
+.wa-flotante svg{width:32px;height:32px;fill:#fff}
+
+/* reveal */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.rev.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rev{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Ola reutilizable -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="ola" viewBox="0 0 1200 96" preserveAspectRatio="none">
+      <path d="M0 18 C150 -6 300 42 450 18 S750 -6 900 18 S1100 42 1200 18 V96 H0Z" fill="#C98B3A"/>
+      <path d="M0 42 C150 18 300 66 450 42 S750 18 900 42 S1100 66 1200 42 V96 H0Z" fill="#1D4F6E"/>
+      <path d="M0 66 C150 42 300 90 450 66 S750 42 900 66 S1100 90 1200 66 V96 H0Z" fill="currentColor"/>
+    </symbol>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <a href="#inicio" class="nav-logo" aria-label="Guanaco Hostel, inicio"><img src="img/logo.jpg" alt="Guanaco Hostel"></a>
+    <ul class="nav-links" id="menu">
+      <li><a href="#habitaciones">Habitaciones</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#galeria">Fotos</a></li>
+      <li><a href="#ubicacion">Ubicación</a></li>
+      <li><a href="#reservar">Reservar</a></li>
+    </ul>
+    <a href="#reservar" class="btn btn-amarillo">Consultar fechas</a>
+    <button class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Hostel en el centro de Puerto Madryn · Chubut</span>
+        <h1>¿Visitás <span>Madryn?</span></h1>
+        <p class="hero-sub">Alojate a 300 metros de la playa, con desayuno incluido, cocina equipada y patio con parrilla.</p>
+        <div class="hero-ctas">
+          <a href="#reservar" class="btn btn-tinta">Consultar disponibilidad</a>
+          <a href="#habitaciones" class="btn btn-borde">Ver habitaciones</a>
+        </div>
+        <ul class="hero-datos">
+          <li>Desayuno incluido</li>
+          <li>Wi-Fi gratis</li>
+          <li>Zona centro</li>
+        </ul>
+      </div>
+      <figure class="postal">
+        <img src="img/494210819_663810773284215_7940877900481642747_n.jpg" alt="Fachada de Guanaco Hostel con su cartel amarillo">
+        <figcaption><b>28 de Julio 348</b><span>Puerto Madryn</span></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <svg class="olas" aria-hidden="true"><use href="#ola"/></svg>
+
+  <section class="cerca">
+    <div class="wrap">
+      <div class="rev">
+        <span class="eyebrow" style="color:var(--amarillo-claro)">Ubicación</span>
+        <h2 style="margin:.8rem 0 1.2rem">Todo a una caminata</h2>
+        <p>Estamos en pleno centro de Madryn. Dejás la mochila y en pocos minutos estás frente al golfo, en la plaza o en el muelle.</p>
+      </div>
+      <div class="carteles rev" aria-label="Lugares cercanos">
+        <div class="cartel playa">La playa <small>300 m</small></div>
+        <div class="cartel">Plaza San Martín <small>Cerca</small></div>
+        <div class="cartel">Muelle Luis Piedrabuena <small>Cerca</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion" id="habitaciones">
+    <div class="wrap">
+      <div class="cabecera rev">
+        <div>
+          <span class="eyebrow">Habitaciones</span>
+          <h2>Privada o compartida</h2>
+        </div>
+        <p>Elegí entre una habitación doble o una cama en habitación compartida. Tenemos una habitación exclusiva para mujeres.</p>
+      </div>
+      <div class="habs">
+        <article class="hab rev">
+          <img src="img/504055556_17962883189937681_6981113408767586917_n.jpg" alt="Habitación doble con cama matrimonial" loading="lazy">
+          <div class="hab-cuerpo">
+            <span class="tag privada">Privada</span>
+            <h3>Habitación doble</h3>
+            <p>Para viajar en pareja o con alguien de confianza, con tu propio espacio.</p>
+            <a href="#reservar" data-unidad="Habitación doble">Consultar esta →</a>
+          </div>
+        </article>
+        <article class="hab rev">
+          <img src="img/504382020_17962019714937681_5831005307808739592_n.jpg" alt="Habitación compartida con camas cuchetas" loading="lazy">
+          <div class="hab-cuerpo">
+            <span class="tag">Compartida</span>
+            <h3>Compartida · 6 camas</h3>
+            <p>Cuchetas de madera, ropa de cama y lockers con llave para tus cosas.</p>
+            <a href="#reservar" data-unidad="Habitación compartida 6 camas">Consultar esta →</a>
+          </div>
+        </article>
+        <article class="hab rev">
+          <img src="img/514513009_17962883198937681_5846823315621039814_n.jpg" alt="Habitación compartida amplia con varias camas" loading="lazy">
+          <div class="hab-cuerpo">
+            <span class="tag">Compartida</span>
+            <h3>Compartida · 8 camas</h3>
+            <p>La opción para grupos de amigos o para viajar con el presupuesto justo.</p>
+            <a href="#reservar" data-unidad="Habitación compartida 8 camas">Consultar esta →</a>
+          </div>
+        </article>
+        <article class="hab rev">
+          <img src="img/qpc0c9drohptodmprzyh.webp" alt="Habitación compartida con cuchetas y ventana" loading="lazy">
+          <div class="hab-cuerpo">
+            <span class="tag">Solo mujeres</span>
+            <h3>Compartida para mujeres</h3>
+            <p>Una habitación compartida reservada exclusivamente para viajeras.</p>
+            <a href="#reservar" data-unidad="Habitación compartida para mujeres">Consultar esta →</a>
+          </div>
+        </article>
+      </div>
+      <div class="capacidad rev"><b>28</b> lugares en total, entre habitaciones privadas y compartidas.</div>
+    </div>
+  </section>
+
+  <svg class="olas sobre-hueso" aria-hidden="true" style="color:var(--amarillo)"><use href="#ola"/></svg>
+
+  <section class="seccion servicios" id="servicios">
+    <div class="wrap">
+      <div class="cabecera rev">
+        <div>
+          <span class="eyebrow">Qué incluye</span>
+          <h2>Como en casa, pero con amigos nuevos</h2>
+        </div>
+      </div>
+      <div class="serv-grid">
+        <ul class="serv-lista rev">
+          <li>
+            <svg viewBox="0 0 32 32" fill="none" stroke="#15130F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 13h18v6a7 7 0 0 1-7 7h-4a7 7 0 0 1-7-7z"/><path d="M23 15h2a3 3 0 0 1 0 6h-2.5"/><path d="M11 4c-1 1.5 1 2.5 0 4M16 4c-1 1.5 1 2.5 0 4"/></svg>
+            <div><h3>Desayuno incluido</h3><p>Arrancás el día con desayuno, sin costo extra.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" fill="none" stroke="#15130F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a19 19 0 0 1 26 0"/><path d="M8 17a12 12 0 0 1 16 0"/><path d="M12.5 21.5a5.5 5.5 0 0 1 7 0"/><circle cx="16" cy="25.5" r="1.2" fill="#15130F"/></svg>
+            <div><h3>Wi-Fi gratis</h3><p>Para planear la excursión del día siguiente o hablar con casa.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" fill="none" stroke="#15130F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="9" width="22" height="18" rx="2"/><path d="M5 15h22"/><circle cx="10" cy="12" r=".8" fill="#15130F"/><circle cx="14" cy="12" r=".8" fill="#15130F"/><path d="M11 5v2M16 4v3M21 5v2"/></svg>
+            <div><h3>Cocina equipada</h3><p>Cocina compartida con heladera, horno y mesas largas para comer juntos.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" fill="none" stroke="#15130F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 14h22l-3 6H8z"/><path d="M9 20l-3 8M23 20l3 8M16 20v8"/><path d="M11 4c-1 2 1 3 0 6M16 4c-1 2 1 3 0 6M21 4c-1 2 1 3 0 6"/></svg>
+            <div><h3>Patio con parrilla</h3><p>Para el asado de la noche después de un día en la costa.</p></div>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" fill="none" stroke="#15130F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="14" width="18" height="14" rx="2"/><path d="M11 14V10a5 5 0 0 1 10 0v4"/><circle cx="16" cy="21" r="1.8"/></svg>
+            <div><h3>Lockers con llave</h3><p>Guardás tus cosas tranquilo mientras salís a recorrer.</p></div>
+          </li>
+        </ul>
+        <div class="serv-fotos rev">
+          <figure><img src="img/509647954_17962019657937681_2749822890509166492_n.jpg" alt="Cocina compartida con mesas largas" loading="lazy"><figcaption>Cocina</figcaption></figure>
+          <figure><img src="img/504360959_17962883240937681_3726853911706934724_n.jpg" alt="Patio con pared de piedra y luces" loading="lazy"><figcaption>Patio</figcaption></figure>
+          <figure><img src="img/514102144_17962883207937681_8013288729004205296_n.jpg" alt="Lockers con llave" loading="lazy"><figcaption>Lockers</figcaption></figure>
+        </div>
+      </div>
+      <div class="todos rev">
+        <strong>Para todos</strong>
+        <span>Apto para familias con chicos y un ambiente amigable con la comunidad LGBTQ+.</span>
+        <span class="arcoiris" aria-hidden="true"><i style="background:#E40303"></i><i style="background:#FF8C00"></i><i style="background:#FFED00"></i><i style="background:#008026"></i><i style="background:#24408E"></i><i style="background:#732982"></i></span>
+      </div>
+    </div>
+  </section>
+
+  <svg class="olas invertida sobre-hueso" aria-hidden="true" style="color:var(--amarillo)"><use href="#ola"/></svg>
+
+  <section class="seccion" id="galeria" style="padding-top:clamp(2.5rem,6vw,4.5rem)">
+    <div class="wrap">
+      <div class="cabecera rev">
+        <div>
+          <span class="eyebrow">Fotos</span>
+          <h2>Así es el Guanaco</h2>
+        </div>
+        <p>Tocá cualquier foto para verla más grande.</p>
+      </div>
+      <div class="galeria" id="galeria-grid">
+        <button><img src="img/503921181_659288037069822_1585379940874371418_n.jpg" alt="Living con alfombra y sillón" loading="lazy"></button>
+        <button><img src="img/504395219_17962019675937681_7794325108558298395_n.jpg" alt="Camas cuchetas con toallas" loading="lazy"></button>
+        <button><img src="img/504678841_17962883252937681_3870950406471813232_n.jpg" alt="Baño compartido" loading="lazy"></button>
+        <button><img src="img/513952225_17962883228937681_1905441474022606717_n.jpg" alt="Toallas sobre una manta tejida" loading="lazy"></button>
+        <button><img src="img/505717342_17962019645937681_5857878425375678043_n.jpg" alt="Cocina con heladera y mesa" loading="lazy"></button>
+        <button><img src="img/506394375_659288107069815_2775142680096249795_n.jpg" alt="Rincón con sillón y almohadones amarillos" loading="lazy"></button>
+        <button><img src="img/504826809_17962019687937681_5109588442661794340_n.jpg" alt="Habitación compartida con ventana" loading="lazy"></button>
+        <button><img src="img/ndkhybnfycup5u4eb9mx.webp" alt="Baño con bachas" loading="lazy"></button>
+        <button><img src="img/509644596_17962019696937681_6603934290730011426_n.jpg" alt="Habitación con cuchetas y camas" loading="lazy"></button>
+        <button><img src="img/504461506_17962019705937681_9048044098539071839_n.jpg" alt="Habitación luminosa con cortinas" loading="lazy"></button>
+        <button><img src="img/504490958_17962019636937681_4828563137454604650_n.jpg" alt="Cocina comedor" loading="lazy"></button>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion reserva" id="reservar">
+    <div class="wrap">
+      <div class="reserva-intro rev">
+        <span class="eyebrow">Reservas</span>
+        <h2 style="margin:.8rem 0 1.2rem">Contanos <em>cuándo</em> venís</h2>
+        <p>Completá tus datos y te abrimos un mensaje de WhatsApp con todo listo para enviar. Te respondemos con la disponibilidad y la tarifa.</p>
+      </div>
+      <form class="ticket rev" id="form-reserva" novalidate>
+        <h3>Consultá tu lugar</h3>
+        <div class="campos">
+          <div class="campo ancho">
+            <label for="f-nombre">Nombre</label>
+            <input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder="Tu nombre" required>
+          </div>
+          <div class="campo">
+            <label for="f-personas">Cantidad de personas</label>
+            <input id="f-personas" name="personas" type="number" min="1" max="28" value="1" required>
+          </div>
+          <div class="campo">
+            <label for="f-unidad">Habitación</label>
+            <select id="f-unidad" name="unidad">
+              <option>Me da igual / consultar</option>
+              <option>Habitación doble</option>
+              <option>Habitación compartida 6 camas</option>
+              <option>Habitación compartida 8 camas</option>
+              <option>Habitación compartida para mujeres</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="f-in">Fecha de check in</label>
+            <input id="f-in" name="checkin" type="date" required>
+          </div>
+          <div class="campo">
+            <label for="f-out">Fecha de check out</label>
+            <input id="f-out" name="checkout" type="date" required>
+          </div>
+        </div>
+        <p class="form-error" id="form-error" role="alert"></p>
+        <button type="submit" class="btn btn-tinta">Enviar consulta por WhatsApp</button>
+        <p class="nota">Se abre WhatsApp con tu mensaje. No se cobra nada hasta confirmar.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="seccion" id="ubicacion">
+    <div class="wrap">
+      <div class="cabecera rev">
+        <div>
+          <span class="eyebrow">Cómo llegar</span>
+          <h2>En el centro de Madryn</h2>
+        </div>
+      </div>
+      <div class="ubic-grid">
+        <div class="ubic-datos rev">
+          <dl>
+            <div><dt>Dirección</dt><dd>28 de Julio 348, Puerto Madryn, Chubut</dd></div>
+            <div><dt>A la playa</dt><dd>300 metros</dd></div>
+            <div><dt>WhatsApp</dt><dd><a href="https://wa.me/5492804997858" target="_blank" rel="noopener">+54 9 2804 99-7858</a></dd></div>
+          </dl>
+          <a class="btn btn-tinta" style="align-self:flex-start" href="https://www.google.com/maps/search/?api=1&query=28+de+Julio+348+Puerto+Madryn+Chubut" target="_blank" rel="noopener">Abrir en Google Maps</a>
+        </div>
+        <div class="mapa rev">
+          <iframe title="Mapa de Guanaco Hostel" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://maps.google.com/maps?q=28%20de%20Julio%20348%2C%20Puerto%20Madryn%2C%20Chubut&z=16&output=embed"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <svg class="olas sobre-hueso" aria-hidden="true"><use href="#ola"/></svg>
+
+  <section class="autor">
+    <div class="wrap">
+      <span class="eyebrow">Diseño web</span>
+      <h2>Este boceto lo diseñó <span>Teo Cicciari</span></h2>
+      <p>¿Tenés un hospedaje y querés un sitio propio, pensado para tu lugar y listo para recibir reservas? Pedí el tuyo.</p>
+      <a class="btn btn-amarillo" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-marca">
+      <img src="img/logo.jpg" alt="Guanaco Hostel">
+      <div>
+        <p>28 de Julio 348 · Puerto Madryn, Chubut</p>
+        <p>© <span id="anio"></span> Guanaco Hostel · <span id="fecha-hoy"></span></p>
+      </div>
+    </div>
+    <p>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></p>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/5492804997858?text=Hola%20Guanaco%20Hostel!%20Quer%C3%ADa%20consultar%20disponibilidad." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.6c0 2.2.6 4.4 1.7 6.3L3 29l7.3-1.9c1.8 1 3.8 1.5 5.8 1.5 7 0 12.7-5.6 12.7-12.6S23 3 16 3zm0 23.2c-1.9 0-3.7-.5-5.3-1.4l-.4-.2-4.3 1.1 1.2-4.2-.3-.4a10.4 10.4 0 0 1-1.6-5.5C5.3 9.8 10.1 5.1 16 5.1s10.6 4.7 10.6 10.5S21.9 26.2 16 26.2zm5.8-7.9c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+(function(){
+  const WA = '5492804997858';
+
+  // Fecha dinámica en el footer
+  const hoy = new Date();
+  document.getElementById('anio').textContent = hoy.getFullYear();
+  document.getElementById('fecha-hoy').textContent = hoy.toLocaleDateString('es-AR',{day:'numeric',month:'long',year:'numeric'});
+
+  // Menú mobile
+  const toggle = document.querySelector('.nav-toggle');
+  const menu = document.getElementById('menu');
+  toggle.addEventListener('click', () => {
+    const abierto = menu.classList.toggle('abierto');
+    toggle.setAttribute('aria-expanded', abierto);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('abierto'); toggle.setAttribute('aria-expanded', false);
+  }));
+
+  // Reveal al scrollear
+  const io = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  }), {threshold:.12});
+  document.querySelectorAll('.rev').forEach(el => io.observe(el));
+
+  // Formulario de reserva → WhatsApp
+  const iso = d => new Date(d.getTime() - d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const fIn = document.getElementById('f-in'), fOut = document.getElementById('f-out');
+  const unidad = document.getElementById('f-unidad');
+  fIn.min = iso(hoy);
+  fOut.min = iso(new Date(hoy.getTime() + 864e5));
+  fIn.addEventListener('change', () => {
+    if (!fIn.value) return;
+    const sig = new Date(fIn.value + 'T12:00'); sig.setDate(sig.getDate() + 1);
+    fOut.min = iso(sig);
+    if (fOut.value && fOut.value <= fIn.value) fOut.value = iso(sig);
+  });
+
+  document.querySelectorAll('[data-unidad]').forEach(a => a.addEventListener('click', () => {
+    unidad.value = a.dataset.unidad;
+  }));
+
+  const fmt = v => new Date(v + 'T12:00').toLocaleDateString('es-AR',{weekday:'short',day:'numeric',month:'short'});
+  const err = document.getElementById('form-error');
+  document.getElementById('form-reserva').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target;
+    const nombre = f.nombre.value.trim();
+    const personas = parseInt(f.personas.value, 10);
+    if (!nombre) { err.textContent = 'Escribí tu nombre para que sepamos a quién responder.'; f.nombre.focus(); return; }
+    if (!personas || personas < 1 || personas > 28) { err.textContent = 'La cantidad de personas tiene que estar entre 1 y 28.'; f.personas.focus(); return; }
+    if (!fIn.value || !fOut.value) { err.textContent = 'Elegí las fechas de check in y check out.'; (fIn.value ? fOut : fIn).focus(); return; }
+    if (fOut.value <= fIn.value) { err.textContent = 'El check out tiene que ser posterior al check in.'; fOut.focus(); return; }
+    err.textContent = '';
+    const noches = Math.round((new Date(fOut.value) - new Date(fIn.value)) / 864e5);
+    const msg = `¡Hola Guanaco Hostel! Quiero consultar disponibilidad.\n\n` +
+      `• Nombre: ${nombre}\n• Personas: ${personas}\n• Habitación: ${unidad.value}\n` +
+      `• Check in: ${fmt(fIn.value)}\n• Check out: ${fmt(fOut.value)} (${noches} ${noches === 1 ? 'noche' : 'noches'})`;
+    window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+  });
+
+  // Visor de galería
+  const imgs = [...document.querySelectorAll('#galeria-grid img')];
+  const visor = document.createElement('div');
+  visor.className = 'visor'; visor.setAttribute('role','dialog'); visor.setAttribute('aria-modal','true'); visor.setAttribute('aria-label','Foto ampliada');
+  visor.innerHTML = '<img alt=""><button class="cerrar" aria-label="Cerrar">✕</button><button class="ant" aria-label="Foto anterior">‹</button><button class="sig" aria-label="Foto siguiente">›</button>';
+  document.body.appendChild(visor);
+  const vImg = visor.querySelector('img');
+  let idx = 0, origen = null;
+  const mostrar = i => { idx = (i + imgs.length) % imgs.length; vImg.src = imgs[idx].src; vImg.alt = imgs[idx].alt; };
+  const cerrar = () => { visor.classList.remove('abierto'); origen && origen.focus(); };
+  imgs.forEach((im, i) => im.parentElement.addEventListener('click', () => {
+    origen = im.parentElement; mostrar(i); visor.classList.add('abierto'); visor.querySelector('.cerrar').focus();
+  }));
+  visor.querySelector('.cerrar').onclick = cerrar;
+  visor.querySelector('.ant').onclick = () => mostrar(idx - 1);
+  visor.querySelector('.sig').onclick = () => mostrar(idx + 1);
+  visor.addEventListener('click', e => { if (e.target === visor) cerrar(); });
+  document.addEventListener('keydown', e => {
+    if (!visor.classList.contains('abierto')) return;
+    if (e.key === 'Escape') cerrar();
+    if (e.key === 'ArrowLeft') mostrar(idx - 1);
+    if (e.key === 'ArrowRight') mostrar(idx + 1);
+  });
+})();
+</script>
+</body>
+</html>
