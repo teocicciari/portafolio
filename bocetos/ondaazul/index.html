@@ -265,11 +265,39 @@
   .splash-plank:hover,.splash-plank:focus-visible{background-color:#2e6f5e;color:#fff}
   .splash-plank.r:hover,.splash-plank.r:focus-visible{transform:rotate(0deg) translateX(6px)}
   .splash-plank.l:hover,.splash-plank.l:focus-visible{transform:rotate(0deg) translateX(-6px)}
-  .splash-plank:focus-visible{outline:3px solid var(--glaciar);outline-offset:4px}
+  .splash-plank:focus-visible{outline:none;filter:drop-shadow(0 0 1px var(--glaciar)) drop-shadow(0 0 7px var(--glaciar)) drop-shadow(0 8px 8px rgba(0,0,0,.4))}
   @keyframes swing{from{opacity:0;transform:rotate(calc(var(--t) * 7))}}
   .splash-load{width:9rem;height:3px;border-radius:3px;background:rgba(255,255,255,.18);overflow:hidden}
   .splash-load i{display:block;height:100%;width:0;background:var(--ocre);transition:width .3s}
   .splash-place{margin-top:.8rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55)}
+
+  /* ---------- madera de los carteles (ruta + selector de idioma) ---------- */
+  /* Capas: el elemento lleva la sombra (sin recorte); ::before es el canto oscuro y ::after la cara de madera, ambos con la forma de flecha */
+  .plank,.splash-plank{--wood:#674227;--edge:#2b1a0e;--shape:none;isolation:isolate;background:none!important;clip-path:none!important;
+    filter:drop-shadow(0 8px 8px rgba(0,0,0,.4)) drop-shadow(0 1px 1px rgba(0,0,0,.3));
+    text-shadow:0 -1px 0 rgba(0,0,0,.6),0 1px 0 rgba(255,255,255,.14)}
+  .plank::before,.splash-plank::before,.plank::after,.splash-plank::after{content:"";position:absolute;z-index:-1;clip-path:var(--shape)}
+  .plank::before,.splash-plank::before{inset:0;background:var(--edge)}
+  .plank::after,.splash-plank::after{inset:3px;background-color:var(--wood);
+    background-image:linear-gradient(180deg,rgba(255,255,255,.13),rgba(255,255,255,0) 30%,rgba(0,0,0,0) 65%,rgba(0,0,0,.22)),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='64' preserveAspectRatio='none'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.004 .38' numOctaves='3' seed='11'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -1 .6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E");
+    background-size:100% 100%,480px 100%;background-position:0 0,var(--gx,0) 0}
+  .plank.r,.splash-plank.r{--shape:polygon(0 0,calc(100% - 26px) 0,100% 50%,calc(100% - 26px) 100%,0 100%)}
+  .plank.l,.splash-plank.l{--shape:polygon(26px 0,100% 0,100% 100%,26px 100%,0 50%)}
+  .post .plank:nth-child(2){--wood:#5e3c22;--gx:-140px}.post .plank:nth-child(3){--wood:#6e4729;--gx:-260px}
+  .post .plank:nth-child(4){--wood:#614024;--gx:-90px}.post .plank:nth-child(5){--wood:#6a4428;--gx:-330px}
+  .splash-plank:nth-child(2){--wood:#5e3c22;--gx:-140px}.splash-plank:nth-child(3){--wood:#6e4729;--gx:-260px}
+  .plank.here{--wood:#2f6e5c;--edge:#143a30}
+  .splash-plank:hover,.splash-plank:focus-visible{--wood:#2f6e5c;--edge:#143a30;color:#fff}
+  .plank small{font-family:var(--body);font-size:.85rem;font-weight:600;letter-spacing:.03em;color:#f4e0b0;text-shadow:0 1px 1px rgba(0,0,0,.45);
+    padding-inline-start:.8rem;border-inline-start:2px solid rgba(0,0,0,.3)}
+  .plank.here small{color:#d8f3ee;border-color:rgba(0,0,0,.25)}
+  /* poste: veta vertical, techito y sombra en el suelo */
+  .post::before,.splash-post::before{background:
+      repeating-linear-gradient(90deg,rgba(0,0,0,.12) 0 1px,transparent 1px 5px),
+      linear-gradient(90deg,#33200f,#5f3d22 30%,#7a5130 52%,#4a2f1b 80%,#2f1d0f)}
+  .post::after,.splash-post::after{content:"";position:absolute;top:-13px;left:50%;width:46px;height:17px;margin-left:-23px;
+    background:linear-gradient(180deg,#4a2f1b,#2b1a0e);clip-path:polygon(50% 0,100% 100%,0 100%)}
+  .post,.splash-post{background:radial-gradient(ellipse 34% 12px at 50% calc(100% - 2px),rgba(0,0,0,.4),transparent 70%) no-repeat}
 
   @media (prefers-reduced-motion:reduce){
     *,*::before,*::after{animation:none!important;transition:none!important}
@@ -279,11 +307,17 @@
   }
 </style>
 <script>
-  // Selector de idioma de entrada: solo si no hay ?lang= ni una elección guardada
+  // Selector de idioma de entrada.
+  // Hasta el lanzamiento: aparece SIEMPRE y la elección no se guarda.
+  // AL LANZAR: poner true -> solo aparece en la primera visita (se recuerda el idioma y respeta ?lang= en el link).
+  window.OA_RECORDAR_IDIOMA = false;
   (function(){
-    var q = /[?&]lang=(he|es|en)/.test(location.search), s = null;
-    try{ s = localStorage.getItem("oa-lang"); }catch(e){}
-    if(!q && !s) document.documentElement.classList.add("splash");
+    if(window.OA_RECORDAR_IDIOMA){
+      var q = ["he","es","en"].indexOf(new URLSearchParams(location.search).get("lang")) > -1, s = null;
+      try{ s = localStorage.getItem("oa-lang"); }catch(e){}
+      if(q || s) return;
+    }
+    document.documentElement.classList.add("splash");
   })();
 </script>
 </head>
@@ -728,11 +762,11 @@ function setLang(l){
   document.querySelectorAll(".carta-stage .pg, .carta-dlg img").forEach(el => el.alt = d["carta.alt"]);
   document.querySelectorAll(".langs button").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === l));
   document.querySelectorAll(".err").forEach(e => e.textContent = "");
-  try{ localStorage.setItem("oa-lang", l); }catch(e){}
+  if(window.OA_RECORDAR_IDIOMA){ try{ localStorage.setItem("oa-lang", l); }catch(e){} }
 }
 document.querySelectorAll(".langs button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.lang)));
 const qs = new URLSearchParams(location.search).get("lang");
-let saved = null; try{ saved = localStorage.getItem("oa-lang"); }catch(e){}
+let saved = null; if(window.OA_RECORDAR_IDIOMA){ try{ saved = localStorage.getItem("oa-lang"); }catch(e){} }
 setLang(qs || saved || "he");
 
 // ---------- selector de idioma de entrada + precarga ----------
@@ -759,7 +793,7 @@ if(document.documentElement.classList.contains("splash")){
   };
   splash.querySelectorAll("[data-pick]").forEach(b => b.addEventListener("click", () => pick(b.dataset.pick)));
   splash.addEventListener("keydown", e => { if(e.key === "Escape") pick(lang); });
-  splash.querySelector("[data-pick]").focus({preventScroll:true});
+  (splash.querySelector(`[data-pick="${lang}"]`) || splash.querySelector("[data-pick]")).focus({preventScroll:true});
 } else {
   splash.hidden = true;
 }
