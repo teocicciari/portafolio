@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tecnocell — Samsung Galaxy Ultra en cuotas</title>
+<meta name="description" content="Samsung Galaxy S23, S24 y S25 Ultra nuevos, en caja sellada. Cuotas semanales, quincenales o mensuales solo con tu DNI. 12 meses de garantía escrita y envíos a todas las zonas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@500;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#E4ECF0;
+    --papel-2:#D6E1E7;
+    --carton:#FAFCFD;
+    --tinta:#1C2FA6;
+    --tinta-osc:#141F75;
+    --grafito:#14161B;
+    --sello:#D3242C;
+    --titanio:#5F6976;
+    --linea:#BFCDD6;
+
+    --f-display:"Archivo", "Arial Narrow", sans-serif;
+    --f-body:"Hanken Grotesk", system-ui, sans-serif;
+    --f-mono:"IBM Plex Mono", ui-monospace, monospace;
+    --f-mano:"Caveat", cursive;
+
+    --ancho:1180px;
+    --radio:6px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--papel);
+    color:var(--grafito);
+    font-family:var(--f-body);
+    font-size:17px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img,svg{display:block;max-width:100%}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:var(--ancho);margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+  /* ---------- botones ---------- */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    font-family:var(--f-body);font-weight:700;font-size:16px;
+    padding:15px 22px;border-radius:var(--radio);
+    text-decoration:none;border:2px solid transparent;cursor:pointer;
+    transition:transform .15s ease, background-color .15s ease, color .15s ease;
+  }
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-tinta{background:var(--tinta);color:#fff}
+  .btn-tinta:hover{background:var(--tinta-osc)}
+  .btn-linea{border-color:var(--grafito);color:var(--grafito);background:transparent}
+  .btn-linea:hover{background:var(--grafito);color:var(--papel)}
+  .btn:active{transform:translateY(1px)}
+
+  /* ---------- header ---------- */
+  .top{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--papel) 92%, transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .marca{
+    font-family:var(--f-display);font-variation-settings:"wdth" 125;font-weight:850;
+    font-size:22px;letter-spacing:.04em;text-decoration:none;color:var(--grafito)
+  }
+  .marca b{color:var(--tinta);font-weight:850}
+  .top nav{display:flex;align-items:center;gap:28px}
+  .top nav a.link{text-decoration:none;font-weight:600;font-size:15px}
+  .top nav a.link:hover{color:var(--tinta)}
+  .top .btn{padding:10px 16px;font-size:15px}
+
+  /* ---------- hero ---------- */
+  .hero{padding:64px 0 88px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center}
+  .hero-kicker{color:var(--titanio);margin:0 0 22px;display:flex;gap:10px;align-items:center}
+  .hero-kicker::before{content:"";width:28px;height:2px;background:var(--tinta)}
+  h1{
+    font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:850;
+    font-size:clamp(46px,6.6vw,92px);line-height:.93;letter-spacing:-.01em;
+    margin:0 0 26px;text-wrap:balance
+  }
+  h1 .subrayado{
+    color:var(--tinta);
+    background:linear-gradient(transparent 78%, color-mix(in srgb, var(--sello) 28%, transparent) 78%, color-mix(in srgb, var(--sello) 28%, transparent) 92%, transparent 92%);
+  }
+  .hero-texto{font-size:19px;max-width:520px;margin:0 0 32px}
+  .hero-acciones{display:flex;flex-wrap:wrap;gap:12px}
+
+  /* ---------- cartilla (firma) ---------- */
+  .cartilla{
+    position:relative;background:var(--carton);
+    border-radius:4px;padding:26px 28px 28px 54px;
+    box-shadow:0 1px 0 var(--linea), 0 24px 50px -24px rgba(20,31,117,.35);
+    transform:rotate(1.2deg);
+  }
+  .cartilla::before{ /* troquel del talonario */
+    content:"";position:absolute;left:0;top:0;bottom:0;width:30px;
+    background:radial-gradient(circle at 15px 12px, var(--papel) 5px, transparent 5.5px) 0 0/30px 24px repeat-y;
+    border-right:2px dashed var(--linea);
+  }
+  .cartilla-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--grafito);padding-bottom:10px;margin-bottom:18px}
+  .cartilla-head strong{font-family:var(--f-display);font-variation-settings:"wdth" 110;font-weight:800;font-size:19px;letter-spacing:.02em}
+  .cartilla-head span{color:var(--titanio)}
+  .campo{display:flex;align-items:flex-end;gap:12px;margin-bottom:18px}
+  .campo-label{color:var(--titanio);flex:none;padding-bottom:6px}
+  .campo-valor{
+    flex:1;border-bottom:1.5px dotted var(--titanio);
+    font-family:var(--f-mano);font-weight:700;font-size:34px;line-height:1.1;color:var(--tinta);
+    min-height:44px;padding-left:4px;white-space:nowrap;overflow:hidden
+  }
+  .escribir{animation:escribir .6s steps(18,end) both}
+  @keyframes escribir{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+
+  .grupo{border:0;margin:0 0 16px;padding:0}
+  .grupo legend{padding:0;margin-bottom:8px;color:var(--titanio)}
+  .opciones{display:flex;flex-wrap:wrap;gap:8px}
+  .opcion input{position:absolute;opacity:0;pointer-events:none}
+  .opcion span{
+    display:inline-flex;align-items:center;gap:8px;cursor:pointer;
+    border:1.5px solid var(--linea);border-radius:4px;background:#fff;
+    padding:8px 12px;font-weight:600;font-size:15px;transition:border-color .15s, background-color .15s
+  }
+  .opcion span::before{ /* casillero para tildar */
+    content:"";width:16px;height:16px;border:1.5px solid var(--grafito);border-radius:2px;flex:none;
+    background-position:center;background-repeat:no-repeat;background-size:14px
+  }
+  .opcion:hover span{border-color:var(--tinta)}
+  .opcion input:checked + span{border-color:var(--tinta);background:color-mix(in srgb, var(--tinta) 7%, #fff)}
+  .opcion input:checked + span::before{
+    border-color:var(--tinta);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%231C2FA6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  }
+  .opcion input:focus-visible + span{outline:3px solid var(--tinta);outline-offset:2px}
+
+  .casillas{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1.5px solid var(--grafito);margin:20px 0 14px}
+  .casilla{min-height:62px;padding:7px 8px;border-right:1px solid var(--linea);border-bottom:1px solid var(--linea);display:flex;flex-direction:column;justify-content:space-between}
+  .casilla:nth-child(4n){border-right:0}
+  .casilla:nth-last-child(-n+4){border-bottom:0}
+  .casilla .mono{font-size:10.5px;color:var(--titanio)}
+  .casilla i{display:block;border-bottom:1px dotted var(--titanio);height:14px;font-style:normal;font-family:var(--f-mano);color:var(--tinta);font-size:18px;line-height:14px}
+  .casilla.sigue{align-items:center;justify-content:center;font-family:var(--f-mano);font-size:30px;color:var(--titanio)}
+  .cartilla-nota{font-size:14px;color:var(--titanio);margin:0 0 18px}
+  .cartilla .btn{width:100%}
+
+  .sello{
+    position:absolute;top:-22px;right:-18px;
+    font-family:var(--f-display);font-variation-settings:"wdth" 80;font-weight:900;
+    font-size:26px;letter-spacing:.06em;text-transform:uppercase;color:var(--sello);
+    border:3px solid var(--sello);outline:1.5px solid var(--sello);outline-offset:3px;
+    padding:6px 14px 4px;border-radius:4px;background:color-mix(in srgb, var(--carton) 70%, transparent);
+    transform:rotate(-11deg);
+    mix-blend-mode:multiply;
+    animation:sellar .45s cubic-bezier(.2,1.6,.4,1) .7s both;
+  }
+  .sello small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;font-weight:600;text-align:center}
+  @keyframes sellar{from{opacity:0;transform:rotate(-11deg) scale(1.9)}to{opacity:1;transform:rotate(-11deg) scale(1)}}
+
+  /* ---------- datos ---------- */
+  .datos{background:var(--grafito);color:var(--papel)}
+  .datos ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
+  .datos li{padding:28px 24px;border-left:1px solid #2B2F38;display:flex;gap:14px;align-items:flex-start}
+  .datos li:first-child{border-left:0;padding-left:0}
+  .datos svg{width:26px;height:26px;flex:none;color:#8EA0FF;margin-top:2px}
+  .datos strong{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 100;font-weight:750;font-size:18px;line-height:1.2;margin-bottom:4px;color:#fff}
+  .datos p{margin:0;font-size:14.5px;color:#AEB6C2}
+
+  /* ---------- secciones ---------- */
+  section.bloque{padding:96px 0}
+  .bloque-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:44px;flex-wrap:wrap}
+  h2{
+    font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:850;
+    font-size:clamp(36px,4.6vw,60px);line-height:.98;margin:0;letter-spacing:-.005em;text-wrap:balance
+  }
+  .bloque-head p{max-width:400px;margin:0;color:var(--titanio)}
+
+  /* modelos */
+  .modelos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .modelo{background:var(--carton);border-radius:var(--radio);overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--linea)}
+  .modelo-foto{background:var(--papel-2);padding:30px 0 0;display:flex;justify-content:center;position:relative;height:250px;overflow:hidden}
+  .modelo-foto svg{width:130px;height:auto;transform:translateY(12px) rotate(-4deg);filter:drop-shadow(0 18px 20px rgba(20,22,27,.25));transition:transform .35s ease}
+  .modelo:hover .modelo-foto svg{transform:translateY(0) rotate(0)}
+  .etiqueta{position:absolute;top:14px;left:14px;background:var(--carton);padding:5px 9px;border-radius:3px;font-size:10.5px}
+  .etiqueta.nueva{background:var(--tinta);color:#fff}
+  .modelo-info{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
+  .modelo h3{font-family:var(--f-display);font-variation-settings:"wdth" 88;font-weight:800;font-size:30px;line-height:1;margin:0 0 4px}
+  .modelo h3 small{display:block;font-family:var(--f-mono);font-weight:500;font-size:11px;letter-spacing:.1em;color:var(--titanio);margin-bottom:6px}
+  .modelo-desc{margin:10px 0 18px;font-size:15.5px}
+  .specs{margin:0 0 22px;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--linea)}
+  .specs dt,.specs dd{margin:0;padding:9px 0;border-bottom:1px solid var(--linea);font-size:14.5px}
+  .specs dt{font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--titanio);padding-right:16px;display:flex;align-items:center}
+  .specs dd{font-weight:600}
+  .modelo .btn{margin-top:auto}
+
+  /* pasos */
+  .pasos-bloque{background:var(--carton);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+  .pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:paso}
+  .pasos li{counter-increment:paso;padding:0 24px 0 0;position:relative}
+  .pasos li::before{
+    content:counter(paso);
+    display:flex;align-items:center;justify-content:center;
+    width:46px;height:46px;border:2px solid var(--tinta);border-radius:50%;
+    font-family:var(--f-display);font-weight:800;font-size:20px;color:var(--tinta);
+    background:var(--carton);position:relative;z-index:1;margin-bottom:22px
+  }
+  .pasos li::after{content:"";position:absolute;top:23px;left:46px;right:0;border-top:2px dashed var(--linea)}
+  .pasos li:last-child::after{display:none}
+  .pasos h3{font-family:var(--f-display);font-variation-settings:"wdth" 95;font-weight:750;font-size:21px;line-height:1.15;margin:0 0 8px}
+  .pasos p{margin:0;font-size:15.5px;color:var(--titanio)}
+  .pasos li.dni h3 .marca-dni{color:var(--sello)}
+
+  /* preguntas */
+  .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:start}
+  .faq-lado p{color:var(--titanio);margin:18px 0 26px}
+  .faq details{border-top:1.5px solid var(--grafito)}
+  .faq details:last-child{border-bottom:1.5px solid var(--grafito)}
+  .faq summary{
+    list-style:none;cursor:pointer;padding:20px 40px 20px 0;position:relative;
+    font-family:var(--f-display);font-variation-settings:"wdth" 95;font-weight:700;font-size:20px;line-height:1.25
+  }
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";position:absolute;right:4px;top:50%;transform:translateY(-50%);font-family:var(--f-mono);font-size:24px;font-weight:400;color:var(--tinta);transition:transform .2s}
+  .faq details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
+  .faq details p{margin:0 0 22px;max-width:580px}
+
+  /* banner de autor */
+  .autor{background:var(--tinta);color:#fff;padding:84px 0;position:relative;overflow:hidden}
+  .autor::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(circle at 15px 12px, var(--papel) 5px, transparent 5.5px) 0 0/30px 24px repeat-y;
+    width:30px;opacity:.9
+  }
+  .autor .wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:end}
+  .autor .eyebrow{display:inline-block;color:var(--tinta);background:#fff;padding:5px 10px;border-radius:3px;margin-bottom:20px}
+  .autor h2{color:#fff}
+  .autor h2 em{font-family:var(--f-mano);font-style:normal;font-weight:700;font-variation-settings:normal;font-size:1.12em;color:#FFD3D5}
+  .autor p{margin:0 0 24px;color:#D2D8FF;font-size:18px}
+  .btn-blanco{background:#fff;color:var(--tinta)}
+  .btn-blanco:hover{background:var(--papel)}
+  .autor :focus-visible{outline-color:#fff}
+
+  /* footer */
+  footer{background:var(--grafito);color:#AEB6C2;padding:56px 0 30px;font-size:15px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid #2B2F38}
+  footer .marca{color:#fff}
+  footer .marca b{color:#8EA0FF}
+  footer h4{margin:0 0 12px;color:#fff}
+  footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+  footer a{color:#fff;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+  .foot-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13.5px}
+  .foot-base a{color:#8EA0FF}
+
+  /* whatsapp flotante */
+  .wa-flotante{
+    position:fixed;right:20px;bottom:20px;z-index:30;
+    width:60px;height:60px;border-radius:50%;background:var(--tinta);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 10px 24px -6px rgba(20,31,117,.6);transition:transform .2s
+  }
+  .wa-flotante:hover{transform:scale(1.07)}
+  .wa-flotante svg{width:30px;height:30px}
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px){
+    .hero .wrap{grid-template-columns:1fr;gap:56px}
+    .cartilla{max-width:560px;transform:none}
+    .datos ul{grid-template-columns:1fr 1fr}
+    .datos li{border-left:0;padding:22px 0;border-top:1px solid #2B2F38}
+    .datos li:nth-child(-n+2){border-top:0}
+    .datos li:nth-child(2n){padding-left:20px}
+    .modelos{grid-template-columns:1fr;max-width:520px}
+    .pasos{grid-template-columns:1fr 1fr;row-gap:40px}
+    .pasos li:nth-child(2)::after{display:none}
+    .faq-grid,.autor .wrap{grid-template-columns:1fr;gap:28px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .foot-grid > div:first-child{grid-column:1/-1}
+  }
+  @media (max-width: 620px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .top nav a.link{display:none}
+    .hero{padding:40px 0 64px}
+    .hero-texto{font-size:17px}
+    .hero-acciones .btn{flex:1 1 100%}
+    .cartilla{padding:22px 16px 20px 40px}
+    .cartilla::before{width:22px;background-position:-4px 0}
+    .sello{right:-4px;top:-26px;font-size:21px}
+    .campo-valor{font-size:28px}
+    .casilla{min-height:56px;padding:6px}
+    .casilla .mono{font-size:9.5px;letter-spacing:.04em}
+    .datos ul{grid-template-columns:1fr}
+    .datos li,.datos li:nth-child(2n){padding:20px 0;border-top:1px solid #2B2F38}
+    .datos li:first-child{border-top:0}
+    section.bloque{padding:68px 0}
+    .pasos{grid-template-columns:1fr;row-gap:0}
+    .pasos li{display:grid;grid-template-columns:46px 1fr;column-gap:18px;padding:0 0 30px}
+    .pasos li::before{grid-row:span 2;margin:0}
+    .pasos li::after{display:block;top:46px;bottom:0;left:22px;right:auto;border-top:0;border-left:2px dashed var(--linea)}
+    .pasos li:last-child::after{display:none}
+    .autor{padding:64px 0}
+    .autor::before{width:22px;background-position:-4px 0}
+    .foot-grid{grid-template-columns:1fr}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-7.9 13.9L2.8 21.2l4.6-1.2A9.2 9.2 0 1 0 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 7.6c.3-.3.8-.3 1 .1l1 1.9c.2.3.1.7-.1 1l-.6.6c.6 1.3 1.6 2.3 2.9 2.9l.6-.6c.3-.2.7-.3 1-.1l1.9 1c.4.2.4.7.1 1l-.8.8c-.6.6-1.5.7-2.3.4-2.6-1-4.7-3.1-5.7-5.7-.3-.8-.2-1.7.4-2.3z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="marca" href="#inicio">TECNO<b>CELL</b></a>
+    <nav aria-label="Principal">
+      <a class="link" href="#modelos">Modelos</a>
+      <a class="link" href="#como">Cómo funciona</a>
+      <a class="link" href="#preguntas">Preguntas</a>
+      <a class="btn btn-tinta js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar por un celular en cuotas." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#i-wa"/></svg>Escribinos
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+
+  <!-- HERO + CARTILLA -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="hero-kicker mono">Samsung Galaxy Ultra · nuevos en caja sellada</p>
+        <h1>Tu Galaxy Ultra en cuotas, <span class="subrayado">solo con tu DNI.</span></h1>
+        <p class="hero-texto">S23, S24 y S25 Ultra nuevos, en caja sellada. Pagás en cuotas semanales, quincenales o mensuales. Tenés 12 meses de garantía escrita y te lo enviamos a cualquier zona.</p>
+        <div class="hero-acciones">
+          <a class="btn btn-tinta" href="#cartilla">Armar mi plan de cuotas</a>
+          <a class="btn btn-linea" href="#modelos">Ver modelos</a>
+        </div>
+      </div>
+
+      <div class="cartilla" id="cartilla">
+        <div class="sello" aria-hidden="true">Solo DNI<small>sin tarjeta</small></div>
+        <div class="cartilla-head">
+          <strong>Cartilla de pagos</strong>
+        </div>
+
+        <div class="campo">
+          <span class="campo-label mono">Equipo</span>
+          <span class="campo-valor" id="equipoTxt" aria-live="polite">Samsung S25 Ultra</span>
+        </div>
+
+        <fieldset class="grupo">
+          <legend class="mono">Elegí el equipo</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="equipo" value="S25 Ultra" checked><span>S25 Ultra</span></label>
+            <label class="opcion"><input type="radio" name="equipo" value="S24 Ultra"><span>S24 Ultra</span></label>
+            <label class="opcion"><input type="radio" name="equipo" value="S23 Ultra"><span>S23 Ultra</span></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="grupo">
+          <legend class="mono">¿Cada cuánto querés pagar?</legend>
+          <div class="opciones">
+            <label class="opcion"><input type="radio" name="frecuencia" value="semanal"><span>Semanal</span></label>
+            <label class="opcion"><input type="radio" name="frecuencia" value="quincenal" checked><span>Quincenal</span></label>
+            <label class="opcion"><input type="radio" name="frecuencia" value="mensual"><span>Mensual</span></label>
+          </div>
+        </fieldset>
+
+        <div class="casillas" id="casillas" aria-hidden="true"></div>
+
+        <p class="cartilla-nota">El monto de cada cuota depende del equipo y de cada cuánto pagues. Te lo pasamos por WhatsApp.</p>
+        <a class="btn btn-tinta" id="ctaCartilla" href="https://wa.me/5491168561369" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir mi cuota por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- DATOS -->
+  <section class="datos" aria-label="Por qué comprar en Tecnocell">
+    <div class="wrap">
+      <ul>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.3"/><path d="M5.8 16c.6-1.6 1.8-2.4 3.2-2.4s2.6.8 3.2 2.4M14.5 10h4M14.5 13.5h3"/></svg>
+          <div><strong>Solo foto del DNI</strong><p>Es lo único que pedimos para darte las cuotas.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 7.5 12 3l9 4.5v9L12 21l-9-4.5z"/><path d="M3 7.5 12 12l9-4.5M12 12v9M7.5 5.2l9 4.5"/></svg>
+          <div><strong>Nuevos, caja sellada</strong><p>Los abrís vos, de fábrica.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6z"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg>
+          <div><strong>12 meses de garantía</strong><p>Por escrito, con cada equipo.</p></div>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 6.5h11v9h-11zM13.5 9.5h4l3 3.2v2.8h-7"/><circle cx="6.5" cy="17" r="1.8"/><circle cx="17" cy="17" r="1.8"/></svg>
+          <div><strong>Envíos a todas las zonas</strong><p>Te lo mandamos donde estés.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- MODELOS -->
+  <section class="bloque" id="modelos">
+    <div class="wrap">
+      <div class="bloque-head">
+        <h2>Los tres Ultra<br>que tenemos</h2>
+        <p>Trabajamos con la línea Ultra de Samsung, la de gama más alta. Preguntanos por colores y disponibilidad.</p>
+      </div>
+
+      <div class="modelos">
+        <!-- S25 -->
+        <article class="modelo">
+          <div class="modelo-foto">
+            <span class="etiqueta mono nueva">El más nuevo</span>
+            <svg viewBox="0 0 120 230" aria-hidden="true">
+              <defs><linearGradient id="g25" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9D3DE"/><stop offset=".55" stop-color="#9FADBD"/><stop offset="1" stop-color="#7E8C9C"/></linearGradient></defs>
+              <rect x="6" y="6" width="108" height="218" rx="20" fill="url(#g25)" stroke="#6C7A8A" stroke-width="2"/>
+              <g fill="#0E1015" stroke="#5E6B7A" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
+              <g fill="#25335A"><circle cx="32" cy="38" r="4.5"/><circle cx="32" cy="70" r="4.5"/><circle cx="32" cy="102" r="4.5"/></g>
+              <circle cx="60" cy="62" r="3.5" fill="#F3EFD6"/>
+            </svg>
+          </div>
+          <div class="modelo-info">
+            <h3><small>Samsung Galaxy</small>S25 Ultra</h3>
+            <p class="modelo-desc">El último Ultra. Tiene la pantalla más grande de la línea y el procesador más rápido.</p>
+            <dl class="specs">
+              <dt>Pantalla</dt><dd>6,9"</dd>
+              <dt>Cámara</dt><dd>200 MP</dd>
+              <dt>Procesador</dt><dd>Snapdragon 8 Elite</dd>
+              <dt>Extra</dt><dd>S Pen · Galaxy AI</dd>
+            </dl>
+            <a class="btn btn-tinta js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar la cuota del Samsung S25 Ultra." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Consultar cuota del S25</a>
+          </div>
+        </article>
+
+        <!-- S24 -->
+        <article class="modelo">
+          <div class="modelo-foto">
+            <svg viewBox="0 0 120 230" aria-hidden="true">
+              <defs><linearGradient id="g24" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A7A6A2"/><stop offset=".55" stop-color="#7E7D79"/><stop offset="1" stop-color="#5F5E5B"/></linearGradient></defs>
+              <rect x="6" y="6" width="108" height="218" rx="9" fill="url(#g24)" stroke="#55544F" stroke-width="2"/>
+              <g fill="#0E1015" stroke="#4A4945" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
+              <g fill="#25335A"><circle cx="32" cy="38" r="4.5"/><circle cx="32" cy="70" r="4.5"/><circle cx="32" cy="102" r="4.5"/></g>
+              <circle cx="60" cy="62" r="3.5" fill="#F3EFD6"/>
+            </svg>
+          </div>
+          <div class="modelo-info">
+            <h3><small>Samsung Galaxy</small>S24 Ultra</h3>
+            <p class="modelo-desc">Marco de titanio y el primero de la línea con Galaxy AI.</p>
+            <dl class="specs">
+              <dt>Pantalla</dt><dd>6,8"</dd>
+              <dt>Cámara</dt><dd>200 MP</dd>
+              <dt>Procesador</dt><dd>Snapdragon 8 Gen 3</dd>
+              <dt>Extra</dt><dd>S Pen · Galaxy AI</dd>
+            </dl>
+            <a class="btn btn-tinta js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar la cuota del Samsung S24 Ultra." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Consultar cuota del S24</a>
+          </div>
+        </article>
+
+        <!-- S23 -->
+        <article class="modelo">
+          <div class="modelo-foto">
+            <svg viewBox="0 0 120 230" aria-hidden="true">
+              <defs><linearGradient id="g23" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4F58"/><stop offset=".55" stop-color="#2C3037"/><stop offset="1" stop-color="#1B1E23"/></linearGradient></defs>
+              <rect x="6" y="6" width="108" height="218" rx="12" fill="url(#g23)" stroke="#15171B" stroke-width="2"/>
+              <g fill="#0B0C10" stroke="#5A606B" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
+              <g fill="#25335A"><circle cx="32" cy="38" r="4.5"/><circle cx="32" cy="70" r="4.5"/><circle cx="32" cy="102" r="4.5"/></g>
+              <circle cx="60" cy="62" r="3.5" fill="#F3EFD6"/>
+            </svg>
+          </div>
+          <div class="modelo-info">
+            <h3><small>Samsung Galaxy</small>S23 Ultra</h3>
+            <p class="modelo-desc">Tiene la misma cámara de 200 MP y el S Pen integrado.</p>
+            <dl class="specs">
+              <dt>Pantalla</dt><dd>6,8"</dd>
+              <dt>Cámara</dt><dd>200 MP</dd>
+              <dt>Procesador</dt><dd>Snapdragon 8 Gen 2</dd>
+              <dt>Extra</dt><dd>S Pen integrado</dd>
+            </dl>
+            <a class="btn btn-tinta js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar la cuota del Samsung S23 Ultra." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Consultar cuota del S23</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="bloque pasos-bloque" id="como">
+    <div class="wrap">
+      <div class="bloque-head">
+        <h2>Cómo sacar tu<br>celular en cuotas</h2>
+        <p>Todo se hace por WhatsApp. No hace falta tener tarjeta ni ir a un local.</p>
+      </div>
+      <ol class="pasos">
+        <li>
+          <h3>Elegís el equipo y cada cuánto pagar</h3>
+          <p>Elegí entre pagar semanal, quincenal o mensual, según cómo cobres.</p>
+        </li>
+        <li class="dni">
+          <h3>Nos mandás <span class="marca-dni">foto de tu DNI</span></h3>
+          <p>Por WhatsApp. Es lo único que pedimos.</p>
+        </li>
+        <li>
+          <h3>Te pasamos la cuota</h3>
+          <p>Te decimos cuánto pagás en cada cuota y coordinamos el envío.</p>
+        </li>
+        <li>
+          <h3>Lo recibís en caja sellada</h3>
+          <p>Te llega nuevo y con la garantía escrita de 12 meses, a cualquier zona.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- PREGUNTAS -->
+  <section class="bloque" id="preguntas">
+    <div class="wrap faq-grid">
+      <div class="faq-lado">
+        <h2>Preguntas frecuentes</h2>
+        <p>¿Tenés otra duda? Escribinos y te contestamos por WhatsApp.</p>
+        <a class="btn btn-tinta js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Tengo una consulta." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Hacer una consulta</a>
+      </div>
+      <div class="faq">
+        <details open>
+          <summary>¿Necesito tarjeta de crédito o recibo de sueldo?</summary>
+          <p>No. Para darte las cuotas pedimos solo una foto de tu DNI.</p>
+        </details>
+        <details>
+          <summary>¿Las cuotas son con un banco?</summary>
+          <p>No, son cuotas personales con nosotros. Elegís si pagás por semana, cada quince días o por mes.</p>
+        </details>
+        <details>
+          <summary>¿Los celulares son nuevos?</summary>
+          <p>Sí. Todos los equipos son nuevos y vienen en caja sellada.</p>
+        </details>
+        <details>
+          <summary>¿Qué garantía tienen?</summary>
+          <p>12 meses de garantía, por escrito, con cada equipo.</p>
+        </details>
+        <details>
+          <summary>¿Hacen envíos a mi zona?</summary>
+          <p>Sí, enviamos a todas las zonas. Coordinamos el envío por WhatsApp cuando cerramos tu plan.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANNER DE AUTOR -->
+  <section class="autor">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow mono">Diseño web</span>
+        <h2>Este boceto lo diseñó <em>Teo Cicciari</em></h2>
+      </div>
+      <div>
+        <p>¿Querés una página así para tu negocio? Pedí la tuya: diseño a medida, pensado para que te escriban más clientes.</p>
+        <a class="btn btn-blanco" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios ↗</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="marca" href="#inicio">TECNO<b>CELL</b></a>
+        <p>Samsung Galaxy Ultra nuevos, en cuotas personales solo con tu DNI.</p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a class="js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar por un celular en cuotas." target="_blank" rel="noopener">WhatsApp 11 6856-1369</a></li>
+          <li>Envíos a todas las zonas</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Equipos</h4>
+        <ul>
+          <li><a href="#modelos">S25 Ultra</a></li>
+          <li><a href="#modelos">S24 Ultra</a></li>
+          <li><a href="#modelos">S23 Ultra</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© <span id="anio"></span> Tecnocell. Todos los derechos reservados.</span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flotante js-wa" href="https://wa.me/5491168561369" data-msg="Hola Tecnocell! Quiero consultar por un celular en cuotas." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg aria-hidden="true"><use href="#i-wa"/></svg>
+</a>
+
+<script>
+  const WA = "5491168561369";
+  const waLink = msg => `https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+
+  // links de WhatsApp con mensaje precargado
+  document.querySelectorAll(".js-wa").forEach(a => { a.href = waLink(a.dataset.msg); });
+
+  // cartilla de pagos
+  const etiquetas = { semanal: "Sem.", quincenal: "Quinc.", mensual: "Mes" };
+  const plural    = { semanal: "semanales", quincenal: "quincenales", mensual: "mensuales" };
+  const equipoTxt = document.getElementById("equipoTxt");
+  const casillas  = document.getElementById("casillas");
+  const cta       = document.getElementById("ctaCartilla");
+
+  function valor(nombre){ return document.querySelector(`input[name="${nombre}"]:checked`).value; }
+
+  function pintar(animar){
+    const equipo = valor("equipo"), frec = valor("frecuencia");
+    equipoTxt.textContent = `Samsung ${equipo}`;
+    if (animar){ equipoTxt.classList.remove("escribir"); void equipoTxt.offsetWidth; equipoTxt.classList.add("escribir"); }
+
+    let html = "";
+    for (let i = 1; i <= 7; i++){
+      html += `<div class="casilla"><span class="mono">${etiquetas[frec]} ${i}</span><i>$</i></div>`;
+    }
+    html += `<div class="casilla sigue">…</div>`;
+    casillas.innerHTML = html;
+
+    cta.href = waLink(`Hola Tecnocell! Quiero el Samsung ${equipo} en cuotas ${plural[frec]}. ¿Cuánto me queda la cuota?`);
+  }
+
+  document.querySelectorAll('.cartilla input[type="radio"]').forEach(r =>
+    r.addEventListener("change", e => pintar(e.target.name === "equipo"))
+  );
+  pintar(false);
+
+  // fecha dinámica del footer
+  document.getElementById("anio").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

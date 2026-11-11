@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Propuesta Tecnocell</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@500;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#E4ECF0;
+    --papel-2:#D6E1E7;
+    --carton:#FAFCFD;
+    --tinta:#1C2FA6;
+    --tinta-osc:#141F75;
+    --grafito:#14161B;
+    --sello:#D3242C;
+    --titanio:#5F6976;
+    --linea:#BFCDD6;
+    --f-display:"Archivo","Arial Narrow",sans-serif;
+    --f-body:"Hanken Grotesk",system-ui,sans-serif;
+    --f-mono:"IBM Plex Mono",ui-monospace,monospace;
+    --f-mano:"Caveat",cursive;
+    --radio:6px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--papel);color:var(--grafito);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--tinta);outline-offset:3px;border-radius:3px}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  h1,h2,h3{font-family:var(--f-display);margin:0;text-wrap:balance}
+  h2{font-variation-settings:"wdth" 72;font-weight:850;font-size:clamp(36px,4.6vw,58px);line-height:.98}
+
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--f-body);font-weight:700;font-size:16px;padding:15px 22px;border-radius:var(--radio);text-decoration:none;border:2px solid transparent;transition:background-color .15s,color .15s,transform .15s}
+  .btn svg{width:20px;height:20px;flex:none}
+  .btn-tinta{background:var(--tinta);color:#fff}
+  .btn-tinta:hover{background:var(--tinta-osc)}
+  .btn-linea{border-color:var(--grafito)}
+  .btn-linea:hover{background:var(--grafito);color:var(--papel)}
+  .btn-blanco{background:#fff;color:var(--tinta)}
+  .btn-blanco:hover{background:var(--papel)}
+  .btn:active{transform:translateY(1px)}
+
+  /* encabezado */
+  .top{border-bottom:1px solid var(--linea)}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:64px;flex-wrap:wrap}
+  .top .mono{color:var(--titanio)}
+  .marca{font-family:var(--f-display);font-variation-settings:"wdth" 125;font-weight:850;font-size:20px;letter-spacing:.04em}
+  .marca b{color:var(--tinta)}
+
+  /* hero */
+  .hero{padding:64px 0 40px}
+  .hero .kicker{color:var(--titanio);margin:0 0 20px;display:flex;gap:10px;align-items:center}
+  .hero .kicker::before{content:"";width:28px;height:2px;background:var(--tinta)}
+  .hero h1{font-variation-settings:"wdth" 72;font-weight:850;font-size:clamp(44px,6.4vw,86px);line-height:.94;max-width:900px}
+  .hero h1 span{color:var(--tinta)}
+  .hero p.intro{font-size:19px;max-width:620px;margin:24px 0 0}
+
+  /* vista previa */
+  .preview{padding:28px 0 96px}
+  .navegador{background:var(--grafito);border-radius:10px;padding:10px;box-shadow:0 30px 60px -30px rgba(20,31,117,.45)}
+  .navegador-barra{display:flex;align-items:center;gap:8px;padding:2px 6px 10px}
+  .navegador-barra i{width:10px;height:10px;border-radius:50%;background:#3A3F49}
+  .navegador-barra .url{margin-left:12px;flex:1;background:#262A32;color:#AEB6C2;border-radius:5px;padding:5px 12px;font-family:var(--f-mono);font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .pantalla{position:relative;overflow:hidden;border-radius:4px;background:var(--papel);height:560px}
+  .pantalla iframe{position:absolute;top:0;left:0;width:1280px;height:2000px;border:0;transform-origin:0 0}
+  .preview-pie{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:22px}
+  .preview-pie p{margin:0;color:var(--titanio);max-width:560px}
+
+  /* análisis de marca */
+  .marca-sec{padding:0 0 96px}
+  .marca-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:40px;border-top:1.5px solid var(--grafito);padding-top:56px}
+  .marca-head p{max-width:420px;margin:0;color:var(--titanio)}
+  .sub{font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);margin:0 0 18px}
+  .hallazgos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:28px}
+  .hallazgo{background:var(--carton);border:1px solid var(--linea);border-radius:var(--radio);padding:24px}
+  .hallazgo .tag{display:inline-block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;padding:4px 8px;border-radius:3px;margin-bottom:14px;background:color-mix(in srgb,var(--sello) 12%,#fff);color:var(--sello)}
+  .hallazgo h3{font-variation-settings:"wdth" 95;font-weight:750;font-size:21px;line-height:1.15;margin-bottom:8px}
+  .hallazgo p{margin:0;font-size:15.5px;color:var(--titanio)}
+  .hallazgo p a{color:var(--tinta);font-weight:600}
+  .hallazgo .tag-fuerte{background:var(--sello);color:#fff}
+  .recomendacion{background:var(--grafito);color:var(--papel);border-radius:var(--radio);padding:30px;display:grid;grid-template-columns:1.1fr 1fr;gap:32px;align-items:center;margin-bottom:72px}
+  .recomendacion h3{font-variation-settings:"wdth" 95;font-weight:800;font-size:26px;line-height:1.1;color:#fff;margin-bottom:10px}
+  .recomendacion p{margin:0;color:#AEB6C2;font-size:15.5px}
+  .recomendacion p + p{margin-top:10px}
+  .variantes{display:grid;gap:10px}
+  .variante{background:#1F2229;border:1px solid #2B2F38;border-radius:4px;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+  .variante .marca{color:#fff;font-size:19px}
+  .variante .marca b{color:#8EA0FF}
+  .variante .marca em{font-style:normal;font-weight:600;font-variation-settings:"wdth" 100;color:#AEB6C2;letter-spacing:.02em}
+  .variante .mono{color:#7F8896;font-size:10.5px;text-align:right}
+
+  .identidad{display:grid;grid-template-columns:1fr 1.25fr;gap:48px;align-items:start}
+  .identidad-texto p{margin:0 0 14px}
+  .personalizable{margin-top:22px;border-left:3px solid var(--sello);padding:4px 0 4px 16px;font-weight:600}
+  .personalizable span{display:block;font-weight:400;color:var(--titanio);font-size:15.5px;margin-top:4px}
+  .muestras{background:var(--carton);border:1px solid var(--linea);border-radius:var(--radio);padding:28px}
+  .logo-muestra{font-family:var(--f-display);font-variation-settings:"wdth" 125;font-weight:850;font-size:clamp(34px,5vw,52px);letter-spacing:.04em;line-height:1;padding-bottom:22px;border-bottom:1px solid var(--linea);margin-bottom:22px}
+  .logo-muestra b{color:var(--tinta)}
+  .colores{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px}
+  .color i{display:block;height:58px;border-radius:4px;border:1px solid rgba(20,22,27,.12);margin-bottom:8px}
+  .color strong{display:block;font-size:13.5px;line-height:1.2}
+  .color span{font-family:var(--f-mono);font-size:10.5px;color:var(--titanio)}
+  .tipos{display:grid;gap:0;border-top:1px solid var(--linea)}
+  .tipo{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:12px 0;border-bottom:1px solid var(--linea)}
+  .tipo .mono{color:var(--titanio);font-size:10.5px;text-align:right}
+  .t-display{font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:850;font-size:30px;line-height:1}
+  .t-body{font-family:var(--f-body);font-size:18px}
+  .t-mano{font-family:var(--f-mano);font-weight:700;font-size:28px;color:var(--tinta);line-height:1;white-space:nowrap}
+
+  /* qué incluye */
+  .incluye{background:var(--carton);border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);padding:96px 0}
+  .incluye-head{display:flex;justify-content:space-between;align-items:end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+  .incluye-head p{max-width:380px;margin:0;color:var(--titanio)}
+  .grupos{display:grid;grid-template-columns:repeat(2,1fr);gap:44px 56px}
+  .grupo h3{font-variation-settings:"wdth" 100;font-weight:750;font-size:14px;font-family:var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);border-bottom:2px solid var(--grafito);padding-bottom:10px;margin-bottom:6px}
+  .lista{list-style:none;margin:0;padding:0}
+  .lista li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--linea)}
+  .lista li::before{
+    content:"";width:18px;height:18px;margin-top:4px;border:1.5px solid var(--tinta);border-radius:2px;
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%231C2FA6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat
+  }
+  .lista strong{display:block;font-weight:700}
+  .lista span{color:var(--titanio);font-size:15.5px}
+
+  /* precio */
+  .precio{padding:96px 0}
+  .precio-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+  .precio-texto h2{margin-bottom:20px}
+  .precio-texto p{margin:0 0 16px}
+  .condiciones{list-style:none;margin:28px 0 0;padding:0;border-top:1.5px solid var(--grafito)}
+  .condiciones li{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid var(--linea);font-size:15.5px}
+  .condiciones li b{font-weight:700;text-align:right}
+
+  .comprobante{position:relative;background:var(--carton);border-radius:4px;padding:30px 30px 30px 58px;box-shadow:0 1px 0 var(--linea),0 24px 50px -24px rgba(20,31,117,.35);transform:rotate(-1deg)}
+  .comprobante::before{content:"";position:absolute;left:0;top:0;bottom:0;width:30px;background:radial-gradient(circle at 15px 12px,var(--papel) 5px,transparent 5.5px) 0 0/30px 24px repeat-y;border-right:2px dashed var(--linea)}
+  .comp-head{display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid var(--grafito);padding-bottom:10px;margin-bottom:20px}
+  .comp-head strong{font-family:var(--f-display);font-variation-settings:"wdth" 110;font-weight:800;font-size:19px}
+  .comp-head span{color:var(--titanio)}
+  .renglon{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:10px 0;border-bottom:1px dotted var(--titanio)}
+  .renglon .mono{color:var(--titanio)}
+  .renglon .valor{font-family:var(--f-mano);font-weight:700;font-size:26px;color:var(--tinta);line-height:1}
+  .tachado{text-decoration:line-through;text-decoration-color:var(--sello);text-decoration-thickness:2px;color:var(--titanio) !important}
+  .total{margin-top:26px}
+  .total .mono{color:var(--titanio);display:block;margin-bottom:4px}
+  .total .monto{font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:900;font-size:clamp(64px,9vw,104px);line-height:.9;color:var(--grafito);letter-spacing:-.01em}
+  .total .monto small{font-size:.32em;font-weight:700;letter-spacing:.04em;color:var(--titanio);margin-left:6px}
+  .total p{margin:10px 0 0;color:var(--titanio);font-size:15px}
+  .sello{position:absolute;top:-24px;right:-16px;font-family:var(--f-display);font-variation-settings:"wdth" 80;font-weight:900;font-size:24px;letter-spacing:.06em;text-transform:uppercase;color:var(--sello);border:3px solid var(--sello);outline:1.5px solid var(--sello);outline-offset:3px;padding:6px 14px 4px;border-radius:4px;background:color-mix(in srgb,var(--carton) 70%,transparent);transform:rotate(9deg);mix-blend-mode:multiply;animation:sellar .45s cubic-bezier(.2,1.6,.4,1) .5s both}
+  .sello small{display:block;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.14em;font-weight:600;text-align:center}
+  @keyframes sellar{from{opacity:0;transform:rotate(9deg) scale(1.9)}to{opacity:1;transform:rotate(9deg) scale(1)}}
+
+  /* gestión opcional */
+  .gestion{margin-top:56px;border:1.5px dashed var(--titanio);border-radius:var(--radio);padding:28px 30px;display:grid;grid-template-columns:1fr 1.4fr;gap:32px;align-items:start}
+  .gestion .mono{color:var(--tinta);display:block;margin-bottom:8px}
+  .gestion h3{font-variation-settings:"wdth" 95;font-weight:800;font-size:26px;line-height:1.1}
+  .gestion .cuota{margin-top:12px;font-weight:700}
+  .gestion .cuota small{display:block;font-weight:400;color:var(--titanio);font-size:14.5px}
+
+  /* pasos */
+  .pasos-sec{background:var(--grafito);color:var(--papel);padding:88px 0}
+  .pasos-sec h2{color:#fff;margin-bottom:44px}
+  .pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:p;gap:28px}
+  .pasos li{counter-increment:p;border-top:2px solid #2B2F38;padding-top:18px}
+  .pasos li::before{content:counter(p);display:block;font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:900;font-size:46px;line-height:1;color:#8EA0FF;margin-bottom:12px}
+  .pasos h3{font-variation-settings:"wdth" 95;font-weight:750;font-size:20px;color:#fff;margin-bottom:6px}
+  .pasos p{margin:0;color:#AEB6C2;font-size:15.5px}
+
+  /* autor + cierre */
+  .autor{background:var(--tinta);color:#fff;padding:88px 0;position:relative;overflow:hidden}
+  .autor::before{content:"";position:absolute;inset:0 auto 0 0;width:30px;background:radial-gradient(circle at 15px 12px,var(--papel) 5px,transparent 5.5px) 0 0/30px 24px repeat-y}
+  .autor .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:end}
+  .autor .eyebrow{display:inline-block;color:var(--tinta);background:#fff;padding:5px 10px;border-radius:3px;margin-bottom:20px}
+  .autor h2{color:#fff}
+  .autor h2 em{font-family:var(--f-mano);font-style:normal;font-weight:700;font-variation-settings:normal;font-size:1.12em;color:#FFD3D5}
+  .autor p{margin:0 0 24px;color:#D2D8FF;font-size:18px}
+  .autor .acciones{display:flex;flex-wrap:wrap;gap:12px}
+  .autor .btn-linea{border-color:#fff;color:#fff}
+  .autor .btn-linea:hover{background:#fff;color:var(--tinta)}
+  .autor :focus-visible{outline-color:#fff}
+
+  footer{background:var(--grafito);color:#AEB6C2;padding:26px 0;font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a{color:#8EA0FF;text-decoration:none}
+  footer a:hover{text-decoration:underline}
+
+  @media (max-width:900px){
+    .grupos,.precio-grid,.gestion,.autor .wrap,.hallazgos,.recomendacion,.identidad{grid-template-columns:1fr}
+    .pasos{grid-template-columns:1fr 1fr}
+    .comprobante{transform:none;max-width:560px}
+    .pantalla{height:420px}
+  }
+  @media (max-width:600px){
+    body{font-size:16px}
+    .wrap{padding:0 16px}
+    .hero{padding:44px 0 28px}
+    .hero p.intro{font-size:17px}
+    .pantalla{height:340px}
+    .preview{padding-bottom:68px}
+    .preview-pie .btn{width:100%}
+    .incluye,.precio{padding:68px 0}
+    .comprobante{padding:26px 18px 24px 42px}
+    .comprobante::before{width:22px;background-position:-4px 0}
+    .sello{right:-4px;font-size:20px}
+    .gestion{padding:22px 18px}
+    .pasos{grid-template-columns:1fr}
+    .marca-sec{padding-bottom:68px}
+    .marca-head{padding-top:44px}
+    .recomendacion,.muestras{padding:22px 18px}
+    .variante{flex-direction:column;gap:4px}
+    .variante .mono{text-align:left}
+    .colores{grid-template-columns:repeat(3,1fr)}
+    .autor{padding:64px 0}
+    .autor::before{width:22px;background-position:-4px 0}
+    .autor .btn{width:100%}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *,*::before,*::after{animation:none !important;transition:none !important}
+    html{scroll-behavior:auto}
+  }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 2.8a9.2 9.2 0 0 0-7.9 13.9L2.8 21.2l4.6-1.2A9.2 9.2 0 1 0 12 2.8z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M8.6 7.6c.3-.3.8-.3 1 .1l1 1.9c.2.3.1.7-.1 1l-.6.6c.6 1.3 1.6 2.3 2.9 2.9l.6-.6c.3-.2.7-.3 1-.1l1.9 1c.4.2.4.7.1 1l-.8.8c-.6.6-1.5.7-2.3.4-2.6-1-4.7-3.1-5.7-5.7-.3-.8-.2-1.7.4-2.3z" fill="currentColor"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <span class="marca">TECNO<b>CELL</b></span>
+    <span class="mono">Propuesta de Teo Cicciari · 10/11/2026</span>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker mono">Propuesta de página web</p>
+      <h1>Una página para que <span>te pidan la cuota por WhatsApp.</span></h1>
+      <p class="intro">Este es el boceto que armé para Tecnocell y todo lo que incluye dejarlo publicado. Debajo está el precio promocional que te ofrezco.</p>
+    </div>
+  </section>
+
+  <section class="preview" aria-label="Vista previa del boceto">
+    <div class="wrap">
+      <div class="navegador">
+        <div class="navegador-barra" aria-hidden="true"><i></i><i></i><i></i><span class="url">boceto · tecnocell</span></div>
+        <div class="pantalla" id="pantalla">
+          <iframe src="index.html" title="Boceto del sitio de Tecnocell" loading="lazy" tabindex="-1"></iframe>
+        </div>
+      </div>
+      <div class="preview-pie">
+        <p>Probá la cartilla de pagos: elegí un equipo y cada cuánto pagar, y el botón arma el mensaje de WhatsApp con eso.</p>
+        <a class="btn btn-linea" href="index.html" target="_blank" rel="noopener">Abrir el boceto completo ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="marca-sec" id="marca">
+    <div class="wrap">
+      <div class="marca-head">
+        <h2>Análisis<br>de marca</h2>
+        <p>Antes de publicar conviene saber cómo te van a encontrar. Esto es lo que vi del nombre Tecnocell y la identidad que propongo para la página.</p>
+      </div>
+
+      <p class="sub">El nombre</p>
+      <div class="hallazgos">
+        <article class="hallazgo">
+          <span class="tag tag-fuerte">Importante</span>
+          <h3>En Luján ya hay un Tecno Cell</h3>
+          <p>La cuenta de Instagram <a href="https://www.instagram.com/tecno_cellpueblo/" target="_blank" rel="noopener">Tecno Cell Pueblo</a> también vende celulares en Luján, con envíos a domicilio. Es el mismo rubro en la misma zona, así que un cliente los puede confundir.</p>
+        </article>
+        <article class="hallazgo">
+          <span class="tag">A tener en cuenta</span>
+          <h3>El dominio tecnocell.ar ya tiene dueño</h3>
+          <p><a href="https://tecnocell.ar/" target="_blank" rel="noopener">tecnocell.ar</a> es de otro negocio, un catálogo de accesorios y repuestos para celulares. Con un nombre tan usado, el .com.ar y el usuario de Instagram también pueden estar tomados.</p>
+        </article>
+        <article class="hallazgo">
+          <span class="tag">A tener en cuenta</span>
+          <h3>Suena parecido a Tecno, la marca de celulares</h3>
+          <p>Tecno es una marca china que se vende en Argentina. Si alguien busca "Tecnocell" en Google, puede terminar en resultados de esa marca.</p>
+        </article>
+      </div>
+
+      <div class="recomendacion">
+        <div>
+          <h3>Dos caminos: un distintivo claro o un nombre nuevo</h3>
+          <p>Si te quedás con Tecnocell, lo usamos siempre con un complemento propio, igual en el dominio, en Instagram y en Google. Así te encuentran a vos y no a otro Tecnocell. No le sumaría "Luján", porque te acerca todavía más a Tecno Cell Pueblo.</p>
+          <p>Como en tu zona ya hay uno parecido, también vale la pena pensar un nombre nuevo, ahora que la marca arranca. Lo vemos juntos. Antes de publicar verifico qué dominio y qué usuario están libres.</p>
+        </div>
+        <div class="variantes">
+          <div class="variante"><span class="marca">TECNO<b>CELL</b> <em>CUOTAS</em></span><span class="mono">Dice lo que hacés</span></div>
+          <div class="variante"><span class="marca">TECNO<b>CELL</b> <em>ULTRA</em></span><span class="mono">Habla de tus equipos</span></div>
+          <div class="variante"><span class="marca"><em>¿NOMBRE NUEVO?</em></span><span class="mono">Una marca solo tuya</span></div>
+        </div>
+      </div>
+
+      <p class="sub">La identidad visual</p>
+      <div class="identidad">
+        <div class="identidad-texto">
+          <p>Tecnocell no tenía logo ni colores, así que la identidad del boceto <strong>la inventé yo</strong> a partir de cómo trabajás.</p>
+          <p>La idea sale de la cartilla de pagos de toda la vida: el cartón con un casillero por cuota, la letra a mano y el sello rojo de "Solo DNI". Así cualquiera entiende al toque que vendés en cuotas personales y que es simple.</p>
+          <p class="personalizable">Todo se puede personalizar a tu gusto.<span>Si ya tenés un logo o colores, los adaptamos a la página. Si te gusta así, queda como la identidad de Tecnocell y la podés usar también en tus estados y redes.</span></p>
+        </div>
+        <div class="muestras">
+          <div class="logo-muestra">TECNO<b>CELL</b></div>
+          <div class="colores">
+            <div class="color"><i style="background:#E4ECF0"></i><strong>Papel</strong><span>#E4ECF0</span></div>
+            <div class="color"><i style="background:#1C2FA6"></i><strong>Tinta cobalto</strong><span>#1C2FA6</span></div>
+            <div class="color"><i style="background:#D3242C"></i><strong>Rojo sello</strong><span>#D3242C</span></div>
+            <div class="color"><i style="background:#14161B"></i><strong>Grafito</strong><span>#14161B</span></div>
+            <div class="color"><i style="background:#5F6976"></i><strong>Titanio</strong><span>#5F6976</span></div>
+          </div>
+          <div class="tipos">
+            <div class="tipo"><span class="t-display">Archivo</span><span class="mono">Títulos</span></div>
+            <div class="tipo"><span class="t-body">Hanken Grotesk</span><span class="mono">Textos</span></div>
+            <div class="tipo"><span class="t-mano">Caveat, a mano</span><span class="mono">Lo que se completa en la cartilla</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="incluye">
+    <div class="wrap">
+      <div class="incluye-head">
+        <h2>Qué incluye<br>la página</h2>
+        <p>Es una página hecha a medida para Tecnocell, no una plantilla con tus datos cargados.</p>
+      </div>
+
+      <div class="grupos">
+        <div class="grupo">
+          <h3>Diseño</h3>
+          <ul class="lista">
+            <li><div><strong>Diseño a medida</strong><span>Colores, tipografías y estilo propios de Tecnocell.</span></div></li>
+            <li><div><strong>Se ve bien en el celular</strong><span>También en tablet y compu. La mayoría de tus clientes va a entrar desde el teléfono.</span></div></li>
+            <li><div><strong>Catálogo de equipos</strong><span>Una ficha por modelo con foto, datos y botón de consulta. Se pueden sumar modelos.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Ventas por WhatsApp</h3>
+          <ul class="lista">
+            <li><div><strong>Cartilla de cuotas</strong><span>El cliente elige equipo y frecuencia, y el mensaje te llega con esos datos.</span></div></li>
+            <li><div><strong>Botones de WhatsApp en todo el sitio</strong><span>Con mensaje precargado según el equipo que mira. También hay un botón fijo en pantalla.</span></div></li>
+            <li><div><strong>Cómo funcionan las cuotas y preguntas frecuentes</strong><span>Responden lo de siempre (DNI, garantía, envíos) antes de que te escriban.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Google y buscadores</h3>
+          <ul class="lista">
+            <li><div><strong>Preparada para aparecer en Google</strong><span>Títulos, descripciones y datos estructurados del negocio.</span></div></li>
+            <li><div><strong>Lista para buscadores con IA</strong><span>Configurada para que ChatGPT o Gemini puedan leerla y recomendarla.</span></div></li>
+            <li><div><strong>Carga rápida</strong><span>Liviana, para que abra rápido aunque la conexión sea mala.</span></div></li>
+          </ul>
+        </div>
+
+        <div class="grupo">
+          <h3>Entrega</h3>
+          <ul class="lista">
+            <li><div><strong>Ajustes sobre el boceto</strong><span>Sumamos tus fotos, logo, colores y textos.</span></div></li>
+            <li><div><strong>Dos rondas de cambios</strong><span>Revisás la página y me pedís lo que quieras modificar.</span></div></li>
+            <li><div><strong>Publicada con tu dominio</strong><span>Elegimos uno que esté libre, según el análisis de marca. Te ayudo a registrarlo a tu nombre. El costo anual de NIC Argentina va aparte.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="precio" id="precio">
+    <div class="wrap precio-grid">
+      <div class="precio-texto">
+        <h2>Precio promocional para Tecnocell</h2>
+        <p>Mi precio de lista para un sitio nuevo es de USD 400. Para Tecnocell lo dejo en <strong>$150.000</strong>, en un solo pago y con todo lo de la lista incluido.</p>
+        <ul class="condiciones">
+          <li><span>Para arrancar</span><b>50% de seña · $75.000</b></li>
+          <li><span>Al publicar</span><b>50% restante · $75.000</b></li>
+          <li><span>Precio válido hasta</span><b>20 de noviembre de 2026</b></li>
+        </ul>
+      </div>
+
+      <div class="comprobante">
+        <div class="sello" aria-hidden="true">Promo<small>Tecnocell</small></div>
+        <div class="comp-head"><strong>Presupuesto</strong></div>
+        <div class="renglon"><span class="mono">Cliente</span><span class="valor">Tecnocell</span></div>
+        <div class="renglon"><span class="mono">Trabajo</span><span class="valor">Página web completa</span></div>
+        <div class="renglon"><span class="mono">Precio de lista</span><span class="valor tachado">USD 400</span></div>
+        <div class="total">
+          <span class="mono">Precio promocional</span>
+          <div class="monto">$150.000<small>ARS</small></div>
+          <p>Pago único. No tiene costo mensual obligatorio.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="gestion">
+        <div>
+          <span class="mono">Opcional</span>
+          <h3>Gestión mensual: me ocupo yo de la página</h3>
+          <p class="cuota">USD 25 por mes<small>Mes a mes, sin permanencia. La activás y la pausás cuando quieras.</small></p>
+        </div>
+        <ul class="lista">
+          <li><div><strong>Hosting y página online</strong><span>Me encargo de que siempre esté funcionando.</span></div></li>
+          <li><div><strong>Cambios de contenido</strong><span>Modelos nuevos, fotos y textos. Hasta 1 o 2 pedidos por mes.</span></div></li>
+          <li><div><strong>Reporte mensual</strong><span>Cuántas personas visitaron la página y cuántas te escribieron, explicado en simple.</span></div></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="pasos-sec">
+    <div class="wrap">
+      <h2>Cómo seguimos</h2>
+      <ol class="pasos">
+        <li><h3>Me confirmás</h3><p>Por WhatsApp. Con la seña arranco.</p></li>
+        <li><h3>Me pasás tu material</h3><p>Fotos de los equipos, logo si tenés y los textos que quieras sumar.</p></li>
+        <li><h3>Revisás y pedís cambios</h3><p>Te paso la página terminada y la ajustamos en dos rondas.</p></li>
+        <li><h3>La publicamos</h3><p>Queda online con tu dominio y lista para compartir en tus estados y redes.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="autor">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow mono">Diseño web</span>
+        <h2>Este boceto lo diseñó <em>Teo Cicciari</em></h2>
+      </div>
+      <div>
+        <p>¿Avanzamos con la página de Tecnocell? Escribime y arrancamos. También podés ver otros trabajos que hice.</p>
+        <div class="acciones">
+          <a class="btn btn-blanco" href="https://wa.me/5492944812580?text=Hola%20Teo!%20Quiero%20avanzar%20con%20la%20p%C3%A1gina%20de%20Tecnocell." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Quiero mi página</a>
+          <a class="btn btn-linea" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Propuesta para Tecnocell · <span id="fecha"></span></span>
+    <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+  </div>
+</footer>
+
+<script>
+  // escala la vista previa del boceto al ancho disponible
+  const pantalla = document.getElementById("pantalla");
+  const marco = pantalla.querySelector("iframe");
+  function escalar(){ marco.style.transform = `scale(${pantalla.clientWidth / 1280})`; }
+  escalar();
+  window.addEventListener("resize", escalar);
+
+  // fecha dinámica del footer
+  document.getElementById("fecha").textContent =
+    new Date().toLocaleDateString("es-AR", { day:"numeric", month:"long", year:"numeric" });
+</script>
+</body>
+</html>
