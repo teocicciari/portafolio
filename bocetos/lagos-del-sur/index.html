@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lagos del Sur · Constructora e inmobiliaria en la Comarca Andina</title>
+<meta name="description" content="Constructora e inmobiliaria de El Hoyo, Chubut. 22 años y más de 100 obras en la Comarca Andina. Terrenos, lotes, casas con lote y construcción en ladrillo, woodframe o panel SIP.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&family=Tenor+Sans&display=swap" rel="stylesheet">
+<style>
+:root{
+  --hondo:#0D3A42;
+  --hondo-2:#124751;
+  --lago:#1E6B73;
+  --glaciar:#9FD0CB;
+  --coiron:#CDB98A;
+  --niebla:#EDF1EF;
+  --niebla-2:#E1E8E5;
+  --blanco:#FFFFFF;
+  --tinta:#10272C;
+  --gris:#56686B;
+  --linea:#CBD6D3;
+
+  --f-display:'Tenor Sans', 'Optima', 'Segoe UI', sans-serif;
+  --f-body:'Hanken Grotesk', system-ui, sans-serif;
+
+  --wrap:1180px;
+  --gutter:clamp(16px, 4vw, 40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--niebla);color:var(--tinta);font-family:var(--f-body);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--lago);outline-offset:3px}
+.oscuro :focus-visible{outline-color:var(--glaciar)}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+section{padding-block:clamp(72px, 10vw, 120px)}
+
+/* ---------- tipografía ---------- */
+.etiqueta{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--lago)}
+.oscuro .etiqueta{color:var(--glaciar)}
+.h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2rem, 4.4vw, 3.2rem);line-height:1.08;letter-spacing:-.005em;margin-top:.7rem}
+.bajada{font-size:1.15rem;color:var(--gris);max-width:36rem;margin-top:1rem}
+.oscuro{background:var(--hondo);color:var(--blanco)}
+.oscuro .bajada{color:#B7CDCB}
+
+/* ---------- mojones (los cuadraditos del logo) ---------- */
+.mojones{position:relative}
+.mojones::before,.mojones::after{content:"";position:absolute;width:var(--m, 14px);height:var(--m, 14px);z-index:2}
+.mojones::before{top:calc(var(--m, 14px) * -1.6);right:calc(var(--m, 14px) * -1.6);background:var(--glaciar)}
+.mojones::after{bottom:calc(var(--m, 14px) * -1.6);left:calc(var(--m, 14px) * -1.6);background:var(--lago)}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-body);font-weight:600;font-size:.95rem;text-decoration:none;padding:.95rem 1.4rem;border:1.5px solid var(--hondo);background:var(--hondo);color:var(--blanco);cursor:pointer;transition:background .2s, color .2s, border-color .2s}
+.btn:hover{background:var(--lago);border-color:var(--lago)}
+.btn-claro{background:var(--glaciar);border-color:var(--glaciar);color:var(--hondo)}
+.btn-claro:hover{background:var(--blanco);border-color:var(--blanco)}
+
+/* ---------- logo ---------- */
+.logo{display:flex;align-items:center;gap:.9rem;text-decoration:none;color:var(--hondo)}
+.logo svg{width:44px;height:44px;flex:none}
+.logo-texto{display:flex;flex-direction:column;line-height:1}
+.logo-texto b{font-family:var(--f-display);font-weight:400;font-size:1.22rem;letter-spacing:.24em}
+.logo-texto small{font-size:.58rem;font-weight:600;letter-spacing:.3em;color:var(--lago);margin-top:.45rem;padding-top:.4rem;border-top:1px solid currentColor;border-top-color:rgba(30,107,115,.4)}
+.oscuro .logo{color:var(--blanco)}
+.oscuro .logo-texto small{color:var(--glaciar)}
+
+/* ---------- header ---------- */
+.header{position:sticky;top:0;z-index:50;background:rgba(237,241,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:border-color .3s}
+.header.scrolled{border-bottom-color:var(--linea)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:82px}
+.nav{display:flex;align-items:center;gap:1.8rem}
+.nav a{font-size:.92rem;font-weight:500;text-decoration:none;color:var(--gris)}
+.nav a:hover{color:var(--hondo)}
+.nav .btn{padding:.7rem 1.1rem;color:var(--blanco)}
+@media (max-width:900px){.nav a:not(.btn){display:none}}
+@media (max-width:420px){.logo-texto small{display:none}.logo-texto b{font-size:.98rem;letter-spacing:.16em;white-space:nowrap}.logo svg{width:38px;height:38px}}
+@media (max-width:600px){.hero-foto{--m:9px}}
+
+/* ---------- hero ---------- */
+.hero{padding-top:clamp(40px, 6vw, 72px);padding-bottom:0}
+.hero-top{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(24px, 5vw, 72px);align-items:end}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(2.5rem, 6.4vw, 5rem);line-height:1.02;letter-spacing:-.01em;margin-top:1rem;color:var(--hondo)}
+.hero-top .bajada{margin-top:0}
+.hero-foto{margin-top:clamp(40px, 5vw, 64px);--m:16px}
+.hero-foto img{width:100%;aspect-ratio:1100/470;object-fit:cover;filter:saturate(.9) contrast(1.04)}
+.hero-foto figcaption{position:absolute;left:18px;top:14px;font-size:.78rem;font-weight:500;letter-spacing:.06em;color:var(--blanco);text-shadow:0 1px 6px rgba(0,0,0,.5)}
+.puertas{display:grid;grid-template-columns:1fr 1fr;position:relative;z-index:3;margin-top:-56px;margin-inline:clamp(0px, 4vw, 48px)}
+.puerta{display:flex;flex-direction:column;gap:.4rem;padding:clamp(22px, 3vw, 34px);text-decoration:none;background:var(--hondo);color:var(--blanco);transition:background .25s}
+.puerta + .puerta{background:var(--hondo-2);border-left:1px solid rgba(159,208,203,.2)}
+.puerta:hover{background:var(--lago)}
+.puerta .etiqueta{color:var(--glaciar)}
+.puerta b{font-family:var(--f-display);font-weight:400;font-size:clamp(1.4rem, 2.4vw, 1.9rem);line-height:1.15}
+.puerta span:last-child{color:#B7CDCB;font-size:.98rem;display:flex;justify-content:space-between;gap:1rem;align-items:flex-end}
+.puerta i{font-style:normal;font-size:1.4rem;color:var(--glaciar);transition:transform .25s}
+.puerta:hover i{transform:translateX(5px)}
+@media (max-width:860px){
+  .hero-top{grid-template-columns:1fr}
+  .puertas{grid-template-columns:1fr;margin-top:-28px}
+  .puerta + .puerta{border-left:none;border-top:1px solid rgba(159,208,203,.2)}
+}
+
+/* ---------- inmobiliaria ---------- */
+.cabecera{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem 3rem}
+.cabecera .bajada{max-width:30rem}
+.categorias{display:grid;grid-template-columns:repeat(4, 1fr);gap:clamp(20px, 2.6vw, 32px);margin-top:3.2rem}
+.categoria{--m:8px;display:flex;flex-direction:column;text-decoration:none;background:var(--blanco);transition:transform .25s, box-shadow .25s}
+.categoria:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(13,58,66,.12)}
+.categoria img{width:100%;aspect-ratio:4/3;object-fit:cover;filter:saturate(.9) contrast(1.04)}
+.categoria div{padding:1.1rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.3rem;flex:1}
+.categoria b{font-family:var(--f-display);font-weight:400;font-size:1.35rem;color:var(--hondo);line-height:1.2}
+.categoria span{font-size:.95rem;color:var(--gris)}
+.categoria em{font-style:normal;font-weight:600;font-size:.88rem;color:var(--lago);margin-top:auto;padding-top:.8rem}
+@media (max-width:960px){.categorias{grid-template-columns:repeat(2, 1fr)}}
+@media (max-width:480px){.categorias{grid-template-columns:1fr}}
+.busqueda{margin-top:clamp(40px, 5vw, 56px);display:grid;grid-template-columns:auto 1fr auto;gap:1rem 2rem;align-items:center;padding:1.6rem 1.8rem;background:var(--niebla-2);border-left:4px solid var(--coiron)}
+.busqueda b{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--hondo)}
+.busqueda p{color:var(--gris);font-size:1rem}
+@media (max-width:760px){.busqueda{grid-template-columns:1fr}}
+
+/* ---------- constructora ---------- */
+.cons-grid{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 1.1fr);gap:clamp(40px, 6vw, 88px);align-items:start}
+.sistemas{list-style:none;margin-top:2.4rem;border-top:1px solid rgba(159,208,203,.25)}
+.sistemas li{display:grid;grid-template-columns:1fr auto;gap:.2rem 1rem;padding:1.15rem 0;border-bottom:1px solid rgba(159,208,203,.25)}
+.sistemas b{font-family:var(--f-display);font-weight:400;font-size:1.35rem}
+.sistemas span{color:#B7CDCB;font-size:.98rem;grid-column:1 / -1}
+.sistemas em{font-style:normal;font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--coiron);align-self:center}
+.obras{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.obras figure{position:relative;overflow:hidden}
+.obras img{width:100%;height:100%;object-fit:cover;filter:saturate(.9) contrast(1.04)}
+.obra-a,.obra-b{aspect-ratio:4/3.1}
+.obra-tira{grid-column:1 / -1;aspect-ratio:267/95}
+.obras figcaption{position:absolute;left:0;bottom:0;padding:.35rem .7rem;font-size:.75rem;font-weight:500;background:rgba(13,58,66,.82);color:var(--blanco)}
+.obras-nota{font-size:.85rem;color:#B7CDCB;margin-top:1rem}
+.tipos{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem;list-style:none}
+.tipos li{padding:.4rem .85rem;border:1px solid rgba(159,208,203,.4);font-size:.9rem}
+@media (max-width:900px){.cons-grid{grid-template-columns:1fr}}
+
+/* ---------- zona ---------- */
+.ruta{list-style:none;display:grid;grid-template-columns:repeat(10, 1fr);margin-top:3.4rem;position:relative}
+.ruta::before{content:"";position:absolute;left:0;right:0;top:6px;height:2px;background:var(--linea)}
+.parada{position:relative;padding-top:1.6rem;padding-right:.5rem}
+.parada::before{content:"";position:absolute;top:0;left:0;width:14px;height:14px;background:var(--niebla);border:2px solid var(--lago)}
+.parada b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.05rem;line-height:1.2;color:var(--hondo)}
+.parada span{display:block;font-size:.78rem;color:var(--gris);margin-top:.2rem}
+.parada.base::before{background:var(--lago);width:18px;height:18px;top:-2px}
+.parada.base b{color:var(--lago)}
+.ruta-ejes{display:flex;justify-content:space-between;margin-top:1.4rem;font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gris)}
+.zona-extra{margin-top:2.2rem;color:var(--gris)}
+.zona-extra b{color:var(--hondo);font-weight:600}
+@media (max-width:900px){
+  .ruta{grid-template-columns:1fr;gap:1.1rem;padding-left:2rem}
+  .ruta::before{left:6px;right:auto;top:0;bottom:0;width:2px;height:auto}
+  .parada{padding-top:0;padding-right:0}
+  .parada::before{left:-2rem;top:.3rem}
+  .parada.base::before{left:calc(-2rem - 2px);top:.2rem}
+  .parada b,.parada span{display:inline}
+  .parada span{margin-left:.5rem}
+  .ruta-ejes{display:none}
+}
+
+/* ---------- socio ---------- */
+.socio{display:grid;grid-template-columns:auto 1fr auto;gap:1.2rem 2.4rem;align-items:center;margin-top:clamp(56px, 7vw, 80px);padding:clamp(22px, 3vw, 32px);background:#0A1530;color:#fff}
+.socio svg{width:64px;height:auto}
+.socio b{font-family:var(--f-display);font-weight:400;font-size:1.4rem;color:#E6CB8F}
+.socio p{color:#C5CBD8;font-size:1rem;margin-top:.2rem}
+.socio a{color:#E6CB8F;font-weight:600;text-decoration:none;white-space:nowrap}
+.socio a:hover{text-decoration:underline}
+@media (max-width:760px){.socio{grid-template-columns:1fr}}
+
+/* ---------- contacto ---------- */
+.contacto-grid{display:grid;grid-template-columns:minmax(0, .85fr) minmax(0, 1.15fr);gap:clamp(40px, 6vw, 88px);margin-top:3rem;align-items:start}
+.ficha{--m:10px;background:var(--hondo-2);padding:1.8rem;border:1px solid rgba(159,208,203,.2)}
+.ficha b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.6rem}
+.ficha .rol{color:#B7CDCB;font-size:.95rem}
+.ficha ul{list-style:none;margin-top:1.3rem;border-top:1px solid rgba(159,208,203,.25)}
+.ficha li{padding:.75rem 0;border-bottom:1px solid rgba(159,208,203,.25);font-size:.98rem}
+.ficha li span{display:block;font-size:.7rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--glaciar)}
+.ficha a{color:var(--blanco);text-decoration:none;font-weight:500}
+.ficha a:hover{color:var(--glaciar)}
+
+.form{background:var(--niebla);color:var(--tinta);padding:clamp(24px, 4vw, 40px)}
+.modos{display:grid;grid-template-columns:1fr 1fr;border:1.5px solid var(--hondo)}
+.modos input{position:absolute;opacity:0;pointer-events:none}
+.modos label{padding:.85rem 1rem;text-align:center;font-weight:600;font-size:.95rem;cursor:pointer;color:var(--hondo);transition:background .2s, color .2s}
+.modos input:checked + label{background:var(--hondo);color:var(--blanco)}
+.modos input:focus-visible + label{outline:2px solid var(--lago);outline-offset:2px}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.1rem;margin-top:1.5rem}
+.campos[hidden]{display:none}
+.campo{display:flex;flex-direction:column;gap:.35rem}
+.campo-full{grid-column:1 / -1}
+.campo label{font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--gris)}
+.campo input,.campo select,.campo textarea{font:inherit;font-size:1rem;color:var(--tinta);background:var(--blanco);border:1px solid var(--linea);border-radius:0;padding:.75rem .85rem;width:100%}
+.campo textarea{min-height:100px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:2px solid var(--lago);outline-offset:0;border-color:var(--lago)}
+.form .btn{width:100%;justify-content:center;margin-top:1.4rem}
+.form-nota{font-size:.88rem;color:var(--gris);margin-top:.7rem;text-align:center}
+@media (max-width:900px){.contacto-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.campos{grid-template-columns:1fr}}
+
+/* ---------- banner autor ---------- */
+.autor{padding-block:clamp(56px, 8vw, 96px);background:var(--niebla)}
+.autor-caja{--m:12px;display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;padding:clamp(28px, 5vw, 56px);background:var(--blanco);border:1px solid var(--linea)}
+.autor h2{font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem, 3.4vw, 2.5rem);line-height:1.15;color:var(--hondo);margin-top:.5rem}
+.autor p{color:var(--gris);margin-top:.7rem;max-width:34rem}
+@media (max-width:760px){.autor-caja{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.footer{padding-block:3rem 2rem}
+.footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:center}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.6rem;font-size:.92rem}
+.footer-links a{text-decoration:none;color:#B7CDCB}
+.footer-links a:hover{color:var(--blanco)}
+.footer-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(159,208,203,.2);font-size:.9rem;color:#B7CDCB}
+.footer-base a{color:var(--glaciar)}
+
+/* ---------- whatsapp flotante ---------- */
+.wa{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;display:grid;place-items:center;background:var(--lago);color:var(--blanco);box-shadow:0 8px 24px rgba(13,58,66,.35);transition:background .2s, transform .2s}
+.wa:hover{background:var(--hondo);transform:translateY(-2px)}
+.wa svg{width:28px;height:28px}
+
+/* ---------- movimiento ---------- */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+.hero-foto::before,.hero-foto::after{transition:transform .9s cubic-bezier(.2,.7,.2,1) .3s}
+.cargando .hero-foto::before{transform:translate(-40px, 40px)}
+.cargando .hero-foto::after{transform:translate(40px, -40px)}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .hero-foto::before,.hero-foto::after{transition:none}
+  .cargando .hero-foto::before,.cargando .hero-foto::after{transform:none}
+  .categoria,.puerta i{transition:none}
+}
+</style>
+</head>
+<body class="cargando">
+
+<!-- Logo modernizado: marco = ventana al paisaje; los dos cuadrados = mojones de un lote -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="isotipo" viewBox="0 0 64 64">
+    <rect x="9" y="9" width="44" height="44" fill="none" stroke="currentColor" stroke-width="4.5"/>
+    <path d="M13 31 L23 21 L30 28 L37 22 L49 32" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M13 41 C22 37.5 33 37.5 49 40.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <path d="M13 47 C24 44.5 35 44.5 49 46.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="55" y="1" width="8" height="8" fill="#9FD0CB"/>
+    <rect x="1" y="55" width="8" height="8" fill="#1E6B73"/>
+  </symbol>
+</svg>
+
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="logo" href="#inicio" aria-label="Lagos del Sur, ir al inicio">
+      <svg aria-hidden="true"><use href="#isotipo"/></svg>
+      <span class="logo-texto"><b>LAGOS DEL SUR</b><small>CONSTRUCTORA · INMOBILIARIA</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inmobiliaria">Inmobiliaria</a>
+      <a href="#constructora">Constructora</a>
+      <a href="#zona">Zona</a>
+      <a class="btn" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="reveal">
+        <p class="etiqueta">El Hoyo · Chubut · 22 años</p>
+        <h1>Construimos y vendemos en la Comarca Andina.</h1>
+      </div>
+      <p class="bajada reveal">Más de 100 obras entre hoteles, cabañas y casas. Terrenos, lotes y casas con lote, y obra en ladrillo, woodframe o panel SIP.</p>
+    </div>
+
+    <figure class="hero-foto mojones">
+      <img src="media/valle.jpg" alt="Vista del valle de la Comarca Andina con la cordillera de fondo">
+      <figcaption>Comarca Andina del Paralelo 42</figcaption>
+    </figure>
+
+    <div class="puertas">
+      <a class="puerta" href="#contacto" data-modo="busco">
+        <span class="etiqueta">Inmobiliaria</span>
+        <b>Busco terreno, lote o casa</b>
+        <span>Terrenos, lotes, casas con lote, campos y alquileres. <i aria-hidden="true">→</i></span>
+      </a>
+      <a class="puerta" href="#contacto" data-modo="construir">
+        <span class="etiqueta">Constructora</span>
+        <b>Quiero construir</b>
+        <span>Ladrillo, woodframe o panel SIP, del proyecto a la llave. <i aria-hidden="true">→</i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INMOBILIARIA ============ -->
+<section id="inmobiliaria">
+  <div class="wrap">
+    <div class="cabecera reveal">
+      <div>
+        <p class="etiqueta">Inmobiliaria</p>
+        <h2 class="h2">¿Qué estás buscando?</h2>
+      </div>
+      <p class="bajada">Vendemos terrenos, lotes y casas con lote en toda la Comarca Andina. Elegí una opción y te contamos qué hay disponible.</p>
+    </div>
+
+    <div class="categorias">
+      <a class="categoria mojones reveal" href="#contacto" data-modo="busco" data-que="Terreno o lote">
+        <img src="media/terreno.jpg" alt="Terreno con pasto y alambrado, casas de fondo" loading="lazy">
+        <div><b>Terrenos y lotes</b><span>Para construir tu casa, cabaña o emprendimiento.</span><em>Consultar disponibles →</em></div>
+      </a>
+      <a class="categoria mojones reveal" href="#contacto" data-modo="busco" data-que="Casa con lote">
+        <img src="media/casa-madera.jpg" alt="Casa de madera con chimenea de ladrillo en un terreno con árboles" loading="lazy">
+        <div><b>Casas con lote</b><span>Casas listas para habitar, con su terreno.</span><em>Consultar disponibles →</em></div>
+      </a>
+      <a class="categoria mojones reveal" href="#contacto" data-modo="busco" data-que="Campo o chacra">
+        <img src="media/campo-alamos.jpg" alt="Campo con cortina de álamos y bosque de fondo" loading="lazy">
+        <div><b>Campos</b><span>Superficies grandes para producir o invertir.</span><em>Consultar disponibles →</em></div>
+      </a>
+      <a class="categoria mojones reveal" href="#contacto" data-modo="busco" data-que="Alquiler">
+        <img src="media/casa-troncos.jpg" alt="Casa con troncos a la vista y base de piedra" loading="lazy">
+        <div><b>Alquileres</b><span>Casas y locales en alquiler en la zona.</span><em>Consultar disponibles →</em></div>
+      </a>
+    </div>
+
+    <div class="busqueda reveal">
+      <b>Búsqueda personalizada</b>
+      <p>¿No encontrás lo que buscás? Contanos qué necesitás y dónde, y te avisamos cuando aparece.</p>
+      <a class="btn" href="#contacto" data-modo="busco">Pedir búsqueda</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONSTRUCTORA ============ -->
+<section class="oscuro" id="constructora">
+  <div class="wrap cons-grid">
+    <div class="reveal">
+      <p class="etiqueta">Constructora</p>
+      <h2 class="h2">Más de 100 obras en la cordillera</h2>
+      <p class="bajada">Hoteles, cabañas, casas y todo lo que haga falta construir en la Comarca. El mismo proyecto se puede hacer en el sistema que mejor te convenga.</p>
+      <ul class="sistemas">
+        <li><b>Ladrillo tradicional</b><em>De siempre</em><span>Mampostería y hormigón. La construcción que conocemos hace 22 años.</span></li>
+        <li><b>Woodframe</b><em>Madera</em><span>Paneles de entramado de madera, con aislación entre montantes. Liviano y cálido.</span></li>
+        <li><b>Panel SIP</b><em>Con Cumbre</em><span>Kits de paneles SIP certificados. La obra más rápida y la casa más abrigada.</span></li>
+      </ul>
+      <ul class="tipos" aria-label="Tipos de obra">
+        <li>Hoteles</li><li>Cabañas</li><li>Casas</li><li>Quinchos</li><li>Locales</li><li>Ampliaciones</li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <div class="obras">
+        <figure class="obra-a"><img src="media/interior-cabriadas.jpg" alt="Interior con cabriadas de madera y paredes de ladrillo" loading="lazy"><figcaption>Cabriadas de madera</figcaption></figure>
+        <figure class="obra-b"><img src="media/quincho-piedra.jpg" alt="Quincho de troncos con base de piedra" loading="lazy"><figcaption>Troncos y piedra</figcaption></figure>
+        <figure class="obra-tira"><img src="media/casa-dos-plantas.jpg" alt="Casa de madera de dos plantas con techo de chapa" loading="lazy"><figcaption>Casa en dos plantas</figcaption></figure>
+        <figure class="obra-tira"><img src="media/cabana-balcon.jpg" alt="Cabaña con balcón de troncos" loading="lazy"><figcaption>Cabaña con balcón</figcaption></figure>
+      </div>
+      <p class="obras-nota">Algunas de nuestras obras en la Comarca Andina.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ZONA ============ -->
+<section id="zona">
+  <div class="wrap">
+    <div class="cabecera reveal">
+      <div>
+        <p class="etiqueta">Dónde trabajamos</p>
+        <h2 class="h2">De Bariloche a Trevelin</h2>
+      </div>
+      <p class="bajada">Construimos y vendemos en toda la cordillera, con oficina en El Hoyo, en el corazón de la Comarca Andina.</p>
+    </div>
+
+    <ol class="ruta reveal" aria-label="Localidades de norte a sur">
+      <li class="parada"><b>Bariloche</b><span>Río Negro</span></li>
+      <li class="parada"><b>El Manso</b><span>Río Negro</span></li>
+      <li class="parada"><b>El Bolsón</b><span>Río Negro</span></li>
+      <li class="parada"><b>El Maitén</b><span>Chubut</span></li>
+      <li class="parada"><b>Lago Puelo</b><span>Chubut</span></li>
+      <li class="parada base"><b>El Hoyo</b><span>Nuestra oficina</span></li>
+      <li class="parada"><b>Epuyén</b><span>Chubut</span></li>
+      <li class="parada"><b>Cholila</b><span>Chubut</span></li>
+      <li class="parada"><b>Esquel</b><span>Chubut</span></li>
+      <li class="parada"><b>Trevelin</b><span>Chubut</span></li>
+    </ol>
+    <div class="ruta-ejes" aria-hidden="true"><span>Norte</span><span>Sur</span></div>
+    <p class="zona-extra reveal">¿Tu terreno está más lejos? Consultanos igual: <b>ya cotizamos proyectos en Villa Pehuenia</b>, Neuquén.</p>
+
+    <div class="socio reveal">
+      <svg viewBox="0 0 100 60" aria-hidden="true"><polyline points="4,58 52,8 96,50" fill="none" stroke="#C8A15A" stroke-width="5.5"/><rect x="18" y="16" width="9" height="20" fill="#C8A15A"/></svg>
+      <div>
+        <b>Cumbre, nuestra marca de construcción en SIP</b>
+        <p>Viviendas con kits de paneles SIP certificados, cotización express de tu plano y modelo 3D.</p>
+      </div>
+      <a href="../cumbre/index.html">Conocer Cumbre →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="oscuro" id="contacto">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="etiqueta">Contacto</p>
+      <h2 class="h2">Contanos qué necesitás</h2>
+    </div>
+
+    <div class="contacto-grid">
+      <div class="ficha mojones reveal">
+        <b>Marcos Artero</b>
+        <span class="rol">Lagos del Sur · Constructora e inmobiliaria</span>
+        <ul>
+          <li><span>WhatsApp</span><a href="https://wa.me/5492944557689" target="_blank" rel="noopener">294 455-7689</a></li>
+          <li><span>Email</span><a href="mailto:estudiolagosdelsur@hotmail.com">estudiolagosdelsur@hotmail.com</a></li>
+          <li><span>Oficina</span>El Hoyo, Chubut · Patagonia argentina</li>
+        </ul>
+      </div>
+
+      <form class="form reveal" id="form" novalidate>
+        <div class="modos" role="radiogroup" aria-label="Tipo de consulta">
+          <input type="radio" name="modo" id="m-busco" value="busco" checked><label for="m-busco">Busco propiedad</label>
+          <input type="radio" name="modo" id="m-construir" value="construir"><label for="m-construir">Quiero construir</label>
+        </div>
+
+        <div class="campos" id="campos-busco">
+          <div class="campo"><label for="f-que">Qué buscás</label>
+            <select id="f-que"><option>Terreno o lote</option><option>Casa con lote</option><option>Casa</option><option>Campo o chacra</option><option>Alquiler</option></select></div>
+          <div class="campo"><label for="f-donde">Dónde</label>
+            <select id="f-donde"><option>Cualquier lugar de la Comarca</option><option>Bariloche</option><option>El Manso</option><option>El Bolsón</option><option>El Maitén</option><option>Lago Puelo</option><option>El Hoyo</option><option>Epuyén</option><option>Cholila</option><option>Esquel</option><option>Trevelin</option></select></div>
+          <div class="campo campo-full"><label for="f-presu">Presupuesto aproximado</label><input id="f-presu" placeholder="Ej: USD 40.000"></div>
+        </div>
+
+        <div class="campos" id="campos-construir" hidden>
+          <div class="campo"><label for="f-obra">Qué querés construir</label>
+            <select id="f-obra"><option>Casa</option><option>Cabaña</option><option>Complejo de cabañas u hotel</option><option>Ampliación</option><option>Local o galpón</option></select></div>
+          <div class="campo"><label for="f-sistema">Sistema</label>
+            <select id="f-sistema"><option>Ladrillo tradicional</option><option>Woodframe</option><option>Panel SIP</option><option>Quiero asesoramiento</option></select></div>
+          <div class="campo campo-full"><label for="f-lote">¿Tenés terreno?</label>
+            <select id="f-lote"><option>Sí, ya tengo terreno</option><option>No, también busco lote</option></select></div>
+        </div>
+
+        <div class="campos">
+          <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" autocomplete="name" required></div>
+          <div class="campo"><label for="f-tel">Teléfono</label><input id="f-tel" type="tel" autocomplete="tel"></div>
+          <div class="campo campo-full"><label for="f-msg">Algo más que quieras contarnos</label><textarea id="f-msg" placeholder="Metros, cantidad de ambientes, plazos…"></textarea></div>
+        </div>
+
+        <button class="btn" type="submit">Enviar por WhatsApp</button>
+        <p class="form-nota" id="form-nota" aria-live="polite">Se abre WhatsApp con tu consulta lista para enviar.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANNER AUTOR ============ -->
+<section class="autor" aria-labelledby="autor-titulo">
+  <div class="wrap">
+    <div class="autor-caja mojones">
+      <div>
+        <p class="etiqueta">Diseño web</p>
+        <h2 id="autor-titulo">Este boceto lo diseñó Teo Cicciari</h2>
+        <p>¿Tu empresa necesita un sitio que esté a la altura de su trayectoria? Pedí el tuyo y mirá otros trabajos.</p>
+      </div>
+      <a class="btn" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer oscuro">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="logo" href="#inicio" aria-label="Lagos del Sur, volver arriba">
+        <svg aria-hidden="true"><use href="#isotipo"/></svg>
+        <span class="logo-texto"><b>LAGOS DEL SUR</b><small>CONSTRUCTORA · INMOBILIARIA</small></span>
+      </a>
+      <nav class="footer-links" aria-label="Pie de página">
+        <a href="#inmobiliaria">Inmobiliaria</a>
+        <a href="#constructora">Constructora</a>
+        <a href="#zona">Zona</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="anio"></span> Lagos del Sur · El Hoyo, Chubut</span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5492944557689?text=Hola%20Lagos%20del%20Sur%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+document.getElementById('anio').textContent = new Date().getFullYear();
+requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.remove('cargando')));
+
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 10);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Formulario con dos modos: busco propiedad / quiero construir
+const form = document.getElementById('form');
+const bloques = { busco: document.getElementById('campos-busco'), construir: document.getElementById('campos-construir') };
+function setModo(modo) {
+  document.getElementById('m-' + modo).checked = true;
+  bloques.busco.hidden = modo !== 'busco';
+  bloques.construir.hidden = modo !== 'construir';
+}
+form.querySelectorAll('input[name="modo"]').forEach((r) => r.addEventListener('change', () => setModo(r.value)));
+
+// Los accesos (puertas, categorías) preseleccionan el modo y lo que se busca
+document.querySelectorAll('[data-modo]').forEach((a) => {
+  a.addEventListener('click', () => {
+    setModo(a.dataset.modo);
+    if (a.dataset.que) document.getElementById('f-que').value = a.dataset.que;
+  });
+});
+
+form.addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  const nota = document.getElementById('form-nota');
+  const nombre = document.getElementById('f-nombre').value.trim();
+  if (!nombre) {
+    nota.textContent = 'Escribí tu nombre para que sepamos a quién responder.';
+    document.getElementById('f-nombre').focus();
+    return;
+  }
+  const v = (id) => document.getElementById(id).value.trim();
+  const modo = form.querySelector('input[name="modo"]:checked').value;
+  const lineas = ['Hola Lagos del Sur, soy ' + nombre + '.'];
+  if (modo === 'busco') {
+    lineas.push('Busco: ' + v('f-que') + '.', 'Zona: ' + v('f-donde') + '.');
+    if (v('f-presu')) lineas.push('Presupuesto aprox.: ' + v('f-presu') + '.');
+  } else {
+    lineas.push('Quiero construir: ' + v('f-obra') + '.', 'Sistema: ' + v('f-sistema') + '.', 'Terreno: ' + v('f-lote') + '.');
+  }
+  if (v('f-tel')) lineas.push('Mi teléfono: ' + v('f-tel') + '.');
+  if (v('f-msg')) lineas.push(v('f-msg'));
+  nota.textContent = 'Se abre WhatsApp con tu consulta lista para enviar.';
+  window.open('https://wa.me/5492944557689?text=' + encodeURIComponent(lineas.join('\n')), '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
