@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cumbre · Construcción integral de viviendas andinas</title>
+<meta name="description" content="Cumbre construye viviendas en la Patagonia andina con panel SIP, woodframe o ladrillo. Cotización express de tu plano y modelo 3D.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noche:#0A1530;
+  --noche-2:#111E3F;
+  --noche-3:#1A2A52;
+  --oro:#C8A15A;
+  --oro-claro:#E6CB8F;
+  --nieve:#EEF1F5;
+  --blanco:#FFFFFF;
+  --tinta:#142040;
+  --gris:#5A6580;
+  --gris-noche:#9AA4BC;
+  --osb:#D8B57A;
+  --osb-oscuro:#B8935A;
+  --eps:#F6F7F9;
+
+  --f-display:'Marcellus', 'Times New Roman', serif;
+  --f-body:'Alegreya Sans', system-ui, sans-serif;
+  --f-mono:'IBM Plex Mono', ui-monospace, monospace;
+
+  --wrap:1180px;
+  --gutter:clamp(16px, 4vw, 40px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--noche);color:var(--blanco);font-family:var(--f-body);font-size:1.125rem;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video,svg{display:block;max-width:100%}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--oro-claro);outline-offset:3px;border-radius:2px}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gutter)}
+
+/* ---------- tipografía ---------- */
+.eyebrow{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--oro)}
+.h2{font-family:var(--f-display);font-weight:400;font-size:clamp(2rem, 4.2vw, 3.1rem);line-height:1.08;letter-spacing:.01em;margin-top:.6rem}
+.lead{font-size:1.2rem;max-width:36rem;margin-top:1.1rem}
+.on-light{background:var(--nieve);color:var(--tinta)}
+.on-light .eyebrow{color:var(--osb-oscuro)}
+.on-light .lead{color:var(--gris)}
+.on-dark .lead{color:var(--gris-noche)}
+section{padding-block:clamp(72px, 10vw, 128px)}
+
+/* ---------- botones ---------- */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.82rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;padding:1rem 1.5rem;border:1px solid var(--oro);transition:background .25s, color .25s, border-color .25s}
+.btn-oro{background:var(--oro);color:var(--noche)}
+.btn-oro:hover{background:var(--oro-claro);border-color:var(--oro-claro)}
+.btn-linea{color:var(--oro-claro)}
+.btn-linea:hover{background:rgba(200,161,90,.12)}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* ---------- header ---------- */
+.header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background .3s, box-shadow .3s}
+.header.scrolled{background:rgba(10,21,48,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 rgba(200,161,90,.25)}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;height:76px}
+.marca{display:flex;align-items:flex-end;gap:.7rem;text-decoration:none}
+.marca svg{width:46px;height:auto}
+.marca-texto{display:flex;flex-direction:column;line-height:1}
+.marca-texto b{font-family:var(--f-display);font-weight:400;font-size:1.55rem;letter-spacing:.08em;color:var(--oro-claro)}
+.marca-texto small{font-size:.66rem;letter-spacing:.06em;color:var(--gris-noche);margin-top:.3rem}
+.nav{display:flex;align-items:center;gap:2rem}
+.nav a{font-family:var(--f-mono);font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:var(--gris-noche);transition:color .2s}
+.nav a:hover{color:var(--oro-claro)}
+.nav .btn{padding:.7rem 1.1rem;color:var(--noche)}
+@media (max-width:860px){.nav a:not(.btn){display:none}.marca-texto small{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:0;background:radial-gradient(120% 80% at 70% 100%, #13234A 0%, var(--noche) 60%)}
+.hero-texto{padding-top:clamp(130px, 18vh, 200px);position:relative;z-index:2}
+.hero h1{font-family:var(--f-display);font-weight:400;font-size:clamp(2.6rem, 7vw, 5.6rem);line-height:1;letter-spacing:.005em;max-width:13ch;margin-top:1.2rem}
+.hero h1 em{font-style:normal;color:var(--oro-claro)}
+.hero .lead{color:var(--gris-noche);max-width:34rem;margin-top:1.6rem}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2.2rem}
+.cordillera{margin-top:auto;width:100%;position:relative}
+.cordillera svg{width:100%;height:auto}
+.ridge{fill:none;stroke-linejoin:round;stroke-linecap:round}
+.ridge-lejos{stroke:var(--gris-noche);stroke-width:1;opacity:.22}
+.ridge-cerca{stroke:var(--oro);stroke-width:1.4;opacity:.55}
+.techo{fill:none;stroke:var(--oro);stroke-width:9;stroke-linejoin:miter;stroke-linecap:butt}
+.chimenea{fill:var(--oro)}
+.lema{border-top:1px solid rgba(200,161,90,.35);padding-block:1.1rem;font-family:var(--f-mono);font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:var(--oro)}
+.lema .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 1.5rem}
+.lema span:not(:first-child){color:var(--gris-noche)}
+@media (max-width:520px){.lema{font-size:.64rem;letter-spacing:.12em}.lema .wrap{gap:.5rem .8rem}}
+
+/* animación de dibujo */
+.draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len)}
+.listo .draw{animation:trazar var(--dur, 2s) var(--delay, 0s) cubic-bezier(.6,.1,.3,1) forwards}
+.chimenea{opacity:0;transform:translateY(16px);transform-box:fill-box}
+.listo .chimenea{animation:subir .7s 2.6s ease-out forwards}
+.hero-texto > *{opacity:0;transform:translateY(14px)}
+.listo .hero-texto > *{animation:aparecer .8s ease-out forwards}
+.listo .hero-texto > :nth-child(2){animation-delay:.12s}
+.listo .hero-texto > :nth-child(3){animation-delay:.24s}
+.listo .hero-texto > :nth-child(4){animation-delay:.36s}
+@keyframes trazar{to{stroke-dashoffset:0}}
+@keyframes subir{to{opacity:1;transform:none}}
+@keyframes aparecer{to{opacity:1;transform:none}}
+
+/* ---------- panel SIP ---------- */
+.sip-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(40px, 6vw, 96px);align-items:center}
+.panel{position:relative;aspect-ratio:1/1.02;max-width:520px;width:100%;justify-self:center}
+.panel-capas{position:absolute;inset:8% 36% 8% 4%;display:flex;flex-direction:column;transform:skewY(-8deg);filter:drop-shadow(18px 22px 0 rgba(20,32,64,.08))}
+.capa{width:100%;position:relative}
+.capa-osb{height:12%;background:var(--osb);background-image:repeating-linear-gradient(115deg, rgba(150,110,50,.18) 0 3px, transparent 3px 9px),repeating-linear-gradient(35deg, rgba(255,255,255,.18) 0 2px, transparent 2px 11px)}
+.capa-eps{height:76%;background:var(--eps);background-image:radial-gradient(circle at 30% 30%, rgba(20,32,64,.06) 1.5px, transparent 2px);background-size:10px 10px;border-inline:1px solid #dfe3ea}
+.panel-etiquetas{position:absolute;inset:0;pointer-events:none}
+.etq{position:absolute;right:0;display:flex;align-items:center;gap:.6rem;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;color:var(--tinta);white-space:nowrap}
+.etq::before{content:"";width:clamp(30px, 6vw, 70px);height:1px;background:var(--osb-oscuro)}
+.etq b{font-weight:500;color:var(--osb-oscuro);margin-right:.3rem}
+.etq-1{top:7%}.etq-2{top:43%}.etq-3{top:79%}
+.ventajas{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem 2rem;margin-top:2.6rem}
+.ventaja{border-top:1px solid #cfd5df;padding-top:1rem}
+.ventaja h3{font-family:var(--f-display);font-weight:400;font-size:1.3rem;color:var(--tinta)}
+.ventaja p{font-size:1rem;color:var(--gris);margin-top:.35rem;line-height:1.5}
+@media (max-width:900px){
+  .sip-grid{grid-template-columns:1fr}
+  .panel{order:-1;max-width:420px}
+}
+@media (max-width:520px){.ventajas{grid-template-columns:1fr}.etq{font-size:.64rem}}
+.sistemas-head{margin-top:clamp(72px, 9vw, 112px);padding-top:clamp(40px, 5vw, 56px);border-top:1px solid #cfd5df;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:1rem 2rem}
+.sistemas-head h3{font-family:var(--f-display);font-weight:400;font-size:clamp(1.6rem, 3vw, 2.2rem);line-height:1.15;color:var(--tinta);margin-top:.5rem;max-width:22ch}
+.sistemas-head p{color:var(--gris);max-width:30rem}
+.sistemas{display:grid;grid-template-columns:repeat(3, 1fr);gap:14px;margin-top:2.2rem}
+.sistema{background:var(--blanco);padding:clamp(20px, 2.5vw, 28px);border:1px solid #dde2ea;display:flex;flex-direction:column}
+.sistema svg{width:100%;height:auto;border:1px solid #d5dae3;margin-bottom:1.3rem}
+.sistema-tag{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris)}
+.sistema-tag.destacado{color:var(--osb-oscuro)}
+.sistema h4{font-family:var(--f-display);font-weight:400;font-size:1.45rem;color:var(--tinta);margin-top:.3rem}
+.sistema p{font-size:1rem;color:var(--gris);margin-top:.4rem;line-height:1.5}
+@media (max-width:860px){.sistemas{grid-template-columns:1fr}}
+
+/* ---------- modelos (videos) ---------- */
+.modelos-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem}
+.modelos-grid{display:grid;grid-template-columns:repeat(2, 1fr);gap:clamp(16px, 2.4vw, 28px);margin-top:3rem}
+.lamina{position:relative;background:var(--blanco);padding:14px;border:1px solid rgba(200,161,90,.5)}
+.lamina::before,.lamina::after,.lamina .tornillos::before,.lamina .tornillos::after{content:"";position:absolute;width:7px;height:7px;border-radius:50%;background:radial-gradient(circle at 35% 35%, var(--oro-claro), var(--oro) 60%, #8d6d34)}
+.lamina::before{top:6px;left:6px}.lamina::after{top:6px;right:6px}
+.lamina .tornillos::before{bottom:6px;left:6px}.lamina .tornillos::after{bottom:6px;right:6px}
+.lamina video{width:100%;aspect-ratio:960/516;object-fit:cover;background:#fff}
+.lamina figcaption{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;flex-wrap:wrap;padding:.9rem .3rem .2rem;color:var(--tinta)}
+.lamina figcaption b{font-family:var(--f-display);font-weight:400;font-size:1.2rem}
+.lamina figcaption span{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--gris)}
+.lamina-grande{grid-column:1 / -1}
+.lamina-grande figcaption b{font-size:1.5rem}
+.credito{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;color:var(--gris-noche);margin-top:1.4rem}
+@media (max-width:700px){.modelos-grid{grid-template-columns:1fr}}
+
+/* ---------- servicios ---------- */
+.servicios{display:grid;grid-template-columns:repeat(2, 1fr);gap:0 clamp(32px, 6vw, 80px);margin-top:3rem}
+.servicio{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;padding-block:1.8rem;border-top:1px solid #cfd5df}
+.servicio svg{width:40px;height:40px;stroke:var(--osb-oscuro);fill:none;stroke-width:1.4}
+.servicio h3{font-family:var(--f-display);font-weight:400;font-size:1.5rem;line-height:1.15}
+.servicio p{color:var(--gris);font-size:1.05rem;margin-top:.4rem}
+@media (max-width:760px){.servicios{grid-template-columns:1fr}}
+
+/* ---------- proceso ---------- */
+.pasos{list-style:none;display:grid;grid-template-columns:repeat(5, 1fr);margin-top:3.4rem;counter-reset:paso;position:relative}
+.pasos::before{content:"";position:absolute;top:21px;left:0;right:0;height:1px;background:rgba(200,161,90,.4)}
+.paso{counter-increment:paso;padding-right:1.4rem;position:relative}
+.paso::before{content:counter(paso);display:grid;place-items:center;width:42px;height:42px;font-family:var(--f-display);font-size:1.15rem;color:var(--noche);background:var(--oro);clip-path:polygon(50% 0, 100% 34%, 100% 100%, 0 100%, 0 34%);position:relative}
+.paso h3{font-family:var(--f-display);font-weight:400;font-size:1.25rem;margin-top:1.2rem}
+.paso p{font-size:1rem;color:var(--gris-noche);margin-top:.4rem;line-height:1.5}
+@media (max-width:900px){
+  .pasos{grid-template-columns:1fr;gap:1.8rem}
+  .pasos::before{top:0;bottom:0;left:21px;right:auto;width:1px;height:auto}
+  .paso{display:grid;grid-template-columns:42px 1fr;column-gap:1.2rem;padding-right:0}
+  .paso::before{grid-row:span 2}
+  .paso h3{margin-top:.4rem}
+}
+
+/* ---------- módulos ---------- */
+.modulos-fila{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(196px, 1fr);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;margin-top:3rem;padding-bottom:14px;scrollbar-color:var(--osb-oscuro) transparent}
+.modulo{scroll-snap-align:start;background:var(--blanco);border:1px solid #dde2ea;display:flex;flex-direction:column;min-width:0}
+.modulo img{width:100%;aspect-ratio:4/5;object-fit:cover;background:#dfe3ea}
+.modulo-info{padding:1.1rem 1.15rem 1.2rem;display:flex;flex-direction:column;flex:1}
+.modulo h3{font-family:var(--f-display);font-weight:400;font-size:1.45rem;line-height:1.1}
+.modulo-m2{display:flex;flex-wrap:wrap;align-items:baseline;gap:0 .6rem;margin-top:.5rem;font-family:var(--f-mono);font-size:.72rem;color:var(--gris)}
+.modulo-m2 b{font-family:var(--f-display);font-weight:400;font-size:1.5rem;color:var(--osb-oscuro);white-space:nowrap}
+.modulo p{font-size:.95rem;color:var(--gris);line-height:1.45;margin-top:.5rem}
+.ver-planta{margin-top:auto;padding-top:1rem;background:none;border:none;border-top:1px solid #e3e7ee;margin-inline:-1.15rem;padding-inline:1.15rem;text-align:left;cursor:pointer;font-family:var(--f-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--tinta);display:flex;justify-content:space-between}
+.ver-planta:hover{color:var(--osb-oscuro)}
+@media (max-width:600px){.modulos-fila{grid-auto-columns:80%}}
+.kit{display:grid;grid-template-columns:minmax(0, .9fr) minmax(0, 1.4fr);gap:clamp(32px, 5vw, 64px);margin-top:clamp(48px, 6vw, 72px);align-items:start}
+.kit h3{font-family:var(--f-display);font-weight:400;font-size:1.6rem}
+.kit ul{list-style:none;margin-top:1rem}
+.kit li{padding:.55rem 0 .55rem 1.4rem;border-bottom:1px solid #dde2ea;position:relative;font-size:1rem;color:var(--tinta)}
+.kit li::before{content:"";position:absolute;left:0;top:1.05rem;width:8px;height:8px;background:var(--oro);clip-path:polygon(50% 0, 100% 100%, 0 100%)}
+.kit-nota{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.04em;color:var(--gris);margin-top:1rem}
+.obra-fotos{display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:12px}
+.obra-fotos figure{display:flex;flex-direction:column}
+.obra-fotos img{width:100%;height:280px;object-fit:cover}
+.obra-fotos figcaption{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.06em;color:var(--gris);margin-top:.5rem}
+@media (max-width:900px){.kit{grid-template-columns:1fr}}
+@media (max-width:600px){.obra-fotos{grid-template-columns:1fr 1fr}.obra-fotos figure:nth-child(2){grid-column:1 / -1;order:-1}.obra-fotos img{height:200px}}
+.planta-dialog{border:none;padding:0;margin:auto;width:min(1000px, calc(100vw - 32px));max-height:calc(100vh - 32px);background:var(--blanco);color:var(--tinta)}
+.planta-dialog::backdrop{background:rgba(7,15,36,.82)}
+.planta-dialog header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 1.3rem;border-bottom:1px solid #e3e7ee}
+.planta-dialog h3{font-family:var(--f-display);font-weight:400;font-size:1.4rem}
+#planta-medidas{font-family:var(--f-mono);font-size:.74rem;color:var(--gris);margin-left:.8rem}
+.planta-dialog button{background:none;border:1px solid #cfd5df;width:40px;height:40px;font-size:1.3rem;line-height:1;cursor:pointer;color:var(--tinta);flex:none}
+.planta-dialog img{width:100%;max-height:70vh;object-fit:contain;padding:1.2rem}
+.planta-dialog p{padding:0 1.3rem 1.2rem;font-size:.95rem;color:var(--gris)}
+
+/* ---------- zona ---------- */
+.zona-grid{display:grid;grid-template-columns:minmax(0, 1fr) minmax(0, 360px);gap:clamp(40px, 6vw, 96px);align-items:center}
+.zona-lista{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:2rem;list-style:none}
+.zona-lista li{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.04em;padding:.45rem .8rem;border:1px solid rgba(200,161,90,.35);color:var(--blanco)}
+.zona-lista li.lejos{border-style:dashed;color:var(--gris-noche)}
+.mapa{width:100%;max-width:360px;justify-self:center}
+.mapa text{font-family:var(--f-mono);font-size:11px;fill:var(--gris-noche)}
+.mapa .pueblo{fill:var(--oro)}
+.mapa .base{fill:var(--oro-claro)}
+.mapa text.t-base{fill:var(--oro-claro)}
+@media (max-width:860px){.zona-grid{grid-template-columns:1fr}}
+
+/* ---------- aliados ---------- */
+.socios{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));gap:14px;margin-top:3rem}
+.socio{display:flex;flex-direction:column;background:var(--blanco);padding:clamp(24px, 3.5vw, 40px);border-top:4px solid var(--oro)}
+.socio-logo{height:84px;display:flex;align-items:center;margin-bottom:1.6rem}
+.socio-logo img{max-height:100%;width:auto;max-width:100%}
+.socio .eyebrow{color:var(--osb-oscuro)}
+.socio h3{font-family:var(--f-display);font-weight:400;font-size:1.7rem;margin-top:.4rem}
+.socio p{color:var(--gris);margin-top:.6rem}
+.socio a{display:inline-block;margin-top:auto;padding-top:1rem;font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;color:var(--tinta)}
+.rubros{display:grid;grid-template-columns:repeat(5, 1fr);gap:14px;margin-top:14px}
+.rubro{border:1px dashed #b9c1cf;padding:1.4rem 1.1rem;min-height:140px;display:flex;flex-direction:column;justify-content:space-between}
+.rubro b{font-family:var(--f-display);font-weight:400;font-size:1.15rem;line-height:1.2}
+.rubro span{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.sumate{margin-top:2rem;color:var(--gris)}
+.sumate a{color:var(--tinta);font-weight:500}
+@media (max-width:900px){.socios{grid-template-columns:1fr}.rubros{grid-template-columns:repeat(2, 1fr)}}
+
+/* ---------- contacto ---------- */
+.contacto-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(40px, 6vw, 88px);margin-top:3rem;align-items:start}
+.tarjetas{display:grid;gap:18px}
+.tarjeta{background:var(--noche-2);border:1px solid rgba(200,161,90,.3);padding:1.6rem 1.7rem}
+.tarjeta b{display:block;font-family:var(--f-display);font-weight:400;font-size:1.55rem;color:var(--oro-claro)}
+.tarjeta .rol{font-size:1rem;color:var(--gris-noche)}
+.tarjeta .linea{width:36px;height:1px;background:var(--oro);margin:1rem 0}
+.tarjeta a{display:flex;align-items:center;gap:.6rem;text-decoration:none;font-family:var(--f-mono);font-size:.9rem;color:var(--blanco);padding-block:.2rem}
+.tarjeta a:hover{color:var(--oro-claro)}
+.tarjeta a svg{width:17px;height:17px;flex:none;color:var(--oro)}
+.datos{font-family:var(--f-mono);font-size:.85rem;color:var(--gris-noche);line-height:2}
+.datos a{color:var(--oro-claro);text-decoration:none}
+.datos a:hover{text-decoration:underline}
+
+.form{background:var(--nieve);color:var(--tinta);padding:clamp(24px, 4vw, 44px)}
+.form h3{font-family:var(--f-display);font-weight:400;font-size:1.7rem}
+.form > p{color:var(--gris);font-size:1rem;margin-top:.3rem}
+.campos{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem 1.2rem;margin-top:1.6rem}
+.campo{display:flex;flex-direction:column;gap:.4rem}
+.campo-full{grid-column:1 / -1}
+.campo label{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gris)}
+.campo input,.campo select,.campo textarea{font:inherit;font-size:1rem;color:var(--tinta);background:var(--blanco);border:1px solid #cfd5df;border-radius:0;padding:.75rem .85rem;width:100%}
+.campo textarea{min-height:110px;resize:vertical}
+.campo input:focus,.campo select:focus,.campo textarea:focus{outline:2px solid var(--oro);outline-offset:0;border-color:var(--oro)}
+.form .btn{margin-top:1.6rem;width:100%;justify-content:center;border:none;cursor:pointer}
+.form-nota{font-size:.88rem;color:var(--gris);margin-top:.8rem;text-align:center}
+@media (max-width:900px){.contacto-grid{grid-template-columns:1fr}}
+@media (max-width:520px){.campos{grid-template-columns:1fr}}
+
+/* ---------- banner autor ---------- */
+.autor{padding-block:clamp(56px, 8vw, 96px);background:var(--noche)}
+.autor-caja{position:relative;border:1px solid var(--oro);padding:clamp(28px, 5vw, 56px);display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center;background:linear-gradient(135deg, var(--noche-2), var(--noche))}
+.autor-caja::before,.autor-caja::after{content:"";position:absolute;width:8px;height:8px;border-radius:50%;background:var(--oro)}
+.autor-caja::before{top:10px;left:10px}.autor-caja::after{bottom:10px;right:10px}
+.autor h2{font-family:var(--f-display);font-weight:400;font-size:clamp(1.7rem, 3.4vw, 2.5rem);line-height:1.15;margin-top:.5rem}
+.autor p{color:var(--gris-noche);margin-top:.7rem;max-width:34rem}
+@media (max-width:760px){.autor-caja{grid-template-columns:1fr}}
+
+/* ---------- footer ---------- */
+.footer{border-top:1px solid rgba(200,161,90,.3);padding-block:3rem 2rem;background:#070F24}
+.footer-top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2rem;align-items:flex-start}
+.footer-links{display:flex;flex-wrap:wrap;gap:1.6rem;font-family:var(--f-mono);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase}
+.footer-links a{text-decoration:none;color:var(--gris-noche)}
+.footer-links a:hover{color:var(--oro-claro)}
+.footer-base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem;margin-top:2.6rem;padding-top:1.4rem;border-top:1px solid rgba(154,164,188,.15);font-size:.92rem;color:var(--gris-noche)}
+.footer-base a{color:var(--oro-claro)}
+
+/* ---------- whatsapp flotante ---------- */
+.wa-flotante{position:fixed;right:18px;bottom:18px;z-index:60;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;background:var(--oro);color:var(--noche);box-shadow:0 8px 24px rgba(0,0,0,.35);transition:transform .2s, background .2s}
+.wa-flotante:hover{transform:scale(1.06);background:var(--oro-claro)}
+.wa-flotante svg{width:28px;height:28px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease, transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .draw{stroke-dasharray:none;stroke-dashoffset:0}
+  .listo .draw,.listo .chimenea,.listo .hero-texto > *{animation:none}
+  .chimenea,.hero-texto > *,.reveal{opacity:1;transform:none;transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="wrap">
+    <a class="marca" href="#inicio" aria-label="Cumbre, ir al inicio">
+      <svg viewBox="0 0 100 60" aria-hidden="true">
+        <polyline points="4,58 52,8 96,50" fill="none" stroke="#C8A15A" stroke-width="5.5"/>
+        <rect x="18" y="16" width="9" height="20" fill="#C8A15A"/>
+      </svg>
+      <span class="marca-texto"><b>CUMBRE</b><small>Construcción integral de viviendas andinas</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#sistema">Sistemas</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#modulos-tao">Módulos</a>
+      <a href="#zona">Zona</a>
+      <a href="#aliados">Aliados</a>
+      <a class="btn btn-oro" href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-texto">
+    <p class="eyebrow">Panel SIP · Woodframe · Tradicional</p>
+    <h1>Casas cálidas para la cordillera, <em>panel por panel.</em></h1>
+    <p class="lead">Mandanos el plano de tu casa y te la cotizamos en tiempo express. La construimos en panel SIP, woodframe o ladrillo en la Comarca Andina, y si todavía no tenés terreno, te lo conseguimos.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-oro" href="#contacto">Mandanos tu proyecto</a>
+      <a class="btn btn-linea" href="#modelos">Ver modelos 3D</a>
+    </div>
+  </div>
+
+  <div class="cordillera" aria-hidden="true">
+    <svg viewBox="0 0 1200 360" preserveAspectRatio="xMidYMax meet">
+      <!-- cordón lejano -->
+      <path class="ridge ridge-lejos draw" style="--len:1500;--dur:2.4s"
+        d="M0,250 L60,232 L120,244 L190,180 L240,205 L300,150 L350,188 L410,160 L470,196 L560,140 L620,176 L700,120 L780,168 L850,132 L920,170 L990,128 L1060,166 L1130,140 L1200,160"/>
+      <!-- cordón cercano: termina y retoma en las patas del techo -->
+      <path class="ridge ridge-cerca draw" style="--len:760;--dur:1.8s"
+        d="M0,330 L70,300 L120,312 L200,236 L250,268 L320,196 L390,258 L440,232 L490,300 L520,318"/>
+      <path class="ridge ridge-cerca draw" style="--len:330;--dur:1.2s;--delay:.6s"
+        d="M1015,262 L1060,232 L1100,252 L1150,214 L1200,240"/>
+      <!-- el techo de Cumbre: la cima más alta -->
+      <polyline class="techo draw" style="--len:820;--dur:1.4s;--delay:1.2s" points="510,326 772,58 1022,268"/>
+      <rect class="chimenea" x="584" y="150" width="34" height="88"/>
+      <line x1="0" y1="359.5" x2="1200" y2="359.5" stroke="#C8A15A" stroke-opacity=".35"/>
+    </svg>
+  </div>
+
+  <div class="lema" aria-label="Nuestro lema">
+    <div class="wrap">
+      <span>Proyecto</span><span>Calidad</span><span>Compromiso</span><span>Seguridad</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SISTEMA SIP ============ -->
+<section class="on-light" id="sistema">
+  <div class="wrap sip-grid">
+    <div class="reveal">
+      <p class="eyebrow">Panel SIP</p>
+      <h2 class="h2">Qué hay adentro de una pared Cumbre</h2>
+      <p class="lead">El panel SIP es un sándwich estructural: dos placas de OSB unidas a un núcleo aislante. La misma pieza es estructura, cerramiento y aislación, y se monta en seco.</p>
+      <div class="ventajas">
+        <div class="ventaja"><h3>Un tercio del tiempo</h3><p>Una casa de ladrillo lleva de 3 a 4 meses. En SIP se avanza panel por panel, en cerca de un tercio de ese tiempo.</p></div>
+        <div class="ventaja"><h3>Abrigo de verdad</h3><p>La aislación no se corta en columnas ni vigas. Para calefaccionar gastás mucho menos.</p></div>
+        <div class="ventaja"><h3>Apto para zona sísmica</h3><p>El sistema TAO tiene certificados CAT y CAS: está aprobado para resistir movimientos sísmicos.</p></div>
+        <div class="ventaja"><h3>Menor huella de carbono</h3><p>Obra seca, menos desperdicio y adhesivos industriales de primera calidad.</p></div>
+      </div>
+    </div>
+
+    <div class="panel reveal" role="img" aria-label="Corte de un panel SIP: placa de OSB, núcleo de poliestireno expandido y otra placa de OSB">
+      <div class="panel-capas">
+        <div class="capa capa-osb"></div>
+        <div class="capa capa-eps"></div>
+        <div class="capa capa-osb"></div>
+      </div>
+      <div class="panel-etiquetas" aria-hidden="true">
+        <span class="etq etq-1"><b>A</b>Placa OSB estructural</span>
+        <span class="etq etq-2"><b>B</b>Núcleo EPS · 20 kg/m³</span>
+        <span class="etq etq-3"><b>C</b>Placa OSB estructural</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="sistemas-head reveal">
+      <div>
+        <p class="eyebrow">Sistemas constructivos</p>
+        <h3>Tu mismo proyecto, en el sistema que elijas</h3>
+      </div>
+      <p>Con el plano y el modelo 3D en la mano, decidís cómo construirlo. Cumbre y Lagos del Sur trabajan con los tres sistemas, con el mismo equipo y la misma dirección de obra.</p>
+    </div>
+    <div class="sistemas">
+      <article class="sistema reveal">
+        <svg viewBox="0 0 240 64" role="img" aria-label="Corte de panel SIP">
+          <defs><pattern id="pt-eps" width="8" height="8" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#142040" fill-opacity=".09"/></pattern></defs>
+          <rect width="240" height="64" fill="var(--eps)"/><rect width="240" height="64" fill="url(#pt-eps)"/>
+          <rect width="240" height="11" fill="var(--osb)"/><rect y="53" width="240" height="11" fill="var(--osb)"/>
+        </svg>
+        <span class="sistema-tag destacado">Nuestra especialidad</span>
+        <h4>Panel SIP</h4>
+        <p>Kit completo de paneles provisto por TAO. Estructura y aislación en una sola pieza: la obra más rápida y la casa más abrigada.</p>
+      </article>
+      <article class="sistema reveal">
+        <svg viewBox="0 0 240 64" role="img" aria-label="Corte de muro woodframe">
+          <rect width="240" height="64" fill="#F1E2B3"/>
+          <rect width="240" height="8" fill="#E4E7ED"/><rect y="54" width="240" height="10" fill="var(--osb)"/>
+          <g fill="var(--osb-oscuro)"><rect x="0" y="8" width="9" height="46"/><rect x="58" y="8" width="9" height="46"/><rect x="116" y="8" width="9" height="46"/><rect x="174" y="8" width="9" height="46"/><rect x="231" y="8" width="9" height="46"/></g>
+        </svg>
+        <span class="sistema-tag">Entramado de madera</span>
+        <h4>Woodframe</h4>
+        <p>Paneles de montantes de madera con aislación entre ellos y placas de cierre. Liviano, cálido y muy versátil.</p>
+      </article>
+      <article class="sistema reveal">
+        <svg viewBox="0 0 240 64" role="img" aria-label="Muro de ladrillo">
+          <defs><pattern id="pt-ladrillo" width="36" height="32" patternUnits="userSpaceOnUse">
+            <rect width="36" height="32" fill="#E8E2D8"/>
+            <rect x="0" y="0" width="34" height="14" fill="#B5654A"/>
+            <rect x="-18" y="16" width="34" height="14" fill="#A95B42"/><rect x="18" y="16" width="34" height="14" fill="#A95B42"/>
+          </pattern></defs>
+          <rect width="240" height="64" fill="url(#pt-ladrillo)"/>
+        </svg>
+        <span class="sistema-tag">Mampostería</span>
+        <h4>Tradicional en ladrillo</h4>
+        <p>Ladrillo y hormigón, para quien prefiere la construcción de siempre. Mismo proyecto, misma dirección de obra.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MODELOS ============ -->
+<section class="on-dark" id="modelos">
+  <div class="wrap">
+    <div class="modelos-head reveal">
+      <div>
+        <p class="eyebrow">Modelos 3D</p>
+        <h2 class="h2">Así se arma tu casa antes de llegar al terreno</h2>
+      </div>
+      <p class="lead" style="margin-top:0;max-width:28rem">Mandanos el plano de tu casa: junto a TAO lo cotizamos en tiempo express y te lo devolvemos modelado en 3D, panel por panel. Ajustás lo que haga falta y recién ahí se fabrica.</p>
+    </div>
+
+    <div class="modelos-grid">
+      <figure class="lamina lamina-grande reveal">
+        <span class="tornillos"></span>
+        <video muted loop playsinline preload="none" poster="media/modelo-galeria.jpg" aria-label="Render 3D de vivienda con galería semicubierta">
+          <source src="media/modelo-galeria.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Vivienda con galería</b><span>Una planta · galería semicubierta · módulo anexo</span></figcaption>
+      </figure>
+      <figure class="lamina reveal">
+        <span class="tornillos"></span>
+        <video muted loop playsinline preload="none" poster="media/modelo-en-l.jpg" aria-label="Render 3D de vivienda en dos volúmenes">
+          <source src="media/modelo-en-l.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Dos volúmenes</b><span>Techos a un agua · conector central</span></figcaption>
+      </figure>
+      <figure class="lamina reveal">
+        <span class="tornillos"></span>
+        <video muted loop playsinline preload="none" poster="media/modelo-lineal.jpg" aria-label="Render 3D de vivienda lineal de una planta">
+          <source src="media/modelo-lineal.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Casa lineal</b><span>Una planta · planta rectangular</span></figcaption>
+      </figure>
+      <figure class="lamina reveal">
+        <span class="tornillos"></span>
+        <video muted loop playsinline preload="none" poster="media/modelo-dos-modulos.jpg" aria-label="Render 3D de vivienda alargada con módulo independiente">
+          <source src="media/modelo-dos-modulos.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Casa + módulo</b><span>Vivienda alargada · módulo independiente</span></figcaption>
+      </figure>
+      <figure class="lamina reveal">
+        <span class="tornillos"></span>
+        <video muted loop playsinline preload="none" poster="media/modelo-compacto.jpg" aria-label="Render 3D de vivienda compacta">
+          <source src="media/modelo-compacto.mp4" type="video/mp4">
+        </video>
+        <figcaption><b>Compacta</b><span>Ideal para cabaña o primera etapa</span></figcaption>
+      </figure>
+    </div>
+    <p class="credito">Modelos 3D realizados junto a nuestro socio TAO Soluciones Constructivas</p>
+  </div>
+</section>
+
+<!-- ============ SERVICIOS ============ -->
+<section class="on-light" id="servicios">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Qué hacemos</p>
+      <h2 class="h2">Del lote a la llave, con un solo equipo</h2>
+    </div>
+    <div class="servicios">
+      <article class="servicio reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="7" width="30" height="26"/><path d="M5 15h30M14 15v18M24 22h11"/></svg>
+        <div><h3>Cotización express y modelo 3D</h3><p>Mandanos cualquier plano de casa. Con nuestro socio TAO lo cotizamos rápido y te mostramos el modelo 3D en paneles SIP antes de empezar.</p></div>
+      </article>
+      <article class="servicio reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="6" y="6" width="5" height="28"/><rect x="11" y="6" width="18" height="28"/><rect x="29" y="6" width="5" height="28"/></svg>
+        <div><h3>Ejecución de obra</h3><p>Montamos el kit SIP de TAO o construimos en woodframe o ladrillo. Viviendas, cabañas, quinchos y ampliaciones.</p></div>
+      </article>
+      <article class="servicio reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M5 20 20 7l15 13"/><path d="M9 17v16h22V17"/><circle cx="20" cy="25" r="3"/><path d="M20 28v5"/></svg>
+        <div><h3>Llave en mano</h3><p>Nos ocupamos de todo: fundaciones, instalaciones, terminaciones. Vos recibís la casa lista para vivir.</p></div>
+      </article>
+      <article class="servicio reveal">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 32 14 14l7 10 5-6 10 14Z"/><path d="M4 36h32"/></svg>
+        <div><h3>Terrenos, lotes y casas</h3><p>Junto a Lagos del Sur vendemos terrenos, lotes y casas con lote en la Comarca Andina. Y si comprás el lote, construimos en él.</p></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESO ============ -->
+<section class="on-dark" id="proceso">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Cómo trabajamos</p>
+      <h2 class="h2">Cinco pasos, de la idea a la entrega</h2>
+    </div>
+    <ol class="pasos">
+      <li class="paso reveal"><h3>Nos mandás el plano</h3><p>El plano de la casa que querés, un boceto o una referencia. También el terreno, si ya lo tenés.</p></li>
+      <li class="paso reveal"><h3>Cotización express y 3D</h3><p>Junto a TAO cotizamos tu plano y te devolvemos la casa modelada en 3D en paneles SIP.</p></li>
+      <li class="paso reveal"><h3>Kit de la casa</h3><p>TAO fabrica el kit completo de paneles mientras preparamos las fundaciones.</p></li>
+      <li class="paso reveal"><h3>Ejecución de obra</h3><p>Nuestro equipo monta paredes, entrepisos y techo, panel por panel.</p></li>
+      <li class="paso reveal"><h3>Entrega</h3><p>Instalaciones, terminaciones y la llave en tu mano.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ MÓDULOS ============ -->
+<section class="on-light" id="modulos-tao">
+  <div class="wrap">
+    <div class="modelos-head reveal">
+      <div>
+        <p class="eyebrow">Módulos prediseñados</p>
+        <h2 class="h2">Cinco módulos listos para elegir</h2>
+      </div>
+      <p class="lead" style="margin-top:0;max-width:30rem">Prediseños en panel SIP de TAO, de 15 a 31,5 m². Elegís el módulo, TAO provee el kit y nuestro equipo lo monta en tu terreno.</p>
+    </div>
+
+    <div class="modulos-fila" tabindex="0" aria-label="Catálogo de módulos, se desplaza horizontalmente">
+      <article class="modulo">
+        <img src="media/mod-activity.jpg" alt="Módulo Activity en un campo con un volcán nevado de fondo" loading="lazy">
+        <div class="modulo-info">
+          <h3>Activity</h3>
+          <div class="modulo-m2"><b>30 m²</b>6,10 × 5,06 m</div>
+          <p>Dormitorio, cocina comedor y baño. También en versión de descanso.</p>
+          <button class="ver-planta" type="button" data-planta="media/planta-activity.jpg" data-nombre="Activity" data-medidas="30 m² · 6,10 × 5,06 m" data-dist="Distribución: dormitorio + cocina comedor + baño.">Ver planta <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+      <article class="modulo">
+        <img src="media/mod-labt55.jpg" alt="Módulo Labt 5.5 junto a una laguna" loading="lazy">
+        <div class="modulo-info">
+          <h3>Labt 5.5</h3>
+          <div class="modulo-m2"><b>15 m²</b>5,50 × 2,98 m</div>
+          <p>Baño, dormitorio y barra desayunador.</p>
+          <button class="ver-planta" type="button" data-planta="media/planta-labt55.jpg" data-nombre="Labt 5.5" data-medidas="15 m² · 5,50 × 2,98 m" data-dist="Distribución: baño + dormitorio + barra desayunador.">Ver planta <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+      <article class="modulo">
+        <img src="media/mod-labt85.jpg" alt="Módulo Labt 8.5 con terraza frente a un lago" loading="lazy">
+        <div class="modulo-info">
+          <h3>Labt 8.5</h3>
+          <div class="modulo-m2"><b>26 m²</b>8,50 × 3,10 m</div>
+          <p>Dormitorio, baño, cocina y living comedor.</p>
+          <button class="ver-planta" type="button" data-planta="media/planta-labt85.jpg" data-nombre="Labt 8.5" data-medidas="26 m² · 8,50 × 3,10 m" data-dist="Distribución: dormitorio + baño + cocina + living comedor.">Ver planta <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+      <article class="modulo">
+        <img src="media/mod-labt105.jpg" alt="Módulo Labt 10.5 en la costa" loading="lazy">
+        <div class="modulo-info">
+          <h3>Labt 10.5</h3>
+          <div class="modulo-m2"><b>31,5 m²</b>10,89 × 3,10 m</div>
+          <p>Sector dormitorio, cocina comedor y baño.</p>
+          <button class="ver-planta" type="button" data-planta="media/planta-labt105.jpg" data-nombre="Labt 10.5" data-medidas="31,5 m² · 10,89 × 3,10 m" data-dist="Distribución: sector dormitorio + cocina comedor + baño.">Ver planta <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+      <article class="modulo">
+        <img src="media/mod-landscape.jpg" alt="Módulo Landscape de revestimiento oscuro" loading="lazy">
+        <div class="modulo-info">
+          <h3>Landscape</h3>
+          <div class="modulo-m2"><b>23 m²</b>7,32 × 3,20 m</div>
+          <p>Estar, baño y cocina.</p>
+          <button class="ver-planta" type="button" data-planta="media/planta-landscape.jpg" data-nombre="Landscape" data-medidas="23 m² · 7,32 × 3,20 m" data-dist="Distribución: estar + baño + cocina.">Ver planta <span aria-hidden="true">→</span></button>
+        </div>
+      </article>
+    </div>
+
+    <div class="kit">
+      <div class="reveal">
+        <h3>Qué incluye cada kit</h3>
+        <ul>
+          <li>Paneles estructurales SIP de 1,22 × 2,44 m</li>
+          <li>Paneles de techo y piso según el modelo</li>
+          <li>Materiales de vinculación: clavos, tornillos y maderas de unión</li>
+          <li>Clavaderas de muro, membrana hidrófuga y pinturas protectoras</li>
+          <li>Manual de instalación detallado</li>
+        </ul>
+        <p class="kit-nota">No incluye vigas estructurales, artefactos ni muebles.</p>
+      </div>
+      <div class="obra-fotos reveal">
+        <figure><img src="media/obra-grua.jpg" alt="Grúa montando un módulo en el terreno" loading="lazy"><figcaption>Montaje con grúa</figcaption></figure>
+        <figure><img src="media/obra-traslado.jpg" alt="Módulos cargados en un camión para su traslado" loading="lazy"><figcaption>Traslado</figcaption></figure>
+        <figure><img src="media/obra-terminado.jpg" alt="Módulo terminado con ventanal y deck" loading="lazy"><figcaption>Terminado</figcaption></figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="planta-dialog" id="planta-dialog" aria-labelledby="planta-titulo">
+  <header>
+    <h3 id="planta-titulo"><span id="planta-nombre"></span><span id="planta-medidas"></span></h3>
+    <button type="button" id="planta-cerrar" aria-label="Cerrar planta">×</button>
+  </header>
+  <img id="planta-img" src="" alt="">
+  <p id="planta-dist"></p>
+</dialog>
+
+<!-- ============ ZONA ============ -->
+<section class="on-dark" id="zona">
+  <div class="wrap zona-grid">
+    <div class="reveal">
+      <p class="eyebrow">Dónde construimos</p>
+      <h2 class="h2">De Bariloche a Trevelin, toda la Comarca Andina</h2>
+      <p class="lead">Construimos y vendemos terrenos, lotes y casas en toda la cordillera. Nuestra última obra en SIP está en Cholila. Y si tu terreno está más lejos, consultanos igual: ya cotizamos proyectos en Villa Pehuenia.</p>
+      <ul class="zona-lista">
+        <li>Bariloche</li><li>El Manso</li><li>El Bolsón</li><li>Lago Puelo</li><li>El Hoyo</li><li>El Maitén</li><li>Epuyén</li><li>Cholila</li><li>Esquel</li><li>Trevelin</li><li class="lejos">Villa Pehuenia</li>
+      </ul>
+    </div>
+
+    <svg class="mapa reveal" viewBox="0 0 360 540" role="img" aria-label="Mapa de las localidades donde trabaja Cumbre, de norte a sur: Bariloche, El Manso, El Bolsón, Lago Puelo, El Hoyo, El Maitén, Epuyén, Cholila, Esquel y Trevelin">
+      <!-- norte -->
+      <g transform="translate(320,40)" stroke="#9AA4BC" fill="none"><path d="M0,14 L0,-10 M-5,-4 L0,-12 L5,-4"/></g>
+      <text x="320" y="70" text-anchor="middle">N</text>
+      <!-- más al norte -->
+      <line x1="200" y1="22" x2="196" y2="48" stroke="#9AA4BC" stroke-dasharray="3 4"/>
+      <text x="200" y="14" text-anchor="middle">↑ Villa Pehuenia, Neuquén</text>
+      <!-- localidades (posición según coordenadas) -->
+      <circle class="pueblo" cx="192" cy="59" r="4"/><text x="202" y="63">Bariloche</text>
+      <circle class="pueblo" cx="148" cy="162" r="4"/><text x="138" y="166" text-anchor="end">El Manso</text>
+      <circle class="pueblo" cx="155" cy="242" r="4"/><text x="145" y="246" text-anchor="end">El Bolsón</text>
+      <circle class="pueblo" cx="145" cy="265" r="4"/><text x="135" y="269" text-anchor="end">Lago Puelo</text>
+      <circle cx="158" cy="265" r="9" fill="none" stroke="#E6CB8F" stroke-opacity=".6"/>
+      <circle class="base" cx="158" cy="265" r="4.5"/><text class="t-base" x="166" y="287">El Hoyo · Lagos del Sur</text>
+      <circle class="pueblo" cx="215" cy="261" r="4"/><text x="224" y="265">El Maitén</text>
+      <circle class="pueblo" cx="183" cy="301" r="4"/><text x="192" y="310">Epuyén</text>
+      <circle cx="170" cy="363" r="9" fill="none" stroke="#E6CB8F" stroke-opacity=".6"/>
+      <circle class="base" cx="170" cy="363" r="4.5"/><text class="t-base" x="158" y="367" text-anchor="end">Cholila · obra SIP</text>
+      <circle class="pueblo" cx="190" cy="450" r="4"/><text x="200" y="454">Esquel</text>
+      <circle class="pueblo" cx="167" cy="489" r="4"/><text x="157" y="493" text-anchor="end">Trevelin</text>
+      <!-- escala: 50 km ≈ 99 px -->
+      <g transform="translate(240,520)"><line x1="0" y1="0" x2="99" y2="0" stroke="#C8A15A"/><line x1="0" y1="-4" x2="0" y2="4" stroke="#C8A15A"/><line x1="99" y1="-4" x2="99" y2="4" stroke="#C8A15A"/></g>
+      <text x="289" y="512" text-anchor="middle">50 km</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ============ ALIADOS ============ -->
+<section class="on-light" id="aliados">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Aliados</p>
+      <h2 class="h2">Las empresas que acompañan cada obra</h2>
+      <p class="lead">Trabajamos con una red de inmobiliarias, constructoras y proveedores de la zona para que tu proyecto avance sin trabas.</p>
+    </div>
+
+    <div class="socios">
+      <article class="socio reveal">
+        <div class="socio-logo"><img src="media/lagos-del-sur.jpg" alt="Lagos del Sur, constructora e inmobiliaria" loading="lazy"></div>
+        <p class="eyebrow">Socio · Lotes y obra</p>
+        <h3>Lagos del Sur</h3>
+        <p>Constructora e inmobiliaria con 22 años de trayectoria en la Patagonia y más de 100 obras realizadas entre hoteles, cabañas y casas. Construye en SIP, woodframe y ladrillo, y vende terrenos, lotes y casas con lote en la Comarca Andina desde El Hoyo, Chubut.</p>
+        <a href="https://www.lagosdelsur.com.ar" target="_blank" rel="noopener">lagosdelsur.com.ar →</a>
+      </article>
+      <article class="socio reveal">
+        <div class="socio-logo"><img src="media/tao.jpg" alt="TAO Soluciones Constructivas" loading="lazy"></div>
+        <p class="eyebrow">Socio · Cotización y 3D</p>
+        <h3>TAO Soluciones Constructivas</h3>
+        <p>Cotizan de forma express cualquier plano de casa, lo devuelven modelado en 3D y proveen el kit completo de paneles SIP. Nosotros ejecutamos la obra.</p>
+        <p>Sistema con certificados CAT y CAS, desarrollado con materiales de DuPont, Rotoplas y Fischer.</p>
+      </article>
+    </div>
+
+    <div class="rubros">
+      <div class="rubro reveal"><span>Rubro</span><b>Inmobiliarias</b></div>
+      <div class="rubro reveal"><span>Rubro</span><b>Constructoras</b></div>
+      <div class="rubro reveal"><span>Rubro</span><b>Insumos eléctricos</b></div>
+      <div class="rubro reveal"><span>Rubro</span><b>Materiales de construcción</b></div>
+      <div class="rubro reveal"><span>Rubro</span><b>Madereras</b></div>
+    </div>
+    <p class="sumate reveal">¿Tenés una empresa del rubro? <a href="#contacto">Sumate como aliado de Cumbre</a>.</p>
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section class="on-dark" id="contacto">
+  <div class="wrap">
+    <div class="reveal">
+      <p class="eyebrow">Contacto</p>
+      <h2 class="h2">Contanos qué querés construir</h2>
+    </div>
+
+    <div class="contacto-grid">
+      <div class="reveal">
+        <div class="tarjetas">
+          <div class="tarjeta">
+            <b>Rafael “Sandro” Sánchez</b>
+            <span class="rol">Director operativo · 10 años en construcción y carpintería</span>
+            <div class="linea"></div>
+            <a href="https://wa.me/5492944956659" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+              294 495-6659
+            </a>
+          </div>
+          <div class="tarjeta">
+            <b>Marcos Artero</b>
+            <span class="rol">Dirección técnica · construyendo en la zona desde 2012</span>
+            <div class="linea"></div>
+            <a href="https://wa.me/5492944557689" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+              294 455-7689
+            </a>
+          </div>
+        </div>
+        <p class="datos" style="margin-top:1.6rem">
+          <a href="mailto:cumbre.construccion2002@gmail.com">cumbre.construccion2002@gmail.com</a><br>
+          Instagram · Facebook · TikTok: <a href="https://www.instagram.com/cumbre.construccion/" target="_blank" rel="noopener">@cumbre.construccion</a>
+        </p>
+      </div>
+
+      <form class="form reveal" id="form-consulta" novalidate>
+        <h3>Pedí tu presupuesto</h3>
+        <p>Completá lo que sepas. Si tenés el plano, adjuntalo en el chat de WhatsApp y te pasamos una cotización express.</p>
+        <div class="campos">
+          <div class="campo"><label for="f-nombre">Nombre</label><input id="f-nombre" name="nombre" required autocomplete="name"></div>
+          <div class="campo"><label for="f-tel">Teléfono</label><input id="f-tel" name="tel" type="tel" autocomplete="tel"></div>
+          <div class="campo"><label for="f-tipo">Qué estás buscando</label>
+            <select id="f-tipo" name="tipo">
+              <option>Casa nueva</option><option>Cabaña</option><option>Ampliación</option><option>Quincho o módulo</option><option>Un módulo TAO (Activity, Labt, Landscape)</option><option>Comprar terreno, lote o casa</option><option>Todavía no sé</option>
+            </select></div>
+          <div class="campo"><label for="f-m2">Superficie aprox. (m²)</label><input id="f-m2" name="m2" inputmode="numeric" placeholder="Ej: 80"></div>
+          <div class="campo"><label for="f-sistema">Sistema</label>
+            <select id="f-sistema" name="sistema">
+              <option>Panel SIP</option><option>Woodframe</option><option>Ladrillo tradicional</option><option>Quiero asesoramiento</option>
+            </select></div>
+          <div class="campo"><label for="f-lote">¿Tenés terreno?</label>
+            <select id="f-lote" name="lote">
+              <option>Sí, ya tengo terreno</option><option>No, estoy buscando lote</option><option>Todavía no</option>
+            </select></div>
+          <div class="campo campo-full"><label for="f-msg">Contanos tu idea</label><textarea id="f-msg" name="msg" placeholder="Ubicación, cantidad de ambientes, plazos…"></textarea></div>
+        </div>
+        <button class="btn btn-oro" type="submit">Enviar por WhatsApp</button>
+        <p class="form-nota" id="form-nota" aria-live="polite">Se abre WhatsApp con tu consulta lista para enviar.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANNER AUTOR ============ -->
+<section class="autor" aria-labelledby="autor-titulo">
+  <div class="wrap">
+    <div class="autor-caja">
+      <div>
+        <p class="eyebrow">Diseño web</p>
+        <h2 id="autor-titulo">Este boceto lo diseñó Teo Cicciari</h2>
+        <p>¿Tenés una empresa y querés un sitio pensado para tu marca? Pedí el tuyo y mirá otros trabajos.</p>
+      </div>
+      <a class="btn btn-oro" href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Ver referencias y precios</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="marca" href="#inicio" aria-label="Cumbre, volver arriba">
+        <svg viewBox="0 0 100 60" aria-hidden="true">
+          <polyline points="4,58 52,8 96,50" fill="none" stroke="#C8A15A" stroke-width="5.5"/>
+          <rect x="18" y="16" width="9" height="20" fill="#C8A15A"/>
+        </svg>
+        <span class="marca-texto"><b>CUMBRE</b><small>Construcción integral de viviendas andinas</small></span>
+      </a>
+      <nav class="footer-links" aria-label="Pie de página">
+        <a href="#sistema">Sistemas</a>
+        <a href="#modelos">Modelos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#modulos-tao">Módulos</a>
+        <a href="#zona">Zona</a>
+        <a href="#aliados">Aliados</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+    <div class="footer-base">
+      <span>© <span id="anio"></span> Cumbre · Construcción integral de viviendas andinas</span>
+      <span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-flotante" href="https://wa.me/5492944557689?text=Hola%20Cumbre%2C%20quiero%20consultar%20por%20una%20construcci%C3%B3n%20con%20panel%20SIP." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3Z"/></svg>
+</a>
+
+<script>
+// Año dinámico
+document.getElementById('anio').textContent = new Date().getFullYear();
+
+// Arranque de la animación del hero
+requestAnimationFrame(() => document.body.classList.add('listo'));
+
+// Header con fondo al scrollear
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+onScroll();
+window.addEventListener('scroll', onScroll, { passive: true });
+
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Reveal al scrollear
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+// Videos: se reproducen solo cuando están en pantalla
+const videos = document.querySelectorAll('.lamina video');
+if (reduce) {
+  videos.forEach((v) => { v.controls = true; });
+} else {
+  const vio = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      const v = e.target;
+      if (e.isIntersecting) { v.play().catch(() => { v.controls = true; }); }
+      else { v.pause(); }
+    });
+  }, { threshold: 0.35 });
+  videos.forEach((v) => vio.observe(v));
+}
+
+// Plantas de los módulos en un modal
+const dlg = document.getElementById('planta-dialog');
+document.querySelectorAll('.ver-planta').forEach((b) => {
+  b.addEventListener('click', () => {
+    const img = document.getElementById('planta-img');
+    img.src = b.dataset.planta;
+    img.alt = 'Planta del módulo ' + b.dataset.nombre;
+    document.getElementById('planta-nombre').textContent = b.dataset.nombre;
+    document.getElementById('planta-medidas').textContent = b.dataset.medidas;
+    document.getElementById('planta-dist').textContent = b.dataset.dist + ' No incluye artefactos ni muebles.';
+    dlg.showModal();
+  });
+});
+document.getElementById('planta-cerrar').addEventListener('click', () => dlg.close());
+dlg.addEventListener('click', (e) => { if (e.target === dlg) dlg.close(); });
+
+// Formulario → WhatsApp
+document.getElementById('form-consulta').addEventListener('submit', (ev) => {
+  ev.preventDefault();
+  const f = ev.target;
+  const nota = document.getElementById('form-nota');
+  const nombre = f.nombre.value.trim();
+  if (!nombre) {
+    nota.textContent = 'Escribí tu nombre para que sepamos a quién responder.';
+    f.nombre.focus();
+    return;
+  }
+  const lineas = [
+    'Hola Cumbre, soy ' + nombre + '.',
+    'Busco: ' + f.tipo.value + '.',
+    f.m2.value.trim() ? 'Superficie aprox.: ' + f.m2.value.trim() + ' m².' : '',
+    'Sistema: ' + f.sistema.value + '.',
+    'Terreno: ' + f.lote.value + '.',
+    f.tel.value.trim() ? 'Mi teléfono: ' + f.tel.value.trim() + '.' : '',
+    f.msg.value.trim()
+  ].filter(Boolean);
+  nota.textContent = 'Se abre WhatsApp con tu consulta lista para enviar.';
+  window.open('https://wa.me/5492944557689?text=' + encodeURIComponent(lineas.join('\n')), '_blank', 'noopener');
+});
+</script>
+</body>
+</html>
