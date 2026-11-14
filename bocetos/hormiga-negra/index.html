@@ -128,6 +128,7 @@
   .room h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2.2rem;line-height:.95;margin:0 0 .75rem}
   .room p{margin:0 0 1rem}
   .room .cap{font-size:.9rem;font-weight:600}
+  .room__cta{margin-top:.5rem;font-size:.85rem;padding:.85rem 1.25rem}
 
   .incl{margin-top:4rem;background:var(--lima);padding:2.5rem 1.5rem}
   .incl h3{font-family:var(--display);font-weight:900;text-transform:uppercase;font-size:2rem;margin:0 0 1.5rem;line-height:1}
@@ -138,9 +139,17 @@
   .incl .note{margin:1.75rem 0 0;font-size:.95rem;font-weight:600;border-top:2px solid var(--negro);padding-top:1rem}
   @media (min-width:700px){.incl{padding:3rem}.incl ul{grid-template-columns:1fr 1fr}}
 
-  .strip{display:grid;grid-template-columns:1fr;gap:.5rem;margin-top:3rem}
-  .strip img{width:100%;aspect-ratio:16/9;object-fit:cover}
-  @media (min-width:700px){.strip{grid-template-columns:1fr 1fr}}
+  /* fotos debajo de "En todas las habitaciones": 2 horizontales + 3 verticales */
+  .strip{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:3rem}
+  .strip img{width:100%;height:100%;object-fit:cover}
+  .strip .l{grid-column:span 2;aspect-ratio:3/2}
+  .strip .p{aspect-ratio:3/4}
+  .strip .p:last-child{grid-column:span 2;aspect-ratio:4/3;object-position:50% 60%}
+  @media (min-width:700px){
+    .strip{grid-template-columns:repeat(6,1fr)}
+    .strip .l{grid-column:span 3}
+    .strip .p,.strip .p:last-child{grid-column:span 2;aspect-ratio:3/4}
+  }
 
   /* espacios compartidos */
   .spaces{background:var(--negro);color:var(--blanco)}
@@ -164,10 +173,15 @@
   .svc svg{width:30px;height:30px}
   .svc h3{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.5rem;line-height:1;margin:0}
   .svc p{margin:.35rem 0 0;font-size:.9rem;line-height:1.35}
-  .svc--wide{grid-column:1/-1}
-  @media (min-width:700px){.services{grid-template-columns:repeat(4,1fr)}.svc{min-height:12rem;padding:1.75rem 1.5rem}.svc--wide{grid-column:auto}}
+  @media (min-width:700px){.services{grid-template-columns:repeat(4,1fr)}.svc{min-height:12rem;padding:1.75rem 1.5rem}}
 
   /* ubicación */
+  /* café hor-miga (próximamente) */
+  .cafe{background:var(--negro);color:var(--blanco);padding:3.5rem 0}
+  .cafe__in{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:.5rem 2rem}
+  .cafe .label{color:var(--oro);margin:0}
+  .cafe__soon{font-size:clamp(2.6rem,7vw,4.8rem)}
+
   .where-sec{background:var(--lima)}
   .where{display:grid;gap:2.5rem;align-items:center}
   @media (min-width:900px){.where{grid-template-columns:1fr 1fr;gap:4rem}}
@@ -230,6 +244,7 @@
       <li><a href="#habitaciones">Habitaciones</a></li>
       <li><a href="#espacios">Espacios</a></li>
       <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#cafe">Café Hor-miga</a></li>
       <li><a href="#ubicacion">Ubicación</a></li>
     </ul>
     <a class="btn btn--magenta nav__cta" href="#reservar">Reservar</a>
@@ -263,7 +278,7 @@
 <div class="wake">
   <div class="wrap wake__in">
     <blockquote class="rv">Imaginate despertar con <span>esta vista</span> desde tu cama.</blockquote>
-    <img class="rv" src="img/hostel_hormiganegra-59.jpg" alt="Vista al lago Nahuel Huapi y la cordillera desde el hostel" loading="lazy">
+    <img class="rv" src="img/vista-ventana.webp" alt="Vista al lago Nahuel Huapi y la cordillera desde la ventana del hostel" loading="lazy">
   </div>
 </div>
 
@@ -280,24 +295,26 @@
     <div class="rooms">
       <article class="room rv" style="--c:var(--magenta)">
         <div class="room__img">
-          <img src="img/hab1.webp" alt="Habitación privada con cama grande y ventana al lago" loading="lazy">
+          <img src="img/hab-privada.webp" alt="Habitación privada con cama grande y ventanal al lago" loading="lazy">
           <span class="tag" style="background:var(--magenta);color:#fff">Privada</span>
         </div>
         <div class="room__body">
           <h3>Habitación privada</h3>
           <p>Con una cama grande o dos camas individuales, con vista al lago.</p>
-          <p class="cap">Hasta 2 personas</p>
+          <p class="cap">Precio por habitación</p>
+          <a class="btn btn--dark room__cta" href="#reservar" data-room="Habitación privada">Consultar esta habitación</a>
         </div>
       </article>
       <article class="room rv" style="--c:var(--cian)">
         <div class="room__img">
-          <img src="img/dsc_0636-1.webp" alt="Habitación compartida con cuchetas y vista al lago" loading="lazy">
+          <img src="img/hab-compartida.webp" alt="Habitación compartida con cuchetas y puerta con una hormiga pintada" loading="lazy">
           <span class="tag" style="background:var(--cian)">Compartida</span>
         </div>
         <div class="room__body">
           <h3>Habitación compartida mixta</h3>
           <p>Doble, triple o séxtuple, para compartir el viaje con otros viajeros.</p>
           <p class="cap">Precio por persona</p>
+          <a class="btn btn--dark room__cta" href="#reservar" data-room="Habitación compartida doble">Consultar esta habitación</a>
         </div>
       </article>
     </div>
@@ -307,7 +324,7 @@
       <ul>
         <li><b>Camas XL</b> y colchones premium</li>
         <li><b>Velador y tomacorriente</b> independiente para cada cama</li>
-        <li><b>Toalla</b> de mano</li>
+        <li><b>Toallas</b></li>
         <li><b>Limpieza</b> diaria</li>
         <li><b>Lockers individuales</b> con candado y llave</li>
         <li><b>Desayuno</b> continental</li>
@@ -317,10 +334,11 @@
     </div>
 
     <div class="strip rv">
-      <img src="img/hab2.webp" alt="Huéspedes charlando en una habitación" loading="lazy">
-      <img src="img/hab3.webp" alt="Huésped mirando el lago desde la cama" loading="lazy">
-      <img src="img/hab4.webp" alt="Huésped descansando en su cama" loading="lazy">
-      <img src="img/hostel-hormiga-negra-70.jpg" alt="Huésped leyendo en su cama" loading="lazy">
+      <img class="l" src="img/huespedes-habitacion.webp" alt="Dos huéspedes charlando en una habitación compartida" loading="lazy">
+      <img class="l" src="img/jardin-nevado.webp" alt="Jardín del hostel nevado con mesa y sillas" loading="lazy">
+      <img class="p" src="img/fogon-grupo.webp" alt="Grupo de huéspedes alrededor del fogonero en el jardín" loading="lazy">
+      <img class="p" src="img/jenga.webp" alt="Huéspedes jugando al jenga frente a la pared de hormigas" loading="lazy">
+      <img class="p" src="img/fogon-guitarra.webp" alt="Huéspedes tocando la guitarra y el djembe junto al fuego" loading="lazy">
     </div>
   </div>
 </section>
@@ -335,11 +353,11 @@
       <p class="lead">Desayunás mirando el Nahuel Huapi, cocinás lo tuyo cuando quieras y a la noche hay bar o fogón en el jardín. Todo a dos pasos de la costanera.</p>
     </div>
     <div class="mosaic">
-      <figure class="big rv" style="--c:var(--lima)"><img src="img/hostel_hormiganegra_25.jpg" alt="Sala de estar con ventanales al lago y la pared de hormigas" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
-      <figure class="rv" style="--c:var(--oro)"><img src="img/hostel_hormiganegra_bar_2.jpeg" alt="Barra del bar con bebidas" loading="lazy"><figcaption>Bar</figcaption></figure>
-      <figure class="rv" style="--c:var(--cian)"><img src="img/hostel_hormiganegra_cocina_2.jpg" alt="Cocina equipada para huéspedes" loading="lazy"><figcaption>Cocina</figcaption></figure>
-      <figure class="rv" style="--c:var(--celeste)"><img src="img/ant-azul.webp" alt="" loading="lazy"><figcaption>Jardín delantero</figcaption></figure>
-      <figure class="rv" style="--c:var(--rosa-claro)"><img src="img/ant-celeste.webp" alt="" loading="lazy" style="transform:scaleX(-1)"><figcaption>Jardín con fogonero</figcaption></figure>
+      <figure class="big rv" style="--c:var(--lima)"><img src="img/sala-estar.webp" alt="Sala de estar con sillones, mural de hormigas y ventanales al lago" loading="lazy"><figcaption>Sala de estar</figcaption></figure>
+      <figure class="rv" style="--c:var(--oro)"><img src="img/bar.webp" alt="Bar con heladera de bebidas y cartel de neón" loading="lazy" style="object-position:50% 30%"><figcaption>Bar</figcaption></figure>
+      <figure class="rv" style="--c:var(--cian)"><img src="img/cocina.webp" alt="Cocina equipada para huéspedes" loading="lazy"><figcaption>Cocina</figcaption></figure>
+      <figure class="rv" style="--c:var(--celeste)"><img src="img/jardin-delantero.webp" alt="Terraza del frente con mesas, mural de hormiga y vista al lago" loading="lazy"><figcaption>Jardín delantero</figcaption></figure>
+      <figure class="rv" style="--c:var(--rosa-claro)"><img src="img/jardin-fondo.webp" alt="Jardín del fondo con césped, árboles y fogonero" loading="lazy"><figcaption>Jardín con fogonero</figcaption></figure>
     </div>
   </div>
 </section>
@@ -383,11 +401,18 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="10" width="14" height="11"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
         <div><h3>Lockers individuales</h3><p>Con candado y llaves.</p></div>
       </div>
-      <div class="svc svc--wide" style="--c:var(--rosa-claro)">
+      <div class="svc" style="--c:var(--rosa-claro)">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="7" width="12" height="13" rx="2"/><path d="M9 7V4h6v3M9 20v1M15 20v1"/></svg>
         <div><h3>Guarda equipaje</h3><p>Si llegás antes del horario de check in o necesitás dejar tu equipaje después del check out, te lo guardamos.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="cafe" id="cafe">
+  <div class="wrap cafe__in">
+    <p class="label">Café Hor-miga</p>
+    <p class="display cafe__soon">Prontamente</p>
   </div>
 </section>
 
@@ -401,7 +426,7 @@
       <p>Sobre la costanera, frente al lago Nahuel Huapi y cerca del centro de la ciudad.</p>
       <div class="links">
         <a class="btn btn--dark" href="https://www.google.com/maps/search/?api=1&query=12+de+Octubre+971+San+Carlos+de+Bariloche" target="_blank" rel="noopener">Cómo llegar</a>
-        <a class="btn btn--line" href="https://www.instagram.com/hostelhormiganegra/" target="_blank" rel="noopener">@hostelhormiganegra</a>
+        <a class="btn btn--line" href="https://www.instagram.com/hormigashostelycafe/" target="_blank" rel="noopener">@hormigashostelycafe</a>
       </div>
     </div>
     <iframe class="map rv" title="Mapa: Hostel Hormiga Negra, 12 de Octubre 971, Bariloche" src="https://maps.google.com/maps?q=12%20de%20Octubre%20971%2C%20San%20Carlos%20de%20Bariloche&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -429,7 +454,9 @@
       <div class="field">
         <label for="habitacion">Habitación</label>
         <select id="habitacion" name="habitacion">
-          <option>Habitación compartida mixta</option>
+          <option>Habitación compartida doble</option>
+          <option>Habitación compartida triple</option>
+          <option>Habitación compartida séxtuple</option>
           <option>Habitación privada</option>
           <option>Todavía no sé</option>
         </select>
@@ -475,7 +502,7 @@
         <h4>Contacto</h4>
         <ul>
           <li><a href="https://wa.me/5492944704128" target="_blank" rel="noopener">WhatsApp +54 9 2944 70-4128</a></li>
-          <li><a href="https://www.instagram.com/hostelhormiganegra/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://www.instagram.com/hormigashostelycafe/" target="_blank" rel="noopener">Instagram</a></li>
           <li><a href="https://www.facebook.com/Hostel-Hormiga-Negra-104266328399350/" target="_blank" rel="noopener">Facebook</a></li>
         </ul>
       </div>
@@ -512,6 +539,9 @@
     cout.min = iso(next);
     if (!cout.value || cout.value <= cin.value) cout.value = iso(next);
   });
+  document.querySelectorAll('.room__cta').forEach(b => b.addEventListener('click', () => {
+    form.habitacion.value = b.dataset.room;
+  }));
   const fmt = v => new Date(v + 'T12:00').toLocaleDateString('es-AR', { day:'numeric', month:'long', year:'numeric' });
 
   form.addEventListener('submit', e => {
