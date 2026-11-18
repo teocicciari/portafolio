@@ -10,11 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@500;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --papel:#E4ECF0;
-    --papel-2:#D6E1E7;
-    --carton:#FAFCFD;
-    --tinta:#1C2FA6;
-    --tinta-osc:#141F75;
+    --papel:#EEF3F8;
+    --papel-2:#DCE6F0;
+    --carton:#FFFFFF;
+    --tinta:#2442E8;
+    --tinta-osc:#1A2FC0;
+    --amarillo:#FFD23F;
+    --amarillo-osc:#F2C11C;
     --grafito:#14161B;
     --sello:#D3242C;
     --titanio:#5F6976;
@@ -90,6 +92,29 @@
   .hero-texto{font-size:19px;max-width:520px;margin:0 0 32px}
   .hero-acciones{display:flex;flex-wrap:wrap;gap:12px}
 
+  /* hero en azul eléctrico */
+  .hero{
+    background:
+      radial-gradient(circle at 82% 18%, #4F6BFF 0, transparent 46%),
+      radial-gradient(circle at 8% 100%, #1A2FC0 0, transparent 50%),
+      var(--tinta);
+    color:#fff;overflow:hidden
+  }
+  .hero .hero-kicker{color:#C9D3FF}
+  .hero .hero-kicker::before{background:var(--amarillo)}
+  .hero h1{color:#fff}
+  .hero h1 .subrayado{color:var(--amarillo);background:none}
+  .hero .hero-texto{color:#DFE5FF}
+  .btn-amarillo{background:var(--amarillo);color:var(--grafito)}
+  .btn-amarillo:hover{background:var(--amarillo-osc)}
+  .hero .btn-linea{border-color:#fff;color:#fff}
+  .hero .btn-linea:hover{background:#fff;color:var(--tinta)}
+  .hero :focus-visible{outline-color:var(--amarillo)}
+  .hero .cartilla{color:var(--grafito);box-shadow:0 30px 60px -18px rgba(5,10,60,.55)}
+  .hero .cartilla::before{background-image:radial-gradient(circle at 15px 12px, var(--tinta) 5px, transparent 5.5px)}
+  .hero .cartilla :focus-visible{outline-color:var(--tinta)}
+  .hero .sello{mix-blend-mode:normal;background:var(--carton)}
+
   /* ---------- cartilla (firma) ---------- */
   .cartilla{
     position:relative;background:var(--carton);
@@ -132,7 +157,7 @@
   .opcion input:checked + span{border-color:var(--tinta);background:color-mix(in srgb, var(--tinta) 7%, #fff)}
   .opcion input:checked + span::before{
     border-color:var(--tinta);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%231C2FA6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%232442E8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
   .opcion input:focus-visible + span{outline:3px solid var(--tinta);outline-offset:2px}
 
@@ -160,13 +185,13 @@
   @keyframes sellar{from{opacity:0;transform:rotate(-11deg) scale(1.9)}to{opacity:1;transform:rotate(-11deg) scale(1)}}
 
   /* ---------- datos ---------- */
-  .datos{background:var(--grafito);color:var(--papel)}
+  .datos{background:var(--amarillo);color:var(--grafito)}
   .datos ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
-  .datos li{padding:28px 24px;border-left:1px solid #2B2F38;display:flex;gap:14px;align-items:flex-start}
+  .datos li{padding:28px 24px;border-left:1px solid rgba(20,22,27,.15);display:flex;gap:14px;align-items:flex-start}
   .datos li:first-child{border-left:0;padding-left:0}
-  .datos svg{width:26px;height:26px;flex:none;color:#8EA0FF;margin-top:2px}
-  .datos strong{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 100;font-weight:750;font-size:18px;line-height:1.2;margin-bottom:4px;color:#fff}
-  .datos p{margin:0;font-size:14.5px;color:#AEB6C2}
+  .datos svg{width:26px;height:26px;flex:none;color:var(--tinta);margin-top:2px}
+  .datos strong{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 100;font-weight:800;font-size:18px;line-height:1.2;margin-bottom:4px;color:var(--grafito)}
+  .datos p{margin:0;font-size:14.5px;color:#4A4430}
 
   /* ---------- secciones ---------- */
   section.bloque{padding:96px 0}
@@ -183,6 +208,9 @@
   .modelo-foto{background:var(--papel-2);padding:30px 0 0;display:flex;justify-content:center;position:relative;height:250px;overflow:hidden}
   .modelo-foto svg{width:130px;height:auto;transform:translateY(12px) rotate(-4deg);filter:drop-shadow(0 18px 20px rgba(20,22,27,.25));transition:transform .35s ease}
   .modelo:hover .modelo-foto svg{transform:translateY(0) rotate(0)}
+  .modelo-foto.m25{background:radial-gradient(circle at 50% 75%, #EAF2FF 0, #BFD6FF 70%)}
+  .modelo-foto.m24{background:radial-gradient(circle at 50% 75%, #FFF6DA 0, #F6E0A0 70%)}
+  .modelo-foto.m23{background:radial-gradient(circle at 50% 75%, #E9F6EC 0, #BFE2C9 70%)}
   .etiqueta{position:absolute;top:14px;left:14px;background:var(--carton);padding:5px 9px;border-radius:3px;font-size:10.5px}
   .etiqueta.nueva{background:var(--tinta);color:#fff}
   .modelo-info{padding:24px 24px 26px;display:flex;flex-direction:column;flex:1}
@@ -269,7 +297,7 @@
     .hero .wrap{grid-template-columns:1fr;gap:56px}
     .cartilla{max-width:560px;transform:none}
     .datos ul{grid-template-columns:1fr 1fr}
-    .datos li{border-left:0;padding:22px 0;border-top:1px solid #2B2F38}
+    .datos li{border-left:0;padding:22px 0;border-top:1px solid rgba(20,22,27,.15)}
     .datos li:nth-child(-n+2){border-top:0}
     .datos li:nth-child(2n){padding-left:20px}
     .modelos{grid-template-columns:1fr;max-width:520px}
@@ -293,7 +321,7 @@
     .casilla{min-height:56px;padding:6px}
     .casilla .mono{font-size:9.5px;letter-spacing:.04em}
     .datos ul{grid-template-columns:1fr}
-    .datos li,.datos li:nth-child(2n){padding:20px 0;border-top:1px solid #2B2F38}
+    .datos li,.datos li:nth-child(2n){padding:20px 0;border-top:1px solid rgba(20,22,27,.15)}
     .datos li:first-child{border-top:0}
     section.bloque{padding:68px 0}
     .pasos{grid-template-columns:1fr;row-gap:0}
@@ -341,7 +369,7 @@
         <h1>Tu Galaxy Ultra en cuotas, <span class="subrayado">solo con tu DNI.</span></h1>
         <p class="hero-texto">S23, S24 y S25 Ultra nuevos, en caja sellada. Pagás en cuotas semanales, quincenales o mensuales. Tenés 12 meses de garantía escrita y te lo enviamos a cualquier zona.</p>
         <div class="hero-acciones">
-          <a class="btn btn-tinta" href="#cartilla">Armar mi plan de cuotas</a>
+          <a class="btn btn-amarillo" href="#cartilla">Armar mi plan de cuotas</a>
           <a class="btn btn-linea" href="#modelos">Ver modelos</a>
         </div>
       </div>
@@ -420,7 +448,7 @@
       <div class="modelos">
         <!-- S25 -->
         <article class="modelo">
-          <div class="modelo-foto">
+          <div class="modelo-foto m25">
             <span class="etiqueta mono nueva">El más nuevo</span>
             <svg viewBox="0 0 120 230" aria-hidden="true">
               <defs><linearGradient id="g25" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C9D3DE"/><stop offset=".55" stop-color="#9FADBD"/><stop offset="1" stop-color="#7E8C9C"/></linearGradient></defs>
@@ -445,11 +473,11 @@
 
         <!-- S24 -->
         <article class="modelo">
-          <div class="modelo-foto">
+          <div class="modelo-foto m24">
             <svg viewBox="0 0 120 230" aria-hidden="true">
-              <defs><linearGradient id="g24" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A7A6A2"/><stop offset=".55" stop-color="#7E7D79"/><stop offset="1" stop-color="#5F5E5B"/></linearGradient></defs>
-              <rect x="6" y="6" width="108" height="218" rx="9" fill="url(#g24)" stroke="#55544F" stroke-width="2"/>
-              <g fill="#0E1015" stroke="#4A4945" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
+              <defs><linearGradient id="g24" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EDE3C3"/><stop offset=".55" stop-color="#CDBF94"/><stop offset="1" stop-color="#A89A6E"/></linearGradient></defs>
+              <rect x="6" y="6" width="108" height="218" rx="9" fill="url(#g24)" stroke="#8E825E" stroke-width="2"/>
+              <g fill="#0E1015" stroke="#9A8D66" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
               <g fill="#25335A"><circle cx="32" cy="38" r="4.5"/><circle cx="32" cy="70" r="4.5"/><circle cx="32" cy="102" r="4.5"/></g>
               <circle cx="60" cy="62" r="3.5" fill="#F3EFD6"/>
             </svg>
@@ -469,11 +497,11 @@
 
         <!-- S23 -->
         <article class="modelo">
-          <div class="modelo-foto">
+          <div class="modelo-foto m23">
             <svg viewBox="0 0 120 230" aria-hidden="true">
-              <defs><linearGradient id="g23" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A4F58"/><stop offset=".55" stop-color="#2C3037"/><stop offset="1" stop-color="#1B1E23"/></linearGradient></defs>
-              <rect x="6" y="6" width="108" height="218" rx="12" fill="url(#g23)" stroke="#15171B" stroke-width="2"/>
-              <g fill="#0B0C10" stroke="#5A606B" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
+              <defs><linearGradient id="g23" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#86A58E"/><stop offset=".55" stop-color="#5E7E67"/><stop offset="1" stop-color="#425D4B"/></linearGradient></defs>
+              <rect x="6" y="6" width="108" height="218" rx="12" fill="url(#g23)" stroke="#33473A" stroke-width="2"/>
+              <g fill="#0B0C10" stroke="#6F8C78" stroke-width="3"><circle cx="32" cy="38" r="12"/><circle cx="32" cy="70" r="12"/><circle cx="32" cy="102" r="12"/><circle cx="60" cy="38" r="8"/></g>
               <g fill="#25335A"><circle cx="32" cy="38" r="4.5"/><circle cx="32" cy="70" r="4.5"/><circle cx="32" cy="102" r="4.5"/></g>
               <circle cx="60" cy="62" r="3.5" fill="#F3EFD6"/>
             </svg>

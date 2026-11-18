@@ -10,11 +10,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Caveat:wght@500;700&family=Hanken+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --papel:#E4ECF0;
-    --papel-2:#D6E1E7;
+    --papel:#EEF3F8;
+    --papel-2:#DCE6F0;
     --carton:#FAFCFD;
-    --tinta:#1C2FA6;
-    --tinta-osc:#141F75;
+    --tinta:#2442E8;
+    --amarillo:#FFD23F;
+    --tinta-osc:#1A2FC0;
     --grafito:#14161B;
     --sello:#D3242C;
     --titanio:#5F6976;
@@ -101,7 +102,7 @@
   .muestras{background:var(--carton);border:1px solid var(--linea);border-radius:var(--radio);padding:28px}
   .logo-muestra{font-family:var(--f-display);font-variation-settings:"wdth" 125;font-weight:850;font-size:clamp(34px,5vw,52px);letter-spacing:.04em;line-height:1;padding-bottom:22px;border-bottom:1px solid var(--linea);margin-bottom:22px}
   .logo-muestra b{color:var(--tinta)}
-  .colores{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:24px}
+  .colores{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:24px}
   .color i{display:block;height:58px;border-radius:4px;border:1px solid rgba(20,22,27,.12);margin-bottom:8px}
   .color strong{display:block;font-size:13.5px;line-height:1.2}
   .color span{font-family:var(--f-mono);font-size:10.5px;color:var(--titanio)}
@@ -122,7 +123,7 @@
   .lista li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--linea)}
   .lista li::before{
     content:"";width:18px;height:18px;margin-top:4px;border:1.5px solid var(--tinta);border-radius:2px;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%231C2FA6' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%232442E8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat
   }
   .lista strong{display:block;font-weight:700}
   .lista span{color:var(--titanio);font-size:15.5px}
@@ -310,8 +311,9 @@
         <div class="muestras">
           <div class="logo-muestra">TECNO<b>CELL</b></div>
           <div class="colores">
-            <div class="color"><i style="background:#E4ECF0"></i><strong>Papel</strong><span>#E4ECF0</span></div>
-            <div class="color"><i style="background:#1C2FA6"></i><strong>Tinta cobalto</strong><span>#1C2FA6</span></div>
+            <div class="color"><i style="background:#EEF3F8"></i><strong>Papel</strong><span>#EEF3F8</span></div>
+            <div class="color"><i style="background:#2442E8"></i><strong>Azul eléctrico</strong><span>#2442E8</span></div>
+            <div class="color"><i style="background:#FFD23F"></i><strong>Amarillo oferta</strong><span>#FFD23F</span></div>
             <div class="color"><i style="background:#D3242C"></i><strong>Rojo sello</strong><span>#D3242C</span></div>
             <div class="color"><i style="background:#14161B"></i><strong>Grafito</strong><span>#14161B</span></div>
             <div class="color"><i style="background:#5F6976"></i><strong>Titanio</strong><span>#5F6976</span></div>
