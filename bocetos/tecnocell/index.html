@@ -13,10 +13,10 @@
     --papel:#EEF3F8;
     --papel-2:#DCE6F0;
     --carton:#FFFFFF;
-    --tinta:#2442E8;
-    --tinta-osc:#1A2FC0;
-    --amarillo:#FFD23F;
-    --amarillo-osc:#F2C11C;
+    --tinta:#5B2BE0;
+    --tinta-osc:#4520B8;
+    --acento:#FFA05A;
+    --acento-osc:#F58A3C;
     --grafito:#14161B;
     --sello:#D3242C;
     --titanio:#5F6976;
@@ -95,21 +95,21 @@
   /* hero en azul eléctrico */
   .hero{
     background:
-      radial-gradient(circle at 82% 18%, #4F6BFF 0, transparent 46%),
-      radial-gradient(circle at 8% 100%, #1A2FC0 0, transparent 50%),
+      radial-gradient(circle at 82% 18%, #8A63FF 0, transparent 46%),
+      radial-gradient(circle at 8% 100%, #3D16A8 0, transparent 50%),
       var(--tinta);
     color:#fff;overflow:hidden
   }
-  .hero .hero-kicker{color:#C9D3FF}
-  .hero .hero-kicker::before{background:var(--amarillo)}
+  .hero .hero-kicker{color:#DCD2FF}
+  .hero .hero-kicker::before{background:var(--acento)}
   .hero h1{color:#fff}
-  .hero h1 .subrayado{color:var(--amarillo);background:none}
-  .hero .hero-texto{color:#DFE5FF}
-  .btn-amarillo{background:var(--amarillo);color:var(--grafito)}
-  .btn-amarillo:hover{background:var(--amarillo-osc)}
+  .hero h1 .subrayado{color:var(--acento);background:none}
+  .hero .hero-texto{color:#ECE6FF}
+  .btn-acento{background:var(--acento);color:var(--grafito)}
+  .btn-acento:hover{background:var(--acento-osc)}
   .hero .btn-linea{border-color:#fff;color:#fff}
   .hero .btn-linea:hover{background:#fff;color:var(--tinta)}
-  .hero :focus-visible{outline-color:var(--amarillo)}
+  .hero :focus-visible{outline-color:var(--acento)}
   .hero .cartilla{color:var(--grafito);box-shadow:0 30px 60px -18px rgba(5,10,60,.55)}
   .hero .cartilla::before{background-image:radial-gradient(circle at 15px 12px, var(--tinta) 5px, transparent 5.5px)}
   .hero .cartilla :focus-visible{outline-color:var(--tinta)}
@@ -157,7 +157,7 @@
   .opcion input:checked + span{border-color:var(--tinta);background:color-mix(in srgb, var(--tinta) 7%, #fff)}
   .opcion input:checked + span::before{
     border-color:var(--tinta);
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%232442E8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%235B2BE0' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   }
   .opcion input:focus-visible + span{outline:3px solid var(--tinta);outline-offset:2px}
 
@@ -185,13 +185,13 @@
   @keyframes sellar{from{opacity:0;transform:rotate(-11deg) scale(1.9)}to{opacity:1;transform:rotate(-11deg) scale(1)}}
 
   /* ---------- datos ---------- */
-  .datos{background:var(--amarillo);color:var(--grafito)}
+  .datos{background:var(--acento);color:var(--grafito)}
   .datos ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr)}
   .datos li{padding:28px 24px;border-left:1px solid rgba(20,22,27,.15);display:flex;gap:14px;align-items:flex-start}
   .datos li:first-child{border-left:0;padding-left:0}
   .datos svg{width:26px;height:26px;flex:none;color:var(--tinta);margin-top:2px}
   .datos strong{display:block;font-family:var(--f-display);font-variation-settings:"wdth" 100;font-weight:800;font-size:18px;line-height:1.2;margin-bottom:4px;color:var(--grafito)}
-  .datos p{margin:0;font-size:14.5px;color:#4A4430}
+  .datos p{margin:0;font-size:14.5px;color:#4A3524}
 
   /* ---------- secciones ---------- */
   section.bloque{padding:96px 0}
@@ -265,7 +265,7 @@
   .autor .eyebrow{display:inline-block;color:var(--tinta);background:#fff;padding:5px 10px;border-radius:3px;margin-bottom:20px}
   .autor h2{color:#fff}
   .autor h2 em{font-family:var(--f-mano);font-style:normal;font-weight:700;font-variation-settings:normal;font-size:1.12em;color:#FFD3D5}
-  .autor p{margin:0 0 24px;color:#D2D8FF;font-size:18px}
+  .autor p{margin:0 0 24px;color:#E2DAFF;font-size:18px}
   .btn-blanco{background:#fff;color:var(--tinta)}
   .btn-blanco:hover{background:var(--papel)}
   .autor :focus-visible{outline-color:#fff}
@@ -274,13 +274,13 @@
   footer{background:var(--grafito);color:#AEB6C2;padding:56px 0 30px;font-size:15px}
   .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px;padding-bottom:36px;border-bottom:1px solid #2B2F38}
   footer .marca{color:#fff}
-  footer .marca b{color:#8EA0FF}
+  footer .marca b{color:#C3B2FF}
   footer h4{margin:0 0 12px;color:#fff}
   footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   footer a{color:#fff;text-decoration:none}
   footer a:hover{text-decoration:underline}
   .foot-base{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:13.5px}
-  .foot-base a{color:#8EA0FF}
+  .foot-base a{color:#C3B2FF}
 
   /* whatsapp flotante */
   .wa-flotante{
@@ -369,7 +369,7 @@
         <h1>Tu Galaxy Ultra en cuotas, <span class="subrayado">solo con tu DNI.</span></h1>
         <p class="hero-texto">S23, S24 y S25 Ultra nuevos, en caja sellada. Pagás en cuotas semanales, quincenales o mensuales. Tenés 12 meses de garantía escrita y te lo enviamos a cualquier zona.</p>
         <div class="hero-acciones">
-          <a class="btn btn-amarillo" href="#cartilla">Armar mi plan de cuotas</a>
+          <a class="btn btn-acento" href="#cartilla">Armar mi plan de cuotas</a>
           <a class="btn btn-linea" href="#modelos">Ver modelos</a>
         </div>
       </div>

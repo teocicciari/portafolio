@@ -13,9 +13,9 @@
     --papel:#EEF3F8;
     --papel-2:#DCE6F0;
     --carton:#FAFCFD;
-    --tinta:#2442E8;
-    --amarillo:#FFD23F;
-    --tinta-osc:#1A2FC0;
+    --tinta:#5B2BE0;
+    --acento:#FFA05A;
+    --tinta-osc:#4520B8;
     --grafito:#14161B;
     --sello:#D3242C;
     --titanio:#5F6976;
@@ -91,7 +91,7 @@
   .variantes{display:grid;gap:10px}
   .variante{background:#1F2229;border:1px solid #2B2F38;border-radius:4px;padding:14px 18px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
   .variante .marca{color:#fff;font-size:19px}
-  .variante .marca b{color:#8EA0FF}
+  .variante .marca b{color:#C3B2FF}
   .variante .marca em{font-style:normal;font-weight:600;font-variation-settings:"wdth" 100;color:#AEB6C2;letter-spacing:.02em}
   .variante .mono{color:#7F8896;font-size:10.5px;text-align:right}
 
@@ -123,7 +123,7 @@
   .lista li{display:grid;grid-template-columns:22px 1fr;gap:14px;padding:14px 0;border-bottom:1px solid var(--linea)}
   .lista li::before{
     content:"";width:18px;height:18px;margin-top:4px;border:1.5px solid var(--tinta);border-radius:2px;
-    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%232442E8' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat
+    background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 9.5l3.6 3.4L14 2.5' fill='none' stroke='%235B2BE0' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/14px no-repeat
   }
   .lista strong{display:block;font-weight:700}
   .lista span{color:var(--titanio);font-size:15.5px}
@@ -167,7 +167,7 @@
   .pasos-sec h2{color:#fff;margin-bottom:44px}
   .pasos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);counter-reset:p;gap:28px}
   .pasos li{counter-increment:p;border-top:2px solid #2B2F38;padding-top:18px}
-  .pasos li::before{content:counter(p);display:block;font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:900;font-size:46px;line-height:1;color:#8EA0FF;margin-bottom:12px}
+  .pasos li::before{content:counter(p);display:block;font-family:var(--f-display);font-variation-settings:"wdth" 72;font-weight:900;font-size:46px;line-height:1;color:#C3B2FF;margin-bottom:12px}
   .pasos h3{font-variation-settings:"wdth" 95;font-weight:750;font-size:20px;color:#fff;margin-bottom:6px}
   .pasos p{margin:0;color:#AEB6C2;font-size:15.5px}
 
@@ -178,7 +178,7 @@
   .autor .eyebrow{display:inline-block;color:var(--tinta);background:#fff;padding:5px 10px;border-radius:3px;margin-bottom:20px}
   .autor h2{color:#fff}
   .autor h2 em{font-family:var(--f-mano);font-style:normal;font-weight:700;font-variation-settings:normal;font-size:1.12em;color:#FFD3D5}
-  .autor p{margin:0 0 24px;color:#D2D8FF;font-size:18px}
+  .autor p{margin:0 0 24px;color:#E2DAFF;font-size:18px}
   .autor .acciones{display:flex;flex-wrap:wrap;gap:12px}
   .autor .btn-linea{border-color:#fff;color:#fff}
   .autor .btn-linea:hover{background:#fff;color:var(--tinta)}
@@ -186,7 +186,7 @@
 
   footer{background:var(--grafito);color:#AEB6C2;padding:26px 0;font-size:13.5px}
   footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-  footer a{color:#8EA0FF;text-decoration:none}
+  footer a{color:#C3B2FF;text-decoration:none}
   footer a:hover{text-decoration:underline}
 
   @media (max-width:900px){
@@ -312,8 +312,8 @@
           <div class="logo-muestra">TECNO<b>CELL</b></div>
           <div class="colores">
             <div class="color"><i style="background:#EEF3F8"></i><strong>Papel</strong><span>#EEF3F8</span></div>
-            <div class="color"><i style="background:#2442E8"></i><strong>Azul eléctrico</strong><span>#2442E8</span></div>
-            <div class="color"><i style="background:#FFD23F"></i><strong>Amarillo oferta</strong><span>#FFD23F</span></div>
+            <div class="color"><i style="background:#5B2BE0"></i><strong>Violeta eléctrico</strong><span>#5B2BE0</span></div>
+            <div class="color"><i style="background:#FFA05A"></i><strong>Naranja oferta</strong><span>#FFA05A</span></div>
             <div class="color"><i style="background:#D3242C"></i><strong>Rojo sello</strong><span>#D3242C</span></div>
             <div class="color"><i style="background:#14161B"></i><strong>Grafito</strong><span>#14161B</span></div>
             <div class="color"><i style="background:#5F6976"></i><strong>Titanio</strong><span>#5F6976</span></div>
