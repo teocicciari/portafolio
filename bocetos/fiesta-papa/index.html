@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fiesta de la Papa</title>
+<meta name="description" content="Votación del concurso de gastronomía de la Fiesta de la Papa.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Rubik:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* Una sola columna de celular, como una boleta de votación sobre fondo amarillo papa. */
+:root{
+  --papa:#FFD54A;
+  --papa-2:#FFE79A;
+  --cascara:#6B3E1E;
+  --tinta:#24170D;
+  --brote:#2E8B45;
+  --hoja:#FFFFFF;
+  --tierra:#8C7356;
+  --rojo:#C8361F;
+  --f-display:"Lilita One","Arial Rounded MT Bold",system-ui,sans-serif;
+  --f-body:"Rubik",system-ui,sans-serif;
+  --f-mono:"DM Mono",ui-monospace,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--papa)}
+body{margin:0;background:var(--papa);color:var(--tinta);font-family:var(--f-body);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+button,input,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--tinta);outline-offset:2px;border-radius:6px}
+[hidden]{display:none!important}
+.wrap{max-width:600px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+
+.cabeza{padding-block:28px 18px;display:flex;align-items:center;gap:18px}
+.logo{flex:none;width:112px;height:112px;border-radius:50%;background:#fff url("logo.webp") center/cover no-repeat;border:5px solid #fff;box-shadow:0 0 0 3px var(--cascara),6px 8px 0 var(--cascara);transform:rotate(-7deg)}
+.cabeza h1{font-family:var(--f-display);font-weight:400;font-size:clamp(38px,11vw,56px);line-height:.92;margin:0;color:var(--cascara);text-wrap:balance}
+.cabeza p{margin:8px 0 0;color:var(--cascara);font-weight:500}
+.fiscal-chip{display:inline-flex;align-items:center;gap:8px;margin-top:8px;background:var(--cascara);color:var(--papa);border-radius:999px;padding:3px 4px 3px 12px;font-size:13px;font-weight:600}
+.fiscal-chip button{border:0;background:var(--papa);color:var(--cascara);border-radius:999px;padding:2px 10px;font-size:12px;font-weight:700;cursor:pointer}
+
+.tabs{position:sticky;top:0;z-index:5;background:var(--papa);padding-block:8px 12px;padding-top:max(8px,env(safe-area-inset-top,0px))}
+.tabs nav{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;background:var(--cascara);padding:5px;border-radius:14px}
+.tabs a{display:block;text-align:center;text-decoration:none;color:var(--papa-2);font-weight:700;font-size:15px;padding:10px 4px;border-radius:10px}
+.tabs a[aria-current="page"]{background:var(--papa);color:var(--cascara)}
+
+.tarjeta{background:var(--hoja);border:2.5px solid var(--cascara);border-radius:18px;padding:18px;box-shadow:4px 5px 0 var(--cascara)}
+.pila{display:grid;gap:16px;padding-bottom:28px}
+h2{font-family:var(--f-display);font-weight:400;font-size:30px;line-height:1;margin:0;color:var(--cascara)}
+h3{font-family:var(--f-display);font-weight:400;font-size:24px;line-height:1.05;margin:0;color:var(--tinta)}
+.sub{margin:4px 0 0;color:var(--tierra);font-size:15px}
+.vacio{text-align:center;padding:28px 18px}
+.vacio p{margin:6px 0 0;color:var(--tierra)}
+
+.reglas ul{margin:10px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px}
+.reglas li{background:var(--papa-2);border:1.5px solid var(--cascara);border-radius:999px;padding:4px 11px;font-size:14px;font-weight:500}
+.reglas .nota{margin:12px 0 0;font-size:14.5px}
+.reglas .nota b{color:var(--rojo)}
+
+label.campo{display:grid;gap:6px;font-weight:600}
+.campo input[type=text],textarea{width:100%;border:2px solid var(--cascara);border-radius:12px;padding:12px 14px;background:#fff;font-size:16px}
+textarea{min-height:120px;resize:vertical;font-family:var(--f-mono);font-size:13px}
+.checks{display:flex;flex-wrap:wrap;gap:8px}
+.check{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--cascara);border-radius:999px;padding:7px 14px 7px 10px;font-weight:600;font-size:15px;cursor:pointer;background:#fff}
+.check input{width:18px;height:18px;accent-color:var(--rojo)}
+.form{display:grid;gap:14px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2.5px solid var(--cascara);border-radius:14px;padding:13px 18px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;background:var(--papa);color:var(--cascara);box-shadow:3px 4px 0 var(--cascara);transition:transform .1s,box-shadow .1s}
+.btn:active{transform:translate(3px,4px);box-shadow:0 0 0 var(--cascara)}
+.btn-verde{background:var(--brote);color:#fff}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none;box-shadow:3px 4px 0 var(--cascara)}
+.btn-chico{padding:6px 12px;font-size:14px;border-width:2px;box-shadow:2px 2px 0 var(--cascara);border-radius:10px}
+.btn-ancho{width:100%}
+.acciones{display:grid;gap:10px}
+.aviso{margin:0;font-size:14.5px;color:var(--tierra)}
+.aviso.ok{color:var(--brote);font-weight:600}
+.aviso.mal{color:var(--rojo);font-weight:600}
+
+.plato{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.plato > div{min-width:0}
+.sellos{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.sello{font-family:var(--f-mono);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--rojo);color:var(--rojo);border-radius:6px;padding:2px 7px;transform:rotate(-2deg)}
+.sello.ok{border-color:var(--brote);color:var(--brote)}
+.fuera{opacity:.72;background:repeating-linear-gradient(-45deg,#fff 0 12px,#FFF6DA 12px 24px)}
+
+.filas{display:grid;gap:4px;margin-top:14px}
+.fila{display:grid;grid-template-columns:1fr auto;align-items:center;gap:10px;padding:8px 0;border-top:1.5px dashed #E2CFA3}
+.fila .crit{font-weight:600;font-size:15px;line-height:1.25}
+.papas{display:flex;gap:2px}
+.papa-btn{width:38px;height:38px;padding:3px;border:0;background:none;cursor:pointer;border-radius:10px}
+.papa-btn svg{width:100%;height:100%}
+.papa-btn .cuerpo{fill:#fff;stroke:#C9AE7E;stroke-width:1.6}
+.papa-btn .ojo{fill:#C9AE7E}
+.papa-btn.on .cuerpo{fill:#F2BE3A;stroke:var(--cascara)}
+.papa-btn.on .ojo{fill:var(--cascara)}
+.pct{grid-template-columns:1fr}
+.pct-ctrl{display:grid;grid-template-columns:1fr 64px;align-items:center;gap:12px}
+.pct input[type=range]{width:100%;accent-color:var(--cascara);height:28px}
+.pct output{font-family:var(--f-display);font-size:24px;color:var(--cascara);text-align:right}
+.falta{font-size:14px;color:var(--rojo);font-weight:600;margin:0}
+
+.codigo{display:block;font-family:var(--f-mono);font-size:12px;word-break:break-all;background:var(--papa-2);border:1.5px dashed var(--cascara);border-radius:10px;padding:10px;user-select:all;-webkit-user-select:all}
+
+.podio{display:grid;gap:12px}
+.fila-res{display:grid;grid-template-columns:52px 1fr;gap:12px;align-items:start}
+.puesto{font-family:var(--f-display);font-size:40px;line-height:1;color:var(--cascara);text-align:center}
+.puesto.p1{color:var(--brote)}
+.res-cab{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.res-cab > div{min-width:0}
+.total{font-family:var(--f-display);font-size:30px;line-height:1;color:var(--cascara);white-space:nowrap;font-variant-numeric:tabular-nums}
+.total small{font-family:var(--f-body);font-size:13px;color:var(--tierra)}
+.barra{height:12px;border-radius:999px;background:var(--papa-2);border:1.5px solid var(--cascara);overflow:hidden;margin:8px 0 6px}
+.barra i{display:block;height:100%;background:#F2BE3A}
+details.detalle summary{cursor:pointer;font-size:14px;color:var(--tierra);font-weight:500}
+.prom{display:grid;grid-template-columns:1fr auto;gap:2px 12px;margin-top:8px;font-size:14px}
+.prom span:nth-child(even){font-family:var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chips span{background:var(--papa-2);border:1.5px solid var(--cascara);border-radius:999px;padding:3px 10px;font-size:14px}
+
+footer{padding-block:18px 36px;font-size:13.5px;color:var(--cascara);display:grid;gap:4px}
+footer a{color:var(--cascara);font-weight:700}
+
+@media (max-width:380px){
+  .papa-btn{width:33px;height:33px}
+  .logo{width:92px;height:92px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+(function(){
+"use strict";
+var WA = "5492944812580";
+var CRIT = [
+  {k:"cre", n:"Creatividad y originalidad"},
+  {k:"pre", n:"Presentación"},
+  {k:"aro", n:"Aroma"},
+  {k:"sab", n:"Sabor"},
+  {k:"pap", n:"Porcentaje de papa", pct:true},
+  {k:"inc", n:"Inclusión"},
+  {k:"aur", n:"Aura"}
+];
+var MAX = CRIT.length * 5;
+var app = document.getElementById("app");
+
+/* ---------- utilidades ---------- */
+function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]; }); }
+function clave(n){ return String(n).trim().toLowerCase().replace(/\s+/g," "); }
+function idNuevo(){ return Math.random().toString(36).slice(2,8); }
+function leer(k){ try{ return JSON.parse(localStorage.getItem(k) || "null"); }catch(e){ return null; } }
+function escribir(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
+function fmt(n){ return n.toFixed(1).replace(".", ","); }
+function enc(obj){ return btoa(unescape(encodeURIComponent(JSON.stringify(obj)))).replace(/\+/g,"-").replace(/\//g,"_").replace(/=+$/,""); }
+function dec(s){ s = String(s).replace(/-/g,"+").replace(/_/g,"/"); while(s.length % 4) s += "="; return JSON.parse(decodeURIComponent(escape(atob(s)))); }
+function base(){ return location.origin + location.pathname; }
+
+var POTATO = '<svg viewBox="0 0 32 32" aria-hidden="true"><path class="cuerpo" d="M16 4c7.2 0 12.5 4.6 12.2 11.3-.3 7.4-6.2 12.9-13.4 12.7C8.4 27.8 3.6 23.4 3.8 16.7 4 9.5 9.4 4 16 4z"/><circle class="ojo" cx="11" cy="12" r="1.3"/><circle class="ojo" cx="20" cy="10.5" r="1.1"/><circle class="ojo" cx="22" cy="19" r="1.3"/><circle class="ojo" cx="12.5" cy="21" r="1"/></svg>';
+
+/* ---------- modo fiscal (el celu de Teo) ---------- */
+if(location.hash === "#fiscal"){ escribir("papa-fiscal", true); history.replaceState(null, "", base() + location.search + "#platos"); }
+var fiscal = !!leer("papa-fiscal");
+
+var params = new URLSearchParams(location.search);
+var estado;
+if(fiscal){
+  estado = leer("papa-estado") || {platos: [], votos: {}};
+} else {
+  estado = {platos: [], votos: {}};
+  try{
+    estado.platos = (dec(params.get("p") || "") || []).map(function(a){ return {id:a[0], nombre:a[1], cocinero:a[2], tacc:!!a[3], carne:!!a[4]}; });
+  }catch(e){ estado.platos = []; }
+}
+var compartidos = null;
+try{ if(params.get("r")) compartidos = dec(params.get("r")); }catch(e){ compartidos = null; }
+
+function guardarEstado(){ escribir("papa-estado", estado); }
+function votables(){ return estado.platos.filter(function(p){ return !p.tacc && !p.carne; }); }
+
+function linkBoleta(){
+  return base() + "?p=" + enc(estado.platos.map(function(p){ return [p.id, p.nombre, p.cocinero, p.tacc ? 1 : 0, p.carne ? 1 : 0]; })) + "#votar";
+}
+function linkResultados(){
+  var res = calcular();
+  var r = {t: Date.now(), q: votantes(), l: res.map(function(x){ return [x.plato.nombre, x.plato.cocinero, Math.round(x.total * 10) / 10, x.n, x.prom.map(function(v){ return Math.round(v * 10) / 10; })]; })};
+  return base() + "?p=" + linkBoleta().split("?p=")[1].split("#")[0] + "&r=" + enc(r) + "#escrutinio";
+}
+
+/* ---------- boleta ---------- */
+var boleta = leer("papa-boleta") || {nombre:"", v:{}};
+function guardarBoleta(){ escribir("papa-boleta", boleta); }
+function faltantes(){
+  var f = 0;
+  votables().forEach(function(p){ var v = boleta.v[p.id] || {}; CRIT.forEach(function(c){ if(v[c.k] == null) f++; }); });
+  return f;
+}
+function armarVoto(){
+  var p = {};
+  votables().forEach(function(pl){ var v = boleta.v[pl.id] || {}; p[pl.id] = CRIT.map(function(c){ return v[c.k]; }); });
+  return {n: boleta.nombre.trim(), t: Date.now(), p: p};
+}
+
+/* ---------- escrutinio ---------- */
+function votantes(){ return Object.keys(estado.votos).map(function(k){ return estado.votos[k].n; }); }
+function calcular(){
+  var lista = votables().map(function(pl){
+    var suma = CRIT.map(function(){ return 0; }), n = 0;
+    Object.keys(estado.votos).forEach(function(k){
+      var arr = estado.votos[k].p && estado.votos[k].p[pl.id];
+      if(!arr) return;
+      n++;
+      CRIT.forEach(function(c, i){ var x = arr[i]; if(x == null) x = c.pct ? 0 : 1; suma[i] += c.pct ? x / 20 : x; });
+    });
+    var prom = suma.map(function(s){ return n ? s / n : 0; });
+    return {plato: pl, n: n, prom: prom, total: prom.reduce(function(a, b){ return a + b; }, 0)};
+  });
+  lista.sort(function(a, b){ return (b.total - a.total) || (b.prom[3] - a.prom[3]); });
+  return lista;
+}
+
+/* ---------- avisos ---------- */
+var avisos = {};
+function mensaje(id, texto, tipo){ avisos[id] = {t: texto, c: tipo || ""}; }
+function aviso(id){ var a = avisos[id]; return a ? '<p class="aviso ' + a.c + '" role="status">' + esc(a.t) + '</p>' : ""; }
+
+/* ---------- vistas ---------- */
+function vista(){ var h = (location.hash || "").slice(1); return ["votar","platos","escrutinio"].indexOf(h) >= 0 ? h : "votar"; }
+
+function cabecera(){
+  var v = vista();
+  function tab(id, txt){ return '<a href="#' + id + '"' + (v === id ? ' aria-current="page"' : '') + '>' + txt + '</a>'; }
+  return '<header class="wrap cabeza"><div class="logo" role="img" aria-label="Logo de la Fiesta de la Papa"></div><div><h1>Fiesta de la Papa</h1><p>Concurso de gastronomía. Votá desde el celu.</p>' +
+    (fiscal ? '<span class="fiscal-chip">Modo fiscal <button type="button" id="salir-fiscal">Salir</button></span>' : '') + '</div></header>' +
+    '<div class="tabs"><div class="wrap"><nav aria-label="Secciones">' + tab("votar","Votar") + tab("platos","Platos") + tab("escrutinio","Escrutinio") + '</nav></div></div>';
+}
+
+function reglamento(){
+  return '<section class="tarjeta reglas"><h2>Qué se evalúa</h2><ul>' +
+    CRIT.map(function(c){ return '<li>' + esc(c.n) + '</li>'; }).join("") +
+    '</ul><p class="nota">Cada criterio va de 1 a 5 papas. El porcentaje de papa va de 0 a 100%. <b>Si el plato tiene TACC o carne, no se vota.</b></p></section>';
+}
+
+function cajaCompartir(titulo, texto, link, idAviso, textoWa){
+  return '<section class="tarjeta acciones"><div><h2>' + titulo + '</h2><p class="sub">' + texto + '</p></div>' +
+    '<a class="btn btn-verde btn-ancho" href="https://wa.me/?text=' + encodeURIComponent(textoWa + "\n" + link) + '" target="_blank" rel="noopener">Compartir por WhatsApp</a>' +
+    '<button class="btn btn-ancho" type="button" data-copiar="' + esc(link) + '" data-aviso="' + idAviso + '">Copiar link</button>' + aviso(idAviso) + '</section>';
+}
+
+var quitarPendiente = null;
+function vistaPlatos(){
+  var h = "";
+  if(fiscal){
+    h += '<section class="tarjeta"><h2>Anotar un plato</h2><p class="sub">Solo se ve en tu celu. Los invitados ven los platos por el link de la boleta.</p>' +
+      '<form class="form" id="form-plato" style="margin-top:12px">' +
+      '<label class="campo">Nombre del plato<input type="text" id="plato-nombre" required maxlength="60" placeholder="Ej: Ñoquis con pesto"></label>' +
+      '<label class="campo">Quién lo cocinó<input type="text" id="plato-cocinero" required maxlength="40" placeholder="Nombre"></label>' +
+      '<div class="checks"><label class="check"><input type="checkbox" id="plato-tacc"> Tiene TACC</label><label class="check"><input type="checkbox" id="plato-carne"> Tiene carne</label></div>' +
+      '<button class="btn btn-verde" type="submit">Anotar plato</button>' + aviso("plato") + '</form></section>';
+  }
+  if(!estado.platos.length){
+    h += '<section class="tarjeta vacio"><h3>Todavía no hay platos</h3><p>' + (fiscal ? "Anotá el primero con el formulario de arriba." : "Abrí el link de la boleta que comparte Teo en el grupo.") + '</p></section>';
+  } else {
+    h += estado.platos.map(function(p){
+      var fuera = p.tacc || p.carne;
+      var sellos = (p.tacc ? '<span class="sello">Con TACC</span>' : '') + (p.carne ? '<span class="sello">Con carne</span>' : '') + (fuera ? '<span class="sello">No se vota</span>' : '<span class="sello ok">En concurso</span>');
+      var quitar = fiscal ? '<button class="btn btn-chico" type="button" data-quitar="' + esc(p.id) + '">' + (quitarPendiente === p.id ? "¿Seguro? Tocá de nuevo" : "Quitar") + '</button>' : '';
+      return '<article class="tarjeta plato' + (fuera ? ' fuera' : '') + '"><div><h3>' + esc(p.nombre) + '</h3><p class="sub">de ' + esc(p.cocinero) + '</p><div class="sellos">' + sellos + '</div></div>' + quitar + '</article>';
+    }).join("");
+    if(fiscal){
+      h += cajaCompartir("Link de la boleta", "Mandalo al grupo para que voten. Si anotás o quitás un plato, compartilo de nuevo.", linkBoleta(), "copiar-boleta", "🥔 Boleta de la Fiesta de la Papa. Entrá y votá:");
+    }
+  }
+  return h + reglamento();
+}
+
+var listo = false;
+function vistaVotar(){
+  var vs = votables();
+  if(!vs.length){
+    return '<section class="tarjeta vacio"><h3>Todavía no hay platos para votar</h3><p>' + (fiscal ? "Anotá los platos en la pestaña Platos." : "Abrí el link de la boleta que comparte Teo en el grupo.") + '</p></section>' + reglamento();
+  }
+  if(listo) return vistaListo();
+  var h = '<section class="tarjeta"><label class="campo">Tu nombre<input type="text" id="votante" maxlength="40" placeholder="Nombre y apellido" value="' + esc(boleta.nombre) + '"></label></section>';
+  h += vs.map(function(p){
+    var v = boleta.v[p.id] || {};
+    var filas = CRIT.map(function(c){
+      if(c.pct){
+        var val = v[c.k];
+        return '<div class="fila pct"><span class="crit">' + esc(c.n) + '</span><div class="pct-ctrl"><input type="range" min="0" max="100" step="10" id="r-' + esc(p.id) + '" data-plato="' + esc(p.id) + '" data-crit="' + c.k + '" value="' + (val == null ? 50 : val) + '" aria-label="Porcentaje de papa de ' + esc(p.nombre) + '"><output>' + (val == null ? "—" : val + "%") + '</output></div></div>';
+      }
+      var btns = "";
+      for(var i = 1; i <= 5; i++){
+        btns += '<button type="button" class="papa-btn' + (v[c.k] >= i ? " on" : "") + '" data-plato="' + esc(p.id) + '" data-crit="' + c.k + '" data-val="' + i + '" role="radio" aria-checked="' + (v[c.k] === i) + '" aria-label="' + i + ' de 5">' + POTATO + '</button>';
+      }
+      return '<div class="fila"><span class="crit">' + esc(c.n) + '</span><div class="papas" role="radiogroup" aria-label="' + esc(c.n) + ' de ' + esc(p.nombre) + '">' + btns + '</div></div>';
+    }).join("");
+    return '<article class="tarjeta"><h3>' + esc(p.nombre) + '</h3><p class="sub">de ' + esc(p.cocinero) + '</p><div class="filas">' + filas + '</div></article>';
+  }).join("");
+  var txt = textoPendiente(), ok = !txt;
+  h += '<section class="tarjeta acciones">' + (txt ? '<p class="falta">' + txt + '</p>' : '') +
+    (fiscal
+      ? '<button class="btn btn-verde btn-ancho" type="button" id="guardar-voto"' + (ok ? "" : " disabled") + '>Guardar voto en este celu</button><p class="aviso">Estás en el celu del fiscal: el voto se cuenta directo. Después le pasás el celu al siguiente.</p>'
+      : '<button class="btn btn-verde btn-ancho" type="button" id="terminar"' + (ok ? "" : " disabled") + '>Listo, quiero mandar mi voto</button>') +
+    aviso("voto") + '</section>';
+  return h + reglamento();
+}
+function textoPendiente(){
+  var f = faltantes();
+  if(!boleta.nombre.trim()) return "Escribí tu nombre arriba.";
+  return f ? "Te faltan " + f + " puntaje" + (f > 1 ? "s" : "") + "." : "";
+}
+
+function vistaListo(){
+  var voto = armarVoto();
+  var texto = "🥔 Mi voto para la Fiesta de la Papa (" + voto.n + ")\nPAPA2." + enc(voto);
+  var wa = "https://wa.me/" + WA + "?text=" + encodeURIComponent(texto);
+  return '<section class="tarjeta acciones"><h2>Tu voto está listo</h2>' +
+    '<p>Mandáselo a Teo por WhatsApp y él lo carga en el escrutinio. Si votás de nuevo, cuenta el último que mandes.</p>' +
+    '<a class="btn btn-verde btn-ancho" href="' + esc(wa) + '" target="_blank" rel="noopener">Mandar mi voto por WhatsApp</a>' +
+    '<button class="btn btn-ancho" type="button" data-copiar-el="codigo" data-aviso="copiar-voto">Copiar mi voto</button>' + aviso("copiar-voto") +
+    '<code class="codigo" id="codigo">' + esc(texto) + '</code>' +
+    '<p class="aviso">Si WhatsApp no se abre, copiá el voto y pegáselo a Teo en un mensaje (2944 81-2580).</p>' +
+    '<button class="btn btn-chico" type="button" id="volver">Volver a la boleta</button></section>';
+}
+
+function ranking(filas, nVotantes, nombres, nota){
+  if(!filas.length || !nVotantes){
+    return '<section class="tarjeta vacio"><h3>Todavía no hay votos contados</h3><p>' + nota + '</p></section>';
+  }
+  return '<section class="tarjeta"><h2>Escrutinio provisorio</h2><p class="sub">' + nVotantes + ' voto' + (nVotantes > 1 ? "s" : "") + ' contados. Puntaje máximo: ' + MAX + '.</p><div class="podio" style="margin-top:16px">' +
+    filas.map(function(r, i){
+      var prom = CRIT.map(function(c, j){ var x = r.prom[j] || 0; return '<span>' + esc(c.n) + '</span><span>' + (c.pct ? Math.round(x * 20) + "%" : fmt(x)) + '</span>'; }).join("");
+      return '<div class="fila-res"><div class="puesto' + (i === 0 && r.n ? " p1" : "") + '">' + (i + 1) + '</div><div><div class="res-cab"><div><h3>' + esc(r.nombre) + '</h3><p class="sub">de ' + esc(r.cocinero) + ' · ' + r.n + ' voto' + (r.n === 1 ? "" : "s") + '</p></div><div class="total">' + fmt(r.total) + ' <small>/' + MAX + '</small></div></div>' +
+        '<div class="barra"><i style="width:' + Math.min(100, r.total / MAX * 100).toFixed(1) + '%"></i></div>' +
+        '<details class="detalle"><summary>Ver promedio por criterio</summary><div class="prom">' + prom + '</div></details></div></div>';
+    }).join("") + '</div></section>' +
+    '<section class="tarjeta"><h3>Ya votaron</h3><div class="chips">' + nombres.map(function(n){ return '<span>' + esc(n) + '</span>'; }).join("") + '</div></section>';
+}
+
+function vistaEscrutinio(){
+  var h = "";
+  if(fiscal){
+    var pegado = ""; try{ pegado = sessionStorage.getItem("papa-pegar") || ""; }catch(e){}
+    h += '<section class="tarjeta form"><div><h2>Cargar votos</h2><p class="sub">Pegá acá los mensajes de WhatsApp con los votos. Podés pegar varios juntos.</p></div>' +
+      '<textarea id="pegar" aria-label="Mensajes con votos" placeholder="🥔 Mi voto para la Fiesta de la Papa (…)\nPAPA2.…">' + esc(pegado) + '</textarea>' +
+      '<button class="btn btn-verde" type="button" id="contar">Contar votos</button>' + aviso("contar") + '</section>';
+    var res = calcular(), nom = votantes();
+    h += ranking(res.map(function(x){ return {nombre: x.plato.nombre, cocinero: x.plato.cocinero, total: x.total, n: x.n, prom: x.prom}; }), nom.length, nom, "Pegá arriba los votos que te lleguen por WhatsApp.");
+    if(nom.length){
+      h += cajaCompartir("Compartir resultados", "Mandá el link al grupo para que todos vean el escrutinio. Cuando cuentes más votos, compartilo de nuevo.", linkResultados(), "copiar-res", "🥔 Resultados de la Fiesta de la Papa:");
+    }
+  } else if(compartidos && compartidos.l){
+    var hora = new Date(compartidos.t).toLocaleTimeString("es-AR", {hour:"2-digit", minute:"2-digit"});
+    h += '<p class="aviso" style="margin:0">Resultados compartidos por Teo · ' + esc(hora) + '</p>';
+    h += ranking(compartidos.l.map(function(a){ return {nombre: a[0], cocinero: a[1], total: +a[2] || 0, n: +a[3] || 0, prom: a[4] || []}; }), (compartidos.q || []).length, compartidos.q || [], "");
+  } else {
+    h += '<section class="tarjeta vacio"><h3>Todavía no hay resultados</h3><p>Teo va a compartir el link de resultados en el grupo cuando cuente los votos.</p></section>';
+  }
+  return h + reglamento();
+}
+
+function pie(){
+  return '<footer><span>Fiesta de la Papa · <span id="fecha"></span></span><span>Boceto diseñado por Teo Cicciari — <a href="https://teocicciari.com.ar/" target="_blank" rel="noopener">Mirá más referencias y precios</a></span></footer>';
+}
+
+function render(){
+  var foco = document.activeElement && document.activeElement.id;
+  var v = vista();
+  var cuerpo = v === "platos" ? vistaPlatos() : v === "escrutinio" ? vistaEscrutinio() : vistaVotar();
+  app.innerHTML = cabecera() + '<main class="wrap pila">' + cuerpo + pie() + '</main>';
+  document.getElementById("fecha").textContent = new Date().toLocaleDateString("es-AR", {day:"numeric", month:"long", year:"numeric"});
+  if(foco){ var el = document.getElementById(foco); if(el && el.tagName !== "BUTTON") el.focus(); }
+}
+
+/* ---------- eventos ---------- */
+function copiar(texto, idAviso, elSeleccion){
+  var ok = function(){ mensaje(idAviso, "Copiado.", "ok"); render(); };
+  var fallback = function(){
+    if(elSeleccion){ var r = document.createRange(); r.selectNodeContents(elSeleccion); var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); }
+    mensaje(idAviso, "No se pudo copiar solo. Mantené apretado el texto y copialo.", "mal");
+    if(!elSeleccion) render();
+  };
+  try{ navigator.clipboard.writeText(texto).then(ok, fallback); }catch(e){ fallback(); }
+}
+
+app.addEventListener("click", function(e){
+  var b = e.target.closest("button");
+  if(!b) return;
+  if(b.classList.contains("papa-btn")){
+    var p = b.dataset.plato, c = b.dataset.crit, val = +b.dataset.val;
+    boleta.v[p] = boleta.v[p] || {};
+    boleta.v[p][c] = val;
+    guardarBoleta();
+    Array.prototype.forEach.call(b.parentNode.children, function(x){ var xv = +x.dataset.val; x.classList.toggle("on", xv <= val); x.setAttribute("aria-checked", String(xv === val)); });
+    actualizarPendiente();
+    return;
+  }
+  if(b.id === "terminar"){ listo = true; render(); window.scrollTo(0, 0); return; }
+  if(b.id === "volver"){ listo = false; render(); return; }
+  if(b.dataset.copiarEl){ var el = document.getElementById(b.dataset.copiarEl); copiar(el.textContent, b.dataset.aviso, el); return; }
+  if(b.dataset.copiar){ copiar(b.dataset.copiar, b.dataset.aviso); return; }
+  if(b.id === "guardar-voto"){
+    var voto = armarVoto();
+    estado.votos[clave(voto.n)] = voto;
+    guardarEstado();
+    boleta = {nombre:"", v:{}}; guardarBoleta();
+    mensaje("voto", "Voto de " + voto.n + " guardado. Pasale el celu al siguiente.", "ok");
+    render(); window.scrollTo(0, 0);
+    return;
+  }
+  if(b.id === "contar"){ contarVotos(); return; }
+  if(b.id === "salir-fiscal"){
+    if(b.dataset.seguro !== "1"){ b.dataset.seguro = "1"; b.textContent = "¿Seguro? Tocá de nuevo"; return; }
+    escribir("papa-fiscal", false); location.reload(); return;
+  }
+  if(b.dataset.quitar){
+    var id = b.dataset.quitar;
+    if(quitarPendiente !== id){ quitarPendiente = id; render(); return; }
+    estado.platos = estado.platos.filter(function(x){ return x.id !== id; });
+    quitarPendiente = null; guardarEstado(); render();
+  }
+});
+function actualizarPendiente(){
+  var txt = textoPendiente();
+  var falta = app.querySelector(".acciones .falta");
+  if(falta){ if(txt) falta.textContent = txt; else falta.remove(); }
+  else if(txt){ var pe = document.createElement("p"); pe.className = "falta"; pe.textContent = txt; var ac = app.querySelector(".acciones"); if(ac) ac.prepend(pe); }
+  var btn = document.getElementById("terminar") || document.getElementById("guardar-voto");
+  if(btn) btn.disabled = !!txt;
+}
+app.addEventListener("input", function(e){
+  var t = e.target;
+  if(t.id === "votante"){ boleta.nombre = t.value; guardarBoleta(); actualizarPendiente(); return; }
+  if(t.type === "range" && t.dataset.plato){
+    var p = t.dataset.plato;
+    boleta.v[p] = boleta.v[p] || {};
+    boleta.v[p][t.dataset.crit] = +t.value;
+    guardarBoleta();
+    t.parentNode.querySelector("output").textContent = t.value + "%";
+    actualizarPendiente();
+    return;
+  }
+  if(t.id === "pegar"){ try{ sessionStorage.setItem("papa-pegar", t.value); }catch(err){} }
+});
+app.addEventListener("submit", function(e){
+  if(e.target.id !== "form-plato") return;
+  e.preventDefault();
+  var n = document.getElementById("plato-nombre").value.trim();
+  var c = document.getElementById("plato-cocinero").value.trim();
+  if(!n || !c){ mensaje("plato", "Completá el nombre del plato y quién lo cocinó.", "mal"); render(); return; }
+  estado.platos.push({id: idNuevo(), nombre: n, cocinero: c, tacc: document.getElementById("plato-tacc").checked, carne: document.getElementById("plato-carne").checked});
+  guardarEstado();
+  mensaje("plato", "Anotado: " + n + ".", "ok");
+  render();
+  document.getElementById("plato-nombre").focus();
+});
+
+function contarVotos(){
+  var txt = (document.getElementById("pegar") || {}).value || "";
+  var re = /PAPA2\.([A-Za-z0-9_-]+)/g, m, nuevos = 0, malos = 0, viejos = 0;
+  while((m = re.exec(txt))){
+    try{
+      var v = dec(m[1]);
+      if(!v || typeof v.n !== "string" || !v.n.trim() || typeof v.p !== "object"){ malos++; continue; }
+      var k = clave(v.n), previo = estado.votos[k];
+      if(previo && previo.t >= v.t){ viejos++; continue; }
+      var limpio = {n: v.n.trim().slice(0, 40), t: +v.t || Date.now(), p: {}};
+      Object.keys(v.p).forEach(function(pid){
+        var arr = v.p[pid];
+        if(!Array.isArray(arr)) return;
+        limpio.p[pid] = CRIT.map(function(c, i){ var x = +arr[i]; return c.pct ? Math.max(0, Math.min(100, x || 0)) : Math.max(1, Math.min(5, Math.round(x) || 1)); });
+      });
+      estado.votos[k] = limpio; nuevos++;
+    }catch(err){ malos++; }
+  }
+  if(!nuevos){
+    mensaje("contar", malos ? "No pude leer esos votos. Fijate de copiar el mensaje completo." : (viejos ? "Esos votos ya estaban contados." : "No encontré ningún voto en el texto pegado."), "mal");
+  } else {
+    guardarEstado();
+    try{ sessionStorage.removeItem("papa-pegar"); }catch(err){}
+    mensaje("contar", nuevos + " voto" + (nuevos > 1 ? "s" : "") + " contado" + (nuevos > 1 ? "s" : "") + "." + (viejos ? " " + viejos + " ya estaba" + (viejos > 1 ? "n" : "") + " contado" + (viejos > 1 ? "s" : "") + "." : ""), "ok");
+  }
+  render();
+}
+
+window.addEventListener("hashchange", function(){ listo = false; render(); window.scrollTo(0, 0); });
+render();
+})();
+</script>
+</body>
+</html>
