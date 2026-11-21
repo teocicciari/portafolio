@@ -66,6 +66,8 @@ textarea{min-height:120px;resize:vertical;font-family:var(--f-mono);font-size:13
 .checks{display:flex;flex-wrap:wrap;gap:8px}
 .check{display:inline-flex;align-items:center;gap:8px;border:2px solid var(--cascara);border-radius:999px;padding:7px 14px 7px 10px;font-weight:600;font-size:15px;cursor:pointer;background:#fff}
 .check input{width:18px;height:18px;accent-color:var(--rojo)}
+.check input[type=radio]{accent-color:var(--brote)}
+.check:has(input[type=radio]:checked){background:var(--papa-2)}
 .form{display:grid;gap:14px}
 
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:2.5px solid var(--cascara);border-radius:14px;padding:13px 18px;font-weight:700;font-size:16px;text-decoration:none;cursor:pointer;background:var(--papa);color:var(--cascara);box-shadow:3px 4px 0 var(--cascara);transition:transform .1s,box-shadow .1s}
@@ -192,16 +194,17 @@ function linkResultados(){
 }
 
 /* ---------- boleta ---------- */
-var boleta = leer("papa-boleta") || {nombre:"", v:{}};
+var boleta = leer("papa-boleta") || {nombre:"", mio:"", v:{}};
 function guardarBoleta(){ escribir("papa-boleta", boleta); }
+function mioValido(){ return boleta.mio === "ninguno" || votables().some(function(p){ return p.id === boleta.mio; }); }
 function faltantes(){
   var f = 0;
-  votables().forEach(function(p){ var v = boleta.v[p.id] || {}; CRIT.forEach(function(c){ if(v[c.k] == null) f++; }); });
+  votables().forEach(function(p){ if(p.id === boleta.mio) return; var v = boleta.v[p.id] || {}; CRIT.forEach(function(c){ if(v[c.k] == null) f++; }); });
   return f;
 }
 function armarVoto(){
   var p = {};
-  votables().forEach(function(pl){ var v = boleta.v[pl.id] || {}; p[pl.id] = CRIT.map(function(c){ return v[c.k]; }); });
+  votables().forEach(function(pl){ if(pl.id === boleta.mio) return; var v = boleta.v[pl.id] || {}; p[pl.id] = CRIT.map(function(c){ return v[c.k]; }); });
   return {n: boleta.nombre.trim(), t: Date.now(), p: p};
 }
 
@@ -286,7 +289,14 @@ function vistaVotar(){
   }
   if(listo) return vistaListo();
   var h = '<section class="tarjeta"><label class="campo">Tu nombre<input type="text" id="votante" maxlength="40" placeholder="Nombre y apellido" value="' + esc(boleta.nombre) + '"></label></section>';
+  var opciones = vs.map(function(p){
+    return '<label class="check"><input type="radio" name="mio" id="mio-' + esc(p.id) + '" value="' + esc(p.id) + '"' + (boleta.mio === p.id ? ' checked' : '') + '> ' + esc(p.nombre) + '</label>';
+  }).join("") + '<label class="check"><input type="radio" name="mio" id="mio-ninguno" value="ninguno"' + (boleta.mio === "ninguno" ? ' checked' : '') + '> No traje plato</label>';
+  h += '<section class="tarjeta"><h3>¿Cuál es tu plato?</h3><p class="sub">Marcalo así no te votás a vos mismo.</p><div class="checks" role="radiogroup" aria-label="Tu plato" style="margin-top:12px">' + opciones + '</div></section>';
   h += vs.map(function(p){
+    if(p.id === boleta.mio){
+      return '<article class="tarjeta fuera"><h3>' + esc(p.nombre) + '</h3><p class="sub">de ' + esc(p.cocinero) + '</p><div class="sellos"><span class="sello ok">Tu plato · no lo votás</span></div></article>';
+    }
     var v = boleta.v[p.id] || {};
     var filas = CRIT.map(function(c){
       if(c.pct){
@@ -312,6 +322,7 @@ function vistaVotar(){
 function textoPendiente(){
   var f = faltantes();
   if(!boleta.nombre.trim()) return "Escribí tu nombre arriba.";
+  if(!mioValido()) return "Marcá cuál es tu plato, o que no trajiste.";
   return f ? "Te faltan " + f + " puntaje" + (f > 1 ? "s" : "") + "." : "";
 }
 
@@ -408,7 +419,7 @@ app.addEventListener("click", function(e){
     var voto = armarVoto();
     estado.votos[clave(voto.n)] = voto;
     guardarEstado();
-    boleta = {nombre:"", v:{}}; guardarBoleta();
+    boleta = {nombre:"", mio:"", v:{}}; guardarBoleta();
     mensaje("voto", "Voto de " + voto.n + " guardado. Pasale el celu al siguiente.", "ok");
     render(); window.scrollTo(0, 0);
     return;
@@ -436,6 +447,7 @@ function actualizarPendiente(){
 app.addEventListener("input", function(e){
   var t = e.target;
   if(t.id === "votante"){ boleta.nombre = t.value; guardarBoleta(); actualizarPendiente(); return; }
+  if(t.name === "mio"){ boleta.mio = t.value; guardarBoleta(); render(); return; }
   if(t.type === "range" && t.dataset.plato){
     var p = t.dataset.plato;
     boleta.v[p] = boleta.v[p] || {};
